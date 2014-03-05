@@ -25,7 +25,7 @@
 					<property name="Provincia" type="string"> 
 						<column name="[provincia]"  not-null="true"/>
 					</property>
-					<property name="Cp" type="integer"> 
+					<property name="Cp" type="string"> 
 						<column name="[cp]"  not-null="true"/>
 					</property>
 			

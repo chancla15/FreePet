@@ -42,7 +42,7 @@ public EmpleadoEN() : base ()
 
 
 
-public EmpleadoEN(string dNI, string idEmpleado, float sueldo, string nombre, string apellidos, String password, string direccion, string telefono, string localidad, string provincia, int cp)
+public EmpleadoEN(string dNI, string idEmpleado, float sueldo, string nombre, string apellidos, String password, string direccion, string telefono, string localidad, string provincia, string cp)
 {
         this.init (dNI, idEmpleado, sueldo, nombre, apellidos, password, direccion, telefono, localidad, provincia, cp);
 }
@@ -53,7 +53,7 @@ public EmpleadoEN(EmpleadoEN empleado)
         this.init (empleado.DNI, empleado.IdEmpleado, empleado.Sueldo, empleado.Nombre, empleado.Apellidos, empleado.Password, empleado.Direccion, empleado.Telefono, empleado.Localidad, empleado.Provincia, empleado.Cp);
 }
 
-private void init (string dNI, string idEmpleado, float sueldo, string nombre, string apellidos, String password, string direccion, string telefono, string localidad, string provincia, int cp)
+private void init (string dNI, string idEmpleado, float sueldo, string nombre, string apellidos, String password, string direccion, string telefono, string localidad, string provincia, string cp)
 {
         this.DNI = DNI;
 

@@ -32,7 +32,7 @@ public IVeterinarioCAD get_IVeterinarioCAD ()
         return this._IVeterinarioCAD;
 }
 
-public string New_ (string p_DNI, string p_nombre, string p_apellidos, String p_password, string p_direccion, string p_telefono, string p_localidad, string p_provincia, int p_cp, string p_IdEmpleado, float p_sueldo, int p_numColegiado)
+public string New_ (string p_DNI, string p_nombre, string p_apellidos, String p_password, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, string p_IdEmpleado, float p_sueldo, int p_numColegiado)
 {
         VeterinarioEN veterinarioEN = null;
         string oid;
@@ -69,7 +69,7 @@ public string New_ (string p_DNI, string p_nombre, string p_apellidos, String p_
         return oid;
 }
 
-public void Modify (string p_Veterinario_OID, string p_nombre, string p_apellidos, String p_password, string p_direccion, string p_telefono, string p_localidad, string p_provincia, int p_cp, string p_IdEmpleado, float p_sueldo, int p_numColegiado)
+public void Modify (string p_Veterinario_OID, string p_nombre, string p_apellidos, String p_password, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, string p_IdEmpleado, float p_sueldo, int p_numColegiado)
 {
         VeterinarioEN veterinarioEN = null;
 

@@ -25,8 +25,8 @@
 					<property name="FNacimiento" type="date"> 
 						<column name="[fNacimiento]"  not-null="true"/>
 					</property>
-					<property name="Tamayo" > 
-						<column name="[tamayo]"  not-null="true"/>
+					<property name="Tamanyo" > 
+						<column name="[tamanyo]"  not-null="true"/>
 					</property>
 					<property name="Color" type="string"> 
 						<column name="[color]"  not-null="true"/>

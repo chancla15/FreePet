@@ -51,7 +51,7 @@ private Nullable<DateTime> fNacimiento;
  *
  */
 
-private GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum tamayo;
+private GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum tamanyo;
 
 /**
  *
@@ -128,8 +128,8 @@ public virtual Nullable<DateTime> FNacimiento {
 }
 
 
-public virtual GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum Tamayo {
-        get { return tamayo; } set { tamayo = value;  }
+public virtual GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum Tamanyo {
+        get { return tamanyo; } set { tamanyo = value;  }
 }
 
 
@@ -173,18 +173,18 @@ public MascotaEN()
 
 
 
-public MascotaEN(int idMascota, string nombre, string raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum sexo, float peso, string especie, Nullable<DateTime> fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum tamayo, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN cliente, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, string color, bool microchip, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.HistorialClinicoEN historialClinico, string foto)
+public MascotaEN(int idMascota, string nombre, string raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum sexo, float peso, string especie, Nullable<DateTime> fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum tamanyo, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN cliente, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, string color, bool microchip, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.HistorialClinicoEN historialClinico, string foto)
 {
-        this.init (idMascota, nombre, raza, sexo, peso, especie, fNacimiento, tamayo, cliente, consulta, color, microchip, historialClinico, foto);
+        this.init (idMascota, nombre, raza, sexo, peso, especie, fNacimiento, tamanyo, cliente, consulta, color, microchip, historialClinico, foto);
 }
 
 
 public MascotaEN(MascotaEN mascota)
 {
-        this.init (mascota.IdMascota, mascota.Nombre, mascota.Raza, mascota.Sexo, mascota.Peso, mascota.Especie, mascota.FNacimiento, mascota.Tamayo, mascota.Cliente, mascota.Consulta, mascota.Color, mascota.Microchip, mascota.HistorialClinico, mascota.Foto);
+        this.init (mascota.IdMascota, mascota.Nombre, mascota.Raza, mascota.Sexo, mascota.Peso, mascota.Especie, mascota.FNacimiento, mascota.Tamanyo, mascota.Cliente, mascota.Consulta, mascota.Color, mascota.Microchip, mascota.HistorialClinico, mascota.Foto);
 }
 
-private void init (int idMascota, string nombre, string raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum sexo, float peso, string especie, Nullable<DateTime> fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum tamayo, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN cliente, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, string color, bool microchip, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.HistorialClinicoEN historialClinico, string foto)
+private void init (int idMascota, string nombre, string raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum sexo, float peso, string especie, Nullable<DateTime> fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum tamanyo, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN cliente, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, string color, bool microchip, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.HistorialClinicoEN historialClinico, string foto)
 {
         this.IdMascota = IdMascota;
 
@@ -201,7 +201,7 @@ private void init (int idMascota, string nombre, string raza, GestionVeterinaria
 
         this.FNacimiento = fNacimiento;
 
-        this.Tamayo = tamayo;
+        this.Tamanyo = tamanyo;
 
         this.Cliente = cliente;
 

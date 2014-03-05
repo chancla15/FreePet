@@ -32,7 +32,7 @@ public IClienteCAD get_IClienteCAD ()
         return this._IClienteCAD;
 }
 
-public string New_ (string p_DNI, string p_nombre, string p_apellidos, String p_password, string p_direccion, string p_telefono, string p_localidad, string p_provincia, int p_cp)
+public string New_ (string p_DNI, string p_nombre, string p_apellidos, String p_password, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp)
 {
         ClienteEN clienteEN = null;
         string oid;
@@ -63,7 +63,7 @@ public string New_ (string p_DNI, string p_nombre, string p_apellidos, String p_
         return oid;
 }
 
-public void Modify (string p_Cliente_OID, string p_nombre, string p_apellidos, String p_password, string p_direccion, string p_telefono, string p_localidad, string p_provincia, int p_cp)
+public void Modify (string p_Cliente_OID, string p_nombre, string p_apellidos, String p_password, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp)
 {
         ClienteEN clienteEN = null;
 

@@ -57,7 +57,7 @@ private string provincia;
  *
  */
 
-private int cp;
+private string cp;
 
 
 
@@ -103,7 +103,7 @@ public virtual string Provincia {
 }
 
 
-public virtual int Cp {
+public virtual string Cp {
         get { return cp; } set { cp = value;  }
 }
 
@@ -117,7 +117,7 @@ public UsuarioEN()
 
 
 
-public UsuarioEN(string dNI, string nombre, string apellidos, String password, string direccion, string telefono, string localidad, string provincia, int cp)
+public UsuarioEN(string dNI, string nombre, string apellidos, String password, string direccion, string telefono, string localidad, string provincia, string cp)
 {
         this.init (dNI, nombre, apellidos, password, direccion, telefono, localidad, provincia, cp);
 }
@@ -128,7 +128,7 @@ public UsuarioEN(UsuarioEN usuario)
         this.init (usuario.DNI, usuario.Nombre, usuario.Apellidos, usuario.Password, usuario.Direccion, usuario.Telefono, usuario.Localidad, usuario.Provincia, usuario.Cp);
 }
 
-private void init (string dNI, string nombre, string apellidos, String password, string direccion, string telefono, string localidad, string provincia, int cp)
+private void init (string dNI, string nombre, string apellidos, String password, string direccion, string telefono, string localidad, string provincia, string cp)
 {
         this.DNI = DNI;
 

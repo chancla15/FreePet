@@ -44,7 +44,7 @@ public ClienteEN() : base ()
 
 
 
-public ClienteEN(string dNI, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> mascota, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN> factura, string nombre, string apellidos, String password, string direccion, string telefono, string localidad, string provincia, int cp)
+public ClienteEN(string dNI, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> mascota, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN> factura, string nombre, string apellidos, String password, string direccion, string telefono, string localidad, string provincia, string cp)
 {
         this.init (dNI, mascota, factura, nombre, apellidos, password, direccion, telefono, localidad, provincia, cp);
 }
@@ -55,7 +55,7 @@ public ClienteEN(ClienteEN cliente)
         this.init (cliente.DNI, cliente.Mascota, cliente.Factura, cliente.Nombre, cliente.Apellidos, cliente.Password, cliente.Direccion, cliente.Telefono, cliente.Localidad, cliente.Provincia, cliente.Cp);
 }
 
-private void init (string dNI, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> mascota, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN> factura, string nombre, string apellidos, String password, string direccion, string telefono, string localidad, string provincia, int cp)
+private void init (string dNI, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> mascota, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN> factura, string nombre, string apellidos, String password, string direccion, string telefono, string localidad, string provincia, string cp)
 {
         this.DNI = DNI;
 

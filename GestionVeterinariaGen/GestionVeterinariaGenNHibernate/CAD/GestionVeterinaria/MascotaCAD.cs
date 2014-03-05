@@ -107,7 +107,7 @@ public void Modify (MascotaEN mascota)
                 mascotaEN.FNacimiento = mascota.FNacimiento;
 
 
-                mascotaEN.Tamayo = mascota.Tamayo;
+                mascotaEN.Tamanyo = mascota.Tamanyo;
 
 
                 mascotaEN.Color = mascota.Color;

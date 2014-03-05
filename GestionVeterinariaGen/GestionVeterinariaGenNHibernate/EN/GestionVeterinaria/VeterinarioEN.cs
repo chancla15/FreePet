@@ -43,7 +43,7 @@ public VeterinarioEN() : base ()
 
 
 
-public VeterinarioEN(string dNI, int numColegiado, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, string idEmpleado, float sueldo, string nombre, string apellidos, String password, string direccion, string telefono, string localidad, string provincia, int cp)
+public VeterinarioEN(string dNI, int numColegiado, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, string idEmpleado, float sueldo, string nombre, string apellidos, String password, string direccion, string telefono, string localidad, string provincia, string cp)
 {
         this.init (dNI, numColegiado, consulta, idEmpleado, sueldo, nombre, apellidos, password, direccion, telefono, localidad, provincia, cp);
 }
@@ -54,7 +54,7 @@ public VeterinarioEN(VeterinarioEN veterinario)
         this.init (veterinario.DNI, veterinario.NumColegiado, veterinario.Consulta, veterinario.IdEmpleado, veterinario.Sueldo, veterinario.Nombre, veterinario.Apellidos, veterinario.Password, veterinario.Direccion, veterinario.Telefono, veterinario.Localidad, veterinario.Provincia, veterinario.Cp);
 }
 
-private void init (string dNI, int numColegiado, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, string idEmpleado, float sueldo, string nombre, string apellidos, String password, string direccion, string telefono, string localidad, string provincia, int cp)
+private void init (string dNI, int numColegiado, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, string idEmpleado, float sueldo, string nombre, string apellidos, String password, string direccion, string telefono, string localidad, string provincia, string cp)
 {
         this.DNI = DNI;
 

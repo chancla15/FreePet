@@ -32,7 +32,7 @@ public IRecepcionistaCAD get_IRecepcionistaCAD ()
         return this._IRecepcionistaCAD;
 }
 
-public string New_ (string p_DNI, string p_nombre, string p_apellidos, String p_password, string p_direccion, string p_telefono, string p_localidad, string p_provincia, int p_cp, string p_IdEmpleado, float p_sueldo)
+public string New_ (string p_DNI, string p_nombre, string p_apellidos, String p_password, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, string p_IdEmpleado, float p_sueldo)
 {
         RecepcionistaEN recepcionistaEN = null;
         string oid;
@@ -67,7 +67,7 @@ public string New_ (string p_DNI, string p_nombre, string p_apellidos, String p_
         return oid;
 }
 
-public void Modify (string p_Recepcionista_OID, string p_nombre, string p_apellidos, String p_password, string p_direccion, string p_telefono, string p_localidad, string p_provincia, int p_cp, string p_IdEmpleado, float p_sueldo)
+public void Modify (string p_Recepcionista_OID, string p_nombre, string p_apellidos, String p_password, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, string p_IdEmpleado, float p_sueldo)
 {
         RecepcionistaEN recepcionistaEN = null;
 
