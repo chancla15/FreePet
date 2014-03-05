@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="PracticaGrupoGenNHibernate"
+		                   namespace="PracticaGrupoGenNHibernate.EN.Default_">
+				
+<joined-subclass name="ClienteEN" extends="PracticaGrupoGenNHibernate.EN.Default_.UserEN" table="[Cliente]">
+	<key>
+    		<column name="[DNI]"/>
+   	</key>
+
+			
+		  			
+						<many-to-one name="Animal" class="PracticaGrupoGenNHibernate.EN.Default_.AnimalEN" cascade="delete">	
+								<column name="[FK_microchip_animal]"/>
+						</many-to-one>
+											 					
+					
+		
+		  </joined-subclass>	
+		  
+		  <query name="ClienteENReadAllHQL">from ClienteEN</query>
+		</hibernate-mapping>
+	
