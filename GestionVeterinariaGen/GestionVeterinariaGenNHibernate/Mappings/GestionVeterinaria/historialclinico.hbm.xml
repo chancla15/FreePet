@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="GestionVeterinariaGenNHibernate"
+		                   namespace="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria">
+			<class name="HistorialClinicoEN" table="[HistorialClinico]">
+						<id name="Numero" column="[numero]"/>
+			
+			
+		  			
+					
+							   <one-to-one name="Mascota" class="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN" property-ref="HistorialClinico" cascade="delete"/>							
+					 
+						
+					
+					
+		
+		  </class>
+		  
+		  <query name="HistorialClinicoENReadAllHQL">from HistorialClinicoEN</query>
+		</hibernate-mapping>
+	

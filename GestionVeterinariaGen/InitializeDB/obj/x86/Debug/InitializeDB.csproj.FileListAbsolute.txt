@@ -1,0 +1,2 @@
+D:\Grado\DSS\Grupo\GestionVeterinariaGen\InitializeDB\bin\Debug\InitializeDB.exe.config
+C:\Users\admin\Desktop\GestionVeterinariaGen\InitializeDB\bin\Debug\InitializeDB.exe.config
