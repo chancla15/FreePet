@@ -84,19 +84,22 @@ public void Modify (FarmacoEN farmaco)
                 SessionInitializeTransaction ();
                 FarmacoEN farmacoEN = (FarmacoEN)session.Load (typeof(FarmacoEN), farmaco.Nombre);
 
-                farmacoEN.Fecha = farmaco.Fecha;
-
-
-                farmacoEN.Duracion = farmaco.Duracion;
+                farmacoEN.FechaInicio = farmaco.FechaInicio;
 
 
                 farmacoEN.Precio = farmaco.Precio;
+
+
+                farmacoEN.FechaFin = farmaco.FechaFin;
 
 
                 farmacoEN.Cantidad = farmaco.Cantidad;
 
 
                 farmacoEN.Frecuencia = farmaco.Frecuencia;
+
+
+                farmacoEN.FechaCaducidad = farmaco.FechaCaducidad;
 
                 session.Update (farmacoEN);
                 SessionCommit ();

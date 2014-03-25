@@ -42,18 +42,18 @@ public OrtopediaEN() : base ()
 
 
 
-public OrtopediaEN(string nombre, string talla, int longitud, string fecha, string duracion, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio)
+public OrtopediaEN(string nombre, string talla, int longitud, Nullable<DateTime> fechaInicio, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio, Nullable<DateTime> fechaFin)
 {
-        this.init (nombre, talla, longitud, fecha, duracion, consulta, precio);
+        this.init (nombre, talla, longitud, fechaInicio, consulta, precio, fechaFin);
 }
 
 
 public OrtopediaEN(OrtopediaEN ortopedia)
 {
-        this.init (ortopedia.Nombre, ortopedia.Talla, ortopedia.Longitud, ortopedia.Fecha, ortopedia.Duracion, ortopedia.Consulta, ortopedia.Precio);
+        this.init (ortopedia.Nombre, ortopedia.Talla, ortopedia.Longitud, ortopedia.FechaInicio, ortopedia.Consulta, ortopedia.Precio, ortopedia.FechaFin);
 }
 
-private void init (string nombre, string talla, int longitud, string fecha, string duracion, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio)
+private void init (string nombre, string talla, int longitud, Nullable<DateTime> fechaInicio, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio, Nullable<DateTime> fechaFin)
 {
         this.Nombre = nombre;
 
@@ -62,13 +62,13 @@ private void init (string nombre, string talla, int longitud, string fecha, stri
 
         this.Longitud = longitud;
 
-        this.Fecha = fecha;
-
-        this.Duracion = duracion;
+        this.FechaInicio = fechaInicio;
 
         this.Consulta = consulta;
 
         this.Precio = precio;
+
+        this.FechaFin = fechaFin;
 }
 
 public override bool Equals (object obj)

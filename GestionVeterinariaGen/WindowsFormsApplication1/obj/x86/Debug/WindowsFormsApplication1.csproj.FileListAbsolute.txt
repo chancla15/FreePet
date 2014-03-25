@@ -1,0 +1,17 @@
+C:\versionesOOH4RIA\ooh4riaKepler\workspace\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\versionesOOH4RIA\ooh4riaKepler\workspace\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\versionesOOH4RIA\ooh4riaKepler\workspace\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form2.resources
+C:\versionesOOH4RIA\ooh4riaKepler\workspace\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\versionesOOH4RIA\ooh4riaKepler\workspace\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\versionesOOH4RIA\ooh4riaKepler\workspace\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\GestionVeterinariaGenNHibernate.dll
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form2.resources
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\GestionVeterinariaGenNHibernate.pdb

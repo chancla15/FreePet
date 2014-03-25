@@ -31,7 +31,8 @@ static void Main (string[] args)
                         System.Console.WriteLine ("Database schema created successfully");
                         System.Console.WriteLine ("-----------------------------");
                 }
-                /*PROTECTED REGION ID(initializeData) ENABLED START*/
+       
+          
                 System.Console.WriteLine ("-------------------------------------------------------");
                 System.Console.Write ("Do you want to initialize the data of your database?(Y/N) ");
                 ans = System.Console.ReadLine ();
@@ -41,7 +42,8 @@ static void Main (string[] args)
                         System.Console.WriteLine ("The data has been inserted successfully!!");
                         System.Console.WriteLine ("-----------------------------------------");
                 }
-                /*PROTECTED REGION END*/
+       
+                /*PROTECTED REGION END*/ 
         }
         catch (Exception e)
         {
@@ -50,6 +52,7 @@ static void Main (string[] args)
 
         finally
         {
+                
                 System.Console.WriteLine ("Powered by OOH4RIA. Press any key to exit....");
                 Console.ReadLine ();
         }

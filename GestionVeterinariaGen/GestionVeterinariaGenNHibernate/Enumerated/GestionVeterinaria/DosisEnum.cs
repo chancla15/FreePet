@@ -3,5 +3,5 @@ using System;
 
 namespace GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria
 {
-public enum DosisEnum { 1 al dia=1, 2 al dia=2, 3 al dia=3 };
+public enum DosisEnum { al_dia_1=1, al_dia_2=2, al_dia_3=3 };
 }

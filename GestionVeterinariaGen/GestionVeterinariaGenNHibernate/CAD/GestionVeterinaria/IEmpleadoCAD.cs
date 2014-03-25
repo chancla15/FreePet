@@ -4,21 +4,22 @@ using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
 
 namespace GestionVeterinariaGenNHibernate.CAD.GestionVeterinaria
 {
-public partial interface IEmpleadoCAD
-{
-EmpleadoEN ReadOIDDefault (string DNI);
+        public interface IEmpleadoCAD
+        {
+        EmpleadoEN ReadOIDDefault (String DNI);
 
-string New_ (EmpleadoEN empleado);
+        String New_ (EmpleadoEN empleado);
 
-void Modify (EmpleadoEN empleado);
-
-
-void Destroy (string DNI);
+        void Modify (EmpleadoEN empleado);
 
 
-EmpleadoEN DameEmpleadoPorOID (string DNI);
+        void Destroy (String DNI);
 
 
-System.Collections.Generic.IList<EmpleadoEN> DameTodosLosEmpleados (int first, int size);
-}
+        EmpleadoEN DameEmpleadoPorOID (String DNI);
+
+
+        System.Collections.Generic.IList<EN.GestionVeterinaria.EmpleadoEN> DameTodosLosEmpleados (int first, int size);
+
+    }
 }

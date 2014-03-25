@@ -14,8 +14,13 @@
 					<property name="Frecuencia" > 
 						<column name="[frecuencia]"  not-null="true"/>
 					</property>
+					<property name="FechaCaducidad" type="date"> 
+						<column name="[FechaCaducidad]"  not-null="true"/>
+					</property>
 			
 			
+			
+					
 					
 					
 		

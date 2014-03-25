@@ -32,7 +32,7 @@ public IVacunaCAD get_IVacunaCAD ()
         return this._IVacunaCAD;
 }
 
-public string New_ (string p_nombre, string p_fecha, string p_duracion, float p_precio, string p_tipo)
+public string New_ (string p_nombre, Nullable<DateTime> p_fechaInicio, float p_precio, Nullable<DateTime> p_fechaFin, string p_tipo)
 {
         VacunaEN vacunaEN = null;
         string oid;
@@ -41,11 +41,11 @@ public string New_ (string p_nombre, string p_fecha, string p_duracion, float p_
         vacunaEN = new VacunaEN ();
         vacunaEN.Nombre = p_nombre;
 
-        vacunaEN.Fecha = p_fecha;
-
-        vacunaEN.Duracion = p_duracion;
+        vacunaEN.FechaInicio = p_fechaInicio;
 
         vacunaEN.Precio = p_precio;
+
+        vacunaEN.FechaFin = p_fechaFin;
 
         vacunaEN.Tipo = p_tipo;
 
@@ -55,16 +55,16 @@ public string New_ (string p_nombre, string p_fecha, string p_duracion, float p_
         return oid;
 }
 
-public void Modify (string p_Vacuna_OID, string p_fecha, string p_duracion, float p_precio, string p_tipo)
+public void Modify (string p_Vacuna_OID, Nullable<DateTime> p_fechaInicio, float p_precio, Nullable<DateTime> p_fechaFin, string p_tipo)
 {
         VacunaEN vacunaEN = null;
 
         //Initialized VacunaEN
         vacunaEN = new VacunaEN ();
         vacunaEN.Nombre = p_Vacuna_OID;
-        vacunaEN.Fecha = p_fecha;
-        vacunaEN.Duracion = p_duracion;
+        vacunaEN.FechaInicio = p_fechaInicio;
         vacunaEN.Precio = p_precio;
+        vacunaEN.FechaFin = p_fechaFin;
         vacunaEN.Tipo = p_tipo;
         //Call to VacunaCAD
 

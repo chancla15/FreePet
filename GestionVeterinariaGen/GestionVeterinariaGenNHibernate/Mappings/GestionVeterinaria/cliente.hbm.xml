@@ -10,7 +10,7 @@
 
 			
 		  			
-						<bag name="Mascota" >
+						<bag name="Mascota" cascade="delete">
 							<key>
 								<column name="[FK_DNI_idCliente]"/>
 					      	</key>

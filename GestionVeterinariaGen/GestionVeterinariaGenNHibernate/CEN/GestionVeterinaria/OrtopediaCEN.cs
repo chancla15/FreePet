@@ -32,7 +32,7 @@ public IOrtopediaCAD get_IOrtopediaCAD ()
         return this._IOrtopediaCAD;
 }
 
-public string New_ (string p_nombre, string p_fecha, string p_duracion, float p_precio, string p_talla, int p_longitud)
+public string New_ (string p_nombre, Nullable<DateTime> p_fechaInicio, float p_precio, Nullable<DateTime> p_fechaFin, string p_talla, int p_longitud)
 {
         OrtopediaEN ortopediaEN = null;
         string oid;
@@ -41,11 +41,11 @@ public string New_ (string p_nombre, string p_fecha, string p_duracion, float p_
         ortopediaEN = new OrtopediaEN ();
         ortopediaEN.Nombre = p_nombre;
 
-        ortopediaEN.Fecha = p_fecha;
-
-        ortopediaEN.Duracion = p_duracion;
+        ortopediaEN.FechaInicio = p_fechaInicio;
 
         ortopediaEN.Precio = p_precio;
+
+        ortopediaEN.FechaFin = p_fechaFin;
 
         ortopediaEN.Talla = p_talla;
 
@@ -57,16 +57,16 @@ public string New_ (string p_nombre, string p_fecha, string p_duracion, float p_
         return oid;
 }
 
-public void Modify (string p_Ortopedia_OID, string p_fecha, string p_duracion, float p_precio, string p_talla, int p_longitud)
+public void Modify (string p_Ortopedia_OID, Nullable<DateTime> p_fechaInicio, float p_precio, Nullable<DateTime> p_fechaFin, string p_talla, int p_longitud)
 {
         OrtopediaEN ortopediaEN = null;
 
         //Initialized OrtopediaEN
         ortopediaEN = new OrtopediaEN ();
         ortopediaEN.Nombre = p_Ortopedia_OID;
-        ortopediaEN.Fecha = p_fecha;
-        ortopediaEN.Duracion = p_duracion;
+        ortopediaEN.FechaInicio = p_fechaInicio;
         ortopediaEN.Precio = p_precio;
+        ortopediaEN.FechaFin = p_fechaFin;
         ortopediaEN.Talla = p_talla;
         ortopediaEN.Longitud = p_longitud;
         //Call to OrtopediaCAD

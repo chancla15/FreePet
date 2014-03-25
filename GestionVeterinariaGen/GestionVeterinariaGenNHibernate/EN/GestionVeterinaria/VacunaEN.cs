@@ -31,31 +31,31 @@ public VacunaEN() : base ()
 
 
 
-public VacunaEN(string nombre, string tipo, string fecha, string duracion, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio)
+public VacunaEN(string nombre, string tipo, Nullable<DateTime> fechaInicio, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio, Nullable<DateTime> fechaFin)
 {
-        this.init (nombre, tipo, fecha, duracion, consulta, precio);
+        this.init (nombre, tipo, fechaInicio, consulta, precio, fechaFin);
 }
 
 
 public VacunaEN(VacunaEN vacuna)
 {
-        this.init (vacuna.Nombre, vacuna.Tipo, vacuna.Fecha, vacuna.Duracion, vacuna.Consulta, vacuna.Precio);
+        this.init (vacuna.Nombre, vacuna.Tipo, vacuna.FechaInicio, vacuna.Consulta, vacuna.Precio, vacuna.FechaFin);
 }
 
-private void init (string nombre, string tipo, string fecha, string duracion, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio)
+private void init (string nombre, string tipo, Nullable<DateTime> fechaInicio, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio, Nullable<DateTime> fechaFin)
 {
         this.Nombre = nombre;
 
 
         this.Tipo = tipo;
 
-        this.Fecha = fecha;
-
-        this.Duracion = duracion;
+        this.FechaInicio = fechaInicio;
 
         this.Consulta = consulta;
 
         this.Precio = precio;
+
+        this.FechaFin = fechaFin;
 }
 
 public override bool Equals (object obj)

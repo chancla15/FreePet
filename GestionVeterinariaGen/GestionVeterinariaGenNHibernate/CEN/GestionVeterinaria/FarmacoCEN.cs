@@ -32,7 +32,7 @@ public IFarmacoCAD get_IFarmacoCAD ()
         return this._IFarmacoCAD;
 }
 
-public string New_ (string p_nombre, string p_fecha, string p_duracion, float p_precio, string p_cantidad, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum p_frecuencia)
+public string New_ (string p_nombre, Nullable<DateTime> p_fechaInicio, float p_precio, Nullable<DateTime> p_fechaFin, string p_cantidad, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum p_frecuencia, Nullable<DateTime> p_FechaCaducidad)
 {
         FarmacoEN farmacoEN = null;
         string oid;
@@ -41,15 +41,17 @@ public string New_ (string p_nombre, string p_fecha, string p_duracion, float p_
         farmacoEN = new FarmacoEN ();
         farmacoEN.Nombre = p_nombre;
 
-        farmacoEN.Fecha = p_fecha;
-
-        farmacoEN.Duracion = p_duracion;
+        farmacoEN.FechaInicio = p_fechaInicio;
 
         farmacoEN.Precio = p_precio;
+
+        farmacoEN.FechaFin = p_fechaFin;
 
         farmacoEN.Cantidad = p_cantidad;
 
         farmacoEN.Frecuencia = p_frecuencia;
+
+        farmacoEN.FechaCaducidad = p_FechaCaducidad;
 
         //Call to FarmacoCAD
 
@@ -57,18 +59,19 @@ public string New_ (string p_nombre, string p_fecha, string p_duracion, float p_
         return oid;
 }
 
-public void Modify (string p_Farmaco_OID, string p_fecha, string p_duracion, float p_precio, string p_cantidad, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum p_frecuencia)
+public void Modify (string p_Farmaco_OID, Nullable<DateTime> p_fechaInicio, float p_precio, Nullable<DateTime> p_fechaFin, string p_cantidad, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum p_frecuencia, Nullable<DateTime> p_FechaCaducidad)
 {
         FarmacoEN farmacoEN = null;
 
         //Initialized FarmacoEN
         farmacoEN = new FarmacoEN ();
         farmacoEN.Nombre = p_Farmaco_OID;
-        farmacoEN.Fecha = p_fecha;
-        farmacoEN.Duracion = p_duracion;
+        farmacoEN.FechaInicio = p_fechaInicio;
         farmacoEN.Precio = p_precio;
+        farmacoEN.FechaFin = p_fechaFin;
         farmacoEN.Cantidad = p_cantidad;
         farmacoEN.Frecuencia = p_frecuencia;
+        farmacoEN.FechaCaducidad = p_FechaCaducidad;
         //Call to FarmacoCAD
 
         _IFarmacoCAD.Modify (farmacoEN);

@@ -15,13 +15,7 @@ private string nombre;
  *
  */
 
-private string fecha;
-
-/**
- *
- */
-
-private string duracion;
+private Nullable<DateTime> fechaInicio;
 
 /**
  *
@@ -35,6 +29,12 @@ private System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gest
 
 private float precio;
 
+/**
+ *
+ */
+
+private Nullable<DateTime> fechaFin;
+
 
 
 
@@ -44,13 +44,8 @@ public virtual string Nombre {
 }
 
 
-public virtual string Fecha {
-        get { return fecha; } set { fecha = value;  }
-}
-
-
-public virtual string Duracion {
-        get { return duracion; } set { duracion = value;  }
+public virtual Nullable<DateTime> FechaInicio {
+        get { return fechaInicio; } set { fechaInicio = value;  }
 }
 
 
@@ -64,6 +59,11 @@ public virtual float Precio {
 }
 
 
+public virtual Nullable<DateTime> FechaFin {
+        get { return fechaFin; } set { fechaFin = value;  }
+}
+
+
 
 
 
@@ -74,29 +74,29 @@ public TratamientoEN()
 
 
 
-public TratamientoEN(string nombre, string fecha, string duracion, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio)
+public TratamientoEN(string nombre, Nullable<DateTime> fechaInicio, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio, Nullable<DateTime> fechaFin)
 {
-        this.init (nombre, fecha, duracion, consulta, precio);
+        this.init (nombre, fechaInicio, consulta, precio, fechaFin);
 }
 
 
 public TratamientoEN(TratamientoEN tratamiento)
 {
-        this.init (tratamiento.Nombre, tratamiento.Fecha, tratamiento.Duracion, tratamiento.Consulta, tratamiento.Precio);
+        this.init (tratamiento.Nombre, tratamiento.FechaInicio, tratamiento.Consulta, tratamiento.Precio, tratamiento.FechaFin);
 }
 
-private void init (string nombre, string fecha, string duracion, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio)
+private void init (string nombre, Nullable<DateTime> fechaInicio, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio, Nullable<DateTime> fechaFin)
 {
         this.Nombre = nombre;
 
 
-        this.Fecha = fecha;
-
-        this.Duracion = duracion;
+        this.FechaInicio = fechaInicio;
 
         this.Consulta = consulta;
 
         this.Precio = precio;
+
+        this.FechaFin = fechaFin;
 }
 
 public override bool Equals (object obj)

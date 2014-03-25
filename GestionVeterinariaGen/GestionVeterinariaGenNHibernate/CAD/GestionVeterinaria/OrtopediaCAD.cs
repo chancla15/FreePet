@@ -84,13 +84,13 @@ public void Modify (OrtopediaEN ortopedia)
                 SessionInitializeTransaction ();
                 OrtopediaEN ortopediaEN = (OrtopediaEN)session.Load (typeof(OrtopediaEN), ortopedia.Nombre);
 
-                ortopediaEN.Fecha = ortopedia.Fecha;
-
-
-                ortopediaEN.Duracion = ortopedia.Duracion;
+                ortopediaEN.FechaInicio = ortopedia.FechaInicio;
 
 
                 ortopediaEN.Precio = ortopedia.Precio;
+
+
+                ortopediaEN.FechaFin = ortopedia.FechaFin;
 
 
                 ortopediaEN.Talla = ortopedia.Talla;

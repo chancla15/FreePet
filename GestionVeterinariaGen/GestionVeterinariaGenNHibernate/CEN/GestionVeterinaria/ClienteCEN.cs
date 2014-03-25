@@ -32,7 +32,7 @@ public IClienteCAD get_IClienteCAD ()
         return this._IClienteCAD;
 }
 
-public string New_ (string p_DNI, string p_nombre, string p_apellidos, String p_password, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp)
+public string New_ (string p_DNI, string p_nombre, string p_apellidos, String p_password, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> p_mascota)
 {
         ClienteEN clienteEN = null;
         string oid;
@@ -56,6 +56,8 @@ public string New_ (string p_DNI, string p_nombre, string p_apellidos, String p_
         clienteEN.Provincia = p_provincia;
 
         clienteEN.Cp = p_cp;
+
+        clienteEN.Mascota = p_mascota;
 
         //Call to ClienteCAD
 

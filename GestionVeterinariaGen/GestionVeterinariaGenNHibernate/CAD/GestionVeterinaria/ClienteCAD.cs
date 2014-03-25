@@ -56,6 +56,12 @@ public string New_ (ClienteEN cliente)
         try
         {
                 SessionInitializeTransaction ();
+                if (cliente.Mascota != null) {
+                        foreach (GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN item in cliente.Mascota) {
+                                item.Cliente = cliente;
+                                session.Save (item);
+                        }
+                }
 
                 session.Save (cliente);
                 SessionCommit ();

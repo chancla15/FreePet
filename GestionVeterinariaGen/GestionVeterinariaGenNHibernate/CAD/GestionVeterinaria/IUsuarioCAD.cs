@@ -16,12 +16,10 @@ void Modify (UsuarioEN usuario);
 void Destroy (string DNI);
 
 
-
 System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.UsuarioEN> BuscarPorNombre (string arg0);
 
 
 System.Collections.Generic.IList<UsuarioEN> DameTodosLosUsuarios (int first, int size);
-
 
 
 UsuarioEN DameClientePorDNI (string DNI);

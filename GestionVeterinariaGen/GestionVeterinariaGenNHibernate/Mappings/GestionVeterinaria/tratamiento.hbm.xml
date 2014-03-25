@@ -4,16 +4,15 @@
 		                   namespace="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria">
 			<class name="TratamientoEN" table="[Tratamiento]">
 						<id name="Nombre" column="[Nombre]"/>
-					<property name="Fecha" type="string"> 
-						<column name="[fecha]"  not-null="true"/>
-					</property>
-					<property name="Duracion" type="string"> 
-						<column name="[duracion]"  not-null="true"/>
+					<property name="FechaInicio" type="date"> 
+						<column name="[fechaInicio]"  not-null="true"/>
 					</property>
 					<property name="Precio" type="float"> 
 						<column name="[precio]"  not-null="true"/>
 					</property>
-			
+					<property name="FechaFin" type="date"> 
+						<column name="[fechaFin]"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -26,6 +25,7 @@
 									<column name="[FK_IDConsulta_idConsulta]"/>
       						</many-to-many>
     					</bag>
+			
 			
 					
 					

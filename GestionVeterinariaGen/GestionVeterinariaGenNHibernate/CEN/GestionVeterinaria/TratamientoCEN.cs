@@ -32,7 +32,7 @@ public ITratamientoCAD get_ITratamientoCAD ()
         return this._ITratamientoCAD;
 }
 
-public string New_ (string p_nombre, string p_fecha, string p_duracion, float p_precio)
+public string New_ (string p_nombre, Nullable<DateTime> p_fechaInicio, float p_precio, Nullable<DateTime> p_fechaFin)
 {
         TratamientoEN tratamientoEN = null;
         string oid;
@@ -41,11 +41,11 @@ public string New_ (string p_nombre, string p_fecha, string p_duracion, float p_
         tratamientoEN = new TratamientoEN ();
         tratamientoEN.Nombre = p_nombre;
 
-        tratamientoEN.Fecha = p_fecha;
-
-        tratamientoEN.Duracion = p_duracion;
+        tratamientoEN.FechaInicio = p_fechaInicio;
 
         tratamientoEN.Precio = p_precio;
+
+        tratamientoEN.FechaFin = p_fechaFin;
 
         //Call to TratamientoCAD
 
@@ -53,16 +53,16 @@ public string New_ (string p_nombre, string p_fecha, string p_duracion, float p_
         return oid;
 }
 
-public void Modify (string p_Tratamiento_OID, string p_fecha, string p_duracion, float p_precio)
+public void Modify (string p_Tratamiento_OID, Nullable<DateTime> p_fechaInicio, float p_precio, Nullable<DateTime> p_fechaFin)
 {
         TratamientoEN tratamientoEN = null;
 
         //Initialized TratamientoEN
         tratamientoEN = new TratamientoEN ();
         tratamientoEN.Nombre = p_Tratamiento_OID;
-        tratamientoEN.Fecha = p_fecha;
-        tratamientoEN.Duracion = p_duracion;
+        tratamientoEN.FechaInicio = p_fechaInicio;
         tratamientoEN.Precio = p_precio;
+        tratamientoEN.FechaFin = p_fechaFin;
         //Call to TratamientoCAD
 
         _ITratamientoCAD.Modify (tratamientoEN);

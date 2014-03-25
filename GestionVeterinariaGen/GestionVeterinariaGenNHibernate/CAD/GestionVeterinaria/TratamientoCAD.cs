@@ -84,13 +84,13 @@ public void Modify (TratamientoEN tratamiento)
                 SessionInitializeTransaction ();
                 TratamientoEN tratamientoEN = (TratamientoEN)session.Load (typeof(TratamientoEN), tratamiento.Nombre);
 
-                tratamientoEN.Fecha = tratamiento.Fecha;
-
-
-                tratamientoEN.Duracion = tratamiento.Duracion;
+                tratamientoEN.FechaInicio = tratamiento.FechaInicio;
 
 
                 tratamientoEN.Precio = tratamiento.Precio;
+
+
+                tratamientoEN.FechaFin = tratamiento.FechaFin;
 
                 session.Update (tratamientoEN);
                 SessionCommit ();

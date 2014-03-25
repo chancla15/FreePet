@@ -84,13 +84,13 @@ public void Modify (VacunaEN vacuna)
                 SessionInitializeTransaction ();
                 VacunaEN vacunaEN = (VacunaEN)session.Load (typeof(VacunaEN), vacuna.Nombre);
 
-                vacunaEN.Fecha = vacuna.Fecha;
-
-
-                vacunaEN.Duracion = vacuna.Duracion;
+                vacunaEN.FechaInicio = vacuna.FechaInicio;
 
 
                 vacunaEN.Precio = vacuna.Precio;
+
+
+                vacunaEN.FechaFin = vacuna.FechaFin;
 
 
                 vacunaEN.Tipo = vacuna.Tipo;
