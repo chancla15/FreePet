@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="GestionVeterinariaGenNHibernate"
+		                   namespace="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria">
+			<class name="MascotaEN" table="[Mascota]">
+				  	
+						<id name="IdMascota" column="[ID]" type="integer">
+							<generator class="identity"/>
+						</id>
+					<property name="Nombre" type="string"> 
+						<column name="[nombre]"  not-null="true"/>
+					</property>
+					<property name="Raza" type="string"> 
+						<column name="[raza]"  not-null="true"/>
+					</property>
+					<property name="Sexo" > 
+						<column name="[sexo]"  not-null="true"/>
+					</property>
+					<property name="Peso" type="float"> 
+						<column name="[peso]"  not-null="true"/>
+					</property>
+					<property name="Especie" type="string"> 
+						<column name="[especie]"  not-null="true"/>
+					</property>
+					<property name="FNacimiento" type="date"> 
+						<column name="[fNacimiento]"  not-null="true"/>
+					</property>
+					<property name="Tamanyo" > 
+						<column name="[tamanyo]"  not-null="true"/>
+					</property>
+					<property name="Color" type="string"> 
+						<column name="[color]"  not-null="true"/>
+					</property>
+					<property name="Microchip" type="boolean"> 
+						<column name="[microchip]"  not-null="true"/>
+					</property>
+					<property name="Foto" type="string"> 
+						<column name="[foto]"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Cliente" class="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN" >	
+								<column name="[FK_DNI_idCliente]"/>
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Consulta" >
+							<key>
+								<column name="[FK_ID_idMascota]"/>
+					      	</key>
+							<one-to-many class="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN"/>
+					    </bag>
+					
+			
+			
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		  </class>
+		  
+		  <query name="MascotaENReadAllHQL">from MascotaEN</query>
+		  <query name="MascotaENdameMascotaPorNombreHQL"><![CDATA[FROM MascotaEN m WHERE m.Nombre like '%'+:param+'%' ]]></query>
+		</hibernate-mapping>
+	

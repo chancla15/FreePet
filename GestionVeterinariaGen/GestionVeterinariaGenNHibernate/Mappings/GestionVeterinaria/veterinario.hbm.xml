@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="GestionVeterinariaGenNHibernate"
+		                   namespace="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria">
+				
+<joined-subclass name="VeterinarioEN" extends="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.EmpleadoEN" table="[Veterinario]">
+	<key>
+    		<column name="[DNI]"/>
+   	</key>
+
+					<property name="NumColegiado" type="integer"> 
+						<column name="[numColegiado]"  not-null="true"/>
+					</property>
+			
+			
+		  			
+						<bag name="Consulta" >
+							<key>
+								<column name="[FK_DNI_idVeterinario]"/>
+					      	</key>
+							<one-to-many class="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN"/>
+					    </bag>
+					
+					
+					
+		
+		  </joined-subclass>	
+		  
+		  <query name="VeterinarioENReadAllHQL">from VeterinarioEN</query>
+		</hibernate-mapping>
+	
