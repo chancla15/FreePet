@@ -29,6 +29,5 @@
 		  </joined-subclass>	
 		  
 		  <query name="ClienteENReadAllHQL">from ClienteEN</query>
-		  <query name="ClienteENdameMascotasDelClienteHQL"><![CDATA[FROM MascotaEN m WHERE m.DNI = :param]]></query>
 		</hibernate-mapping>
 	

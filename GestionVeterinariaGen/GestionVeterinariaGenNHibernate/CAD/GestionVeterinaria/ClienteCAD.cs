@@ -255,35 +255,5 @@ public void QuitarMascota (string p_Cliente_OID, System.Collections.Generic.ILis
                 SessionClose ();
         }
 }
-public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN> DameMascotasDelCliente (string param)
-{
-        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN> result;
-        try
-        {
-                SessionInitializeTransaction ();
-                //String sql = @"FROM ClienteEN self where FROM MascotaEN m WHERE m.DNI = :param";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("ClienteENdameMascotasDelClienteHQL");
-                query.SetParameter ("param", param);
-
-                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in ClienteCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
 }
 }

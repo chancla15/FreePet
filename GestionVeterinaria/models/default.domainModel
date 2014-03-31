@@ -139,9 +139,6 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_lts-c7jhEeON3OdS_WqKfw" name="p_Cliente_OID" type="OID" typeObject="_td8y4JgMEeO2gua0CG6QxQ"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_lts-dLjhEeON3OdS_WqKfw" name="p_mascota_OIDs" type="OID" collectionType="List" typeObject="_-fYJAJgLEeO2gua0CG6QxQ"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_KliZkJ2eEeO2oqIhG93xzg" name="dameMascotasDelCliente" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_td8y4JgMEeO2gua0CG6QxQ" filter="FROM MascotaEN m WHERE m.DNI = :param" automaticSynchronize="false">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TsZlgJ2gEeO2oqIhG93xzg" name="param"/>
-      </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_-JPZkJgOEeO2gua0CG6QxQ" alias="idMascota" aggregation="Composite" upper="*" associationOrigin="_-JOygJgOEeO2gua0CG6QxQ" name="mascota" type="Object" collectionType="List"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_XKFmEJ0sEeOzebtFYdfKMw" alias="idFactura" lower="0" associationTarget="_XKEX8J0sEeOzebtFYdfKMw" name="factura" type="Object"/>
     </elements>
@@ -755,13 +752,6 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_m5mpwpiIEeOJie0byJYZ_g" fontName="Segoe UI"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_m5mpw5iIEeOJie0byJYZ_g"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_m5mpxJiIEeOJie0byJYZ_g"/>
-        </children>
-        <children xmi:type="notation:Node" xmi:id="_KliZkp2eEeO2oqIhG93xzg" type="3004" element="_KliZkJ2eEeO2oqIhG93xzg">
-          <children xmi:type="notation:DecorationNode" xmi:id="_KliZl52eEeO2oqIhG93xzg" type="5004"/>
-          <styles xmi:type="notation:DescriptionStyle" xmi:id="_KliZk52eEeO2oqIhG93xzg"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_KliZlJ2eEeO2oqIhG93xzg" fontName="Segoe UI"/>
-          <styles xmi:type="notation:FillStyle" xmi:id="_KliZlZ2eEeO2oqIhG93xzg"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KliZlp2eEeO2oqIhG93xzg"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_td-oGpgMEeO2gua0CG6QxQ"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_td-oG5gMEeO2gua0CG6QxQ"/>

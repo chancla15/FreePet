@@ -20,7 +20,17 @@ public bool Login (string p_oid, String pass)
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method Login() not yet implemented.");
+        System.Console.WriteLine ("Login " + p_oid + " " + pass);
+        try
+        {
+                EmpleadoEN en = _IEmpleadoCAD.ReadOIDDefault (p_oid);
+                return(en.Password.Equals (pass));
+        }
+        catch (Exception ex)
+        {
+                System.Console.WriteLine (ex);
+                return false;
+        }
 
         /*PROTECTED REGION END*/
 }
