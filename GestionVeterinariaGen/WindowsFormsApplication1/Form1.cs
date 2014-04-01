@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using GestionVeterinariaGenNHibernate.CEN.GestionVeterinaria;
 
+
 namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
@@ -37,6 +38,29 @@ namespace WindowsFormsApplication1
 
                 label1.Text = "Datos incorrectos";
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1.ActiveForm.Close();
+            
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Form1.ActiveForm.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+          
+
+
         }
     }
 }
