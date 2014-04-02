@@ -165,5 +165,10 @@ namespace WindowsFormsApplication1
             ((TextBox)f3.Controls["textBox3"]).Enabled = false;
 
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
