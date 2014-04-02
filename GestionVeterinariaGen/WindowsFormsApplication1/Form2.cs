@@ -36,7 +36,7 @@ namespace WindowsFormsApplication1
         private void label3_Click(object sender, EventArgs e)
         {
             Form2.ActiveForm.Close();
-            Form3 f3 = new Form3();
+            FormAddEmpleado f3 = new FormAddEmpleado();
             f3.Activate();
             f3.Visible = true;
             ((TextBox)f3.Controls["textBox1"]).Enabled = false;
@@ -70,7 +70,7 @@ namespace WindowsFormsApplication1
         private void button3_Click(object sender, EventArgs e)
         {
             Form2.ActiveForm.Close();
-            Form3 f3 = new Form3();
+            FormAddEmpleado f3 = new FormAddEmpleado();
             f3.Activate();
             f3.Visible = true;
         }
@@ -78,7 +78,7 @@ namespace WindowsFormsApplication1
         private void button10_Click(object sender, EventArgs e)
         {
             Form2.ActiveForm.Close();
-            Form3 f3 = new Form3();
+            FormAddEmpleado f3 = new FormAddEmpleado();
             f3.Activate();
             f3.Visible = true;
         }
@@ -86,7 +86,7 @@ namespace WindowsFormsApplication1
         private void button9_Click(object sender, EventArgs e)
         {
             Form2.ActiveForm.Close();
-            Form3 f3 = new Form3();
+            FormAddEmpleado f3 = new FormAddEmpleado();
             f3.Activate();
             f3.Visible = true;
             ((TextBox)f3.Controls["textBox1"]).Enabled = false;
@@ -104,7 +104,7 @@ namespace WindowsFormsApplication1
         private void button8_Click(object sender, EventArgs e)
         {
             Form2.ActiveForm.Close();
-            Form3 f3 = new Form3();
+            FormAddEmpleado f3 = new FormAddEmpleado();
             f3.Activate();
             f3.Visible = true;
         }
@@ -130,7 +130,7 @@ namespace WindowsFormsApplication1
         private void button6_Click(object sender, EventArgs e)
         {
             Form2.ActiveForm.Close();
-            Form3 f3 = new Form3();
+            FormAddEmpleado f3 = new FormAddEmpleado();
             f3.Activate();
             f3.Visible = true;
         }
@@ -138,7 +138,7 @@ namespace WindowsFormsApplication1
         private void button5_Click(object sender, EventArgs e)
         {
             Form2.ActiveForm.Close();
-            Form3 f3 = new Form3();
+            FormAddEmpleado f3 = new FormAddEmpleado();
             f3.Activate();
             f3.Visible = true;
             ((TextBox)f3.Controls["textBox1"]).Enabled = false;
@@ -157,7 +157,7 @@ namespace WindowsFormsApplication1
         {
 
             Form2.ActiveForm.Close();
-            Form3 f3 = new Form3();
+            FormAddEmpleado f3 = new FormAddEmpleado();
             f3.Activate();
             f3.Visible = true;
             ((TextBox)f3.Controls["textBox1"]).Enabled = false;

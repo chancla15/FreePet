@@ -24,7 +24,7 @@ namespace WindowsFormsApplication1
 
             String User, Pass;
             User = textBox1.Text.ToString();
-            Pass = textBox2.Text.ToString();
+            Pass = GestionVeterinariaGenNHibernate.Utils.Util.GetEncondeMD5(textBox2.Text.ToString());
 
             if (cen.Login(User, Pass))
             {
