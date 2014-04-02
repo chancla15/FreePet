@@ -47,12 +47,36 @@ namespace WindowsFormsApplication1
             //añadir Empleados
             EmpleadoCEN cen = new EmpleadoCEN();
             try{
-              
-
-                //cen.New_(textBox1.Text.ToString(), textBox2.Text.ToString(), textBox3.Text.ToString(), textBox4.Text.ToString(), textBox5.Text.ToString(), textBox6.Text.ToString(), textBox7.Text.ToString(), textBox7.Text.ToString(), textBox8.Text.ToString(), 10, textBox10.Text.ToString());
+                float sueldo = float.Parse(tb_sueldo.Text.ToString());
+                cen.New_(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), tb_provincia.Text.ToString(), tb_cp.Text.ToString(), tb_id.Text.ToString(), sueldo, tb_pass.Text.ToString());
             }catch (Exception ex){
                 System.Console.WriteLine(ex);
             }
+        }
+
+        private void FormAddEmpleado_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
