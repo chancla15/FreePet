@@ -22,7 +22,7 @@ namespace WindowsFormsApplication1
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
-
+            listBox1.Items.Add("Rafa");
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -167,6 +167,16 @@ namespace WindowsFormsApplication1
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

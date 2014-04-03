@@ -24,8 +24,8 @@ namespace WindowsFormsApplication1
 
             String User, Pass;
             User = textBox1.Text.ToString();
-            Pass = GestionVeterinariaGenNHibernate.Utils.Util.GetEncondeMD5(textBox2.Text.ToString());
-
+            //Pass = GestionVeterinariaGenNHibernate.Utils.Util.GetEncondeMD5(textBox2.Text.ToString());
+            Pass = textBox1.Text.ToString();
             if (cen.Login(User, Pass))
             {
                 Form1.ActiveForm.Hide(); //ocultamos pantalla login
