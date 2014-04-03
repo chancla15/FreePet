@@ -51,13 +51,10 @@
             this.tb_pass = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.bt_aceptar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tb_id = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tb_sueldo = new System.Windows.Forms.TextBox();
             this.err_dni = new System.Windows.Forms.Label();
             this.err_nom = new System.Windows.Forms.Label();
-            this.err_id = new System.Windows.Forms.Label();
             this.err_apellidos = new System.Windows.Forms.Label();
             this.err_pas = new System.Windows.Forms.Label();
             this.err_direccion = new System.Windows.Forms.Label();
@@ -104,7 +101,7 @@
             // 
             // tb_apellidos
             // 
-            this.tb_apellidos.Location = new System.Drawing.Point(165, 267);
+            this.tb_apellidos.Location = new System.Drawing.Point(165, 238);
             this.tb_apellidos.Name = "tb_apellidos";
             this.tb_apellidos.Size = new System.Drawing.Size(229, 20);
             this.tb_apellidos.TabIndex = 7;
@@ -168,7 +165,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(42, 271);
+            this.label4.Location = new System.Drawing.Point(42, 242);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 16);
             this.label4.TabIndex = 15;
@@ -296,28 +293,6 @@
             this.bt_aceptar.UseVisualStyleBackColor = true;
             this.bt_aceptar.Click += new System.EventHandler(this.button5_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(42, 246);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 16);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Id Empleado:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // tb_id
-            // 
-            this.tb_id.ForeColor = System.Drawing.Color.Black;
-            this.tb_id.Location = new System.Drawing.Point(231, 241);
-            this.tb_id.Name = "tb_id";
-            this.tb_id.Size = new System.Drawing.Size(163, 20);
-            this.tb_id.TabIndex = 28;
-            this.tb_id.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -361,18 +336,6 @@
             this.err_nom.TabIndex = 40;
             this.err_nom.Text = "*";
             this.err_nom.Visible = false;
-            // 
-            // err_id
-            // 
-            this.err_id.AutoSize = true;
-            this.err_id.BackColor = System.Drawing.Color.Transparent;
-            this.err_id.ForeColor = System.Drawing.Color.Red;
-            this.err_id.Location = new System.Drawing.Point(400, 241);
-            this.err_id.Name = "err_id";
-            this.err_id.Size = new System.Drawing.Size(11, 13);
-            this.err_id.TabIndex = 41;
-            this.err_id.Text = "*";
-            this.err_id.Visible = false;
             // 
             // err_apellidos
             // 
@@ -543,7 +506,7 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(400, 267);
+            this.label15.Location = new System.Drawing.Point(400, 238);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(11, 13);
             this.label15.TabIndex = 52;
@@ -602,13 +565,10 @@
             this.Controls.Add(this.err_direccion);
             this.Controls.Add(this.err_pas);
             this.Controls.Add(this.err_apellidos);
-            this.Controls.Add(this.err_id);
             this.Controls.Add(this.err_nom);
             this.Controls.Add(this.err_dni);
             this.Controls.Add(this.tb_sueldo);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.tb_id);
             this.Controls.Add(this.bt_aceptar);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
@@ -668,13 +628,10 @@
         private System.Windows.Forms.TextBox tb_pass;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button bt_aceptar;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tb_id;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox tb_sueldo;
         private System.Windows.Forms.Label err_dni;
         private System.Windows.Forms.Label err_nom;
-        private System.Windows.Forms.Label err_id;
         private System.Windows.Forms.Label err_apellidos;
         private System.Windows.Forms.Label err_pas;
         private System.Windows.Forms.Label err_direccion;

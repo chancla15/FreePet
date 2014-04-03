@@ -40,16 +40,11 @@ namespace WindowsFormsApplication1
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
-            ((TextBox)f3.Controls["textBox1"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox2"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox3"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox4"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox5"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox6"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox7"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox8"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox9"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox10"]).Enabled = false;
+            ((ComboBox)f3.Controls["comboBox1"]).Visible = false;
+            ((Label)f3.Controls["label14"]).Visible = false;
+            ((Label)f3.Controls["label17"]).Visible = false;
+            ((TextBox)f3.Controls["tb_colegiado"]).Visible = false;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -86,6 +81,17 @@ namespace WindowsFormsApplication1
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
+            ((ComboBox)f3.Controls["comboBox1"]).Visible = false;
+            ((Label)f3.Controls["label14"]).Visible = false;
+            ((Label)f3.Controls["label17"]).Visible = false;
+            ((TextBox)f3.Controls["tb_colegiado"]).Visible = false;
+            ((TextBox)f3.Controls["tb_pass"]).Visible = false;
+            ((Label)f3.Controls["label11"]).Visible = false;
+            ((Label)f3.Controls["label10"]).Visible = false;
+            ((TextBox)f3.Controls["tb_confPass"]).Visible = false;
+            ((Label)f3.Controls["label13"]).Visible = false;
+            ((TextBox)f3.Controls["tb_sueldo"]).Visible = false;
+
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -95,16 +101,28 @@ namespace WindowsFormsApplication1
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
-            ((TextBox)f3.Controls["textBox1"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox2"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox3"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox4"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox5"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox6"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox7"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox8"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox9"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox10"]).Enabled = false;
+            ((ComboBox)f3.Controls["comboBox1"]).Visible = false;
+            ((Label)f3.Controls["label14"]).Visible = false;
+            ((Label)f3.Controls["label17"]).Visible = false;
+            ((TextBox)f3.Controls["tb_colegiado"]).Visible = false;
+            ((TextBox)f3.Controls["tb_pass"]).Visible = false;
+            ((Label)f3.Controls["label11"]).Visible = false;
+            ((Label)f3.Controls["label10"]).Visible = false;
+            ((TextBox)f3.Controls["tb_confPass"]).Visible = false;
+            ((Label)f3.Controls["label13"]).Visible = false;
+            ((TextBox)f3.Controls["tb_sueldo"]).Visible = false;
+
+            //desabilitar
+            ((TextBox)f3.Controls["tb_dni"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_nombre"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_apellidos"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_direccion"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_pass"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_tel"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_localidad"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_confPass"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_cp"]).Enabled = false;
+            ((ComboBox)f3.Controls["comboBox2"]).Enabled = false;
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -114,6 +132,13 @@ namespace WindowsFormsApplication1
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
+
+            ((ComboBox)f3.Controls["comboBox1"]).Visible = false;
+            ((Label)f3.Controls["label14"]).Visible = false;
+            ((Label)f3.Controls["label17"]).Visible = false;
+            ((TextBox)f3.Controls["tb_colegiado"]).Visible = false;
+            ((Label)f3.Controls["label13"]).Visible = false;
+            ((TextBox)f3.Controls["tb_sueldo"]).Visible = false;
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -123,16 +148,7 @@ namespace WindowsFormsApplication1
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
-            ((TextBox)f3.Controls["textBox1"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox2"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox3"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox4"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox5"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox6"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox7"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox8"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox9"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox10"]).Enabled = false;
+
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -151,16 +167,7 @@ namespace WindowsFormsApplication1
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
-            ((TextBox)f3.Controls["textBox1"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox2"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox3"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox4"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox5"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox6"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox7"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox8"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox9"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox10"]).Enabled = false;
+
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -171,9 +178,6 @@ namespace WindowsFormsApplication1
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
-            ((TextBox)f3.Controls["textBox1"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox2"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox3"]).Enabled = false;
 
         }
 
