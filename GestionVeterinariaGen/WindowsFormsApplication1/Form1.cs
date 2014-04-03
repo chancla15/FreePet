@@ -24,17 +24,24 @@ namespace WindowsFormsApplication1
 
             String User, Pass;
             User = textBox1.Text.ToString();
+<<<<<<< HEAD
             //Pass = GestionVeterinariaGenNHibernate.Utils.Util.GetEncondeMD5(textBox2.Text.ToString());
             Pass = textBox1.Text.ToString();
             if (cen.Login(User, Pass))
             {
+=======
+            Pass = GestionVeterinariaGenNHibernate.Utils.Util.GetEncondeMD5(textBox2.Text.ToString());
+   
+            if (cen.Login(User, Pass)){
+                
+
+>>>>>>> a54b6e04c50ffa9bc7f62517c7b2d5ef4d1ffebf
                 Form1.ActiveForm.Hide(); //ocultamos pantalla login
                 Form2 f2 = new Form2();
+                f2.sesionUsuario = User;
                 f2.Activate();
                 f2.Visible = true; //mostramos la pantalla de gestion
-            }
-            else
-            {
+            }else{
 
                 label1.Text = "Datos incorrectos";
             }
