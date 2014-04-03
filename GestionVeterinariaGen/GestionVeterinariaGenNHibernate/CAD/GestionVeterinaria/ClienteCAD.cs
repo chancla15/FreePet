@@ -255,7 +255,7 @@ public void QuitarMascota (string p_Cliente_OID, System.Collections.Generic.ILis
                 SessionClose ();
         }
 }
-public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN> BuscarClientePorNombre ()
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN> BuscarClientePorNombre (string buequeda)
 {
         System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN> result;
         try
@@ -264,6 +264,7 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
                 //String sql = @"FROM ClienteEN self where FROM ClienteEN  as u where u.Nombre like '%'+:p_nombre+'%'";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ClienteENbuscarClientePorNombreHQL");
+                query.SetParameter ("buequeda", buequeda);
 
                 result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN>();
                 SessionCommit ();
@@ -284,7 +285,7 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 
         return result;
 }
-public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN> BuscarClientePorApellidos ()
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN> BuscarClientePorApellidos (string busqueda)
 {
         System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN> result;
         try
@@ -293,6 +294,7 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
                 //String sql = @"FROM ClienteEN self where FROM ClienteEN  as u where u.Nombre like '%'+:p_apellidos+'%'";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ClienteENbuscarClientePorApellidosHQL");
+                query.SetParameter ("busqueda", busqueda);
 
                 result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN>();
                 SessionCommit ();

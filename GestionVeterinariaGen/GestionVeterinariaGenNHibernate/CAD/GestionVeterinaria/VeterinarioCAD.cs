@@ -214,7 +214,7 @@ public VeterinarioEN DameVetarinarioPorOID (string DNI)
         return veterinarioEN;
 }
 
-public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> BuscarVetPorNombre ()
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> BuscarVetPorNombre (string busqueda)
 {
         System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> result;
         try
@@ -223,6 +223,7 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
                 //String sql = @"FROM VeterinarioEN self where FROM VeterinarioEN as u where u.Nombre like '%'+:p_nombre+'%'";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("VeterinarioENbuscarVetPorNombreHQL");
+                query.SetParameter ("busqueda", busqueda);
 
                 result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN>();
                 SessionCommit ();
@@ -243,7 +244,7 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 
         return result;
 }
-public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> BuscarVetPorApellidos ()
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> BuscarVetPorApellidos (string busqueda)
 {
         System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> result;
         try
@@ -252,6 +253,7 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
                 //String sql = @"FROM VeterinarioEN self where FROM VeterinarioEN  as u where u.Nombre like '%'+:p_apellidos+'%'";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("VeterinarioENbuscarVetPorApellidosHQL");
+                query.SetParameter ("busqueda", busqueda);
 
                 result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN>();
                 SessionCommit ();

@@ -110,13 +110,13 @@ public VeterinarioEN DameVetarinarioPorOID (string DNI)
         return veterinarioEN;
 }
 
-public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> BuscarVetPorNombre ()
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> BuscarVetPorNombre (string busqueda)
 {
-        return _IVeterinarioCAD.BuscarVetPorNombre ();
+        return _IVeterinarioCAD.BuscarVetPorNombre (busqueda);
 }
-public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> BuscarVetPorApellidos ()
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> BuscarVetPorApellidos (string busqueda)
 {
-        return _IVeterinarioCAD.BuscarVetPorApellidos ();
+        return _IVeterinarioCAD.BuscarVetPorApellidos (busqueda);
 }
 }
 }
