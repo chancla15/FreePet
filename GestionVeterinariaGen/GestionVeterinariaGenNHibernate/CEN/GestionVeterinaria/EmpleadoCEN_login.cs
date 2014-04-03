@@ -20,7 +20,7 @@ public bool Login (string p_oid, String pass)
 
         // Write here your custom code...
 
-        System.Console.WriteLine ("Login " + p_oid + " " + pass);
+        //System.Console.WriteLine ("Login " + p_oid + " " + pass);
         try
         {
                 EmpleadoEN en = _IEmpleadoCAD.ReadOIDDefault (p_oid);
