@@ -65,6 +65,8 @@
             this.err_direccion = new System.Windows.Forms.Label();
             this.err_sueldo = new System.Windows.Forms.Label();
             this.err_tel = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.err_add = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -428,6 +430,31 @@
             this.err_tel.Text = "* Datos incorrectos";
             this.err_tel.Visible = false;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(144, 97);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(236, 16);
+            this.label14.TabIndex = 47;
+            this.label14.Text = "Nuevo Empleado: Recepcionista";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
+            // err_add
+            // 
+            this.err_add.AutoSize = true;
+            this.err_add.BackColor = System.Drawing.Color.Transparent;
+            this.err_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.err_add.ForeColor = System.Drawing.Color.Red;
+            this.err_add.Location = new System.Drawing.Point(41, 632);
+            this.err_add.Name = "err_add";
+            this.err_add.Size = new System.Drawing.Size(218, 16);
+            this.err_add.TabIndex = 48;
+            this.err_add.Text = "*Error al Añadir Recepcionista";
+            this.err_add.Visible = false;
+            // 
             // FormAddEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,6 +463,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(438, 702);
             this.ControlBox = false;
+            this.Controls.Add(this.err_add);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.err_tel);
             this.Controls.Add(this.err_sueldo);
             this.Controls.Add(this.err_direccion);
@@ -523,5 +552,7 @@
         private System.Windows.Forms.Label err_direccion;
         private System.Windows.Forms.Label err_sueldo;
         private System.Windows.Forms.Label err_tel;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label err_add;
     }
 }

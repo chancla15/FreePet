@@ -45,12 +45,21 @@ namespace WindowsFormsApplication1
         private void button5_Click(object sender, EventArgs e)
         {
             //añadir Empleados
-            EmpleadoCEN cen = new EmpleadoCEN();
+            RecepcionistaCEN cen = new RecepcionistaCEN();
+
             try{
                 float sueldo = float.Parse(tb_sueldo.Text.ToString());
                 cen.New_(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), tb_provincia.Text.ToString(), tb_cp.Text.ToString(), tb_id.Text.ToString(), sueldo, tb_pass.Text.ToString());
+                MessageBox.Show("Recepcionista añadido Correctamente");
+                FormAddEmpleado.ActiveForm.Close();
+                Form2 f2 = new Form2();
+                f2.Activate();
+                f2.Visible = true;
+
             }catch (Exception ex){
                 System.Console.WriteLine(ex);
+                err_add.Visible = true;
+
             }
         }
 
@@ -85,6 +94,11 @@ namespace WindowsFormsApplication1
         }
 
         private void tb_dni_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
         {
 
         }
