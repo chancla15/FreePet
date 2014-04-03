@@ -12,6 +12,8 @@ namespace WindowsFormsApplication1
 {
     public partial class Form4 : Form
     {
+        public string sesionUsuario;//especide de sesion de usuario
+
         public Form4()
         {
             InitializeComponent();
@@ -48,9 +50,15 @@ namespace WindowsFormsApplication1
         private void button3_Click(object sender, EventArgs e)
         {
             Form4.ActiveForm.Close();
-            Form2 f2 = new Form2();
+            Form2 f2 = new Form2(); 
+            f2.sesionUsuario = sesionUsuario; //sesion usuario
             f2.Activate();
             f2.Visible = true;
+        }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

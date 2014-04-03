@@ -13,7 +13,7 @@ namespace WindowsFormsApplication1
 {
     public partial class Form2 : Form
     {
-        public string sesionUsuario="";//especide de sesion de usuario
+        public string sesionUsuario;//especide de sesion de usuario
 
         public Form2()
         {
@@ -23,7 +23,6 @@ namespace WindowsFormsApplication1
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Add("Rafa");
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -38,6 +37,7 @@ namespace WindowsFormsApplication1
         {
             Form2.ActiveForm.Close();
             FormAddEmpleado f3 = new FormAddEmpleado();
+            f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
             ((TextBox)f3.Controls["textBox1"]).Enabled = false;
@@ -56,6 +56,7 @@ namespace WindowsFormsApplication1
         {
             Form2.ActiveForm.Close();
             Form4 f3 = new Form4();
+            f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
         }
@@ -64,6 +65,7 @@ namespace WindowsFormsApplication1
         {
             Form2.ActiveForm.Close();
             Form4 f3 = new Form4();
+            f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
         }
@@ -72,6 +74,7 @@ namespace WindowsFormsApplication1
         {
             Form2.ActiveForm.Close();
             FormAddEmpleado f3 = new FormAddEmpleado();
+            f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
         }
@@ -80,6 +83,7 @@ namespace WindowsFormsApplication1
         {
             Form2.ActiveForm.Close();
             FormAddEmpleado f3 = new FormAddEmpleado();
+            f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
         }
@@ -88,6 +92,7 @@ namespace WindowsFormsApplication1
         {
             Form2.ActiveForm.Close();
             FormAddEmpleado f3 = new FormAddEmpleado();
+            f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
             ((TextBox)f3.Controls["textBox1"]).Enabled = false;
@@ -106,6 +111,7 @@ namespace WindowsFormsApplication1
         {
             Form2.ActiveForm.Close();
             FormAddEmpleado f3 = new FormAddEmpleado();
+            f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
         }
@@ -114,6 +120,7 @@ namespace WindowsFormsApplication1
         {
             Form2.ActiveForm.Close();
             Form4 f3 = new Form4();
+            f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
             ((TextBox)f3.Controls["textBox1"]).Enabled = false;
@@ -132,6 +139,7 @@ namespace WindowsFormsApplication1
         {
             Form2.ActiveForm.Close();
             FormAddEmpleado f3 = new FormAddEmpleado();
+            f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
         }
@@ -140,6 +148,7 @@ namespace WindowsFormsApplication1
         {
             Form2.ActiveForm.Close();
             FormAddEmpleado f3 = new FormAddEmpleado();
+            f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
             ((TextBox)f3.Controls["textBox1"]).Enabled = false;
@@ -159,6 +168,7 @@ namespace WindowsFormsApplication1
 
             Form2.ActiveForm.Close();
             FormAddEmpleado f3 = new FormAddEmpleado();
+            f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
             ((TextBox)f3.Controls["textBox1"]).Enabled = false;
@@ -172,16 +182,6 @@ namespace WindowsFormsApplication1
 
         }
 
-<<<<<<< HEAD
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-=======
         private void button4_Click(object sender, EventArgs e){
             //borrar el listBox1 
             listBox1.Items.Clear();
@@ -237,7 +237,6 @@ namespace WindowsFormsApplication1
             }
 
             label1.Text = "Bienvenido " + datosUsuario.Nombre;
->>>>>>> a54b6e04c50ffa9bc7f62517c7b2d5ef4d1ffebf
         }
     }
 }

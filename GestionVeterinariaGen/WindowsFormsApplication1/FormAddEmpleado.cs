@@ -14,6 +14,9 @@ namespace WindowsFormsApplication1
 {
     public partial class FormAddEmpleado : Form
     {
+
+        public string sesionUsuario;//especide de sesion de usuario
+
         public FormAddEmpleado()
         {
             InitializeComponent();
@@ -33,6 +36,7 @@ namespace WindowsFormsApplication1
         {
             FormAddEmpleado.ActiveForm.Close();
             Form2 f2 = new Form2();
+            f2.sesionUsuario = sesionUsuario; //sesion usuario
             f2.Activate();
             f2.Visible = true;
         }
@@ -54,6 +58,7 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("Recepcionista Creado Correctamente");
                 FormAddEmpleado.ActiveForm.Close();
                 Form2 f2 = new Form2();
+                f2.sesionUsuario = sesionUsuario; //sesion usuario
                 f2.Activate();
                 f2.Visible = true;
 
@@ -74,6 +79,7 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("Veterinario Creado Correctamente");
                 FormAddEmpleado.ActiveForm.Close();
                 Form2 f2 = new Form2();
+                f2.sesionUsuario = sesionUsuario; //sesion usuario
                 f2.Activate();
                 f2.Visible = true;
 
