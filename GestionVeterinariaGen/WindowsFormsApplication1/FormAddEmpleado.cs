@@ -83,5 +83,10 @@ namespace WindowsFormsApplication1
         {
 
         }
+
+        private void tb_dni_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

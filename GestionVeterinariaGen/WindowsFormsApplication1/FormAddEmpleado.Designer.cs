@@ -70,7 +70,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(147, 651);
+            this.button3.Location = new System.Drawing.Point(165, 651);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 2;
@@ -94,6 +94,7 @@
             this.tb_dni.Name = "tb_dni";
             this.tb_dni.Size = new System.Drawing.Size(163, 20);
             this.tb_dni.TabIndex = 5;
+            this.tb_dni.TextChanged += new System.EventHandler(this.tb_dni_TextChanged);
             // 
             // tb_nombre
             // 
@@ -291,7 +292,7 @@
             // 
             // bt_aceptar
             // 
-            this.bt_aceptar.Location = new System.Drawing.Point(48, 651);
+            this.bt_aceptar.Location = new System.Drawing.Point(66, 651);
             this.bt_aceptar.Name = "bt_aceptar";
             this.bt_aceptar.Size = new System.Drawing.Size(75, 23);
             this.bt_aceptar.TabIndex = 27;
