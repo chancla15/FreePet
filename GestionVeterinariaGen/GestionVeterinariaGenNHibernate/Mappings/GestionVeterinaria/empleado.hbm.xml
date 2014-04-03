@@ -8,8 +8,8 @@
     		<column name="[DNI]"/>
    	</key>
 
-					<property name="IdEmpleado" type="string"> 
-						<column name="[IdEmpleado]"  not-null="true"/>
+					<property name="IdEmpleado" type="integer"> 
+						<column name="[IdEmpleado]"  unique="true" not-null="true"/>
 					</property>
 					<property name="Sueldo" type="float"> 
 						<column name="[sueldo]"  not-null="true"/>

@@ -68,26 +68,56 @@ namespace WindowsFormsApplication1
 
             }
 
-            }else{
+            }
+            else if (comboBox1.SelectedIndex.Equals(0))
+            {
 
-             //añadir Vteterinario
-            VeterinarioCEN cen = new VeterinarioCEN();
+                //añadir Vteterinario
+                VeterinarioCEN cen = new VeterinarioCEN();
 
-            try{
-                float sueldo = float.Parse(tb_sueldo.Text.ToString());
-                cen.New_(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(),comboBox2.Text.ToString(), tb_cp.Text.ToString(), sueldo, tb_pass.Text.ToString(),Convert.ToInt32(tb_colegiado.Text.ToString()));
-                MessageBox.Show("Veterinario Creado Correctamente");
-                FormAddEmpleado.ActiveForm.Close();
-                Form2 f2 = new Form2();
-                f2.sesionUsuario = sesionUsuario; //sesion usuario
-                f2.Activate();
-                f2.Visible = true;
+                try
+                {
+                    float sueldo = float.Parse(tb_sueldo.Text.ToString());
+                    cen.New_(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.Text.ToString(), tb_cp.Text.ToString(), sueldo, tb_pass.Text.ToString(), Convert.ToInt32(tb_colegiado.Text.ToString()));
+                    MessageBox.Show("Veterinario Creado Correctamente");
+                    FormAddEmpleado.ActiveForm.Close();
+                    Form2 f2 = new Form2();
+                    f2.sesionUsuario = sesionUsuario; //sesion usuario
+                    f2.Activate();
+                    f2.Visible = true;
 
-            }catch (Exception ex){
-                System.Console.WriteLine(ex);
-                err_add.Visible = true;
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex);
+                    err_add.Visible = true;
+
+                }
 
             }
+            else
+            {
+
+                ClienteCEN cen=new ClienteCEN();
+
+                try
+                {
+                    
+                    cen.New_(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.Text.ToString(), tb_cp.Text.ToString(),null);
+                    MessageBox.Show("Cliente Creado Correctamente");
+                    FormAddEmpleado.ActiveForm.Close();
+                    Form2 f2 = new Form2();
+                    f2.sesionUsuario = sesionUsuario; //sesion usuario
+                    f2.Activate();
+                    f2.Visible = true;
+
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex);
+                    err_add.Visible = true;
+
+                }
 
             }
 
