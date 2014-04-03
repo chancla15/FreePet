@@ -92,11 +92,11 @@ public System.Collections.Generic.IList<UsuarioEN> DameTodosLosUsuarios (int fir
         list = _IUsuarioCAD.DameTodosLosUsuarios (first, size);
         return list;
 }
-public UsuarioEN DameClientePorDNI (string DNI)
+public UsuarioEN DameUsuarioPorDNI (string DNI)
 {
         UsuarioEN usuarioEN = null;
 
-        usuarioEN = _IUsuarioCAD.DameClientePorDNI (DNI);
+        usuarioEN = _IUsuarioCAD.DameUsuarioPorDNI (DNI);
         return usuarioEN;
 }
 }

@@ -222,7 +222,7 @@ namespace WindowsFormsApplication1
 
             //Sacar los datos del usuario con el uso de la variable global
             UsuarioCEN user_cen = new UsuarioCEN();
-            UsuarioEN datosUsuario = user_cen.DameClientePorDNI(sesionUsuario);
+            UsuarioEN datosUsuario = user_cen.DameUsuarioPorDNI(sesionUsuario);
 
             //Sacar el trabajo que desenpeña el trabajador
             //Es veterinaio? si no lo es será recepcionista

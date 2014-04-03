@@ -22,6 +22,6 @@ System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeter
 System.Collections.Generic.IList<UsuarioEN> DameTodosLosUsuarios (int first, int size);
 
 
-UsuarioEN DameClientePorDNI (string DNI);
+UsuarioEN DameUsuarioPorDNI (string DNI);
 }
 }

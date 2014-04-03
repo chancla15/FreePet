@@ -17,5 +17,8 @@ void Destroy (string DNI);
 
 
 System.Collections.Generic.IList<RecepcionistaEN> DameTodos (int first, int size);
+
+
+RecepcionistaEN BuscarRecepPorOID (string DNI);
 }
 }

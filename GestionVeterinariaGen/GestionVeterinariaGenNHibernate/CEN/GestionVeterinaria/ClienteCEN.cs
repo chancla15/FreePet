@@ -107,5 +107,13 @@ public void QuitarMascota (string p_Cliente_OID, System.Collections.Generic.ILis
 
         _IClienteCAD.QuitarMascota (p_Cliente_OID, p_mascota_OIDs);
 }
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN> BuscarClientePorNombre ()
+{
+        return _IClienteCAD.BuscarClientePorNombre ();
+}
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN> BuscarClientePorApellidos ()
+{
+        return _IClienteCAD.BuscarClientePorApellidos ();
+}
 }
 }

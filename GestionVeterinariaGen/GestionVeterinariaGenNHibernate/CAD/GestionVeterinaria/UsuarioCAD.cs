@@ -205,7 +205,7 @@ public System.Collections.Generic.IList<UsuarioEN> DameTodosLosUsuarios (int fir
         return result;
 }
 
-public UsuarioEN DameClientePorDNI (string DNI)
+public UsuarioEN DameUsuarioPorDNI (string DNI)
 {
         UsuarioEN usuarioEN = null;
 

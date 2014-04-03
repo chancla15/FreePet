@@ -255,5 +255,63 @@ public void QuitarMascota (string p_Cliente_OID, System.Collections.Generic.ILis
                 SessionClose ();
         }
 }
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN> BuscarClientePorNombre ()
+{
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ClienteEN self where FROM ClienteEN  as u where u.Nombre like '%'+:p_nombre+'%'";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ClienteENbuscarClientePorNombreHQL");
+
+                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in ClienteCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN> BuscarClientePorApellidos ()
+{
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ClienteEN self where FROM ClienteEN  as u where u.Nombre like '%'+:p_apellidos+'%'";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ClienteENbuscarClientePorApellidosHQL");
+
+                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in ClienteCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

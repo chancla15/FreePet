@@ -13,7 +13,7 @@ public RecepcionistaEN() : base ()
 
 
 
-public RecepcionistaEN(string dNI, string idEmpleado, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
+public RecepcionistaEN(string dNI, int idEmpleado, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
 {
         this.init (dNI, idEmpleado, sueldo, password, nombre, apellidos, direccion, telefono, localidad, provincia, cp);
 }
@@ -24,7 +24,7 @@ public RecepcionistaEN(RecepcionistaEN recepcionista)
         this.init (recepcionista.DNI, recepcionista.IdEmpleado, recepcionista.Sueldo, recepcionista.Password, recepcionista.Nombre, recepcionista.Apellidos, recepcionista.Direccion, recepcionista.Telefono, recepcionista.Localidad, recepcionista.Provincia, recepcionista.Cp);
 }
 
-private void init (string dNI, string idEmpleado, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
+private void init (string dNI, int idEmpleado, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
 {
         this.DNI = DNI;
 

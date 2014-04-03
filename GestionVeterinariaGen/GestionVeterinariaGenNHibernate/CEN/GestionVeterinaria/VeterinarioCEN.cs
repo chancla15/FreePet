@@ -32,7 +32,7 @@ public IVeterinarioCAD get_IVeterinarioCAD ()
         return this._IVeterinarioCAD;
 }
 
-public string New_ (string p_DNI, string p_nombre, string p_apellidos, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, string p_IdEmpleado, float p_sueldo, String p_password, int p_numColegiado)
+public string New_ (string p_DNI, string p_nombre, string p_apellidos, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, float p_sueldo, String p_password, int p_numColegiado)
 {
         VeterinarioEN veterinarioEN = null;
         string oid;
@@ -55,8 +55,6 @@ public string New_ (string p_DNI, string p_nombre, string p_apellidos, string p_
 
         veterinarioEN.Cp = p_cp;
 
-        veterinarioEN.IdEmpleado = p_IdEmpleado;
-
         veterinarioEN.Sueldo = p_sueldo;
 
         veterinarioEN.Password = Utils.Util.GetEncondeMD5 (p_password);
@@ -69,7 +67,7 @@ public string New_ (string p_DNI, string p_nombre, string p_apellidos, string p_
         return oid;
 }
 
-public void Modify (string p_Veterinario_OID, string p_nombre, string p_apellidos, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, string p_IdEmpleado, float p_sueldo, String p_password, int p_numColegiado)
+public void Modify (string p_Veterinario_OID, string p_nombre, string p_apellidos, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, int p_IdEmpleado, float p_sueldo, String p_password, int p_numColegiado)
 {
         VeterinarioEN veterinarioEN = null;
 
@@ -110,6 +108,15 @@ public VeterinarioEN DameVetarinarioPorOID (string DNI)
 
         veterinarioEN = _IVeterinarioCAD.DameVetarinarioPorOID (DNI);
         return veterinarioEN;
+}
+
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> BuscarVetPorNombre ()
+{
+        return _IVeterinarioCAD.BuscarVetPorNombre ();
+}
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> BuscarVetPorApellidos ()
+{
+        return _IVeterinarioCAD.BuscarVetPorApellidos ();
 }
 }
 }

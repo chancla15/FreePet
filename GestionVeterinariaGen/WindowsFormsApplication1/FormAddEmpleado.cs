@@ -54,7 +54,7 @@ namespace WindowsFormsApplication1
 
             try{
                 float sueldo = float.Parse(tb_sueldo.Text.ToString());
-                cen.New_(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.Text.ToString(), tb_cp.Text.ToString(), tb_id.Text.ToString(), sueldo, tb_pass.Text.ToString());
+                cen.New_(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.Text.ToString(), tb_cp.Text.ToString(), sueldo, tb_pass.Text.ToString());
                 MessageBox.Show("Recepcionista Creado Correctamente");
                 FormAddEmpleado.ActiveForm.Close();
                 Form2 f2 = new Form2();
@@ -75,7 +75,7 @@ namespace WindowsFormsApplication1
 
             try{
                 float sueldo = float.Parse(tb_sueldo.Text.ToString());
-                cen.New_(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(),comboBox2.Text.ToString(), tb_cp.Text.ToString(), tb_id.Text.ToString(), sueldo, tb_pass.Text.ToString(),Convert.ToInt32(tb_colegiado.Text.ToString()));
+                cen.New_(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(),comboBox2.Text.ToString(), tb_cp.Text.ToString(), sueldo, tb_pass.Text.ToString(),Convert.ToInt32(tb_colegiado.Text.ToString()));
                 MessageBox.Show("Veterinario Creado Correctamente");
                 FormAddEmpleado.ActiveForm.Close();
                 Form2 f2 = new Form2();

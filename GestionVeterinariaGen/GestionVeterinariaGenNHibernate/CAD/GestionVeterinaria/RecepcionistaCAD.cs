@@ -183,5 +183,32 @@ public System.Collections.Generic.IList<RecepcionistaEN> DameTodos (int first, i
 
         return result;
 }
+
+public RecepcionistaEN BuscarRecepPorOID (string DNI)
+{
+        RecepcionistaEN recepcionistaEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                recepcionistaEN = (RecepcionistaEN)session.Get (typeof(RecepcionistaEN), DNI);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in RecepcionistaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return recepcionistaEN;
+}
 }
 }

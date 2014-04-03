@@ -11,7 +11,7 @@ public partial class EmpleadoEN                 :                           Gest
  *
  */
 
-private string idEmpleado;
+private int idEmpleado;
 
 /**
  *
@@ -29,7 +29,7 @@ private String password;
 
 
 
-public virtual string IdEmpleado {
+public virtual int IdEmpleado {
         get { return idEmpleado; } set { idEmpleado = value;  }
 }
 
@@ -53,7 +53,7 @@ public EmpleadoEN() : base ()
 
 
 
-public EmpleadoEN(string dNI, string idEmpleado, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
+public EmpleadoEN(string dNI, int idEmpleado, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
 {
         this.init (dNI, idEmpleado, sueldo, password, nombre, apellidos, direccion, telefono, localidad, provincia, cp);
 }
@@ -64,7 +64,7 @@ public EmpleadoEN(EmpleadoEN empleado)
         this.init (empleado.DNI, empleado.IdEmpleado, empleado.Sueldo, empleado.Password, empleado.Nombre, empleado.Apellidos, empleado.Direccion, empleado.Telefono, empleado.Localidad, empleado.Provincia, empleado.Cp);
 }
 
-private void init (string dNI, string idEmpleado, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
+private void init (string dNI, int idEmpleado, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
 {
         this.DNI = DNI;
 

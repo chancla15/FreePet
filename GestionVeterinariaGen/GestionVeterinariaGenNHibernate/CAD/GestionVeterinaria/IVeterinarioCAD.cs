@@ -20,5 +20,11 @@ System.Collections.Generic.IList<VeterinarioEN> DameTodosLosVeterinarios (int fi
 
 
 VeterinarioEN DameVetarinarioPorOID (string DNI);
+
+
+System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> BuscarVetPorNombre ();
+
+
+System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> BuscarVetPorApellidos ();
 }
 }

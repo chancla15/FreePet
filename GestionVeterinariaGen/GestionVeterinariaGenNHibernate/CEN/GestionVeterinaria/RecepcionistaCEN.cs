@@ -32,7 +32,7 @@ public IRecepcionistaCAD get_IRecepcionistaCAD ()
         return this._IRecepcionistaCAD;
 }
 
-public string New_ (string p_DNI, string p_nombre, string p_apellidos, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, string p_IdEmpleado, float p_sueldo, String p_password)
+public string New_ (string p_DNI, string p_nombre, string p_apellidos, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, float p_sueldo, String p_password)
 {
         RecepcionistaEN recepcionistaEN = null;
         string oid;
@@ -55,8 +55,6 @@ public string New_ (string p_DNI, string p_nombre, string p_apellidos, string p_
 
         recepcionistaEN.Cp = p_cp;
 
-        recepcionistaEN.IdEmpleado = p_IdEmpleado;
-
         recepcionistaEN.Sueldo = p_sueldo;
 
         recepcionistaEN.Password = Utils.Util.GetEncondeMD5 (p_password);
@@ -67,7 +65,7 @@ public string New_ (string p_DNI, string p_nombre, string p_apellidos, string p_
         return oid;
 }
 
-public void Modify (string p_Recepcionista_OID, string p_nombre, string p_apellidos, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, string p_IdEmpleado, float p_sueldo, String p_password)
+public void Modify (string p_Recepcionista_OID, string p_nombre, string p_apellidos, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, int p_IdEmpleado, float p_sueldo, String p_password)
 {
         RecepcionistaEN recepcionistaEN = null;
 
@@ -100,6 +98,13 @@ public System.Collections.Generic.IList<RecepcionistaEN> DameTodos (int first, i
 
         list = _IRecepcionistaCAD.DameTodos (first, size);
         return list;
+}
+public RecepcionistaEN BuscarRecepPorOID (string DNI)
+{
+        RecepcionistaEN recepcionistaEN = null;
+
+        recepcionistaEN = _IRecepcionistaCAD.BuscarRecepPorOID (DNI);
+        return recepcionistaEN;
 }
 }
 }
