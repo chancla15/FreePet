@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using GestionVeterinariaGenNHibernate.CEN.GestionVeterinaria;
 using GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria;
 using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
+using WindowsFormsApplication1.Properties;
 
 namespace WindowsFormsApplication1
 {
@@ -139,6 +140,20 @@ namespace WindowsFormsApplication1
         private void Form4_Load(object sender, EventArgs e)
         {
 
+            Form4 f4 = new Form4();
+
+            if (M_clienteDNI.Visible.Equals(false))
+            {
+
+                f4.Size = new System.Drawing.Size(884, 582);
+                //f4.BackgroundImage = //WindowsFormsApplication1.Properties.Resources.fondo_mascota;
+            }
+            else
+            {
+
+                f4.Size = new System.Drawing.Size(444, 582);
+
+            }
         }
 
         private void m_fecha_nac_ValueChanged(object sender, EventArgs e)

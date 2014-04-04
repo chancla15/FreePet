@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using GestionVeterinariaGenNHibernate.CEN.GestionVeterinaria;
 using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
 using GestionVeterinariaGenNHibernate.CAD.GestionVeterinaria;
-
+///////
 namespace WindowsFormsApplication1
 {
     public partial class FormAddEmpleado : Form
