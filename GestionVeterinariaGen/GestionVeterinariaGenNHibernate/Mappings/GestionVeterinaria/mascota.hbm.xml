@@ -78,5 +78,6 @@
 		  
 		  <query name="MascotaENReadAllHQL">from MascotaEN</query>
 		  <query name="MascotaENdameMascotaPorNombreHQL"><![CDATA[FROM MascotaEN m WHERE m.Nombre like '%'+:busqueda+'%' ]]></query>
+		  <query name="MascotaENcontadorMascotasHQL"><![CDATA[FROM MascotaEN]]></query>
 		</hibernate-mapping>
 	

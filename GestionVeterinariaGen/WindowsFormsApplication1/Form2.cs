@@ -97,11 +97,16 @@ namespace WindowsFormsApplication1
 
         private void button9_Click(object sender, EventArgs e)
         {
+            
             Form2.ActiveForm.Close();
             FormAddEmpleado f3 = new FormAddEmpleado();
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
+
+            System.Console.WriteLine(listBox1.SelectedItem.ToString());
+                
+
             ((ComboBox)f3.Controls["comboBox1"]).Visible = false;
             ((Label)f3.Controls["label14"]).Visible = false;
             ((Label)f3.Controls["label17"]).Visible = false;

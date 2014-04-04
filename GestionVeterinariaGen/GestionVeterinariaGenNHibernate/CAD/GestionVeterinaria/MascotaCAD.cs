@@ -246,5 +246,34 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 
         return result;
 }
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> ContadorMascotas ()
+{
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM MascotaEN self where FROM MascotaEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MascotaENcontadorMascotasHQL");
+
+                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in MascotaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

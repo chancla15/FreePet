@@ -23,5 +23,8 @@ System.Collections.Generic.IList<MascotaEN> DameTodasLasMascotas (int first, int
 
 
 System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> DameMascotaPorNombre (string busqueda);
+
+
+System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> ContadorMascotas ();
 }
 }
