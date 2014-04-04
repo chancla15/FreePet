@@ -15,9 +15,16 @@ namespace WindowsFormsApplication1
     public partial class FormAddEmpleado : Form
     {
 
-        public string sesionUsuario;//especide de sesion de usuario
+        //especide de sesion de usuario
+        public string sesionUsuario;
+        
+        //Sesion para eliminar
         public bool eliminarUsuario;
         public string dniEliminarUsuario;
+
+        //Sesion para modificar
+        public bool modificarUsuario;
+        public string dniModificarUsuario;
 
         public FormAddEmpleado()
         {
@@ -110,15 +117,12 @@ namespace WindowsFormsApplication1
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
 
-            if (eliminarUsuario == true)
-            {
-                System.Console.WriteLine(dniEliminarUsuario);
+            if (eliminarUsuario == true){
+                mostrarDatos(dniEliminarUsuario);
+            }else if (modificarUsuario == true){
+                mostrarDatos(dniModificarUsuario);
             }
-            else
-            {
-                MessageBox.Show("Pedazo de cerdo, a quien pretendes eliminar si no has seleccionado a nadie?");
-                
-            }
+ 
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -187,6 +191,24 @@ namespace WindowsFormsApplication1
                 tb_colegiado.Visible = true;
 
             }
+        }
+
+        private void mostrarDatos(String dni){
+            EmpleadoCEN cen = new EmpleadoCEN();
+            EmpleadoEN en = cen.DameEmpleadoPorOID(dni);
+
+            tb_dni.Text = en.DNI;
+            tb_nombre.Text = en.Nombre;
+            tb_pass.Text = en.Password;
+            tb_confPass.Text = en.Password;
+            tb_sueldo.Text = en.Sueldo.ToString();
+            tb_localidad.Text = en.Localidad;
+            tb_tel.Text = en.Telefono;
+            tb_apellidos.Text = en.Apellidos;
+            tb_direccion.Text = en.Direccion ;
+            tb_cp.Text = en.Cp;
+            comboBox2.SelectedItem = en.Provincia;
+            tb_colegiado.Visible = false;
         }
     }
 }
