@@ -566,5 +566,11 @@ namespace WindowsFormsApplication1
 
             label1.Text = "Bienvenido " + datosUsuario.Nombre;
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            //foto
+            pictureBox1.Image = Properties.Resources.user1;
+        }
     }
 }
