@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using GestionVeterinariaGenNHibernate.CEN.GestionVeterinaria;
 using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
+using System.Collections;
 
 namespace WindowsFormsApplication1
 {
@@ -192,18 +193,45 @@ namespace WindowsFormsApplication1
             listBox2.Items.Clear();
             listBox3.Items.Clear();
 
-            String buscar = textBox1.Text.ToString();
-
-            listBox1.Items.Add("Adolfito hitler");
-            listBox1.Items.Add("JoseMari Ansar");
-            listBox1.Items.Add("ZetaParo");
-            listBox1.Items.Add("Maria Rajao");
+            String buscar = textBox1.Text.ToString();//String a buscar
 
             switch (comboBox1.SelectedIndex)
             {
 
                 case 0://CLIENTE
                     ClienteCEN cen_c = new ClienteCEN();
+                    /** 
+                     * BUSQUEDA POR NOMBRE Y APELLIDOS DE CLIENTE
+                     * **/
+                    IList<ClienteEN> en_cli_nombre = cen_c.BuscarClientePorNombre(buscar);
+                    IList<ClienteEN> en_cli_apellido = cen_c.BuscarClientePorApellidos(buscar);
+
+                    ArrayList dni = new ArrayList(); //para que no aparezca personas repetidas
+                    bool dni_repetido = false;
+
+                    if (en_cli_nombre.Count == 0 && en_cli_apellido.Count == 0){
+                    
+                        listBox1.Items.Add("La búsqueda no ha producido ningún resultado");
+                    
+                    }else{
+
+                        for (int x = 0; x < en_cli_nombre.Count; x++){
+                            listBox1.Items.Add(en_cli_nombre[x].Nombre + " " + en_cli_nombre[x].Apellidos);
+                            dni.Add(en_cli_nombre[x].DNI);//metemos el dni en el array auxiliar
+                        }
+                        for (int i = 0; i < en_cli_apellido.Count; i++){
+                            
+                            for (int z = 0; z < dni.Count; z++){
+                                if (en_cli_apellido[i].DNI.Equals(dni[z].ToString()))//Si el dni esta repetido ya no lo ponemos en la busqueda
+                                    dni_repetido = true;
+                            }
+                            
+                            if(!dni_repetido)
+                                listBox1.Items.Add(en_cli_apellido[i].Nombre + " " + en_cli_apellido[i].Apellidos);
+
+                            dni_repetido = false;
+                        }
+                    }
 
                     tabControl1.SelectedTab = tabPage1;
                     break;
