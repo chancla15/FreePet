@@ -11,6 +11,7 @@ namespace WindowsFormsApplication1
 {
     public partial class Form3 : Form
     {
+        public string sesionUsuario;//especide de sesion de usuario
         public Form3()
         {
             InitializeComponent();
@@ -35,6 +36,11 @@ namespace WindowsFormsApplication1
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
         {
 
         }

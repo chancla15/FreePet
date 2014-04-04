@@ -16,6 +16,8 @@ namespace WindowsFormsApplication1
     public partial class Form4 : Form
     {
         public string sesionUsuario;//especide de sesion de usuario
+        public bool eliminarMascota;
+        public string dniEliminarMascota;
 
         public Form4()
         {
@@ -80,7 +82,7 @@ namespace WindowsFormsApplication1
            try
                 {
 
-                cen.New_(id, m_nombre.Text.ToString(), m_raza.Text.ToString(), sexo, Convert.ToInt32(m_peso.Text.ToString()), m_especie.Text.ToString(), Convert.ToDateTime(m_fecha_nac.Text.ToString()), tam, clienteDNI, m_color.Text.ToString(), chip, "");
+                cen.New_(id, m_nombre.Text.ToString(), m_raza.Text.ToString(), sexo, Convert.ToInt32(m_peso.Text.ToString()), m_especie.Text.ToString(), Convert.ToDateTime(m_fecha_nac.Value.Date.ToString()), tam, clienteDNI, m_color.Text.ToString(), chip, "");
                 MessageBox.Show("Mascota añadida Correctamente");
                 FormAddEmpleado.ActiveForm.Close();
                 Form2 f2 = new Form2();
@@ -158,6 +160,16 @@ namespace WindowsFormsApplication1
             }
 
             comboBox2.SelectedIndex = 0;
+
+            if (eliminarMascota == true)
+            {
+                System.Console.WriteLine(dniEliminarMascota);
+            }
+            else
+            {
+                MessageBox.Show("Debes Seleccionar Una Mascota");
+
+            }
 
         }
 

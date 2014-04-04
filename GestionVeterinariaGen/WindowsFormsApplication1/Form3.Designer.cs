@@ -138,7 +138,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(42, 152);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 16);
+            this.label2.Size = new System.Drawing.Size(38, 16);
             this.label2.TabIndex = 13;
             this.label2.Text = "DNI:";
             // 
@@ -149,7 +149,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(42, 185);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 16);
+            this.label3.Size = new System.Drawing.Size(67, 16);
             this.label3.TabIndex = 14;
             this.label3.Text = "Nombre:";
             // 
@@ -160,7 +160,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(42, 217);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 16);
+            this.label4.Size = new System.Drawing.Size(78, 16);
             this.label4.TabIndex = 15;
             this.label4.Text = "Apellidos:";
             // 
@@ -172,7 +172,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(42, 323);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 16);
+            this.label5.Size = new System.Drawing.Size(78, 16);
             this.label5.TabIndex = 16;
             this.label5.Text = "Dirección:";
             // 
@@ -184,7 +184,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(42, 364);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 16);
+            this.label6.Size = new System.Drawing.Size(74, 16);
             this.label6.TabIndex = 17;
             this.label6.Text = "Teléfono:";
             // 
@@ -196,7 +196,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(42, 399);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 16);
+            this.label7.Size = new System.Drawing.Size(81, 16);
             this.label7.TabIndex = 18;
             this.label7.Text = "Localidad:";
             // 
@@ -208,7 +208,7 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(42, 435);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(79, 16);
+            this.label8.Size = new System.Drawing.Size(77, 16);
             this.label8.TabIndex = 19;
             this.label8.Text = "Provincia:";
             // 
@@ -220,7 +220,7 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(42, 465);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(36, 16);
+            this.label9.Size = new System.Drawing.Size(32, 16);
             this.label9.TabIndex = 20;
             this.label9.Text = "CP:";
             // 
@@ -232,7 +232,7 @@
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(42, 284);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(134, 16);
+            this.label10.Size = new System.Drawing.Size(130, 16);
             this.label10.TabIndex = 24;
             this.label10.Text = "Repita Password:";
             // 
@@ -244,7 +244,7 @@
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(42, 252);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(82, 16);
+            this.label11.Size = new System.Drawing.Size(80, 16);
             this.label11.TabIndex = 23;
             this.label11.Text = "Password:";
             // 
@@ -320,6 +320,7 @@
             this.Name = "Form3";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
