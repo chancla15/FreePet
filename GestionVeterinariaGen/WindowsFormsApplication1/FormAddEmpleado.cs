@@ -48,7 +48,9 @@ namespace WindowsFormsApplication1
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedIndex.Equals(1)){
+
+            if (comboBox1.SelectedIndex.Equals(1))
+            {
             //añadir Recepcionista
             RecepcionistaCEN cen = new RecepcionistaCEN();
 
@@ -64,12 +66,14 @@ namespace WindowsFormsApplication1
 
             }catch (Exception ex){
                 System.Console.WriteLine(ex);
+                err_add.Text = "*Error al Añadir Recepcionista";
                 err_add.Visible = true;
 
             }
 
             }
-            else if (comboBox1.SelectedIndex.Equals(0))
+
+            if (comboBox1.SelectedIndex.Equals(0))
             {
 
                 //añadir Vteterinario
@@ -90,31 +94,7 @@ namespace WindowsFormsApplication1
                 catch (Exception ex)
                 {
                     System.Console.WriteLine(ex);
-                    err_add.Visible = true;
-
-                }
-
-            }
-            else
-            {
-
-                ClienteCEN cen=new ClienteCEN();
-
-                try
-                {
-                    
-                    cen.New_(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.Text.ToString(), tb_cp.Text.ToString(),null);
-                    MessageBox.Show("Cliente Creado Correctamente");
-                    FormAddEmpleado.ActiveForm.Close();
-                    Form2 f2 = new Form2();
-                    f2.sesionUsuario = sesionUsuario; //sesion usuario
-                    f2.Activate();
-                    f2.Visible = true;
-
-                }
-                catch (Exception ex)
-                {
-                    System.Console.WriteLine(ex);
+                    err_add.Text = "*Error al Añadir Veterinario";
                     err_add.Visible = true;
 
                 }
