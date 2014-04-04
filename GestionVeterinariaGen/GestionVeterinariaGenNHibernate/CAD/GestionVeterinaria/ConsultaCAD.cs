@@ -210,5 +210,36 @@ public System.Collections.Generic.IList<ConsultaEN> DameTodasLasConsultas (int f
 
         return result;
 }
+
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> BuscarConsultaPorFecha (Nullable<DateTime> fecha)
+{
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ConsultaEN self where FROM ConsultaEN c WHERE c.Fecha=:fecha";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ConsultaENbuscarConsultaPorFechaHQL");
+                query.SetParameter ("fecha", fecha);
+
+                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in ConsultaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

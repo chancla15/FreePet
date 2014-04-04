@@ -75,6 +75,7 @@ public static void Create (string databaseArg, string userArg, string passArg)
 
 public static void InitializeData ()
 {
+<<<<<<< HEAD
     /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
     try
     {
@@ -103,6 +104,28 @@ public static void InitializeData ()
         ClienteCEN.New_("26837961M", "Carmina", "Losa Mayo", "C/ Santa María 45", "970865212", "Palanquetas", "Alicante", "12353", null);
         ClienteCEN.New_("10275637N", "Rafael", "Navas Ochoa", "C/ San Jose 14", "917260283", "Crevillent", "Alicante", "03330", null);
         ClienteCEN.New_("06275617O", "David", "Adan Pi", "Av. del Calvario 87", "916672782", "Ofra", "Alicante", "12728", null);
+=======
+        /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
+        try
+        {
+                IUsuarioCAD _IUsuarioCAD = new UsuarioCAD ();
+                UsuarioEN Usuario1EN;
+                UsuarioCEN UsuarioCEN = new UsuarioCEN (_IUsuarioCAD);
+                //empleado. cliente. veterinario, recepcionista
+                #region Usuario
+                //Usuario 1
+                Usuario1EN = new UsuarioEN ();
+                Usuario1EN.DNI = "1";
+                Usuario1EN.Nombre = "1";
+                Usuario1EN.Apellidos = "1";
+                Usuario1EN.Direccion = "1";
+                Usuario1EN.Telefono = "1";
+                Usuario1EN.Cp = "1";
+                Usuario1EN.Localidad = "1";
+                Usuario1EN.Provincia = "1";
+                UsuarioCEN.New_ (Usuario1EN.DNI, Usuario1EN.Nombre, Usuario1EN.Apellidos, Usuario1EN.Direccion, Usuario1EN.Telefono, Usuario1EN.Localidad, Usuario1EN.Provincia, Usuario1EN.Cp);
+                #endregion
+>>>>>>> f47e4a363ba1ef15217074b56867914bc8c4a86f
 
 
         #endregion
@@ -113,11 +136,16 @@ public static void InitializeData ()
         //VeterinarioCEN.New_("4", "Juan", "Aznar Padilla", "Av. de la libertad 50", "966664444", "Adsubia", "Alicante", "04140", 1300, "c4ca4238a0b923820dcc509a6f75849b", 3);
         #endregion
 
+<<<<<<< HEAD
         #region Recepcionista
         //RecepcionistaCEN.New_("1", "Juan", "Fernandez Gonzalez", "Plaza de España 1", "966661111","Albir", "Alicante", "01110", 1000, "c4ca4238a0b923820dcc509a6f75849b");
         #endregion
         /*PROTECTED REGION END*/
     }
+=======
+                /*PROTECTED REGION END*/
+        }
+>>>>>>> f47e4a363ba1ef15217074b56867914bc8c4a86f
         catch (Exception ex)
         {
                 System.Console.WriteLine (ex.InnerException);
