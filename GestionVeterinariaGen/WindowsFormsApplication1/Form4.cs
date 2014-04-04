@@ -161,16 +161,6 @@ namespace WindowsFormsApplication1
 
             comboBox2.SelectedIndex = 0;
 
-            if (eliminarMascota == true)
-            {
-                System.Console.WriteLine(dniEliminarMascota);
-            }
-            else
-            {
-                MessageBox.Show("Debes Seleccionar Una Mascota");
-
-            }
-
         }
 
         private void m_fecha_nac_ValueChanged(object sender, EventArgs e)

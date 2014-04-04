@@ -164,21 +164,30 @@ namespace WindowsFormsApplication1
 
         private void button7_Click(object sender, EventArgs e)//eliminar mascota
         {
+
+            string empleadoborrar="";
+            bool eliminarMascota = false;
+
+            if (listBox3.SelectedIndex >= 0){
+            empleadoborrar = listBox3.SelectedItem.ToString();
+
+            empleadoborrar = empleadoborrar.Substring(0, 9);
+
+            eliminarMascota = true;
+
+            }
+
             Form2.ActiveForm.Close();
             Form4 f4 = new Form4();
             f4.sesionUsuario = sesionUsuario;//sesion usuario
             f4.Activate();
             f4.Visible = true;
 
-            /*if (eliminarMascota == true)
-            {
-                System.Console.WriteLine(dniEliminarMascota);
-            }
-            else
+            if (eliminarMascota != true)
             {
                 MessageBox.Show("Selecciona Una Mascota");
 
-            }*/
+            }
 
         }
 
