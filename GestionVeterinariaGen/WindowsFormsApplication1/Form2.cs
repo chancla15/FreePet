@@ -37,7 +37,7 @@ namespace WindowsFormsApplication1
         private void label3_Click(object sender, EventArgs e)
         {
             Form2.ActiveForm.Close();
-            FormPerfil f3 = new FormPerfil();
+            FormAddEmpleado f3 = new FormAddEmpleado();
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
@@ -184,10 +184,13 @@ namespace WindowsFormsApplication1
         private void button5_Click(object sender, EventArgs e) /** ELIMINAR EMPLEADO**/
         {
 
-            string empleadoborrar;
-            if (listBox1.SelectedIndex.Equals(null))
+            string empleadoborrar="";
+            System.Console.WriteLine(listBox3.SelectedIndex.ToString());
+            
+            
+            if (listBox3.SelectedIndex>=0)
             {
-                empleadoborrar = listBox1.SelectedItem.ToString();
+                empleadoborrar = listBox3.SelectedItem.ToString();
 
                 empleadoborrar = empleadoborrar.Substring(0, 9);
 
@@ -199,7 +202,7 @@ namespace WindowsFormsApplication1
             FormAddEmpleado f3 = new FormAddEmpleado();
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.eliminarUsuario = true;
-            f3.dniEliminarUsuario = "DNI CON SUBSTRING";
+            f3.dniEliminarUsuario = empleadoborrar;
             f3.Activate();
             f3.Visible = true;
 

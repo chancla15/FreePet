@@ -110,7 +110,7 @@ namespace WindowsFormsApplication1
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
             if (eliminarUsuario==true){
-                System.Console.WriteLine("PEDAZO DE CERDO -->"+dniEliminarUsuario);
+                System.Console.WriteLine(dniEliminarUsuario);
             }
         }
 
