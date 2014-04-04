@@ -47,8 +47,9 @@ namespace WindowsFormsApplication1
             ((TextBox)f3.Controls["tb_sueldo"]).Enabled = false;
             ((TextBox)f3.Controls["tb_dni"]).Enabled = false;
             ((TextBox)f3.Controls["tb_tel"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_provincia"]).Enabled = false;
+            ((ComboBox)f3.Controls["comboBox2"]).Enabled = false;
             ((TextBox)f3.Controls["tb_cp"]).Enabled = false;
+            ((Button)f3.Controls["bt_modificar"]).Visible = false;
 
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
