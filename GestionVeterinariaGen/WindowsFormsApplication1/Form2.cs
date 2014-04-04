@@ -561,7 +561,12 @@ namespace WindowsFormsApplication1
                 label5.Visible = false;
                 tabPage3.Parent = null;
                 comboBox1.Items.RemoveAt(2);
+                pictureBox2.Visible = true;
 
+            }
+            else
+            {
+                pictureBox1.Visible = true;
             }
 
             label1.Text = "Bienvenido " + datosUsuario.Nombre;
@@ -569,8 +574,7 @@ namespace WindowsFormsApplication1
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            //foto
-            pictureBox1.Image = Properties.Resources.user1;
+           
         }
     }
 }
