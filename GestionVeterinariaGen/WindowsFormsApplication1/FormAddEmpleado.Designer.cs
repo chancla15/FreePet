@@ -70,6 +70,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.tb_colegiado = new System.Windows.Forms.TextBox();
             this.bt_despedir = new System.Windows.Forms.Button();
+            this.bt_modificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -555,6 +556,16 @@
             this.bt_despedir.UseVisualStyleBackColor = true;
             this.bt_despedir.Click += new System.EventHandler(this.bt_despedir_Click);
             // 
+            // bt_modificar
+            // 
+            this.bt_modificar.Location = new System.Drawing.Point(231, 539);
+            this.bt_modificar.Name = "bt_modificar";
+            this.bt_modificar.Size = new System.Drawing.Size(75, 23);
+            this.bt_modificar.TabIndex = 57;
+            this.bt_modificar.Text = "MODIFICAR";
+            this.bt_modificar.UseVisualStyleBackColor = true;
+            this.bt_modificar.Click += new System.EventHandler(this.bt_modificar_Click);
+            // 
             // FormAddEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -562,6 +573,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(442, 580);
             this.ControlBox = false;
+            this.Controls.Add(this.bt_modificar);
             this.Controls.Add(this.bt_despedir);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
@@ -659,5 +671,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox tb_colegiado;
         private System.Windows.Forms.Button bt_despedir;
+        private System.Windows.Forms.Button bt_modificar;
     }
 }

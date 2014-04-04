@@ -118,9 +118,12 @@ namespace WindowsFormsApplication1
             comboBox2.SelectedIndex = 0;
             bt_despedir.Visible = false;//por defecto oculto.
             if (eliminarUsuario == true){
+                bt_despedir.Visible = true;
                 mostrarDatos(dniEliminarUsuario);
             }else if (modificarUsuario == true){
                 mostrarDatos(dniModificarUsuario);
+                bt_aceptar.Visible = false;//ocultamos el boton de despedir
+               
             }
  
         }
@@ -213,7 +216,6 @@ namespace WindowsFormsApplication1
             comboBox1.Visible = false;
             label17.Visible = false;
             bt_aceptar.Visible = false;
-            bt_despedir.Visible = true;
         }
 
         private void bt_despedir_Click(object sender, EventArgs e)
@@ -222,6 +224,13 @@ namespace WindowsFormsApplication1
 
             if ( MessageBox.Show("Seguro que desea despedir a este empleado","Despedir usuario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK )
             cen.Destroy(dniEliminarUsuario);
+        }
+
+        private void bt_modificar_Click(object sender, EventArgs e)
+        {   
+            EmpleadoCEN cen2 = new EmpleadoCEN();
+            
+            cen2.Modify(tb_dni.Text.ToString(),tb_nombre.Text.ToString(),tb_apellidos.Text.ToString(),tb_direccion.Text.ToString(),tb_direccion.Text.ToString(),tb_localidad.Text.ToString(),comboBox2.SelectedItem.ToString(),tb_cp.Text.ToString(), Convert.ToInt32(tb_sueldo.Text.ToString()), tb_pass.Text.ToString()); 
         }
     }
 }

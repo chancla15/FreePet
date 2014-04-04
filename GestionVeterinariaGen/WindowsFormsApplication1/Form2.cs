@@ -75,7 +75,7 @@ namespace WindowsFormsApplication1
 
             if (modMascota != true)
             {
-                MessageBox.Show("Selecciona Una Mascota");
+                MessageBox.Show("Selecciona Una Mascota","",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
 
             }
             else
@@ -104,21 +104,17 @@ namespace WindowsFormsApplication1
             string empleadoMod = "";
             bool modEmpleado = false;
 
-            if (listBox1.SelectedIndex >= 0)
+            if (listBox3.SelectedIndex >= 0)
             {
-
-                empleadoMod = listBox1.SelectedItem.ToString();
-
+                empleadoMod = listBox3.SelectedItem.ToString();
                 empleadoMod = empleadoMod.Substring(0, 9);
-
                 modEmpleado = true;
-
             }
 
 
             if (modEmpleado != true)
             {
-                MessageBox.Show("Selecciona Un Empleado");
+                MessageBox.Show("Selecciona Un Empleado", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
             else
@@ -127,6 +123,8 @@ namespace WindowsFormsApplication1
                 Form2.ActiveForm.Close();
                 FormAddEmpleado f3 = new FormAddEmpleado();
                 f3.sesionUsuario = sesionUsuario;//sesion usuario
+                f3.modificarUsuario = true;
+                f3.dniModificarUsuario = empleadoMod;
                 f3.Activate();
                 f3.Visible = true;
 
@@ -172,7 +170,7 @@ namespace WindowsFormsApplication1
 
             if (eliCliente != true)
             {
-                MessageBox.Show("Selecciona Un Cliente");
+                MessageBox.Show("Selecciona Un Cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
             else
@@ -234,7 +232,7 @@ namespace WindowsFormsApplication1
 
             if (clienteMod != true)
             {
-                MessageBox.Show("Selecciona Una Cliente");
+                MessageBox.Show("Selecciona Una Cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
             else
@@ -274,7 +272,7 @@ namespace WindowsFormsApplication1
 
             if (eliminarMascota != true)
             {
-                MessageBox.Show("Selecciona Una Mascota");
+                MessageBox.Show("Selecciona Una Mascota", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
             else
@@ -331,7 +329,7 @@ namespace WindowsFormsApplication1
 
             if (eliminar != true)
             {
-                MessageBox.Show("Selecciona Un Empleado");
+                MessageBox.Show("Selecciona Un Empleado", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
             else
