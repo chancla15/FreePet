@@ -72,7 +72,7 @@
             // 
             // bt_eliminar
             // 
-            this.bt_eliminar.Location = new System.Drawing.Point(231, 534);
+            this.bt_eliminar.Location = new System.Drawing.Point(147, 534);
             this.bt_eliminar.Name = "bt_eliminar";
             this.bt_eliminar.Size = new System.Drawing.Size(75, 23);
             this.bt_eliminar.TabIndex = 1;
@@ -469,6 +469,7 @@
             this.bt_aceptar.TabIndex = 102;
             this.bt_aceptar.Text = "ACEPTAR";
             this.bt_aceptar.UseVisualStyleBackColor = true;
+            this.bt_aceptar.Click += new System.EventHandler(this.bt_aceptar_Click);
             // 
             // Form4
             // 

@@ -434,22 +434,21 @@ namespace WindowsFormsApplication1
                     tabControl1.SelectedTab = tabPage1;
                     break;
                 case 1://MASCOTA
-                    MascotaCEN cen_m = new MascotaCEN();
+                                        MascotaCEN cen_m = new MascotaCEN();
 
                     IList<MascotaEN> en_mas_nombre = cen_m.DameMascotaPorNombre(buscar);
 
                     if (en_mas_nombre.Count == 0)
                     {
 
-                        listBox1.Items.Add("La búsqueda no ha producido ningún resultado");
+                        listBox2.Items.Add("La búsqueda no ha producido ningún resultado");
 
                     }
                     else
                     {
-
                         for (int x = 0; x < en_mas_nombre.Count; x++)
                         {
-                            listBox1.Items.Add(en_mas_nombre[x].Nombre + " - " + en_mas_nombre[x].Raza + " " + en_mas_nombre[x].Cliente);
+                            listBox2.Items.Add(en_mas_nombre[x].Nombre + " - DNI del Dueño: " + en_mas_nombre[x].Cliente.DNI);
                         }
 
                     }
