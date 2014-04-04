@@ -28,9 +28,6 @@ namespace WindowsFormsApplication1
 
             bool chip=false;
 
-            try
-            {
-
                 if(comboBox1.SelectedIndex.Equals(0)){
                     chip=true;
                 }
@@ -69,17 +66,22 @@ namespace WindowsFormsApplication1
                     tam=TamanyoMascotaEnum.XL;
                 }
 
-                /**
-                 * HACER AUTOINCREMENTADO
-                 */
                 MascotaCEN cen_m = new MascotaCEN();
                 IList<MascotaEN> en_m = cen_m.ContadorMascotas();
+
+                string clienteDNI=comboBox2.SelectedItem.ToString();
+                
+                clienteDNI = clienteDNI.Substring(0, 9);
+
 
                 int num_id = (en_m.Count + 1);
                 String id = num_id+"";
 
-                cen.New_(id, m_nombre.Text.ToString(), m_raza.Text.ToString(), sexo, Convert.ToInt32(m_peso.Text.ToString()), m_especie.Text.ToString(), Convert.ToDateTime(m_fecha_nac.Text.ToString()), tam, M_clienteDNI.Text.ToString(), m_color.Text.ToString(), chip, "");
-                MessageBox.Show("Mascota añadido Correctamente");
+           try
+                {
+
+                cen.New_(id, m_nombre.Text.ToString(), m_raza.Text.ToString(), sexo, Convert.ToInt32(m_peso.Text.ToString()), m_especie.Text.ToString(), Convert.ToDateTime(m_fecha_nac.Text.ToString()), tam, clienteDNI, m_color.Text.ToString(), chip, "");
+                MessageBox.Show("Mascota añadida Correctamente");
                 FormAddEmpleado.ActiveForm.Close();
                 Form2 f2 = new Form2();
                 f2.Activate();
@@ -93,14 +95,18 @@ namespace WindowsFormsApplication1
 
             }
 
-            if (m_sexo.Enabled.Equals(false))
+            /*if (m_sexo.Enabled.Equals(false))
             {
 
                 ClienteCEN cenCliente = new ClienteCEN();
 
+                IList<MascotaEN> mascota;
+
+
+
                 try
                 {
-
+                    
                     cenCliente.New_(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.Text.ToString(), tb_cp.Text.ToString(), null);
                     MessageBox.Show("Cliente Creado Correctamente");
                     FormAddEmpleado.ActiveForm.Close();
@@ -120,7 +126,7 @@ namespace WindowsFormsApplication1
 
 
 
-            }
+            }*/
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
@@ -139,21 +145,20 @@ namespace WindowsFormsApplication1
 
         private void Form4_Load(object sender, EventArgs e)
         {
+            m_sexo.SelectedIndex = 0;
+            comboBox1.SelectedIndex = 0;
+            comboBox3.SelectedIndex = 0;
 
-            Form4 f4 = new Form4();
+            ClienteCEN cen_c = new ClienteCEN();
+            IList<ClienteEN> en_cli_nombre = cen_c.BuscarClientePorNombre("");
+            
+            for (int c=0;c<en_cli_nombre.Count;c++){
 
-            if (M_clienteDNI.Visible.Equals(false))
-            {
-
-                f4.Size = new System.Drawing.Size(884, 582);
-                //f4.BackgroundImage = //WindowsFormsApplication1.Properties.Resources.fondo_mascota;
+                comboBox2.Items.Add(en_cli_nombre[c].DNI + " - " + en_cli_nombre[c].Nombre + " " + en_cli_nombre[c].Apellidos);
             }
-            else
-            {
 
-                f4.Size = new System.Drawing.Size(444, 582);
+            comboBox2.SelectedIndex = 0;
 
-            }
         }
 
         private void m_fecha_nac_ValueChanged(object sender, EventArgs e)
