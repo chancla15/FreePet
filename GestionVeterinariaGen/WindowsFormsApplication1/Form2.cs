@@ -240,9 +240,43 @@ namespace WindowsFormsApplication1
 
                     tabControl1.SelectedTab = tabPage2;
                     break;
-                case 2://VETERINARIO
-                    EmpleadoCEN cen_v = new EmpleadoCEN();
+                case 2://Veterinarios solo por ahora 
+                    VeterinarioCEN vet_v = new VeterinarioCEN();
+                    IList<VeterinarioEN> en_vet_nombre = vet_v.BuscarVetPorNombre(buscar);
+                    IList<VeterinarioEN> en_vet_apellido = vet_v.BuscarVetPorApellidos(buscar);
 
+                    ArrayList dni_vet = new ArrayList(); //para que no aparezca personas repetidas
+                    bool dni_repetido_vet = false;
+
+                    if (en_vet_nombre.Count == 0 && en_vet_apellido.Count == 0)
+                    {
+
+                        listBox3.Items.Add("La búsqueda no ha producido ningún resultado");
+
+                    }
+                    else
+                    {
+
+                        for (int x = 0; x < en_vet_nombre.Count; x++)
+                        {
+                            listBox3.Items.Add(en_vet_nombre[x].Nombre + " " + en_vet_nombre[x].Apellidos);
+                            dni_vet.Add(en_vet_nombre[x].DNI);//metemos el dni en el array auxiliar
+                        }
+                        for (int i = 0; i < en_vet_apellido.Count; i++)
+                        {
+
+                            for (int z = 0; z < dni_vet.Count; z++)
+                            {
+                                if (en_vet_apellido[i].DNI.Equals(dni_vet[z].ToString()))//Si el dni esta repetido ya no lo ponemos en la busqueda
+                                    dni_repetido = true;
+                            }
+
+                            if (!dni_repetido_vet)
+                                listBox3.Items.Add(en_vet_apellido[i].Nombre + " " + en_vet_apellido[i].Apellidos);
+
+                            dni_repetido = false;
+                        }
+                    }
                     tabControl1.SelectedTab = tabPage3;
                     break;
             }
