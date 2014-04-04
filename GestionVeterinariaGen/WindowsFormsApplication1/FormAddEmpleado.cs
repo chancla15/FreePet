@@ -117,7 +117,7 @@ namespace WindowsFormsApplication1
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
             bt_despedir.Visible = false;//por defecto oculto.
-            bt_modificar.Visible = false;
+            bt_modificar.Visible = false;//por defecto oculto
             if (eliminarUsuario == true){
                 bt_despedir.Visible = true;
                 mostrarDatos(dniEliminarUsuario);
@@ -128,7 +128,7 @@ namespace WindowsFormsApplication1
                 
                 mostrarDatos(dniModificarUsuario);
                 bt_aceptar.Visible = false;//ocultamos el boton de despedir
-                bt_modificar.Visible = true;
+                bt_modificar.Visible = true;// mostramos el boton de modificar
             }
  
         }
