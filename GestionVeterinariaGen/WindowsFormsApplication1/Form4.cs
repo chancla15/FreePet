@@ -68,7 +68,7 @@ namespace WindowsFormsApplication1
                 }
 
 
-                cen.New_(m_nombre.Text.ToString(), m_raza.Text.ToString(), sexo, Convert.ToInt32(m_peso.Text.ToString()), m_especie.Text.ToString(), Convert.ToDateTime(m_fecha_nac.Text.ToString()),tam, M_clienteDNI.Text.ToString(), m_color.Text.ToString(), chip, "");
+                cen.New_("hacer consulta +1", m_nombre.Text.ToString(), m_raza.Text.ToString(), sexo, Convert.ToInt32(m_peso.Text.ToString()), m_especie.Text.ToString(), Convert.ToDateTime(m_fecha_nac.Text.ToString()), tam, M_clienteDNI.Text.ToString(), m_color.Text.ToString(), chip, "");
                 MessageBox.Show("Mascota añadido Correctamente");
                 FormAddEmpleado.ActiveForm.Close();
                 Form2 f2 = new Form2();
