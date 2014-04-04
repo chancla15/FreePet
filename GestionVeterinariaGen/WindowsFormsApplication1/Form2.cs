@@ -37,7 +37,7 @@ namespace WindowsFormsApplication1
         private void label3_Click(object sender, EventArgs e)
         {
             Form2.ActiveForm.Close();
-            FormAddEmpleado f3 = new FormAddEmpleado();
+            FormPerfil f3 = new FormPerfil();
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
