@@ -104,7 +104,14 @@ namespace WindowsFormsApplication1
             f3.Activate();
             f3.Visible = true;
 
-            System.Console.WriteLine(listBox1.SelectedItem.ToString());
+
+            string clienteaborrar;
+
+            clienteaborrar=listBox1.SelectedItem.ToString();
+
+            clienteaborrar=clienteaborrar.Substring(0, 9);
+
+            System.Console.WriteLine(clienteaborrar);
                 
 
             ((ComboBox)f3.Controls["comboBox1"]).Visible = false;
@@ -129,6 +136,13 @@ namespace WindowsFormsApplication1
             ((TextBox)f3.Controls["tb_confPass"]).Enabled = false;
             ((TextBox)f3.Controls["tb_cp"]).Enabled = false;
             ((ComboBox)f3.Controls["comboBox2"]).Enabled = false;
+
+
+
+
+            //Mostrar datos del cliente a eliminar
+            //tb_dni.Text=
+
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -221,7 +235,7 @@ namespace WindowsFormsApplication1
                     }else{
 
                         for (int x = 0; x < en_cli_nombre.Count; x++){
-                            listBox1.Items.Add(en_cli_nombre[x].Nombre + " " + en_cli_nombre[x].Apellidos);
+                            listBox1.Items.Add(en_cli_nombre[x].DNI+" - "+en_cli_nombre[x].Nombre + " " + en_cli_nombre[x].Apellidos);
                             dni.Add(en_cli_nombre[x].DNI);//metemos el dni en el array auxiliar
                         }
                         for (int i = 0; i < en_cli_apellido.Count; i++){
@@ -232,7 +246,7 @@ namespace WindowsFormsApplication1
                             }
                             
                             if(!dni_repetido)
-                                listBox1.Items.Add(en_cli_apellido[i].Nombre + " " + en_cli_apellido[i].Apellidos);
+                                listBox1.Items.Add(en_cli_apellido[i].DNI+" - "+en_cli_apellido[i].Nombre + " " + en_cli_apellido[i].Apellidos);
 
                             dni_repetido = false;
                         }
