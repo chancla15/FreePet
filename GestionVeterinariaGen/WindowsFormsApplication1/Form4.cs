@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using GestionVeterinariaGenNHibernate.CEN.GestionVeterinaria;
 using GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria;
+using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
 
 namespace WindowsFormsApplication1
 {
@@ -67,8 +68,16 @@ namespace WindowsFormsApplication1
                     tam=TamanyoMascotaEnum.XL;
                 }
 
+                /**
+                 * HACER AUTOINCREMENTADO
+                 */
+                MascotaCEN cen_m = new MascotaCEN();
+                IList<MascotaEN> en_m = cen_m.ContadorMascotas();
 
-                cen.New_("hacer consulta +1", m_nombre.Text.ToString(), m_raza.Text.ToString(), sexo, Convert.ToInt32(m_peso.Text.ToString()), m_especie.Text.ToString(), Convert.ToDateTime(m_fecha_nac.Text.ToString()), tam, M_clienteDNI.Text.ToString(), m_color.Text.ToString(), chip, "");
+                int num_id = (en_m.Count + 1);
+                String id = num_id+"";
+
+                cen.New_(id, m_nombre.Text.ToString(), m_raza.Text.ToString(), sexo, Convert.ToInt32(m_peso.Text.ToString()), m_especie.Text.ToString(), Convert.ToDateTime(m_fecha_nac.Text.ToString()), tam, M_clienteDNI.Text.ToString(), m_color.Text.ToString(), chip, "");
                 MessageBox.Show("Mascota añadido Correctamente");
                 FormAddEmpleado.ActiveForm.Close();
                 Form2 f2 = new Form2();
