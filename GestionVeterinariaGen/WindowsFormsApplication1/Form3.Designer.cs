@@ -37,7 +37,6 @@
             this.tb_direccion = new System.Windows.Forms.TextBox();
             this.tb_tel = new System.Windows.Forms.TextBox();
             this.tb_localidad = new System.Windows.Forms.TextBox();
-            this.tb_provincia = new System.Windows.Forms.TextBox();
             this.tb_cp = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,7 +49,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tb_sueldo = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.bt_modificar = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,14 +114,6 @@
             this.tb_localidad.Name = "tb_localidad";
             this.tb_localidad.Size = new System.Drawing.Size(163, 20);
             this.tb_localidad.TabIndex = 10;
-            // 
-            // tb_provincia
-            // 
-            this.tb_provincia.Location = new System.Drawing.Point(231, 431);
-            this.tb_provincia.Name = "tb_provincia";
-            this.tb_provincia.Size = new System.Drawing.Size(163, 20);
-            this.tb_provincia.TabIndex = 11;
-            this.tb_provincia.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // tb_cp
             // 
@@ -253,15 +245,74 @@
             this.label12.Size = new System.Drawing.Size(0, 16);
             this.label12.TabIndex = 25;
             // 
-            // button5
+            // bt_modificar
             // 
-            this.button5.Location = new System.Drawing.Point(231, 534);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 27;
-            this.button5.Text = "ACEPTAR";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.bt_modificar.Location = new System.Drawing.Point(231, 534);
+            this.bt_modificar.Name = "bt_modificar";
+            this.bt_modificar.Size = new System.Drawing.Size(75, 23);
+            this.bt_modificar.TabIndex = 28;
+            this.bt_modificar.Text = "MODIFICAR";
+            this.bt_modificar.UseVisualStyleBackColor = true;
+            this.bt_modificar.Click += new System.EventHandler(this.bt_modificar_Click);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Álava",
+            "Albacete",
+            "Alicante",
+            "Almería",
+            "Asturias",
+            "Ávila",
+            "Badajoz",
+            "Barcelona",
+            "Burgos",
+            "Cáceres",
+            "Cádiz",
+            "Cantabria",
+            "Castellón",
+            "Ciudad Real",
+            "Córdoba",
+            "La Coruña",
+            "Cuenca",
+            "Gerona",
+            "Granada",
+            "Guadalajara",
+            "Guipúzcoa",
+            "Huelva",
+            "Huesca",
+            "Islas Baleares",
+            "Jaén",
+            "León",
+            "Lérida",
+            "Lugo",
+            "Madrid",
+            "Málaga",
+            "Murcia",
+            "Navarra",
+            "Orense",
+            "Palencia",
+            "Las Palmas",
+            "Pontevedra",
+            "La Rioja",
+            "Salamanca",
+            "Segovia",
+            "Sevilla",
+            "Soria",
+            "Tarragona",
+            "Santa Cruz de Tenerife",
+            "Teruel",
+            "Toledo",
+            "Valencia",
+            "Valladolid",
+            "Vizcaya",
+            "Zamora",
+            "Zaragoza"});
+            this.comboBox2.Location = new System.Drawing.Point(231, 430);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(163, 21);
+            this.comboBox2.TabIndex = 51;
             // 
             // Form3
             // 
@@ -271,7 +322,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(442, 580);
             this.ControlBox = false;
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.tb_sueldo);
@@ -284,7 +335,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tb_cp);
-            this.Controls.Add(this.tb_provincia);
             this.Controls.Add(this.tb_localidad);
             this.Controls.Add(this.tb_tel);
             this.Controls.Add(this.tb_direccion);
@@ -293,6 +343,7 @@
             this.Controls.Add(this.tb_dni);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.bt_modificar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -316,7 +367,6 @@
         private System.Windows.Forms.TextBox tb_direccion;
         private System.Windows.Forms.TextBox tb_tel;
         private System.Windows.Forms.TextBox tb_localidad;
-        private System.Windows.Forms.TextBox tb_provincia;
         private System.Windows.Forms.TextBox tb_cp;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -329,6 +379,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tb_sueldo;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button bt_modificar;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }

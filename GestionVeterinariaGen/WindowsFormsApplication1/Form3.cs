@@ -48,6 +48,7 @@ namespace WindowsFormsApplication1
             if (sesionUsuario != null)
             {
                 mostrarDatos(sesionUsuario);
+                
             }
             else
             {
@@ -67,7 +68,6 @@ namespace WindowsFormsApplication1
 
         private void mostrarDatos(String dni)
         {
-            button5.Visible = false;
             EmpleadoCEN cen = new EmpleadoCEN();
             EmpleadoEN en = cen.DameEmpleadoPorOID(dni);
 
@@ -79,12 +79,24 @@ namespace WindowsFormsApplication1
             tb_apellidos.Text = en.Apellidos;
             tb_direccion.Text = en.Direccion;
             tb_cp.Text = en.Cp;
-            tb_provincia.Text = en.Provincia;
+            comboBox2.SelectedItem = en.Provincia;
             //tb_colegiado.Visible = false;
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void bt_modificar_Click(object sender, EventArgs e)
+        {
+            EmpleadoCEN cen2 = new EmpleadoCEN();
+
+            EmpleadoEN en2=cen2.DameEmpleadoPorOID(tb_dni.Text);
+
+            string pass=en2.Password;
+
+            cen2.Modify(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_direccion.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.SelectedItem.ToString(), tb_cp.Text.ToString(), Convert.ToInt32(tb_sueldo.Text.ToString()),"1");
 
         }
     }
