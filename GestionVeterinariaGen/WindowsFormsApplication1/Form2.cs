@@ -34,23 +34,60 @@ namespace WindowsFormsApplication1
             f1.Visible = true;
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)///VER PERFIL
         {
             Form2.ActiveForm.Close();
             Form3 f3 = new Form3();
+
+            ((TextBox)f3.Controls["textBox1"]).Enabled = false;
+            ((TextBox)f3.Controls["textBox2"]).Enabled = false;
+            ((TextBox)f3.Controls["textBox3"]).Enabled = false;
+            ((TextBox)f3.Controls["textBox4"]).Enabled = false;
+            ((TextBox)f3.Controls["textBox5"]).Enabled = false;
+            ((TextBox)f3.Controls["textBox6"]).Enabled = false;
+            ((TextBox)f3.Controls["textBox7"]).Enabled = false;
+            ((TextBox)f3.Controls["textBox8"]).Enabled = false;
+            ((TextBox)f3.Controls["textBox9"]).Enabled = false;
+            ((TextBox)f3.Controls["textBox10"]).Enabled = false;
+
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)//modificar mascota
         {
-            Form2.ActiveForm.Close();
-            Form4 f3 = new Form4();
-            f3.sesionUsuario = sesionUsuario;//sesion usuario
-            f3.Activate();
-            f3.Visible = true;
+            string mascmod = "";
+            bool modMascota = false;
+
+            if (listBox2.SelectedIndex >= 0)
+            {
+
+                mascmod = listBox2.SelectedItem.ToString();
+
+                mascmod = mascmod.Substring(0, 9);
+
+                modMascota = true;
+
+            }
+
+
+            if (modMascota != true)
+            {
+                MessageBox.Show("Selecciona Una Mascota");
+
+            }
+            else
+            {
+
+                Form2.ActiveForm.Close();
+                Form4 f3 = new Form4();
+                f3.sesionUsuario = sesionUsuario;//sesion usuario
+                f3.Activate();
+                f3.Visible = true;
+
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)//añadir mascota
@@ -62,13 +99,38 @@ namespace WindowsFormsApplication1
             f3.Visible = true;
         }
 
-        private void button3_Click(object sender, EventArgs e)//modificar cliente
+        private void button3_Click(object sender, EventArgs e)//modificar empleado
         {
-            Form2.ActiveForm.Close();
-            FormAddEmpleado f3 = new FormAddEmpleado();
-            f3.sesionUsuario = sesionUsuario;//sesion usuario
-            f3.Activate();
-            f3.Visible = true;
+            string empleadoMod = "";
+            bool modEmpleado = false;
+
+            if (listBox1.SelectedIndex >= 0)
+            {
+
+                empleadoMod = listBox1.SelectedItem.ToString();
+
+                empleadoMod = empleadoMod.Substring(0, 9);
+
+                modEmpleado = true;
+
+            }
+
+
+            if (modEmpleado != true)
+            {
+                MessageBox.Show("Selecciona Un Empleado");
+
+            }
+            else
+            {
+
+                Form2.ActiveForm.Close();
+                FormAddEmpleado f3 = new FormAddEmpleado();
+                f3.sesionUsuario = sesionUsuario;//sesion usuario
+                f3.Activate();
+                f3.Visible = true;
+
+            }
         }
 
         private void button10_Click(object sender, EventArgs e)//añadir cliente
@@ -78,6 +140,7 @@ namespace WindowsFormsApplication1
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
+
             ((ComboBox)f3.Controls["comboBox1"]).Visible = false;
             ((Label)f3.Controls["label14"]).Visible = false;
             ((Label)f3.Controls["label17"]).Visible = false;
@@ -93,101 +156,138 @@ namespace WindowsFormsApplication1
 
         private void button9_Click(object sender, EventArgs e)/** ELIMINAR CLIENTE **/
         {
-            
-            Form2.ActiveForm.Close();
-            FormAddEmpleado f3 = new FormAddEmpleado();
-            f3.sesionUsuario = sesionUsuario;//sesion usuario
-            f3.Activate();
-            f3.Visible = true;
-
-
+            bool eliCliente = false;
             string clienteaborrar;
+
             if (listBox1.SelectedIndex >= 0)
             {
                 clienteaborrar = listBox1.SelectedItem.ToString();
 
                 clienteaborrar = clienteaborrar.Substring(0, 9);
 
-                System.Console.WriteLine(clienteaborrar);
+                eliCliente = true;
+
+            }
+
+
+            if (eliCliente != true)
+            {
+                MessageBox.Show("Selecciona Un Cliente");
+
             }
             else
             {
 
+                Form2.ActiveForm.Close();
+                FormAddEmpleado f3 = new FormAddEmpleado();
+                f3.sesionUsuario = sesionUsuario;//sesion usuario
+                f3.Activate();
+                f3.Visible = true;
+
+                ((ComboBox)f3.Controls["comboBox1"]).Visible = false;
+                ((Label)f3.Controls["label14"]).Visible = false;
+                ((Label)f3.Controls["label17"]).Visible = false;
+                ((TextBox)f3.Controls["tb_colegiado"]).Visible = false;
+                ((TextBox)f3.Controls["tb_pass"]).Visible = false;
+                ((Label)f3.Controls["label11"]).Visible = false;
+                ((Label)f3.Controls["label10"]).Visible = false;
+                ((TextBox)f3.Controls["tb_confPass"]).Visible = false;
+                ((Label)f3.Controls["label13"]).Visible = false;
+                ((TextBox)f3.Controls["tb_sueldo"]).Visible = false;
+
+                //desabilitar
+                ((TextBox)f3.Controls["tb_dni"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_nombre"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_apellidos"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_direccion"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_pass"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_tel"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_localidad"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_confPass"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_cp"]).Enabled = false;
+                ((ComboBox)f3.Controls["comboBox2"]).Enabled = false;
+
+
             }
 
-            ((ComboBox)f3.Controls["comboBox1"]).Visible = false;
-            ((Label)f3.Controls["label14"]).Visible = false;
-            ((Label)f3.Controls["label17"]).Visible = false;
-            ((TextBox)f3.Controls["tb_colegiado"]).Visible = false;
-            ((TextBox)f3.Controls["tb_pass"]).Visible = false;
-            ((Label)f3.Controls["label11"]).Visible = false;
-            ((Label)f3.Controls["label10"]).Visible = false;
-            ((TextBox)f3.Controls["tb_confPass"]).Visible = false;
-            ((Label)f3.Controls["label13"]).Visible = false;
-            ((TextBox)f3.Controls["tb_sueldo"]).Visible = false;
 
-            //desabilitar
-            ((TextBox)f3.Controls["tb_dni"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_nombre"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_apellidos"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_direccion"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_pass"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_tel"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_localidad"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_confPass"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_cp"]).Enabled = false;
-            ((ComboBox)f3.Controls["comboBox2"]).Enabled = false;
-
-
-
-
-            //Mostrar datos del cliente a eliminar
-            //tb_dni.Text=
 
         }
 
         private void button8_Click(object sender, EventArgs e)//modificar cliente
         {
-            Form2.ActiveForm.Close();
-            FormAddEmpleado f3 = new FormAddEmpleado();
-            f3.sesionUsuario = sesionUsuario;//sesion usuario
-            f3.Activate();
-            f3.Visible = true;
 
-            ((ComboBox)f3.Controls["comboBox1"]).Visible = false;
-            ((Label)f3.Controls["label14"]).Visible = false;
-            ((Label)f3.Controls["label17"]).Visible = false;
-            ((TextBox)f3.Controls["tb_colegiado"]).Visible = false;
-            ((Label)f3.Controls["label13"]).Visible = false;
-            ((TextBox)f3.Controls["tb_sueldo"]).Visible = false;
+            string modCliente = "";
+            bool clienteMod = false;
+
+            if (listBox3.SelectedIndex >= 0)
+            {
+
+                modCliente = listBox3.SelectedItem.ToString();
+
+                modCliente = modCliente.Substring(0, 9);
+
+                clienteMod = true;
+
+            }
+
+
+            if (clienteMod != true)
+            {
+                MessageBox.Show("Selecciona Una Cliente");
+
+            }
+            else
+            {
+                Form2.ActiveForm.Close();
+                FormAddEmpleado f3 = new FormAddEmpleado();
+                f3.sesionUsuario = sesionUsuario;//sesion usuario
+                f3.Activate();
+                f3.Visible = true;
+
+                ((ComboBox)f3.Controls["comboBox1"]).Visible = false;
+                ((Label)f3.Controls["label14"]).Visible = false;
+                ((Label)f3.Controls["label17"]).Visible = false;
+                ((TextBox)f3.Controls["tb_colegiado"]).Visible = false;
+                ((Label)f3.Controls["label13"]).Visible = false;
+                ((TextBox)f3.Controls["tb_sueldo"]).Visible = false;
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)//eliminar mascota
         {
 
-            string empleadoborrar="";
+            string empleadoborrar = "";
             bool eliminarMascota = false;
 
-            if (listBox3.SelectedIndex >= 0){
-            empleadoborrar = listBox3.SelectedItem.ToString();
+            if (listBox3.SelectedIndex >= 0)
+            {
 
-            empleadoborrar = empleadoborrar.Substring(0, 9);
+                empleadoborrar = listBox3.SelectedItem.ToString();
 
-            eliminarMascota = true;
+                empleadoborrar = empleadoborrar.Substring(0, 9);
+
+                eliminarMascota = true;
 
             }
 
-            Form2.ActiveForm.Close();
-            Form4 f4 = new Form4();
-            f4.sesionUsuario = sesionUsuario;//sesion usuario
-            f4.Activate();
-            f4.Visible = true;
 
             if (eliminarMascota != true)
             {
                 MessageBox.Show("Selecciona Una Mascota");
 
             }
+            else
+            {
+
+                Form2.ActiveForm.Close();
+                Form4 f4 = new Form4();
+                f4.sesionUsuario = sesionUsuario;//sesion usuario
+                f4.Activate();
+                f4.Visible = true;
+            }
+
+
 
         }
 
@@ -207,11 +307,11 @@ namespace WindowsFormsApplication1
 
 
 
-            string empleadoborrar="";
+            string empleadoborrar = "";
             bool eliminar = false;
-            
-            
-            if (listBox3.SelectedIndex>=0)
+
+
+            if (listBox3.SelectedIndex >= 0)
             {
                 empleadoborrar = listBox3.SelectedItem.ToString();
 
@@ -220,38 +320,47 @@ namespace WindowsFormsApplication1
                 eliminar = true;
             }
 
-            string trabajo = "";
+            /*string trabajo = "";
             if (listBox3.SelectedIndex >= 0)
             {
 
                 trabajo = listBox3.SelectedItem.ToString();
-                trabajo=trabajo.Substring(trabajo.IndexOf("("),trabajo.IndexOf(")"));
+                trabajo = trabajo.Substring(trabajo.IndexOf("("), trabajo.IndexOf(")"));
+
+            }*/
+
+            if (eliminar != true)
+            {
+                MessageBox.Show("Selecciona Un Empleado");
 
             }
+            else
+            {
 
+                Form2.ActiveForm.Close();
+                FormAddEmpleado f3 = new FormAddEmpleado();
 
-            Form2.ActiveForm.Close();
-            FormAddEmpleado f3 = new FormAddEmpleado();
+                ((TextBox)f3.Controls["tb_dni"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_nombre"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_pass"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_confPass"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_confPass"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_sueldo"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_localidad"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_tel"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_apellidos"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_direccion"]).Enabled = false;
+                ((ComboBox)f3.Controls["comboBox2"]).Enabled = false;
+                ((TextBox)f3.Controls["tb_cp"]).Enabled = false;
 
-            ((TextBox)f3.Controls["tb_dni"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_nombre"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_pass"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_confPass"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_confPass"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_sueldo"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_localidad"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_tel"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_apellidos"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_direccion"]).Enabled = false;
-            ((ComboBox)f3.Controls["comboBox2"]).Enabled = false;
-            ((TextBox)f3.Controls["tb_cp"]).Enabled = false;
+                f3.sesionUsuario = sesionUsuario;//sesion usuario
+                f3.eliminarUsuario = eliminar;
+                //f3.trabajo = trabajo;
+                f3.dniEliminarUsuario = empleadoborrar;
+                f3.Activate();
+                f3.Visible = true;
 
-            f3.sesionUsuario = sesionUsuario;//sesion usuario
-            f3.eliminarUsuario = eliminar;
-            //f3.trabajo = trabajo;
-            f3.dniEliminarUsuario = empleadoborrar;
-            f3.Activate();
-            f3.Visible = true;
+            }
 
         }
 
@@ -271,7 +380,8 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void button4_Click(object sender, EventArgs e){
+        private void button4_Click(object sender, EventArgs e)/////////BUSCAR
+        {
             //borrar el listBox1 
             listBox1.Items.Clear();
             listBox2.Items.Clear();
@@ -293,25 +403,31 @@ namespace WindowsFormsApplication1
                     ArrayList dni = new ArrayList(); //para que no aparezca personas repetidas
                     bool dni_repetido = false;
 
-                    if (en_cli_nombre.Count == 0 && en_cli_apellido.Count == 0){
-                    
-                        listBox1.Items.Add("La búsqueda no ha producido ningún resultado");
-                    
-                    }else{
+                    if (en_cli_nombre.Count == 0 && en_cli_apellido.Count == 0)
+                    {
 
-                        for (int x = 0; x < en_cli_nombre.Count; x++){
-                            listBox1.Items.Add(en_cli_nombre[x].DNI+" - "+en_cli_nombre[x].Nombre + " " + en_cli_nombre[x].Apellidos);
+                        listBox1.Items.Add("La búsqueda no ha producido ningún resultado");
+
+                    }
+                    else
+                    {
+
+                        for (int x = 0; x < en_cli_nombre.Count; x++)
+                        {
+                            listBox1.Items.Add(en_cli_nombre[x].DNI + " - " + en_cli_nombre[x].Nombre + " " + en_cli_nombre[x].Apellidos);
                             dni.Add(en_cli_nombre[x].DNI);//metemos el dni en el array auxiliar
                         }
-                        for (int i = 0; i < en_cli_apellido.Count; i++){
-                            
-                            for (int z = 0; z < dni.Count; z++){
+                        for (int i = 0; i < en_cli_apellido.Count; i++)
+                        {
+
+                            for (int z = 0; z < dni.Count; z++)
+                            {
                                 if (en_cli_apellido[i].DNI.Equals(dni[z].ToString()))//Si el dni esta repetido ya no lo ponemos en la busqueda
                                     dni_repetido = true;
                             }
-                            
-                            if(!dni_repetido)
-                                listBox1.Items.Add(en_cli_apellido[i].DNI+" - "+en_cli_apellido[i].Nombre + " " + en_cli_apellido[i].Apellidos);
+
+                            if (!dni_repetido)
+                                listBox1.Items.Add(en_cli_apellido[i].DNI + " - " + en_cli_apellido[i].Nombre + " " + en_cli_apellido[i].Apellidos);
 
                             dni_repetido = false;
                         }
@@ -324,16 +440,20 @@ namespace WindowsFormsApplication1
 
                     IList<MascotaEN> en_mas_nombre = cen_m.DameMascotaPorNombre(buscar);
 
-                    if (en_mas_nombre.Count == 0){
-                    
-                        listBox1.Items.Add("La búsqueda no ha producido ningún resultado");
-                    
-                    }else{
+                    if (en_mas_nombre.Count == 0)
+                    {
 
-                        for (int x = 0; x < en_mas_nombre.Count; x++){
+                        listBox1.Items.Add("La búsqueda no ha producido ningún resultado");
+
+                    }
+                    else
+                    {
+
+                        for (int x = 0; x < en_mas_nombre.Count; x++)
+                        {
                             listBox1.Items.Add(en_mas_nombre[x].Nombre + " - " + en_mas_nombre[x].Raza + " " + en_mas_nombre[x].Cliente);
                         }
-            
+
                     }
 
                     tabControl1.SelectedTab = tabPage2;
@@ -350,49 +470,60 @@ namespace WindowsFormsApplication1
                     ArrayList dni_vet = new ArrayList(); //para que no aparezca personas repetidas
                     bool dni_repetido_vet = false;
 
-                    if (en_vet_nombre.Count == 0 && en_vet_apellido.Count == 0){
+                    if (en_vet_nombre.Count == 0 && en_vet_apellido.Count == 0)
+                    {
                         //listBox3.Items.Add("La búsqueda no ha producido ningún resultado");
-                        no_hay_veterinarios=true;
-                    }else{
+                        no_hay_veterinarios = true;
+                    }
+                    else
+                    {
 
-                        for (int x = 0; x < en_vet_nombre.Count; x++){
+                        for (int x = 0; x < en_vet_nombre.Count; x++)
+                        {
                             listBox3.Items.Add(en_vet_nombre[x].DNI + " - " + en_vet_nombre[x].Nombre + " " + en_vet_nombre[x].Apellidos + " (Veterinario)");
                             dni_vet.Add(en_vet_nombre[x].DNI);//metemos el dni en el array auxiliar
                         }
 
-                        for (int i = 0; i < en_vet_apellido.Count; i++){
+                        for (int i = 0; i < en_vet_apellido.Count; i++)
+                        {
 
-                            for (int z = 0; z < dni_vet.Count; z++){
+                            for (int z = 0; z < dni_vet.Count; z++)
+                            {
                                 if (en_vet_apellido[i].DNI.Equals(dni_vet[z].ToString()))//Si el dni esta repetido ya no lo ponemos en la busqueda
-                                    dni_repetido = true;
+                                    dni_repetido_vet = true;
                             }
 
                             if (!dni_repetido_vet)
                                 listBox3.Items.Add(en_vet_apellido[i].DNI + " - " + en_vet_apellido[i].Nombre + " " + en_vet_apellido[i].Apellidos + " (Veterinario)");
 
-                            dni_repetido = false;
+                            dni_repetido_vet = false;
                         }
                     }
-                    
+
                     /**
                      * Busqueda de Recepcionistas
                      * **/
-                    
+
                     RecepcionistaCEN cen_re = new RecepcionistaCEN();
                     IList<RecepcionistaEN> en_rec_nombre = cen_re.BuscarRecepPorNombre(buscar);
                     IList<RecepcionistaEN> en_rec_apellido = cen_re.BuscarRecepPorApellidos(buscar);
-                    
+
                     ArrayList dni_rec = new ArrayList(); //para que no aparezca personas repetidas
                     bool dni_repetido_rece = false;
 
-                    if (en_rec_nombre.Count == 0 && en_rec_apellido.Count == 0 && no_hay_veterinarios){ //Si no encuentra nada
+                    if (en_rec_nombre.Count == 0 && en_rec_apellido.Count == 0 && no_hay_veterinarios)
+                    { //Si no encuentra nada
                         listBox3.Items.Add("La búsqueda no ha producido ningún resultado");
-                    }else{
-                        for (int x = 0; x < en_rec_nombre.Count; x++){
+                    }
+                    else
+                    {
+                        for (int x = 0; x < en_rec_nombre.Count; x++)
+                        {
                             listBox3.Items.Add(en_rec_nombre[x].DNI + " - " + en_rec_nombre[x].Nombre + " " + en_rec_nombre[x].Apellidos + " (Recepcionista)");
                             dni_rec.Add(en_rec_nombre[x].DNI);//metemos el dni en el array auxiliar
                         }
-                        for (int i = 0; i < en_rec_apellido.Count; i++){
+                        for (int i = 0; i < en_rec_apellido.Count; i++)
+                        {
 
                             for (int z = 0; z < dni_rec.Count; z++)
                             {
@@ -401,7 +532,7 @@ namespace WindowsFormsApplication1
                             }
 
                             if (!dni_repetido_rece)
-                                listBox3.Items.Add(en_rec_apellido[i].DNI+" - "+en_rec_apellido[i].Nombre + " " + en_rec_apellido[i].Apellidos+" (Recepcionista)");
+                                listBox3.Items.Add(en_rec_apellido[i].DNI + " - " + en_rec_apellido[i].Nombre + " " + en_rec_apellido[i].Apellidos + " (Recepcionista)");
 
                             dni_repetido_rece = false;
                         }
@@ -424,7 +555,8 @@ namespace WindowsFormsApplication1
             VeterinarioCEN vet_cen = new VeterinarioCEN();
             VeterinarioEN vet_en = vet_cen.DameVetarinarioPorOID(sesionUsuario);
 
-            if (vet_en != null){
+            if (vet_en != null)
+            {
                 //Cuando sea veterinario oculto
                 panel1.Visible = false;
                 label5.Visible = false;
