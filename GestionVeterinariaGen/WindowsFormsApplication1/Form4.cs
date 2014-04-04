@@ -16,8 +16,14 @@ namespace WindowsFormsApplication1
     public partial class Form4 : Form
     {
         public string sesionUsuario;//especide de sesion de usuario
+
+        //Sesion para eliminar
         public bool eliminarMascota;
-        public string dniEliminarMascota;
+        public string idEliminarMascota;
+
+        //Sesion para modificar
+        public bool modificarMascota;
+        public string idModificarMascota;
 
         public Form4()
         {
@@ -147,6 +153,9 @@ namespace WindowsFormsApplication1
 
         private void Form4_Load(object sender, EventArgs e)
         {
+
+
+
             m_sexo.SelectedIndex = 0;
             comboBox1.SelectedIndex = 0;
             comboBox3.SelectedIndex = 0;
@@ -161,11 +170,44 @@ namespace WindowsFormsApplication1
 
             comboBox2.SelectedIndex = 0;
 
+
+            if (eliminarMascota == true)
+            {
+                mostrarDatos(idEliminarMascota);
+            }
+            else if (modificarMascota == true)
+            {
+                mostrarDatos(idModificarMascota);
+            }
+
         }
 
         private void m_fecha_nac_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void mostrarDatos(String dni)
+        {
+            MascotaCEN cen = new MascotaCEN();
+            MascotaEN en = cen.BuscarMascotaPorOID(dni);
+
+            m_id.Text = en.IdMascota;
+            m_nombre.Text = en.Nombre;
+            m_raza.Text = en.Raza;
+            m_sexo.Text = en.Sexo.ToString();
+            m_peso.Text = en.Peso.ToString();
+            m_especie.Text = en.Especie;
+            m_color.Text = en.Color;
+            m_fecha_nac.Value = en.FNacimiento.Value.Date;
+            comboBox1.SelectedItem = en.Microchip;
+            comboBox2.SelectedItem = en.Cliente;
+            comboBox3.Text = en.Tamanyo.ToString();
+
+            comboBox1.Visible = false;
+            label17.Visible = false;
+            bt_aceptar.Visible = false;
+            bt_eliminar.Visible = true;
         }
     }
 }

@@ -123,6 +123,7 @@ namespace WindowsFormsApplication1
             }else if (modificarUsuario == true){
                 mostrarDatos(dniModificarUsuario);
                 bt_aceptar.Visible = false;//ocultamos el boton de despedir
+                System.Console.WriteLine(dniModificarUsuario);
                
             }
  
@@ -211,6 +212,30 @@ namespace WindowsFormsApplication1
             tb_direccion.Text = en.Direccion ;
             tb_cp.Text = en.Cp;
             comboBox2.SelectedItem = en.Provincia;
+            tb_colegiado.Visible = false;
+            label14.Visible = false;
+            comboBox1.Visible = false;
+            label17.Visible = false;
+            bt_aceptar.Visible = false;
+        }
+
+        private void mostrarDatosCliente(String dni)
+        {
+            ClienteCEN cen = new ClienteCEN();
+            ClienteEN en = cen.DameClientePorOID(dni);
+
+            tb_dni.Text = en.DNI;
+            tb_nombre.Text = en.Nombre;
+            //tb_pass.Text = en.Password;
+            //tb_confPass.Text = en.Password;
+            //tb_sueldo.Text = en.Sueldo.ToString();
+            tb_localidad.Text = en.Localidad;
+            tb_tel.Text = en.Telefono;
+            tb_apellidos.Text = en.Apellidos;
+            tb_direccion.Text = en.Direccion;
+            tb_cp.Text = en.Cp;
+            comboBox2.SelectedItem = en.Provincia;
+
             tb_colegiado.Visible = false;
             label14.Visible = false;
             comboBox1.Visible = false;

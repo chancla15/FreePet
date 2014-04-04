@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
-            this.button2 = new System.Windows.Forms.Button();
+            this.bt_eliminar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -65,18 +65,20 @@
             this.label19 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.err_add = new System.Windows.Forms.Label();
+            this.bt_modificar = new System.Windows.Forms.Button();
+            this.bt_aceptar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button2
+            // bt_eliminar
             // 
-            this.button2.Location = new System.Drawing.Point(231, 534);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "ACEPTAR";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.bt_eliminar.Location = new System.Drawing.Point(231, 534);
+            this.bt_eliminar.Name = "bt_eliminar";
+            this.bt_eliminar.Size = new System.Drawing.Size(75, 23);
+            this.bt_eliminar.TabIndex = 1;
+            this.bt_eliminar.Text = "ELIMINAR";
+            this.bt_eliminar.UseVisualStyleBackColor = true;
+            this.bt_eliminar.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -450,6 +452,24 @@
             this.err_add.Text = "*Error al Añadir Mascota";
             this.err_add.Visible = false;
             // 
+            // bt_modificar
+            // 
+            this.bt_modificar.Location = new System.Drawing.Point(231, 534);
+            this.bt_modificar.Name = "bt_modificar";
+            this.bt_modificar.Size = new System.Drawing.Size(75, 23);
+            this.bt_modificar.TabIndex = 101;
+            this.bt_modificar.Text = "MODIFICAR";
+            this.bt_modificar.UseVisualStyleBackColor = true;
+            // 
+            // bt_aceptar
+            // 
+            this.bt_aceptar.Location = new System.Drawing.Point(231, 534);
+            this.bt_aceptar.Name = "bt_aceptar";
+            this.bt_aceptar.Size = new System.Drawing.Size(75, 23);
+            this.bt_aceptar.TabIndex = 102;
+            this.bt_aceptar.Text = "ACEPTAR";
+            this.bt_aceptar.UseVisualStyleBackColor = true;
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -492,7 +512,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.bt_eliminar);
+            this.Controls.Add(this.bt_aceptar);
+            this.Controls.Add(this.bt_modificar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -508,7 +530,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bt_eliminar;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
@@ -544,5 +566,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label err_add;
+        private System.Windows.Forms.Button bt_modificar;
+        private System.Windows.Forms.Button bt_aceptar;
     }
 }
