@@ -39,16 +39,16 @@ namespace WindowsFormsApplication1
             Form2.ActiveForm.Close();
             Form3 f3 = new Form3();
 
-            ((TextBox)f3.Controls["textBox1"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox2"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox3"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox4"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox5"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox6"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox7"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox8"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox9"]).Enabled = false;
-            ((TextBox)f3.Controls["textBox10"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_nombre"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_apellidos"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_sueldo"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_direccion"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_localidad"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_sueldo"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_dni"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_tel"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_provincia"]).Enabled = false;
+            ((TextBox)f3.Controls["tb_cp"]).Enabled = false;
 
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
