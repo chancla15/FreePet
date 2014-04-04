@@ -3,10 +3,7 @@
 		                   assembly="GestionVeterinariaGenNHibernate"
 		                   namespace="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria">
 			<class name="MascotaEN" table="[Mascota]">
-				  	
-						<id name="IdMascota" column="[ID]" type="integer">
-							<generator class="identity"/>
-						</id>
+						<id name="IdMascota" column="[ID]"/>
 					<property name="Nombre" type="string"> 
 						<column name="[nombre]"  not-null="true"/>
 					</property>

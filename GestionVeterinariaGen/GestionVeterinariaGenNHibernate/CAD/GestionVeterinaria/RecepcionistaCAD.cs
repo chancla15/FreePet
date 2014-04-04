@@ -105,9 +105,6 @@ public void Modify (RecepcionistaEN recepcionista)
                 recepcionistaEN.Cp = recepcionista.Cp;
 
 
-                recepcionistaEN.IdEmpleado = recepcionista.IdEmpleado;
-
-
                 recepcionistaEN.Sueldo = recepcionista.Sueldo;
 
 
@@ -209,6 +206,67 @@ public RecepcionistaEN BuscarRecepPorOID (string DNI)
         }
 
         return recepcionistaEN;
+}
+
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.RecepcionistaEN> BuscarRecepPorNombre (string busqueda)
+{
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.RecepcionistaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM RecepcionistaEN self where FROM RecepcionistaEN as u where u.Nombre like '%'+:busqueda+'%'";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("RecepcionistaENbuscarRecepPorNombreHQL");
+                query.SetParameter ("busqueda", busqueda);
+
+                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.RecepcionistaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in RecepcionistaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.RecepcionistaEN> BuscarRecepPorApellidos (string busqueda)
+{
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.RecepcionistaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM RecepcionistaEN self where FROM RecepcionistaEN as u where u.Apellidos like '%'+:busqueda+'%'";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("RecepcionistaENbuscarRecepPorApellidosHQL");
+                query.SetParameter ("busqueda", busqueda);
+
+                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.RecepcionistaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in RecepcionistaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

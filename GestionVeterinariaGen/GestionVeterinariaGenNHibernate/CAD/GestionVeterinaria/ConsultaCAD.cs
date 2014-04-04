@@ -241,5 +241,35 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 
         return result;
 }
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameConsultaPorMascota (string busqueda)
+{
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ConsultaEN self where FROM ConsultaEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ConsultaENdameConsultaPorMascotaHQL");
+                query.SetParameter ("busqueda", busqueda);
+
+                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in ConsultaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

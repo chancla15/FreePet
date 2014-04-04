@@ -19,9 +19,9 @@ void Destroy (string DNI);
 ClienteEN DameClientePorOID (string DNI);
 
 
-void AnyadirMascota (string p_Cliente_OID, System.Collections.Generic.IList<int> p_mascota_OIDs);
+void AnyadirMascota (string p_Cliente_OID, System.Collections.Generic.IList<string> p_mascota_OIDs);
 
-void QuitarMascota (string p_Cliente_OID, System.Collections.Generic.IList<int> p_mascota_OIDs);
+void QuitarMascota (string p_Cliente_OID, System.Collections.Generic.IList<string> p_mascota_OIDs);
 
 System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN> BuscarClientePorNombre (string busqueda);
 

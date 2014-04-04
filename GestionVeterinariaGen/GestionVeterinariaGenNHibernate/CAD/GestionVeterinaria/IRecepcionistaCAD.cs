@@ -20,5 +20,11 @@ System.Collections.Generic.IList<RecepcionistaEN> DameTodos (int first, int size
 
 
 RecepcionistaEN BuscarRecepPorOID (string DNI);
+
+
+System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.RecepcionistaEN> BuscarRecepPorNombre (string busqueda);
+
+
+System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.RecepcionistaEN> BuscarRecepPorApellidos (string busqueda);
 }
 }

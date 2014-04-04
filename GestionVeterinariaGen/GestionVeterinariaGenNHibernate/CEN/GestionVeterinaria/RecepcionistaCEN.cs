@@ -65,7 +65,7 @@ public string New_ (string p_DNI, string p_nombre, string p_apellidos, string p_
         return oid;
 }
 
-public void Modify (string p_Recepcionista_OID, string p_nombre, string p_apellidos, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, int p_IdEmpleado, float p_sueldo, String p_password)
+public void Modify (string p_Recepcionista_OID, string p_nombre, string p_apellidos, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, float p_sueldo, String p_password)
 {
         RecepcionistaEN recepcionistaEN = null;
 
@@ -79,7 +79,6 @@ public void Modify (string p_Recepcionista_OID, string p_nombre, string p_apelli
         recepcionistaEN.Localidad = p_localidad;
         recepcionistaEN.Provincia = p_provincia;
         recepcionistaEN.Cp = p_cp;
-        recepcionistaEN.IdEmpleado = p_IdEmpleado;
         recepcionistaEN.Sueldo = p_sueldo;
         recepcionistaEN.Password = Utils.Util.GetEncondeMD5 (p_password);
         //Call to RecepcionistaCAD
@@ -105,6 +104,15 @@ public RecepcionistaEN BuscarRecepPorOID (string DNI)
 
         recepcionistaEN = _IRecepcionistaCAD.BuscarRecepPorOID (DNI);
         return recepcionistaEN;
+}
+
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.RecepcionistaEN> BuscarRecepPorNombre (string busqueda)
+{
+        return _IRecepcionistaCAD.BuscarRecepPorNombre (busqueda);
+}
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.RecepcionistaEN> BuscarRecepPorApellidos (string busqueda)
+{
+        return _IRecepcionistaCAD.BuscarRecepPorApellidos (busqueda);
 }
 }
 }

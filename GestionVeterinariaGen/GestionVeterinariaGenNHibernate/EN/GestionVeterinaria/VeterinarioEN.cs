@@ -43,18 +43,18 @@ public VeterinarioEN() : base ()
 
 
 
-public VeterinarioEN(string dNI, int numColegiado, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, int idEmpleado, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
+public VeterinarioEN(string dNI, int numColegiado, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
 {
-        this.init (dNI, numColegiado, consulta, idEmpleado, sueldo, password, nombre, apellidos, direccion, telefono, localidad, provincia, cp);
+        this.init (dNI, numColegiado, consulta, sueldo, password, nombre, apellidos, direccion, telefono, localidad, provincia, cp);
 }
 
 
 public VeterinarioEN(VeterinarioEN veterinario)
 {
-        this.init (veterinario.DNI, veterinario.NumColegiado, veterinario.Consulta, veterinario.IdEmpleado, veterinario.Sueldo, veterinario.Password, veterinario.Nombre, veterinario.Apellidos, veterinario.Direccion, veterinario.Telefono, veterinario.Localidad, veterinario.Provincia, veterinario.Cp);
+        this.init (veterinario.DNI, veterinario.NumColegiado, veterinario.Consulta, veterinario.Sueldo, veterinario.Password, veterinario.Nombre, veterinario.Apellidos, veterinario.Direccion, veterinario.Telefono, veterinario.Localidad, veterinario.Provincia, veterinario.Cp);
 }
 
-private void init (string dNI, int numColegiado, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, int idEmpleado, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
+private void init (string dNI, int numColegiado, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
 {
         this.DNI = DNI;
 
@@ -62,8 +62,6 @@ private void init (string dNI, int numColegiado, System.Collections.Generic.ILis
         this.NumColegiado = numColegiado;
 
         this.Consulta = consulta;
-
-        this.IdEmpleado = idEmpleado;
 
         this.Sueldo = sueldo;
 

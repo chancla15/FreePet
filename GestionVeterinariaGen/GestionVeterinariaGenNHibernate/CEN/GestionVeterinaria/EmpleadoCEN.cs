@@ -65,7 +65,7 @@ public string New_ (string p_DNI, string p_nombre, string p_apellidos, string p_
         return oid;
 }
 
-public void Modify (string p_Empleado_OID, string p_nombre, string p_apellidos, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, int p_IdEmpleado, float p_sueldo, String p_password)
+public void Modify (string p_Empleado_OID, string p_nombre, string p_apellidos, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, float p_sueldo, String p_password)
 {
         EmpleadoEN empleadoEN = null;
 
@@ -79,7 +79,6 @@ public void Modify (string p_Empleado_OID, string p_nombre, string p_apellidos, 
         empleadoEN.Localidad = p_localidad;
         empleadoEN.Provincia = p_provincia;
         empleadoEN.Cp = p_cp;
-        empleadoEN.IdEmpleado = p_IdEmpleado;
         empleadoEN.Sueldo = p_sueldo;
         empleadoEN.Password = Utils.Util.GetEncondeMD5 (p_password);
         //Call to EmpleadoCAD

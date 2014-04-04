@@ -11,12 +11,6 @@ public partial class EmpleadoEN                 :                           Gest
  *
  */
 
-private int idEmpleado;
-
-/**
- *
- */
-
 private float sueldo;
 
 /**
@@ -27,11 +21,6 @@ private String password;
 
 
 
-
-
-public virtual int IdEmpleado {
-        get { return idEmpleado; } set { idEmpleado = value;  }
-}
 
 
 public virtual float Sueldo {
@@ -53,23 +42,21 @@ public EmpleadoEN() : base ()
 
 
 
-public EmpleadoEN(string dNI, int idEmpleado, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
+public EmpleadoEN(string dNI, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
 {
-        this.init (dNI, idEmpleado, sueldo, password, nombre, apellidos, direccion, telefono, localidad, provincia, cp);
+        this.init (dNI, sueldo, password, nombre, apellidos, direccion, telefono, localidad, provincia, cp);
 }
 
 
 public EmpleadoEN(EmpleadoEN empleado)
 {
-        this.init (empleado.DNI, empleado.IdEmpleado, empleado.Sueldo, empleado.Password, empleado.Nombre, empleado.Apellidos, empleado.Direccion, empleado.Telefono, empleado.Localidad, empleado.Provincia, empleado.Cp);
+        this.init (empleado.DNI, empleado.Sueldo, empleado.Password, empleado.Nombre, empleado.Apellidos, empleado.Direccion, empleado.Telefono, empleado.Localidad, empleado.Provincia, empleado.Cp);
 }
 
-private void init (string dNI, int idEmpleado, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
+private void init (string dNI, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
 {
         this.DNI = DNI;
 
-
-        this.IdEmpleado = idEmpleado;
 
         this.Sueldo = sueldo;
 

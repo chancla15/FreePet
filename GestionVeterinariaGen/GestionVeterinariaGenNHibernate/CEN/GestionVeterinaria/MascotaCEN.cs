@@ -32,13 +32,15 @@ public IMascotaCAD get_IMascotaCAD ()
         return this._IMascotaCAD;
 }
 
-public int New_ (string p_nombre, string p_raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum p_sexo, float p_peso, string p_especie, Nullable<DateTime> p_fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum p_tamanyo, string p_cliente, string p_color, bool p_microchip, string p_foto)
+public string New_ (string p_IdMascota, string p_nombre, string p_raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum p_sexo, float p_peso, string p_especie, Nullable<DateTime> p_fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum p_tamanyo, string p_cliente, string p_color, bool p_microchip, string p_foto)
 {
         MascotaEN mascotaEN = null;
-        int oid;
+        string oid;
 
         //Initialized MascotaEN
         mascotaEN = new MascotaEN ();
+        mascotaEN.IdMascota = p_IdMascota;
+
         mascotaEN.Nombre = p_nombre;
 
         mascotaEN.Raza = p_raza;
@@ -71,7 +73,7 @@ public int New_ (string p_nombre, string p_raza, GestionVeterinariaGenNHibernate
         return oid;
 }
 
-public void Modify (int p_Mascota_OID, string p_nombre, string p_raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum p_sexo, float p_peso, string p_especie, Nullable<DateTime> p_fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum p_tamanyo, string p_color, bool p_microchip, string p_foto)
+public void Modify (string p_Mascota_OID, string p_nombre, string p_raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum p_sexo, float p_peso, string p_especie, Nullable<DateTime> p_fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum p_tamanyo, string p_color, bool p_microchip, string p_foto)
 {
         MascotaEN mascotaEN = null;
 
@@ -93,12 +95,12 @@ public void Modify (int p_Mascota_OID, string p_nombre, string p_raza, GestionVe
         _IMascotaCAD.Modify (mascotaEN);
 }
 
-public void Destroy (int IdMascota)
+public void Destroy (string IdMascota)
 {
         _IMascotaCAD.Destroy (IdMascota);
 }
 
-public MascotaEN BuscarMascotaPorOID (int IdMascota)
+public MascotaEN BuscarMascotaPorOID (string IdMascota)
 {
         MascotaEN mascotaEN = null;
 

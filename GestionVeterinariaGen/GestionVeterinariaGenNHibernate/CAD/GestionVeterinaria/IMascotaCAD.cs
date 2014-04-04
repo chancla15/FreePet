@@ -6,17 +6,17 @@ namespace GestionVeterinariaGenNHibernate.CAD.GestionVeterinaria
 {
 public partial interface IMascotaCAD
 {
-MascotaEN ReadOIDDefault (int IdMascota);
+MascotaEN ReadOIDDefault (string IdMascota);
 
-int New_ (MascotaEN mascota);
+string New_ (MascotaEN mascota);
 
 void Modify (MascotaEN mascota);
 
 
-void Destroy (int IdMascota);
+void Destroy (string IdMascota);
 
 
-MascotaEN BuscarMascotaPorOID (int IdMascota);
+MascotaEN BuscarMascotaPorOID (string IdMascota);
 
 
 System.Collections.Generic.IList<MascotaEN> DameTodasLasMascotas (int first, int size);

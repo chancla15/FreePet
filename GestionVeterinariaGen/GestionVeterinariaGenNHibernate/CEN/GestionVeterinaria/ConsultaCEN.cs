@@ -32,7 +32,7 @@ public IConsultaCAD get_IConsultaCAD ()
         return this._IConsultaCAD;
 }
 
-public string New_ (string p_IdConsulta, Nullable<DateTime> p_fecha, TimeSpan p_hora, string p_motivoConsulta, string p_diagnostico, int p_mascota, string p_veterinario, string p_lugar, string p_factura)
+public string New_ (string p_IdConsulta, Nullable<DateTime> p_fecha, TimeSpan p_hora, string p_motivoConsulta, string p_diagnostico, string p_mascota, string p_veterinario, string p_lugar, string p_factura)
 {
         ConsultaEN consultaEN = null;
         string oid;
@@ -50,7 +50,7 @@ public string New_ (string p_IdConsulta, Nullable<DateTime> p_fecha, TimeSpan p_
         consultaEN.Diagnostico = p_diagnostico;
 
 
-        if (p_mascota != -1) {
+        if (p_mascota != null) {
                 consultaEN.Mascota = new GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN ();
                 consultaEN.Mascota.IdMascota = p_mascota;
         }
@@ -115,6 +115,10 @@ public System.Collections.Generic.IList<ConsultaEN> DameTodasLasConsultas (int f
 public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> BuscarConsultaPorFecha (Nullable<DateTime> fecha)
 {
         return _IConsultaCAD.BuscarConsultaPorFecha (fecha);
+}
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameConsultaPorMascota (string busqueda)
+{
+        return _IConsultaCAD.DameConsultaPorMascota (busqueda);
 }
 }
 }

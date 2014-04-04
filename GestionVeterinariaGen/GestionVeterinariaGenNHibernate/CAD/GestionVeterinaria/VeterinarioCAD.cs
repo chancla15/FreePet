@@ -105,9 +105,6 @@ public void Modify (VeterinarioEN veterinario)
                 veterinarioEN.Cp = veterinario.Cp;
 
 
-                veterinarioEN.IdEmpleado = veterinario.IdEmpleado;
-
-
                 veterinarioEN.Sueldo = veterinario.Sueldo;
 
 

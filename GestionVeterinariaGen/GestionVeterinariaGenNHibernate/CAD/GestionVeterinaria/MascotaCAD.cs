@@ -23,7 +23,7 @@ public MascotaCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public MascotaEN ReadOIDDefault (int IdMascota)
+public MascotaEN ReadOIDDefault (string IdMascota)
 {
         MascotaEN mascotaEN = null;
 
@@ -51,7 +51,7 @@ public MascotaEN ReadOIDDefault (int IdMascota)
 }
 
 
-public int New_ (MascotaEN mascota)
+public string New_ (MascotaEN mascota)
 {
         try
         {
@@ -135,7 +135,7 @@ public void Modify (MascotaEN mascota)
                 SessionClose ();
         }
 }
-public void Destroy (int IdMascota)
+public void Destroy (string IdMascota)
 {
         try
         {
@@ -159,7 +159,7 @@ public void Destroy (int IdMascota)
         }
 }
 
-public MascotaEN BuscarMascotaPorOID (int IdMascota)
+public MascotaEN BuscarMascotaPorOID (string IdMascota)
 {
         MascotaEN mascotaEN = null;
 

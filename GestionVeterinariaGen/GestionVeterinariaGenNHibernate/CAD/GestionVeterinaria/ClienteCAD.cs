@@ -178,7 +178,7 @@ public ClienteEN DameClientePorOID (string DNI)
         return clienteEN;
 }
 
-public void AnyadirMascota (string p_Cliente_OID, System.Collections.Generic.IList<int> p_mascota_OIDs)
+public void AnyadirMascota (string p_Cliente_OID, System.Collections.Generic.IList<string> p_mascota_OIDs)
 {
         GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN clienteEN = null;
         try
@@ -190,7 +190,7 @@ public void AnyadirMascota (string p_Cliente_OID, System.Collections.Generic.ILi
                         clienteEN.Mascota = new System.Collections.Generic.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN>();
                 }
 
-                foreach (int item in p_mascota_OIDs) {
+                foreach (string item in p_mascota_OIDs) {
                         mascotaENAux = new GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN ();
                         mascotaENAux = (GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN)session.Load (typeof(GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN), item);
                         mascotaENAux.Cliente = clienteEN;
@@ -217,7 +217,7 @@ public void AnyadirMascota (string p_Cliente_OID, System.Collections.Generic.ILi
         }
 }
 
-public void QuitarMascota (string p_Cliente_OID, System.Collections.Generic.IList<int> p_mascota_OIDs)
+public void QuitarMascota (string p_Cliente_OID, System.Collections.Generic.IList<string> p_mascota_OIDs)
 {
         try
         {
@@ -227,7 +227,7 @@ public void QuitarMascota (string p_Cliente_OID, System.Collections.Generic.ILis
 
                 GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN mascotaENAux = null;
                 if (clienteEN.Mascota != null) {
-                        foreach (int item in p_mascota_OIDs) {
+                        foreach (string item in p_mascota_OIDs) {
                                 mascotaENAux = (GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN)session.Load (typeof(GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN), item);
                                 if (clienteEN.Mascota.Contains (mascotaENAux) == true) {
                                         clienteEN.Mascota.Remove (mascotaENAux);

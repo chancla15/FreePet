@@ -70,5 +70,6 @@
 		  
 		  <query name="ConsultaENReadAllHQL">from ConsultaEN</query>
 		  <query name="ConsultaENbuscarConsultaPorFechaHQL"><![CDATA[FROM ConsultaEN c WHERE c.Fecha=:fecha]]></query>
+		  <query name="ConsultaENdameConsultaPorMascotaHQL"><![CDATA[FROM ConsultaEN]]></query>
 		</hibernate-mapping>
 	

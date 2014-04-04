@@ -105,9 +105,6 @@ public void Modify (EmpleadoEN empleado)
                 empleadoEN.Cp = empleado.Cp;
 
 
-                empleadoEN.IdEmpleado = empleado.IdEmpleado;
-
-
                 empleadoEN.Sueldo = empleado.Sueldo;
 
 

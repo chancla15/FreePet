@@ -12,5 +12,7 @@
 		  </joined-subclass>	
 		  
 		  <query name="RecepcionistaENReadAllHQL">from RecepcionistaEN</query>
+		  <query name="RecepcionistaENbuscarRecepPorNombreHQL"><![CDATA[FROM RecepcionistaEN as u where u.Nombre like '%'+:busqueda+'%']]></query>
+		  <query name="RecepcionistaENbuscarRecepPorApellidosHQL"><![CDATA[FROM RecepcionistaEN as u where u.Apellidos like '%'+:busqueda+'%']]></query>
 		</hibernate-mapping>
 	

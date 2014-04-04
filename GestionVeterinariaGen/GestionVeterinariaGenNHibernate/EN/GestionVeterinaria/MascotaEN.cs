@@ -9,7 +9,7 @@ public partial class MascotaEN
  *
  */
 
-private int idMascota;
+private string idMascota;
 
 /**
  *
@@ -87,7 +87,7 @@ private string foto;
 
 
 
-public virtual int IdMascota {
+public virtual string IdMascota {
         get { return idMascota; } set { idMascota = value;  }
 }
 
@@ -162,7 +162,7 @@ public MascotaEN()
 
 
 
-public MascotaEN(int idMascota, string nombre, string raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum sexo, float peso, string especie, Nullable<DateTime> fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum tamanyo, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN cliente, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, string color, bool microchip, string foto)
+public MascotaEN(string idMascota, string nombre, string raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum sexo, float peso, string especie, Nullable<DateTime> fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum tamanyo, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN cliente, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, string color, bool microchip, string foto)
 {
         this.init (idMascota, nombre, raza, sexo, peso, especie, fNacimiento, tamanyo, cliente, consulta, color, microchip, foto);
 }
@@ -173,7 +173,7 @@ public MascotaEN(MascotaEN mascota)
         this.init (mascota.IdMascota, mascota.Nombre, mascota.Raza, mascota.Sexo, mascota.Peso, mascota.Especie, mascota.FNacimiento, mascota.Tamanyo, mascota.Cliente, mascota.Consulta, mascota.Color, mascota.Microchip, mascota.Foto);
 }
 
-private void init (int idMascota, string nombre, string raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum sexo, float peso, string especie, Nullable<DateTime> fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum tamanyo, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN cliente, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, string color, bool microchip, string foto)
+private void init (string idMascota, string nombre, string raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum sexo, float peso, string especie, Nullable<DateTime> fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum tamanyo, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN cliente, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, string color, bool microchip, string foto)
 {
         this.IdMascota = IdMascota;
 

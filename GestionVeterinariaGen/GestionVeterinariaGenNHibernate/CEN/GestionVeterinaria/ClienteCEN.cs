@@ -95,13 +95,13 @@ public ClienteEN DameClientePorOID (string DNI)
         return clienteEN;
 }
 
-public void AnyadirMascota (string p_Cliente_OID, System.Collections.Generic.IList<int> p_mascota_OIDs)
+public void AnyadirMascota (string p_Cliente_OID, System.Collections.Generic.IList<string> p_mascota_OIDs)
 {
         //Call to ClienteCAD
 
         _IClienteCAD.AnyadirMascota (p_Cliente_OID, p_mascota_OIDs);
 }
-public void QuitarMascota (string p_Cliente_OID, System.Collections.Generic.IList<int> p_mascota_OIDs)
+public void QuitarMascota (string p_Cliente_OID, System.Collections.Generic.IList<string> p_mascota_OIDs)
 {
         //Call to ClienteCAD
 
