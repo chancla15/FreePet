@@ -260,6 +260,10 @@ namespace WindowsFormsApplication1
                     tabControl1.SelectedTab = tabPage2;
                     break;
                 case 2://Veterinarios solo por ahora 
+                    /**
+                     * Busqueda de Veterinarios
+                     * **/
+                    bool no_hay_veterinarios = false;
                     VeterinarioCEN vet_v = new VeterinarioCEN();
                     IList<VeterinarioEN> en_vet_nombre = vet_v.BuscarVetPorNombre(buscar);
                     IList<VeterinarioEN> en_vet_apellido = vet_v.BuscarVetPorApellidos(buscar);
@@ -267,25 +271,19 @@ namespace WindowsFormsApplication1
                     ArrayList dni_vet = new ArrayList(); //para que no aparezca personas repetidas
                     bool dni_repetido_vet = false;
 
-                    if (en_vet_nombre.Count == 0 && en_vet_apellido.Count == 0)
-                    {
+                    if (en_vet_nombre.Count == 0 && en_vet_apellido.Count == 0){
+                        //listBox3.Items.Add("La búsqueda no ha producido ningún resultado");
+                        no_hay_veterinarios=true;
+                    }else{
 
-                        listBox3.Items.Add("La búsqueda no ha producido ningún resultado");
-
-                    }
-                    else
-                    {
-
-                        for (int x = 0; x < en_vet_nombre.Count; x++)
-                        {
+                        for (int x = 0; x < en_vet_nombre.Count; x++){
                             listBox3.Items.Add(en_vet_nombre[x].Nombre + " " + en_vet_nombre[x].Apellidos);
                             dni_vet.Add(en_vet_nombre[x].DNI);//metemos el dni en el array auxiliar
                         }
-                        for (int i = 0; i < en_vet_apellido.Count; i++)
-                        {
 
-                            for (int z = 0; z < dni_vet.Count; z++)
-                            {
+                        for (int i = 0; i < en_vet_apellido.Count; i++){
+
+                            for (int z = 0; z < dni_vet.Count; z++){
                                 if (en_vet_apellido[i].DNI.Equals(dni_vet[z].ToString()))//Si el dni esta repetido ya no lo ponemos en la busqueda
                                     dni_repetido = true;
                             }
@@ -294,6 +292,39 @@ namespace WindowsFormsApplication1
                                 listBox3.Items.Add(en_vet_apellido[i].Nombre + " " + en_vet_apellido[i].Apellidos);
 
                             dni_repetido = false;
+                        }
+                    }
+                    
+                    /**
+                     * Busqueda de Recepcionistas
+                     * **/
+                    
+                    RecepcionistaCEN cen_re = new RecepcionistaCEN();
+                    IList<RecepcionistaEN> en_rec_nombre = cen_re.BuscarRecepPorNombre(buscar);
+                    IList<RecepcionistaEN> en_rec_apellido = cen_re.BuscarRecepPorApellidos(buscar);
+                    
+                    ArrayList dni_rec = new ArrayList(); //para que no aparezca personas repetidas
+                    bool dni_repetido_rece = false;
+
+                    if (en_rec_nombre.Count == 0 && en_rec_apellido.Count == 0 && no_hay_veterinarios){ //Si no encuentra nada
+                        listBox3.Items.Add("La búsqueda no ha producido ningún resultado");
+                    }else{
+                        for (int x = 0; x < en_rec_nombre.Count; x++){
+                            listBox3.Items.Add(en_rec_nombre[x].Nombre + " " + en_rec_nombre[x].Apellidos);
+                            dni_rec.Add(en_rec_nombre[x].DNI);//metemos el dni en el array auxiliar
+                        }
+                        for (int i = 0; i < en_rec_apellido.Count; i++){
+
+                            for (int z = 0; z < dni_rec.Count; z++)
+                            {
+                                if (en_rec_apellido[i].DNI.Equals(dni_rec[z].ToString()))//Si el dni esta repetido ya no lo ponemos en la busqueda
+                                    dni_repetido_rece = true;
+                            }
+
+                            if (!dni_repetido_rece)
+                                listBox3.Items.Add(en_rec_apellido[i].Nombre + " " + en_rec_apellido[i].Apellidos);
+
+                            dni_repetido_rece = false;
                         }
                     }
                     tabControl1.SelectedTab = tabPage3;
