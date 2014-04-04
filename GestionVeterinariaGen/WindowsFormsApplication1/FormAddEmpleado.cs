@@ -220,6 +220,7 @@ namespace WindowsFormsApplication1
         {
             UsuarioCEN cen = new UsuarioCEN();
 
+            if ( MessageBox.Show("Seguro que desea despedir a este empleado","Despedir usuario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK )
             cen.Destroy(dniEliminarUsuario);
         }
     }
