@@ -83,6 +83,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.listBox1);
+            this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -95,14 +96,16 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 24;
             this.listBox1.Location = new System.Drawing.Point(0, 1);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(978, 511);
+            this.listBox1.Size = new System.Drawing.Size(978, 508);
             this.listBox1.TabIndex = 0;
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.listBox2);
+            this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -114,28 +117,31 @@
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 24;
             this.listBox2.Location = new System.Drawing.Point(0, 1);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(978, 511);
+            this.listBox2.Size = new System.Drawing.Size(978, 508);
             this.listBox2.TabIndex = 0;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.listBox3);
+            this.tabPage3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(978, 460);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "VETERINARIOS";
+            this.tabPage3.Text = "EMPLEADOS";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // listBox3
             // 
             this.listBox3.FormattingEnabled = true;
+            this.listBox3.ItemHeight = 24;
             this.listBox3.Location = new System.Drawing.Point(0, 1);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(978, 511);
+            this.listBox3.Size = new System.Drawing.Size(978, 508);
             this.listBox3.TabIndex = 0;
             // 
             // modEmpleado
@@ -194,7 +200,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Clientes",
             "Mascotas",
-            "Veterinarios"});
+            "Empleados"});
             this.comboBox1.Location = new System.Drawing.Point(645, 145);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
