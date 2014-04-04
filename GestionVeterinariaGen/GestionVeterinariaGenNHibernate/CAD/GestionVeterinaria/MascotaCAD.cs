@@ -216,23 +216,16 @@ public System.Collections.Generic.IList<MascotaEN> DameTodasLasMascotas (int fir
         return result;
 }
 
-public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> DameMascotaPorNombre (string param, int first, int size)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> DameMascotaPorNombre (string busqueda)
 {
         System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM MascotaEN self where FROM MascotaEN m WHERE m.Nombre like '%'+:param+'%' ";
+                //String sql = @"FROM MascotaEN self where FROM MascotaEN m WHERE m.nombre like '%'+:busqueda+'%' ";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("MascotaENdameMascotaPorNombreHQL");
-                query.SetParameter ("param", param);
-
-                if (size > 0) {
-                        query.SetFirstResult (first).SetMaxResults (size);
-                }
-                else{
-                        query.SetFirstResult (first);
-                }
+                query.SetParameter ("busqueda", busqueda);
 
                 result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN>();
                 SessionCommit ();

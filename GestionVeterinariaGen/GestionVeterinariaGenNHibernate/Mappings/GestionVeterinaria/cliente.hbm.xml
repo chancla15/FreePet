@@ -29,7 +29,7 @@
 		  </joined-subclass>	
 		  
 		  <query name="ClienteENReadAllHQL">from ClienteEN</query>
-		  <query name="ClienteENbuscarClientePorNombreHQL"><![CDATA[FROM ClienteEN  as u where u.Nombre like '%'+:p_nombre+'%']]></query>
-		  <query name="ClienteENbuscarClientePorApellidosHQL"><![CDATA[FROM ClienteEN  as u where u.Nombre like '%'+:p_apellidos+'%']]></query>
+		  <query name="ClienteENbuscarClientePorNombreHQL"><![CDATA[FROM ClienteEN  as u where u.nombre like '%'+:busqueda+'%']]></query>
+		  <query name="ClienteENbuscarClientePorApellidosHQL"><![CDATA[FROM ClienteEN  as u where u.apellidos like '%'+:busqueda+'%']]></query>
 		</hibernate-mapping>
 	

@@ -22,6 +22,6 @@ MascotaEN BuscarMascotaPorOID (int IdMascota);
 System.Collections.Generic.IList<MascotaEN> DameTodasLasMascotas (int first, int size);
 
 
-System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> DameMascotaPorNombre (string param, int first, int size);
+System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> DameMascotaPorNombre (string busqueda);
 }
 }

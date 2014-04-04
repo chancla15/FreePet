@@ -113,9 +113,9 @@ public System.Collections.Generic.IList<MascotaEN> DameTodasLasMascotas (int fir
         list = _IMascotaCAD.DameTodasLasMascotas (first, size);
         return list;
 }
-public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> DameMascotaPorNombre (string param, int first, int size)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> DameMascotaPorNombre (string busqueda)
 {
-        return _IMascotaCAD.DameMascotaPorNombre (param, first, size);
+        return _IMascotaCAD.DameMascotaPorNombre (busqueda);
 }
 }
 }

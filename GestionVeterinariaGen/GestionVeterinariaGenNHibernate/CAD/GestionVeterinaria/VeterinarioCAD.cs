@@ -220,7 +220,7 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM VeterinarioEN self where FROM VeterinarioEN as u where u.Nombre like '%'+:p_nombre+'%'";
+                //String sql = @"FROM VeterinarioEN self where FROM VeterinarioEN as u where u.nombre like '%'+:busqueda+'%'";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("VeterinarioENbuscarVetPorNombreHQL");
                 query.SetParameter ("busqueda", busqueda);
@@ -250,7 +250,7 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM VeterinarioEN self where FROM VeterinarioEN  as u where u.Nombre like '%'+:p_apellidos+'%'";
+                //String sql = @"FROM VeterinarioEN self where FROM VeterinarioEN as u where u.apellidos like '%'+:busqueda+'%'";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("VeterinarioENbuscarVetPorApellidosHQL");
                 query.SetParameter ("busqueda", busqueda);
