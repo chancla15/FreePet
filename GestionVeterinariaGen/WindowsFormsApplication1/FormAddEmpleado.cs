@@ -219,6 +219,7 @@ namespace WindowsFormsApplication1
             bt_aceptar.Visible = false;
         }
 
+        //Mostrar Datos Cliente
         private void mostrarDatosCliente(String dni)
         {
             ClienteCEN cen = new ClienteCEN();

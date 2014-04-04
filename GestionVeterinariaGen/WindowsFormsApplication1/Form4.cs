@@ -153,9 +153,6 @@ namespace WindowsFormsApplication1
 
         private void Form4_Load(object sender, EventArgs e)
         {
-
-
-
             m_sexo.SelectedIndex = 0;
             comboBox1.SelectedIndex = 0;
             comboBox3.SelectedIndex = 0;
