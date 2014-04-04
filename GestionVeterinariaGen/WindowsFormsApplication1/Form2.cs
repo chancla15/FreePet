@@ -259,10 +259,10 @@ namespace WindowsFormsApplication1
             string empleadoborrar = "";
             bool eliminarMascota = false;
 
-            if (listBox3.SelectedIndex >= 0)
+            if (listBox2.SelectedIndex >= 0)
             {
 
-                empleadoborrar = listBox3.SelectedItem.ToString();
+                empleadoborrar = listBox2.SelectedItem.ToString();
 
                 empleadoborrar = empleadoborrar.Substring(0, 9);
 
