@@ -29,7 +29,7 @@ namespace WindowsFormsApplication1
         private void button3_Click(object sender, EventArgs e)
         {
             Form3.ActiveForm.Close();
-            Form2 f2 = new Form2();
+            FormStartScreen f2 = new FormStartScreen();
             f2.Activate();
             f2.Visible = true;
         }

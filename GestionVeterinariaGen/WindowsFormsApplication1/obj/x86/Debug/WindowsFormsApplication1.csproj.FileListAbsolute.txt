@@ -48,3 +48,6 @@ C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1
 C:\Documents and Settings\ooh4riaUser\Desktop\Rafa\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
 C:\Documents and Settings\ooh4riaUser\Desktop\Rafa\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
 C:\Documents and Settings\ooh4riaUser\Desktop\Rafa\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
