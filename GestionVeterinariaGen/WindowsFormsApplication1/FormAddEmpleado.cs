@@ -117,14 +117,18 @@ namespace WindowsFormsApplication1
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
             bt_despedir.Visible = false;//por defecto oculto.
+            bt_modificar.Visible = false;
             if (eliminarUsuario == true){
                 bt_despedir.Visible = true;
                 mostrarDatos(dniEliminarUsuario);
-            }else if (modificarUsuario == true){
+
+            }
+            else if (modificarUsuario == true)
+            {
+                
                 mostrarDatos(dniModificarUsuario);
                 bt_aceptar.Visible = false;//ocultamos el boton de despedir
-                System.Console.WriteLine(dniModificarUsuario);
-               
+                bt_modificar.Visible = true;
             }
  
         }
