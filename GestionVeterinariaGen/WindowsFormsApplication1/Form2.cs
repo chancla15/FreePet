@@ -555,7 +555,8 @@ namespace WindowsFormsApplication1
 
             if (vet_en != null)
             {
-                //Cuando sea veterinario oculto
+                //Cuando sea veterinario oculto cerdo
+                //cerdo
                 panel1.Visible = false;
                 label5.Visible = false;
                 tabPage3.Parent = null;
