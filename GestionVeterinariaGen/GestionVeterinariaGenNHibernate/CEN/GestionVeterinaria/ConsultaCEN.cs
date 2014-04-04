@@ -112,5 +112,9 @@ public System.Collections.Generic.IList<ConsultaEN> DameTodasLasConsultas (int f
         list = _IConsultaCAD.DameTodasLasConsultas (first, size);
         return list;
 }
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> BuscarConsultaPorFecha (Nullable<DateTime> fecha)
+{
+        return _IConsultaCAD.BuscarConsultaPorFecha (fecha);
+}
 }
 }
