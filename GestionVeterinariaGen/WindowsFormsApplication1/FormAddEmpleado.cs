@@ -16,6 +16,8 @@ namespace WindowsFormsApplication1
     {
 
         public string sesionUsuario;//especide de sesion de usuario
+        public bool eliminarUsuario;
+        public string dniEliminarUsuario;
 
         public FormAddEmpleado()
         {
@@ -107,7 +109,9 @@ namespace WindowsFormsApplication1
         {
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
-
+            if (eliminarUsuario==true){
+                System.Console.WriteLine("PEDAZO DE CERDO -->"+dniEliminarUsuario);
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)

@@ -95,7 +95,7 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void button9_Click(object sender, EventArgs e)/** ELIMINAR CLIENTE **/
         {
             
             Form2.ActiveForm.Close();
@@ -106,13 +106,14 @@ namespace WindowsFormsApplication1
 
 
             string clienteaborrar;
-
-            clienteaborrar=listBox1.SelectedItem.ToString();
-
-            clienteaborrar=clienteaborrar.Substring(0, 9);
-
-            System.Console.WriteLine(clienteaborrar);
+            if (listBox1.SelectedIndex.Equals(null))
+            {
+                clienteaborrar = listBox1.SelectedItem.ToString();
                 
+                clienteaborrar = clienteaborrar.Substring(0, 9);
+
+                System.Console.WriteLine(clienteaborrar);
+            }
 
             ((ComboBox)f3.Controls["comboBox1"]).Visible = false;
             ((Label)f3.Controls["label14"]).Visible = false;
@@ -180,11 +181,25 @@ namespace WindowsFormsApplication1
             f3.Visible = true;
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e) /** ELIMINAR EMPLEADO**/
         {
+
+            string empleadoborrar;
+            if (listBox1.SelectedIndex.Equals(null))
+            {
+                empleadoborrar = listBox1.SelectedItem.ToString();
+
+                empleadoborrar = empleadoborrar.Substring(0, 9);
+
+                System.Console.WriteLine(empleadoborrar);
+            }
+
+
             Form2.ActiveForm.Close();
             FormAddEmpleado f3 = new FormAddEmpleado();
             f3.sesionUsuario = sesionUsuario;//sesion usuario
+            f3.eliminarUsuario = true;
+            f3.dniEliminarUsuario = "DNI CON SUBSTRING";
             f3.Activate();
             f3.Visible = true;
 
@@ -277,7 +292,7 @@ namespace WindowsFormsApplication1
                     }else{
 
                         for (int x = 0; x < en_vet_nombre.Count; x++){
-                            listBox3.Items.Add(en_vet_nombre[x].Nombre + " " + en_vet_nombre[x].Apellidos);
+                            listBox3.Items.Add(en_vet_nombre[x].DNI + " - " + en_vet_nombre[x].Nombre + " " + en_vet_nombre[x].Apellidos + " (Veterinario)");
                             dni_vet.Add(en_vet_nombre[x].DNI);//metemos el dni en el array auxiliar
                         }
 
@@ -289,7 +304,7 @@ namespace WindowsFormsApplication1
                             }
 
                             if (!dni_repetido_vet)
-                                listBox3.Items.Add(en_vet_apellido[i].Nombre + " " + en_vet_apellido[i].Apellidos);
+                                listBox3.Items.Add(en_vet_apellido[i].DNI + " - " + en_vet_apellido[i].Nombre + " " + en_vet_apellido[i].Apellidos + " (Veterinario)");
 
                             dni_repetido = false;
                         }
@@ -310,7 +325,7 @@ namespace WindowsFormsApplication1
                         listBox3.Items.Add("La búsqueda no ha producido ningún resultado");
                     }else{
                         for (int x = 0; x < en_rec_nombre.Count; x++){
-                            listBox3.Items.Add(en_rec_nombre[x].Nombre + " " + en_rec_nombre[x].Apellidos);
+                            listBox3.Items.Add(en_rec_nombre[x].DNI + " - " + en_rec_nombre[x].Nombre + " " + en_rec_nombre[x].Apellidos + " (Recepcionista)");
                             dni_rec.Add(en_rec_nombre[x].DNI);//metemos el dni en el array auxiliar
                         }
                         for (int i = 0; i < en_rec_apellido.Count; i++){
@@ -322,7 +337,7 @@ namespace WindowsFormsApplication1
                             }
 
                             if (!dni_repetido_rece)
-                                listBox3.Items.Add(en_rec_apellido[i].Nombre + " " + en_rec_apellido[i].Apellidos);
+                                listBox3.Items.Add(en_rec_apellido[i].DNI+" - "+en_rec_apellido[i].Nombre + " " + en_rec_apellido[i].Apellidos+" (Recepcionista)");
 
                             dni_repetido_rece = false;
                         }
