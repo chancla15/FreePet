@@ -116,7 +116,7 @@ namespace WindowsFormsApplication1
         {
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
-
+            bt_despedir.Visible = false;//por defecto oculto.
             if (eliminarUsuario == true){
                 mostrarDatos(dniEliminarUsuario);
             }else if (modificarUsuario == true){
@@ -209,6 +209,18 @@ namespace WindowsFormsApplication1
             tb_cp.Text = en.Cp;
             comboBox2.SelectedItem = en.Provincia;
             tb_colegiado.Visible = false;
+            label14.Visible = false;
+            comboBox1.Visible = false;
+            label17.Visible = false;
+            bt_aceptar.Visible = false;
+            bt_despedir.Visible = true;
+        }
+
+        private void bt_despedir_Click(object sender, EventArgs e)
+        {
+            UsuarioCEN cen = new UsuarioCEN();
+
+            cen.Destroy(dniEliminarUsuario);
         }
     }
 }

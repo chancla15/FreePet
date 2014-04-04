@@ -69,6 +69,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.tb_colegiado = new System.Windows.Forms.TextBox();
+            this.bt_despedir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -532,9 +533,9 @@
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(41, 160);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(96, 16);
+            this.label17.Size = new System.Drawing.Size(105, 16);
             this.label17.TabIndex = 54;
-            this.label17.Text = "Nº Colegiao:";
+            this.label17.Text = "Nº Colegiado:";
             // 
             // tb_colegiado
             // 
@@ -544,6 +545,16 @@
             this.tb_colegiado.Size = new System.Drawing.Size(163, 20);
             this.tb_colegiado.TabIndex = 53;
             // 
+            // bt_despedir
+            // 
+            this.bt_despedir.Location = new System.Drawing.Point(231, 539);
+            this.bt_despedir.Name = "bt_despedir";
+            this.bt_despedir.Size = new System.Drawing.Size(75, 23);
+            this.bt_despedir.TabIndex = 56;
+            this.bt_despedir.Text = "DESPEDIR";
+            this.bt_despedir.UseVisualStyleBackColor = true;
+            this.bt_despedir.Click += new System.EventHandler(this.bt_despedir_Click);
+            // 
             // FormAddEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -551,6 +562,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(442, 580);
             this.ControlBox = false;
+            this.Controls.Add(this.bt_despedir);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.tb_colegiado);
@@ -646,5 +658,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox tb_colegiado;
+        private System.Windows.Forms.Button bt_despedir;
     }
 }
