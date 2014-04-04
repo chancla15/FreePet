@@ -109,8 +109,15 @@ namespace WindowsFormsApplication1
         {
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
-            if (eliminarUsuario==true){
+
+            if (eliminarUsuario == true)
+            {
                 System.Console.WriteLine(dniEliminarUsuario);
+            }
+            else
+            {
+                MessageBox.Show("Pedazo de cerdo, a quien pretendes eliminar si no has seleccionado a nadie?");
+                
             }
         }
 

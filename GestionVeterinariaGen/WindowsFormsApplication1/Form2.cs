@@ -185,7 +185,7 @@ namespace WindowsFormsApplication1
         {
 
             string empleadoborrar="";
-            System.Console.WriteLine(listBox3.SelectedIndex.ToString());
+            bool eliminar = false;
             
             
             if (listBox3.SelectedIndex>=0)
@@ -194,14 +194,14 @@ namespace WindowsFormsApplication1
 
                 empleadoborrar = empleadoborrar.Substring(0, 9);
 
-                System.Console.WriteLine(empleadoborrar);
+                eliminar = true;
             }
 
 
             Form2.ActiveForm.Close();
             FormAddEmpleado f3 = new FormAddEmpleado();
             f3.sesionUsuario = sesionUsuario;//sesion usuario
-            f3.eliminarUsuario = true;
+            f3.eliminarUsuario = eliminar;
             f3.dniEliminarUsuario = empleadoborrar;
             f3.Activate();
             f3.Visible = true;
