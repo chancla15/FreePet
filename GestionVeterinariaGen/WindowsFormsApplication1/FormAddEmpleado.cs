@@ -26,6 +26,19 @@ namespace WindowsFormsApplication1
         public bool modificarUsuario;
         public string dniModificarUsuario;
 
+        //Sesion para eliminar
+        public bool eliminarCliente;
+        public string dniEliminarCliente;
+
+        //Sesion para modificar
+        public bool modificarCliente;
+        public string dniModificarCliente;
+
+        public bool anyadirCliente;
+        public bool anyadirEmpleado;
+
+
+
         public FormAddEmpleado()
         {
             InitializeComponent();
@@ -118,17 +131,45 @@ namespace WindowsFormsApplication1
             comboBox2.SelectedIndex = 0;
             bt_despedir.Visible = false;//por defecto oculto.
             bt_modificar.Visible = false;//por defecto oculto
-            if (eliminarUsuario == true){
-                bt_despedir.Visible = true;
-                mostrarDatos(dniEliminarUsuario);
+            bt_eliminar_cliente.Visible = false;//por defecto oculto.
+            bt_modificar_cliente.Visible = false;//por defecto oculto
+            bt_anyadir_cliente.Visible = false;//por defecto oculto.
+            bt_aceptar.Visible = false;//por defecto oculto
 
+            if (eliminarUsuario == true){
+
+                mostrarDatos(dniEliminarUsuario);
+                bt_despedir.Visible = true;
             }
             else if (modificarUsuario == true)
             {
                 
                 mostrarDatos(dniModificarUsuario);
-                bt_aceptar.Visible = false;//ocultamos el boton de despedir
                 bt_modificar.Visible = true;// mostramos el boton de modificar
+            }
+
+            if (eliminarCliente == true)
+            {
+                mostrarDatosCliente(dniEliminarCliente);
+                bt_eliminar_cliente.Visible = true;
+
+            }
+            else if (modificarCliente == true)
+            {
+
+                mostrarDatosCliente(dniModificarCliente);
+                bt_modificar_cliente.Visible = true;// mostramos el boton de modificar
+            }
+
+            if (anyadirCliente == true)
+            {
+
+                bt_anyadir_cliente.Visible = true;
+
+            }
+            else if (anyadirEmpleado == true)
+            {
+                bt_aceptar.Visible = true;
             }
  
         }
@@ -202,6 +243,7 @@ namespace WindowsFormsApplication1
         }
 
         private void mostrarDatos(String dni){
+
             EmpleadoCEN cen = new EmpleadoCEN();
             EmpleadoEN en = cen.DameEmpleadoPorOID(dni);
 
@@ -216,6 +258,7 @@ namespace WindowsFormsApplication1
             tb_direccion.Text = en.Direccion ;
             tb_cp.Text = en.Cp;
             comboBox2.SelectedItem = en.Provincia;
+
             tb_colegiado.Visible = false;
             label14.Visible = false;
             comboBox1.Visible = false;
@@ -231,9 +274,6 @@ namespace WindowsFormsApplication1
 
             tb_dni.Text = en.DNI;
             tb_nombre.Text = en.Nombre;
-            //tb_pass.Text = en.Password;
-            //tb_confPass.Text = en.Password;
-            //tb_sueldo.Text = en.Sueldo.ToString();
             tb_localidad.Text = en.Localidad;
             tb_tel.Text = en.Telefono;
             tb_apellidos.Text = en.Apellidos;
@@ -245,7 +285,7 @@ namespace WindowsFormsApplication1
             label14.Visible = false;
             comboBox1.Visible = false;
             label17.Visible = false;
-            bt_aceptar.Visible = false;
+            bt_anyadir_cliente.Visible = false;
         }
 
         private void bt_despedir_Click(object sender, EventArgs e)
@@ -253,14 +293,121 @@ namespace WindowsFormsApplication1
             UsuarioCEN cen = new UsuarioCEN();
 
             if ( MessageBox.Show("Seguro que desea despedir a este empleado","Despedir usuario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK )
+            {
             cen.Destroy(dniEliminarUsuario);
+            FormAddEmpleado.ActiveForm.Close();
+            Form2 f2 = new Form2();
+            f2.sesionUsuario = sesionUsuario; //sesion usuario
+            f2.Activate();
+            f2.Visible = true;
+            }
+            else
+            {
+                err_add.Text = "*Error al Eliminar Cliente";
+                err_add.Visible = true;
+            }
+        }
+
+        private void bt_eliminar_cliente_Click(object sender, EventArgs e)
+        {
+            UsuarioCEN cen = new UsuarioCEN();
+
+            if (MessageBox.Show("Seguro que desea eliminar a este cliente", "Eliminar cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                cen.Destroy(dniEliminarCliente);
+                FormAddEmpleado.ActiveForm.Close();
+                Form2 f2 = new Form2();
+                f2.sesionUsuario = sesionUsuario; //sesion usuario
+                f2.Activate();
+                f2.Visible = true;
+            }
+            else
+            {
+                err_add.Text = "*Error al Eliminar Cliente";
+                err_add.Visible = true;
+            }
+
         }
 
         private void bt_modificar_Click(object sender, EventArgs e)
         {   
             EmpleadoCEN cen2 = new EmpleadoCEN();
-            
-            cen2.Modify(tb_dni.Text.ToString(),tb_nombre.Text.ToString(),tb_apellidos.Text.ToString(),tb_direccion.Text.ToString(),tb_direccion.Text.ToString(),tb_localidad.Text.ToString(),comboBox2.SelectedItem.ToString(),tb_cp.Text.ToString(), Convert.ToInt32(tb_sueldo.Text.ToString()), tb_pass.Text.ToString()); 
+            try
+            {
+            cen2.Modify(tb_dni.Text.ToString(),tb_nombre.Text.ToString(),tb_apellidos.Text.ToString(),tb_direccion.Text.ToString(),tb_tel.Text.ToString(),tb_localidad.Text.ToString(),comboBox2.SelectedItem.ToString(),tb_cp.Text.ToString(), Convert.ToInt32(tb_sueldo.Text.ToString()), tb_pass.Text.ToString());
+            MessageBox.Show("Empleado Modificado Correctamente");
+            FormAddEmpleado.ActiveForm.Close();
+            Form2 f2 = new Form2();
+            f2.sesionUsuario = sesionUsuario; //sesion usuario
+            f2.Activate();
+            f2.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex);
+                err_add.Text = "*Error al Modificar Empleado";
+                err_add.Visible = true;
+
+            }
         }
+
+        private void bt_modificar_cliente_Click(object sender, EventArgs e)
+        {
+            ClienteCEN cen3 = new ClienteCEN();
+try
+            {
+            cen3.Modify(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.SelectedItem.ToString(), tb_cp.Text.ToString());
+            MessageBox.Show("Cliente Modificado Correctamente");
+            FormAddEmpleado.ActiveForm.Close();
+            Form2 f2 = new Form2();
+            f2.sesionUsuario = sesionUsuario; //sesion usuario
+            f2.Activate();
+            f2.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex);
+                err_add.Text = "*Error al Modificar Cliente";
+                err_add.Visible = true;
+
+            }
+        }
+
+        private void bt_anyadir_cliente_Click(object sender, EventArgs e)
+        {
+            ClienteCEN cenCliente = new ClienteCEN();
+
+            IList<MascotaEN> mascota;
+
+            try
+            {
+
+                cenCliente.New_(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.Text.ToString(), tb_cp.Text.ToString(), null);
+                MessageBox.Show("Cliente Creado Correctamente");
+                FormAddEmpleado.ActiveForm.Close();
+                Form2 f2 = new Form2();
+                f2.sesionUsuario = sesionUsuario; //sesion usuario
+                f2.Activate();
+                f2.Visible = true;
+
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex);
+                err_add.Text = "*Error al Añadir Cliente";
+                err_add.Visible = true;
+
+            }
+        }
+
+        private void bt_eliminar_cliente_Click_1(object sender, EventArgs e)
+        {
+            UsuarioCEN cen = new UsuarioCEN();
+
+            if (MessageBox.Show("Seguro que desea eliminar a este cliente", "Eliminar cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                cen.Destroy(dniEliminarCliente);
+        }
+
+
     }
 }

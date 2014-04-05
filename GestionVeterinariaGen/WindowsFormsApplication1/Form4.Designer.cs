@@ -66,13 +66,13 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.err_add = new System.Windows.Forms.Label();
             this.bt_modificar = new System.Windows.Forms.Button();
-            this.bt_aceptar = new System.Windows.Forms.Button();
+            this.bt_anyadir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // bt_eliminar
             // 
-            this.bt_eliminar.Location = new System.Drawing.Point(147, 534);
+            this.bt_eliminar.Location = new System.Drawing.Point(231, 534);
             this.bt_eliminar.Name = "bt_eliminar";
             this.bt_eliminar.Size = new System.Drawing.Size(75, 23);
             this.bt_eliminar.TabIndex = 1;
@@ -115,6 +115,7 @@
             this.m_id.Name = "m_id";
             this.m_id.Size = new System.Drawing.Size(163, 20);
             this.m_id.TabIndex = 5;
+            this.m_id.Visible = false;
             // 
             // m_nombre
             // 
@@ -154,6 +155,7 @@
             this.label2.Size = new System.Drawing.Size(27, 16);
             this.label2.TabIndex = 13;
             this.label2.Text = "ID:";
+            this.label2.Visible = false;
             // 
             // label3
             // 
@@ -460,16 +462,17 @@
             this.bt_modificar.TabIndex = 101;
             this.bt_modificar.Text = "MODIFICAR";
             this.bt_modificar.UseVisualStyleBackColor = true;
+            this.bt_modificar.Click += new System.EventHandler(this.bt_modificar_Click);
             // 
-            // bt_aceptar
+            // bt_anyadir
             // 
-            this.bt_aceptar.Location = new System.Drawing.Point(231, 534);
-            this.bt_aceptar.Name = "bt_aceptar";
-            this.bt_aceptar.Size = new System.Drawing.Size(75, 23);
-            this.bt_aceptar.TabIndex = 102;
-            this.bt_aceptar.Text = "ACEPTAR";
-            this.bt_aceptar.UseVisualStyleBackColor = true;
-            this.bt_aceptar.Click += new System.EventHandler(this.bt_aceptar_Click);
+            this.bt_anyadir.Location = new System.Drawing.Point(231, 534);
+            this.bt_anyadir.Name = "bt_anyadir";
+            this.bt_anyadir.Size = new System.Drawing.Size(75, 23);
+            this.bt_anyadir.TabIndex = 102;
+            this.bt_anyadir.Text = "AÑADIR";
+            this.bt_anyadir.UseVisualStyleBackColor = true;
+            this.bt_anyadir.Click += new System.EventHandler(this.bt_anyadir_Click);
             // 
             // Form4
             // 
@@ -513,8 +516,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.bt_anyadir);
             this.Controls.Add(this.bt_eliminar);
-            this.Controls.Add(this.bt_aceptar);
             this.Controls.Add(this.bt_modificar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
@@ -568,6 +571,6 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label err_add;
         private System.Windows.Forms.Button bt_modificar;
-        private System.Windows.Forms.Button bt_aceptar;
+        private System.Windows.Forms.Button bt_anyadir;
     }
 }

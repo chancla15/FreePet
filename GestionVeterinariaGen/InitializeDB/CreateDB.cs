@@ -114,7 +114,7 @@ public static void InitializeData ()
                 #endregion
 
                 #region Recepcionista
-                RecepcionistaCEN.New_("1", "Juan", "Fernandez Gonzalez", "Plaza de Spain 1", "966661111", "Albir", "Alicante", "01110", 1000, "1");
+                RecepcionistaCEN.New_ ("1", "Juan", "Fernandez Gonzalez", "Plaza de Spain 1", "966661111", "Albir", "Alicante", "01110", 1000, "1");
                 #endregion
                 /*PROTECTED REGION END*/
         }

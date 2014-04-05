@@ -32,40 +32,11 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-  
 
-            /*if (m_sexo.Enabled.Equals(false))
-            {
+            MascotaCEN cen = new MascotaCEN();
 
-                ClienteCEN cenCliente = new ClienteCEN();
-
-                IList<MascotaEN> mascota;
-
-
-
-                try
-                {
-                    
-                    cenCliente.New_(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.Text.ToString(), tb_cp.Text.ToString(), null);
-                    MessageBox.Show("Cliente Creado Correctamente");
-                    FormAddEmpleado.ActiveForm.Close();
-                    Form2 f2 = new Form2();
-                    f2.sesionUsuario = sesionUsuario; //sesion usuario
-                    f2.Activate();
-                    f2.Visible = true;
-
-                }
-                catch (Exception ex)
-                {
-                    System.Console.WriteLine(ex);
-                    err_add.Text = "*Error al Añadir Cliente";
-                    err_add.Visible = true;
-
-                }
-
-
-
-            }*/
+            if (MessageBox.Show("Seguro que desea eliminar esta mascota", "Eliminar mascota", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                cen.Destroy(idEliminarMascota);
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
@@ -100,19 +71,29 @@ namespace WindowsFormsApplication1
 
             bt_eliminar.Visible = false;
             bt_modificar.Visible = false;
+            bt_anyadir.Visible = false;
 
             if (eliminarMascota == true)
             {
-                bt_aceptar.Visible = false;
+                mostrarDatosMascota(idEliminarMascota);
                 bt_eliminar.Visible = true;
-                mostrarDatos(idEliminarMascota);
+                
             }
-            else if (modificarMascota == true)
+            
+            if (modificarMascota == true)
             {
-                bt_aceptar.Visible = false;
-                bt_eliminar.Visible = true;
-                mostrarDatos(idModificarMascota);
+                mostrarDatosMascota(idModificarMascota);
+                bt_modificar.Visible = true;
+                
             }
+
+            if (modificarMascota != true && eliminarMascota != true)
+            {
+
+                bt_anyadir.Visible = true;
+
+            }
+
 
         }
 
@@ -121,12 +102,12 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void mostrarDatos(String dni)
+        private void mostrarDatosMascota(String id)
         {
             MascotaCEN cen = new MascotaCEN();
-            MascotaEN en = cen.BuscarMascotaPorOID(dni);
+            MascotaEN en = cen.BuscarMascotaPorOID(id);
 
-            m_id.Text = en.IdMascota;
+            //m_id.Text = en.IdMascota;
             m_nombre.Text = en.Nombre;
             m_raza.Text = en.Raza;
             m_sexo.Text = en.Sexo.ToString();
@@ -138,14 +119,86 @@ namespace WindowsFormsApplication1
             comboBox2.SelectedItem = en.Cliente;
             comboBox3.Text = en.Tamanyo.ToString();
 
-            comboBox1.Visible = false;
-            label17.Visible = false;
-            bt_aceptar.Visible = false;
-            bt_eliminar.Visible = true;
+            //comboBox1.Visible = false;
+            //label17.Visible = false;
+            //bt_modificar.Visible = false;
+            //bt_eliminar.Visible = ;
+            //bt_anyadir.Visible = true;
         }
 
-        private void bt_aceptar_Click(object sender, EventArgs e)
+        private void bt_modificar_Click(object sender, EventArgs e)
         {
+            MascotaCEN cen = new MascotaCEN();
+
+            bool chip = false;
+
+            if (comboBox1.SelectedIndex.Equals(0))
+            {
+                chip = true;
+            }
+
+            SexoEnum sexo = new SexoEnum();
+            TamanyoMascotaEnum tam = new TamanyoMascotaEnum();
+
+            if (m_sexo.SelectedIndex.Equals(0))
+            {
+                sexo = SexoEnum.Macho;
+            }
+            else
+            {
+                sexo = SexoEnum.Hembra;
+            }
+
+
+            if (comboBox3.SelectedIndex.Equals(0))
+            {
+                tam = TamanyoMascotaEnum.XS;
+            }
+            else if (comboBox3.SelectedIndex.Equals(1))
+            {
+                tam = TamanyoMascotaEnum.S;
+
+            }
+            else if (comboBox3.SelectedIndex.Equals(2))
+            {
+                tam = TamanyoMascotaEnum.M;
+
+            }
+            else if (comboBox3.SelectedIndex.Equals(3))
+            {
+                tam = TamanyoMascotaEnum.L;
+
+            }
+            else if (comboBox3.SelectedIndex.Equals(3))
+            {
+                tam = TamanyoMascotaEnum.XL;
+            }
+
+            try
+            {
+
+            cen.Modify(idModificarMascota, m_nombre.Text.ToString(), m_raza.Text.ToString(),sexo, Convert.ToInt32(m_peso.Text.ToString()), m_especie.Text.ToString(), Convert.ToDateTime(m_fecha_nac.Value.Date.ToString()), tam, m_color.Text.ToString(),chip, "");
+                MessageBox.Show("Mascota Modificada Correctamente");
+                Form4.ActiveForm.Close();
+                Form2 f2 = new Form2();
+                f2.sesionUsuario = sesionUsuario; //sesion usuario
+                f2.Activate();
+                f2.Visible = true;
+
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex);
+                err_add.Text = "*Error al Modificar Mascota";
+                err_add.Visible = true;
+
+            }
+            
+        }
+
+        private void bt_anyadir_Click(object sender, EventArgs e)
+        {
+
             MascotaCEN cen = new MascotaCEN();
 
             bool chip = false;
@@ -201,15 +254,15 @@ namespace WindowsFormsApplication1
 
 
             int num_id = (en_m.Count + 1);
-            String id = num_id + "";
+            String id = num_id.ToString();
 
             try
             {
-
-                cen.New_(id, m_nombre.Text.ToString(), m_raza.Text.ToString(), sexo, Convert.ToInt32(m_peso.Text.ToString()), m_especie.Text.ToString(), Convert.ToDateTime(m_fecha_nac.Value.Date.ToString()), tam, clienteDNI, m_color.Text.ToString(), chip, "");
+                cen.New_(id.ToString(), m_nombre.Text.ToString(), m_raza.Text.ToString(), sexo, Convert.ToInt32(m_peso.Text.ToString()), m_especie.Text.ToString(), Convert.ToDateTime(m_fecha_nac.Value.Date.ToString()), tam, clienteDNI.ToString(), m_color.Text.ToString(), chip, "");
                 MessageBox.Show("Mascota añadida Correctamente");
-                FormAddEmpleado.ActiveForm.Close();
+                Form4.ActiveForm.Close();
                 Form2 f2 = new Form2();
+                f2.sesionUsuario = sesionUsuario; //sesion usuario
                 f2.Activate();
                 f2.Visible = true;
 
@@ -217,6 +270,7 @@ namespace WindowsFormsApplication1
             catch (Exception ex)
             {
                 System.Console.WriteLine(ex);
+                err_add.Text = "Error al añadir Mascota";
                 err_add.Visible = true;
 
             }

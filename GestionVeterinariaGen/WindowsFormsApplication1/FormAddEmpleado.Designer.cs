@@ -71,6 +71,9 @@
             this.tb_colegiado = new System.Windows.Forms.TextBox();
             this.bt_despedir = new System.Windows.Forms.Button();
             this.bt_modificar = new System.Windows.Forms.Button();
+            this.bt_modificar_cliente = new System.Windows.Forms.Button();
+            this.bt_eliminar_cliente = new System.Windows.Forms.Button();
+            this.bt_anyadir_cliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -566,6 +569,36 @@
             this.bt_modificar.UseVisualStyleBackColor = true;
             this.bt_modificar.Click += new System.EventHandler(this.bt_modificar_Click);
             // 
+            // bt_modificar_cliente
+            // 
+            this.bt_modificar_cliente.Location = new System.Drawing.Point(231, 539);
+            this.bt_modificar_cliente.Name = "bt_modificar_cliente";
+            this.bt_modificar_cliente.Size = new System.Drawing.Size(75, 23);
+            this.bt_modificar_cliente.TabIndex = 58;
+            this.bt_modificar_cliente.Text = "MODIFICAR";
+            this.bt_modificar_cliente.UseVisualStyleBackColor = true;
+            this.bt_modificar_cliente.Click += new System.EventHandler(this.bt_modificar_cliente_Click);
+            // 
+            // bt_eliminar_cliente
+            // 
+            this.bt_eliminar_cliente.Location = new System.Drawing.Point(231, 539);
+            this.bt_eliminar_cliente.Name = "bt_eliminar_cliente";
+            this.bt_eliminar_cliente.Size = new System.Drawing.Size(75, 23);
+            this.bt_eliminar_cliente.TabIndex = 59;
+            this.bt_eliminar_cliente.Text = "ELIMINAR";
+            this.bt_eliminar_cliente.UseVisualStyleBackColor = true;
+            this.bt_eliminar_cliente.Click += new System.EventHandler(this.bt_eliminar_cliente_Click_1);
+            // 
+            // bt_anyadir_cliente
+            // 
+            this.bt_anyadir_cliente.Location = new System.Drawing.Point(231, 539);
+            this.bt_anyadir_cliente.Name = "bt_anyadir_cliente";
+            this.bt_anyadir_cliente.Size = new System.Drawing.Size(75, 23);
+            this.bt_anyadir_cliente.TabIndex = 60;
+            this.bt_anyadir_cliente.Text = "ACEPTAR";
+            this.bt_anyadir_cliente.UseVisualStyleBackColor = true;
+            this.bt_anyadir_cliente.Click += new System.EventHandler(this.bt_anyadir_cliente_Click);
+            // 
             // FormAddEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -573,8 +606,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(442, 580);
             this.ControlBox = false;
-            this.Controls.Add(this.bt_modificar);
-            this.Controls.Add(this.bt_despedir);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.tb_colegiado);
@@ -593,7 +624,6 @@
             this.Controls.Add(this.err_dni);
             this.Controls.Add(this.tb_sueldo);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.bt_aceptar);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
@@ -615,6 +645,12 @@
             this.Controls.Add(this.tb_nombre);
             this.Controls.Add(this.tb_dni);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.bt_aceptar);
+            this.Controls.Add(this.bt_modificar_cliente);
+            this.Controls.Add(this.bt_modificar);
+            this.Controls.Add(this.bt_anyadir_cliente);
+            this.Controls.Add(this.bt_eliminar_cliente);
+            this.Controls.Add(this.bt_despedir);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -672,5 +708,8 @@
         private System.Windows.Forms.TextBox tb_colegiado;
         private System.Windows.Forms.Button bt_despedir;
         private System.Windows.Forms.Button bt_modificar;
+        private System.Windows.Forms.Button bt_modificar_cliente;
+        private System.Windows.Forms.Button bt_eliminar_cliente;
+        private System.Windows.Forms.Button bt_anyadir_cliente;
     }
 }

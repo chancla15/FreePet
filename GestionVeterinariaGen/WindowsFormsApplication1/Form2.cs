@@ -66,9 +66,12 @@ namespace WindowsFormsApplication1
             {
 
                 mascmod = listBox2.SelectedItem.ToString();
+                string[] separador = {" "};
+                string value = mascmod;
+                string[] words = value.Split(separador, StringSplitOptions.RemoveEmptyEntries);
 
-                mascmod = mascmod.Substring(0, 9);
-
+                mascmod = words[0];
+                Console.WriteLine(words[0]);
                 modMascota = true;
 
             }
@@ -83,10 +86,12 @@ namespace WindowsFormsApplication1
             {
 
                 Form2.ActiveForm.Close();
-                Form4 f3 = new Form4();
-                f3.sesionUsuario = sesionUsuario;//sesion usuario
-                f3.Activate();
-                f3.Visible = true;
+                Form4 f4 = new Form4();
+                f4.sesionUsuario = sesionUsuario;//sesion usuario
+                f4.modificarMascota = modMascota;
+                f4.idModificarMascota = mascmod;
+                f4.Activate();
+                f4.Visible = true;
 
             }
         }
@@ -124,7 +129,7 @@ namespace WindowsFormsApplication1
                 Form2.ActiveForm.Close();
                 FormAddEmpleado f3 = new FormAddEmpleado();
                 f3.sesionUsuario = sesionUsuario;//sesion usuario
-                f3.modificarUsuario = true;
+                f3.modificarUsuario = modEmpleado;
                 f3.dniModificarUsuario = empleadoMod;
                 f3.Activate();
                 f3.Visible = true;
@@ -134,9 +139,11 @@ namespace WindowsFormsApplication1
 
         private void button10_Click(object sender, EventArgs e)//añadir cliente
         {
+            bool ok = true;
             Form2.ActiveForm.Close();
             FormAddEmpleado f3 = new FormAddEmpleado();
             f3.sesionUsuario = sesionUsuario;//sesion usuario
+            f3.anyadirCliente = ok;
             f3.Activate();
             f3.Visible = true;
 
@@ -150,20 +157,19 @@ namespace WindowsFormsApplication1
             ((TextBox)f3.Controls["tb_confPass"]).Visible = false;
             ((Label)f3.Controls["label13"]).Visible = false;
             ((TextBox)f3.Controls["tb_sueldo"]).Visible = false;
+            ((TextBox)f3.Controls["tb_sueldo"]).Visible = false;
 
         }
 
         private void button9_Click(object sender, EventArgs e)/** ELIMINAR CLIENTE **/
         {
             bool eliCliente = false;
-            string clienteaborrar;
+            string clienteaborrar="";
 
             if (listBox1.SelectedIndex >= 0)
             {
                 clienteaborrar = listBox1.SelectedItem.ToString();
-
                 clienteaborrar = clienteaborrar.Substring(0, 9);
-
                 eliCliente = true;
 
             }
@@ -180,6 +186,8 @@ namespace WindowsFormsApplication1
                 Form2.ActiveForm.Close();
                 FormAddEmpleado f3 = new FormAddEmpleado();
                 f3.sesionUsuario = sesionUsuario;//sesion usuario
+                f3.eliminarCliente = eliCliente;
+                f3.dniEliminarCliente = clienteaborrar;
                 f3.Activate();
                 f3.Visible = true;
 
@@ -219,13 +227,11 @@ namespace WindowsFormsApplication1
             string modCliente = "";
             bool clienteMod = false;
 
-            if (listBox3.SelectedIndex >= 0)
+            if (listBox1.SelectedIndex >= 0)
             {
 
-                modCliente = listBox3.SelectedItem.ToString();
-
+                modCliente = listBox1.SelectedItem.ToString();
                 modCliente = modCliente.Substring(0, 9);
-
                 clienteMod = true;
 
             }
@@ -241,6 +247,8 @@ namespace WindowsFormsApplication1
                 Form2.ActiveForm.Close();
                 FormAddEmpleado f3 = new FormAddEmpleado();
                 f3.sesionUsuario = sesionUsuario;//sesion usuario
+                f3.modificarCliente = clienteMod;
+                f3.dniModificarCliente = modCliente;
                 f3.Activate();
                 f3.Visible = true;
 
@@ -248,6 +256,10 @@ namespace WindowsFormsApplication1
                 ((Label)f3.Controls["label14"]).Visible = false;
                 ((Label)f3.Controls["label17"]).Visible = false;
                 ((TextBox)f3.Controls["tb_colegiado"]).Visible = false;
+                ((TextBox)f3.Controls["tb_pass"]).Visible = false;
+                ((Label)f3.Controls["label11"]).Visible = false;
+                ((Label)f3.Controls["label10"]).Visible = false;
+                ((TextBox)f3.Controls["tb_confPass"]).Visible = false;
                 ((Label)f3.Controls["label13"]).Visible = false;
                 ((TextBox)f3.Controls["tb_sueldo"]).Visible = false;
             }
@@ -256,18 +268,15 @@ namespace WindowsFormsApplication1
         private void button7_Click(object sender, EventArgs e)//eliminar mascota
         {
 
-            string empleadoborrar = "";
+            string mascotaEliminar = "";
             bool eliminarMascota = false;
 
             if (listBox2.SelectedIndex >= 0)
             {
 
-                empleadoborrar = listBox2.SelectedItem.ToString();
-
-                empleadoborrar = empleadoborrar.Substring(0, 9);
-
+                mascotaEliminar = listBox2.SelectedItem.ToString();
+                mascotaEliminar = mascotaEliminar.Substring(0, 1);
                 eliminarMascota = true;
-
             }
 
 
@@ -282,8 +291,22 @@ namespace WindowsFormsApplication1
                 Form2.ActiveForm.Close();
                 Form4 f4 = new Form4();
                 f4.sesionUsuario = sesionUsuario;//sesion usuario
+                f4.eliminarMascota = eliminarMascota;
+                f4.idEliminarMascota = mascotaEliminar;
                 f4.Activate();
                 f4.Visible = true;
+
+                ((TextBox)f4.Controls["m_id"]).Enabled = false;
+                ((TextBox)f4.Controls["m_nombre"]).Enabled = false;
+                ((TextBox)f4.Controls["m_raza"]).Enabled = false;
+                ((ComboBox)f4.Controls["m_sexo"]).Enabled = false;
+                ((TextBox)f4.Controls["m_especie"]).Enabled = false;
+                ((TextBox)f4.Controls["m_color"]).Enabled = false;
+                ((DateTimePicker)f4.Controls["m_fecha_nac"]).Enabled = false;
+                ((TextBox)f4.Controls["m_peso"]).Enabled = false;
+                ((ComboBox)f4.Controls["comboBox2"]).Enabled = false;
+                ((ComboBox)f4.Controls["comboBox3"]).Enabled = false;
+                ((ComboBox)f4.Controls["comboBox1"]).Enabled = false;
             }
 
 
@@ -292,20 +315,17 @@ namespace WindowsFormsApplication1
 
         private void button6_Click(object sender, EventArgs e)//añadir empleados
         {
+            bool ok = true;
             Form2.ActiveForm.Close();
             FormAddEmpleado f3 = new FormAddEmpleado();
             f3.sesionUsuario = sesionUsuario;//sesion usuario
+            f3.anyadirEmpleado = ok;
             f3.Activate();
             f3.Visible = true;
         }
 
         private void button5_Click(object sender, EventArgs e) /** ELIMINAR EMPLEADO**/
         {
-
-
-
-
-
             string empleadoborrar = "";
             bool eliminar = false;
 
@@ -449,7 +469,7 @@ namespace WindowsFormsApplication1
                     {
                         for (int x = 0; x < en_mas_nombre.Count; x++)
                         {
-                            listBox2.Items.Add(en_mas_nombre[x].Nombre + " - DNI del Dueño: " + en_mas_nombre[x].Cliente.DNI);
+                            listBox2.Items.Add(en_mas_nombre[x].IdMascota +" :ID  "+ en_mas_nombre[x].Nombre + " - DNI del Dueño: " + en_mas_nombre[x].Cliente.DNI);
                         }
 
                     }
