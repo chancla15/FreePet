@@ -59,6 +59,7 @@ namespace WindowsFormsApplication1
         private void button2_Click_1(object sender, EventArgs e)
         {
             Form1.ActiveForm.Close();
+            Application.Exit();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
