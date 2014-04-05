@@ -32,7 +32,7 @@ public IConsultaCAD get_IConsultaCAD ()
         return this._IConsultaCAD;
 }
 
-public string New_ (string p_IdConsulta, Nullable<DateTime> p_fecha, TimeSpan p_hora, string p_motivoConsulta, string p_diagnostico, string p_mascota, string p_veterinario, string p_lugar, string p_factura)
+public string New_ (string p_IdConsulta, Nullable<DateTime> p_fecha, TimeSpan p_hora, string p_motivoConsulta, string p_diagnostico, string p_mascota, string p_veterinario, string p_lugar)
 {
         ConsultaEN consultaEN = null;
         string oid;
@@ -62,12 +62,6 @@ public string New_ (string p_IdConsulta, Nullable<DateTime> p_fecha, TimeSpan p_
         }
 
         consultaEN.Lugar = p_lugar;
-
-
-        if (p_factura != null) {
-                consultaEN.Factura = new GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN ();
-                consultaEN.Factura.IdFactura = p_factura;
-        }
 
         //Call to ConsultaCAD
 

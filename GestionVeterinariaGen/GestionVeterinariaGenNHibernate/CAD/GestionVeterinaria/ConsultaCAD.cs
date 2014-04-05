@@ -66,11 +66,6 @@ public string New_ (ConsultaEN consulta)
 
                         consulta.Veterinario.Consulta.Add (consulta);
                 }
-                if (consulta.Factura != null) {
-                        consulta.Factura = (GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN)session.Load (typeof(GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN), consulta.Factura.IdFactura);
-
-                        consulta.Factura.Consulta = consulta;
-                }
 
                 session.Save (consulta);
                 SessionCommit ();
