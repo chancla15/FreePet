@@ -42,6 +42,10 @@
             this.btn_Anaydir = new System.Windows.Forms.Button();
             this.btn_Modificar = new System.Windows.Forms.Button();
             this.btn_Eliminar = new System.Windows.Forms.Button();
+            this.box_controller = new System.Windows.Forms.GroupBox();
+            this.box_controller_cancel = new System.Windows.Forms.LinkLabel();
+            this.label_error_selected = new System.Windows.Forms.Label();
+            this.box_controller.SuspendLayout();
             this.SuspendLayout();
             // 
             // textCliente
@@ -151,6 +155,7 @@
             this.btn_Anaydir.TabIndex = 17;
             this.btn_Anaydir.Text = "Add";
             this.btn_Anaydir.UseVisualStyleBackColor = true;
+            this.btn_Anaydir.Click += new System.EventHandler(this.btn_Anaydir_Click);
             // 
             // btn_Modificar
             // 
@@ -160,6 +165,7 @@
             this.btn_Modificar.TabIndex = 18;
             this.btn_Modificar.Text = "Mod";
             this.btn_Modificar.UseVisualStyleBackColor = true;
+            this.btn_Modificar.Click += new System.EventHandler(this.btn_Modificar_Click);
             // 
             // btn_Eliminar
             // 
@@ -169,12 +175,49 @@
             this.btn_Eliminar.TabIndex = 19;
             this.btn_Eliminar.Text = "Del";
             this.btn_Eliminar.UseVisualStyleBackColor = true;
+            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
+            // 
+            // box_controller
+            // 
+            this.box_controller.Controls.Add(this.box_controller_cancel);
+            this.box_controller.Location = new System.Drawing.Point(28, 219);
+            this.box_controller.Name = "box_controller";
+            this.box_controller.Size = new System.Drawing.Size(277, 226);
+            this.box_controller.TabIndex = 20;
+            this.box_controller.TabStop = false;
+            this.box_controller.Text = "Controller";
+            this.box_controller.Visible = false;
+            this.box_controller.Enter += new System.EventHandler(this.box_controller_Enter);
+            // 
+            // box_controller_cancel
+            // 
+            this.box_controller_cancel.AutoSize = true;
+            this.box_controller_cancel.Location = new System.Drawing.Point(216, 200);
+            this.box_controller_cancel.Name = "box_controller_cancel";
+            this.box_controller_cancel.Size = new System.Drawing.Size(49, 13);
+            this.box_controller_cancel.TabIndex = 0;
+            this.box_controller_cancel.TabStop = true;
+            this.box_controller_cancel.Text = "Cancelar";
+            this.box_controller_cancel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.box_controller_cancel_LinkClicked);
+            // 
+            // label_error_selected
+            // 
+            this.label_error_selected.AutoSize = true;
+            this.label_error_selected.ForeColor = System.Drawing.Color.Red;
+            this.label_error_selected.Location = new System.Drawing.Point(124, 460);
+            this.label_error_selected.Name = "label_error_selected";
+            this.label_error_selected.Size = new System.Drawing.Size(202, 13);
+            this.label_error_selected.TabIndex = 21;
+            this.label_error_selected.Text = "*ERROR: Fecha seleccionada incorrecta";
+            this.label_error_selected.Visible = false;
             // 
             // FormConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 527);
+            this.Controls.Add(this.label_error_selected);
+            this.Controls.Add(this.box_controller);
             this.Controls.Add(this.btn_Eliminar);
             this.Controls.Add(this.btn_Modificar);
             this.Controls.Add(this.btn_Anaydir);
@@ -191,6 +234,8 @@
             this.Controls.Add(this.textCliente);
             this.Name = "FormConsulta";
             this.Text = "FormAddConsulta";
+            this.box_controller.ResumeLayout(false);
+            this.box_controller.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,5 +257,8 @@
         private System.Windows.Forms.Button btn_Anaydir;
         private System.Windows.Forms.Button btn_Modificar;
         private System.Windows.Forms.Button btn_Eliminar;
+        private System.Windows.Forms.GroupBox box_controller;
+        private System.Windows.Forms.LinkLabel box_controller_cancel;
+        private System.Windows.Forms.Label label_error_selected;
     }
 }
