@@ -17,13 +17,14 @@ namespace WindowsFormsApplication1
     {
         public string sesionUsuario;
         ConsultaCEN consultaCEN = new ConsultaCEN();
+        private Boolean SEARCH_DATE = false;
+        private Boolean SEARCH_NAME = false;
 
         public FormConsulta()
         {
             InitializeComponent();
 
             textCliente.Text = "";
-            textMascota.Text = "";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -34,48 +35,16 @@ namespace WindowsFormsApplication1
             f2.Activate();
             f2.Visible = true;
         }
-        
-        /**
-         * Boton aceptar
-         */
-        private void btnAccept_Click(object sender, EventArgs e)
-        {
-            ClienteCEN clienteCEN = new ClienteCEN();
-            MascotaCEN mascotaCEN = new MascotaCEN();
-
-            ClienteEN cliente = clienteCEN.DameClientePorOID(textCliente.ToString());
-            MascotaEN mascota = null; // mascotaCEN.DameMascotaPorNombreyCliente(cliente.DNI, textMascota.ToString());
-
-                if (cliente==null)
-                {
-                    //Console.Write("Hola Mascota");
-                    textCliente.Clear();
-                    label_error_cliente.Visible = true;
-                }
-                else
-                {
-                    if (mascota==null || mascota.Cliente != cliente)
-                    {
-                        //Console.Write("HOla mascota\n");
-                        textMascota.Clear();
-                        label_error_mascota.Visible = true;
-                    }
-                    else
-                    {
-                        label_error_cliente.Visible = false;
-                        label_error_mascota.Visible = false;
-                        //Aqui se crearia la nueva consulta!!!!!
-                        
-                    }
-                }
-        }
 
         /**
          * Boton buscar
          */
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            treeViewConsultas.Nodes.Clear();
             TFecha fecha = new TFecha(datetime_init.Value.Date, datetime_fin.Value.Date);
+            SEARCH_NAME = false;
+            SEARCH_DATE = true;
 
             if (fecha.Validar())
             {
@@ -90,22 +59,64 @@ namespace WindowsFormsApplication1
                     if (f.DayOfWeek != System.DayOfWeek.Saturday && f.DayOfWeek != System.DayOfWeek.Sunday)
                     {
                         node= treeViewConsultas.Nodes.Add(f.DayOfWeek.ToString() + " - " + f.Date.ToShortDateString());
-                        lista = consultaCEN.BuscarConsultaPorFecha(f.Date);
-
-                        /** Si existen consultas para ese dia se las añado sus horas y pongo el nodo como importante */
-                        if (lista.Count > 0)
+                        Console.Write("Fecha: " + f.ToString() + "\n");
+                        try
                         {
-                            node.Checked = true;
-                            for (int i = 0; i < lista.Count; i++)
-                                node.Nodes.Add(lista[i].Hora.Hours.ToString() + " - " + lista[i].Mascota.Especie.ToString());
+                            lista = consultaCEN.BuscarConsultaPorFecha(f);
+
+                            /* Si existen consultas para ese dia se las añado sus horas y pongo el nodo como importante */
+                            if (lista.Count > 0)
+                            {
+                                Console.Write("Hay una consulta como minimo este dia" + f.ToString());
+                                node.Checked = true;
+                                for (int i = 0; i < lista.Count; i++)
+                                    node.Nodes.Add(lista[i].Hora.Hours.ToString());// + " - " + lista[i].Mascota.Especie.ToString());
+                                lista.Clear();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.Write("...........ERROR...............\n" + ex.Message.ToString() + "\n");
                         }
                     }
                 }
             }
             else
-            {
                 label_error_fecha.Visible = true;
+        }
+
+        private void btnBuscar_Cliente_Click(object sender, EventArgs e)
+        {
+            ClienteCEN clienteCEN= new ClienteCEN();
+            ClienteEN cliente;
+            IList<ClienteEN> cliente_list;
+
+            SEARCH_NAME = true;
+            SEARCH_DATE = false;
+            treeViewConsultas.Nodes.Clear();
+
+            cliente = clienteCEN.DameClientePorOID(textCliente.ToString());
+
+            //Si la validacion por DNI es incorrecta probamos por su nombre
+            if (cliente == null)
+            {
+                cliente_list = clienteCEN.BuscarClientePorNombre(textCliente.ToString());
+
+                //Si existe ese nombre en la DB mostramos los clientes con su nomre y apellidos, 
+                //tambien deberia mterle las consultas
+                if (cliente_list.Count>0)
+                {
+                    for (int i = 0; i < cliente_list.Count; i++)
+                        treeViewConsultas.Nodes.Add(cliente_list[i].Nombre + " " + cliente_list[i].Apellidos);
+
+                    cliente_list.Clear();
+                }
             }
+            else
+            {
+                treeViewConsultas.Nodes.Add(cliente.Nombre + " " + cliente.Apellidos);
+            }
+
         }        
     }
 }

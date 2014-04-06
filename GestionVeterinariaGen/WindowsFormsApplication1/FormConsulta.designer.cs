@@ -29,34 +29,27 @@
         private void InitializeComponent()
         {
             this.textCliente = new System.Windows.Forms.TextBox();
-            this.textMascota = new System.Windows.Forms.TextBox();
             this.labelCliente = new System.Windows.Forms.Label();
-            this.labelMascota = new System.Windows.Forms.Label();
-            this.btnAccept = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.treeViewConsultas = new System.Windows.Forms.TreeView();
             this.datetime_fin = new System.Windows.Forms.DateTimePicker();
             this.datetime_init = new System.Windows.Forms.DateTimePicker();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.label_error_mascota = new System.Windows.Forms.Label();
+            this.btnBuscar_Fecha = new System.Windows.Forms.Button();
             this.label_error_cliente = new System.Windows.Forms.Label();
             this.label_error_fecha = new System.Windows.Forms.Label();
+            this.btnBuscar_Cliente = new System.Windows.Forms.Button();
+            this.btn_Anaydir = new System.Windows.Forms.Button();
+            this.btn_Modificar = new System.Windows.Forms.Button();
+            this.btn_Eliminar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textCliente
             // 
             this.textCliente.Location = new System.Drawing.Point(12, 157);
             this.textCliente.Name = "textCliente";
-            this.textCliente.Size = new System.Drawing.Size(181, 20);
+            this.textCliente.Size = new System.Drawing.Size(200, 20);
             this.textCliente.TabIndex = 2;
-            // 
-            // textMascota
-            // 
-            this.textMascota.Location = new System.Drawing.Point(224, 157);
-            this.textMascota.Name = "textMascota";
-            this.textMascota.Size = new System.Drawing.Size(181, 20);
-            this.textMascota.TabIndex = 3;
             // 
             // labelCliente
             // 
@@ -67,32 +60,13 @@
             this.labelCliente.TabIndex = 4;
             this.labelCliente.Text = "Cliente:";
             // 
-            // labelMascota
-            // 
-            this.labelMascota.AutoSize = true;
-            this.labelMascota.Location = new System.Drawing.Point(226, 141);
-            this.labelMascota.Name = "labelMascota";
-            this.labelMascota.Size = new System.Drawing.Size(51, 13);
-            this.labelMascota.TabIndex = 5;
-            this.labelMascota.Text = "Mascota:";
-            // 
-            // btnAccept
-            // 
-            this.btnAccept.Location = new System.Drawing.Point(229, 492);
-            this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(75, 23);
-            this.btnAccept.TabIndex = 6;
-            this.btnAccept.Text = "Aceptar";
-            this.btnAccept.UseVisualStyleBackColor = true;
-            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
-            // 
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(330, 492);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.Text = "Volver";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -110,7 +84,7 @@
             // 
             this.treeViewConsultas.Location = new System.Drawing.Point(12, 202);
             this.treeViewConsultas.Name = "treeViewConsultas";
-            this.treeViewConsultas.Size = new System.Drawing.Size(393, 271);
+            this.treeViewConsultas.Size = new System.Drawing.Size(314, 271);
             this.treeViewConsultas.TabIndex = 9;
             // 
             // datetime_fin
@@ -127,26 +101,15 @@
             this.datetime_init.Size = new System.Drawing.Size(200, 20);
             this.datetime_init.TabIndex = 11;
             // 
-            // btnBuscar
+            // btnBuscar_Fecha
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(224, 99);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(111, 23);
-            this.btnBuscar.TabIndex = 12;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // label_error_mascota
-            // 
-            this.label_error_mascota.AutoSize = true;
-            this.label_error_mascota.ForeColor = System.Drawing.Color.Red;
-            this.label_error_mascota.Location = new System.Drawing.Point(221, 186);
-            this.label_error_mascota.Name = "label_error_mascota";
-            this.label_error_mascota.Size = new System.Drawing.Size(145, 13);
-            this.label_error_mascota.TabIndex = 13;
-            this.label_error_mascota.Text = "* ERROR: Mascota no existe";
-            this.label_error_mascota.Visible = false;
+            this.btnBuscar_Fecha.Location = new System.Drawing.Point(229, 99);
+            this.btnBuscar_Fecha.Name = "btnBuscar_Fecha";
+            this.btnBuscar_Fecha.Size = new System.Drawing.Size(111, 23);
+            this.btnBuscar_Fecha.TabIndex = 12;
+            this.btnBuscar_Fecha.Text = "Buscar Por Fecha";
+            this.btnBuscar_Fecha.UseVisualStyleBackColor = true;
+            this.btnBuscar_Fecha.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label_error_cliente
             // 
@@ -163,33 +126,70 @@
             // 
             this.label_error_fecha.AutoSize = true;
             this.label_error_fecha.ForeColor = System.Drawing.Color.Red;
-            this.label_error_fecha.Location = new System.Drawing.Point(226, 67);
+            this.label_error_fecha.Location = new System.Drawing.Point(226, 68);
             this.label_error_fecha.Name = "label_error_fecha";
             this.label_error_fecha.Size = new System.Drawing.Size(146, 13);
             this.label_error_fecha.TabIndex = 15;
             this.label_error_fecha.Text = "*ERROR: Fechas incorrectas";
             this.label_error_fecha.Visible = false;
             // 
-            // FormAddConsulta
+            // btnBuscar_Cliente
+            // 
+            this.btnBuscar_Cliente.Location = new System.Drawing.Point(229, 154);
+            this.btnBuscar_Cliente.Name = "btnBuscar_Cliente";
+            this.btnBuscar_Cliente.Size = new System.Drawing.Size(111, 23);
+            this.btnBuscar_Cliente.TabIndex = 16;
+            this.btnBuscar_Cliente.Text = "Buscar Por Cliente";
+            this.btnBuscar_Cliente.UseVisualStyleBackColor = true;
+            this.btnBuscar_Cliente.Click += new System.EventHandler(this.btnBuscar_Cliente_Click);
+            // 
+            // btn_Anaydir
+            // 
+            this.btn_Anaydir.Location = new System.Drawing.Point(335, 283);
+            this.btn_Anaydir.Name = "btn_Anaydir";
+            this.btn_Anaydir.Size = new System.Drawing.Size(75, 23);
+            this.btn_Anaydir.TabIndex = 17;
+            this.btn_Anaydir.Text = "Add";
+            this.btn_Anaydir.UseVisualStyleBackColor = true;
+            // 
+            // btn_Modificar
+            // 
+            this.btn_Modificar.Location = new System.Drawing.Point(335, 322);
+            this.btn_Modificar.Name = "btn_Modificar";
+            this.btn_Modificar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Modificar.TabIndex = 18;
+            this.btn_Modificar.Text = "Mod";
+            this.btn_Modificar.UseVisualStyleBackColor = true;
+            // 
+            // btn_Eliminar
+            // 
+            this.btn_Eliminar.Location = new System.Drawing.Point(335, 364);
+            this.btn_Eliminar.Name = "btn_Eliminar";
+            this.btn_Eliminar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Eliminar.TabIndex = 19;
+            this.btn_Eliminar.Text = "Del";
+            this.btn_Eliminar.UseVisualStyleBackColor = true;
+            // 
+            // FormConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 527);
+            this.Controls.Add(this.btn_Eliminar);
+            this.Controls.Add(this.btn_Modificar);
+            this.Controls.Add(this.btn_Anaydir);
+            this.Controls.Add(this.btnBuscar_Cliente);
             this.Controls.Add(this.label_error_fecha);
             this.Controls.Add(this.label_error_cliente);
-            this.Controls.Add(this.label_error_mascota);
-            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.btnBuscar_Fecha);
             this.Controls.Add(this.datetime_init);
             this.Controls.Add(this.datetime_fin);
             this.Controls.Add(this.treeViewConsultas);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnAccept);
-            this.Controls.Add(this.labelMascota);
             this.Controls.Add(this.labelCliente);
-            this.Controls.Add(this.textMascota);
             this.Controls.Add(this.textCliente);
-            this.Name = "FormAddConsulta";
+            this.Name = "FormConsulta";
             this.Text = "FormAddConsulta";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -199,18 +199,18 @@
         #endregion
 
         private System.Windows.Forms.TextBox textCliente;
-        private System.Windows.Forms.TextBox textMascota;
         private System.Windows.Forms.Label labelCliente;
-        private System.Windows.Forms.Label labelMascota;
-        private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TreeView treeViewConsultas;
         private System.Windows.Forms.DateTimePicker datetime_fin;
         private System.Windows.Forms.DateTimePicker datetime_init;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Label label_error_mascota;
+        private System.Windows.Forms.Button btnBuscar_Fecha;
         private System.Windows.Forms.Label label_error_cliente;
         private System.Windows.Forms.Label label_error_fecha;
+        private System.Windows.Forms.Button btnBuscar_Cliente;
+        private System.Windows.Forms.Button btn_Anaydir;
+        private System.Windows.Forms.Button btn_Modificar;
+        private System.Windows.Forms.Button btn_Eliminar;
     }
 }

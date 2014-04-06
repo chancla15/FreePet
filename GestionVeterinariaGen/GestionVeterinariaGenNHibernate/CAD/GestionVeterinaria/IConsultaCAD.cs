@@ -26,8 +26,5 @@ System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeter
 
 
 System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameConsultaPorMascota (string busqueda);
-
-
-System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameConsultaEntreDosFechas (Nullable<DateTime> fechainit, Nullable<DateTime> fechafin);
 }
 }

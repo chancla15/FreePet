@@ -136,6 +136,11 @@
     <Compile Include="FormFactura.designer.cs">
       <DependentUpon>FormFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionVeterinariaGenNHibernateDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionVeterinariaGenNHibernateDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TFecha.cs" />
@@ -171,6 +176,17 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="GestionVeterinariaGenNHibernateDataSet.xsc">
+      <DependentUpon>GestionVeterinariaGenNHibernateDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestionVeterinariaGenNHibernateDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionVeterinariaGenNHibernateDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestionVeterinariaGenNHibernateDataSet.xss">
+      <DependentUpon>GestionVeterinariaGenNHibernateDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -114,9 +114,5 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 {
         return _IConsultaCAD.DameConsultaPorMascota (busqueda);
 }
-public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameConsultaEntreDosFechas (Nullable<DateTime> fechainit, Nullable<DateTime> fechafin)
-{
-        return _IConsultaCAD.DameConsultaEntreDosFechas (fechainit, fechafin);
-}
 }
 }
