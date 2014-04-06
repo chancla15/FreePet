@@ -275,5 +275,37 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 
         return result;
 }
+public GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN DameMascotaPorNombreyCliente (string nif, string nombre)
+{
+        GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM MascotaEN self where FROM MascotaEN m WHERE m.Nombre=:nombre AND m.Cliente.DNI=:nif";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MascotaENDameMascotaPorNombreyClienteHQL");
+                query.SetParameter ("nif", nif);
+                query.SetParameter ("nombre", nombre);
+
+
+                result = query.UniqueResult<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in MascotaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

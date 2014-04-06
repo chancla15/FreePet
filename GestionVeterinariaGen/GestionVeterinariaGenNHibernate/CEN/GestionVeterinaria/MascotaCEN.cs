@@ -123,5 +123,9 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 {
         return _IMascotaCAD.ContadorMascotas ();
 }
+public GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN DameMascotaPorNombreyCliente (string nif, string nombre)
+{
+        return _IMascotaCAD.DameMascotaPorNombreyCliente (nif, nombre);
+}
 }
 }

@@ -87,6 +87,12 @@ public static void InitializeData ()
                 IVeterinarioCAD _IVeterinarioCAD = new VeterinarioCAD ();
                 VeterinarioCEN VeterinarioCEN = new VeterinarioCEN (_IVeterinarioCAD);
 
+                IMascotaCAD _IMascotaCAD = new MascotaCAD ();
+                MascotaCEN MascotaCEN = new MascotaCEN (_IMascotaCAD);
+
+                IConsultaCAD _IConsultaCAD = new ConsultaCAD ();
+                ConsultaCEN ConsultaCEN = new ConsultaCEN (_IConsultaCAD);
+
                 #region Cliente
                 ClienteCEN.New_ ("74669082A", "Hector", "Torregrosa Mas", "C/ San Jaime 12", "967378899", "Babel", "Alicante", "12356", null);
                 ClienteCEN.New_ ("73286192B", "Cayetano", "Perez Perez", "Plaza de Castilla 25", "986123522", "Barranco", "Alicante", "08697", null);
@@ -115,6 +121,38 @@ public static void InitializeData ()
 
                 #region Recepcionista
                 RecepcionistaCEN.New_ ("1", "Juan", "Fernandez Gonzalez", "Plaza de Spain 1", "966661111", "Albir", "Alicante", "01110", 1000, "1");
+                #endregion
+
+                #region Mascota
+                MascotaCEN.New_ ("0001", "Bestia", "Labrador", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Macho, 45, "Perro", new DateTime (2010, 1, 5), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.XL, "74669082A", "Blanco", true, "");
+                MascotaCEN.New_ ("0002", "Chispa", "American Pit Bull Terrier", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Hembra, 30, "Perro", new DateTime (2012, 10, 25), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.S, "73286192B", "Negro con manchas marrones", true, "");
+                MascotaCEN.New_ ("0003", "Misifu", "Siames", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Macho, 5, "Gato", new DateTime (2011, 3, 14), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.M, "65881341C", "Negro", false, "");
+                MascotaCEN.New_ ("0004", "Turco", "American Stanford Terrier", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Macho, 40, "Perro", new DateTime (2008, 2, 9), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.L, "71243536D", "Marron con el pecho blanco", true, "");
+                MascotaCEN.New_ ("0005", "Bemol", "Ninfa", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Macho, 0.2f, "Loro", new DateTime (2012, 2, 9), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.XS, "70123560E", "Gris", true, "");
+                MascotaCEN.New_ ("0006", "Nina", "Fox Terrier", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Hembra, 8, "Perro", new DateTime (2005, 10, 2), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.S, "66768970F", "Blanco con manchas negras", false, "");
+                MascotaCEN.New_ ("0007", "Bigotes", "Azul Ruso", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Macho, 4, "Gato", new DateTime (2010, 2, 28), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.S, "23159083G", "Gris", true, "");
+                MascotaCEN.New_ ("0008", "Rosca", "Boa Constrictor", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Hembra, 25, "Serpiente", new DateTime (2001, 12, 21), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.XL, "16608297H", "Marron con pintas negras", false, "");
+                MascotaCEN.New_ ("0009", "Comotu", "Indeterminada", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Macho, 5, "Perro", new DateTime (2010, 4, 15), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.S, "55706082I", "Gris con manchas negras", true, "");
+                MascotaCEN.New_ ("0010", "Golfo", "Akita", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Macho, 45, "Perro", new DateTime (2009, 9, 9), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.XL, "59273016J", "Anaranjado", true, "");
+                MascotaCEN.New_ ("0011", "Afrodita", "Persa", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Hembra, 5.5f, "Gato", new DateTime (2013, 10, 25), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.S, "37986297K", "Blanco", true, "");
+                MascotaCEN.New_ ("0012", "Zeus", "Rottweiler", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Macho, 55, "Perro", new DateTime (2012, 11, 1), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.XL, "71620683L", "Negro y marron", true, "");
+                MascotaCEN.New_ ("0013", "Cabezon", "Labrador", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Macho, 40, "Perro", new DateTime (2012, 5, 29), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.XL, "26837961M", "Blanco", true, "");
+                MascotaCEN.New_ ("0014", "Higo", "Bulldog Frances", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Macho, 10, "Perro", new DateTime (2011, 7, 18), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.M, "10275637N", "Negro", true, "");
+                MascotaCEN.New_ ("0015", "Negrica", "Indeterminada", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Hembra, 4, "Gato", new DateTime (2010, 9, 10), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.S, "06275617O", "Negro", false, "");
+                MascotaCEN.New_ ("0016", "Misho", "Siames", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Macho, 5, "Gato", new DateTime (2010, 2, 23), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.S, "74669082A", "Negro", true, "");
+                MascotaCEN.New_ ("0017", "Zorro", "Pastor Aleman", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Macho, 30, "Perro", new DateTime (2008, 12, 25), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.L, "74669082A", "Marron y Negro", true, "");
+                MascotaCEN.New_ ("0018", "Nikita", "Pastor Belga", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Hembra, 27, "Perro", new DateTime (2009, 2, 21), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.L, "73286192B", "Negro", true, "");
+                MascotaCEN.New_ ("0019", "Brutus", "San Bernardo", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Macho, 70, "Perro", new DateTime (2005, 7, 13), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.XL, "65881341C", "Anaranjado", true, "");
+                MascotaCEN.New_ ("0020", "Bella", "Siberiano", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Hembra, 6, "Gato", new DateTime (2014, 1, 2), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.S, "71243536D", "Pardo", true, "");
+                #endregion
+
+                #region Consulta
+                //Id, Fecha, Hora, Motivo, Diagnostico, Mascota, Veter, Lugar
+                //ConsultaCEN.New_ ("1", new DateTime (2014, 4, 20), new TimeSpan (17, 0, 0), "Dolor en la pata", "Pata rota", "0001", "2B", "Sala 1");
+                //ConsultaCEN.New_ ("2", new DateTime (2014, 4, 19), new TimeSpan (20, 0, 0), "Mareos", "Contusion leve", "0002", "3C", "Sala 1");
+                //ConsultaCEN.New_ ("3", new DateTime (2014, 4, 20), new TimeSpan (10, 0, 0), "Dolor abdominal", "Ingestion de quimicos", "0002", "4D", "Sala 2");
+                //ConsultaCEN.New_("4", new DateTime(2014, 2, 21), new TimeSpan(17, 0, 0), "Picores", "Pulgas bajo el pelaje", "0004", "2B", "Sala 1");
+                //ConsultaCEN.New_("5", new DateTime(2014, 2, 21), new TimeSpan(17, 0, 0), "Gastrointeritis", "Salmonelosis", "0005", "3C", "Sala 2");
                 #endregion
                 /*PROTECTED REGION END*/
         }

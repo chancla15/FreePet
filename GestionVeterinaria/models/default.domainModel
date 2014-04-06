@@ -87,6 +87,10 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_bTAO0LvOEeOe3cfMrNWT4A" name="busqueda"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_YJOgALwGEeONGtJ9Q7dWpQ" name="contadorMascotas" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_-fYJAJgLEeO2gua0CG6QxQ" filter="FROM MascotaEN" automaticSynchronize="false"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_1w0l8L2FEeOmOYBJNY3byQ" name="DameMascotaPorNombreyCliente" operationType="ReadFilter" type="Object" typeObject="_-fYJAJgLEeO2gua0CG6QxQ" filter="FROM MascotaEN m WHERE m.Nombre=:nombre AND m.Cliente.DNI=:nif" automaticSynchronize="false">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_90XloL2FEeOmOYBJNY3byQ" name="nif"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_-InXUL2FEeOmOYBJNY3byQ" name="nombre"/>
+      </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_AXwm8JgMEeO2gua0CG6QxQ" alias="ID" name="IdMascota" isOID="true" unique="true"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_F2DboJgMEeO2gua0CG6QxQ" alias="nombre" name="nombre"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_HtihsJgMEeO2gua0CG6QxQ" alias="raza" name="raza"/>
@@ -704,6 +708,13 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_YJ088rwGEeONGtJ9Q7dWpQ" fontName="Segoe UI"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_YJ0887wGEeONGtJ9Q7dWpQ"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YJ089LwGEeONGtJ9Q7dWpQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_1xSgAL2FEeOmOYBJNY3byQ" type="3004" element="_1w0l8L2FEeOmOYBJNY3byQ">
+          <children xmi:type="notation:DecorationNode" xmi:id="_1xSgBb2FEeOmOYBJNY3byQ" type="5004"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_1xSgAb2FEeOmOYBJNY3byQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_1xSgAr2FEeOmOYBJNY3byQ"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_1xSgA72FEeOmOYBJNY3byQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1xSgBL2FEeOmOYBJNY3byQ"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_-fZ-NZgLEeO2gua0CG6QxQ"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_-fZ-NpgLEeO2gua0CG6QxQ"/>

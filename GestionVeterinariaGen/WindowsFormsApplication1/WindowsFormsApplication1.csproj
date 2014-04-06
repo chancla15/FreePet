@@ -101,11 +101,23 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAddConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddConsulta.designer.cs">
+      <DependentUpon>FormAddConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAddEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormAddEmpleado.Designer.cs">
       <DependentUpon>FormAddEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFactura.designer.cs">
+      <DependentUpon>FormFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -121,8 +133,14 @@
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAddConsulta.resx">
+      <DependentUpon>FormAddConsulta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAddEmpleado.resx">
       <DependentUpon>FormAddEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFactura.resx">
+      <DependentUpon>FormFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
