@@ -13,12 +13,12 @@ using WindowsFormsApplication1.Properties;
 
 namespace WindowsFormsApplication1
 {
-    public partial class FormAddConsulta : Form
+    public partial class FormConsulta : Form
     {
         public string sesionUsuario;
         ConsultaCEN consultaCEN = new ConsultaCEN();
 
-        public FormAddConsulta()
+        public FormConsulta()
         {
             InitializeComponent();
 
@@ -28,13 +28,16 @@ namespace WindowsFormsApplication1
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            FormAddConsulta.ActiveForm.Close();
+            FormConsulta.ActiveForm.Close();
             Form2 f2 = new Form2();
             f2.sesionUsuario = sesionUsuario; //sesion usuario
             f2.Activate();
             f2.Visible = true;
         }
-
+        
+        /**
+         * Boton aceptar
+         */
         private void btnAccept_Click(object sender, EventArgs e)
         {
             ClienteCEN clienteCEN = new ClienteCEN();
@@ -67,6 +70,9 @@ namespace WindowsFormsApplication1
                 }
         }
 
+        /**
+         * Boton buscar
+         */
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             TFecha fecha = new TFecha(datetime_init.Value.Date, datetime_fin.Value.Date);
@@ -74,49 +80,27 @@ namespace WindowsFormsApplication1
             if (fecha.Validar())
             {
                 label_error_fecha.Visible = false;
-                DateTime counter = datetime_init.Value.Date;
-                Boolean exit = false;
-                treeViewConsultas.Nodes.Add(counter.DayOfWeek.ToString() + " - " + counter.Date.ToShortDateString());
-                counter.AddDays(2);
-                treeViewConsultas.Nodes.Add(counter.DayOfWeek.ToString() + " - " + counter.Date.ToShortDateString());
+                TreeNode node;
+                IList<ConsultaEN> lista;
 
-
-                
-                /*while(!exit)
+                /** Recorro las fechas en el intervalo seleccionado */
+                for (DateTime f = datetime_init.Value.Date; f <= datetime_fin.Value.Date; f = f.AddDays(1))
                 {
-                    if (counter == datetime_fin.Value.Date)
-                        exit = true;
-                    else
+                    /** Si no es dia laborable no muestra fecha */
+                    if (f.DayOfWeek != System.DayOfWeek.Saturday && f.DayOfWeek != System.DayOfWeek.Sunday)
                     {
-                        treeViewConsultas.Nodes.Add(counter.DayOfWeek.ToString() + " - " + counter.Date.ToShortDateString());
-                        counter.AddDays(1);
+                        node= treeViewConsultas.Nodes.Add(f.DayOfWeek.ToString() + " - " + f.Date.ToShortDateString());
+                        lista = consultaCEN.BuscarConsultaPorFecha(f.Date);
+
+                        /** Si existen consultas para ese dia se las añado sus horas y pongo el nodo como importante */
+                        if (lista.Count > 0)
+                        {
+                            node.Checked = true;
+                            for (int i = 0; i < lista.Count; i++)
+                                node.Nodes.Add(lista[i].Hora.Hours.ToString() + " - " + lista[i].Mascota.Especie.ToString());
+                        }
                     }
-                }*/
-
-
-
-
-
-
-                //treeViewConsultas.Nodes.Add(DateTime.Today.DayOfWeek.ToString() + " - " + DateTime.Today.Date.ToShortDateString());
-                //IList<ConsultaEN> consultas = consultaCEN.DameConsultaEntreDosFechas(datetime_init.Value.Date, datetime_fin.Value.Date);
-
-                //for (DateTime i = datetime_init.Value.Date; i!=datetime_fin.Value.Date; i.AddDays(1))
-                //{
-                   // if (i.DayOfWeek != System.DayOfWeek.Sunday && i.DayOfWeek != System.DayOfWeek.Saturday)
-                    //{
-                        //Añado el nodo superior de cada fecha y lo guardo en el nodo principal
-                        //TreeNode node= treeViewConsultas.Nodes.Add(i.DayOfWeek.ToString() + " - " + i.Date.ToShortDateString());
-
-                        //Ahora añado el nodo secundario que contendra una hora, X nodos de estos por cada fecha
-                        //ahora por cada consulta en esa fecha::    node.Nodes.Add(consulta.Hora +  "-" + consultaId);
-
-                   
-                        
-                    //}
-               // }
-                 
-
+                }
             }
             else
             {

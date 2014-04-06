@@ -118,11 +118,11 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAddConsulta.cs">
+    <Compile Include="FormConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAddConsulta.designer.cs">
-      <DependentUpon>FormAddConsulta.cs</DependentUpon>
+    <Compile Include="FormConsulta.designer.cs">
+      <DependentUpon>FormConsulta.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAddEmpleado.cs">
       <SubType>Form</SubType>
@@ -135,11 +135,6 @@
     </Compile>
     <Compile Include="FormFactura.designer.cs">
       <DependentUpon>FormFactura.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GestionVeterinariaGenNHibernateDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -156,8 +151,8 @@
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAddConsulta.resx">
-      <DependentUpon>FormAddConsulta.cs</DependentUpon>
+    <EmbeddedResource Include="FormConsulta.resx">
+      <DependentUpon>FormConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddEmpleado.resx">
       <DependentUpon>FormAddEmpleado.cs</DependentUpon>
@@ -176,17 +171,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
-    <None Include="GestionVeterinariaGenNHibernateDataSet.xsc">
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionVeterinariaGenNHibernateDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet.xss">
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

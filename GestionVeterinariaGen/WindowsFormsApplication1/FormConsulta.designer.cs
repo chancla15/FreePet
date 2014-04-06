@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1
 {
-    partial class FormAddConsulta
+    partial class FormConsulta
     {
         /// <summary>
         /// Required designer variable.
