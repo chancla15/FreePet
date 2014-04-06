@@ -115,8 +115,8 @@ public static void InitializeData ()
 
                 #region Veterinario
                 VeterinarioCEN.New_ ("2", "Alfonso", "Guerra Biologica", "C/ San Miguel 20", "966662222", "Ares", "Alicante", "02120", 1100, "2", 1);
-                //VeterinarioCEN.New_("3", "Miguel Angel", "Martinez Perez", "C/ Barcelona 3", "966663333", "Algorfa", "Alicante", "03130", 1200, "c4ca4238a0b923820dcc509a6f75849b", 2);
-                //VeterinarioCEN.New_("4", "Juan", "Aznar Padilla", "Av. de la libertad 50", "966664444", "Adsubia", "Alicante", "04140", 1300, "c4ca4238a0b923820dcc509a6f75849b", 3);
+                VeterinarioCEN.New_ ("3", "Miguel Angel", "Martinez Perez", "C/ Barcelona 3", "966663333", "Algorfa", "Alicante", "03130", 1200, "c4ca4238a0b923820dcc509a6f75849b", 2);
+                VeterinarioCEN.New_ ("4", "Juan", "Aznar Padilla", "Av. de la libertad 50", "966664444", "Adsubia", "Alicante", "04140", 1300, "c4ca4238a0b923820dcc509a6f75849b", 3);
                 #endregion
 
                 #region Recepcionista
@@ -148,11 +148,11 @@ public static void InitializeData ()
 
                 #region Consulta
                 //Id, Fecha, Hora, Motivo, Diagnostico, Mascota, Veter, Lugar
-                //ConsultaCEN.New_ ("1", new DateTime (2014, 4, 20), new TimeSpan (17, 0, 0), "Dolor en la pata", "Pata rota", "0001", "2B", "Sala 1");
-                //ConsultaCEN.New_ ("2", new DateTime (2014, 4, 19), new TimeSpan (20, 0, 0), "Mareos", "Contusion leve", "0002", "3C", "Sala 1");
-                //ConsultaCEN.New_ ("3", new DateTime (2014, 4, 20), new TimeSpan (10, 0, 0), "Dolor abdominal", "Ingestion de quimicos", "0002", "4D", "Sala 2");
-                //ConsultaCEN.New_("4", new DateTime(2014, 2, 21), new TimeSpan(17, 0, 0), "Picores", "Pulgas bajo el pelaje", "0004", "2B", "Sala 1");
-                //ConsultaCEN.New_("5", new DateTime(2014, 2, 21), new TimeSpan(17, 0, 0), "Gastrointeritis", "Salmonelosis", "0005", "3C", "Sala 2");
+                ConsultaCEN.New_ ("1", new DateTime (2014, 4, 20), new TimeSpan (17, 0, 0), "Dolor en la pata", "Pata rota", "0001", "2", "Sala 1");
+                ConsultaCEN.New_ ("2", new DateTime (2014, 4, 19), new TimeSpan (20, 0, 0), "Mareos", "Contusion leve", "0002", "3", "Sala 1");
+                // ConsultaCEN.New_ ("3", new DateTime (2014, 4, 20), new TimeSpan (10, 0, 0), "Dolor abdominal", "Ingestion de quimicos", "0002", "4", "Sala 2");
+                //ConsultaCEN.New_("4", new DateTime(2014, 2, 21), new TimeSpan(17, 0, 0), "Picores", "Pulgas bajo el pelaje", "0004", "2", "Sala 1");
+                //ConsultaCEN.New_("5", new DateTime(2014, 2, 21), new TimeSpan(17, 0, 0), "Gastrointeritis", "Salmonelosis", "0005", "3", "Sala 2");
                 #endregion
                 /*PROTECTED REGION END*/
         }

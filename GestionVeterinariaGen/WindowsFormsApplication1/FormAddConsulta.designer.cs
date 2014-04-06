@@ -36,11 +36,12 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.treeViewConsultas = new System.Windows.Forms.TreeView();
-            this.datetimer_fin = new System.Windows.Forms.DateTimePicker();
+            this.datetime_fin = new System.Windows.Forms.DateTimePicker();
             this.datetime_init = new System.Windows.Forms.DateTimePicker();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label_error_mascota = new System.Windows.Forms.Label();
             this.label_error_cliente = new System.Windows.Forms.Label();
+            this.label_error_fecha = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textCliente
@@ -109,15 +110,15 @@
             // 
             this.treeViewConsultas.Location = new System.Drawing.Point(12, 202);
             this.treeViewConsultas.Name = "treeViewConsultas";
-            this.treeViewConsultas.Size = new System.Drawing.Size(398, 271);
+            this.treeViewConsultas.Size = new System.Drawing.Size(393, 271);
             this.treeViewConsultas.TabIndex = 9;
             // 
-            // datetimer_fin
+            // datetime_fin
             // 
-            this.datetimer_fin.Location = new System.Drawing.Point(12, 102);
-            this.datetimer_fin.Name = "datetimer_fin";
-            this.datetimer_fin.Size = new System.Drawing.Size(200, 20);
-            this.datetimer_fin.TabIndex = 10;
+            this.datetime_fin.Location = new System.Drawing.Point(12, 102);
+            this.datetime_fin.Name = "datetime_fin";
+            this.datetime_fin.Size = new System.Drawing.Size(200, 20);
+            this.datetime_fin.TabIndex = 10;
             // 
             // datetime_init
             // 
@@ -128,7 +129,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(229, 98);
+            this.btnBuscar.Location = new System.Drawing.Point(224, 99);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(111, 23);
             this.btnBuscar.TabIndex = 12;
@@ -158,16 +159,28 @@
             this.label_error_cliente.Text = "*ERROR: Cliente no existe";
             this.label_error_cliente.Visible = false;
             // 
+            // label_error_fecha
+            // 
+            this.label_error_fecha.AutoSize = true;
+            this.label_error_fecha.ForeColor = System.Drawing.Color.Red;
+            this.label_error_fecha.Location = new System.Drawing.Point(226, 67);
+            this.label_error_fecha.Name = "label_error_fecha";
+            this.label_error_fecha.Size = new System.Drawing.Size(146, 13);
+            this.label_error_fecha.TabIndex = 15;
+            this.label_error_fecha.Text = "*ERROR: Fechas incorrectas";
+            this.label_error_fecha.Visible = false;
+            // 
             // FormAddConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 527);
+            this.Controls.Add(this.label_error_fecha);
             this.Controls.Add(this.label_error_cliente);
             this.Controls.Add(this.label_error_mascota);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.datetime_init);
-            this.Controls.Add(this.datetimer_fin);
+            this.Controls.Add(this.datetime_fin);
             this.Controls.Add(this.treeViewConsultas);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
@@ -193,10 +206,11 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TreeView treeViewConsultas;
-        private System.Windows.Forms.DateTimePicker datetimer_fin;
+        private System.Windows.Forms.DateTimePicker datetime_fin;
         private System.Windows.Forms.DateTimePicker datetime_init;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label_error_mascota;
         private System.Windows.Forms.Label label_error_cliente;
+        private System.Windows.Forms.Label label_error_fecha;
     }
 }
