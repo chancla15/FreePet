@@ -306,7 +306,7 @@
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_9ok2MLvhEeOmSPTVlZRuHw" name="buscarConsultaPorFecha" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_GnKTAJgNEeO2gua0CG6QxQ" filter="FROM ConsultaEN c WHERE year(c.Fecha)=year(:fecha) AND month(c.Fecha)=month(:fecha) AND day(c.Fecha)=day(:fecha)" automaticSynchronize="false">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_UOyOELviEeOmSPTVlZRuHw" name="fecha" type="Date"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_PO10oL3XEeO_3bTfIYBBMw" name="dameVeterinariosPorConsultaFecha" operationType="ReadFilter" type="Object" collectionType="Hash" typeObject="_GnKTAJgNEeO2gua0CG6QxQ" filter="SELECT VeterinarioEN FROM ConsultaEN WHERE  year(consulta.fecha)=year(:fecha) AND month(consulta.fecha)=month(:fecha) AND day(consulta.day)=day(:fecha) AND hour(consulta.Hora)=hour(:hora) AND minutes(consulta.Hora)=minutes(:hora)" automaticSynchronize="false">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_PO10oL3XEeO_3bTfIYBBMw" name="dameVeterinariosPorConsultaFecha" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_GnKTAJgNEeO2gua0CG6QxQ" filter="SELECT VeterinarioEN FROM ConsultaEN WHERE  year(consulta.fecha)=year(:fecha) AND month(consulta.fecha)=month(:fecha) AND day(consulta.day)=day(:fecha) AND hour(consulta.Hora)=hour(:hora) AND minutes(consulta.Hora)=minutes(:hora)" automaticSynchronize="false">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_6OhAAL3XEeO_3bTfIYBBMw" name="fecha" type="Date"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_joFJwL5HEeO_3bTfIYBBMw" name="arg1" type="TimeStamp"/>
       </operations>

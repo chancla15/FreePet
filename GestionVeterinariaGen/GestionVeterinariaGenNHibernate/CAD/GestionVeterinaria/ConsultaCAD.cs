@@ -236,9 +236,9 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 
         return result;
 }
-public System.Collections.Generic.IHash<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameVeterinariosPorConsultaFecha (Nullable<DateTime> fecha, TimeSpan arg1)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameVeterinariosPorConsultaFecha (Nullable<DateTime> fecha, TimeSpan arg1)
 {
-        System.Collections.Generic.IHash<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> result;
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> result;
         try
         {
                 SessionInitializeTransaction ();
