@@ -28,6 +28,6 @@ System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeter
 System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> ContadorMascotas ();
 
 
-GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN DameMascotaPorNombreyCliente (string nif, string nombre);
+System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> DameMascotaPorCliente (string nif);
 }
 }

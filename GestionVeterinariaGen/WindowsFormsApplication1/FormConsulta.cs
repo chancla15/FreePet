@@ -16,15 +16,21 @@ namespace WindowsFormsApplication1
     public partial class FormConsulta : Form
     {
         public string sesionUsuario;
-        ConsultaCEN consultaCEN = new ConsultaCEN();
-        private Boolean SEARCH_DATE = false;
-        private Boolean SEARCH_NAME = false;
+        private ConsultaCEN consultaCEN = new ConsultaCEN();
+        private TreeNode nodeOp;
 
         public FormConsulta()
         {
             InitializeComponent();
 
             textCliente.Text = "";
+
+            //La fecha minima para asignar/modificar/borrar una consulta es hoy
+            datetime_init.MinDate = DateTime.Today;
+            datetime_fin.MinDate = DateTime.Today;
+
+            datetime_init.Value = DateTime.Today;
+            datetime_fin.Value = DateTime.Today;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -44,8 +50,6 @@ namespace WindowsFormsApplication1
         {
             treeViewConsultas.Nodes.Clear();
             TFecha fecha = new TFecha(datetime_init.Value.Date, datetime_fin.Value.Date);
-            SEARCH_NAME = false;
-            SEARCH_DATE = true;
             btn_Anaydir.Enabled = true;
             textCliente.Clear();
 
@@ -103,8 +107,6 @@ namespace WindowsFormsApplication1
             datetime_fin.Value = DateTime.Today;
             datetime_init.Value = DateTime.Today;
 
-            SEARCH_NAME = true;
-            SEARCH_DATE = false;
             treeViewConsultas.Nodes.Clear();
 
             cliente = clienteCEN.DameClientePorOID(textCliente.ToString());
@@ -138,15 +140,32 @@ namespace WindowsFormsApplication1
         {
  
             label_error_selected.Visible = false;
-            TreeNode node = treeViewConsultas.SelectedNode;
+            nodeOp = treeViewConsultas.SelectedNode;
 
             //Compruebo que estoy en un nodo raiz
-            if (node!=null && node.Level == 0)
+            if (nodeOp != null && nodeOp.Level == 0)
             {
+                String date = "";
+
+                for (int i = 0; i < nodeOp.Text.Length; i++)
+                {
+                    if (nodeOp.Text[i] != '-')
+                        date += nodeOp.Text[i];
+                    else
+                    {
+                        date = "";
+                        i++;
+                    }
+                }
+                box_text_fecha.Text = date;
+                box_text_fecha.Enabled = false;
                 box_controller.Visible = true;
             }
             else
+            {
+                nodeOp = null;
                 label_error_selected.Visible = true;
+            }
         }
 
         /**
@@ -155,15 +174,19 @@ namespace WindowsFormsApplication1
         private void btn_Modificar_Click(object sender, EventArgs e)
         {
             label_error_selected.Visible = false;
-            TreeNode node = treeViewConsultas.SelectedNode;
+            nodeOp = treeViewConsultas.SelectedNode;
 
             //Compruebo si estoy en un subnodo
-            if (node != null && node.Level == 1)
+            if (nodeOp != null && nodeOp.Level == 1)
             {
+                //Aqui deberia cargar todos lso datos de la consulta , el cliente se guardará en enabled=true;
                 box_controller.Visible = true;
             }
             else
+            {
+                nodeOp = null;
                 label_error_selected.Visible = true;
+            }
         }
 
         /*
@@ -172,15 +195,19 @@ namespace WindowsFormsApplication1
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
             label_error_selected.Visible = false;
-            TreeNode node = treeViewConsultas.SelectedNode;
+            nodeOp = treeViewConsultas.SelectedNode;
             
             //Compruebo si estoy en un subnodo
-            if (node != null && node.Level == 1)
+            if (nodeOp != null && nodeOp.Level == 1)
             {
+                //Muestre un mensaje de seguridad de si esta seguro de que desea borrar esto
                 box_controller.Visible = true;
             }
             else
+            {
+                nodeOp = null;
                 label_error_selected.Visible = true;
+            }
         }
 
         /*
@@ -188,9 +215,32 @@ namespace WindowsFormsApplication1
          */ 
         private void box_controller_Enter(object sender, EventArgs e)
         {
-          
-  
+            /************ Se inicializa la fecha y hora, porque solo se puede añadir si buscar por fecha **********/
 
+            //SI ES DEL METODO AÑADIR CARGAR LAS HORAS DISPONIBLES PARA ESA FECHA (supones 1 consulta=1hora)
+            try
+            {
+                box_combo_hora.FormattingEnabled = true;
+                string[] horas = new string[]
+                {
+                    "09:00", "09:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30",
+                    "17:00", "17:30","18:00","18:30","19:00","19:30","20:00","20:30"
+                };
+                
+                DateTime time = Convert.ToDateTime(box_text_fecha.Text);
+                IList<ConsultaEN> consultas = consultaCEN.BuscarConsultaPorFecha(time);
+                box_combo_hora.Items.AddRange(horas);
+                
+
+                if (consultas.Count > 0)
+                    for (int i = 0; i < consultas.Count; i++)
+                        box_combo_hora.Items.Remove(consultas[i].Hora.Hours.ToString() + ":" + consultas[i].Hora.Minutes.ToString());
+                                
+            }
+            catch (FormatException ex)
+            {
+                Console.Error.Write(ex.Message.ToString());
+            }
         }
 
         /**
@@ -200,6 +250,75 @@ namespace WindowsFormsApplication1
         {
             //limpiar todos los campos del box_controller
             box_controller.Visible = false;
-        }        
+        }
+
+        /**
+         * Metodo para guardar los datos de la consulta
+         */
+        private void box_label_save_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //Si el cliente es correcto !!
+
+           
+          //  DateTime fecha= Convert.ToDateTime(box_text_fecha.Text);
+            //TimeSpan hora;
+            //String motivo = box_text_motivo.Text;
+            //String diagnostico = "";
+            //MascotaEN mascota; // = mascotaCEN.buscarMascotaPorNombre(box_combo_mascotas.Text); que me devuelve el oid
+            //VeterinarioEN veterinario; //que me devuelva el objeto veterniario
+            //String lugar = box_text_lugar.Text;
+
+
+            // consultaCEN.New_(consultaCEN.DameTodasLasConsultas().Count.ToString(), fecha, hora, motivo, "", mascota.IdMascota, veterinario.DNI, lugar);
+
+
+        }
+
+        /**
+         * Dado un cliente comprueba si existe, y si existe rellena lo que e esta al lao suyo con sus animales correspondientes. 
+         */
+        private void box_text_cliente_TextChanged(object sender, EventArgs e)
+        {
+            box_error_cliente.Visible = false;
+            ClienteCEN clienteCEN = new ClienteCEN();
+           /* ClienteEN clienteEN = clienteCEN.DameClientePorOID(box_text_cliente.Text);
+
+            if (clienteEN != null)
+            {
+                MascotaCEN mascotaCEN = new MascotaCEN();
+                IList<MascotaEN> lista = mascotaCEN.DameMascotaPorCliente(box_text_cliente.Text);
+                //74669082A
+                if (lista.Count > 0 && lista!=null)
+                {
+                    for (int i = 0; i < lista.Count; i++)
+                        box_combo_mascotas.Items.Add(lista[i].Nombre);
+                }
+            }
+            else
+            {
+                box_error_cliente.Visible = true;
+               // box_combo_mascotas.Items.Clear();
+            }*/
+        }
+
+        /**
+         * Dada una fecha determinada mostrara todas las horas libres disponibles para ese dia
+         */
+        private void box_combo_hora_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          //  String hour = box_combo_hora.SelectedIndex.ToString();
+           // String date = box_text_fecha.Text;
+            //String hour_vet = "";
+
+            /*IList<VeterinarioEN> veterinarios = consultaCEN.DameVeterinariosPorConsultaFecha(Convert.ToDateTime(date));
+
+            if(veterinarios.Count>0)
+            {
+                for (int i = 0; i < veterinarios.Count; i++)
+                {
+                    //hour_vet= 
+                }
+            }*/
+        }   
     }
 }

@@ -236,16 +236,17 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 
         return result;
 }
-public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameConsultaPorMascota (string busqueda)
+public System.Collections.Generic.IHash<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameVeterinariosPorConsultaFecha (Nullable<DateTime> fecha, TimeSpan arg1)
 {
-        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> result;
+        System.Collections.Generic.IHash<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ConsultaEN self where FROM ConsultaEN";
+                //String sql = @"FROM ConsultaEN self where SELECT VeterinarioEN FROM ConsultaEN WHERE  year(consulta.fecha)=year(:fecha) AND month(consulta.fecha)=month(:fecha) AND day(consulta.day)=day(:fecha) AND hour(consulta.Hora)=hour(:hora) AND minutes(consulta.Hora)=minutes(:hora)";
                 //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("ConsultaENdameConsultaPorMascotaHQL");
-                query.SetParameter ("busqueda", busqueda);
+                IQuery query = (IQuery)session.GetNamedQuery ("ConsultaENdameVeterinariosPorConsultaFechaHQL");
+                query.SetParameter ("fecha", fecha);
+                query.SetParameter ("arg1", arg1);
 
                 result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN>();
                 SessionCommit ();

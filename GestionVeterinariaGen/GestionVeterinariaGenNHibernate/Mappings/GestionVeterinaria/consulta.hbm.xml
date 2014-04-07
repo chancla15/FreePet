@@ -70,6 +70,6 @@
 		  
 		  <query name="ConsultaENReadAllHQL">from ConsultaEN</query>
 		  <query name="ConsultaENbuscarConsultaPorFechaHQL"><![CDATA[FROM ConsultaEN c WHERE year(c.Fecha)=year(:fecha) AND month(c.Fecha)=month(:fecha) AND day(c.Fecha)=day(:fecha)]]></query>
-		  <query name="ConsultaENdameConsultaPorMascotaHQL"><![CDATA[FROM ConsultaEN]]></query>
+		  <query name="ConsultaENdameVeterinariosPorConsultaFechaHQL"><![CDATA[SELECT VeterinarioEN FROM ConsultaEN WHERE  year(consulta.fecha)=year(:fecha) AND month(consulta.fecha)=month(:fecha) AND day(consulta.day)=day(:fecha) AND hour(consulta.Hora)=hour(:hora) AND minutes(consulta.Hora)=minutes(:hora)]]></query>
 		</hibernate-mapping>
 	

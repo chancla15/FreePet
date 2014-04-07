@@ -61,10 +61,8 @@ C:\Users\Godric\Desktop\dssproyecto14 - 4-4\GestionVeterinariaGen\InitializeDB\b
 C:\Users\Godric\Desktop\dssproyecto14 - 4-4\GestionVeterinariaGen\InitializeDB\bin\Debug\nunit.framework.dll
 C:\Users\Godric\Desktop\dssproyecto14 - 4-4\GestionVeterinariaGen\InitializeDB\bin\Debug\GestionVeterinariaGenNHibernate.pdb
 C:\Users\Godric\Desktop\dssproyecto14 - 4-4\GestionVeterinariaGen\InitializeDB\obj\x86\Debug\InitializeDB.csprojResolveAssemblyReference.cache
-C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\InitializeDB\bin\Debug\InitializeDB.exe.config
-C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
-C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\InitializeDB\bin\Debug\hibernate.cfg.xml
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\InitializeDB\bin\Debug\InitializeDB.exe.config
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\InitializeDB\bin\Debug\InitializeDB.exe
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\InitializeDB\bin\Debug\InitializeDB.pdb
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\InitializeDB\bin\Debug\Antlr3.Runtime.dll
@@ -80,3 +78,5 @@ C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\InitializeDB\bin\Debu
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\InitializeDB\bin\Debug\nunit.framework.dll
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\InitializeDB\bin\Debug\GestionVeterinariaGenNHibernate.pdb
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\InitializeDB\obj\x86\Debug\InitializeDB.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb

@@ -275,20 +275,18 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 
         return result;
 }
-public GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN DameMascotaPorNombreyCliente (string nif, string nombre)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> DameMascotaPorCliente (string nif)
 {
-        GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN result;
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM MascotaEN self where FROM MascotaEN m WHERE m.Nombre=:nombre AND m.Cliente.DNI=:nif";
+                //String sql = @"FROM MascotaEN self where FROM MascotaEN m WHERE m.Cliente.DNI=:nif";
                 //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("MascotaENDameMascotaPorNombreyClienteHQL");
+                IQuery query = (IQuery)session.GetNamedQuery ("MascotaENDameMascotaPorClienteHQL");
                 query.SetParameter ("nif", nif);
-                query.SetParameter ("nombre", nombre);
 
-
-                result = query.UniqueResult<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN>();
+                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN>();
                 SessionCommit ();
         }
 
