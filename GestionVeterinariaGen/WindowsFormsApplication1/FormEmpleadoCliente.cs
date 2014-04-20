@@ -9,15 +9,16 @@ using System.Windows.Forms;
 using GestionVeterinariaGenNHibernate.CEN.GestionVeterinaria;
 using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
 using GestionVeterinariaGenNHibernate.CAD.GestionVeterinaria;
+using System.IO;
 ///////
 namespace WindowsFormsApplication1
 {
-    public partial class FormAddEmpleado : Form
+    public partial class FormEmpleadoCliente : Form
     {
 
         //especide de sesion de usuario
         public string sesionUsuario;
-        
+
         //Sesion para eliminar
         public bool eliminarUsuario;
         public string dniEliminarUsuario;
@@ -39,33 +40,14 @@ namespace WindowsFormsApplication1
 
 
 
-        public FormAddEmpleado()
+        public FormEmpleadoCliente()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
-            FormAddEmpleado.ActiveForm.Close();
-            Form2 f2 = new Form2();
-            f2.sesionUsuario = sesionUsuario; //sesion usuario
-            f2.Activate();
-            f2.Visible = true;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            FormEmpleadoCliente.ActiveForm.Close();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -73,25 +55,25 @@ namespace WindowsFormsApplication1
 
             if (comboBox1.SelectedIndex.Equals(1))
             {
-            //añadir Recepcionista
-            RecepcionistaCEN cen = new RecepcionistaCEN();
+                //añadir Recepcionista
+                RecepcionistaCEN cen = new RecepcionistaCEN();
 
-            try{
-                float sueldo = float.Parse(tb_sueldo.Text.ToString());
-                cen.New_(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.Text.ToString(), tb_cp.Text.ToString(), sueldo, tb_pass.Text.ToString());
-                MessageBox.Show("Recepcionista Creado Correctamente");
-                FormAddEmpleado.ActiveForm.Close();
-                Form2 f2 = new Form2();
-                f2.sesionUsuario = sesionUsuario; //sesion usuario
-                f2.Activate();
-                f2.Visible = true;
+                try
+                {
+                    float sueldo = float.Parse(tb_sueldo.Text.ToString());
+                    cen.New_(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.Text.ToString(), tb_cp.Text.ToString(), sueldo, tb_pass.Text.ToString());
+                    MessageBox.Show("Recepcionista Creado Correctamente");
+                    FormEmpleadoCliente.ActiveForm.Close();
 
-            }catch (Exception ex){
-                System.Console.WriteLine(ex);
-                err_add.Text = "*Error al Añadir Recepcionista";
-                err_add.Visible = true;
 
-            }
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex);
+                    err_add.Text = "*Error al Añadir Recepcionista";
+                    err_add.Visible = true;
+
+                }
 
             }
 
@@ -106,11 +88,7 @@ namespace WindowsFormsApplication1
                     float sueldo = float.Parse(tb_sueldo.Text.ToString());
                     cen.New_(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.Text.ToString(), tb_cp.Text.ToString(), sueldo, tb_pass.Text.ToString(), Convert.ToInt32(tb_colegiado.Text.ToString()));
                     MessageBox.Show("Veterinario Creado Correctamente");
-                    FormAddEmpleado.ActiveForm.Close();
-                    Form2 f2 = new Form2();
-                    f2.sesionUsuario = sesionUsuario; //sesion usuario
-                    f2.Activate();
-                    f2.Visible = true;
+                    FormEmpleadoCliente.ActiveForm.Close();
 
                 }
                 catch (Exception ex)
@@ -136,14 +114,15 @@ namespace WindowsFormsApplication1
             bt_anyadir_cliente.Visible = false;//por defecto oculto.
             bt_aceptar.Visible = false;//por defecto oculto
 
-            if (eliminarUsuario == true){
+            if (eliminarUsuario == true)
+            {
 
                 mostrarDatos(dniEliminarUsuario);
                 bt_despedir.Visible = true;
             }
             else if (modificarUsuario == true)
             {
-                
+
                 mostrarDatos(dniModificarUsuario);
                 bt_modificar.Visible = true;// mostramos el boton de modificar
             }
@@ -171,56 +150,6 @@ namespace WindowsFormsApplication1
             {
                 bt_aceptar.Visible = true;
             }
- 
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb_dni_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb_nombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -242,7 +171,8 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void mostrarDatos(String dni){
+        private void mostrarDatos(String dni)
+        {
 
             EmpleadoCEN cen = new EmpleadoCEN();
             EmpleadoEN en = cen.DameEmpleadoPorOID(dni);
@@ -255,7 +185,7 @@ namespace WindowsFormsApplication1
             tb_localidad.Text = en.Localidad;
             tb_tel.Text = en.Telefono;
             tb_apellidos.Text = en.Apellidos;
-            tb_direccion.Text = en.Direccion ;
+            tb_direccion.Text = en.Direccion;
             tb_cp.Text = en.Cp;
             comboBox2.SelectedItem = en.Provincia;
 
@@ -286,20 +216,34 @@ namespace WindowsFormsApplication1
             comboBox1.Visible = false;
             label17.Visible = false;
             bt_anyadir_cliente.Visible = false;
+
+
+            //COMPROBACION DE IMAGEN SI NO HAY ASOCIADA YA QUE AL INSERTAR CON EL SCRIPT NO LAS ASOCIAMOS
+            try
+            {
+
+                System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\" + en.DNI.ToString() + ".png", System.IO.FileMode.Open);
+                pictureBox1.Image = Image.FromStream(fs);
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                fs.Close();
+
+            }
+            catch (Exception ex)
+            {
+                System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\sinFoto.png", System.IO.FileMode.Open);
+                pictureBox1.Image = Image.FromStream(fs);
+                fs.Close();
+            }
         }
 
         private void bt_despedir_Click(object sender, EventArgs e)
         {
             UsuarioCEN cen = new UsuarioCEN();
 
-            if ( MessageBox.Show("Seguro que desea despedir a este empleado","Despedir usuario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK )
+            if (MessageBox.Show("Seguro que desea despedir a este empleado", "Despedir usuario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-            cen.Destroy(dniEliminarUsuario);
-            FormAddEmpleado.ActiveForm.Close();
-            Form2 f2 = new Form2();
-            f2.sesionUsuario = sesionUsuario; //sesion usuario
-            f2.Activate();
-            f2.Visible = true;
+                cen.Destroy(dniEliminarUsuario);
+                FormEmpleadoCliente.ActiveForm.Close();
             }
             else
             {
@@ -315,11 +259,7 @@ namespace WindowsFormsApplication1
             if (MessageBox.Show("Seguro que desea eliminar a este cliente", "Eliminar cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 cen.Destroy(dniEliminarCliente);
-                FormAddEmpleado.ActiveForm.Close();
-                Form2 f2 = new Form2();
-                f2.sesionUsuario = sesionUsuario; //sesion usuario
-                f2.Activate();
-                f2.Visible = true;
+                FormEmpleadoCliente.ActiveForm.Close();
             }
             else
             {
@@ -330,17 +270,20 @@ namespace WindowsFormsApplication1
         }
 
         private void bt_modificar_Click(object sender, EventArgs e)
-        {   
+        {
             EmpleadoCEN cen2 = new EmpleadoCEN();
             try
             {
-            cen2.Modify(tb_dni.Text.ToString(),tb_nombre.Text.ToString(),tb_apellidos.Text.ToString(),tb_direccion.Text.ToString(),tb_tel.Text.ToString(),tb_localidad.Text.ToString(),comboBox2.SelectedItem.ToString(),tb_cp.Text.ToString(), Convert.ToInt32(tb_sueldo.Text.ToString()), tb_pass.Text.ToString());
-            MessageBox.Show("Empleado Modificado Correctamente");
-            FormAddEmpleado.ActiveForm.Close();
-            Form2 f2 = new Form2();
-            f2.sesionUsuario = sesionUsuario; //sesion usuario
-            f2.Activate();
-            f2.Visible = true;
+                cen2.Modify(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.SelectedItem.ToString(), tb_cp.Text.ToString(), Convert.ToInt32(tb_sueldo.Text.ToString()), tb_pass.Text.ToString());
+
+                //GUARDAMOS LA IMAGEN
+                pictureBox1.Image.Save(Environment.CurrentDirectory + @"\" + tb_dni.Text.ToString() + ".png");
+                
+                MessageBox.Show("Empleado Modificado Correctamente");
+                FormEmpleadoCliente.ActiveForm.Close();
+
+
+
             }
             catch (Exception ex)
             {
@@ -354,15 +297,25 @@ namespace WindowsFormsApplication1
         private void bt_modificar_cliente_Click(object sender, EventArgs e)
         {
             ClienteCEN cen3 = new ClienteCEN();
-try
+            try
             {
-            cen3.Modify(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.SelectedItem.ToString(), tb_cp.Text.ToString());
-            MessageBox.Show("Cliente Modificado Correctamente");
-            FormAddEmpleado.ActiveForm.Close();
-            Form2 f2 = new Form2();
-            f2.sesionUsuario = sesionUsuario; //sesion usuario
-            f2.Activate();
-            f2.Visible = true;
+                cen3.Modify(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.SelectedItem.ToString(), tb_cp.Text.ToString());
+
+                //GUARDAMOS LA IMAGEN
+                pictureBox1.Image.Save(Environment.CurrentDirectory + @"\" + tb_dni.Text.ToString() + ".png");
+
+
+                MessageBox.Show("Cliente Modificado Correctamente");
+                FormEmpleadoCliente.ActiveForm.Close();
+
+                //ACTUALIZAR AL MODIFICAR
+
+                Clientes.ActiveForm.Close();
+                Clientes f2 = new Clientes();
+                f2.sesionUsuario = sesionUsuario; //sesion usuario
+                f2.Activate();
+                f2.Visible = true;
+
             }
             catch (Exception ex)
             {
@@ -383,12 +336,22 @@ try
             {
 
                 cenCliente.New_(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_tel.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.Text.ToString(), tb_cp.Text.ToString(), null);
+
+                //GUARDAR IMAGEN
+
+                pictureBox1.Image.Save(Environment.CurrentDirectory + @"\" + tb_dni.Text.ToString() + ".png");
+
                 MessageBox.Show("Cliente Creado Correctamente");
-                FormAddEmpleado.ActiveForm.Close();
-                Form2 f2 = new Form2();
+                FormEmpleadoCliente.ActiveForm.Close();
+
+                //ACTUALIZAR AL AÑADIR
+
+                Clientes.ActiveForm.Close();
+                Clientes f2 = new Clientes();
                 f2.sesionUsuario = sesionUsuario; //sesion usuario
                 f2.Activate();
                 f2.Visible = true;
+
 
             }
             catch (Exception ex)
@@ -406,6 +369,43 @@ try
 
             if (MessageBox.Show("Seguro que desea eliminar a este cliente", "Eliminar cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 cen.Destroy(dniEliminarCliente);
+
+            //cerramos el form actual
+            Close();
+
+                if (System.IO.File.Exists(Environment.CurrentDirectory + @"\" + dniEliminarCliente.ToString() + ".png"))
+                {
+                    System.IO.File.Delete(Environment.CurrentDirectory + @"\" + dniEliminarCliente.ToString() + ".png");
+                }
+
+            //ACTUALIZAR AL AÑADIR
+
+            Clientes.ActiveForm.Close();
+            Clientes f2 = new Clientes();
+            f2.sesionUsuario = sesionUsuario; //sesion usuario
+            f2.Activate();
+            f2.Visible = true;
+
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string imagen = openFileDialog1.FileName;
+                    pictureBox1.Image = Image.FromFile(imagen);
+                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("El archivo seleccionado no es .PNG");
+            }
         }
 
 

@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1
 {
-    partial class Form4
+    partial class FormAnimal
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAnimal));
             this.bt_eliminar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.m_id = new System.Windows.Forms.TextBox();
             this.m_nombre = new System.Windows.Forms.TextBox();
             this.m_raza = new System.Windows.Forms.TextBox();
             this.m_especie = new System.Windows.Forms.TextBox();
             this.m_color = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,7 +52,6 @@
             this.err_tel = new System.Windows.Forms.Label();
             this.err_direccion = new System.Windows.Forms.Label();
             this.err_nom = new System.Windows.Forms.Label();
-            this.err_dni = new System.Windows.Forms.Label();
             this.m_fecha_nac = new System.Windows.Forms.DateTimePicker();
             this.label30 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -67,6 +64,7 @@
             this.err_add = new System.Windows.Forms.Label();
             this.bt_modificar = new System.Windows.Forms.Button();
             this.bt_anyadir = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,11 +90,16 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(44, 12);
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.sinFotoa;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(45, 33);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(94, 120);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -108,14 +111,6 @@
             this.label1.Size = new System.Drawing.Size(124, 24);
             this.label1.TabIndex = 4;
             this.label1.Text = "MASCOTAS";
-            // 
-            // m_id
-            // 
-            this.m_id.Location = new System.Drawing.Point(231, 144);
-            this.m_id.Name = "m_id";
-            this.m_id.Size = new System.Drawing.Size(163, 20);
-            this.m_id.TabIndex = 5;
-            this.m_id.Visible = false;
             // 
             // m_nombre
             // 
@@ -144,18 +139,6 @@
             this.m_color.Name = "m_color";
             this.m_color.Size = new System.Drawing.Size(163, 20);
             this.m_color.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(42, 144);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 16);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "ID:";
-            this.label2.Visible = false;
             // 
             // label3
             // 
@@ -329,18 +312,6 @@
             this.err_nom.Text = "*";
             this.err_nom.Visible = false;
             // 
-            // err_dni
-            // 
-            this.err_dni.AutoSize = true;
-            this.err_dni.BackColor = System.Drawing.Color.Transparent;
-            this.err_dni.ForeColor = System.Drawing.Color.Red;
-            this.err_dni.Location = new System.Drawing.Point(400, 144);
-            this.err_dni.Name = "err_dni";
-            this.err_dni.Size = new System.Drawing.Size(11, 13);
-            this.err_dni.TabIndex = 77;
-            this.err_dni.Text = "*";
-            this.err_dni.Visible = false;
-            // 
             // m_fecha_nac
             // 
             this.m_fecha_nac.Location = new System.Drawing.Point(194, 301);
@@ -348,7 +319,6 @@
             this.m_fecha_nac.Size = new System.Drawing.Size(200, 20);
             this.m_fecha_nac.TabIndex = 91;
             this.m_fecha_nac.Value = new System.DateTime(2014, 4, 4, 0, 0, 0, 0);
-            this.m_fecha_nac.ValueChanged += new System.EventHandler(this.m_fecha_nac_ValueChanged);
             // 
             // label30
             // 
@@ -474,6 +444,10 @@
             this.bt_anyadir.UseVisualStyleBackColor = true;
             this.bt_anyadir.Click += new System.EventHandler(this.bt_anyadir_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -495,7 +469,6 @@
             this.Controls.Add(this.err_tel);
             this.Controls.Add(this.err_direccion);
             this.Controls.Add(this.err_nom);
-            this.Controls.Add(this.err_dni);
             this.Controls.Add(this.m_sexo);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
@@ -507,12 +480,10 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.m_color);
             this.Controls.Add(this.m_especie);
             this.Controls.Add(this.m_raza);
             this.Controls.Add(this.m_nombre);
-            this.Controls.Add(this.m_id);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button3);
@@ -538,12 +509,10 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox m_id;
         private System.Windows.Forms.TextBox m_nombre;
         private System.Windows.Forms.TextBox m_raza;
         private System.Windows.Forms.TextBox m_especie;
         private System.Windows.Forms.TextBox m_color;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -559,7 +528,6 @@
         private System.Windows.Forms.Label err_tel;
         private System.Windows.Forms.Label err_direccion;
         private System.Windows.Forms.Label err_nom;
-        private System.Windows.Forms.Label err_dni;
         private System.Windows.Forms.DateTimePicker m_fecha_nac;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.CheckBox checkBox1;
@@ -572,5 +540,6 @@
         private System.Windows.Forms.Label err_add;
         private System.Windows.Forms.Button bt_modificar;
         private System.Windows.Forms.Button bt_anyadir;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1
 {
-    partial class FormAddEmpleado
+    partial class FormEmpleadoCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddEmpleado));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEmpleadoCliente));
             this.button3 = new System.Windows.Forms.Button();
             this.tb_dni = new System.Windows.Forms.TextBox();
             this.tb_nombre = new System.Windows.Forms.TextBox();
@@ -74,6 +74,7 @@
             this.bt_modificar_cliente = new System.Windows.Forms.Button();
             this.bt_eliminar_cliente = new System.Windows.Forms.Button();
             this.bt_anyadir_cliente = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,7 +95,6 @@
             this.tb_dni.Name = "tb_dni";
             this.tb_dni.Size = new System.Drawing.Size(163, 20);
             this.tb_dni.TabIndex = 5;
-            this.tb_dni.TextChanged += new System.EventHandler(this.tb_dni_TextChanged);
             // 
             // tb_nombre
             // 
@@ -102,7 +102,6 @@
             this.tb_nombre.Name = "tb_nombre";
             this.tb_nombre.Size = new System.Drawing.Size(163, 20);
             this.tb_nombre.TabIndex = 6;
-            this.tb_nombre.TextChanged += new System.EventHandler(this.tb_nombre_TextChanged);
             // 
             // tb_apellidos
             // 
@@ -131,7 +130,6 @@
             this.tb_localidad.Name = "tb_localidad";
             this.tb_localidad.Size = new System.Drawing.Size(163, 20);
             this.tb_localidad.TabIndex = 11;
-            this.tb_localidad.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // tb_cp
             // 
@@ -150,7 +148,6 @@
             this.label2.Size = new System.Drawing.Size(38, 16);
             this.label2.TabIndex = 13;
             this.label2.Text = "DNI:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -162,7 +159,6 @@
             this.label3.Size = new System.Drawing.Size(67, 16);
             this.label3.TabIndex = 14;
             this.label3.Text = "Nombre:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -199,7 +195,6 @@
             this.label6.Size = new System.Drawing.Size(74, 16);
             this.label6.TabIndex = 17;
             this.label6.Text = "Teléfono:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -316,7 +311,6 @@
             this.tb_sueldo.Name = "tb_sueldo";
             this.tb_sueldo.Size = new System.Drawing.Size(163, 20);
             this.tb_sueldo.TabIndex = 31;
-            this.tb_sueldo.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // err_dni
             // 
@@ -412,7 +406,6 @@
             this.label14.Size = new System.Drawing.Size(83, 16);
             this.label14.TabIndex = 47;
             this.label14.Text = "Empleado:";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // err_add
             // 
@@ -500,11 +493,16 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = global::WindowsFormsApplication1.Properties.Resources.sinFoto;
+            this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(44, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(94, 120);
             this.pictureBox1.TabIndex = 51;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label15
             // 
@@ -599,6 +597,10 @@
             this.bt_anyadir_cliente.UseVisualStyleBackColor = true;
             this.bt_anyadir_cliente.Click += new System.EventHandler(this.bt_anyadir_cliente_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // FormAddEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -645,12 +647,12 @@
             this.Controls.Add(this.tb_nombre);
             this.Controls.Add(this.tb_dni);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.bt_aceptar);
             this.Controls.Add(this.bt_modificar_cliente);
             this.Controls.Add(this.bt_modificar);
             this.Controls.Add(this.bt_anyadir_cliente);
             this.Controls.Add(this.bt_eliminar_cliente);
             this.Controls.Add(this.bt_despedir);
+            this.Controls.Add(this.bt_aceptar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -711,5 +713,6 @@
         private System.Windows.Forms.Button bt_modificar_cliente;
         private System.Windows.Forms.Button bt_eliminar_cliente;
         private System.Windows.Forms.Button bt_anyadir_cliente;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

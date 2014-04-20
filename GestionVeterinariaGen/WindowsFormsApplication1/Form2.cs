@@ -29,7 +29,7 @@ namespace WindowsFormsApplication1
         private void label2_Click(object sender, EventArgs e)
         {
             Form2.ActiveForm.Close();
-            Form1 f1 = new Form1();
+            Login f1 = new Login();
             f1.Activate();
             f1.Visible = true;
         }
@@ -37,7 +37,7 @@ namespace WindowsFormsApplication1
         private void label3_Click(object sender, EventArgs e)///VER PERFIL
         {
             Form2.ActiveForm.Close();
-            Form3 f3 = new Form3();
+            Perfil f3 = new Perfil();
 
             ((TextBox)f3.Controls["tb_nombre"]).Enabled = false;
             ((TextBox)f3.Controls["tb_apellidos"]).Enabled = false;
@@ -66,7 +66,7 @@ namespace WindowsFormsApplication1
             {
 
                 mascmod = listBox2.SelectedItem.ToString();
-                string[] separador = {" "};
+                string[] separador = { " " };
                 string value = mascmod;
                 string[] words = value.Split(separador, StringSplitOptions.RemoveEmptyEntries);
 
@@ -79,14 +79,14 @@ namespace WindowsFormsApplication1
 
             if (modMascota != true)
             {
-                MessageBox.Show("Selecciona Una Mascota","",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecciona Una Mascota", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
             else
             {
 
                 Form2.ActiveForm.Close();
-                Form4 f4 = new Form4();
+                FormAnimal f4 = new FormAnimal();
                 f4.sesionUsuario = sesionUsuario;//sesion usuario
                 f4.modificarMascota = modMascota;
                 f4.idModificarMascota = mascmod;
@@ -99,7 +99,7 @@ namespace WindowsFormsApplication1
         private void button2_Click(object sender, EventArgs e)//añadir mascota
         {
             Form2.ActiveForm.Close();
-            Form4 f3 = new Form4();
+            FormAnimal f3 = new FormAnimal();
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
@@ -127,7 +127,7 @@ namespace WindowsFormsApplication1
             {
 
                 Form2.ActiveForm.Close();
-                FormAddEmpleado f3 = new FormAddEmpleado();
+                FormEmpleadoCliente f3 = new FormEmpleadoCliente();
                 f3.sesionUsuario = sesionUsuario;//sesion usuario
                 f3.modificarUsuario = modEmpleado;
                 f3.dniModificarUsuario = empleadoMod;
@@ -141,7 +141,7 @@ namespace WindowsFormsApplication1
         {
             bool ok = true;
             Form2.ActiveForm.Close();
-            FormAddEmpleado f3 = new FormAddEmpleado();
+            FormEmpleadoCliente f3 = new FormEmpleadoCliente();
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.anyadirCliente = ok;
             f3.Activate();
@@ -164,7 +164,7 @@ namespace WindowsFormsApplication1
         private void button9_Click(object sender, EventArgs e)/** ELIMINAR CLIENTE **/
         {
             bool eliCliente = false;
-            string clienteaborrar="";
+            string clienteaborrar = "";
 
             if (listBox1.SelectedIndex >= 0)
             {
@@ -184,7 +184,7 @@ namespace WindowsFormsApplication1
             {
 
                 Form2.ActiveForm.Close();
-                FormAddEmpleado f3 = new FormAddEmpleado();
+                FormEmpleadoCliente f3 = new FormEmpleadoCliente();
                 f3.sesionUsuario = sesionUsuario;//sesion usuario
                 f3.eliminarCliente = eliCliente;
                 f3.dniEliminarCliente = clienteaborrar;
@@ -245,7 +245,7 @@ namespace WindowsFormsApplication1
             else
             {
                 Form2.ActiveForm.Close();
-                FormAddEmpleado f3 = new FormAddEmpleado();
+                FormEmpleadoCliente f3 = new FormEmpleadoCliente();
                 f3.sesionUsuario = sesionUsuario;//sesion usuario
                 f3.modificarCliente = clienteMod;
                 f3.dniModificarCliente = modCliente;
@@ -289,7 +289,7 @@ namespace WindowsFormsApplication1
             {
 
                 Form2.ActiveForm.Close();
-                Form4 f4 = new Form4();
+                FormAnimal f4 = new FormAnimal();
                 f4.sesionUsuario = sesionUsuario;//sesion usuario
                 f4.eliminarMascota = eliminarMascota;
                 f4.idEliminarMascota = mascotaEliminar;
@@ -317,7 +317,7 @@ namespace WindowsFormsApplication1
         {
             bool ok = true;
             Form2.ActiveForm.Close();
-            FormAddEmpleado f3 = new FormAddEmpleado();
+            FormEmpleadoCliente f3 = new FormEmpleadoCliente();
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.anyadirEmpleado = ok;
             f3.Activate();
@@ -357,7 +357,7 @@ namespace WindowsFormsApplication1
             {
 
                 Form2.ActiveForm.Close();
-                FormAddEmpleado f3 = new FormAddEmpleado();
+                FormEmpleadoCliente f3 = new FormEmpleadoCliente();
 
                 ((TextBox)f3.Controls["tb_dni"]).Enabled = false;
                 ((TextBox)f3.Controls["tb_nombre"]).Enabled = false;
@@ -387,7 +387,7 @@ namespace WindowsFormsApplication1
         {
 
             Form2.ActiveForm.Close();
-            Form3 f3 = new Form3();
+            Perfil f3 = new Perfil();
             f3.sesionUsuario = sesionUsuario;//sesion usuario
             f3.Activate();
             f3.Visible = true;
@@ -425,7 +425,7 @@ namespace WindowsFormsApplication1
                     if (en_cli_nombre.Count == 0 && en_cli_apellido.Count == 0)
                     {
 
-                        listBox1.Items.Add("La búsqueda no ha producido ningún resultado");
+
 
                     }
                     else
@@ -455,7 +455,7 @@ namespace WindowsFormsApplication1
                     tabControl1.SelectedTab = tabPage1;
                     break;
                 case 1://MASCOTA
-                                        MascotaCEN cen_m = new MascotaCEN();
+                    MascotaCEN cen_m = new MascotaCEN();
 
                     IList<MascotaEN> en_mas_nombre = cen_m.DameMascotaPorNombre(buscar);
 
@@ -469,7 +469,7 @@ namespace WindowsFormsApplication1
                     {
                         for (int x = 0; x < en_mas_nombre.Count; x++)
                         {
-                            listBox2.Items.Add(en_mas_nombre[x].IdMascota +" :ID  "+ en_mas_nombre[x].Nombre + " - DNI del Dueño: " + en_mas_nombre[x].Cliente.DNI);
+                            listBox2.Items.Add(en_mas_nombre[x].IdMascota + " :ID  " + en_mas_nombre[x].Nombre + " - DNI del Dueño: " + en_mas_nombre[x].Cliente.DNI);
                         }
 
                     }
@@ -594,7 +594,12 @@ namespace WindowsFormsApplication1
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-           
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

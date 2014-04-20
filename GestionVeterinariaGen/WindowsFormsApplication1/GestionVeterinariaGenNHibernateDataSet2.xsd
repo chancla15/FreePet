@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="GestionVeterinariaGenNHibernateDataSet" targetNamespace="http://tempuri.org/GestionVeterinariaGenNHibernateDataSet.xsd" xmlns:mstns="http://tempuri.org/GestionVeterinariaGenNHibernateDataSet.xsd" xmlns="http://tempuri.org/GestionVeterinariaGenNHibernateDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="GestionVeterinariaGenNHibernateDataSet2" targetNamespace="http://tempuri.org/GestionVeterinariaGenNHibernateDataSet2.xsd" xmlns:mstns="http://tempuri.org/GestionVeterinariaGenNHibernateDataSet2.xsd" xmlns="http://tempuri.org/GestionVeterinariaGenNHibernateDataSet2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -53,7 +53,7 @@ SELECT DNI, nombre, apellidos FROM Usuario WHERE (DNI = @DNI)</CommandText>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT        Usuario.DNI, Usuario.nombre, Usuario.apellidos
 FROM            Usuario INNER JOIN
-                         Cliente ON Usuario.DNI = Cliente.DNI</CommandText>
+                         Empleado ON Usuario.DNI = Empleado.DNI</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -65,7 +65,7 @@ FROM            Usuario INNER JOIN
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="GestionVeterinariaGenNHibernateDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="GestionVeterinariaGenNHibernateDataSet" msprop:Generator_UserDSName="GestionVeterinariaGenNHibernateDataSet">
+  <xs:element name="GestionVeterinariaGenNHibernateDataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="GestionVeterinariaGenNHibernateDataSet2" msprop:Generator_UserDSName="GestionVeterinariaGenNHibernateDataSet2">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="Usuario" msprop:Generator_TableClassName="UsuarioDataTable" msprop:Generator_TableVarName="tableUsuario" msprop:Generator_RowChangedName="UsuarioRowChanged" msprop:Generator_TablePropName="Usuario" msprop:Generator_RowDeletingName="UsuarioRowDeleting" msprop:Generator_RowChangingName="UsuarioRowChanging" msprop:Generator_RowEvHandlerName="UsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuarioRowDeleted" msprop:Generator_RowClassName="UsuarioRow" msprop:Generator_UserTableName="Usuario" msprop:Generator_RowEvArgName="UsuarioRowChangeEvent">

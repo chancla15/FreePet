@@ -20,9 +20,9 @@ namespace WindowsFormsApplication1 {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("GestionVeterinariaGenNHibernateDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("GestionVeterinariaGenNHibernateDataSet2")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class GestionVeterinariaGenNHibernateDataSet : global::System.Data.DataSet {
+    public partial class GestionVeterinariaGenNHibernateDataSet2 : global::System.Data.DataSet {
         
         private UsuarioDataTable tableUsuario;
         
@@ -30,7 +30,7 @@ namespace WindowsFormsApplication1 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public GestionVeterinariaGenNHibernateDataSet() {
+        public GestionVeterinariaGenNHibernateDataSet2() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace WindowsFormsApplication1 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected GestionVeterinariaGenNHibernateDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected GestionVeterinariaGenNHibernateDataSet2(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace WindowsFormsApplication1 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            GestionVeterinariaGenNHibernateDataSet cln = ((GestionVeterinariaGenNHibernateDataSet)(base.Clone()));
+            GestionVeterinariaGenNHibernateDataSet2 cln = ((GestionVeterinariaGenNHibernateDataSet2)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace WindowsFormsApplication1 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "GestionVeterinariaGenNHibernateDataSet";
+            this.DataSetName = "GestionVeterinariaGenNHibernateDataSet2";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/GestionVeterinariaGenNHibernateDataSet.xsd";
+            this.Namespace = "http://tempuri.org/GestionVeterinariaGenNHibernateDataSet2.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableUsuario = new UsuarioDataTable();
@@ -225,7 +225,7 @@ namespace WindowsFormsApplication1 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            GestionVeterinariaGenNHibernateDataSet ds = new GestionVeterinariaGenNHibernateDataSet();
+            GestionVeterinariaGenNHibernateDataSet2 ds = new GestionVeterinariaGenNHibernateDataSet2();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -504,7 +504,7 @@ namespace WindowsFormsApplication1 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                GestionVeterinariaGenNHibernateDataSet ds = new GestionVeterinariaGenNHibernateDataSet();
+                GestionVeterinariaGenNHibernateDataSet2 ds = new GestionVeterinariaGenNHibernateDataSet2();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -646,7 +646,7 @@ namespace WindowsFormsApplication1 {
         }
     }
 }
-namespace WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSetTableAdapters {
+namespace WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSet2TableAdapters {
     
     
     /// <summary>
@@ -815,7 +815,8 @@ namespace WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSetTableAd
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT        Usuario.DNI, Usuario.nombre, Usuario.apellidos\r\nFROM            Usu" +
-                "ario INNER JOIN\r\n                         Cliente ON Usuario.DNI = Cliente.DNI";
+                "ario INNER JOIN\r\n                         Empleado ON Usuario.DNI = Empleado.DNI" +
+                "";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -823,7 +824,7 @@ namespace WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSetTableAd
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(GestionVeterinariaGenNHibernateDataSet.UsuarioDataTable dataTable) {
+        public virtual int Fill(GestionVeterinariaGenNHibernateDataSet2.UsuarioDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -836,9 +837,9 @@ namespace WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSetTableAd
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual GestionVeterinariaGenNHibernateDataSet.UsuarioDataTable GetData() {
+        public virtual GestionVeterinariaGenNHibernateDataSet2.UsuarioDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            GestionVeterinariaGenNHibernateDataSet.UsuarioDataTable dataTable = new GestionVeterinariaGenNHibernateDataSet.UsuarioDataTable();
+            GestionVeterinariaGenNHibernateDataSet2.UsuarioDataTable dataTable = new GestionVeterinariaGenNHibernateDataSet2.UsuarioDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -847,7 +848,7 @@ namespace WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSetTableAd
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(GestionVeterinariaGenNHibernateDataSet.UsuarioDataTable dataTable) {
+        public virtual int FillBy(GestionVeterinariaGenNHibernateDataSet2.UsuarioDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -859,14 +860,14 @@ namespace WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSetTableAd
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(GestionVeterinariaGenNHibernateDataSet.UsuarioDataTable dataTable) {
+        public virtual int Update(GestionVeterinariaGenNHibernateDataSet2.UsuarioDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(GestionVeterinariaGenNHibernateDataSet dataSet) {
+        public virtual int Update(GestionVeterinariaGenNHibernateDataSet2 dataSet) {
             return this.Adapter.Update(dataSet, "Usuario");
         }
         
@@ -1081,7 +1082,7 @@ namespace WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSetTableAd
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(GestionVeterinariaGenNHibernateDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(GestionVeterinariaGenNHibernateDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._usuarioTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Usuario.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1100,7 +1101,7 @@ namespace WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSetTableAd
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(GestionVeterinariaGenNHibernateDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(GestionVeterinariaGenNHibernateDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._usuarioTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Usuario.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1118,7 +1119,7 @@ namespace WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSetTableAd
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(GestionVeterinariaGenNHibernateDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(GestionVeterinariaGenNHibernateDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._usuarioTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Usuario.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1160,7 +1161,7 @@ namespace WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSetTableAd
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(GestionVeterinariaGenNHibernateDataSet dataSet) {
+        public virtual int UpdateAll(GestionVeterinariaGenNHibernateDataSet2 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

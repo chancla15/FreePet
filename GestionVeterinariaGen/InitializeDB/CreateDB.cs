@@ -146,14 +146,14 @@ public static void InitializeData ()
                 MascotaCEN.New_ ("0020", "Bella", "Siberiano", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Hembra, 6, "Gato", new DateTime (2014, 1, 2), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.S, "71243536D", "Pardo", true, "");
                 #endregion
 
-                #region Consulta
-                //Id, Fecha, Hora, Motivo, Diagnostico, Mascota, Veter, Lugar
-                ConsultaCEN.New_ ("1", new DateTime (2014, 4, 7), new TimeSpan (17, 0, 0), "Dolor en la pata", "Pata rota", "0001", "2", "Sala 1");
-                ConsultaCEN.New_ ("2", new DateTime (2014, 4, 7), new TimeSpan (18, 0, 0), "Mareos", "Contusion leve", "0002", "3", "Sala 1");
-                // ConsultaCEN.New_ ("3", new DateTime (2014, 4, 20), new TimeSpan (10, 0, 0), "Dolor abdominal", "Ingestion de quimicos", "0002", "4", "Sala 2");
-                //ConsultaCEN.New_("4", new DateTime(2014, 2, 21), new TimeSpan(17, 0, 0), "Picores", "Pulgas bajo el pelaje", "0004", "2", "Sala 1");
-                //ConsultaCEN.New_("5", new DateTime(2014, 2, 21), new TimeSpan(17, 0, 0), "Gastrointeritis", "Salmonelosis", "0005", "3", "Sala 2");
-                #endregion
+                /*#region Consulta
+                 * //Id, Fecha, Hora, Motivo, Diagnostico, Mascota, Veter, Lugar
+                 * ConsultaCEN.New_ ("1", new DateTime (2014, 4, 7), new TimeSpan (17, 0, 0), "Dolor en la pata", "Pata rota", "0001", "2", "Sala 1");
+                 * ConsultaCEN.New_ ("2", new DateTime (2014, 4, 7), new TimeSpan (18, 0, 0), "Mareos", "Contusion leve", "0002", "3", "Sala 1");
+                 * // ConsultaCEN.New_ ("3", new DateTime (2014, 4, 20), new TimeSpan (10, 0, 0), "Dolor abdominal", "Ingestion de quimicos", "0002", "4", "Sala 2");
+                 * //ConsultaCEN.New_("4", new DateTime(2014, 2, 21), new TimeSpan(17, 0, 0), "Picores", "Pulgas bajo el pelaje", "0004", "2", "Sala 1");
+                 * //ConsultaCEN.New_("5", new DateTime(2014, 2, 21), new TimeSpan(17, 0, 0), "Gastrointeritis", "Salmonelosis", "0005", "3", "Sala 2");
+                 #endregion*/
                 /*PROTECTED REGION END*/
         }
         catch (Exception ex)

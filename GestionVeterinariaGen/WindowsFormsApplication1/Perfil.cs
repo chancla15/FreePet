@@ -11,36 +11,17 @@ using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Form3 : Form
+    public partial class Perfil : Form
     {
         public string sesionUsuario;//especide de sesion de usuario
-        public Form3()
+        public Perfil()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
-            Form3.ActiveForm.Close();
-            Form2 f2 = new Form2();
-            f2.sesionUsuario = sesionUsuario;
-            f2.Activate();
-            f2.Visible = true;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            Perfil.ActiveForm.Close();
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -52,18 +33,11 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                Form3.ActiveForm.Close();
-                Form2 f2 = new Form2();
+                Perfil.ActiveForm.Close();
+                Clientes f2 = new Clientes();
                 f2.Activate();
                 f2.Visible = true;
             }
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            //Modificar
-
-            //Ver
         }
 
         private void mostrarDatos(String dni)
@@ -81,11 +55,22 @@ namespace WindowsFormsApplication1
             tb_cp.Text = en.Cp;
             comboBox2.SelectedItem = en.Provincia;
             //tb_colegiado.Visible = false;
-        }
 
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
+            try
+            {
 
+                System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\" + en.DNI.ToString() + ".png", System.IO.FileMode.Open);
+                pictureBox1.Image = Image.FromStream(fs);
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                fs.Close();
+
+            }
+            catch (Exception ex)
+            {
+                System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\sinFoto.png", System.IO.FileMode.Open);
+                pictureBox1.Image = Image.FromStream(fs);
+                fs.Close();
+            }
         }
 
         private void bt_modificar_Click(object sender, EventArgs e)
@@ -98,6 +83,36 @@ namespace WindowsFormsApplication1
 
             cen2.Modify(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_direccion.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.SelectedItem.ToString(), tb_cp.Text.ToString(), Convert.ToInt32(tb_sueldo.Text.ToString()),"1");
 
+            //GUARDAMOS LA IMAGEN
+            pictureBox1.Image.Save(Environment.CurrentDirectory + @"\" + tb_dni.Text.ToString() + ".png");
+
+
+            MessageBox.Show("Perfil Modificado Correctamente");
+            Close();
+
+            //ACTUALIZAR AL MODIFICAR
+            Clientes f2 = new Clientes();
+            f2.sesionUsuario = sesionUsuario; //sesion usuario
+            f2.Activate();
+            f2.Visible = true;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string imagen = openFileDialog1.FileName;
+                    pictureBox1.Image = Image.FromFile(imagen);
+                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("El archivo seleccionado no es .PNG");
+            }
         }
     }
 }

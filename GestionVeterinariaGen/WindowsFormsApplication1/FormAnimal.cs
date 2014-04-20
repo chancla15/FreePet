@@ -13,7 +13,7 @@ using WindowsFormsApplication1.Properties;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Form4 : Form
+    public partial class FormAnimal : Form
     {
         public string sesionUsuario;//especide de sesion de usuario
 
@@ -25,7 +25,7 @@ namespace WindowsFormsApplication1
         public bool modificarMascota;
         public string idModificarMascota;
 
-        public Form4()
+        public FormAnimal()
         {
             InitializeComponent();
         }
@@ -37,20 +37,24 @@ namespace WindowsFormsApplication1
 
             if (MessageBox.Show("Seguro que desea eliminar esta mascota", "Eliminar mascota", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 cen.Destroy(idEliminarMascota);
-        }
 
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
+            if (System.IO.File.Exists(Environment.CurrentDirectory + @"\" + idEliminarMascota.ToString() + ".png"))
+            {
+                System.IO.File.Delete(Environment.CurrentDirectory + @"\" + idEliminarMascota.ToString() + ".png");
+            }
 
+            //ACTUALIZAR AL eliminar
+
+            Mascotas.ActiveForm.Close();
+            Mascotas f2 = new Mascotas();
+            f2.sesionUsuario = sesionUsuario; //sesion usuario
+            f2.Activate();
+            f2.Visible = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form4.ActiveForm.Close();
-            Form2 f2 = new Form2(); 
-            f2.sesionUsuario = sesionUsuario; //sesion usuario
-            f2.Activate();
-            f2.Visible = true;
+            FormAnimal.ActiveForm.Close();
         }
 
         private void Form4_Load(object sender, EventArgs e)
@@ -93,14 +97,8 @@ namespace WindowsFormsApplication1
                 bt_anyadir.Visible = true;
 
             }
-
-
         }
 
-        private void m_fecha_nac_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void mostrarDatosMascota(String id)
         {
@@ -124,6 +122,22 @@ namespace WindowsFormsApplication1
             //bt_modificar.Visible = false;
             //bt_eliminar.Visible = ;
             //bt_anyadir.Visible = true;
+
+            //COMPROBACION DE IMAGEN SI NO HAY ASOCIADA YA QUE AL INSERTAR CON EL SCRIPT NO LAS ASOCIAMOS
+            try
+            {
+
+                System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\" + id.ToString() + ".png", System.IO.FileMode.Open);
+                pictureBox1.Image = Image.FromStream(fs);
+                fs.Close();
+
+            }
+            catch (Exception ex)
+            {
+                System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\sinFotoa.png", System.IO.FileMode.Open);
+                pictureBox1.Image = Image.FromStream(fs);
+                fs.Close();
+            }
         }
 
         private void bt_modificar_Click(object sender, EventArgs e)
@@ -178,9 +192,16 @@ namespace WindowsFormsApplication1
             {
 
             cen.Modify(idModificarMascota, m_nombre.Text.ToString(), m_raza.Text.ToString(),sexo, Convert.ToInt32(m_peso.Text.ToString()), m_especie.Text.ToString(), Convert.ToDateTime(m_fecha_nac.Value.Date.ToString()), tam, m_color.Text.ToString(),chip, "");
+
+            //GUARDAR IMAGEN
+
+            pictureBox1.Image.Save(Environment.CurrentDirectory + @"\" + idModificarMascota + ".png");
+
                 MessageBox.Show("Mascota Modificada Correctamente");
-                Form4.ActiveForm.Close();
-                Form2 f2 = new Form2();
+                FormAnimal.ActiveForm.Close();
+
+                Mascotas.ActiveForm.Close();
+                Mascotas f2 = new Mascotas();
                 f2.sesionUsuario = sesionUsuario; //sesion usuario
                 f2.Activate();
                 f2.Visible = true;
@@ -259,9 +280,17 @@ namespace WindowsFormsApplication1
             try
             {
                 cen.New_(id.ToString(), m_nombre.Text.ToString(), m_raza.Text.ToString(), sexo, Convert.ToInt32(m_peso.Text.ToString()), m_especie.Text.ToString(), Convert.ToDateTime(m_fecha_nac.Value.Date.ToString()), tam, clienteDNI.ToString(), m_color.Text.ToString(), chip, "");
+
+                //GUARDAR IMAGEN
+
+                pictureBox1.Image.Save(Environment.CurrentDirectory + @"\" +id+ ".png");
+
                 MessageBox.Show("Mascota añadida Correctamente");
-                Form4.ActiveForm.Close();
-                Form2 f2 = new Form2();
+                
+                FormAnimal.ActiveForm.Close();
+
+                Mascotas.ActiveForm.Close();
+                Mascotas f2 = new Mascotas();
                 f2.sesionUsuario = sesionUsuario; //sesion usuario
                 f2.Activate();
                 f2.Visible = true;
@@ -273,6 +302,24 @@ namespace WindowsFormsApplication1
                 err_add.Text = "Error al añadir Mascota";
                 err_add.Visible = true;
 
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string imagen = openFileDialog1.FileName;
+                    pictureBox1.Image = Image.FromFile(imagen);
+                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("El archivo seleccionado no es .PNG");
             }
         }
     }

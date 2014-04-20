@@ -42,7 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.deleteEmpleado = new System.Windows.Forms.Button();
             this.addEmpleado = new System.Windows.Forms.Button();
@@ -58,8 +57,9 @@
             this.addMascota = new System.Windows.Forms.Button();
             this.modMascota = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -176,6 +176,7 @@
             this.label1.Size = new System.Drawing.Size(66, 24);
             this.label1.TabIndex = 5;
             this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -207,18 +208,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(144, 71);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 16);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Ver Perfíl";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // pictureBox1
             // 
@@ -382,6 +371,16 @@
             this.panel3.Size = new System.Drawing.Size(200, 87);
             this.panel3.TabIndex = 20;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::WindowsFormsApplication1.Properties.Resources.user2;
+            this.pictureBox2.Location = new System.Drawing.Point(30, 30);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(90, 91);
+            this.pictureBox2.TabIndex = 25;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -394,15 +393,17 @@
             this.label7.Text = "Modificar Perfíl";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // pictureBox2
+            // label3
             // 
-            this.pictureBox2.Image = global::WindowsFormsApplication1.Properties.Resources.user2;
-            this.pictureBox2.Location = new System.Drawing.Point(30, 30);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(90, 91);
-            this.pictureBox2.TabIndex = 25;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Visible = false;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(144, 71);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 16);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Ver Perfíl";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Form2
             // 
@@ -463,7 +464,6 @@
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button deleteEmpleado;
         private System.Windows.Forms.Button addEmpleado;
@@ -479,7 +479,8 @@
         private System.Windows.Forms.Button addMascota;
         private System.Windows.Forms.Button modMascota;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label3;
     }
 }
