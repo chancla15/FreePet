@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="GestionVeterinariaGenNHibernate"
+		                   namespace="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria">
+			<class name="UsuarioEN" table="[Usuario]">
+						<id name="DNI" column="[DNI]"/>
+					<property name="Nombre" type="string"> 
+						<column name="[nombre]"  not-null="true"/>
+					</property>
+					<property name="Apellidos" type="string"> 
+						<column name="[apellidos]"  not-null="true"/>
+					</property>
+					<property name="Direccion" type="string"> 
+						<column name="[direccion]"  not-null="true"/>
+					</property>
+					<property name="Telefono" type="string"> 
+						<column name="[telefono]"  not-null="true"/>
+					</property>
+					<property name="Localidad" type="string"> 
+						<column name="[localidad]"  not-null="true"/>
+					</property>
+					<property name="Provincia" type="string"> 
+						<column name="[provincia]"  not-null="true"/>
+					</property>
+					<property name="Cp" type="string"> 
+						<column name="[cp]"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		  </class>
+		  
+		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		  <query name="UsuarioENbuscarPorNombreHQL"><![CDATA[FROM UsuarioEN  as u where u.Nombre like '%'+:p_nombre+'%']]></query>
+		</hibernate-mapping>
+	
