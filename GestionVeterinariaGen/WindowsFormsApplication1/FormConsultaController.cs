@@ -5,6 +5,8 @@ using System.Text;
 using System.Windows.Forms;
 using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
 using GestionVeterinariaGenNHibernate.CEN.GestionVeterinaria;
+using GestionVeterinariaGenNHibernate.CAD.GestionVeterinaria;
+using System.Drawing;
 
 namespace WindowsFormsApplication1
 {
@@ -13,40 +15,134 @@ namespace WindowsFormsApplication1
      */
     class FormConsultaController
     {
+
+        /** La clase que contendra los datos de la consulta a insertar */
+        private class BoxControllerConsulta
+        {
+            public DateTime Fecha;
+            public ClienteEN Cliente;
+            public MascotaEN Mascota;
+            public VeterinarioEN Veterinario;
+            public String Motivo, Lugar;
+
+            public BoxControllerConsulta() 
+            {
+                Fecha= DateTime.Today;
+                Cliente= new ClienteEN();
+                Mascota= new MascotaEN();
+                Veterinario= new VeterinarioEN();
+                Motivo=Lugar="";
+            }
+
+            public void clear()
+            {
+                Fecha = DateTime.Today;
+                Cliente = null;
+                Mascota = null;
+                Veterinario = null;
+                Motivo = Lugar = "";
+            }
+        }
+
+        /** Variable de sesion de usuario */
+        private string TOKEN_SESION;
+        
         /** Variable privada de clase formulario consulta*/
         public FormConsulta form;
 
         /** Varialbe de tipo nodo del TreeView */
         private TreeNode nodeOp;
 
-        /** Estados importantes de la pantalla */
-        private enum State {
-            SEARCH, ADD, MOD, DEL, NONE
-        }
-
-        /** Estado actual de la pantalla */
-        private State state = State.NONE;
-
-        /** Variable privada para realizar busquedas en la DB */
-        private ConsultaCEN consultaCEN;
-
         /** La lista de consulas de la fecha actual */
         private IList<ConsultaEN> consultasActual;
+
+        ClienteCAD _IClienteCAD = new ClienteCAD();
+        MascotaCAD _IMascotaCAD = new MascotaCAD();
+        VeterinarioCAD _IVeterinarioCAD = new VeterinarioCAD();
+        ConsultaCAD _IConsultaCAD = new ConsultaCAD();
+
+        /** Lista de veterinarios disponibles */
+        IList<VeterinarioEN> list_veterinarios;
+
+        /** Lista de mascotas de esa consulta diponible para ese cliente */
+        IList<MascotaEN> list_mascotas;
+
+        /** Variable que tendra lo datos de la consulta */
+        BoxControllerConsulta boxcontroller;
+
+        /** Tipos de Estados de la pantalla */
+        private enum State {
+            ADD, MOD, DEL, NONE
+        }
+
+        /** Estado de la pantalla */
+        private State state;
 
         /**
          * Constructor de la clase
          */
         public FormConsultaController(FormConsulta forsm)
         {
+            TOKEN_SESION = "AAAAAA";
+            initPerfil();
             this.form = forsm;
-
             form.datetime_init.MinDate = DateTime.Today;
             form.datetime_fin.MinDate = DateTime.Today;
             form.datetime_init.Value = DateTime.Today;
             form.datetime_fin.Value = DateTime.Today;
-            form.box_controller.Visible = true;
+            boxcontroller = new BoxControllerConsulta();
+            state = State.NONE;
         }
 
+
+
+
+        private void initPerfil()
+        {
+            IUsuarioCAD _IUserCAD = new UsuarioCAD();
+            UsuarioEN user = _IUserCAD.DameUsuarioPorDNI(TOKEN_SESION);
+            VeterinarioEN vet;
+            System.IO.FileStream fs;
+
+            try
+            {
+                //sform.label_sesion_id.Text = TOKEN_SESION;
+                form.label_date.Text = DateTime.Now.ToString();
+
+                if (user != null)
+                {
+                    form.label_nombre_perfil.Text = "Bienvenido " + user.Nombre;
+                    vet = _IVeterinarioCAD.DameVetarinarioPorOID(user.DNI);
+
+                    if (vet == null)
+                        form.label_tipo_empleado.Text = "RECEPCIONISTA";
+                    else
+                        form.label_tipo_empleado.Text = "VETERINARIO";
+
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+            }
+
+           /* try
+            {
+
+                fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\" + user.DNI.ToString() + ".png", System.IO.FileMode.Open);
+                form.foto_perfil.Image = Image.FromStream(fs);
+                form.foto_perfil.SizeMode = PictureBoxSizeMode.StretchImage;
+                fs.Close();
+
+            }
+            catch (Exception ex)
+            {
+                fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\sinFoto.png", System.IO.FileMode.Open);
+                form.foto_perfil.Image = Image.FromStream(fs);
+                fs.Close();
+            }*/
+        }
+        
         /**
          * Busca consultas entre dos fechas comprobando que ambas son correctas
          */
@@ -71,7 +167,7 @@ namespace WindowsFormsApplication1
                         // Console.Write("Fecha: " + f.ToString() + "\n");
                         try
                         {
-                            lista = consultaCEN.BuscarConsultaPorFecha(f);
+                            lista = _IConsultaCAD.BuscarConsultaPorFecha(f);
 
                             /* Si existen consultas para ese dia se las añado sus horas y pongo el nodo como importante */
                             if (lista.Count > 0)
@@ -79,7 +175,7 @@ namespace WindowsFormsApplication1
                                 //Console.Write("Hay una consulta como minimo este dia" + f.ToString());
                                     
                                 for (int i = 0; i < lista.Count; i++)
-                                    node.Nodes.Add(lista[i].Fecha.Value.Hour.ToString() + " - " + lista[i].Veterinario.Nombre + " " + lista[i].Veterinario.Apellidos);
+                                    node.Nodes.Add(lista[i].Fecha.Value.Hour.ToString()+":"+lista[i].Fecha.Value.Minute.ToString() + " - " + lista[i].Veterinario.Nombre + " " + lista[i].Veterinario.Apellidos);
                                 lista.Clear();
                             }
                         }
@@ -105,24 +201,36 @@ namespace WindowsFormsApplication1
             //Compruebo que estoy en un nodo raiz
             if (nodeOp != null && nodeOp.Level == 0)
             {
-                String date = "";
-                String text = Convert.ToString(nodeOp.Text);
-
-                for (int i = 0; i < text.Length; i++)
-                {
-                    if (text[i] != '-')
-                        date += text[i];
-                    else
-                    {
-                        date = "";
-                        i++;
-                    }
-                }
-                form.box_text_fecha.Text = date;
-                form.box_text_fecha.Enabled = false;
+                state = State.ADD;
+                cambiarFecha();
+                cargarComboHoras();
             }
             else
                 nodeOp = null;
+        }
+
+        /** Cambia la fecha */
+        public void cambiarFecha()
+        {
+            nodeOp = form.treeViewConsultas.SelectedNode;
+            String date = "";
+            String text = Convert.ToString(nodeOp.Text);
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (text[i] != '-')
+                    date += text[i];
+                else
+                {
+                    date = "";
+                    i++;
+                }
+            }
+            boxcontroller.Fecha = Convert.ToDateTime(date);
+            form.box_text_fecha.Enabled = true;
+            form.box_text_fecha.Text = date;
+            form.box_text_fecha.Enabled = false;
+            cargarComboHoras();
         }
 
         /**
@@ -135,62 +243,108 @@ namespace WindowsFormsApplication1
             //Compruebo si estoy en un subnodo
             if (nodeOp != null && nodeOp.Level == 1)
             {
-                //Muestre un mensaje de seguridad de si esta seguro de que desea borrar esto
-                //box_controller.Visible = true;
+                state = State.MOD;
+                TreeNode padre = nodeOp.Parent;
+                String date_calendar = "";
+                String date_hour = "";
+                String vet_name = "";
+                String vet_app = "";
+                Boolean name = true;
+                String text = Convert.ToString(padre.Text);
+
+                for (int i = 0; i < text.Length; i++)  {
+                    if (text[i] != '-')
+                        date_calendar += text[i];
+                    else {
+                        date_calendar = "";
+                        i++;
+                    }
+                }
+
+                text = Convert.ToString(nodeOp.ToString());
+                int navet=0;
+
+                for (int i = 0; i < text.Length; i++) {
+                    if (text[i] != ' ')
+                        date_hour += text[i];
+                    else
+                    {
+                        navet = i;
+                        break;
+                    }
+                }
+                navet += 2;
+
+                for (int i = navet; i < text.Length; i++) {
+
+                    if (name && text[i] == ' ')
+                        name = false;
+
+                    if (name)
+                        vet_name += text[i];
+                    else
+                        vet_app += text[i];
+                }
+
+                DateTime timeMod = Convert.ToDateTime(date_calendar + ' ' + date_hour + ":00");
+                VeterinarioEN vetMod = _IVeterinarioCAD.BuscarPorNombreYApellidos(vet_name, vet_app);
+                ConsultaEN consulta = _IConsultaCAD.DameConsultaPorVeterinarioYFecha(vetMod.DNI, timeMod);
+
+                cargarEnBoxController(consulta);
+                
+                
             }
             else
                 nodeOp = null;
+        }
+
+        /**
+         * Carga la informacion de una consulta en el boxvcontroller
+         */
+        private void cargarEnBoxController(ConsultaEN consulta)
+        {
+            boxcontroller.clear();
+            boxcontroller.Fecha = consulta.Fecha.Value;
+            boxcontroller.Mascota = consulta.Mascota;
+            boxcontroller.Veterinario = consulta.Veterinario;
+            boxcontroller.Motivo = consulta.MotivoConsulta;
+            boxcontroller.Lugar = consulta.Lugar;
+
+            form.box_text_fecha.Text = boxcontroller.Fecha.Day + "/" +  boxcontroller.Fecha.Month + "/" + boxcontroller.Fecha.Year;
+            form.box_combo_hora.Text = boxcontroller.Fecha.Hour + ":" + boxcontroller.Fecha.Minute;
+            form.box_text_cliente.Text = boxcontroller.Mascota.Cliente.DNI;
+            form.box_combo_mascotas.Text = boxcontroller.Mascota.Nombre;
+            form.box_text_motivo.Text = boxcontroller.Motivo;
+            form.box_text_lugar.Text = boxcontroller.Lugar;
         }
 
         /**
          * Borra la consulta
          */
         public void borrarConsulta() {
-            nodeOp = form.treeViewConsultas.SelectedNode;
-
-            //Compruebo si estoy en un subnodo
-            if (nodeOp != null && nodeOp.Level == 1)
-            {
-                //Muestre un mensaje de seguridad de si esta seguro de que desea borrar esto
-                //box_controller.Visible = true;
-            }
-            else
-                nodeOp = null;
+            modificarConsulta();
+            state = State.DEL;
         }
 
 
         /**
-         * Carga la informacion minima en el cuadro de carga
+         * Carga la informacion de las horas disponibles para una fecha
+         * HashMap<String, IList<VeterinarioEN>> (hora, veterinarios disponibles)
          */
-        public void cargarCuadroInformacion()
+        private void cargarComboHoras()
         {
-            //SI ES DEL METODO AÑADIR CARGAR LAS HORAS DISPONIBLES PARA ESA FECHA (supones 1 consulta=1hora)
-            try
-            {
-                consultasActual.Clear();
-                form.box_combo_hora.FormattingEnabled = true;
-                String[] horas =
+            form.box_combo_hora.Items.Clear();
+            form.box_combo_hora.FormattingEnabled = true;
+            String[] horas =
                 {
                     "09:00", "09:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30",
                     "17:00", "17:30","18:00","18:30","19:00","19:30","20:00","20:30"
                 };
+            form.box_combo_hora.Items.AddRange(horas);
 
-                DateTime time = Convert.ToDateTime(form.box_text_fecha.Text);
-                if (time != null)
-                {
-                    form.box_combo_hora.Items.AddRange(horas);
-                    consultasActual = consultaCEN.BuscarConsultaPorFecha(time);
-                    DateTime act;
-
-                   /* if (consultasActual.Count > 0)
-                    {
-                        for (int i = 0; i < consultasActual.Count; i++)
-                        {
-                            act = consultasActual[i].Fecha.Value;
-                            form.box_combo_hora.Items.Remove(act.Hour.ToString() + ":" + act.Minute.ToString());
-                        }
-                    }*/
-                }
+            try
+            {
+                //Cargar solo las horas disponibles para ese dia
             }
             catch (Exception e)
             {
@@ -203,26 +357,33 @@ namespace WindowsFormsApplication1
          */
         public void checkBoxCliente()
         {
-            form.box_error_cliente.Visible = false;
-            ClienteCEN clienteCEN = new ClienteCEN();
-            ClienteEN clienteEN = clienteCEN.DameClientePorOID(form.box_text_cliente.Text);
+            try
+            {
+                form.box_error_cliente.Visible = false;
+                ClienteEN clienteEN = _IClienteCAD.DameClientePorOID(form.box_text_cliente.Text);
+                form.box_combo_mascotas.Items.Clear();
 
-             if (clienteEN != null)
-             {
-                 MascotaCEN mascotaCEN = new MascotaCEN();
-                 IList<MascotaEN> lista = mascotaCEN.DameMascotaPorCliente(form.box_text_cliente.Text);
-                 //74669082A
-                 if (lista.Count > 0 && lista!=null)
-                 {
-                     for (int i = 0; i < lista.Count; i++)
-                         form.box_combo_mascotas.Items.Add(lista[i].Nombre);
-                 }
-             }
-             else
-             {
-                 form.box_error_cliente.Visible = true;
-                 form.box_combo_mascotas.Items.Clear();
-             }
+                if (clienteEN != null)
+                {
+                    boxcontroller.Cliente = clienteEN;
+                    list_mascotas = _IMascotaCAD.DameMascotaPorCliente(boxcontroller.Cliente.DNI);
+
+                    if (list_mascotas.Count > 0 && list_mascotas != null)
+                    {
+                        for (int i = 0; i < list_mascotas.Count; i++)
+                            form.box_combo_mascotas.Items.Add(list_mascotas[i].Nombre);
+                    }
+                }
+                else
+                {
+                    form.box_error_cliente.Visible = true;
+                    form.box_combo_mascotas.Items.Clear();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+            }
         }
 
         /**
@@ -230,55 +391,137 @@ namespace WindowsFormsApplication1
          */
         public void checkBoxVeterinarios()
         {
-            VeterinarioCEN veterinarioCEN= new VeterinarioCEN();
-            IList<VeterinarioEN> veterinarios = veterinarioCEN.DameTodosLosVeterinarios();
-
-            if (veterinarios.Count > 0)
+            try
             {
-                for (int i = 0; i < veterinarios.Count; i++)
-                    form.box_combo_veterinario.Items.Add(veterinarios[i].Nombre.ToString());
+                
+                boxcontroller.Fecha = Convert.ToDateTime(form.box_text_fecha.Text + ' ' + form.box_combo_hora.Text + ":00");
+                list_veterinarios = _IVeterinarioCAD.DameTodosLosVeterinarios(0, 3);
 
-                for (int i = 0; i < consultasActual.Count; i++)
-                    form.box_combo_veterinario.Items.Remove(consultasActual[i].Veterinario.Nombre.ToString());
+                if (list_veterinarios.Count > 0)
+                {
+                    form.box_combo_veterinario.Items.Clear();
+                    String s = "";
+                    for (int i = 0; i < list_veterinarios.Count; i++)
+                    {
+                        s += list_veterinarios[i].Nombre.ToString() + ' ' + list_veterinarios[i].Apellidos.ToString();
+                        form.box_combo_veterinario.Items.Add(s);
+                        s = "";
+
+                    }
+                    DateTime fecha = boxcontroller.Fecha;
+                    list_veterinarios = _IConsultaCAD.DameVeterinariosPorFechayHora(fecha);
+
+                    if (list_veterinarios.Count > 0)
+                    {
+                        s = "";
+                        for (int i = 0; i < list_veterinarios.Count; i++)
+                        {
+                            s += list_veterinarios[i].Nombre.ToString() + ' ' + list_veterinarios[i].Apellidos.ToString();
+                            form.box_combo_veterinario.Items.Remove(s);
+                            s = "";
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message);
+            }
+        }
+
+        /** Carga los campos escritos de la mascota */
+        private void loadVeterinarioMascota()
+        {
+            String vet = form.box_combo_veterinario.Text;
+            String masc = form.box_combo_mascotas.Text;
+
+            if (masc != "")
+            {
+                for (int i = 0; i < list_mascotas.Count; i++)
+                    if (list_mascotas[i].Nombre.Equals(masc))
+                    {
+                        boxcontroller.Mascota = list_mascotas[i];
+                        break;
+                    }
+            }
+            else
+            {
+            }
+
+            if (vet != "")
+            {
+                String s = "";
+                for (int i = 0; i < list_veterinarios.Count; i++)
+                {
+                    s += list_veterinarios[i].Nombre.ToString() + ' ' + list_veterinarios[i].Apellidos.ToString();
+
+                    if (s.Equals(vet))
+                    {
+                        boxcontroller.Veterinario = list_veterinarios[i];
+                        break;
+                    }
+                    s = "";
+                }
+            }
+            else 
+            {
             }
         }
 
         public void guardarCuadroInformacion()
         {
-            string fecha, hora, motivo, cliente, animal, veterinario, lugar;
-            fecha = form.box_text_fecha.Text.ToString();
-            /*hora = form.box_combo_hora.SelectedItem.ToString();
-            motivo= form.box_text_motivo.Text.ToString();
-            cliente = form.box_text_cliente.Text.ToString();
-            animal = form.box_combo_mascotas.SelectedItem.ToString();
-            veterinario = form.box_combo_veterinario.SelectedItem.ToString();
-            lugar = form.box_text_lugar.Text.ToString();*/
+            boxcontroller.Motivo = form.box_text_motivo.Text;
+            boxcontroller.Lugar = form.box_text_lugar.Text;
+            loadVeterinarioMascota();
 
-            //Comprobar que ningun campo sea vacio y obtener los oid para rellenar la consulta
-            String oid_mascota, oid_veterinario;
-            hora = "10:30:00";
-            DateTime tt = Convert.ToDateTime(fecha + ' ' + hora);
-            
-            //DateTime timer_cons = Convert.ToDateTime(fecha); */
-            Console.WriteLine("FECHA: " + tt.ToString());
+            //Si todos los campos estan correctos pos añado la consulta
+            ConsultaEN c = new ConsultaEN();
+           // ConsultaCEN consultaCEN = new ConsultaCEN();
+            c.IdConsulta = 0;
+            c.Fecha = boxcontroller.Fecha;
+            c.MotivoConsulta = boxcontroller.Motivo;
+            c.Diagnostico = "diag";
+            c.Mascota = boxcontroller.Mascota;
+            c.Veterinario = boxcontroller.Veterinario;
+            c.Lugar = boxcontroller.Lugar;
 
+            switch (state)
+            {
+                case State.ADD:
+                    //_IConsultaCAD.New_(c);
+                    break;
+                case State.MOD:
+                   // _IConsultaCAD.Modify(c);
+                    break;
+                case State.DEL:
+                   // _IConsultaCAD.Destroy(c.IdConsulta);
+                    break;
+                default:
+                    break;
+            }
+            state = State.NONE;
         }
 
+        /**
+         * Borrar todos los campos del box_controller asi como su informacoin asociada
+         */
         public void borrarCamposCuadroInformacion()
         {
-            
+            boxcontroller.clear();
+
+            form.box_text_motivo.Clear();
+            form.box_text_lugar.Clear();
+            form.box_text_cliente.Clear();
+
+            form.box_text_fecha.Text = "";
+            form.box_combo_hora.SelectedItem = null;
+            form.box_combo_hora.Text = "";
+            form.box_combo_mascotas.SelectedItem = null;
+            form.box_combo_mascotas.Text = "";
+            form.box_combo_veterinario.SelectedItem = null;
+            form.box_label_veterinario.Text = "";
         }
 
-        public void activeFormComponents(Boolean t) {
 
-            form.datetime_init.Enabled = t;
-            form.datetime_fin.Enabled = t;
-            form.btnBuscar_Fecha.Enabled = t;
-            form.treeViewConsultas.Enabled = t;
-            form.btn_Return.Enabled = t;
-            form.image_add.Enabled = t;
-            form.image_mod.Enabled = t;
-            form.image_del.Enabled = t;
-        }
     }
 }

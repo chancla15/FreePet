@@ -14,11 +14,14 @@ namespace GestionVeterinariaGenNHibernate.CEN.GestionVeterinaria
 {
 public partial class VeterinarioCEN
 {
-public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> DameTodosLosVeterinarios ()
+public System.Collections.Generic.IList<VeterinarioEN> DameTodosLosVeterinarios (int first, int size)
 {
         /*PROTECTED REGION ID(GestionVeterinariaGenNHibernate.CEN.GestionVeterinaria_Veterinario_dameTodosLosVeterinarios_customized) START*/
 
-        return _IVeterinarioCAD.DameTodosLosVeterinarios ();
+        System.Collections.Generic.IList<VeterinarioEN> list = null;
+
+        list = _IVeterinarioCAD.DameTodosLosVeterinarios (first, size);
+        return list;
         /*PROTECTED REGION END*/
 }
 }

@@ -23,7 +23,7 @@ public ConsultaCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public ConsultaEN ReadOIDDefault (string IdConsulta)
+public ConsultaEN ReadOIDDefault (int IdConsulta)
 {
         ConsultaEN consultaEN = null;
 
@@ -51,7 +51,7 @@ public ConsultaEN ReadOIDDefault (string IdConsulta)
 }
 
 
-public string New_ (ConsultaEN consulta)
+public int New_ (ConsultaEN consulta)
 {
         try
         {
@@ -122,7 +122,7 @@ public void Modify (ConsultaEN consulta)
                 SessionClose ();
         }
 }
-public void Destroy (string IdConsulta)
+public void Destroy (int IdConsulta)
 {
         try
         {
@@ -146,7 +146,7 @@ public void Destroy (string IdConsulta)
         }
 }
 
-public ConsultaEN DameConsultaPorOID (string IdConsulta)
+public ConsultaEN DameConsultaPorOID (int IdConsulta)
 {
         ConsultaEN consultaEN = null;
 
@@ -209,12 +209,74 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ConsultaEN self where SELECT c FROM ConsultaEN WHERE year(c.Fecha)=year(:fecha) AND month(c.Fecha)=month(:fecha) AND day(c.Fecha)=day(:fecha)";
+                //String sql = @"FROM ConsultaEN self where FROM ConsultaEN c WHERE year(c.Fecha)=year(:fecha) AND month(c.Fecha)=month(:fecha) AND day(c.Fecha)=day(:fecha)";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ConsultaENbuscarConsultaPorFechaHQL");
                 query.SetParameter ("fecha", fecha);
 
                 result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in ConsultaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> DameVeterinariosPorFechayHora (Nullable<DateTime> fecha)
+{
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ConsultaEN self where SELECT c.Veterinario FROM ConsultaEN as c WHERE year(c.Fecha)=year(:fecha) AND month(c.Fecha)=month(:fecha) AND day(c.Fecha)=day(:fecha) AND hour(c.Fecha)=hour(:fecha) AND minutes(c.Fecha)=(:fecha)";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ConsultaENdameVeterinariosPorFechayHoraHQL");
+                query.SetParameter ("fecha", fecha);
+
+                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in ConsultaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN DameConsultaPorVeterinarioYFecha (string vet, Nullable<DateTime> fecha)
+{
+        GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ConsultaEN self where SELECT cli FROM ConsultaEN AS cli WHERE cli.Veterinario.DNI=:vet AND cli.Fecha=:fecha";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ConsultaENdameConsultaPorVeterinarioYFechaHQL");
+                query.SetParameter ("vet", vet);
+                query.SetParameter ("fecha", fecha);
+
+
+                result = query.UniqueResult<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN>();
                 SessionCommit ();
         }
 

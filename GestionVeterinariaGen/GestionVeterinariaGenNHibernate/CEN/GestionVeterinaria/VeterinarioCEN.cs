@@ -110,5 +110,13 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 {
         return _IVeterinarioCAD.BuscarVetPorApellidos (busqueda);
 }
+public int DameNumeroTotalVeterinarios ()
+{
+        return _IVeterinarioCAD.DameNumeroTotalVeterinarios ();
+}
+public GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN BuscarPorNombreYApellidos (string name, string surname)
+{
+        return _IVeterinarioCAD.BuscarPorNombreYApellidos (name, surname);
+}
 }
 }

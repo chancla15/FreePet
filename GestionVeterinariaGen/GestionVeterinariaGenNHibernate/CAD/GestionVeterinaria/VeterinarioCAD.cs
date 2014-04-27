@@ -154,17 +154,17 @@ public void Destroy (string DNI)
         }
 }
 
-public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> DameTodosLosVeterinarios ()
+public System.Collections.Generic.IList<VeterinarioEN> DameTodosLosVeterinarios (int first, int size)
 {
-        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> result;
+        System.Collections.Generic.IList<VeterinarioEN> result = null;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM VeterinarioEN self where SELECT v FROM VeterinarioEN";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("VeterinarioENdameTodosLosVeterinariosHQL");
-
-                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN>();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(VeterinarioEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<VeterinarioEN>();
+                else
+                        result = session.CreateCriteria (typeof(VeterinarioEN)).List<VeterinarioEN>();
                 SessionCommit ();
         }
 
@@ -183,6 +183,7 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 
         return result;
 }
+
 public VeterinarioEN DameVetarinarioPorOID (string DNI)
 {
         VeterinarioEN veterinarioEN = null;
@@ -252,6 +253,69 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
                 query.SetParameter ("busqueda", busqueda);
 
                 result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in VeterinarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public int DameNumeroTotalVeterinarios ()
+{
+        int result;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM VeterinarioEN self where SELECT Count(vt) FROM VeterinarioEN as vt";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("VeterinarioENdameNumeroTotalVeterinariosHQL");
+
+
+                result = query.UniqueResult<int>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in VeterinarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN BuscarPorNombreYApellidos (string name, string surname)
+{
+        GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM VeterinarioEN self where SELECT cli FROM VeterinarioEN AS cli WHERE cli.Nombre=:name AND cli.Apellidos=:surname";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("VeterinarioENbuscarPorNombreYApellidosHQL");
+                query.SetParameter ("name", name);
+                query.SetParameter ("surname", surname);
+
+
+                result = query.UniqueResult<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN>();
                 SessionCommit ();
         }
 

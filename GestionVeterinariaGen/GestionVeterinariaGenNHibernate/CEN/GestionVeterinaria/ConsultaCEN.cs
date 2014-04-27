@@ -32,15 +32,13 @@ public IConsultaCAD get_IConsultaCAD ()
         return this._IConsultaCAD;
 }
 
-public string New_ (string p_IdConsulta, Nullable<DateTime> p_fecha, string p_motivoConsulta, string p_diagnostico, string p_mascota, string p_veterinario, string p_lugar)
+public int New_ (Nullable<DateTime> p_fecha, string p_motivoConsulta, string p_diagnostico, string p_mascota, string p_veterinario, string p_lugar)
 {
         ConsultaEN consultaEN = null;
-        string oid;
+        int oid;
 
         //Initialized ConsultaEN
         consultaEN = new ConsultaEN ();
-        consultaEN.IdConsulta = p_IdConsulta;
-
         consultaEN.Fecha = p_fecha;
 
         consultaEN.MotivoConsulta = p_motivoConsulta;
@@ -67,7 +65,7 @@ public string New_ (string p_IdConsulta, Nullable<DateTime> p_fecha, string p_mo
         return oid;
 }
 
-public void Modify (string p_Consulta_OID, Nullable<DateTime> p_fecha, string p_motivoConsulta, string p_diagnostico, string p_lugar)
+public void Modify (int p_Consulta_OID, Nullable<DateTime> p_fecha, string p_motivoConsulta, string p_diagnostico, string p_lugar)
 {
         ConsultaEN consultaEN = null;
 
@@ -83,12 +81,12 @@ public void Modify (string p_Consulta_OID, Nullable<DateTime> p_fecha, string p_
         _IConsultaCAD.Modify (consultaEN);
 }
 
-public void Destroy (string IdConsulta)
+public void Destroy (int IdConsulta)
 {
         _IConsultaCAD.Destroy (IdConsulta);
 }
 
-public ConsultaEN DameConsultaPorOID (string IdConsulta)
+public ConsultaEN DameConsultaPorOID (int IdConsulta)
 {
         ConsultaEN consultaEN = null;
 
@@ -106,6 +104,14 @@ public System.Collections.Generic.IList<ConsultaEN> DameTodasLasConsultas (int f
 public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> BuscarConsultaPorFecha (Nullable<DateTime> fecha)
 {
         return _IConsultaCAD.BuscarConsultaPorFecha (fecha);
+}
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> DameVeterinariosPorFechayHora (Nullable<DateTime> fecha)
+{
+        return _IConsultaCAD.DameVeterinariosPorFechayHora (fecha);
+}
+public GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN DameConsultaPorVeterinarioYFecha (string vet, Nullable<DateTime> fecha)
+{
+        return _IConsultaCAD.DameConsultaPorVeterinarioYFecha (vet, fecha);
 }
 }
 }

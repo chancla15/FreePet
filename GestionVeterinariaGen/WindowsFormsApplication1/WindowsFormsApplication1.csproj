@@ -136,6 +136,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GestionVeterinariaGenNHibernateDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GestionVeterinariaGenNHibernateDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionVeterinariaGenNHibernateDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GestionVeterinariaGenNHibernateDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionVeterinariaGenNHibernateDataSet4.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Mascotas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +302,28 @@
     </None>
     <None Include="GestionVeterinariaGenNHibernateDataSet2.xss">
       <DependentUpon>GestionVeterinariaGenNHibernateDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="GestionVeterinariaGenNHibernateDataSet3.xsc">
+      <DependentUpon>GestionVeterinariaGenNHibernateDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="GestionVeterinariaGenNHibernateDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionVeterinariaGenNHibernateDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestionVeterinariaGenNHibernateDataSet3.xss">
+      <DependentUpon>GestionVeterinariaGenNHibernateDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="GestionVeterinariaGenNHibernateDataSet4.xsc">
+      <DependentUpon>GestionVeterinariaGenNHibernateDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="GestionVeterinariaGenNHibernateDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionVeterinariaGenNHibernateDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestionVeterinariaGenNHibernateDataSet4.xss">
+      <DependentUpon>GestionVeterinariaGenNHibernateDataSet4.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

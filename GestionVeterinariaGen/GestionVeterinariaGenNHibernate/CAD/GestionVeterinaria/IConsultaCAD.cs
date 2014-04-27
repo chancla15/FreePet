@@ -6,22 +6,28 @@ namespace GestionVeterinariaGenNHibernate.CAD.GestionVeterinaria
 {
 public partial interface IConsultaCAD
 {
-ConsultaEN ReadOIDDefault (string IdConsulta);
+ConsultaEN ReadOIDDefault (int IdConsulta);
 
-string New_ (ConsultaEN consulta);
+int New_ (ConsultaEN consulta);
 
 void Modify (ConsultaEN consulta);
 
 
-void Destroy (string IdConsulta);
+void Destroy (int IdConsulta);
 
 
-ConsultaEN DameConsultaPorOID (string IdConsulta);
+ConsultaEN DameConsultaPorOID (int IdConsulta);
 
 
 System.Collections.Generic.IList<ConsultaEN> DameTodasLasConsultas (int first, int size);
 
 
 System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> BuscarConsultaPorFecha (Nullable<DateTime> fecha);
+
+
+System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> DameVeterinariosPorFechayHora (Nullable<DateTime> fecha);
+
+
+GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN DameConsultaPorVeterinarioYFecha (string vet, Nullable<DateTime> fecha);
 }
 }

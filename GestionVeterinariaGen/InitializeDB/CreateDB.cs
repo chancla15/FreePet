@@ -90,8 +90,8 @@ public static void InitializeData ()
                 IMascotaCAD _IMascotaCAD = new MascotaCAD ();
                 MascotaCEN MascotaCEN = new MascotaCEN (_IMascotaCAD);
 
-                IConsultaCAD _IConsultaCAD = new ConsultaCAD ();
-                ConsultaCEN ConsultaCEN = new ConsultaCEN (_IConsultaCAD);
+                //IConsultaCAD _IConsultaCAD = new ConsultaCAD ();
+                // ConsultaCEN ConsultaCEN = new ConsultaCEN (_IConsultaCAD);
 
                 #region Cliente
                 ClienteCEN.New_ ("74669082A", "Hector", "Torregrosa Mas", "C/ San Jaime 12", "967378899", "Babel", "Alicante", "12356", null);
@@ -106,7 +106,7 @@ public static void InitializeData ()
                 ClienteCEN.New_ ("59273016J", "Estefania", "Espada Donoso", "C/ San Lucas 1", "910265763", "Pi�os", "Alicante", "52456", null);
                 ClienteCEN.New_ ("37986297K", "Manuel", "Guzman Heredia", "Av. de la Estacion23", "937697201", "Sagra", "Alicante", "16273", null);
                 ClienteCEN.New_ ("71620683L", "Dolores", "Fuertes Grande", "C/ San Pablo 90", "957463026", "Orito", "Alicante", "63826", null);
-                ClienteCEN.New_ ("26837961M", "Carmina", "Losa Mayo", "C/ Santa Mar�a 45", "970865212", "Palanquetas", "Alicante", "12353", null);
+                ClienteCEN.New_ ("26837961M", "Carmina", "Losa Mayo", "C/ Santa María 45", "970865212", "Palanquetas", "Alicante", "12353", null);
                 ClienteCEN.New_ ("10275637N", "Rafael", "Navas Ochoa", "C/ San Jose 14", "917260283", "Crevillent", "Alicante", "03330", null);
                 ClienteCEN.New_ ("06275617O", "David", "Adan Pi", "Av. del Calvario 87", "916672782", "Ofra", "Alicante", "12728", null);
 
