@@ -120,6 +120,7 @@
     <Compile Include="Empleados.Designer.cs">
       <DependentUpon>Empleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormConsultaController.cs" />
     <Compile Include="GestionVeterinariaGenNHibernateDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -355,6 +356,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fondo nuevo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_return.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

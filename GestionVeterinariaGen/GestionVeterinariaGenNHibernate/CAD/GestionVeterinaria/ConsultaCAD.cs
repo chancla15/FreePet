@@ -97,9 +97,6 @@ public void Modify (ConsultaEN consulta)
                 consultaEN.Fecha = consulta.Fecha;
 
 
-                consultaEN.Hora = consulta.Hora;
-
-
                 consultaEN.MotivoConsulta = consulta.MotivoConsulta;
 
 
@@ -212,7 +209,7 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ConsultaEN self where FROM ConsultaEN c WHERE year(c.Fecha)=year(:fecha) AND month(c.Fecha)=month(:fecha) AND day(c.Fecha)=day(:fecha)";
+                //String sql = @"FROM ConsultaEN self where SELECT c FROM ConsultaEN WHERE year(c.Fecha)=year(:fecha) AND month(c.Fecha)=month(:fecha) AND day(c.Fecha)=day(:fecha)";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ConsultaENbuscarConsultaPorFechaHQL");
                 query.SetParameter ("fecha", fecha);

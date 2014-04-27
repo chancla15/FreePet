@@ -21,12 +21,6 @@ private Nullable<DateTime> fecha;
  *
  */
 
-private TimeSpan hora;
-
-/**
- *
- */
-
 private string motivoConsulta;
 
 /**
@@ -79,11 +73,6 @@ public virtual Nullable<DateTime> Fecha {
 }
 
 
-public virtual TimeSpan Hora {
-        get { return hora; } set { hora = value;  }
-}
-
-
 public virtual string MotivoConsulta {
         get { return motivoConsulta; } set { motivoConsulta = value;  }
 }
@@ -129,25 +118,23 @@ public ConsultaEN()
 
 
 
-public ConsultaEN(string idConsulta, Nullable<DateTime> fecha, TimeSpan hora, string motivoConsulta, string diagnostico, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN mascota, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN veterinario, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> tratamiento, string lugar, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN factura)
+public ConsultaEN(string idConsulta, Nullable<DateTime> fecha, string motivoConsulta, string diagnostico, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN mascota, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN veterinario, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> tratamiento, string lugar, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN factura)
 {
-        this.init (idConsulta, fecha, hora, motivoConsulta, diagnostico, mascota, veterinario, tratamiento, lugar, factura);
+        this.init (idConsulta, fecha, motivoConsulta, diagnostico, mascota, veterinario, tratamiento, lugar, factura);
 }
 
 
 public ConsultaEN(ConsultaEN consulta)
 {
-        this.init (consulta.IdConsulta, consulta.Fecha, consulta.Hora, consulta.MotivoConsulta, consulta.Diagnostico, consulta.Mascota, consulta.Veterinario, consulta.Tratamiento, consulta.Lugar, consulta.Factura);
+        this.init (consulta.IdConsulta, consulta.Fecha, consulta.MotivoConsulta, consulta.Diagnostico, consulta.Mascota, consulta.Veterinario, consulta.Tratamiento, consulta.Lugar, consulta.Factura);
 }
 
-private void init (string idConsulta, Nullable<DateTime> fecha, TimeSpan hora, string motivoConsulta, string diagnostico, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN mascota, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN veterinario, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> tratamiento, string lugar, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN factura)
+private void init (string idConsulta, Nullable<DateTime> fecha, string motivoConsulta, string diagnostico, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN mascota, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN veterinario, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> tratamiento, string lugar, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN factura)
 {
         this.IdConsulta = IdConsulta;
 
 
         this.Fecha = fecha;
-
-        this.Hora = hora;
 
         this.MotivoConsulta = motivoConsulta;
 

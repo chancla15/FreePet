@@ -154,17 +154,17 @@ public void Destroy (string DNI)
         }
 }
 
-public System.Collections.Generic.IList<VeterinarioEN> DameTodosLosVeterinarios (int first, int size)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> DameTodosLosVeterinarios ()
 {
-        System.Collections.Generic.IList<VeterinarioEN> result = null;
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(VeterinarioEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<VeterinarioEN>();
-                else
-                        result = session.CreateCriteria (typeof(VeterinarioEN)).List<VeterinarioEN>();
+                //String sql = @"FROM VeterinarioEN self where SELECT v FROM VeterinarioEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("VeterinarioENdameTodosLosVeterinariosHQL");
+
+                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN>();
                 SessionCommit ();
         }
 
@@ -183,7 +183,6 @@ public System.Collections.Generic.IList<VeterinarioEN> DameTodosLosVeterinarios 
 
         return result;
 }
-
 public VeterinarioEN DameVetarinarioPorOID (string DNI)
 {
         VeterinarioEN veterinarioEN = null;

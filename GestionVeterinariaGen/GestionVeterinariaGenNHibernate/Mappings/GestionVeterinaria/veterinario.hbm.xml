@@ -27,6 +27,7 @@
 		  </joined-subclass>	
 		  
 		  <query name="VeterinarioENReadAllHQL">from VeterinarioEN</query>
+		  <query name="VeterinarioENdameTodosLosVeterinariosHQL"><![CDATA[SELECT v FROM VeterinarioEN]]></query>
 		  <query name="VeterinarioENbuscarVetPorNombreHQL"><![CDATA[FROM VeterinarioEN as u where u.Nombre like '%'+:busqueda+'%']]></query>
 		  <query name="VeterinarioENbuscarVetPorApellidosHQL"><![CDATA[FROM VeterinarioEN as u where u.Apellidos like '%'+:busqueda+'%']]></query>
 		</hibernate-mapping>

@@ -125,6 +125,7 @@
 	<Compile Include="CEN\GestionVeterinaria\VeterinarioCEN.cs" />
 	<Compile Include="CAD\GestionVeterinaria\IVeterinarioCAD.cs" />
 	<Compile Include="CAD\GestionVeterinaria\VeterinarioCAD.cs" />
+			<Compile Include="CEN\GestionVeterinaria\VeterinarioCEN_DameTodosLosVeterinarios.cs" />
 	<Compile Include="EN\GestionVeterinaria\RecepcionistaEN.cs" />
 	<Compile Include="CEN\GestionVeterinaria\RecepcionistaCEN.cs" />
 	<Compile Include="CAD\GestionVeterinaria\IRecepcionistaCAD.cs" />

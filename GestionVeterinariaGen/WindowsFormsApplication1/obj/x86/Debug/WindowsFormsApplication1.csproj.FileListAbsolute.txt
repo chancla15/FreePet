@@ -94,12 +94,8 @@ C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplicati
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\nunit.framework.dll
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\GestionVeterinariaGenNHibernate.pdb
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
-C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form4.resources
-C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form2.resources
-C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form3.resources
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormConsulta.resources
-C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormAddEmpleado.resources
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormFactura.resources
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
@@ -139,3 +135,13 @@ C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplicatio
 C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Consultas.resources
 C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Empleados.resources
 C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Facturas.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.AcercaDe.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Facturas.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Empleados.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Mascotas.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormAnimal.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Clientes.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Login.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Perfil.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormEmpleadoCliente.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Consultas.resources

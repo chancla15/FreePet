@@ -32,7 +32,7 @@ public IConsultaCAD get_IConsultaCAD ()
         return this._IConsultaCAD;
 }
 
-public string New_ (string p_IdConsulta, Nullable<DateTime> p_fecha, TimeSpan p_hora, string p_motivoConsulta, string p_diagnostico, string p_mascota, string p_veterinario, string p_lugar)
+public string New_ (string p_IdConsulta, Nullable<DateTime> p_fecha, string p_motivoConsulta, string p_diagnostico, string p_mascota, string p_veterinario, string p_lugar)
 {
         ConsultaEN consultaEN = null;
         string oid;
@@ -42,8 +42,6 @@ public string New_ (string p_IdConsulta, Nullable<DateTime> p_fecha, TimeSpan p_
         consultaEN.IdConsulta = p_IdConsulta;
 
         consultaEN.Fecha = p_fecha;
-
-        consultaEN.Hora = p_hora;
 
         consultaEN.MotivoConsulta = p_motivoConsulta;
 
@@ -69,7 +67,7 @@ public string New_ (string p_IdConsulta, Nullable<DateTime> p_fecha, TimeSpan p_
         return oid;
 }
 
-public void Modify (string p_Consulta_OID, Nullable<DateTime> p_fecha, TimeSpan p_hora, string p_motivoConsulta, string p_diagnostico, string p_lugar)
+public void Modify (string p_Consulta_OID, Nullable<DateTime> p_fecha, string p_motivoConsulta, string p_diagnostico, string p_lugar)
 {
         ConsultaEN consultaEN = null;
 
@@ -77,7 +75,6 @@ public void Modify (string p_Consulta_OID, Nullable<DateTime> p_fecha, TimeSpan 
         consultaEN = new ConsultaEN ();
         consultaEN.IdConsulta = p_Consulta_OID;
         consultaEN.Fecha = p_fecha;
-        consultaEN.Hora = p_hora;
         consultaEN.MotivoConsulta = p_motivoConsulta;
         consultaEN.Diagnostico = p_diagnostico;
         consultaEN.Lugar = p_lugar;

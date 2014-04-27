@@ -94,13 +94,6 @@ public void Destroy (string DNI)
         _IVeterinarioCAD.Destroy (DNI);
 }
 
-public System.Collections.Generic.IList<VeterinarioEN> DameTodosLosVeterinarios (int first, int size)
-{
-        System.Collections.Generic.IList<VeterinarioEN> list = null;
-
-        list = _IVeterinarioCAD.DameTodosLosVeterinarios (first, size);
-        return list;
-}
 public VeterinarioEN DameVetarinarioPorOID (string DNI)
 {
         VeterinarioEN veterinarioEN = null;
