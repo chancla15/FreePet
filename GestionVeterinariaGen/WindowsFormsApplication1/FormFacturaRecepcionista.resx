@@ -132,7 +132,7 @@
   <metadata name="usuarioBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>410, 17</value>
   </metadata>
-  <metadata name="gestionVeterinariaGenNHibernateDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="FormFacturaRecepcionistaDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
   </metadata>
   <metadata name="fillByToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -150,8 +150,8 @@
         RF/WBZnFQBrgSi4oKgHSf4DYKCW1OJmBgdEAyM4uLykAijPOAbJFkrLB7A0gdlFIkDOQfQTI5kuHsK+A
         2EkQ9hMQuwjoCSD7C0h9OpjNxAE2B8KWAbFLUitA9jI45xdUFmWmZ5QoGFpaWio4puQnpSoEVxaXpOYW
         K3jmJecXFeQXJZakpgDVQtwHBoIQhaAQ0wBqtNBkoDIAxQOE9TkQHL6MYmcQYgiQXFpUBmUyMhkT5iPM
-        mCPBwOC/lIGB5Q9CzKSXgWGBDgMD/1SEmJohA4OAPgPDvjkAwMZP/eeaqagAAAAJcEhZcwAACxIAAAsS
-        AdLdfvwAAP5PSURBVHhe7H0FmFVV976//1d2fOZn0indLd2SgiCIIoqtKBioqIiCGCggOU13d9fQ3Y10
+        mCPBwOC/lIGB5Q9CzKSXgWGBDgMD/1SEmJohA4OAPgPDvjkAwMZP/eeaqagAAAAJcEhZcwAACxEAAAsR
+        AX9kX5EAAP5PSURBVHhe7H0FmFVV976//1d2fOZn0indLd2SgiCIIoqtKBioqIiCGCggOU13d9fQ3Y10
         59w7PfNfe8Xe+9wZcEAYBth4nnnOnLtP3HXH+65417tuS3b/nAWcBZwFnAWcBZwFbj0L3HbrvWX3jp0F
         nAWcBZwFnAWcBZKdB+D+CJwFnAWcBZwFnAVuRQs4D+BW/NTde3YWcBZwFnAWcBZwHoD7G3AWcBZwFnAW
         cBa4FS3gPIBb8VN379lZwFnAWcBZwFnAeQDub8BZwFnAWcBZwFngVrSA8wBuxU/dvWdnAWcBZwFnAWcB

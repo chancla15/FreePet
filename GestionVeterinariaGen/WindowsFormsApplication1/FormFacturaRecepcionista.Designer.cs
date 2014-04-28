@@ -71,7 +71,7 @@
             this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gestionVeterinariaGenNHibernateDataSet = new WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSet();
+            this.FormFacturaRecepcionistaDataSet = new WindowsFormsApplication1.FormStartRecepcionistaDataSet();
             this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.usuarioTableAdapter = new WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSetTableAdapters.UsuarioTableAdapter();
@@ -79,7 +79,7 @@
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionVeterinariaGenNHibernateDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FormFacturaRecepcionistaDataSet)).BeginInit();
             this.fillByToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
             this.SuspendLayout();
@@ -430,12 +430,12 @@
             // usuarioBindingSource
             // 
             this.usuarioBindingSource.DataMember = "Usuario";
-            this.usuarioBindingSource.DataSource = this.gestionVeterinariaGenNHibernateDataSet;
+            this.usuarioBindingSource.DataSource = this.FormFacturaRecepcionistaDataSet;
             // 
-            // gestionVeterinariaGenNHibernateDataSet
+            // FormFacturaRecepcionistaDataSet
             // 
-            this.gestionVeterinariaGenNHibernateDataSet.DataSetName = "GestionVeterinariaGenNHibernateDataSet";
-            this.gestionVeterinariaGenNHibernateDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.FormFacturaRecepcionistaDataSet.DataSetName = "FormStartRecepcionistaDataSet";
+            this.FormFacturaRecepcionistaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // fillByToolStrip
             // 
@@ -499,7 +499,7 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionVeterinariaGenNHibernateDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FormFacturaRecepcionistaDataSet)).EndInit();
             this.fillByToolStrip.ResumeLayout(false);
             this.fillByToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).EndInit();
@@ -540,7 +540,7 @@
         public System.Windows.Forms.ToolStripMenuItem verClientesToolStripMenuItem;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.DataGridView dataGridView1;
-        public GestionVeterinariaGenNHibernateDataSet gestionVeterinariaGenNHibernateDataSet;
+        public FormStartRecepcionistaDataSet FormFacturaRecepcionistaDataSet;
         public System.Windows.Forms.BindingSource usuarioBindingSource;
         public GestionVeterinariaGenNHibernateDataSetTableAdapters.UsuarioTableAdapter usuarioTableAdapter;
         public System.Windows.Forms.ToolStrip fillByToolStrip;

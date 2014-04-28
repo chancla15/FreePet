@@ -154,6 +154,10 @@
 	<Compile Include="CEN\GestionVeterinaria\FacturaCEN.cs" />
 	<Compile Include="CAD\GestionVeterinaria\IFacturaCAD.cs" />
 	<Compile Include="CAD\GestionVeterinaria\FacturaCAD.cs" />
+	<Compile Include="EN\GestionVeterinaria\AdministradorEN.cs" />
+	<Compile Include="CEN\GestionVeterinaria\AdministradorCEN.cs" />
+	<Compile Include="CAD\GestionVeterinaria\IAdministradorCAD.cs" />
+	<Compile Include="CAD\GestionVeterinaria\AdministradorCAD.cs" />
 	<Compile Include="Enumerated\GestionVeterinaria\TamanyoMascotaEnum.cs" />
 	<Compile Include="Enumerated\GestionVeterinaria\SexoEnum.cs" />
 	<Compile Include="Enumerated\GestionVeterinaria\DosisEnum.cs" />
@@ -184,6 +188,7 @@
 	<EmbeddedResource Include="Mappings\GestionVeterinaria\farmaco.hbm.xml" />
 	<EmbeddedResource Include="Mappings\GestionVeterinaria\ortopedia.hbm.xml" />
 	<EmbeddedResource Include="Mappings\GestionVeterinaria\factura.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GestionVeterinaria\administrador.hbm.xml" />
 	
 	
 

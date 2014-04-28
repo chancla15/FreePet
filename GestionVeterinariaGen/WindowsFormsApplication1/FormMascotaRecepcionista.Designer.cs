@@ -43,7 +43,7 @@
             this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.mascotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gestionVeterinariaGenNHibernateDataSet1 = new WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSet1();
+            this.FormMascotaRecepcionistaDataSet = new WindowsFormsApplication1.FormMascotaRecepcionista_DataSet();
             this.mascotaTableAdapter = new WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSet1TableAdapters.MascotaTableAdapter();
             this.btn_add = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -75,7 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mascotaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionVeterinariaGenNHibernateDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FormMascotaRecepcionistaDataSet)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -213,12 +213,12 @@
             // mascotaBindingSource
             // 
             this.mascotaBindingSource.DataMember = "Mascota";
-            this.mascotaBindingSource.DataSource = this.gestionVeterinariaGenNHibernateDataSet1;
+            this.mascotaBindingSource.DataSource = this.FormMascotaRecepcionistaDataSet;
             // 
-            // gestionVeterinariaGenNHibernateDataSet1
+            // FormMascotaRecepcionistaDataSet
             // 
-            this.gestionVeterinariaGenNHibernateDataSet1.DataSetName = "GestionVeterinariaGenNHibernateDataSet1";
-            this.gestionVeterinariaGenNHibernateDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.FormMascotaRecepcionistaDataSet.DataSetName = "FormStartRecepcionistaDataSet";
+            this.FormMascotaRecepcionistaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // mascotaTableAdapter
             // 
@@ -226,13 +226,14 @@
             // 
             // btn_add
             // 
-            this.btn_add.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add_1_icon;
+            this.btn_add.BackColor = System.Drawing.Color.White;
+            this.btn_add.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add;
             this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_add.Location = new System.Drawing.Point(614, 152);
+            this.btn_add.Location = new System.Drawing.Point(631, 186);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(40, 40);
+            this.btn_add.Size = new System.Drawing.Size(23, 21);
             this.btn_add.TabIndex = 49;
-            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.UseVisualStyleBackColor = false;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // menuStrip1
@@ -464,7 +465,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mascotaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionVeterinariaGenNHibernateDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FormMascotaRecepcionistaDataSet)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -482,7 +483,7 @@
         public System.Windows.Forms.TextBox text_buscar;
         public System.Windows.Forms.Button btn_buscar;
         public System.Windows.Forms.DataGridView dataGridView1;
-        public GestionVeterinariaGenNHibernateDataSet1 gestionVeterinariaGenNHibernateDataSet1;
+        public FormMascotaRecepcionista_DataSet FormMascotaRecepcionistaDataSet;
         public System.Windows.Forms.BindingSource mascotaBindingSource;
         public GestionVeterinariaGenNHibernateDataSet1TableAdapters.MascotaTableAdapter mascotaTableAdapter;
         public System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;

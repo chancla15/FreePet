@@ -103,11 +103,26 @@
     <Compile Include="AcercaDe.Designer.cs">
       <DependentUpon>AcercaDe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consulta.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Consulta.xsd</DependentUpon>
+    <Compile Include="FormEmpleadoAdministrador.cs">
+      <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormEmpleadoAdministrador.Designer.cs">
+      <DependentUpon>FormEmpleadoAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEmpleadoAdministradorController.cs" />
+    <Compile Include="FormStartAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStartAdministrador.Designer.cs">
+      <DependentUpon>FormStartAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConsultaVeterinario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConsultaVeterinario.Designer.cs">
+      <DependentUpon>FormConsultaVeterinario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConsultaVeterinarioController.cs" />
     <Compile Include="FormLoginDataSessionTicket.cs" />
     <Compile Include="FormFacturaRecepcionista.cs">
       <SubType>Form</SubType>
@@ -119,26 +134,17 @@
     <Compile Include="FormFacturaRecepcionistaController.cs" />
     <Compile Include="FormMascotaRecepcionistaController.cs" />
     <Compile Include="FormPerfilRecepcionistaController.cs" />
+    <Compile Include="FormStartAdministradorController.cs" />
     <Compile Include="FormStartRecepcionistaController.cs" />
-    <Compile Include="GestionVeterinariaGenNHibernateDataSet.Designer.cs">
+    <Compile Include="FormStartRecepcionistaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet.xsd</DependentUpon>
+      <DependentUpon>FormStartRecepcionistaDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="GestionVeterinariaGenNHibernateDataSet1.Designer.cs">
+    <Compile Include="FormMascotaRecepcionista_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="GestionVeterinariaGenNHibernateDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="GestionVeterinariaGenNHibernateDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet3.xsd</DependentUpon>
+      <DependentUpon>FormMascotaRecepcionista_DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="FormMascotaRecepcionista.cs">
       <SubType>Form</SubType>
@@ -170,10 +176,33 @@
     <Compile Include="FormPerfilRecepcionista.Designer.cs">
       <DependentUpon>FormPerfilRecepcionista.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormStartVeterinario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStartVeterinario.Designer.cs">
+      <DependentUpon>FormStartVeterinario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStartVeterinarioController.cs" />
+    <Compile Include="FormTratamientoAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTratamientoAdministrador.Designer.cs">
+      <DependentUpon>FormTratamientoAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTratamientoAdministradorController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AcercaDe.resx">
       <DependentUpon>AcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEmpleadoAdministrador.resx">
+      <DependentUpon>FormEmpleadoAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStartAdministrador.resx">
+      <DependentUpon>FormStartAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConsultaVeterinario.resx">
+      <DependentUpon>FormConsultaVeterinario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFacturaRecepcionista.resx">
       <DependentUpon>FormFacturaRecepcionista.cs</DependentUpon>
@@ -193,6 +222,12 @@
     <EmbeddedResource Include="FormPerfilRecepcionista.resx">
       <DependentUpon>FormPerfilRecepcionista.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormStartVeterinario.resx">
+      <DependentUpon>FormStartVeterinario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTratamientoAdministrador.resx">
+      <DependentUpon>FormTratamientoAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -204,60 +239,27 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
-    <None Include="Consulta.xsc">
-      <DependentUpon>Consulta.xsd</DependentUpon>
+    <None Include="FormStartRecepcionistaDataSet.xsc">
+      <DependentUpon>FormStartRecepcionistaDataSet.xsd</DependentUpon>
     </None>
-    <None Include="Consulta.xsd">
+    <None Include="FormStartRecepcionistaDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Consulta.Designer.cs</LastGenOutput>
+      <LastGenOutput>FormStartRecepcionistaDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Consulta.xss">
-      <DependentUpon>Consulta.xsd</DependentUpon>
+    <None Include="FormStartRecepcionistaDataSet.xss">
+      <DependentUpon>FormStartRecepcionistaDataSet.xsd</DependentUpon>
     </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet.xsc">
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet.xsd</DependentUpon>
+    <None Include="FormMascotaRecepcionista_DataSet.xsc">
+      <DependentUpon>FormMascotaRecepcionista_DataSet.xsd</DependentUpon>
     </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet.xsd">
+    <None Include="FormMascotaRecepcionista_DataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionVeterinariaGenNHibernateDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>FormMascotaRecepcionista_DataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet.xss">
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet1.xsc">
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionVeterinariaGenNHibernateDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet1.xss">
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet2.xsc">
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionVeterinariaGenNHibernateDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet2.xss">
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet3.xsc">
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionVeterinariaGenNHibernateDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet3.xss">
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet3.xsd</DependentUpon>
+    <None Include="FormMascotaRecepcionista_DataSet.xss">
+      <DependentUpon>FormMascotaRecepcionista_DataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -42,7 +42,7 @@ namespace WindowsFormsApplication1
         {
             try
             {
-                this.usuarioTableAdapter.FillBy(this.gestionVeterinariaGenNHibernateDataSet.Usuario);
+                this.usuarioTableAdapter.FillBy(this.FormStartRecepcionistaDataSet.Usuario);
             }
             catch (System.Exception ex)
             {

@@ -150,3 +150,8 @@ C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplicati
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormFacturaRecepcionista.resources
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormPerfilRecepcionista.resources
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormMascotaRecepcionista.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormEmpleadoAdministrador.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormStartAdministrador.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormConsultaVeterinario.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormStartVeterinario.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormTratamientoAdministrador.resources

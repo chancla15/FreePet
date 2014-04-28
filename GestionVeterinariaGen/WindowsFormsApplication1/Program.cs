@@ -5,6 +5,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
+    /**
+     * Programa principal
+     * Se encarga de lanzar la aplicacion
+     */
     static class Program
     {
         [STAThread]
