@@ -32,7 +32,7 @@ public IAdministradorCAD get_IAdministradorCAD ()
         return this._IAdministradorCAD;
 }
 
-public string New_ (string p_DNI, string p_nombre, string p_apellidos, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, string p_password)
+public string New_ (string p_DNI, string p_nombre, string p_apellidos, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, float p_sueldo, String p_password)
 {
         AdministradorEN administradorEN = null;
         string oid;
@@ -55,7 +55,9 @@ public string New_ (string p_DNI, string p_nombre, string p_apellidos, string p_
 
         administradorEN.Cp = p_cp;
 
-        administradorEN.Password = p_password;
+        administradorEN.Sueldo = p_sueldo;
+
+        administradorEN.Password = Utils.Util.GetEncondeMD5 (p_password);
 
         //Call to AdministradorCAD
 
@@ -63,7 +65,7 @@ public string New_ (string p_DNI, string p_nombre, string p_apellidos, string p_
         return oid;
 }
 
-public void Modify (string p_Administrador_OID, string p_nombre, string p_apellidos, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, string p_password)
+public void Modify (string p_Administrador_OID, string p_nombre, string p_apellidos, string p_direccion, string p_telefono, string p_localidad, string p_provincia, string p_cp, float p_sueldo, String p_password)
 {
         AdministradorEN administradorEN = null;
 
@@ -77,7 +79,8 @@ public void Modify (string p_Administrador_OID, string p_nombre, string p_apelli
         administradorEN.Localidad = p_localidad;
         administradorEN.Provincia = p_provincia;
         administradorEN.Cp = p_cp;
-        administradorEN.Password = p_password;
+        administradorEN.Sueldo = p_sueldo;
+        administradorEN.Password = Utils.Util.GetEncondeMD5 (p_password);
         //Call to AdministradorCAD
 
         _IAdministradorCAD.Modify (administradorEN);

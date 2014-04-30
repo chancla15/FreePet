@@ -3,49 +3,33 @@ using System;
 
 namespace GestionVeterinariaGenNHibernate.EN.GestionVeterinaria
 {
-public partial class AdministradorEN                    :                           GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.UsuarioEN
+public partial class AdministradorEN                    :                           GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.EmpleadoEN
 
 
 {
-/**
- *
- */
-
-private string password;
-
-
-
-
-
-public virtual string Password {
-        get { return password; } set { password = value;  }
-}
-
-
-
-
-
 public AdministradorEN() : base ()
 {
 }
 
 
 
-public AdministradorEN(string dNI, string password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
+public AdministradorEN(string dNI, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
 {
-        this.init (dNI, password, nombre, apellidos, direccion, telefono, localidad, provincia, cp);
+        this.init (dNI, sueldo, password, nombre, apellidos, direccion, telefono, localidad, provincia, cp);
 }
 
 
 public AdministradorEN(AdministradorEN administrador)
 {
-        this.init (administrador.DNI, administrador.Password, administrador.Nombre, administrador.Apellidos, administrador.Direccion, administrador.Telefono, administrador.Localidad, administrador.Provincia, administrador.Cp);
+        this.init (administrador.DNI, administrador.Sueldo, administrador.Password, administrador.Nombre, administrador.Apellidos, administrador.Direccion, administrador.Telefono, administrador.Localidad, administrador.Provincia, administrador.Cp);
 }
 
-private void init (string dNI, string password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
+private void init (string dNI, float sueldo, String password, string nombre, string apellidos, string direccion, string telefono, string localidad, string provincia, string cp)
 {
         this.DNI = DNI;
 
+
+        this.Sueldo = sueldo;
 
         this.Password = password;
 

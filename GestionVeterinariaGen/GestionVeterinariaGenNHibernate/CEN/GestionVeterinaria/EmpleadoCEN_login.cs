@@ -24,6 +24,7 @@ public bool Login (string p_oid, String pass)
         try
         {
                 EmpleadoEN en = _IEmpleadoCAD.ReadOIDDefault (p_oid);
+                pass = Utils.Util.GetEncondeMD5 (pass);
                 return(en.Password.Equals (pass));
         }
         catch (Exception ex)

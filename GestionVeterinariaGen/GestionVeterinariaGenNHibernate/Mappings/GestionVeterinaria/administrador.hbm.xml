@@ -3,16 +3,11 @@
 		                   assembly="GestionVeterinariaGenNHibernate"
 		                   namespace="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria">
 				
-<joined-subclass name="AdministradorEN" extends="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.UsuarioEN" table="[Administrador]">
+<joined-subclass name="AdministradorEN" extends="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.EmpleadoEN" table="[Administrador]">
 	<key>
     		<column name="[DNI]"/>
    	</key>
 
-					<property name="Password" type="string"> 
-						<column name="[password]"  not-null="true"/>
-					</property>
-			
-					
 		
 		  </joined-subclass>	
 		  

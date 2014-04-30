@@ -105,6 +105,9 @@ public void Modify (AdministradorEN administrador)
                 administradorEN.Cp = administrador.Cp;
 
 
+                administradorEN.Sueldo = administrador.Sueldo;
+
+
                 administradorEN.Password = administrador.Password;
 
                 session.Update (administradorEN);
