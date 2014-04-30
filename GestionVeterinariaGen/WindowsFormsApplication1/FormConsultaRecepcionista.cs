@@ -30,6 +30,8 @@ namespace WindowsFormsApplication1
 
         public void Clear()
         {
+            Activate();
+            this.Visible = true;
             InitializeComponent();
             controller = new FormConsultarecepcionistaController(this);
         }

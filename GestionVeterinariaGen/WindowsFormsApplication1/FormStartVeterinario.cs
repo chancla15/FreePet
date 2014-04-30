@@ -20,6 +20,8 @@ namespace WindowsFormsApplication1
          */
         public FormStartVeterinario(FormLoginDataSessionTicket session)
         {
+            Activate();
+            this.Visible = true;
             InitializeComponent();
             controller= new FormStartVeterinarioController(session, this);
         }

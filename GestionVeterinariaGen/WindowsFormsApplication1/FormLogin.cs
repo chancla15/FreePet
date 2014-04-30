@@ -27,6 +27,8 @@ namespace WindowsFormsApplication1
          */
         public FormLogin()
         {
+            Activate();
+            this.Visible = true;
             InitializeComponent();
             sessionData = new FormLoginDataSessionTicket();
         }
@@ -42,9 +44,13 @@ namespace WindowsFormsApplication1
          
             if (login) {
                 Hide();
-                FormStartRecepcionista form = new FormStartRecepcionista(sessionData);
-                form.Activate();
-                form.Visible = true;
+                Console.WriteLine("Empezar con pantalla: " + sessionData.tipo + " " + sessionData.TOKEN_SESSION );
+                if (sessionData.tipo == "Recepcionista")
+                    new FormStartRecepcionista(sessionData);
+                else if (sessionData.tipo == "Veterinario")
+                    new FormStartVeterinario(sessionData);
+                else if (sessionData.tipo == "Administrador")
+                    new FormStartAdministrador(sessionData);
             }
             
             label1.Text = "Datos incorrectos";
@@ -68,7 +74,6 @@ namespace WindowsFormsApplication1
         {
             text_user.Text = "";
             text_pass.Text = "";
-            sessionData.Disconnect();
         }
     }
 }

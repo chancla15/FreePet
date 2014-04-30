@@ -63,7 +63,7 @@
             this.label_email.ForeColor = System.Drawing.Color.White;
             this.label_email.Location = new System.Drawing.Point(252, 192);
             this.label_email.Name = "label_email";
-            this.label_email.Size = new System.Drawing.Size(51, 16);
+            this.label_email.Size = new System.Drawing.Size(53, 16);
             this.label_email.TabIndex = 87;
             this.label_email.Text = "Email:";
             // 
@@ -213,7 +213,7 @@
             this.label_cp.ForeColor = System.Drawing.Color.White;
             this.label_cp.Location = new System.Drawing.Point(531, 192);
             this.label_cp.Name = "label_cp";
-            this.label_cp.Size = new System.Drawing.Size(32, 16);
+            this.label_cp.Size = new System.Drawing.Size(36, 16);
             this.label_cp.TabIndex = 78;
             this.label_cp.Text = "CP:";
             // 
@@ -225,7 +225,7 @@
             this.label_provincia.ForeColor = System.Drawing.Color.White;
             this.label_provincia.Location = new System.Drawing.Point(309, 156);
             this.label_provincia.Name = "label_provincia";
-            this.label_provincia.Size = new System.Drawing.Size(77, 16);
+            this.label_provincia.Size = new System.Drawing.Size(79, 16);
             this.label_provincia.TabIndex = 77;
             this.label_provincia.Text = "Provincia:";
             // 
@@ -237,7 +237,7 @@
             this.label_localidad.ForeColor = System.Drawing.Color.White;
             this.label_localidad.Location = new System.Drawing.Point(499, 154);
             this.label_localidad.Name = "label_localidad";
-            this.label_localidad.Size = new System.Drawing.Size(81, 16);
+            this.label_localidad.Size = new System.Drawing.Size(83, 16);
             this.label_localidad.TabIndex = 76;
             this.label_localidad.Text = "Localidad:";
             // 
@@ -249,7 +249,7 @@
             this.label_telefono.ForeColor = System.Drawing.Color.White;
             this.label_telefono.Location = new System.Drawing.Point(8, 194);
             this.label_telefono.Name = "label_telefono";
-            this.label_telefono.Size = new System.Drawing.Size(74, 16);
+            this.label_telefono.Size = new System.Drawing.Size(75, 16);
             this.label_telefono.TabIndex = 75;
             this.label_telefono.Text = "Teléfono:";
             // 
@@ -261,7 +261,7 @@
             this.label_direccion.ForeColor = System.Drawing.Color.White;
             this.label_direccion.Location = new System.Drawing.Point(8, 156);
             this.label_direccion.Name = "label_direccion";
-            this.label_direccion.Size = new System.Drawing.Size(78, 16);
+            this.label_direccion.Size = new System.Drawing.Size(80, 16);
             this.label_direccion.TabIndex = 74;
             this.label_direccion.Text = "Dirección:";
             // 
@@ -273,7 +273,7 @@
             this.label_apellidos.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label_apellidos.Location = new System.Drawing.Point(141, 103);
             this.label_apellidos.Name = "label_apellidos";
-            this.label_apellidos.Size = new System.Drawing.Size(78, 16);
+            this.label_apellidos.Size = new System.Drawing.Size(80, 16);
             this.label_apellidos.TabIndex = 73;
             this.label_apellidos.Text = "Apellidos:";
             // 
@@ -284,7 +284,7 @@
             this.label_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_nombre.Location = new System.Drawing.Point(141, 77);
             this.label_nombre.Name = "label_nombre";
-            this.label_nombre.Size = new System.Drawing.Size(67, 16);
+            this.label_nombre.Size = new System.Drawing.Size(69, 16);
             this.label_nombre.TabIndex = 72;
             this.label_nombre.Text = "Nombre:";
             // 
@@ -295,7 +295,7 @@
             this.label_dni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_dni.Location = new System.Drawing.Point(140, 47);
             this.label_dni.Name = "label_dni";
-            this.label_dni.Size = new System.Drawing.Size(38, 16);
+            this.label_dni.Size = new System.Drawing.Size(42, 16);
             this.label_dni.TabIndex = 71;
             this.label_dni.Text = "DNI:";
             // 
@@ -380,6 +380,7 @@
             this.Controls.Add(this.text_dni);
             this.Name = "FormEmpleadoAdministrador";
             this.Text = "FormEmpleadoAdministrador";
+            this.Load += new System.EventHandler(this.FormEmpleadoAdministrador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

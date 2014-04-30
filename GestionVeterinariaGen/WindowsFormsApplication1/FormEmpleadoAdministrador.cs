@@ -20,8 +20,15 @@ namespace WindowsFormsApplication1
          */
         public FormEmpleadoAdministrador(FormLoginDataSessionTicket session)
         {
+            Activate();
+            this.Visible = true;
             InitializeComponent();
             controller = new FormEmpleadoAdministradorController(session, this);
+        }
+
+        private void FormEmpleadoAdministrador_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

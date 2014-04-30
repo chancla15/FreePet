@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_salir = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tb_dni = new System.Windows.Forms.TextBox();
             this.tb_nombre = new System.Windows.Forms.TextBox();
@@ -54,15 +54,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button3
+            // btn_salir
             // 
-            this.button3.Location = new System.Drawing.Point(443, 368);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "SALIR";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn_salir.Location = new System.Drawing.Point(443, 368);
+            this.btn_salir.Name = "btn_salir";
+            this.btn_salir.Size = new System.Drawing.Size(75, 23);
+            this.btn_salir.TabIndex = 2;
+            this.btn_salir.Text = "SALIR";
+            this.btn_salir.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -83,6 +82,7 @@
             this.tb_dni.Name = "tb_dni";
             this.tb_dni.Size = new System.Drawing.Size(163, 20);
             this.tb_dni.TabIndex = 5;
+            this.tb_dni.TextChanged += new System.EventHandler(this.tb_dni_TextChanged);
             // 
             // tb_nombre
             // 
@@ -133,7 +133,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(158, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 16);
+            this.label2.Size = new System.Drawing.Size(42, 16);
             this.label2.TabIndex = 13;
             this.label2.Text = "DNI:";
             // 
@@ -144,7 +144,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(158, 74);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 16);
+            this.label3.Size = new System.Drawing.Size(69, 16);
             this.label3.TabIndex = 14;
             this.label3.Text = "Nombre:";
             // 
@@ -155,7 +155,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(46, 152);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 16);
+            this.label4.Size = new System.Drawing.Size(80, 16);
             this.label4.TabIndex = 15;
             this.label4.Text = "Apellidos:";
             // 
@@ -167,7 +167,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(46, 234);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 16);
+            this.label5.Size = new System.Drawing.Size(80, 16);
             this.label5.TabIndex = 16;
             this.label5.Text = "Dirección:";
             // 
@@ -179,7 +179,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(46, 274);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 16);
+            this.label6.Size = new System.Drawing.Size(75, 16);
             this.label6.TabIndex = 17;
             this.label6.Text = "Teléfono:";
             // 
@@ -191,7 +191,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(46, 309);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 16);
+            this.label7.Size = new System.Drawing.Size(83, 16);
             this.label7.TabIndex = 18;
             this.label7.Text = "Localidad:";
             // 
@@ -203,7 +203,7 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(46, 345);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 16);
+            this.label8.Size = new System.Drawing.Size(79, 16);
             this.label8.TabIndex = 19;
             this.label8.Text = "Provincia:";
             // 
@@ -215,7 +215,7 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(46, 375);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 16);
+            this.label9.Size = new System.Drawing.Size(36, 16);
             this.label9.TabIndex = 20;
             this.label9.Text = "CP:";
             // 
@@ -227,7 +227,7 @@
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(46, 186);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(61, 16);
+            this.label11.Size = new System.Drawing.Size(63, 16);
             this.label11.TabIndex = 23;
             this.label11.Text = "Sueldo:";
             // 
@@ -322,7 +322,7 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // Perfil
+            // FormPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -349,13 +349,12 @@
             this.Controls.Add(this.tb_nombre);
             this.Controls.Add(this.tb_dni);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.bt_modificar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Perfil";
+            this.Name = "FormPerfil";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -364,28 +363,28 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox tb_dni;
-        private System.Windows.Forms.TextBox tb_nombre;
-        private System.Windows.Forms.TextBox tb_apellidos;
-        private System.Windows.Forms.TextBox tb_direccion;
-        private System.Windows.Forms.TextBox tb_tel;
-        private System.Windows.Forms.TextBox tb_localidad;
-        private System.Windows.Forms.TextBox tb_cp;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox tb_sueldo;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button bt_modificar;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        public System.Windows.Forms.Button btn_salir;
+        public System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.TextBox tb_dni;
+        public System.Windows.Forms.TextBox tb_nombre;
+        public System.Windows.Forms.TextBox tb_apellidos;
+        public System.Windows.Forms.TextBox tb_direccion;
+        public System.Windows.Forms.TextBox tb_tel;
+        public System.Windows.Forms.TextBox tb_localidad;
+        public System.Windows.Forms.TextBox tb_cp;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.TextBox tb_sueldo;
+        public System.Windows.Forms.Label label12;
+        public System.Windows.Forms.Button bt_modificar;
+        public System.Windows.Forms.ComboBox comboBox2;
+        public System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using GestionVeterinariaGenNHibernate.CEN.GestionVeterinaria;
 using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
 using System.IO;
+using GestionVeterinariaGenNHibernate.CAD.GestionVeterinaria;
 
 namespace WindowsFormsApplication1
 {
@@ -31,7 +32,6 @@ namespace WindowsFormsApplication1
 
         /** Constructor */
         public FormLoginDataSessionTicket(){
-            Disconnect();
         }
 
         /** 
@@ -53,29 +53,46 @@ namespace WindowsFormsApplication1
          */
         public Boolean Login(String User, String Pass)
         {
-            Boolean ret = false;
-            UsuarioCEN usuarioCEN = new UsuarioCEN();
-            EmpleadoCEN empleadoCEN = new EmpleadoCEN();
-            VeterinarioCEN recepcionistaCEN = new VeterinarioCEN();
-            UsuarioEN userEN;
-            VeterinarioEN recepEN;
+            Boolean log = false;
+
+            UsuarioCAD _IUsuarioCAD = new UsuarioCAD();
+            EmpleadoCAD _IEmpleadoCAD = new EmpleadoCAD();
+            RecepcionistaCAD _IRecepcionistaCAD = new RecepcionistaCAD();
+            AdministradorCAD _IAdministradorCAD = new AdministradorCAD();
+            EmpleadoCEN empCEN = new EmpleadoCEN(_IEmpleadoCAD);
+
+            EmpleadoEN empEN = null;
+            RecepcionistaEN recpEN = null;
+
+            UsuarioEN userEN = null;
+   
 
             if (User == "" || Pass == "")
-                return ret;
+                return log;
 
-            if (empleadoCEN.Login(User, Pass))
+
+
+            empEN = _IEmpleadoCAD.ReadOIDDefault(User);
+            userEN = _IUsuarioCAD.ReadOIDDefault(User);
+
+            if (empEN!=null && empCEN.Login(User, Pass))
             {
-                userEN = usuarioCEN.DameUsuarioPorDNI(User);
-                recepEN = recepcionistaCEN.DameVetarinarioPorOID(User);
-
-                name = userEN.Nombre;
-                TOKEN_SESSION = userEN.DNI;
+                log = true;
+                name = empEN.Nombre;
+                TOKEN_SESSION = empEN.DNI;
                 fecha = DateTime.Now.ToString();
 
-                if (recepEN == null)
+                recpEN = _IRecepcionistaCAD.BuscarRecepPorOID(User);
+                if (recpEN != null)
+                {
+
                     tipo = "Recepcionista";
+                }
                 else
+                {
+                    //Buscar si es adminsitrador, y sino lo es es veterinario
                     tipo = "Veterinario";
+                }
 
                 try
                 {
@@ -85,9 +102,8 @@ namespace WindowsFormsApplication1
                 {
                     photo = new System.IO.FileStream(Environment.CurrentDirectory + @"\sinFoto.png", System.IO.FileMode.Open);
                 }
-                ret = true;
             }
-            return ret;
+            return log;
         }
     }
 }

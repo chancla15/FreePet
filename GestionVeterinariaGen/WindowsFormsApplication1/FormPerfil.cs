@@ -13,116 +13,54 @@ namespace WindowsFormsApplication1
 {
     public partial class FormPerfil : Form
     {
-
         /** El controlador de esta vista */
         private FormPerfilController controller;
 
-        /** Controlador de sesion */
-        public FormLoginDataSessionTicket sessionData;
 
         /**
          * Contructor de clase
          */
-        public FormPerfil(FormLoginDataSessionTicket log) {
-            
-            sessionData = log;
+        public FormPerfil(FormLoginDataSessionTicket log) 
+        {
+            Activate();
+            this.Visible = true;
+            InitializeComponent();
+            controller = new FormPerfilController(log, this);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        /**
+         * Cuando se pulsa el boton salir
+         */
+        private void btn_salir_Click(object sender, EventArgs e)
         {
-            Close();
+            Hide();
+            new FormStartRecepcionista(controller.sessionData);
         }
 
-        private void Form3_Load(object sender, EventArgs e)
+
+        /** 
+         * Cuando se pulsa el boton modificar
+         */
+        private void bt_modificar_Click(object sender, EventArgs e) 
         {
-            if (sessionData != null)
-            {
-                mostrarDatos(sessionData.ToString());
-                
-            }
-            else
-            {
-                FormPerfil.ActiveForm.Close();
-                FormStartRecepcionista f2 = new FormStartRecepcionista(sessionData);
-                f2.Activate();
-                f2.Visible = true;
-            }
-        }
-
-        private void mostrarDatos(String dni)
-        {
-            EmpleadoCEN cen = new EmpleadoCEN();
-            EmpleadoEN en = cen.DameEmpleadoPorOID(dni);
-
-            tb_dni.Text = en.DNI;
-            tb_nombre.Text = en.Nombre;
-            tb_sueldo.Text = en.Sueldo.ToString();
-            tb_localidad.Text = en.Localidad;
-            tb_tel.Text = en.Telefono;
-            tb_apellidos.Text = en.Apellidos;
-            tb_direccion.Text = en.Direccion;
-            tb_cp.Text = en.Cp;
-            comboBox2.SelectedItem = en.Provincia;
-
-            try
-            {
-
-                System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\" + en.DNI.ToString() + ".png", System.IO.FileMode.Open);
-                pictureBox1.Image = Image.FromStream(fs);
-                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                fs.Close();
-
-            }
-            catch (Exception ex)
-            {
-                System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\sinFoto.png", System.IO.FileMode.Open);
-                pictureBox1.Image = Image.FromStream(fs);
-                fs.Close();
+            if (controller.modifiData()) {
+                Hide();
+                new FormStartRecepcionista(controller.sessionData);
             }
         }
 
-        
-
-        private void bt_modificar_Click(object sender, EventArgs e)
-        {
-            EmpleadoCEN cen2 = new EmpleadoCEN();
-
-            EmpleadoEN en2=cen2.DameEmpleadoPorOID(tb_dni.Text);
-
-            string pass=en2.Password;
-
-            cen2.Modify(tb_dni.Text.ToString(), tb_nombre.Text.ToString(), tb_apellidos.Text.ToString(), tb_direccion.Text.ToString(), tb_direccion.Text.ToString(), tb_localidad.Text.ToString(), comboBox2.SelectedItem.ToString(), tb_cp.Text.ToString(), Convert.ToInt32(tb_sueldo.Text.ToString()),"1");
-
-            //GUARDAMOS LA IMAGEN
-            pictureBox1.Image.Save(Environment.CurrentDirectory + @"\" + tb_dni.Text.ToString() + ".png");
-
-
-            MessageBox.Show("Perfil Modificado Correctamente");
-            Close();
-
-            //ACTUALIZAR AL MODIFICAR
-            FormStartRecepcionista f2 = new FormStartRecepcionista(sessionData);
-            //f2.sesionUsuario = sesionUsuario; //sesion usuario
-            f2.Activate();
-            f2.Visible = true;
+        /**
+         * Cuando se pulsa la foto
+         */
+        private void pictureBox1_Click(object sender, EventArgs e) {
+            controller.clickInPhoto();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    string imagen = openFileDialog1.FileName;
-                    pictureBox1.Image = Image.FromFile(imagen);
-                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("El archivo seleccionado no es .PNG");
-            }
+        /**
+         * Cuando escribimos el dni
+         */
+        private void tb_dni_TextChanged(object sender, EventArgs e) {
+            controller.showData();
         }
     }
 }

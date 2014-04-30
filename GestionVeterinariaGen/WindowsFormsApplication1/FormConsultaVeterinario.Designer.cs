@@ -221,6 +221,7 @@
             this.Controls.Add(this.log_photo);
             this.Name = "FormConsultaVeterinario";
             this.Text = "FormConsultaVeterinario";
+            this.Load += new System.EventHandler(this.FormConsultaVeterinario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

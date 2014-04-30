@@ -24,6 +24,8 @@ namespace WindowsFormsApplication1
          */
         public FormFacturaRecepcionista(FormLoginDataSessionTicket session)
         {
+            Activate();
+            this.Visible = true;
             InitializeComponent();
             controller = new FormFacturaRecepcionistaController(session, this);
         }
@@ -99,147 +101,6 @@ namespace WindowsFormsApplication1
                 //Hide();
                 //Lo que tenga que hacer A, M, E
             }
-        }
-
-        /**
-         * Esta opcion desconecta
-         */
-        private void desconectarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            salirToolStripMenuItem_Click(sender, e);
-            controller.sessionData.Disconnect();
-        }
-
-        /**
-         * Sale de la aplicacion
-         */
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ActiveForm.Close();
-        }
-
-        /**
-         *  Para ver las mascotas
-         */
-        private void verPacientesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            salirToolStripMenuItem_Click(sender, e);
-            //new FormMascotaRecepcionista(controller.sessionData);
-        }
-
-        /**
-         * Va al perfil del usuario
-         */
-        private void verPerfilToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            salirToolStripMenuItem_Click(sender, e);
-            //new FormUsuarioRecepcionista(controller.sessionData);
-        }
-
-
-        /**
-         * 
-         */
-        private void modificarPerfilToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            salirToolStripMenuItem_Click(sender, e);
-            //new FormUsuarioRecepcionista(controller.sessionData, 'M');
-        }
-
-        /**
-         * ????
-         */
-        private void verClientesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //ESTA OPCION DEBERIA ESTAR DESACTIVADA AQUI
-        }
-
-        /**
-         * Va al formulario de añadir usuarios
-         */
-        private void añadirClientesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            salirToolStripMenuItem_Click(sender, e);
-            //new FormUsuarioRecepcionista(controller.sessionData);
-        }
-
-        /**
-         * Va al formulario de añadir mascotas
-         */
-        private void añadirPacientesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            salirToolStripMenuItem_Click(sender, e);
-            //new FormMascotaRecepcionista(controller.sessionData);
-        }
-
-        /**
-         * ???
-         */
-        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        /**
-         * Va al menu de acercaDe
-         */
-        private void acercaDeGestionVetToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new AcercaDe();
-        }
-
-        /**
-         * ???
-         */
-        private void verEmpleadosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //ESTA OPCION DEBERIA ESTAR DESACTIVADA AQUI
-            //USUARIO ADMIN
-        }
-
-        /**
-         * ???
-         */
-        private void añadirEmpleadosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //ESTA OPCION DEBERIA ESTAR DESACTIVADA AQUI
-            //USUARIO ADMIN
-        }
-
-        /**
-         * Va al menu de facturas pendientes
-         */
-        private void verFacturasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            salirToolStripMenuItem_Click(sender, e);
-            //new FormFacturaRecepcionista(controller.sessionData);
-        }
-
-        /**
-         * Abrir el menu de consultas   ESTO ES LO MISMO...
-         */
-        private void verConsultasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            salirToolStripMenuItem_Click(sender, e);
-            new FormConsultaRecepcionista(controller.sessionData);
-        }
-
-        /**
-         * Al menu de añadir consultas  ESTO ES LO MISMO...
-         */
-        private void añadirConsultasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            salirToolStripMenuItem_Click(sender, e);
-            new FormConsultaRecepcionista(controller.sessionData);
-        }
-
-        /**
-         * Va a la pantalla de añadir facturas
-         */
-        private void añadirFacturasToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            salirToolStripMenuItem_Click(sender, e);
-            //new FormFacturaRecepcionista(controller.sessionData);
         }
     }
 }

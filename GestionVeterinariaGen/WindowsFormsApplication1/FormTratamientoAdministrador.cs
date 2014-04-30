@@ -21,6 +21,8 @@ namespace WindowsFormsApplication1
          */
         public FormTratamientoAdministrador(FormLoginDataSessionTicket session)
         {
+            Activate();
+            this.Visible = true;
             InitializeComponent();
             controller = new FormTratamientoAdministradorController(session, this);
         }

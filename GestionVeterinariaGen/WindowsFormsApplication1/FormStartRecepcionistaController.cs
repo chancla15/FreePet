@@ -33,6 +33,7 @@ namespace WindowsFormsApplication1
         public FormStartRecepcionistaController(FormStartRecepcionista f, FormLoginDataSessionTicket sesion) {
             this.form = f;
             this.sessionData = sesion;
+            initPerfil();
         }
 
         /**
