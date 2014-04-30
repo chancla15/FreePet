@@ -16,33 +16,15 @@ namespace WindowsFormsApplication1
         /** El controlador de esta vista */
         private FormConsultarecepcionistaController controller;
 
-        /** Controlador de sesion */
-        public FormLoginDataSessionTicket sessionData;
-
         /**
          * Contructor de clase
          */
         public FormConsultaRecepcionista(FormLoginDataSessionTicket log) {
-            
-            Clear();
-            sessionData = log;
-        }
 
-        public void Clear()
-        {
             Activate();
             this.Visible = true;
             InitializeComponent();
-            controller = new FormConsultarecepcionistaController(this);
-        }
-
-        public void initDataSession()
-        {
-            log_name.Text = sessionData.name;
-            log_id.Text = sessionData.TOKEN_SESSION;
-            log_type.Text = sessionData.tipo;
-            log_date.Text = sessionData.fecha;
-            //foto_perfil = totalViewController.dataSessionController.photo;
+            controller = new FormConsultarecepcionistaController(this, log);
         }
 
         /**

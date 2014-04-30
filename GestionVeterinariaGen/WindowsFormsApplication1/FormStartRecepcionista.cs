@@ -40,22 +40,6 @@ namespace WindowsFormsApplication1
         /**
          * ???
          */
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.usuarioTableAdapter.FillBy(this.FormStartRecepcionistaDataSet.Usuario);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        /**
-         * ???
-         */
         private void dataGridView1_CellPainting_1(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.ColumnIndex >= 0 && this.dataGrid_clientes.Columns[e.ColumnIndex].Name == "Eliminar" && e.RowIndex >= 0)
@@ -112,12 +96,18 @@ namespace WindowsFormsApplication1
             //new FormPerfilCliente(controller.sessionData);
         }
 
+        /**
+         * Cuando se clickea en consultas
+         */
         private void label_consultas_Click(object sender, EventArgs e)
         {
             Hide();
             new FormConsultaRecepcionista(this.controller.sessionData);
         }
 
+        /**
+         * Cuando se clickea en facturas
+         */
         private void label_facturas_Click(object sender, EventArgs e)
         {
             Hide();

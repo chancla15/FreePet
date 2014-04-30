@@ -81,6 +81,9 @@ namespace WindowsFormsApplication1
         /** Consulta para acceder a la DDBB */
         ConsultaCAD _IConsultaCAD = new ConsultaCAD();
 
+        /** Consulta para la DDBB */
+        ConsultaCEN ConsultaCEN;
+        
         /** Lista de veterinarios disponibles */
         IList<VeterinarioEN> list_veterinarios;
 
@@ -98,10 +101,13 @@ namespace WindowsFormsApplication1
         /** Estado de la pantalla */
         private State state;
 
+        /** Ticket de sesion */
+        private FormLoginDataSessionTicket sessionData;
+
         /**
          * Constructor de la clase
          */
-        public FormConsultarecepcionistaController(FormConsultaRecepcionista forsm)
+        public FormConsultarecepcionistaController(FormConsultaRecepcionista forsm, FormLoginDataSessionTicket session)
         {
             this.form = forsm;
             form.datetime_init.MinDate = DateTime.Today;
@@ -110,6 +116,7 @@ namespace WindowsFormsApplication1
             form.datetime_fin.Value = DateTime.Today;
             boxcontroller = new BoxControllerConsulta();
             state = State.NONE;
+            sessionData = session;
             initPerfil();
         }
 
@@ -118,10 +125,10 @@ namespace WindowsFormsApplication1
          */
         private void initPerfil()
         {
-            form.log_name.Text = form.sessionData.name;
-            form.log_id.Text = form.sessionData.TOKEN_SESSION;
-            form.log_type.Text = form.sessionData.tipo;
-            form.log_date.Text = form.sessionData.fecha;
+            form.log_name.Text = sessionData.name;
+            form.log_id.Text = sessionData.TOKEN_SESSION;
+            form.log_type.Text = sessionData.tipo;
+            form.log_date.Text = sessionData.fecha;
             //la foto
         }
 
@@ -157,7 +164,7 @@ namespace WindowsFormsApplication1
                         // Console.Write("Fecha: " + f.ToString() + "\n");
                         try
                         {
-                            lista = _IConsultaCAD.BuscarConsultaPorFecha(f);
+                            lista = ConsultaCEN.BuscarConsultaPorFecha(f);
 
                             /* Si existen consultas para ese dia se las añado sus horas y pongo el nodo como importante */
                             if (lista.Count > 0)
@@ -467,8 +474,9 @@ namespace WindowsFormsApplication1
             boxcontroller.Lugar = form.box_text_lugar.Text;
             loadVeterinarioMascota();
 
+            ConsultaCEN = new ConsultaCEN(_IConsultaCAD);
             //Si todos los campos estan correctos pos añado la consulta
-            ConsultaEN c = new ConsultaEN();
+           /* ConsultaEN c = new ConsultaEN();
            // ConsultaCEN consultaCEN = new ConsultaCEN();
             c.IdConsulta = 0;
             c.Fecha = boxcontroller.Fecha;
@@ -476,17 +484,18 @@ namespace WindowsFormsApplication1
             c.Diagnostico = "diag";
             c.Mascota = boxcontroller.Mascota;
             c.Veterinario = boxcontroller.Veterinario;
-            c.Lugar = boxcontroller.Lugar;
+            c.Lugar = boxcontroller.Lugar;*/
 
             switch (state)
             {
                 case State.ADD:
+                    ConsultaCEN.New_(boxcontroller.Fecha, boxcontroller.Motivo, "", boxcontroller.Mascota.IdMascota, boxcontroller.Veterinario.DNI, boxcontroller.Lugar);
                     //_IConsultaCAD.New_(c);
+                    buscarPorFechas();
                     break;
-                case State.MOD:
-                   // _IConsultaCAD.Modify(c);
-                    break;
-                case State.DEL:
+                case State.MOD: case State.DEL:
+                    
+                   // _IConsultaCAD.Modify(c);               
                    // _IConsultaCAD.Destroy(c.IdConsulta);
                     break;
                 default:

@@ -212,7 +212,6 @@
             this.fillByToolStripButton.Size = new System.Drawing.Size(35, 22);
             this.fillByToolStripButton.Text = "FillBy";
             this.fillByToolStripButton.Visible = false;
-            this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click);
             // 
             // usuarioTableAdapter
             // 
