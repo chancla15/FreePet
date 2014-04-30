@@ -63,9 +63,7 @@ namespace WindowsFormsApplication1
 
             EmpleadoEN empEN = null;
             RecepcionistaEN recpEN = null;
-
-            UsuarioEN userEN = null;
-   
+            AdministradorEN admin = null;
 
             if (User == "" || Pass == "")
                 return log;
@@ -73,7 +71,7 @@ namespace WindowsFormsApplication1
 
 
             empEN = _IEmpleadoCAD.ReadOIDDefault(User);
-            userEN = _IUsuarioCAD.ReadOIDDefault(User);
+            admin = _IAdministradorCAD.ReadOIDDefault(User);
 
             if (empEN!=null && empCEN.Login(User, Pass))
             {
@@ -90,13 +88,15 @@ namespace WindowsFormsApplication1
                 }
                 else
                 {
-                    //Buscar si es adminsitrador, y sino lo es es veterinario
-                    tipo = "Veterinario";
+                    if (admin == null)
+                        tipo = "Veterinario";
+                    else
+                        tipo = "Administrador";
                 }
 
                 try
                 {
-                    photo = new System.IO.FileStream(Environment.CurrentDirectory + @"\" + userEN.DNI.ToString() + ".png", System.IO.FileMode.Open);
+                    photo = new System.IO.FileStream(Environment.CurrentDirectory + @"\" + empEN.DNI.ToString() + ".png", System.IO.FileMode.Open);
                 }
                 catch (Exception ex)
                 {

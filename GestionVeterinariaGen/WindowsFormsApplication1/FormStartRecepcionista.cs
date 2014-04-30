@@ -109,19 +109,19 @@ namespace WindowsFormsApplication1
         private void btn_add_Click(object sender, EventArgs e)
         {
             Hide();
-            new FormPerfil(controller.sessionData);
+            //new FormPerfilCliente(controller.sessionData);
         }
 
         private void label_consultas_Click(object sender, EventArgs e)
         {
             Hide();
-            new FormConsultaRecepcionista(controller.sessionData);
+            new FormConsultaRecepcionista(this.controller.sessionData);
         }
 
         private void label_facturas_Click(object sender, EventArgs e)
         {
             Hide();
-            new FormFacturaRecepcionista(controller.sessionData);
+            new FormFacturaRecepcionista(this.controller.sessionData);
         }
 
     }

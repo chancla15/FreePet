@@ -90,8 +90,24 @@ public static void InitializeData ()
                 IMascotaCAD _IMascotaCAD = new MascotaCAD ();
                 MascotaCEN MascotaCEN = new MascotaCEN (_IMascotaCAD);
 
-                //IConsultaCAD _IConsultaCAD = new ConsultaCAD ();
-                // ConsultaCEN ConsultaCEN = new ConsultaCEN (_IConsultaCAD);
+                IAdministradorCAD _IAdministradorCAD = new AdministradorCAD();
+                AdministradorCEN AdministradorCEN = new AdministradorCEN(_IAdministradorCAD);
+
+
+                #region Administrador
+                /*AdministradorEN admin = new AdministradorEN();
+                admin.DNI = "admin";
+                admin.Nombre = "adminNombre";
+                admin.Apellidos = "adminApellidos";
+                admin.Direccion = "adminDireccion";
+                admin.Localidad = "adminLocalidad";
+                admin.Provincia = "adminProvincia";
+                admin.Sueldo = 999999;
+                admin.Password = GestionVeterinariaGenNHibernate.Utils.Util.GetEncondeMD5("admin");
+                admin.Telefono = "123456789";
+                admin.Cp = "adminCp";*/
+                AdministradorCEN.New_("admin", "adminNombre", "adminApellidos", "adminDireccion", "adminTelefono", "adminLocalidad", "adminProvincia", "adminCp", 9999, "admin");
+                #endregion
 
                 #region Cliente
                 ClienteCEN.New_ ("74669082A", "Hector", "Torregrosa Mas", "C/ San Jaime 12", "967378899", "Babel", "Alicante", "12356", null);
@@ -146,6 +162,8 @@ public static void InitializeData ()
                 MascotaCEN.New_ ("0020", "Bella", "Siberiano", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Hembra, 6, "Gato", new DateTime (2014, 1, 2), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.S, "71243536D", "Pardo", true, "");
                 #endregion
 
+
+            
                 /*#region Consulta
                  * //Id, Fecha, Hora, Motivo, Diagnostico, Mascota, Veter, Lugar
                  * ConsultaCEN.New_ ("1", new DateTime (2014, 4, 7), new TimeSpan (17, 0, 0), "Dolor en la pata", "Pata rota", "0001", "2", "Sala 1");

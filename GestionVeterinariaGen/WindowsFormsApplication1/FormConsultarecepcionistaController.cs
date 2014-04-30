@@ -103,7 +103,6 @@ namespace WindowsFormsApplication1
          */
         public FormConsultarecepcionistaController(FormConsultaRecepcionista forsm)
         {
-            initPerfil();
             this.form = forsm;
             form.datetime_init.MinDate = DateTime.Today;
             form.datetime_fin.MinDate = DateTime.Today;
@@ -111,6 +110,7 @@ namespace WindowsFormsApplication1
             form.datetime_fin.Value = DateTime.Today;
             boxcontroller = new BoxControllerConsulta();
             state = State.NONE;
+            initPerfil();
         }
 
         /**

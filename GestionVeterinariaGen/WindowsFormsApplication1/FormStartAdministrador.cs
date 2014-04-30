@@ -19,6 +19,8 @@ namespace WindowsFormsApplication1
          * @param session el ticket de sesion 
          */
         public FormStartAdministrador(FormLoginDataSessionTicket session) {
+            Activate();
+            this.Visible = true;
             InitializeComponent();
             controller = new FormStartAdministradorController(session, this);
         }
@@ -34,15 +36,15 @@ namespace WindowsFormsApplication1
          * Boton Anaydir
          */
         private void btn_add_Click(object sender, EventArgs e) {
-            //Hide();
-            //new FormEmpleadoAdministrador(controller.sessionData);
+            Hide();
+            new FormPerfil(controller.sessionData);
         }
 
         /**
          * Cuando se clicka el el datagrid
          * @param e la columna/fila pulsada
          */
-        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) 
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             char action = '\0';
             string empleado = controller.getStateScreen(e, action);
@@ -53,7 +55,5 @@ namespace WindowsFormsApplication1
                 //new FormEmpleadoAdministrador(controller.sessionData);
             }
         }
-
-        
     }
 }
