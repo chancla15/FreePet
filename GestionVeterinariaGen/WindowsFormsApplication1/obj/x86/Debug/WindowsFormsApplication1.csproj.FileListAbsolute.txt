@@ -1,0 +1,178 @@
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\hibernate.cfg.xml
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Antlr3.Runtime.dll
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Castle.DynamicProxy2.dll
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\GestionVeterinariaGenNHibernate.dll
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Iesi.Collections.dll
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\LinFu.DynamicProxy.dll
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\log4net.dll
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.dll
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\nunit.core.dll
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\nunit.framework.dll
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\GestionVeterinariaGenNHibernate.pdb
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\toni\Desktop\Proyecto DSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\hibernate.cfg.xml
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Antlr3.Runtime.dll
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Castle.DynamicProxy2.dll
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\GestionVeterinariaGenNHibernate.dll
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Iesi.Collections.dll
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\LinFu.DynamicProxy.dll
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\log4net.dll
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.dll
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\nunit.core.dll
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\nunit.framework.dll
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\GestionVeterinariaGenNHibernate.pdb
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form2.resources
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form4.resources
+C:\Users\RAFA\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form3.resources
+C:\Documents and Settings\ooh4riaUser\Desktop\Rafa\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Documents and Settings\ooh4riaUser\Desktop\Rafa\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Documents and Settings\ooh4riaUser\Desktop\Rafa\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form4.resources
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form2.resources
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form3.resources
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormAddEmpleado.resources
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\hibernate.cfg.xml
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Antlr3.Runtime.dll
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Castle.DynamicProxy2.dll
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\GestionVeterinariaGenNHibernate.dll
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Iesi.Collections.dll
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\LinFu.DynamicProxy.dll
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\log4net.dll
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.dll
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\nunit.core.dll
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\nunit.framework.dll
+C:\Users\rafaelgp\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\GestionVeterinariaGenNHibernate.pdb
+C:\Users\Godric\Desktop\dssproyecto14 - 4-4\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Godric\Desktop\dssproyecto14 - 4-4\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Users\Godric\Desktop\dssproyecto14 - 4-4\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\hibernate.cfg.xml
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Antlr3.Runtime.dll
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Castle.DynamicProxy2.dll
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\GestionVeterinariaGenNHibernate.dll
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Iesi.Collections.dll
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\LinFu.DynamicProxy.dll
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\log4net.dll
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.dll
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\nunit.core.dll
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\nunit.framework.dll
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\GestionVeterinariaGenNHibernate.pdb
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Login.resources
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form2.resources
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormConsulta.resources
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormFactura.resources
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\hibernate.cfg.xml
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Castle.DynamicProxy2.dll
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\GestionVeterinariaGenNHibernate.dll
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Iesi.Collections.dll
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\LinFu.DynamicProxy.dll
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\log4net.dll
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.dll
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\nunit.core.dll
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\nunit.framework.dll
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\GestionVeterinariaGenNHibernate.pdb
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Mascotas.resources
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormAnimal.resources
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Perfil.resources
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormEmpleadoCliente.resources
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.AcercaDe.resources
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Clientes.resources
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Consultas.resources
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Empleados.resources
+C:\Users\Rafael\Desktop\ProyectoDSS\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Facturas.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.AcercaDe.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormLogin.resources
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.AcercaDe.resources
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormEmpleadoAdministrador.resources
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormStartAdministrador.resources
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormConsultaVeterinario.resources
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormFacturaRecepcionista.resources
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormMascotaRecepcionista.resources
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormStartRecepcionista.resources
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormLogin.resources
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormConsultaRecepcionista.resources
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormStartVeterinario.resources
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormTratamientoAdministrador.resources
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\hibernate.cfg.xml
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Castle.DynamicProxy2.dll
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\GestionVeterinariaGenNHibernate.dll
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\Iesi.Collections.dll
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\LinFu.DynamicProxy.dll
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\log4net.dll
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\NHibernate.dll
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\nunit.core.dll
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\nunit.framework.dll
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\GestionVeterinariaGenNHibernate.pdb
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormPerfil.resources
+C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormRecepcionistaCliente.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormAdministradorEmpleado.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormVeterinarioConsulta.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormRecepcionistaFactura.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormRecepcionistaMascota.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormRecepcionistaAdministradorInicio.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormRecepcionistaConsulta.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormVeterinarioInicio.resources
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormAdministradorTratamiento.resources
