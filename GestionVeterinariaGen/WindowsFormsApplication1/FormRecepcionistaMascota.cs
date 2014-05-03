@@ -17,18 +17,6 @@ namespace WindowsFormsApplication1
         /** El controlador */
         private FormRecepcionistaMascotaController controller;
 
-        /** 
-         * Constructor de clase
-         * @param session el ticket de sesion
-         */
-        public FormRecepcionistaMascota(FormLoginDataSessionTicket session)
-        {
-            Activate();
-            this.Visible = true;
-            InitializeComponent();
-            controller = new FormRecepcionistaMascotaController(session, this);
-        }
-
         /**
          * Contructor de clase de cuando lo llamamos para modificar/eliminar una mascota
          * @param session el ticket de sesion
@@ -41,14 +29,48 @@ namespace WindowsFormsApplication1
             this.Visible = true;
             InitializeComponent();
             controller = new FormRecepcionistaMascotaController(session, this);
+            EnableForm(action, false);
             controller.loadData(mascota);
-
-            if (action == 'E')
-            {
-                //Bloquear todos los campos y mostrar cuadro de seguro desea eliminar??
-            }
+            
         }
 
+        /**
+         * Bloquea los componentes del formulario dependiendo de la accion
+         * @param action la accion
+         * @param block el tipo de bloqueo
+         */
+        private void EnableForm(char action, bool block)
+        {
+            if (action == 'M' || action == 'E')
+            {
+                text_cliente.Enabled = block;
+                text_especie.Enabled = block;
+                text_raza.Enabled = block;
+                dateTime_fnac.Enabled = block;
+                combo_sexo.Enabled = block;
+
+                if (action == 'E')
+                {
+                    text_color.Enabled = block;
+                    text_nombre.Enabled = block;
+                    text_peso.Enabled = block;
+                    combo_sexo.Enabled = block;
+                    combo_tamanyo.Enabled = block;
+                    combo_microchip.Enabled = block;
+                    btn_anaydir.Enabled = block;
+                    btn_buscar_cliente.Enabled = block;
+                    btn_erase.Enabled = block;
+                    dataGridView.Enabled = block;
+                    panel_clientes_opcion.Enabled = block;
+                    panel_top.Enabled = block;
+
+                    alerta_eliminar.Visible = alerta_eliminar.Enabled = !block;
+                    btn_eliminar_si.Visible = btn_eliminar_si.Enabled = !block;
+                    btn_eliminar_no.Visible = btn_eliminar_no.Enabled = !block;
+                    label_eliminar_box.Visible = label_eliminar_box.Enabled = !block;
+                }
+            }
+        }
 
         /**
          * Pinta el panel menu superior
@@ -139,7 +161,7 @@ namespace WindowsFormsApplication1
          */
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-
+            //GUARDA O MODIFICA EL ANIMAL
         }
 
         /**
@@ -147,8 +169,7 @@ namespace WindowsFormsApplication1
          */
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            //Hide();
-            //new FormRecepcionistaConsulta(session, animalActual, clienteAnimal, 'E');
+            EnableForm('E', false);
         }
 
         /**
@@ -161,11 +182,37 @@ namespace WindowsFormsApplication1
         }
 
         /**
-         * Cuando se clickea el boton buscar
+         * Cuando se clickea el boton buscar y apareceria en el combo_box de nombres el del animal
          */
         private void btn_buscar_cliente_Click(object sender, EventArgs e)
         {
+            //Busca por cliente
+        }
 
+        /**
+         * Borrar los campos del formulario
+         */
+        private void btn_erase_Click(object sender, EventArgs e)
+        {
+            EnableForm('E', true);
+            controller.Clear();
+        }
+
+        /**
+         * Cuando pulsamos el boton de no eliminar
+         */
+        private void btn_eliminar_no_Click(object sender, EventArgs e)
+        {
+            EnableForm('E', true);
+        }
+
+        /**
+         * Cuando pasamos el boton de eliminar si
+         */
+        private void btn_eliminar_si_Click(object sender, EventArgs e)
+        {
+            EnableForm('E', true);
+            //controller.Borrar();
         }
     }
 }

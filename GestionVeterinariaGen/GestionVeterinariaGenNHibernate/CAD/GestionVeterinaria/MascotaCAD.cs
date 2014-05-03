@@ -305,10 +305,5 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 
         return result;
 }
-
-public MascotaEN BuscarMascotaPorOID(string Id)
-{
-    throw new NotImplementedException();
-}
 }
 }

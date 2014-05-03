@@ -113,7 +113,7 @@ public GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN DameCons
 {
         return _IConsultaCAD.DameConsultaPorVeterinarioYFecha (vet, fecha);
 }
-public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameConsultaPorAnimal (string mascota)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameConsultaPorAnimal (int mascota)
 {
         return _IConsultaCAD.DameConsultaPorAnimal (mascota);
 }

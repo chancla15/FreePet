@@ -29,11 +29,20 @@ namespace WindowsFormsApplication1
             InitializeComponent();
 
             controller = new FormRecepcionistaAdministradorInicioController(this, sesion);
-            if (controller.sessionData.tipo == "Administrador")
-            {
+  
+
+                //IMPLEMENTAR PARATE CONTROLADOR ADMINSITRADOR.........
+
+                //....
+                //....
+                //....
+
+
+
+
                 //mostraria la otra barra
                 //sino muestra la normal de recepcionista
-            }
+            
         }
 
         /**
@@ -85,7 +94,7 @@ namespace WindowsFormsApplication1
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             char action = '\0';
-            string cliente = controller.getStateScreen(e, action);
+            string cliente = controller.getStateScreen(e, ref action);
 
             if(cliente!="") {
                  Hide();
@@ -100,11 +109,11 @@ namespace WindowsFormsApplication1
         {
             Hide();
 
-            if (controller.sessionData.tipo == "Administrador")
+            if (controller.sessionData.tipo.Equals("Administrador"))
             {
                 new FormAdministradorEmpleado(controller.sessionData);
             }
-            else
+            else if(controller.sessionData.tipo.Equals("Recepcionista"))
             {
                 new FormRecepcionistaCliente(controller.sessionData, 'A');
             }

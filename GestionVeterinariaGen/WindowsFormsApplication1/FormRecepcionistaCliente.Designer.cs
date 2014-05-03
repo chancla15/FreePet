@@ -39,7 +39,6 @@
             this.panel_clientes_opcion = new System.Windows.Forms.Panel();
             this.picture_cliente_opcion_mascota = new System.Windows.Forms.PictureBox();
             this.picture_cliente_opcion_cliente = new System.Windows.Forms.PictureBox();
-            this.foto_cliente = new System.Windows.Forms.PictureBox();
             this.label_dni = new System.Windows.Forms.Label();
             this.label_nombre = new System.Windows.Forms.Label();
             this.label_apellidos = new System.Windows.Forms.Label();
@@ -57,11 +56,17 @@
             this.text_nombre = new System.Windows.Forms.TextBox();
             this.text_dni = new System.Windows.Forms.TextBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Especie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Raza = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.mascotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.formRecepcionistaCliente_DataSet = new WindowsFormsApplication1.FormRecepcionistaCliente_DataSet();
             this.text_buscar = new System.Windows.Forms.TextBox();
             this.btn_buscar = new System.Windows.Forms.Button();
-            this.btn_anaydir = new System.Windows.Forms.PictureBox();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.formRecepcionistaClienteDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -70,14 +75,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_eliminar_no = new System.Windows.Forms.Button();
             this.btn_eliminar_si = new System.Windows.Forms.Button();
+            this.btn_erase = new System.Windows.Forms.PictureBox();
             this.btn_buscar_dni = new System.Windows.Forms.PictureBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.especieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.razaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKDNIidClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modificar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btn_anaydir = new System.Windows.Forms.PictureBox();
+            this.foto_cliente = new System.Windows.Forms.PictureBox();
             this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).BeginInit();
@@ -87,14 +88,15 @@
             this.panel_clientes_opcion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_mascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_cliente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foto_cliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mascotaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaCliente_DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_anaydir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaClienteDataSetBindingSource)).BeginInit();
             this.alerta_eliminar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_dni)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_anaydir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foto_cliente)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_top
@@ -204,16 +206,6 @@
             this.picture_cliente_opcion_cliente.TabIndex = 0;
             this.picture_cliente_opcion_cliente.TabStop = false;
             this.picture_cliente_opcion_cliente.Click += new System.EventHandler(this.picture_cliente_opcion_cliente_Click);
-            // 
-            // foto_cliente
-            // 
-            this.foto_cliente.BackColor = System.Drawing.Color.Transparent;
-            this.foto_cliente.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.sinFoto;
-            this.foto_cliente.Location = new System.Drawing.Point(12, 82);
-            this.foto_cliente.Name = "foto_cliente";
-            this.foto_cliente.Size = new System.Drawing.Size(100, 104);
-            this.foto_cliente.TabIndex = 54;
-            this.foto_cliente.TabStop = false;
             // 
             // label_dni
             // 
@@ -359,11 +351,11 @@
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.nombreDataGridViewTextBoxColumn,
-            this.especieDataGridViewTextBoxColumn,
-            this.razaDataGridViewTextBoxColumn,
-            this.fKDNIidClienteDataGridViewTextBoxColumn,
+            this.Id,
+            this.Nombre,
+            this.Especie,
+            this.Raza,
+            this.Cliente,
             this.Modificar,
             this.Eliminar});
             this.dataGridView.DataSource = this.mascotaBindingSource;
@@ -374,6 +366,53 @@
             this.dataGridView.TabIndex = 72;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "ID";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Especie
+            // 
+            this.Especie.DataPropertyName = "especie";
+            this.Especie.HeaderText = "Especie";
+            this.Especie.Name = "Especie";
+            this.Especie.ReadOnly = true;
+            // 
+            // Raza
+            // 
+            this.Raza.DataPropertyName = "raza";
+            this.Raza.HeaderText = "Raza";
+            this.Raza.Name = "Raza";
+            this.Raza.ReadOnly = true;
+            // 
+            // Cliente
+            // 
+            this.Cliente.DataPropertyName = "FK_DNI_idCliente";
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            // 
+            // Modificar
+            // 
+            this.Modificar.HeaderText = "Modificar";
+            this.Modificar.Name = "Modificar";
+            this.Modificar.ReadOnly = true;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
             // 
             // mascotaBindingSource
             // 
@@ -394,24 +433,14 @@
             // 
             // btn_buscar
             // 
-            this.btn_buscar.Location = new System.Drawing.Point(410, 243);
+            this.btn_buscar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_buscar.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.btn_buscar_id;
+            this.btn_buscar.Location = new System.Drawing.Point(396, 247);
             this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(75, 23);
+            this.btn_buscar.Size = new System.Drawing.Size(16, 16);
             this.btn_buscar.TabIndex = 74;
-            this.btn_buscar.Text = "Buscar";
-            this.btn_buscar.UseVisualStyleBackColor = true;
+            this.btn_buscar.UseVisualStyleBackColor = false;
             this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
-            // 
-            // btn_anaydir
-            // 
-            this.btn_anaydir.BackColor = System.Drawing.Color.Transparent;
-            this.btn_anaydir.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add;
-            this.btn_anaydir.Location = new System.Drawing.Point(653, 252);
-            this.btn_anaydir.Name = "btn_anaydir";
-            this.btn_anaydir.Size = new System.Drawing.Size(16, 16);
-            this.btn_anaydir.TabIndex = 75;
-            this.btn_anaydir.TabStop = false;
-            this.btn_anaydir.Click += new System.EventHandler(this.btn_anaydir_Click);
             // 
             // btn_guardar
             // 
@@ -444,10 +473,11 @@
             // 
             // alerta_eliminar
             // 
+            this.alerta_eliminar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.alerta_eliminar.Controls.Add(this.label1);
             this.alerta_eliminar.Controls.Add(this.btn_eliminar_no);
             this.alerta_eliminar.Controls.Add(this.btn_eliminar_si);
-            this.alerta_eliminar.Location = new System.Drawing.Point(378, 119);
+            this.alerta_eliminar.Location = new System.Drawing.Point(383, 108);
             this.alerta_eliminar.Name = "alerta_eliminar";
             this.alerta_eliminar.Size = new System.Drawing.Size(200, 67);
             this.alerta_eliminar.TabIndex = 78;
@@ -458,9 +488,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 13);
+            this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "¿Eliminar Consulta?";
+            this.label1.Text = "¿Eliminar Cliente?";
             // 
             // btn_eliminar_no
             // 
@@ -482,6 +512,17 @@
             this.btn_eliminar_si.UseVisualStyleBackColor = true;
             this.btn_eliminar_si.Click += new System.EventHandler(this.btn_eliminar_si_Click);
             // 
+            // btn_erase
+            // 
+            this.btn_erase.BackColor = System.Drawing.Color.Transparent;
+            this.btn_erase.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.eraser;
+            this.btn_erase.Location = new System.Drawing.Point(361, 85);
+            this.btn_erase.Name = "btn_erase";
+            this.btn_erase.Size = new System.Drawing.Size(16, 16);
+            this.btn_erase.TabIndex = 80;
+            this.btn_erase.TabStop = false;
+            this.btn_erase.Click += new System.EventHandler(this.btn_erase_Click);
+            // 
             // btn_buscar_dni
             // 
             this.btn_buscar_dni.BackColor = System.Drawing.Color.Transparent;
@@ -493,58 +534,33 @@
             this.btn_buscar_dni.TabStop = false;
             this.btn_buscar_dni.Click += new System.EventHandler(this.btn_buscar_dni_Click);
             // 
-            // Column1
+            // btn_anaydir
             // 
-            this.Column1.DataPropertyName = "ID";
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.btn_anaydir.BackColor = System.Drawing.Color.Transparent;
+            this.btn_anaydir.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add;
+            this.btn_anaydir.Location = new System.Drawing.Point(653, 252);
+            this.btn_anaydir.Name = "btn_anaydir";
+            this.btn_anaydir.Size = new System.Drawing.Size(16, 16);
+            this.btn_anaydir.TabIndex = 75;
+            this.btn_anaydir.TabStop = false;
+            this.btn_anaydir.Click += new System.EventHandler(this.btn_anaydir_Click);
             // 
-            // nombreDataGridViewTextBoxColumn
+            // foto_cliente
             // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // especieDataGridViewTextBoxColumn
-            // 
-            this.especieDataGridViewTextBoxColumn.DataPropertyName = "especie";
-            this.especieDataGridViewTextBoxColumn.HeaderText = "Especie";
-            this.especieDataGridViewTextBoxColumn.Name = "especieDataGridViewTextBoxColumn";
-            this.especieDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // razaDataGridViewTextBoxColumn
-            // 
-            this.razaDataGridViewTextBoxColumn.DataPropertyName = "raza";
-            this.razaDataGridViewTextBoxColumn.HeaderText = "Raza";
-            this.razaDataGridViewTextBoxColumn.Name = "razaDataGridViewTextBoxColumn";
-            this.razaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fKDNIidClienteDataGridViewTextBoxColumn
-            // 
-            this.fKDNIidClienteDataGridViewTextBoxColumn.DataPropertyName = "FK_DNI_idCliente";
-            this.fKDNIidClienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
-            this.fKDNIidClienteDataGridViewTextBoxColumn.Name = "fKDNIidClienteDataGridViewTextBoxColumn";
-            this.fKDNIidClienteDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Modificar
-            // 
-            this.Modificar.HeaderText = "Modificar";
-            this.Modificar.Name = "Modificar";
-            this.Modificar.ReadOnly = true;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
+            this.foto_cliente.BackColor = System.Drawing.Color.Transparent;
+            this.foto_cliente.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.sinFoto;
+            this.foto_cliente.Location = new System.Drawing.Point(12, 82);
+            this.foto_cliente.Name = "foto_cliente";
+            this.foto_cliente.Size = new System.Drawing.Size(100, 104);
+            this.foto_cliente.TabIndex = 54;
+            this.foto_cliente.TabStop = false;
             // 
             // FormRecepcionistaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 483);
+            this.Controls.Add(this.btn_erase);
             this.Controls.Add(this.btn_buscar_dni);
             this.Controls.Add(this.alerta_eliminar);
             this.Controls.Add(this.btn_eliminar);
@@ -585,15 +601,16 @@
             this.panel_clientes_opcion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_mascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_cliente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.foto_cliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mascotaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaCliente_DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_anaydir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaClienteDataSetBindingSource)).EndInit();
             this.alerta_eliminar.ResumeLayout(false);
             this.alerta_eliminar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_dni)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_anaydir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foto_cliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -642,13 +659,14 @@
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button btn_eliminar_no;
         public System.Windows.Forms.Button btn_eliminar_si;
-        private System.Windows.Forms.PictureBox btn_buscar_dni;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn especieDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn razaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fKDNIidClienteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn Modificar;
-        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
+        public System.Windows.Forms.PictureBox btn_buscar_dni;
+        public System.Windows.Forms.PictureBox btn_erase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Especie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Raza;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
+        private System.Windows.Forms.DataGridViewButtonColumn Modificar;
+        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }
 }

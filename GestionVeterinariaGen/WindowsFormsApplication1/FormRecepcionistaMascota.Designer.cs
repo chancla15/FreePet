@@ -38,11 +38,11 @@
             this.panel_clientes_opcion = new System.Windows.Forms.Panel();
             this.picture_cliente_opcion_mascota = new System.Windows.Forms.PictureBox();
             this.picture_cliente_opcion_cliente = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.motivoConsultaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lugarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKDNIidVeterinarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Veterinario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ver = new System.Windows.Forms.DataGridViewImageColumn();
             this.consultaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.formRecepcionistaMascota_DataSet = new WindowsFormsApplication1.FormRecepcionistaMascota_DataSet();
@@ -56,7 +56,6 @@
             this.label_fechanac = new System.Windows.Forms.Label();
             this.text_raza = new System.Windows.Forms.TextBox();
             this.dateTime_fnac = new System.Windows.Forms.DateTimePicker();
-            this.combo_especie = new System.Windows.Forms.ComboBox();
             this.label_sexo = new System.Windows.Forms.Label();
             this.label_color = new System.Windows.Forms.Label();
             this.label_peso = new System.Windows.Forms.Label();
@@ -72,6 +71,12 @@
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_anaydir = new System.Windows.Forms.PictureBox();
             this.btn_buscar_cliente = new System.Windows.Forms.PictureBox();
+            this.text_especie = new System.Windows.Forms.TextBox();
+            this.btn_erase = new System.Windows.Forms.PictureBox();
+            this.alerta_eliminar = new System.Windows.Forms.Panel();
+            this.label_eliminar_box = new System.Windows.Forms.Label();
+            this.btn_eliminar_no = new System.Windows.Forms.Button();
+            this.btn_eliminar_si = new System.Windows.Forms.Button();
             this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).BeginInit();
@@ -81,12 +86,14 @@
             this.panel_clientes_opcion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_mascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_cliente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.consultaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaMascota_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_foto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_anaydir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_cliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).BeginInit();
+            this.alerta_eliminar.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_top
@@ -189,54 +196,54 @@
             this.picture_cliente_opcion_cliente.TabStop = false;
             this.picture_cliente_opcion_cliente.Click += new System.EventHandler(this.picture_cliente_opcion_cliente_Click);
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.fechaDataGridViewTextBoxColumn,
-            this.motivoConsultaDataGridViewTextBoxColumn,
-            this.lugarDataGridViewTextBoxColumn,
-            this.fKDNIidVeterinarioDataGridViewTextBoxColumn,
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AutoGenerateColumns = false;
+            this.dataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Fecha,
+            this.Motivo,
+            this.Lugar,
+            this.Veterinario,
             this.Ver});
-            this.dataGridView1.DataSource = this.consultaBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 262);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(658, 209);
-            this.dataGridView1.TabIndex = 55;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView.DataSource = this.consultaBindingSource;
+            this.dataGridView.Location = new System.Drawing.Point(12, 262);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
+            this.dataGridView.Size = new System.Drawing.Size(658, 209);
+            this.dataGridView.TabIndex = 55;
+            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // fechaDataGridViewTextBoxColumn
+            // Fecha
             // 
-            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "fecha";
-            this.fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
-            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
-            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Fecha.DataPropertyName = "fecha";
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
             // 
-            // motivoConsultaDataGridViewTextBoxColumn
+            // Motivo
             // 
-            this.motivoConsultaDataGridViewTextBoxColumn.DataPropertyName = "motivoConsulta";
-            this.motivoConsultaDataGridViewTextBoxColumn.HeaderText = "Motivo";
-            this.motivoConsultaDataGridViewTextBoxColumn.Name = "motivoConsultaDataGridViewTextBoxColumn";
-            this.motivoConsultaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Motivo.DataPropertyName = "motivoConsulta";
+            this.Motivo.HeaderText = "Motivo";
+            this.Motivo.Name = "Motivo";
+            this.Motivo.ReadOnly = true;
             // 
-            // lugarDataGridViewTextBoxColumn
+            // Lugar
             // 
-            this.lugarDataGridViewTextBoxColumn.DataPropertyName = "lugar";
-            this.lugarDataGridViewTextBoxColumn.HeaderText = "Lugar";
-            this.lugarDataGridViewTextBoxColumn.Name = "lugarDataGridViewTextBoxColumn";
-            this.lugarDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Lugar.DataPropertyName = "lugar";
+            this.Lugar.HeaderText = "Lugar";
+            this.Lugar.Name = "Lugar";
+            this.Lugar.ReadOnly = true;
             // 
-            // fKDNIidVeterinarioDataGridViewTextBoxColumn
+            // Veterinario
             // 
-            this.fKDNIidVeterinarioDataGridViewTextBoxColumn.DataPropertyName = "FK_DNI_idVeterinario";
-            this.fKDNIidVeterinarioDataGridViewTextBoxColumn.HeaderText = "Veterinario";
-            this.fKDNIidVeterinarioDataGridViewTextBoxColumn.Name = "fKDNIidVeterinarioDataGridViewTextBoxColumn";
-            this.fKDNIidVeterinarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Veterinario.DataPropertyName = "FK_DNI_idVeterinario";
+            this.Veterinario.HeaderText = "Veterinario";
+            this.Veterinario.Name = "Veterinario";
+            this.Veterinario.ReadOnly = true;
             // 
             // Ver
             // 
@@ -336,14 +343,6 @@
             this.dateTime_fnac.Size = new System.Drawing.Size(118, 20);
             this.dateTime_fnac.TabIndex = 64;
             // 
-            // combo_especie
-            // 
-            this.combo_especie.FormattingEnabled = true;
-            this.combo_especie.Location = new System.Drawing.Point(203, 141);
-            this.combo_especie.Name = "combo_especie";
-            this.combo_especie.Size = new System.Drawing.Size(121, 21);
-            this.combo_especie.TabIndex = 65;
-            // 
             // label_sexo
             // 
             this.label_sexo.AutoSize = true;
@@ -411,7 +410,7 @@
             this.combo_sexo.FormattingEnabled = true;
             this.combo_sexo.Location = new System.Drawing.Point(258, 216);
             this.combo_sexo.Name = "combo_sexo";
-            this.combo_sexo.Size = new System.Drawing.Size(47, 21);
+            this.combo_sexo.Size = new System.Drawing.Size(63, 21);
             this.combo_sexo.TabIndex = 73;
             // 
             // label_microchip
@@ -484,12 +483,75 @@
             this.btn_buscar_cliente.TabStop = false;
             this.btn_buscar_cliente.Click += new System.EventHandler(this.btn_buscar_cliente_Click);
             // 
+            // text_especie
+            // 
+            this.text_especie.Location = new System.Drawing.Point(203, 142);
+            this.text_especie.Name = "text_especie";
+            this.text_especie.Size = new System.Drawing.Size(118, 20);
+            this.text_especie.TabIndex = 82;
+            // 
+            // btn_erase
+            // 
+            this.btn_erase.BackColor = System.Drawing.Color.Transparent;
+            this.btn_erase.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.eraser;
+            this.btn_erase.Location = new System.Drawing.Point(357, 78);
+            this.btn_erase.Name = "btn_erase";
+            this.btn_erase.Size = new System.Drawing.Size(16, 16);
+            this.btn_erase.TabIndex = 84;
+            this.btn_erase.TabStop = false;
+            this.btn_erase.Click += new System.EventHandler(this.btn_erase_Click);
+            // 
+            // alerta_eliminar
+            // 
+            this.alerta_eliminar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.alerta_eliminar.Controls.Add(this.label_eliminar_box);
+            this.alerta_eliminar.Controls.Add(this.btn_eliminar_no);
+            this.alerta_eliminar.Controls.Add(this.btn_eliminar_si);
+            this.alerta_eliminar.Location = new System.Drawing.Point(389, 69);
+            this.alerta_eliminar.Name = "alerta_eliminar";
+            this.alerta_eliminar.Size = new System.Drawing.Size(200, 67);
+            this.alerta_eliminar.TabIndex = 83;
+            this.alerta_eliminar.Visible = false;
+            // 
+            // label_eliminar_box
+            // 
+            this.label_eliminar_box.AutoSize = true;
+            this.label_eliminar_box.Location = new System.Drawing.Point(3, 16);
+            this.label_eliminar_box.Name = "label_eliminar_box";
+            this.label_eliminar_box.Size = new System.Drawing.Size(89, 13);
+            this.label_eliminar_box.TabIndex = 2;
+            this.label_eliminar_box.Text = "¿Eliminar Animal?";
+            this.label_eliminar_box.Visible = false;
+            // 
+            // btn_eliminar_no
+            // 
+            this.btn_eliminar_no.Location = new System.Drawing.Point(104, 35);
+            this.btn_eliminar_no.Name = "btn_eliminar_no";
+            this.btn_eliminar_no.Size = new System.Drawing.Size(41, 23);
+            this.btn_eliminar_no.TabIndex = 1;
+            this.btn_eliminar_no.Text = "No";
+            this.btn_eliminar_no.UseVisualStyleBackColor = true;
+            this.btn_eliminar_no.Click += new System.EventHandler(this.btn_eliminar_no_Click);
+            // 
+            // btn_eliminar_si
+            // 
+            this.btn_eliminar_si.Location = new System.Drawing.Point(151, 35);
+            this.btn_eliminar_si.Name = "btn_eliminar_si";
+            this.btn_eliminar_si.Size = new System.Drawing.Size(38, 23);
+            this.btn_eliminar_si.TabIndex = 0;
+            this.btn_eliminar_si.Text = "Si";
+            this.btn_eliminar_si.UseVisualStyleBackColor = true;
+            this.btn_eliminar_si.Click += new System.EventHandler(this.btn_eliminar_si_Click);
+            // 
             // FormRecepcionistaMascota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(682, 483);
+            this.Controls.Add(this.btn_erase);
+            this.Controls.Add(this.alerta_eliminar);
+            this.Controls.Add(this.text_especie);
             this.Controls.Add(this.btn_buscar_cliente);
             this.Controls.Add(this.btn_anaydir);
             this.Controls.Add(this.btn_eliminar);
@@ -505,7 +567,6 @@
             this.Controls.Add(this.label_peso);
             this.Controls.Add(this.label_color);
             this.Controls.Add(this.label_sexo);
-            this.Controls.Add(this.combo_especie);
             this.Controls.Add(this.dateTime_fnac);
             this.Controls.Add(this.text_raza);
             this.Controls.Add(this.label_fechanac);
@@ -515,7 +576,7 @@
             this.Controls.Add(this.label_nombre);
             this.Controls.Add(this.text_cliente);
             this.Controls.Add(this.label_cliente);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.panel_clientes_opcion);
             this.Controls.Add(this.panel_top);
             this.Name = "FormRecepcionistaMascota";
@@ -530,12 +591,15 @@
             this.panel_clientes_opcion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_mascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_cliente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.consultaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaMascota_DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_foto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_anaydir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_cliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).EndInit();
+            this.alerta_eliminar.ResumeLayout(false);
+            this.alerta_eliminar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -552,7 +616,7 @@
         public System.Windows.Forms.Panel panel_clientes_opcion;
         public System.Windows.Forms.PictureBox picture_cliente_opcion_mascota;
         public System.Windows.Forms.PictureBox picture_cliente_opcion_cliente;
-        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dataGridView;
         public FormRecepcionistaMascota_DataSet formRecepcionistaMascota_DataSet;
         public System.Windows.Forms.BindingSource consultaBindingSource;
         public FormRecepcionistaMascota_DataSetTableAdapters.ConsultaTableAdapter consultaTableAdapter;
@@ -565,7 +629,6 @@
         public System.Windows.Forms.Label label_fechanac;
         public System.Windows.Forms.TextBox text_raza;
         public System.Windows.Forms.DateTimePicker dateTime_fnac;
-        public System.Windows.Forms.ComboBox combo_especie;
         public System.Windows.Forms.Label label_sexo;
         public System.Windows.Forms.Label label_color;
         public System.Windows.Forms.Label label_peso;
@@ -581,10 +644,16 @@
         public System.Windows.Forms.Button btn_guardar;
         public System.Windows.Forms.PictureBox btn_anaydir;
         public System.Windows.Forms.PictureBox btn_buscar_cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn motivoConsultaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lugarDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fKDNIidVeterinarioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn Ver;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Motivo;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Lugar;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Veterinario;
+        public System.Windows.Forms.DataGridViewImageColumn Ver;
+        public System.Windows.Forms.TextBox text_especie;
+        public System.Windows.Forms.PictureBox btn_erase;
+        public System.Windows.Forms.Panel alerta_eliminar;
+        public System.Windows.Forms.Label label_eliminar_box;
+        public System.Windows.Forms.Button btn_eliminar_no;
+        public System.Windows.Forms.Button btn_eliminar_si;
     }
 }

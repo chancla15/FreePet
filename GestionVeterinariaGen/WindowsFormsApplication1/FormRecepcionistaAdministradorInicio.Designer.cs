@@ -117,12 +117,13 @@
             // 
             // btn_buscar
             // 
+            this.btn_buscar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_buscar.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.btn_buscar_id;
             this.btn_buscar.Location = new System.Drawing.Point(461, 172);
             this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(68, 20);
+            this.btn_buscar.Size = new System.Drawing.Size(16, 16);
             this.btn_buscar.TabIndex = 43;
-            this.btn_buscar.Text = "BUSCAR ";
-            this.btn_buscar.UseVisualStyleBackColor = true;
+            this.btn_buscar.UseVisualStyleBackColor = false;
             this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
             // 
             // label5

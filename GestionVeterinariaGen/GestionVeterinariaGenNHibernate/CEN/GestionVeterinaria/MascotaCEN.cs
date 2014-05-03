@@ -125,10 +125,5 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 {
         return _IMascotaCAD.DameMascotaPorCliente (nif);
 }
-
-public static MascotaEN BuscarMascotaPorOID(string Id)
-{
-    throw new NotImplementedException();
-}
 }
 }

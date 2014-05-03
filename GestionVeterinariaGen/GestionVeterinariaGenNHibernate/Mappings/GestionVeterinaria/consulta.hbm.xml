@@ -70,6 +70,6 @@
 		  <query name="ConsultaENbuscarConsultaPorFechaHQL"><![CDATA[FROM ConsultaEN c WHERE year(c.Fecha)=year(:fecha) AND month(c.Fecha)=month(:fecha) AND day(c.Fecha)=day(:fecha)]]></query>
 		  <query name="ConsultaENdameVeterinariosPorFechayHoraHQL"><![CDATA[SELECT c.Veterinario FROM ConsultaEN as c WHERE year(c.Fecha)=year(:fecha) AND month(c.Fecha)=month(:fecha) AND day(c.Fecha)=day(:fecha) AND hour(c.Fecha)=hour(:fecha) AND minutes(c.Fecha)=(:fecha)]]></query>
 		  <query name="ConsultaENdameConsultaPorVeterinarioYFechaHQL"><![CDATA[SELECT cli FROM ConsultaEN AS cli WHERE cli.Veterinario.DNI=:vet AND cli.Fecha=:fecha]]></query>
-		  <query name="ConsultaENdameConsultaPorAnimalHQL"><![CDATA[SELECT c FROM ConsultaEN AS c WHERE c.Mascota=:mascota]]></query>
+		  <query name="ConsultaENdameConsultaPorAnimalHQL"><![CDATA[SELECT c FROM ConsultaEN AS c WHERE c.Mascota.IdMascota=:mascota]]></query>
 		</hibernate-mapping>
 	

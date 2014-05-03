@@ -29,6 +29,9 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             controller = new FormRecepcionistaClienteController(session, this);
             this.actionType = showType;
+
+            dataGridView.AutoResizeColumns();
+//            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
         /**
@@ -44,7 +47,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             controller = new FormRecepcionistaClienteController(session, this);
             this.actionType = showType;
-            controller.loadData(cliente);
+            controller.loadData(cliente,'\0');
             text_dni.Enabled = false;
 
             if (showType == 'E')
@@ -118,7 +121,7 @@ namespace WindowsFormsApplication1
         private void picture_cliente_opcion_mascota_Click(object sender, EventArgs e)
         {
             Hide();
-            new FormRecepcionistaMascota(controller.sessionData);
+            new FormRecepcionistaMascota(controller.sessionData, null, 'A');
         }
 
         /**
@@ -140,7 +143,7 @@ namespace WindowsFormsApplication1
         private void btn_anaydir_Click(object sender, EventArgs e)
         {
             Hide();
-            new FormRecepcionistaMascota(controller.sessionData);
+            new FormRecepcionistaMascota(controller.sessionData, null , 'A');
         }
 
         /**
@@ -154,10 +157,10 @@ namespace WindowsFormsApplication1
 
                 DataGridViewButtonCell celBoton = this.dataGridView.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
                 Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\close-icon.ico");
-                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left, e.CellBounds.Top);
 
-                this.dataGridView.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
-                this.dataGridView.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
+                //this.dataGridView.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
+                //this.dataGridView.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
 
                 e.Handled = true;
 
@@ -170,10 +173,10 @@ namespace WindowsFormsApplication1
 
                 DataGridViewButtonCell celBoton = this.dataGridView.Rows[e.RowIndex].Cells["Modificar"] as DataGridViewButtonCell;
                 Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\edit-icon.ico");
-                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left, e.CellBounds.Top);
 
-                this.dataGridView.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
-                this.dataGridView.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
+                //this.dataGridView.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
+                //this.dataGridView.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
 
                 e.Handled = true;
             }
@@ -184,14 +187,18 @@ namespace WindowsFormsApplication1
          */
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            char actionMsc = '\0';
-            string msc = controller.getDataGridViewState(e, actionMsc);
+            char action = '\0';
+            string msc = controller.getDataGridViewState(e, ref action);
 
             //Ir a formulario mascotas
-            if (msc!="" && (actionMsc == 'M' || actionMsc=='E'))
+            if (msc != "" && action == 'S')
+            {
+                controller.loadData(msc, 'S');
+            }
+            else if (msc != "" && (action == 'M' || action == 'E'))
             {
                 Hide();
-                new FormRecepcionistaMascota(controller.sessionData, msc, actionMsc);
+                new FormRecepcionistaMascota(controller.sessionData, msc, action);
             }
         }
 
@@ -276,7 +283,16 @@ namespace WindowsFormsApplication1
          * Si clickea el boton de buscar cliente por dni desde la pantalla cliente
          */
         private void btn_buscar_dni_Click(object sender, EventArgs e) {
-            controller.loadData(text_dni.Text);
+            controller.loadData(text_dni.Text,'\0');
+        }
+
+        /**
+         * Cuando se pulsa el boton erase que es la gomita se borran todos los campos
+         */
+        private void btn_erase_Click(object sender, EventArgs e)
+        {
+            text_dni.Enabled = true;
+            controller.Clear();
         }
     }
 }

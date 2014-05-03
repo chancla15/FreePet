@@ -53,43 +53,64 @@ namespace WindowsFormsApplication1
         {
             String buscar = form.text_buscar.Text;
             String dni = form.text_dni.Text;
+            IList<MascotaEN> mascotasLista= null;
+
+            //Actualizamos la tabla
+            form.dataGridView.DataSource = null;
+            form.dataGridView.Refresh();
 
             if (form.dataGridView.Rows.Count > 0)
-                form.dataGridView.Refresh();
+                form.dataGridView.Rows.Clear();
 
-            if (dni != "")
-            {
-                IList<MascotaEN> mascotas = _IMascotaCAD.DameMascotaPorCliente(dni);
+            //Buscamos por cliente si el dni se ha introducido para buscar
+            if (dni != "") {
+                mascotasLista = _IMascotaCAD.DameMascotaPorCliente(dni);
+            }
 
-                if (mascotas.Count > 0)
-                {
-                    if (buscar != "")
-                    {
-                        //buscamos por nombre
-                        for (int i = 0; i < mascotas.Count; i++)
-                        {
-                            //insertar en datagrid los que coinicdan con el termino a buscar
-                        }
-                    }
-                    else
-                    {
-                        for (int i = 0; i < mascotas.Count; i++)
-                        {
-                            //form.dataGridView.Rows.Add(mascotas[i].Nombre, mascotas[i].Especie, mascotas[i].Raza, mascotas[i].Cliente.DNI);
-                        }
-                    }
+            //Buscamos por termino si se ha introducido un termino de busqueda
+            if(buscar!="") {
+               
+                //Borramos lo almacenado y Las buscamos por nombre
+                if (mascotasLista != null) {
+                    mascotasLista.Clear();
+                    mascotasLista = null;
+                }
+
+                mascotasLista= _IMascotaCAD.DameMascotaPorNombre(buscar);
+
+                //Si tambien se ha introducido un cliente solo se muestran las de ese nombre 
+                //que tengas ese cliente
+                if(mascotasLista!=null && mascotasLista.Count>0) {
+                    Console.WriteLine("Cantidad mascotas antes: " + mascotasLista.Count);
+                    List<int> eraseElements=new List<int>();
+                    for (int i = 0; i < mascotasLista.Count; i++)
+                        if (dni!="" && !mascotasLista[i].Cliente.DNI.Equals(dni))
+                            eraseElements.Add(i);
+
+                    if(eraseElements!=null && eraseElements.Count>0)
+                         for (int i = 0; i < eraseElements.Count; i++)
+                             mascotasLista.Remove(mascotasLista[eraseElements[i]]);
+
+                    Console.WriteLine("Cantidad mascotas despues: " + mascotasLista.Count);
                 }
             }
-            else
-            {
-                //Error no ha introducido un cliente
+            else{
+                //Si no se ha introducido nada mostramos todas las mascotas
+                if(mascotasLista==null)
+                     mascotasLista = _IMascotaCAD.ContadorMascotas();
             }
+
+            Console.WriteLine("Macotas a mostrar: " + mascotasLista.Count);
+            //Al final, mostramos la lista de mascotas
+            if (mascotasLista != null && mascotasLista.Count > 0)
+                for (int i = 0; i < mascotasLista.Count; i++)
+                    form.dataGridView.Rows.Add(mascotasLista[i].IdMascota, mascotasLista[i].Nombre, mascotasLista[i].Especie, mascotasLista[i].Raza, mascotasLista[i].Cliente.DNI);
         }
 
         /**
          * Carga un cliente en los text_view
          */
-        public void loadData(string cli)
+        public void loadData(string cli, char option)
         {
             ClienteEN cliente = _IClienteCAD.DameClientePorOID(cli);
 
@@ -105,14 +126,22 @@ namespace WindowsFormsApplication1
                 form.text_telefono.Text = cliente.Telefono;
 
                 IList<MascotaEN> mascotas = MascotaCEN.DameMascotaPorCliente(cliente.DNI);
-                form.dataGridView.DataSource = null;
-                form.dataGridView.Refresh();
 
-                if (mascotas != null && mascotas.Count>0)
+                //Si lo cargamos por contructor muestra todas las mascotas pero si lo cargamos porque hemos
+                //pinchado en una de sus mascotas solo se cargaran sus datos
+                if (option != 'S')
                 {
-                    for (int i = 0; i < mascotas.Count; i++)
+                    form.dataGridView.DataSource = null;
+                    form.dataGridView.Refresh();
+                    if (form.dataGridView.Rows.Count > 0)
+                        form.dataGridView.Rows.Clear();
+
+                    if (mascotas != null && mascotas.Count > 0)
                     {
-                        form.dataGridView.Rows.Add(mascotas[i].IdMascota, mascotas[i].Nombre, mascotas[i].Especie, mascotas[i].Raza, mascotas[i].Cliente.DNI);
+                        for (int i = 0; i < mascotas.Count; i++)
+                        {
+                            form.dataGridView.Rows.Add(mascotas[i].IdMascota, mascotas[i].Nombre, mascotas[i].Especie, mascotas[i].Raza, mascotas[i].Cliente.DNI);
+                        }
                     }
                 }
             }
@@ -157,21 +186,50 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public string getDataGridViewState(DataGridViewCellEventArgs ev, char action)
+
+        /**
+         * Devuelve la columna pulsada del datagrid junto con su identficador
+         */
+        public string getDataGridViewState(DataGridViewCellEventArgs ev, ref char action)
         {
             string cli = "";
-
+           
             if (form.dataGridView.Columns[ev.ColumnIndex].Name.Equals("Eliminar"))
                 action = 'E';
             else if (form.dataGridView.Columns[ev.ColumnIndex].Name.Equals("Modificar"))
                 action = 'M';
+            else if (form.dataGridView.Columns[ev.ColumnIndex].Name.Equals("Cliente"))
+                action = 'S';
+            else
+                action = '\0';
 
             if (action == 'E' || action == 'M')
                 cli = form.dataGridView.Rows[ev.RowIndex].Cells[0].Value.ToString();
+            else if (action == 'S')
+                cli = form.dataGridView.Rows[ev.RowIndex].Cells[4].Value.ToString();
+            else
+                cli = "";
 
             return cli;
         }
 
-        
+        /**
+         * Borra todos los campos del formulario
+         */
+        public void Clear()
+        {
+            form.text_dni.Text = "";
+            form.text_nombre.Text = "";
+            form.text_apellidos.Text = "";
+            form.text_direccion.Text = "";
+            form.text_provincia.Text = "";
+            form.text_localidad.Text = "";
+            form.text_cp.Text = "";
+            form.text_telefono.Text = "";
+            form.dataGridView.DataSource = null;
+            form.dataGridView.Refresh();
+            if (form.dataGridView.Rows.Count > 0)
+                form.dataGridView.Rows.Clear();
+        }
     }
 }

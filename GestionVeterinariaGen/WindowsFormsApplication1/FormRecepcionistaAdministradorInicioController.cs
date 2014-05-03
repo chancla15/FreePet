@@ -169,7 +169,7 @@ namespace WindowsFormsApplication1
         /** 
          * Devuelve un cliente dependiendo de donde se haya pulsado en el datagrid
          */
-        public string getStateScreen(DataGridViewCellEventArgs ev, char action)
+        public string getStateScreen(DataGridViewCellEventArgs ev, ref char action)
         {
             string cli = "";
 

@@ -295,13 +295,13 @@ public GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN DameCons
 
         return result;
 }
-public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameConsultaPorAnimal (string mascota)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameConsultaPorAnimal (int mascota)
 {
         System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ConsultaEN self where SELECT c FROM ConsultaEN AS c WHERE c.Mascota=:mascota";
+                //String sql = @"FROM ConsultaEN self where SELECT c FROM ConsultaEN AS c WHERE c.Mascota.IdMascota=:mascota";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ConsultaENdameConsultaPorAnimalHQL");
                 query.SetParameter ("mascota", mascota);
