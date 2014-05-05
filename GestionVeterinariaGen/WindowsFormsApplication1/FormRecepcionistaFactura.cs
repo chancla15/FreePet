@@ -99,7 +99,7 @@ namespace WindowsFormsApplication1
         {
 
             Hide();
-            new FormRecepcionistaConsulta(controller.sessionData);
+            new FormRecepcionistaConsulta(controller.sessionData, Utils.State.NONE);
         }
         
 
@@ -112,7 +112,7 @@ namespace WindowsFormsApplication1
         private void picture_clientes_Click(object sender, EventArgs e)
         {
             Hide();
-            new FormRecepcionistaCliente(controller.sessionData, 'A');
+            new FormRecepcionistaCliente(controller.sessionData, null, Utils.State.NONE);
         }
 
         private void picture_ajustes_Click(object sender, EventArgs e)

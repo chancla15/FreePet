@@ -177,7 +177,7 @@ namespace WindowsFormsApplication1
         private void picture_facturas_Click(object sender, EventArgs e)
         {
             Hide();
-            //new FormRecepcionistaFactura(controller.sessionData);
+            new FormRecepcionistaFactura(controller.sessionData);
         }
 
         /**

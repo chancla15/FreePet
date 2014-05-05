@@ -375,7 +375,7 @@ namespace WindowsFormsApplication1
                     case Utils.State.NONE:
                         break;
                     case Utils.State.NEW:
-                        Utils._ConsultaCEN.New_(consultaEN.Fecha, consultaEN.MotivoConsulta, "", consultaEN.Mascota.IdMascota, consultaEN.Veterinario.DNI, consultaEN.Lugar);
+                        Utils._ConsultaCEN.New_(consultaEN.Fecha, consultaEN.MotivoConsulta, "", consultaEN.Mascota.IdMascota, consultaEN.Veterinario.DNI, "", consultaEN.Lugar);
                         break;
                     case Utils.State.MODIFY:
                         Utils._ConsultaCEN.Modify(consultaEN.IdConsulta, consultaEN.Fecha, consultaEN.MotivoConsulta, consultaEN.Diagnostico, consultaEN.Lugar);

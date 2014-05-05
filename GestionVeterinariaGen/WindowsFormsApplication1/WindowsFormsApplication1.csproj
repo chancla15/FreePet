@@ -139,6 +139,13 @@
       <DependentUpon>FormRecepcionistaConsulta.cs</DependentUpon>
     </Compile>
     <Compile Include="FormRecepcionistaConsultaController.cs" />
+    <Compile Include="FormRecepcionistaFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecepcionistaFactura.Designer.cs">
+      <DependentUpon>FormRecepcionistaFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecepcionistaFacturaController.cs" />
     <Compile Include="FormRecepcionistaMascota_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -200,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRecepcionistaConsulta.resx">
       <DependentUpon>FormRecepcionistaConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecepcionistaFactura.resx">
+      <DependentUpon>FormRecepcionistaFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVeterinarioConsulta.resx">
       <DependentUpon>FormVeterinarioConsulta.cs</DependentUpon>

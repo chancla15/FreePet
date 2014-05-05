@@ -39,15 +39,13 @@ public System.Collections.Generic.IList<FacturaEN> DameTodasLasFacturas (int fir
         list = _IFacturaCAD.DameTodasLasFacturas (first, size);
         return list;
 }
-public string New_ (string p_idFactura, Nullable<DateTime> p_fecha, float p_total, string p_cliente, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN p_consulta, bool p_pagada)
+public int New_ (Nullable<DateTime> p_fecha, float p_total, string p_cliente, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN p_consulta, bool p_pagada)
 {
         FacturaEN facturaEN = null;
-        string oid;
+        int oid;
 
         //Initialized FacturaEN
         facturaEN = new FacturaEN ();
-        facturaEN.IdFactura = p_idFactura;
-
         facturaEN.Fecha = p_fecha;
 
         facturaEN.Total = p_total;
@@ -68,7 +66,7 @@ public string New_ (string p_idFactura, Nullable<DateTime> p_fecha, float p_tota
         return oid;
 }
 
-public void Modify (string p_Factura_OID, Nullable<DateTime> p_fecha, float p_total, bool p_pagada)
+public void Modify (int p_Factura_OID, Nullable<DateTime> p_fecha, float p_total, bool p_pagada)
 {
         FacturaEN facturaEN = null;
 
@@ -83,12 +81,12 @@ public void Modify (string p_Factura_OID, Nullable<DateTime> p_fecha, float p_to
         _IFacturaCAD.Modify (facturaEN);
 }
 
-public void Destroy (string idFactura)
+public void Destroy (int idFactura)
 {
         _IFacturaCAD.Destroy (idFactura);
 }
 
-public FacturaEN DameFacturaPorOID (string idFactura)
+public FacturaEN DameFacturaPorOID (int idFactura)
 {
         FacturaEN facturaEN = null;
 
@@ -103,6 +101,10 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN> DameImpagos ()
 {
         return _IFacturaCAD.DameImpagos ();
+}
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN> DameFacturasPorCliente (string nif)
+{
+        return _IFacturaCAD.DameFacturasPorCliente (nif);
 }
 }
 }
