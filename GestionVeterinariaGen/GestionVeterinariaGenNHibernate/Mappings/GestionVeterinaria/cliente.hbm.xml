@@ -19,10 +19,13 @@
 					
 			
 		  			
+						<bag name="Factura" >
+							<key>
+								<column name="[FK_DNI_idCliente]"/>
+					      	</key>
+							<one-to-many class="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN"/>
+					    </bag>
 					
-							   <one-to-one name="Factura" class="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN" property-ref="Cliente" />							
-					 
-						
 					
 					
 		

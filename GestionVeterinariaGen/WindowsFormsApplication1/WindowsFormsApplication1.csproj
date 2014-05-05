@@ -127,6 +127,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FormRecepcionistaCliente_DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FormRecepcionistaFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecepcionistaFactura.Designer.cs">
+      <DependentUpon>FormRecepcionistaFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRecepcionistaMascota_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -140,12 +146,6 @@
     </Compile>
     <Compile Include="FormVeterinarioConsultaController.cs" />
     <Compile Include="FormLoginDataSessionTicket.cs" />
-    <Compile Include="FormRecepcionistaFactura.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormRecepcionistaFactura.Designer.cs">
-      <DependentUpon>FormRecepcionistaFactura.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormRecepcionistaConsultaController.cs" />
     <Compile Include="FormRecepcionistaFacturaController.cs" />
     <Compile Include="FormRecepcionistaMascotaController.cs" />
@@ -199,11 +199,11 @@
     <EmbeddedResource Include="FormAdministradorEmpleado.resx">
       <DependentUpon>FormAdministradorEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormVeterinarioConsulta.resx">
-      <DependentUpon>FormVeterinarioConsulta.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormRecepcionistaFactura.resx">
       <DependentUpon>FormRecepcionistaFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVeterinarioConsulta.resx">
+      <DependentUpon>FormVeterinarioConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRecepcionistaMascota.resx">
       <DependentUpon>FormRecepcionistaMascota.cs</DependentUpon>

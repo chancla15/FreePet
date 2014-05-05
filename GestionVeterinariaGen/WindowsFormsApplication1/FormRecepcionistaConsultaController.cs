@@ -489,7 +489,7 @@ namespace WindowsFormsApplication1
             switch (state)
             {
                 case State.ADD:
-                    ConsultaCEN.New_(boxcontroller.Fecha, boxcontroller.Motivo, "", boxcontroller.Mascota.IdMascota, boxcontroller.Veterinario.DNI, boxcontroller.Lugar);
+                    ConsultaCEN.New_(boxcontroller.Fecha, boxcontroller.Motivo, "", boxcontroller.Mascota.IdMascota, boxcontroller.Veterinario.DNI,"", boxcontroller.Lugar);
                     //_IConsultaCAD.New_(c);
                     buscarPorFechas();
                     break;

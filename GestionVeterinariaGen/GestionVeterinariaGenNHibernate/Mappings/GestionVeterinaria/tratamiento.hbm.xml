@@ -17,14 +17,13 @@
 			
 			
 		  			
-						<bag name="Consulta" table="[consulta_farmaco]" inverse="true" >
+						<bag name="Consulta" >
 							<key>
-									<column name="[FK_Nombre_idFarmaco]"/>
-							</key>
-      						<many-to-many class="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN">
-									<column name="[FK_IDConsulta_idConsulta]"/>
-      						</many-to-many>
-    					</bag>
+								<column name="[FK_Nombre_idFarmaco]"/>
+					      	</key>
+							<one-to-many class="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN"/>
+					    </bag>
+					
 			
 			
 					

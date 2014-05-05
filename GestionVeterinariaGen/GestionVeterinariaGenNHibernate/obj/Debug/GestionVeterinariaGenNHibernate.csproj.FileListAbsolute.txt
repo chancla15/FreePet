@@ -88,3 +88,17 @@ C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\GestionVeterinariaGenNHibern
 C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\obj\Debug\GestionVeterinariaGenNHibernate.csprojResolveAssemblyReference.cache
 C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\obj\Debug\GestionVeterinariaGenNHibernate.dll
 C:\Users\Rafael\Desktop\NEUVO\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\obj\Debug\GestionVeterinariaGenNHibernate.pdb
+D:\Grado\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\hibernate.cfg.xml
+D:\Grado\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\GestionVeterinariaGenNHibernate.dll.config
+D:\Grado\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\GestionVeterinariaGenNHibernate.dll
+D:\Grado\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\GestionVeterinariaGenNHibernate.pdb
+D:\Grado\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\Castle.DynamicProxy2.dll
+D:\Grado\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\LinFu.DynamicProxy.dll
+D:\Grado\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\NHibernate.ByteCode.Castle.dll
+D:\Grado\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\NHibernate.ByteCode.LinFu.dll
+D:\Grado\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\NHibernate.dll
+D:\Grado\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\Iesi.Collections.dll
+D:\Grado\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\Antlr3.Runtime.dll
+D:\Grado\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\log4net.dll
+D:\Grado\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\obj\Debug\GestionVeterinariaGenNHibernate.dll
+D:\Grado\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\obj\Debug\GestionVeterinariaGenNHibernate.pdb

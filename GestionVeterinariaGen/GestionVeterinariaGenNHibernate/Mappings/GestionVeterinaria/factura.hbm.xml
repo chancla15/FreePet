@@ -3,7 +3,10 @@
 		                   assembly="GestionVeterinariaGenNHibernate"
 		                   namespace="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria">
 			<class name="FacturaEN" table="[Factura]">
-						<id name="IdFactura" column="[idFacturaFactura]"/>
+				  	
+						<id name="IdFactura" column="[idFacturaFactura]" type="integer">
+							<generator class="identity"/>
+						</id>
 					<property name="Fecha" type="date"> 
 						<column name="[fecha]"  not-null="true"/>
 					</property>
@@ -18,12 +21,10 @@
 			
 			
 		  			
-					
-							<many-to-one name="Cliente" class="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN" >
+						<many-to-one name="Cliente" class="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN" >	
 								<column name="[FK_DNI_idCliente]"/>
-        					</many-to-one>
-					 
-						
+						</many-to-one>
+											 					
 			
 		  			
 					
@@ -43,5 +44,6 @@
 		  <query name="FacturaENReadAllHQL">from FacturaEN</query>
 		  <query name="FacturaENdameFacturaPorFechaHQL"><![CDATA[FROM FacturaEN f WHERE f.Fecha = :param]]></query>
 		  <query name="FacturaENdameImpagosHQL"><![CDATA[FROM FacturaEN f WHERE f.Pagada =FALSE]]></query>
+		  <query name="FacturaENdameFacturasPorClienteHQL"><![CDATA[FROM FacturaEN f WHERE f.Cliente.DNI=:nif]]></query>
 		</hibernate-mapping>
 	

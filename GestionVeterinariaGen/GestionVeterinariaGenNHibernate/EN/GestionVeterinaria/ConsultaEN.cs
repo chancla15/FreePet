@@ -45,7 +45,7 @@ private GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN vete
  *
  */
 
-private System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> tratamiento;
+private GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN tratamiento;
 
 /**
  *
@@ -93,7 +93,7 @@ public virtual GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.Veterinario
 }
 
 
-public virtual System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> Tratamiento {
+public virtual GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN Tratamiento {
         get { return tratamiento; } set { tratamiento = value;  }
 }
 
@@ -113,12 +113,11 @@ public virtual GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN F
 
 public ConsultaEN()
 {
-        tratamiento = new System.Collections.Generic.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN>();
 }
 
 
 
-public ConsultaEN(int idConsulta, Nullable<DateTime> fecha, string motivoConsulta, string diagnostico, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN mascota, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN veterinario, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> tratamiento, string lugar, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN factura)
+public ConsultaEN(int idConsulta, Nullable<DateTime> fecha, string motivoConsulta, string diagnostico, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN mascota, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN veterinario, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN tratamiento, string lugar, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN factura)
 {
         this.init (idConsulta, fecha, motivoConsulta, diagnostico, mascota, veterinario, tratamiento, lugar, factura);
 }
@@ -129,7 +128,7 @@ public ConsultaEN(ConsultaEN consulta)
         this.init (consulta.IdConsulta, consulta.Fecha, consulta.MotivoConsulta, consulta.Diagnostico, consulta.Mascota, consulta.Veterinario, consulta.Tratamiento, consulta.Lugar, consulta.Factura);
 }
 
-private void init (int idConsulta, Nullable<DateTime> fecha, string motivoConsulta, string diagnostico, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN mascota, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN veterinario, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> tratamiento, string lugar, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN factura)
+private void init (int idConsulta, Nullable<DateTime> fecha, string motivoConsulta, string diagnostico, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN mascota, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN veterinario, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN tratamiento, string lugar, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN factura)
 {
         this.IdConsulta = IdConsulta;
 

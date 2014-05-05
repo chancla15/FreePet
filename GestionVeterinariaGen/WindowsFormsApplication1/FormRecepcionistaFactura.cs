@@ -17,7 +17,6 @@ namespace WindowsFormsApplication1
     {
         /** El controlador */
         private FormRecepcionistaFacturaController controller;
-
         /**
          * Constructor de la clase
          * @param session el ticket de sesion
@@ -28,15 +27,15 @@ namespace WindowsFormsApplication1
             this.Visible = true;
             InitializeComponent();
             controller = new FormRecepcionistaFacturaController(session, this);
+            controller.CargarFacturasDataGrid();
         }
 
         /**
          * Cuando se pulsa el boton buscar
          */
-        private void btn_buscar_Click(object sender, EventArgs e) {
-            controller.Buscar();
+        private void btn_buscar_Click(object sender, EventArgs e)
+        {
         }
-
         /**
          * Pintar tamaño datagrid
          */
@@ -88,20 +87,21 @@ namespace WindowsFormsApplication1
             }
         }
 
-        /**
-         * Comprueba el contenido de la casilla pulsada
-         */
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            char action = '\0';
-            string fact= controller.getScreenState(e, action);
+   
 
-            if (fact != "")
-            {
-                //Hide();
-                //Lo que tenga que hacer A, M, E
-            }
+        private void picture_start_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new FormRecepcionistaAdministradorInicio(controller.sessionData);
         }
+
+        private void picture_consultas_Click(object sender, EventArgs e)
+        {
+
+            Hide();
+            new FormRecepcionistaConsulta(controller.sessionData);
+        }
+        
 
         private void panel_top_Paint(object sender, PaintEventArgs e)
         {
@@ -109,47 +109,49 @@ namespace WindowsFormsApplication1
             this.panel_top.BackColor = Color.LightBlue;
         }
 
-        /**
-       * Cuando se slecciona la opcion start
-       */
-        private void picture_start_Click(object sender, EventArgs e)
-        {
-            Hide();
-            new FormRecepcionistaAdministradorInicio(controller.sessionData);
-        }
-
-        /**
-         * Cuando se slecciona la opcion clientes
-         */
         private void picture_clientes_Click(object sender, EventArgs e)
         {
             Hide();
             new FormRecepcionistaCliente(controller.sessionData, 'A');
         }
 
-        /**
-         * Cuando se slecciona la opcion consultas
-         */
-        private void picture_consultas_Click(object sender, EventArgs e)
-        {
-            Hide();
-            new FormRecepcionistaConsulta(controller.sessionData);
-        }
-
-        /**
-         * Cuando se slecciona la opcion facturas
-         */
-        private void picture_facturas_Click(object sender, EventArgs e)
-        {
-        }
-
-        /**
-         * Cuando se slecciona la opcion ajustes
-         */
         private void picture_ajustes_Click(object sender, EventArgs e)
         {
-            //Esto solo le da a un formulario
-            //donde puede cambiar algunos datos personales, la constraseña la foto y desconectarse
+
         }
+        /**
+        * Comprueba el contenido de la casilla pulsada
+        */
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!e.RowIndex.Equals(-1))
+            {
+                controller.CargarBoxController(e.RowIndex);
+                
+            }
+        }
+
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ll_Cancelar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            gp_ModificarFactura.Visible = false;
+        }
+
+        private void ll_Modificar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            controller.ModificarFactura();
+        }
+
+        private void ll_Eliminar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            controller.EliminarFactura();
+        }
+
     }
 }
