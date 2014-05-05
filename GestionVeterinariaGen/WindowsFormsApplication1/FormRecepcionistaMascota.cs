@@ -25,13 +25,90 @@ namespace WindowsFormsApplication1
          */
         public FormRecepcionistaMascota(FormLoginDataSessionTicket session, string mascota, char action)
         {
-            Activate();
-            this.Visible = true;
             InitializeComponent();
             controller = new FormRecepcionistaMascotaController(session, this);
+            ActivateForm();
+            this.Visible = true;
             EnableForm(action, false);
             controller.loadData(mascota);
             
+        }
+
+        /**
+         * Activa el formulario
+         */
+        public void ActivateForm()
+        {
+            Activate();
+            this.Visible = true;
+            controller.Clear();
+        }
+
+        /**
+        * Cuando se clickea en el dataGrid
+        */
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        /**
+         * Cuando se clickea el boton guardar
+         */
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            //GUARDA O MODIFICA EL ANIMAL
+        }
+
+        /**
+         * Cuando se clickea el boton eliminar
+         */
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            EnableForm('E', false);
+        }
+
+        /**
+         * Cuando se clickea el boton (imagen) anaydir
+         */
+        private void btn_anaydir_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new FormRecepcionistaConsulta(controller.sessionData, Utils.State.MODIFY, null);
+        }
+
+        /**
+         * Cuando se clickea el boton buscar y apareceria en el combo_box de nombres el del animal
+         */
+        private void btn_buscar_cliente_Click(object sender, EventArgs e)
+        {
+            //Busca por cliente
+        }
+
+        /**
+         * Borrar los campos del formulario
+         */
+        private void btn_erase_Click(object sender, EventArgs e)
+        {
+            EnableForm('E', true);
+            controller.Clear();
+        }
+
+        /**
+         * Cuando pulsamos el boton de no eliminar
+         */
+        private void btn_eliminar_no_Click(object sender, EventArgs e)
+        {
+            EnableForm('E', true);
+        }
+
+        /**
+         * Cuando pasamos el boton de eliminar si
+         */
+        private void btn_eliminar_si_Click(object sender, EventArgs e)
+        {
+            EnableForm('E', true);
+            //controller.Borrar();
         }
 
         /**
@@ -72,6 +149,43 @@ namespace WindowsFormsApplication1
             }
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //// MENU SUPERIOR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //// MENU SUPERIOR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //// MENU SUPERIOR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //// MENU SUPERIOR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
         /**
          * Pinta el panel menu superior
          */
@@ -105,7 +219,7 @@ namespace WindowsFormsApplication1
         private void picture_consultas_Click(object sender, EventArgs e)
         {
             Hide();
-            new FormRecepcionistaConsulta(controller.sessionData);
+            new FormRecepcionistaConsulta(controller.sessionData, Utils.State.NONE);
         }
 
         /**
@@ -114,7 +228,7 @@ namespace WindowsFormsApplication1
         private void picture_facturas_Click(object sender, EventArgs e)
         {
             Hide();
-            new FormRecepcionistaFactura(controller.sessionData);
+            //new FormRecepcionistaFactura(controller.sessionData);
         }
 
         /**
@@ -144,75 +258,7 @@ namespace WindowsFormsApplication1
         private void picture_cliente_opcion_cliente_Click(object sender, EventArgs e)
         {
             Hide();
-            new FormRecepcionistaCliente(controller.sessionData, 'A');
-        }
-
-
-        /**
-         * Cuando se clickea en el dataGrid
-         */
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        /**
-         * Cuando se clickea el boton guardar
-         */
-        private void btn_guardar_Click(object sender, EventArgs e)
-        {
-            //GUARDA O MODIFICA EL ANIMAL
-        }
-
-        /**
-         * Cuando se clickea el boton eliminar
-         */
-        private void btn_eliminar_Click(object sender, EventArgs e)
-        {
-            EnableForm('E', false);
-        }
-
-        /**
-         * Cuando se clickea el boton (imagen) anaydir
-         */
-        private void btn_anaydir_Click(object sender, EventArgs e)
-        {
-            //Hide();
-            //new FormRecepcionistaConsulta(session, animalActual, clienteAnimal, 'A');
-        }
-
-        /**
-         * Cuando se clickea el boton buscar y apareceria en el combo_box de nombres el del animal
-         */
-        private void btn_buscar_cliente_Click(object sender, EventArgs e)
-        {
-            //Busca por cliente
-        }
-
-        /**
-         * Borrar los campos del formulario
-         */
-        private void btn_erase_Click(object sender, EventArgs e)
-        {
-            EnableForm('E', true);
-            controller.Clear();
-        }
-
-        /**
-         * Cuando pulsamos el boton de no eliminar
-         */
-        private void btn_eliminar_no_Click(object sender, EventArgs e)
-        {
-            EnableForm('E', true);
-        }
-
-        /**
-         * Cuando pasamos el boton de eliminar si
-         */
-        private void btn_eliminar_si_Click(object sender, EventArgs e)
-        {
-            EnableForm('E', true);
-            //controller.Borrar();
+            new FormRecepcionistaCliente(controller.sessionData, null, Utils.State.NONE);
         }
     }
 }

@@ -24,18 +24,16 @@ namespace WindowsFormsApplication1
          */
         public FormRecepcionistaAdministradorInicio(FormLoginDataSessionTicket sesion)
         {
-            Activate();
-            this.Visible = true;
+            ActivateForm();
             InitializeComponent();
-
             controller = new FormRecepcionistaAdministradorInicioController(this, sesion);
   
 
-                //IMPLEMENTAR PARATE CONTROLADOR ADMINSITRADOR.........
+            //IMPLEMENTAR PARATE CONTROLADOR ADMINSITRADOR.........
 
-                //....
-                //....
-                //....
+            //....
+            //....
+            //....
 
 
 
@@ -43,6 +41,19 @@ namespace WindowsFormsApplication1
                 //mostraria la otra barra
                 //sino muestra la normal de recepcionista
             
+        }
+
+        /** Activa el formulario */
+        public void ActivateForm()
+        {
+            Activate();
+            this.Visible = true;
+        }
+
+        /** Desactiva el formulario */
+        public void DesactivateForm()
+        {
+            this.Visible = false;
         }
 
         /**
@@ -57,35 +68,7 @@ namespace WindowsFormsApplication1
          */
         private void dataGridView1_CellPainting_1(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.ColumnIndex >= 0 && this.dataGrid_clientes.Columns[e.ColumnIndex].Name == "Eliminar" && e.RowIndex >= 0)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                DataGridViewButtonCell celBoton = this.dataGrid_clientes.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
-                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\close-icon.ico");
-                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
-
-                this.dataGrid_clientes.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
-                this.dataGrid_clientes.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
-
-                e.Handled = true;
-
-            }
-
-
-            if (e.ColumnIndex >= 0 && this.dataGrid_clientes.Columns[e.ColumnIndex].Name == "Modificar" && e.RowIndex >= 0)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                DataGridViewButtonCell celBoton = this.dataGrid_clientes.Rows[e.RowIndex].Cells["Modificar"] as DataGridViewButtonCell;
-                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\edit-icon.ico");
-                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
-
-                this.dataGrid_clientes.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
-                this.dataGrid_clientes.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
-
-                e.Handled = true;
-            }
+            controller.paintDataGridView(e);
         }
 
         /**
@@ -93,12 +76,13 @@ namespace WindowsFormsApplication1
          */
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            char action = '\0';
-            string cliente = controller.getStateScreen(e, ref action);
+            Utils.State st = Utils.State.NONE;
 
-            if(cliente!="") {
+            ClienteEN cliente = controller.getStateScreen(e, ref st);
+
+            if(cliente!=null) {
                  Hide();
-                 new FormRecepcionistaCliente(controller.sessionData, cliente, action);
+                 new FormRecepcionistaCliente(controller.sessionData, cliente, st);
             }
         }
 
@@ -115,10 +99,46 @@ namespace WindowsFormsApplication1
             }
             else if(controller.sessionData.tipo.Equals("Recepcionista"))
             {
-                new FormRecepcionistaCliente(controller.sessionData, 'A');
+                new FormRecepcionistaCliente(controller.sessionData, null, Utils.State.NEW);
             }
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ////////////// MENU SUPERIOR !!!!!!!!!!!!!!!!!!!!!!!
+        ////////////// MENU SUPERIOR !!!!!!!!!!!!!!!!!!!!!!!
+        ////////////// MENU SUPERIOR !!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+        /**
+         * Pinta el panel superior
+         */
         private void panel_top_Paint(object sender, PaintEventArgs e)
         {
             this.picture_start.BackColor = Color.White;
@@ -139,7 +159,7 @@ namespace WindowsFormsApplication1
         private void picture_clientes_Click(object sender, EventArgs e)
         {
             Hide();
-            new FormRecepcionistaCliente(controller.sessionData, 'A');
+            new FormRecepcionistaCliente(controller.sessionData, null, Utils.State.NONE);
         }
 
         /**
@@ -148,7 +168,7 @@ namespace WindowsFormsApplication1
         private void picture_consultas_Click(object sender, EventArgs e)
         {
             Hide();
-            new FormRecepcionistaConsulta(controller.sessionData);
+            new FormRecepcionistaConsulta(controller.sessionData, Utils.State.NONE);
         }
 
         /**
@@ -157,7 +177,7 @@ namespace WindowsFormsApplication1
         private void picture_facturas_Click(object sender, EventArgs e)
         {
             Hide();
-            new FormRecepcionistaFactura(controller.sessionData);
+            //new FormRecepcionistaFactura(controller.sessionData);
         }
 
         /**

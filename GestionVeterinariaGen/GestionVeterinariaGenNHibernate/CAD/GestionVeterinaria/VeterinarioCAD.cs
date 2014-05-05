@@ -154,17 +154,17 @@ public void Destroy (string DNI)
         }
 }
 
-public System.Collections.Generic.IList<VeterinarioEN> DameTodosLosVeterinarios (int first, int size)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> DameTodosLosVeterinarios ()
 {
-        System.Collections.Generic.IList<VeterinarioEN> result = null;
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(VeterinarioEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<VeterinarioEN>();
-                else
-                        result = session.CreateCriteria (typeof(VeterinarioEN)).List<VeterinarioEN>();
+                //String sql = @"FROM VeterinarioEN self where FROM VeterinarioEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("VeterinarioENdameTodosLosVeterinariosHQL");
+
+                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN>();
                 SessionCommit ();
         }
 
@@ -183,7 +183,6 @@ public System.Collections.Generic.IList<VeterinarioEN> DameTodosLosVeterinarios 
 
         return result;
 }
-
 public VeterinarioEN DameVetarinarioPorOID (string DNI)
 {
         VeterinarioEN veterinarioEN = null;
@@ -253,37 +252,6 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
                 query.SetParameter ("busqueda", busqueda);
 
                 result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in VeterinarioCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
-public int DameNumeroTotalVeterinarios ()
-{
-        int result;
-
-        try
-        {
-                SessionInitializeTransaction ();
-                //String sql = @"FROM VeterinarioEN self where SELECT Count(vt) FROM VeterinarioEN as vt";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("VeterinarioENdameNumeroTotalVeterinariosHQL");
-
-
-                result = query.UniqueResult<int>();
                 SessionCommit ();
         }
 

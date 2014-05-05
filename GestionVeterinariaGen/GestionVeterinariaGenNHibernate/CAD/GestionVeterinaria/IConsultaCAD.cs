@@ -32,5 +32,8 @@ GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN DameConsultaPor
 
 
 System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameConsultaPorAnimal (int mascota);
+
+
+System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameConsultaPorFechaYHora (Nullable<DateTime> fecha);
 }
 }

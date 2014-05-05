@@ -9,7 +9,7 @@ public partial class FacturaEN
  *
  */
 
-private int idFactura;
+private string idFactura;
 
 /**
  *
@@ -45,7 +45,7 @@ private bool pagada;
 
 
 
-public virtual int IdFactura {
+public virtual string IdFactura {
         get { return idFactura; } set { idFactura = value;  }
 }
 
@@ -84,7 +84,7 @@ public FacturaEN()
 
 
 
-public FacturaEN(int idFactura, Nullable<DateTime> fecha, float total, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN cliente, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN consulta, bool pagada)
+public FacturaEN(string idFactura, Nullable<DateTime> fecha, float total, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN cliente, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN consulta, bool pagada)
 {
         this.init (idFactura, fecha, total, cliente, consulta, pagada);
 }
@@ -95,7 +95,7 @@ public FacturaEN(FacturaEN factura)
         this.init (factura.IdFactura, factura.Fecha, factura.Total, factura.Cliente, factura.Consulta, factura.Pagada);
 }
 
-private void init (int idFactura, Nullable<DateTime> fecha, float total, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN cliente, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN consulta, bool pagada)
+private void init (string idFactura, Nullable<DateTime> fecha, float total, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN cliente, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN consulta, bool pagada)
 {
         this.IdFactura = idFactura;
 

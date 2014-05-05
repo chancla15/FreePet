@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
 
 namespace WindowsFormsApplication1
 {
@@ -15,44 +16,238 @@ namespace WindowsFormsApplication1
         private FormRecepcionistaClienteController controller;
 
         /** EL tipo de accion, ADD,MOD,DEL */
-        private char actionType;
+        public Utils.State state;
 
         /**
          * Constructor
          * @param session el ticket de sesion
          * @param showType el tipo de accion
          */
-        public FormRecepcionistaCliente(FormLoginDataSessionTicket session, char showType)
+        public FormRecepcionistaCliente(FormLoginDataSessionTicket session, ClienteEN cliente, Utils.State st)
         {
-            Activate();
-            this.Visible = true;
+            ActivateForm();
             InitializeComponent();
             controller = new FormRecepcionistaClienteController(session, this);
-            this.actionType = showType;
-
-            dataGridView.AutoResizeColumns();
-//            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnMode.AllCells;
+            changeState(st, cliente);
         }
 
         /**
-        * Constructor para modificar y 
-        * @param session el ticket de sesion
-        * @param cliente el cliente a modificar/eliminar
-        * @param showType el tipo de accion
-        */
-        public FormRecepcionistaCliente(FormLoginDataSessionTicket session, string cliente, char showType)
+         * Cambia el estado de la pantalla 
+         * @param el estado de la pantalla
+         * @param el cliente si es estado modificar o eliminar
+         */
+        public void changeState(Utils.State st, ClienteEN cli)
+        {
+            state = st;
+            if (state == Utils.State.MODIFY || state == Utils.State.DESTROY)
+            {
+                text_dni.Enabled = false;
+                controller.loadData(cli);
+
+                if (state == Utils.State.DESTROY) {
+                    btn_eliminar_Click(new object(), new EventArgs());
+                }
+            }
+        }
+
+        /** Activa el formulario */
+        public void ActivateForm()
         {
             Activate();
             this.Visible = true;
-            InitializeComponent();
-            controller = new FormRecepcionistaClienteController(session, this);
-            this.actionType = showType;
-            controller.loadData(cliente,'\0');
-            text_dni.Enabled = false;
-
-            if (showType == 'E')
-                EnableForm(false);
         }
+
+        /** Desactiva el formulario */
+        public void DesactivateForm()
+        {
+            this.Visible = false;
+        }
+
+        /**
+         * Si buscamos una mascota
+         */
+        private void btn_buscar_Click(object sender, EventArgs e) {
+            state = Utils.State.NEW;
+            controller.Buscar();
+        }
+
+        /**
+         * Si anaydimos una mascota nueva
+         */
+        private void btn_anaydir_Click(object sender, EventArgs e)
+        {
+            Hide();
+            //new FormRecepcionistaMascota(controller.sessionData, null , null, Utils.State.NEW);
+        }
+
+        /**
+        * Pinta el tamaño de las celdas
+        */
+        private void dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e){
+            //controller.paintDataGrid(e);
+        }
+
+        /**
+         * Comprueba donde se ha pulsado
+         */
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Utils.State mscState = Utils.State.NONE;
+            string msc = controller.getDataGridViewState(e, mscState);
+
+            //Ir a formulario mascotas
+            if (msc != "" && mscState!=Utils.State.NONE)
+            {
+                //Hide();
+                //new FormRecepcionistaMascota(controller.sessionData, msc, mscState);
+            }
+            else if (msc != "" && mscState==Utils.State.NONE && state==Utils.State.MODIFY) 
+            {
+                text_dni.Enabled = false;
+                controller.loadData(Utils._IClienteCAD.DameClientePorOID(msc));
+            }
+        }
+
+        /**
+         * Cuando se selecciona el boton guardar
+         */
+        private void btn_guardar_Click(object sender, EventArgs e) 
+        {
+            if (state == Utils.State.NONE)
+                state = Utils.State.NEW;
+            else
+                state = Utils.State.MODIFY;
+
+            controller.ProcesarInformacion();
+            EnableForm(true);
+            state = Utils.State.MODIFY;
+        }
+
+        /**
+         * Cuadno se pulsa el boton de cancelar eliminacion
+         */
+        private void btn_eliminar_no_Click(object sender, EventArgs e) {
+            state = Utils.State.MODIFY;
+            EnableForm(true);
+        }
+
+        /**
+         * Cuando se pulsa el boton de proceder a eliminar
+         */
+        private void btn_eliminar_si_Click(object sender, EventArgs e) {
+            state = Utils.State.DESTROY;
+            EnableForm(true);
+            controller.ProcesarInformacion();
+            state = Utils.State.NONE;
+        }
+
+        /**
+         * Pone typ todos los elementos del formulario menos los de eliminar
+         * @param typ si estan disponibles o no
+         */
+        private void EnableForm(Boolean typ)
+        {
+            text_dni.Enabled =  typ;
+            text_nombre.Enabled = typ;
+            text_apellidos.Enabled = typ;
+            text_direccion.Enabled = typ;
+            text_provincia.Enabled = typ;
+            text_localidad.Enabled = typ;
+            text_cp.Enabled = typ;
+            text_telefono.Enabled = typ;
+            text_buscar.Enabled = typ;
+            btn_buscar_dni.Enabled = typ;
+            btn_erase.Enabled = typ;
+            btn_buscar.Enabled = typ;
+            btn_guardar.Enabled = typ;
+            btn_eliminar.Enabled = typ;
+            dataGridView.Enabled = typ;
+            panel_clientes_opcion.Enabled = typ;
+            panel_top.Enabled = typ;
+            btn_anaydir.Enabled = typ;
+
+            alerta_eliminar.Enabled = !typ;
+            alerta_eliminar.Visible = !typ;
+            btn_eliminar_no.Enabled = !typ;
+            btn_eliminar_si.Enabled = !typ;
+        }
+
+
+        /**
+         * Cuando se pulsa el boton eliminar principal
+         */
+        private void btn_eliminar_Click(object sender, EventArgs e) {
+            EnableForm(false);
+        }
+
+        /**
+         * Si clickea el boton de buscar cliente por dni desde la pantalla cliente
+         */
+        private void btn_buscar_dni_Click(object sender, EventArgs e) {
+            controller.loadData(null);
+        }
+
+        /**
+         * Cuando se pulsa el boton erase que es la gomita se borran todos los campos
+         */
+        private void btn_erase_Click(object sender, EventArgs e)
+        {
+            if(state==Utils.State.MODIFY)
+                text_dni.Enabled = true;
+
+            controller.ClearForm();
+            state = Utils.State.NONE;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ////MENU SUPERIOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        ////MENU SUPERIOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        ////MENU SUPERIOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        ////MENU SUPERIOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        ////MENU SUPERIOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+
+
+
+
+
 
         /**
          * Pinta panel superior menu
@@ -84,7 +279,7 @@ namespace WindowsFormsApplication1
         private void picture_consultas_Click(object sender, EventArgs e)
         {
             Hide();
-            new FormRecepcionistaConsulta(controller.sessionData);
+            new FormRecepcionistaConsulta(controller.sessionData, Utils.State.NONE);
         }
 
         /**
@@ -93,7 +288,7 @@ namespace WindowsFormsApplication1
         private void picture_facturas_Click(object sender, EventArgs e)
         {
             Hide();
-            new FormRecepcionistaFactura(controller.sessionData);
+            //new FormRecepcionistaFactura(controller.sessionData);
         }
 
         /**
@@ -128,171 +323,6 @@ namespace WindowsFormsApplication1
          *  Si seleccionamos la opcion cliente del panel clientes
          */
         private void picture_cliente_opcion_cliente_Click(object sender, EventArgs e)
-        {}
-
-        /**
-         * Si buscamos una mascota
-         */
-        private void btn_buscar_Click(object sender, EventArgs e) {
-            controller.Buscar();
-        }
-
-        /**
-         * Si anaydimos una mascota nueva
-         */
-        private void btn_anaydir_Click(object sender, EventArgs e)
-        {
-            Hide();
-            new FormRecepcionistaMascota(controller.sessionData, null , 'A');
-        }
-
-        /**
-        * Pinta el tamaño de las celdas
-        */
-        private void dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            if (e.ColumnIndex >= 0 && this.dataGridView.Columns[e.ColumnIndex].Name == "Eliminar" && e.RowIndex >= 0)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                DataGridViewButtonCell celBoton = this.dataGridView.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
-                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\close-icon.ico");
-                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left, e.CellBounds.Top);
-
-                //this.dataGridView.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
-                //this.dataGridView.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
-
-                e.Handled = true;
-
-            }
-
-
-            if (e.ColumnIndex >= 0 && this.dataGridView.Columns[e.ColumnIndex].Name == "Modificar" && e.RowIndex >= 0)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                DataGridViewButtonCell celBoton = this.dataGridView.Rows[e.RowIndex].Cells["Modificar"] as DataGridViewButtonCell;
-                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\edit-icon.ico");
-                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left, e.CellBounds.Top);
-
-                //this.dataGridView.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
-                //this.dataGridView.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
-
-                e.Handled = true;
-            }
-        }
-
-        /**
-         * Comprueba donde se ha pulsado
-         */
-        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            char action = '\0';
-            string msc = controller.getDataGridViewState(e, ref action);
-
-            //Ir a formulario mascotas
-            if (msc != "" && action == 'S')
-            {
-                controller.loadData(msc, 'S');
-            }
-            else if (msc != "" && (action == 'M' || action == 'E'))
-            {
-                Hide();
-                new FormRecepcionistaMascota(controller.sessionData, msc, action);
-            }
-        }
-
-        /**
-         * Cuando se selecciona el boton guardar
-         */
-        private void btn_guardar_Click(object sender, EventArgs e) {
-            controller.GuardaModificaEliminaCliente(actionType);
-            EnableForm(true);
-            actionType = 'A';
-        }
-
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.mascotaTableAdapter.FillBy(this.formRecepcionistaCliente_DataSet.Mascota);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        /**
-         * Cuadno se pulsa el boton de cancelar eliminacion
-         */
-        private void btn_eliminar_no_Click(object sender, EventArgs e) {
-            EnableForm(true);
-            actionType = 'M';
-        }
-
-        /**
-         * Cuando se pulsa el boton de proceder a eliminar
-         */
-        private void btn_eliminar_si_Click(object sender, EventArgs e) {
-            EnableForm(true);
-            actionType = 'E';
-            controller.GuardaModificaEliminaCliente(actionType);
-        }
-
-        /**
-         * Pone typ todos los elementos del formulario menos los de eliminar
-         * @param typ si estan disponibles o no
-         */
-        private void EnableForm(Boolean typ)
-        {
-            text_dni.Enabled =  typ;
-            text_nombre.Enabled = typ;
-            text_apellidos.Enabled = typ;
-            text_direccion.Enabled = typ;
-            text_provincia.Enabled = typ;
-            text_localidad.Enabled = typ;
-            text_cp.Enabled = typ;
-            text_telefono.Enabled = typ;
-            text_buscar.Enabled = typ;
-            btn_buscar.Enabled = typ;
-            btn_guardar.Enabled = typ;
-            btn_eliminar.Enabled = typ;
-            dataGridView.Enabled = typ;
-            panel_clientes_opcion.Enabled = typ;
-            panel_top.Enabled = typ;
-            btn_anaydir.Enabled = typ;
-
-            alerta_eliminar.Enabled = !typ;
-            alerta_eliminar.Visible = !typ;
-            btn_eliminar_no.Enabled = !typ;
-            btn_eliminar_si.Enabled = !typ;
-        }
-
-
-        /**
-         * Cuando se pulsa el boton eliminar principal
-         */
-        private void btn_eliminar_Click(object sender, EventArgs e) {
-            EnableForm(false);
-            //Borrar todos los campos del formulario
-        }
-
-        /**
-         * Si clickea el boton de buscar cliente por dni desde la pantalla cliente
-         */
-        private void btn_buscar_dni_Click(object sender, EventArgs e) {
-            controller.loadData(text_dni.Text,'\0');
-        }
-
-        /**
-         * Cuando se pulsa el boton erase que es la gomita se borran todos los campos
-         */
-        private void btn_erase_Click(object sender, EventArgs e)
-        {
-            text_dni.Enabled = true;
-            controller.Clear();
-        }
+        { }
     }
 }

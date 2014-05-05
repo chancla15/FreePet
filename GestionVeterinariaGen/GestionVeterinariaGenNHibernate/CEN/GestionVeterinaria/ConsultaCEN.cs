@@ -32,7 +32,7 @@ public IConsultaCAD get_IConsultaCAD ()
         return this._IConsultaCAD;
 }
 
-public int New_ (Nullable<DateTime> p_fecha, string p_motivoConsulta, string p_diagnostico, int p_mascota, string p_veterinario, string p_tratamiento, string p_lugar)
+public int New_ (Nullable<DateTime> p_fecha, string p_motivoConsulta, string p_diagnostico, int p_mascota, string p_veterinario, string p_lugar)
 {
         ConsultaEN consultaEN = null;
         int oid;
@@ -55,12 +55,6 @@ public int New_ (Nullable<DateTime> p_fecha, string p_motivoConsulta, string p_d
         if (p_veterinario != null) {
                 consultaEN.Veterinario = new GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN ();
                 consultaEN.Veterinario.DNI = p_veterinario;
-        }
-
-
-        if (p_tratamiento != null) {
-                consultaEN.Tratamiento = new GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN ();
-                consultaEN.Tratamiento.Nombre = p_tratamiento;
         }
 
         consultaEN.Lugar = p_lugar;
@@ -122,6 +116,10 @@ public GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN DameCons
 public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameConsultaPorAnimal (int mascota)
 {
         return _IConsultaCAD.DameConsultaPorAnimal (mascota);
+}
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameConsultaPorFechaYHora (Nullable<DateTime> fecha)
+{
+        return _IConsultaCAD.DameConsultaPorFechaYHora (fecha);
 }
 }
 }

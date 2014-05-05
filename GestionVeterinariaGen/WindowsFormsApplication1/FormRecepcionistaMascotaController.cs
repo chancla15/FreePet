@@ -21,24 +21,6 @@ namespace WindowsFormsApplication1
         /** El ticket de sesion */
         public FormLoginDataSessionTicket sessionData;
 
-        /** EL CAD para acceder a la tabla mascotas */
-        private MascotaCAD _IMascotaCAD = new MascotaCAD();
-
-        /** El CEN para acceder a la tabla clientes */
-        private ClienteCAD _IClienteCAD = new ClienteCAD();
-
-        /** El CAD para acceder a las consultas del animal */
-        private ConsultaCAD _IConsultaCAD = new ConsultaCAD();
-
-        /** EL CEN para acceder a la tabla mascotas */
-        private MascotaCEN MascotaCEN;
-
-        /** El CEN para acceder a la tabla cliente */
-        private ClienteCEN ClienteCEN;
-
-        /** El CEN para acceder a la tabla consultas */
-        private ConsultaCEN ConsultaCEN;
-
          /**
          * El constructor
          * @param s el ticket de sesion
@@ -48,9 +30,6 @@ namespace WindowsFormsApplication1
         {
             this.sessionData = s;
             this.form = f;
-            MascotaCEN = new MascotaCEN(_IMascotaCAD);
-            ClienteCEN = new ClienteCEN(_IClienteCAD);
-            ConsultaCEN = new ConsultaCEN(_IConsultaCAD);
 
             form.combo_tamanyo.Items.Add(GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.XS);
             form.combo_tamanyo.Items.Add(GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.S);
@@ -75,7 +54,7 @@ namespace WindowsFormsApplication1
 
             if (mascota != null)
             {
-                mascota.Cliente.DNI = _IClienteCAD.DameClientePorOID(form.text_cliente.Text).DNI;
+                mascota.Cliente.DNI = Utils._IClienteCAD.DameClientePorOID(form.text_cliente.Text).DNI;
                 mascota.Nombre = form.text_nombre.Text;
                 mascota.Especie = form.text_especie.Text;;
                 mascota.Raza = form.text_raza.Text;
@@ -101,7 +80,7 @@ namespace WindowsFormsApplication1
             MascotaEN mascota = null;
 
             if(msc!="")
-                mascota= _IMascotaCAD.BuscarMascotaPorOID(Convert.ToInt32(msc));
+                mascota = Utils._IMascotaCAD.BuscarMascotaPorOID(Convert.ToInt32(msc));
 
             if (mascota != null)
             {
@@ -116,7 +95,8 @@ namespace WindowsFormsApplication1
                 form.text_color.Text = mascota.Color;
                 form.combo_microchip.SelectedItem = mascota.Microchip;
 
-                IList<ConsultaEN> consultas = _IConsultaCAD.DameConsultaPorAnimal(Convert.ToInt32(msc));
+                IList<ConsultaEN> consultas = Utils._IConsultaCAD.DameConsultaPorAnimal(Convert.ToInt32(msc));
+                VeterinarioEN veterinario = null;
                 form.dataGridView.DataSource = null;
                 form.dataGridView.Refresh();
                 if (form.dataGridView.Rows.Count > 0)
@@ -126,7 +106,9 @@ namespace WindowsFormsApplication1
                 {
                     for (int i = 0; i < consultas.Count; i++)
                     {
-                        form.dataGridView.Rows.Add(consultas[i].Fecha.Value.ToString(), consultas[i].MotivoConsulta, consultas[i].Lugar, consultas[i].Veterinario.DNI);
+                        veterinario = Utils._IVeterinarioCAD.DameVetarinarioPorOID(consultas[i].Veterinario.DNI);
+                        string vet = veterinario.Nombre + " " + veterinario.Apellidos;
+                        form.dataGridView.Rows.Add(consultas[i].Fecha.Value.ToString(), consultas[i].MotivoConsulta, consultas[i].Lugar, vet);
                     }
                 }
             }

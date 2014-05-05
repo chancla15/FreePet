@@ -23,7 +23,7 @@ public FacturaCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public FacturaEN ReadOIDDefault (int idFactura)
+public FacturaEN ReadOIDDefault (string idFactura)
 {
         FacturaEN facturaEN = null;
 
@@ -81,7 +81,7 @@ public System.Collections.Generic.IList<FacturaEN> DameTodasLasFacturas (int fir
         return result;
 }
 
-public int New_ (FacturaEN factura)
+public string New_ (FacturaEN factura)
 {
         try
         {
@@ -89,7 +89,7 @@ public int New_ (FacturaEN factura)
                 if (factura.Cliente != null) {
                         factura.Cliente = (GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN)session.Load (typeof(GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN), factura.Cliente.DNI);
 
-                        factura.Cliente.Factura.Add (factura);
+                        factura.Cliente.Factura = factura;
                 }
                 if (factura.Consulta != null) {
                         factura.Consulta.Factura = factura;
@@ -148,7 +148,7 @@ public void Modify (FacturaEN factura)
                 SessionClose ();
         }
 }
-public void Destroy (int idFactura)
+public void Destroy (string idFactura)
 {
         try
         {
@@ -172,7 +172,7 @@ public void Destroy (int idFactura)
         }
 }
 
-public FacturaEN DameFacturaPorOID (int idFactura)
+public FacturaEN DameFacturaPorOID (string idFactura)
 {
         FacturaEN facturaEN = null;
 
@@ -238,36 +238,6 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
                 //String sql = @"FROM FacturaEN self where FROM FacturaEN f WHERE f.Pagada =FALSE";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("FacturaENdameImpagosHQL");
-
-                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in FacturaCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
-public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN> DameFacturasPorCliente (string nif)
-{
-        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN> result;
-        try
-        {
-                SessionInitializeTransaction ();
-                //String sql = @"FROM FacturaEN self where FROM FacturaEN f WHERE f.Cliente.DNI=:nif";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("FacturaENdameFacturasPorClienteHQL");
-                query.SetParameter ("nif", nif);
 
                 result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN>();
                 SessionCommit ();

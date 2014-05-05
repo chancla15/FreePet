@@ -591,6 +591,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormRecepcionistaCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clientes Perfil";
             this.panel_top.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).EndInit();

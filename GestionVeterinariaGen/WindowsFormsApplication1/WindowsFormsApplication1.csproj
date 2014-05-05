@@ -103,6 +103,11 @@
     <Compile Include="AcercaDe.Designer.cs">
       <DependentUpon>AcercaDe.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataBaseInfo_ALL.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseInfo_ALL.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormRecepcionistaAdministradorInicio_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -127,12 +132,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FormRecepcionistaCliente_DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FormRecepcionistaFactura.cs">
+    <Compile Include="FormRecepcionistaConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormRecepcionistaFactura.Designer.cs">
-      <DependentUpon>FormRecepcionistaFactura.cs</DependentUpon>
+    <Compile Include="FormRecepcionistaConsulta.designer.cs">
+      <DependentUpon>FormRecepcionistaConsulta.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRecepcionistaConsultaController.cs" />
     <Compile Include="FormRecepcionistaMascota_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -146,8 +152,6 @@
     </Compile>
     <Compile Include="FormVeterinarioConsultaController.cs" />
     <Compile Include="FormLoginDataSessionTicket.cs" />
-    <Compile Include="FormRecepcionistaConsultaController.cs" />
-    <Compile Include="FormRecepcionistaFacturaController.cs" />
     <Compile Include="FormRecepcionistaMascotaController.cs" />
     <Compile Include="FormRecepcionistaAdministradorInicioController.cs" />
     <Compile Include="FormRecepcionistaMascota.cs">
@@ -168,12 +172,6 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRecepcionistaConsulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormRecepcionistaConsulta.designer.cs">
-      <DependentUpon>FormRecepcionistaConsulta.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormVeterinarioInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +188,7 @@
     <Compile Include="FormAdministradorTratamientoController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils.cs" />
     <EmbeddedResource Include="AcercaDe.resx">
       <DependentUpon>AcercaDe.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,8 +198,8 @@
     <EmbeddedResource Include="FormAdministradorEmpleado.resx">
       <DependentUpon>FormAdministradorEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormRecepcionistaFactura.resx">
-      <DependentUpon>FormRecepcionistaFactura.cs</DependentUpon>
+    <EmbeddedResource Include="FormRecepcionistaConsulta.resx">
+      <DependentUpon>FormRecepcionistaConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVeterinarioConsulta.resx">
       <DependentUpon>FormVeterinarioConsulta.cs</DependentUpon>
@@ -213,9 +212,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormRecepcionistaConsulta.resx">
-      <DependentUpon>FormRecepcionistaConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVeterinarioInicio.resx">
       <DependentUpon>FormVeterinarioInicio.cs</DependentUpon>
@@ -234,6 +230,17 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="DataBaseInfo_ALL.xsc">
+      <DependentUpon>DataBaseInfo_ALL.xsd</DependentUpon>
+    </None>
+    <None Include="DataBaseInfo_ALL.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataBaseInfo_ALL.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataBaseInfo_ALL.xss">
+      <DependentUpon>DataBaseInfo_ALL.xsd</DependentUpon>
+    </None>
     <None Include="FormRecepcionistaAdministradorInicio_DataSet.xsc">
       <DependentUpon>FormRecepcionistaAdministradorInicio_DataSet.xsd</DependentUpon>
     </None>

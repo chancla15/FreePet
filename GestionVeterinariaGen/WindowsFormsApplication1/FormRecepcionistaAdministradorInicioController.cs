@@ -7,6 +7,7 @@ using GestionVeterinariaGenNHibernate.CEN.GestionVeterinaria;
 using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
 using System.Collections;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace WindowsFormsApplication1
 {
@@ -22,14 +23,11 @@ namespace WindowsFormsApplication1
         /** Formulario a controlar */
         private FormRecepcionistaAdministradorInicio form;
 
-        /** Cliente para acer las nbsuquedas a la DB */
-        private ClienteCAD _IClienteCAD = new ClienteCAD();
+        /** Lista de clientes obtenidos en la busqueda */
+        private List<ClienteEN> clientes_buscados;
 
-        /** Empleado para hacer las busquedas */
-        private EmpleadoCAD _IEmpleadoCAD = new EmpleadoCAD();
-
-
-
+        /** Lista de empleados mostrados */
+        private List<EmpleadoEN> empleados_buscados;
 
         /**
          * Constructor
@@ -40,6 +38,8 @@ namespace WindowsFormsApplication1
             this.form = f;
             this.sessionData = sesion;
             initPerfil();
+            clientes_buscados = new List<ClienteEN>();
+            empleados_buscados = new List<EmpleadoEN>();
         }
 
         /**
@@ -68,26 +68,63 @@ namespace WindowsFormsApplication1
          */
         public void buscarClientes()
         {
+            form.dataGrid_clientes.DataSource = null;
+            form.dataGrid_clientes.Refresh();
+
+            if(clientes_buscados!=null)
+                clientes_buscados.Clear();
+
             String buscar = form.text_buscar.Text.ToString();
 
             if (buscar != "")
             {
-                ClienteCEN cen_c = new ClienteCEN();
+                ClienteEN cliente_dni = Utils._IClienteCAD.DameClientePorOID(buscar);
+                IList<ClienteEN> clientes_nombre = Utils._IClienteCAD.BuscarClientePorNombre(buscar);
+                IList<ClienteEN> clientes_apellidos = Utils._IClienteCAD.BuscarClientePorApellidos(buscar);
+                List<string> dni = new List<string>();
 
-                IList<ClienteEN> en_cli_nombre = cen_c.BuscarClientePorNombre(buscar);
-                IList<ClienteEN> en_cli_apellido = cen_c.BuscarClientePorApellidos(buscar);
-
-                ArrayList dni = new ArrayList(); //para que no aparezca personas repetidas
-                bool dni_repetido = false;
-
-                if (en_cli_nombre.Count == 0 && en_cli_apellido.Count == 0)
+                if (cliente_dni == null && clientes_nombre.Count == 0 && clientes_apellidos.Count == 0)
                     MessageBox.Show("La búsqueda no ha producido ningún resultado");
                 else
                 {
-                    form.dataGrid_clientes.DataSource = null;
-                    form.dataGrid_clientes.Refresh();
+                    if (cliente_dni != null)
+                    {
+                        clientes_buscados.Add(cliente_dni);
+                        dni.Add(cliente_dni.DNI);
+                    }
 
-                    for (int x = 0; x < en_cli_nombre.Count; x++)
+                    if (clientes_nombre != null && clientes_nombre.Count > 0)
+                    {
+                        for (int i = 0; i < clientes_nombre.Count; i++)
+                        {
+                            if (!dni.Contains(clientes_nombre[i].DNI))
+                            {
+                                clientes_buscados.Add(clientes_nombre[i]);
+                                dni.Add(clientes_nombre[i].DNI);
+                            }
+                        }
+                    }
+
+                    if (clientes_apellidos != null && clientes_apellidos.Count > 0)
+                    {
+                        for (int i = 0; i < clientes_apellidos.Count; i++)
+                        {
+                            if (!dni.Contains(clientes_apellidos[i].DNI))
+                            {
+                                clientes_buscados.Add(clientes_apellidos[i]);
+                                dni.Add(clientes_apellidos[i].DNI);
+                            }
+                        }
+                    }
+
+                    dni.Clear();
+
+                    for (int i = 0; i < clientes_buscados.Count; i++)
+                        form.dataGrid_clientes.Rows.Add(clientes_buscados[i].DNI, clientes_buscados[i].Nombre, clientes_buscados[i].Apellidos);
+
+
+
+                    /*for (int x = 0; x < en_cli_nombre.Count; x++)
                     {
                         form.dataGrid_clientes.Rows.Add(en_cli_nombre[x].DNI, en_cli_nombre[x].Nombre, en_cli_nombre[x].Apellidos);
                         //metemos el dni en el array auxiliar
@@ -106,14 +143,15 @@ namespace WindowsFormsApplication1
                             form.dataGrid_clientes.Rows.Add(en_cli_apellido[i].DNI, en_cli_apellido[i].Nombre, en_cli_apellido[i].Apellidos);
 
                         dni_repetido = false;
-                    }
+                    }*/
                 }
             }
-            else
-                form.dataGrid_clientes.Refresh();
         }
 
 
+        /**
+         * Busca empleados aplicar mismo metodo que clientes pero con empleados
+         */
         public void buscarEmpleados()
         {
             String buscar = form.text_buscar.Text;
@@ -130,7 +168,7 @@ namespace WindowsFormsApplication1
                 form.dataGrid_clientes.Refresh();
                 form.dataGrid_clientes.Rows.Clear();
 
-                empleado_dni = _IEmpleadoCAD.DameEmpleadoPorOID(buscar);
+                empleado_dni = Utils._IEmpleadoCAD.DameEmpleadoPorOID(buscar);
                 //empleado_name = _IEmpleadoCAD.DameEmpleadoPorNombre(buscar);
                 //empleado_surname = _IEmpleadoCAD.DameEmpleadoPorApellidos(buscar);
 
@@ -166,22 +204,65 @@ namespace WindowsFormsApplication1
                 form.dataGrid_clientes.Rows.Clear();
         }
 
+        /**
+         * Pinta el datagrid
+         */
+        public void paintDataGridView(DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && form.dataGrid_clientes.Columns[e.ColumnIndex].Name == "Eliminar" && e.RowIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                DataGridViewButtonCell celBoton = form.dataGrid_clientes.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\close-icon.ico");
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
+
+                form.dataGrid_clientes.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
+                form.dataGrid_clientes.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
+
+                e.Handled = true;
+
+            }
+
+            if (e.ColumnIndex >= 0 && form.dataGrid_clientes.Columns[e.ColumnIndex].Name == "Modificar" && e.RowIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                DataGridViewButtonCell celBoton = form.dataGrid_clientes.Rows[e.RowIndex].Cells["Modificar"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\edit-icon.ico");
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
+
+                form.dataGrid_clientes.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
+                form.dataGrid_clientes.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
+
+                e.Handled = true;
+            }
+        }
+
         /** 
          * Devuelve un cliente dependiendo de donde se haya pulsado en el datagrid
          */
-        public string getStateScreen(DataGridViewCellEventArgs ev, ref char action)
+        public ClienteEN getStateScreen(DataGridViewCellEventArgs ev, ref Utils.State action)
         {
+            ClienteEN cliEN = null;
             string cli = "";
 
             if (form.dataGrid_clientes.Columns[ev.ColumnIndex].Name.Equals("Eliminar"))
-                action = 'E';
+                action = Utils.State.DESTROY;
             else if (form.dataGrid_clientes.Columns[ev.ColumnIndex].Name.Equals("Modificar"))
-                action = 'M';
+                action = Utils.State.MODIFY;
 
-            if(action=='E' || action=='M')
+            if (action == Utils.State.DESTROY || action == Utils.State.MODIFY)
                 cli = form.dataGrid_clientes.Rows[ev.RowIndex].Cells[0].Value.ToString();
 
-            return cli;
+            for(int i=0;i<clientes_buscados.Count;i++)
+                if (cli == clientes_buscados[i].DNI)
+                {
+                    cliEN = clientes_buscados[i];
+                    break;
+                }
+
+            return cliEN;
         }    
     }
 }

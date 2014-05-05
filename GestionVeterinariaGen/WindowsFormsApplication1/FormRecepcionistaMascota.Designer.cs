@@ -39,14 +39,6 @@
             this.picture_cliente_opcion_mascota = new System.Windows.Forms.PictureBox();
             this.picture_cliente_opcion_cliente = new System.Windows.Forms.PictureBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Veterinario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ver = new System.Windows.Forms.DataGridViewImageColumn();
-            this.consultaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.formRecepcionistaMascota_DataSet = new WindowsFormsApplication1.FormRecepcionistaMascota_DataSet();
-            this.consultaTableAdapter = new WindowsFormsApplication1.FormRecepcionistaMascota_DataSetTableAdapters.ConsultaTableAdapter();
             this.label_cliente = new System.Windows.Forms.Label();
             this.text_cliente = new System.Windows.Forms.TextBox();
             this.label_nombre = new System.Windows.Forms.Label();
@@ -77,6 +69,14 @@
             this.label_eliminar_box = new System.Windows.Forms.Label();
             this.btn_eliminar_no = new System.Windows.Forms.Button();
             this.btn_eliminar_si = new System.Windows.Forms.Button();
+            this.consultaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.formRecepcionistaMascota_DataSet = new WindowsFormsApplication1.FormRecepcionistaMascota_DataSet();
+            this.consultaTableAdapter = new WindowsFormsApplication1.FormRecepcionistaMascota_DataSetTableAdapters.ConsultaTableAdapter();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Veterinario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ver = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).BeginInit();
@@ -87,13 +87,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_mascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_cliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.consultaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaMascota_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_foto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_anaydir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_cliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).BeginInit();
             this.alerta_eliminar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.consultaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaMascota_DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_top
@@ -216,54 +216,6 @@
             this.dataGridView.Size = new System.Drawing.Size(658, 209);
             this.dataGridView.TabIndex = 55;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Fecha
-            // 
-            this.Fecha.DataPropertyName = "fecha";
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            // 
-            // Motivo
-            // 
-            this.Motivo.DataPropertyName = "motivoConsulta";
-            this.Motivo.HeaderText = "Motivo";
-            this.Motivo.Name = "Motivo";
-            this.Motivo.ReadOnly = true;
-            // 
-            // Lugar
-            // 
-            this.Lugar.DataPropertyName = "lugar";
-            this.Lugar.HeaderText = "Lugar";
-            this.Lugar.Name = "Lugar";
-            this.Lugar.ReadOnly = true;
-            // 
-            // Veterinario
-            // 
-            this.Veterinario.DataPropertyName = "FK_DNI_idVeterinario";
-            this.Veterinario.HeaderText = "Veterinario";
-            this.Veterinario.Name = "Veterinario";
-            this.Veterinario.ReadOnly = true;
-            // 
-            // Ver
-            // 
-            this.Ver.HeaderText = "Ver";
-            this.Ver.Name = "Ver";
-            this.Ver.ReadOnly = true;
-            // 
-            // consultaBindingSource
-            // 
-            this.consultaBindingSource.DataMember = "Consulta";
-            this.consultaBindingSource.DataSource = this.formRecepcionistaMascota_DataSet;
-            // 
-            // formRecepcionistaMascota_DataSet
-            // 
-            this.formRecepcionistaMascota_DataSet.DataSetName = "FormRecepcionistaMascota_DataSet";
-            this.formRecepcionistaMascota_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // consultaTableAdapter
-            // 
-            this.consultaTableAdapter.ClearBeforeFill = true;
             // 
             // label_cliente
             // 
@@ -543,6 +495,54 @@
             this.btn_eliminar_si.UseVisualStyleBackColor = true;
             this.btn_eliminar_si.Click += new System.EventHandler(this.btn_eliminar_si_Click);
             // 
+            // consultaBindingSource
+            // 
+            this.consultaBindingSource.DataMember = "Consulta";
+            this.consultaBindingSource.DataSource = this.formRecepcionistaMascota_DataSet;
+            // 
+            // formRecepcionistaMascota_DataSet
+            // 
+            this.formRecepcionistaMascota_DataSet.DataSetName = "FormRecepcionistaMascota_DataSet";
+            this.formRecepcionistaMascota_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // consultaTableAdapter
+            // 
+            this.consultaTableAdapter.ClearBeforeFill = true;
+            // 
+            // Fecha
+            // 
+            this.Fecha.DataPropertyName = "fecha";
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            // 
+            // Motivo
+            // 
+            this.Motivo.DataPropertyName = "motivoConsulta";
+            this.Motivo.HeaderText = "Motivo";
+            this.Motivo.Name = "Motivo";
+            this.Motivo.ReadOnly = true;
+            // 
+            // Lugar
+            // 
+            this.Lugar.DataPropertyName = "lugar";
+            this.Lugar.HeaderText = "Lugar";
+            this.Lugar.Name = "Lugar";
+            this.Lugar.ReadOnly = true;
+            // 
+            // Veterinario
+            // 
+            this.Veterinario.DataPropertyName = "FK_DNI_idVeterinario";
+            this.Veterinario.HeaderText = "Veterinario";
+            this.Veterinario.Name = "Veterinario";
+            this.Veterinario.ReadOnly = true;
+            // 
+            // Ver
+            // 
+            this.Ver.HeaderText = "Ver";
+            this.Ver.Name = "Ver";
+            this.Ver.ReadOnly = true;
+            // 
             // FormRecepcionistaMascota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -592,14 +592,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_mascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_cliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.consultaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaMascota_DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_foto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_anaydir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_cliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).EndInit();
             this.alerta_eliminar.ResumeLayout(false);
             this.alerta_eliminar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.consultaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaMascota_DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -644,16 +644,16 @@
         public System.Windows.Forms.Button btn_guardar;
         public System.Windows.Forms.PictureBox btn_anaydir;
         public System.Windows.Forms.PictureBox btn_buscar_cliente;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Motivo;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Lugar;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Veterinario;
-        public System.Windows.Forms.DataGridViewImageColumn Ver;
         public System.Windows.Forms.TextBox text_especie;
         public System.Windows.Forms.PictureBox btn_erase;
         public System.Windows.Forms.Panel alerta_eliminar;
         public System.Windows.Forms.Label label_eliminar_box;
         public System.Windows.Forms.Button btn_eliminar_no;
         public System.Windows.Forms.Button btn_eliminar_si;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Motivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lugar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Veterinario;
+        private System.Windows.Forms.DataGridViewImageColumn Ver;
     }
 }
