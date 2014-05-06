@@ -1,33 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using GestionVeterinariaGenNHibernate.CEN.GestionVeterinaria;
-using System.Collections;
 using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
-using System.Data.SqlClient;
 
 namespace WindowsFormsApplication1
 {
     public partial class FormRecepcionistaAdministradorInicio : Form
     {
-        /** El controlador */
-        FormRecepcionistaAdministradorInicioController controller;
+        #region Variables
 
+        /** El controlador */
+        public FormRecepcionistaAdministradorInicioController controller = null;
+
+        /** El menu superior */
+        public ScreenControllerRecepcionista menu = null;
+
+        /** IDENTIFICADOR */
+        public string ID = "START";
+
+        #endregion
+
+        #region Constructor
         /**
          * Constructor de la clase
          * @param sesion datos de la sesion
          */
-        public FormRecepcionistaAdministradorInicio(FormLoginDataSessionTicket sesion)
+        public FormRecepcionistaAdministradorInicio(ScreenControllerRecepcionista menu)
         {
-            ActivateForm();
+           // ActivateForm();
+            this.menu = menu;
             InitializeComponent();
-            controller = new FormRecepcionistaAdministradorInicioController(this, sesion);
-  
+            controller = new FormRecepcionistaAdministradorInicioController(this, this.menu.sessionData);
 
             //IMPLEMENTAR PARATE CONTROLADOR ADMINSITRADOR.........
 
@@ -43,6 +46,9 @@ namespace WindowsFormsApplication1
             
         }
 
+        #endregion
+
+        #region I/O_Form
         /** Activa el formulario */
         public void ActivateForm()
         {
@@ -55,13 +61,9 @@ namespace WindowsFormsApplication1
         {
             this.Visible = false;
         }
+        #endregion
 
-        /**
-         * Cuando se pulsa el boton de buscar
-         */
-        private void btn_buscar_Click(object sender, EventArgs e)   {
-            controller.buscar();
-        }
+        #region DataGridClientes
 
         /**
          * Pinta el tamaño de las celdas
@@ -84,11 +86,25 @@ namespace WindowsFormsApplication1
                 Console.WriteLine("mascotas in");
 
             if(cliente!=null) {
-                 Hide();
+                 //Hide();
                  Console.WriteLine(cliente.DNI + "   " + cliente.Direccion);
-                 new FormRecepcionistaCliente(controller.sessionData, cliente, st);
+                 menu.LaunchClienteScreen(st, cliente);
+                 //new FormRecepcionistaCliente(controller.sessionData, cliente, st);
             }
         }
+
+        #endregion
+
+        #region ButtonsBuscar
+
+        /**
+         * Cuando se pulsa el boton de buscar
+         */
+        private void btn_buscar_Click(object sender, EventArgs e)
+        {
+            controller.buscar();
+        }
+
 
         /**
          * Carga la pantalla para introducir un nuevo usuario
@@ -103,40 +119,13 @@ namespace WindowsFormsApplication1
             }
             else if(controller.sessionData.tipo.Equals("Recepcionista"))
             {
-                new FormRecepcionistaCliente(controller.sessionData, null, Utils.State.NEW);
+                //new FormRecepcionistaCliente(controller.sessionData, null, Utils.State.NEW);
             }
         }
 
+        #endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        ////////////// MENU SUPERIOR !!!!!!!!!!!!!!!!!!!!!!!
-        ////////////// MENU SUPERIOR !!!!!!!!!!!!!!!!!!!!!!!
-        ////////////// MENU SUPERIOR !!!!!!!!!!!!!!!!!!!!!!!
+        #region MenuSuperior
 
 
 
@@ -154,7 +143,8 @@ namespace WindowsFormsApplication1
          */
         private void picture_start_Click(object sender, EventArgs e)
         {
-
+            if (menu.LaunchStartScreen())
+                    DesactivateForm();
         }
 
         /**
@@ -162,8 +152,8 @@ namespace WindowsFormsApplication1
          */
         private void picture_clientes_Click(object sender, EventArgs e)
         {
-            Hide();
-            new FormRecepcionistaCliente(controller.sessionData, null, Utils.State.NONE);
+            if (menu.LaunchClienteScreen(Utils.State.NONE, null))
+                     DesactivateForm();
         }
 
         /**
@@ -171,8 +161,8 @@ namespace WindowsFormsApplication1
          */
         private void picture_consultas_Click(object sender, EventArgs e)
         {
-            Hide();
-            new FormRecepcionistaConsulta(controller.sessionData, Utils.State.NONE);
+            if (menu.LaunchConsultaScreen(Utils.State.NONE, null))
+                     DesactivateForm();
         }
 
         /**
@@ -180,8 +170,8 @@ namespace WindowsFormsApplication1
          */
         private void picture_facturas_Click(object sender, EventArgs e)
         {
-            Hide();
-            new FormRecepcionistaFactura(controller.sessionData);
+            if(menu.LaunchFacturaScreen())
+                     DesactivateForm();
         }
 
         /**
@@ -192,5 +182,7 @@ namespace WindowsFormsApplication1
             //Esto solo le da a un formulario
             //donde puede cambiar algunos datos personales, la constraseña la foto y desconectarse
         }
+
+        #endregion
     }
 }

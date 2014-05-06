@@ -34,7 +34,7 @@ namespace WindowsFormsApplication1
         private void btn_salir_Click(object sender, EventArgs e)
         {
             Hide();
-            new FormRecepcionistaAdministradorInicio(controller.sessionData);
+            //new FormRecepcionistaAdministradorInicio(controller.sessionData);
         }
 
 
@@ -45,7 +45,7 @@ namespace WindowsFormsApplication1
         {
             if (controller.modifiData()) {
                 Hide();
-                new FormRecepcionistaAdministradorInicio(controller.sessionData);
+                //new FormRecepcionistaAdministradorInicio(controller.sessionData);
             }
         }
 

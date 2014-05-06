@@ -41,6 +41,12 @@ namespace WindowsFormsApplication1
         /** Empleado para acceder a la DDBB */
         public static EmpleadoCAD _IEmpleadoCAD = new EmpleadoCAD();
 
+        /** Recepcionista para acceder a la DDBB */
+        public static RecepcionistaCAD _IRecepcionistaCAD = new RecepcionistaCAD();
+
+        /** Administrador para acceder a la DDBB */
+        public static AdministradorCAD _IAdministradorCAD = new AdministradorCAD();
+
         /** CEN de cliente */
         public static ClienteCEN _ClienteCEN = new ClienteCEN(_IClienteCAD);
 
@@ -58,5 +64,11 @@ namespace WindowsFormsApplication1
 
         /** CEN de empleado */
         public static EmpleadoCEN _EmpleadoCEN = new EmpleadoCEN(_IEmpleadoCAD);
+
+        /** CEN de recepcionista */
+        public static RecepcionistaCEN _RecepcionistaCEN = new RecepcionistaCEN(_IRecepcionistaCAD);
+
+        /** CEN de administrador */
+        public static AdministradorCEN _AdministradorCEN = new AdministradorCEN(_IAdministradorCAD);
     }
 }

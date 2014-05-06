@@ -46,11 +46,15 @@ namespace WindowsFormsApplication1
                 Hide();
                 Console.WriteLine("Empezar con pantalla: " + sessionData.tipo + " " + sessionData.TOKEN_SESSION );
                 if (sessionData.tipo == "Recepcionista")
-                    new FormRecepcionistaAdministradorInicio(sessionData);
+                    new ScreenControllerRecepcionista(sessionData);
+                //new FormRecepcionistaAdministradorInicio(sessionData);
                 else if (sessionData.tipo == "Veterinario")
                     new FormVeterinarioInicio(sessionData);
                 else if (sessionData.tipo == "Administrador")
-                    new FormRecepcionistaAdministradorInicio(sessionData);
+                    new ScreenControllerRecepcionista(sessionData);
+                    
+                    
+                    //new FormRecepcionistaAdministradorInicio(sessionData);
             }
             
             label1.Text = "Datos incorrectos";

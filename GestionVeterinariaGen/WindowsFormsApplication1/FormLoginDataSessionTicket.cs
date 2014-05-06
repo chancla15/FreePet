@@ -42,6 +42,8 @@ namespace WindowsFormsApplication1
             name = "";
             TOKEN_SESSION = "";
             tipo = "";
+            fecha = "";
+            photo = null;
             new FormLogin();
         }
 
@@ -55,12 +57,6 @@ namespace WindowsFormsApplication1
         {
             Boolean log = false;
 
-            UsuarioCAD _IUsuarioCAD = new UsuarioCAD();
-            EmpleadoCAD _IEmpleadoCAD = new EmpleadoCAD();
-            RecepcionistaCAD _IRecepcionistaCAD = new RecepcionistaCAD();
-            AdministradorCAD _IAdministradorCAD = new AdministradorCAD();
-            EmpleadoCEN empCEN = new EmpleadoCEN(_IEmpleadoCAD);
-
             EmpleadoEN empEN = null;
             RecepcionistaEN recpEN = null;
             AdministradorEN admin = null;
@@ -68,19 +64,17 @@ namespace WindowsFormsApplication1
             if (User == "" || Pass == "")
                 return log;
 
+            empEN = Utils._IEmpleadoCAD.ReadOIDDefault(User);
+            admin = Utils._IAdministradorCAD.ReadOIDDefault(User);
 
-
-            empEN = _IEmpleadoCAD.ReadOIDDefault(User);
-            admin = _IAdministradorCAD.ReadOIDDefault(User);
-
-            if (empEN!=null && empCEN.Login(User, Pass))
+            if (empEN != null && Utils._EmpleadoCEN.Login(User, Pass))
             {
                 log = true;
                 name = empEN.Nombre;
                 TOKEN_SESSION = empEN.DNI;
                 fecha = DateTime.Now.ToString();
 
-                recpEN = _IRecepcionistaCAD.BuscarRecepPorOID(User);
+                recpEN = Utils._IRecepcionistaCAD.BuscarRecepPorOID(User);
                 if (recpEN != null)
                 {
 

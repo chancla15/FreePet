@@ -108,6 +108,7 @@
             this.panel_top.Name = "panel_top";
             this.panel_top.Size = new System.Drawing.Size(690, 34);
             this.panel_top.TabIndex = 52;
+            this.panel_top.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_top_Paint);
             // 
             // picture_ajustes
             // 
@@ -173,6 +174,7 @@
             this.panel_clientes_opcion.Name = "panel_clientes_opcion";
             this.panel_clientes_opcion.Size = new System.Drawing.Size(687, 32);
             this.panel_clientes_opcion.TabIndex = 54;
+            this.panel_clientes_opcion.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_clientes_opcion_Paint);
             // 
             // picture_cliente_opcion_mascota
             // 

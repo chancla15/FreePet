@@ -15,8 +15,7 @@ namespace WindowsFormsApplication1
      */
     class FormRecepcionistaClienteController
     {
-        /** El ticket de sesion */
-        public FormLoginDataSessionTicket sessionData;
+        #region Variables
 
         /** El formulario a controlar */
         private FormRecepcionistaCliente form;
@@ -27,18 +26,25 @@ namespace WindowsFormsApplication1
         /** El cliente actual en el formulario */
         public ClienteEN clienteEN = null;
 
+        #endregion
+
+        #region Constructor
+
         /**
          * Constructor de clase
          * @param sesion el ticket de sesion
          * @param form el formulario
          */
-        public FormRecepcionistaClienteController(FormLoginDataSessionTicket session, FormRecepcionistaCliente form)
+        public FormRecepcionistaClienteController(FormRecepcionistaCliente form)
         {
-            this.sessionData = session;
             this.form = form;
             form.dataGridView.Refresh();
             clienteEN = new ClienteEN();
         }
+
+        #endregion
+
+        #region Busquedas
 
         /**
          * Para buscar mascotas del cliente
@@ -114,6 +120,10 @@ namespace WindowsFormsApplication1
                     form.dataGridView.Rows.Add(lista_mascotas[i].IdMascota, lista_mascotas[i].Nombre, lista_mascotas[i].Especie, lista_mascotas[i].Raza, lista_mascotas[i].Cliente.DNI);
         }
 
+        #endregion
+
+        #region ProcesarDatos
+
         /**
          * Carga un cliente en los text_view
          */
@@ -180,6 +190,9 @@ namespace WindowsFormsApplication1
             }
         }
 
+        #endregion
+
+        #region DataGridView
 
         /**
          * Devuelve la columna pulsada del datagrid junto con su identficador
@@ -200,8 +213,9 @@ namespace WindowsFormsApplication1
 
             if (st == Utils.State.NONE)
                 form.text_dni.Text = form.dataGridView.Rows[ev.RowIndex].Cells[4].Value.ToString();
+            
 
-            if (lista_mascotas != null && lista_mascotas.Count > 0)
+            if (lista_mascotas != null && lista_mascotas.Count > 0 && cli!="")
             {
                 for (int i = 0; i < lista_mascotas.Count; i++)
                 {
@@ -266,6 +280,9 @@ namespace WindowsFormsApplication1
             }
         }
 
+        #endregion
+
+        #region BorrarTodosLosCampos
 
         /**
          * Borra todos los campos del formulario
@@ -292,5 +309,6 @@ namespace WindowsFormsApplication1
             if (form.dataGridView.Rows.Count > 0)
                 form.dataGridView.Rows.Clear();
         }
+        #endregion
     }
 }

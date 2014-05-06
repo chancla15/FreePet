@@ -15,11 +15,10 @@ namespace WindowsFormsApplication1
      */
     class FormRecepcionistaMascotaController
     {
+        #region Variables
+
         /** El formulario a controlar */
         private FormRecepcionistaMascota form;
-
-        /** El ticket de sesion */
-        public FormLoginDataSessionTicket sessionData;
 
         /** La lista de mascotas del cliente por si se ha metido al formulario para meter una nueva mascota */
         public IList<MascotaEN> list_mascotas_clientes = null;
@@ -30,14 +29,17 @@ namespace WindowsFormsApplication1
         /** La mascota de esta pantalla */
         public MascotaEN mascotaEN = null;
 
-         /**
+        #endregion
+
+        #region Constructor
+
+        /**
          * El constructor
          * @param s el ticket de sesion
          * @param f el formulario a controlar
          */
-        public FormRecepcionistaMascotaController(FormLoginDataSessionTicket s, FormRecepcionistaMascota f)
+        public FormRecepcionistaMascotaController(FormRecepcionistaMascota f)
         {
-            this.sessionData = s;
             this.form = f;
 
             form.combo_tamanyo.Items.Add(GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.XS);
@@ -52,6 +54,10 @@ namespace WindowsFormsApplication1
             form.combo_microchip.Items.Add(true);
             form.combo_microchip.Items.Add(false);
         }
+
+        #endregion
+
+        #region ProcesarDatos
 
         /**
          * Carga los datos de una mascota en el formulario 
@@ -224,6 +230,10 @@ namespace WindowsFormsApplication1
             }
         }
 
+        #endregion
+
+        #region DataGridView_Consultas
+
         /**
          * Devuelve la columna pulsada
          * @param ev la columna seleccionada
@@ -243,6 +253,9 @@ namespace WindowsFormsApplication1
             return cli;
         }
 
+        #endregion
+
+        #region BorrarTodosLosCampos
 
         /**
          * Borra todos los campos del formulario
@@ -266,5 +279,7 @@ namespace WindowsFormsApplication1
             if (form.dataGridView.Rows.Count > 0)
                 form.dataGridView.Rows.Clear();
         }
+
+        #endregion
     }
 }

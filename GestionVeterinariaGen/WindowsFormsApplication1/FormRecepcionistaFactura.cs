@@ -23,8 +23,8 @@ namespace WindowsFormsApplication1
          */
         public FormRecepcionistaFactura(FormLoginDataSessionTicket session)
         {
-            Activate();
-            this.Visible = true;
+           // Activate();
+            //this.Visible = true;
             InitializeComponent();
             controller = new FormRecepcionistaFacturaController(session, this);
             controller.CargarFacturasDataGrid();
@@ -91,15 +91,15 @@ namespace WindowsFormsApplication1
 
         private void picture_start_Click(object sender, EventArgs e)
         {
-            Hide();
-            new FormRecepcionistaAdministradorInicio(controller.sessionData);
+            //Hide();
+            //new FormRecepcionistaAdministradorInicio(controller.sessionData);
         }
 
         private void picture_consultas_Click(object sender, EventArgs e)
         {
 
-            Hide();
-            new FormRecepcionistaConsulta(controller.sessionData, Utils.State.NONE);
+            //Hide();
+           // new FormRecepcionistaConsulta(controller.sessionData, Utils.State.NONE);
         }
         
 
@@ -111,8 +111,8 @@ namespace WindowsFormsApplication1
 
         private void picture_clientes_Click(object sender, EventArgs e)
         {
-            Hide();
-            new FormRecepcionistaCliente(controller.sessionData, null, Utils.State.NONE);
+           // Hide();
+            //new FormRecepcionistaCliente(controller.sessionData, null, Utils.State.NONE);
         }
 
         private void picture_ajustes_Click(object sender, EventArgs e)

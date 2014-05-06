@@ -12,23 +12,34 @@ namespace WindowsFormsApplication1
 {
     public partial class FormRecepcionistaCliente : Form
     {
+        #region Variables
+
         /** El controlador */
-        private FormRecepcionistaClienteController controller;
+        private FormRecepcionistaClienteController controller = null;
 
         /** EL tipo de accion, ADD,MOD,DEL */
-        public Utils.State state;
+        public Utils.State state = Utils.State.NONE;
+
+        /** El identificador de la clase */
+        public string ID = "CLIENTE";
+
+        /** EL controlador del menu superior */
+        public ScreenControllerRecepcionista menu = null;
+        
+        #endregion
+
+        #region Constructor
 
         /**
          * Constructor
          * @param session el ticket de sesion
          * @param showType el tipo de accion
          */
-        public FormRecepcionistaCliente(FormLoginDataSessionTicket session, ClienteEN cliente, Utils.State st)
+        public FormRecepcionistaCliente(ScreenControllerRecepcionista menu)
         {
-            ActivateForm();
+            this.menu = menu;
             InitializeComponent();
-            controller = new FormRecepcionistaClienteController(session, this);
-            changeState(st, cliente);
+            controller = new FormRecepcionistaClienteController(this);
         }
 
         /**
@@ -38,6 +49,7 @@ namespace WindowsFormsApplication1
          */
         public void changeState(Utils.State st, ClienteEN cli)
         {
+           // controller.ClearForm();
             state = st;
             if (state == Utils.State.MODIFY || state == Utils.State.DESTROY)
             {
@@ -50,6 +62,10 @@ namespace WindowsFormsApplication1
             }
         }
 
+        #endregion
+
+        #region I/O_Form
+        
         /** Activa el formulario */
         public void ActivateForm()
         {
@@ -63,88 +79,10 @@ namespace WindowsFormsApplication1
             this.Visible = false;
         }
 
-        /**
-         * Si buscamos una mascota
-         */
-        private void btn_buscar_Click(object sender, EventArgs e) {
-            state = Utils.State.NEW;
-            controller.Buscar();
-        }
-
-        /**
-         * Si anaydimos una mascota nueva
-         */
-        private void btn_anaydir_Click(object sender, EventArgs e)
-        {
-            Hide();
-            new FormRecepcionistaMascota(controller.sessionData, controller.clienteEN , null, Utils.State.NEW);
-        }
-
-        /**
-        * Pinta el tamaño de las celdas
+       /**
+        * Pone typ todos los elementos del formulario menos los de eliminar
+        * @param typ si estan disponibles o no
         */
-        private void dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e){
-            //controller.paintDataGrid(e);
-        }
-
-        /**
-         * Comprueba donde se ha pulsado
-         */
-        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Utils.State mscState = Utils.State.NONE;
-            MascotaEN msc = controller.getDataGridViewState(e, ref mscState);
-
-           // Console.WriteLine("Estado: " + mscState + "ANIMAL: " + msc.IdMascota);
-            //Ir a formulario mascotas
-            if (msc != null && mscState!=Utils.State.NONE)
-            {
-                Hide();
-                new FormRecepcionistaMascota(controller.sessionData, msc.Cliente, msc, mscState);
-            }
-            else if (msc != null && mscState==Utils.State.NONE) 
-            {
-                changeState(Utils.State.MODIFY, null);
-            }
-        }
-
-        /**
-         * Cuando se selecciona el boton guardar
-         */
-        private void btn_guardar_Click(object sender, EventArgs e) 
-        {
-            if (state == Utils.State.NONE || state == Utils.State.NEW)
-                state = Utils.State.NEW;
-            else
-                state = Utils.State.MODIFY;
-
-            controller.ProcesarInformacion();
-            EnableForm(true);
-            state = Utils.State.MODIFY;
-        }
-
-        /**
-         * Cuadno se pulsa el boton de cancelar eliminacion
-         */
-        private void btn_eliminar_no_Click(object sender, EventArgs e) {
-            state = Utils.State.MODIFY;
-            EnableForm(true);
-        }
-
-        /**
-         * Cuando se pulsa el boton de proceder a eliminar
-         */
-        private void btn_eliminar_si_Click(object sender, EventArgs e) {
-            state = Utils.State.DESTROY;
-            EnableForm(true);
-            controller.ProcesarInformacion();
-            state = Utils.State.NONE;
-        }
-
-        /**
-         * Pone typ todos los elementos del formulario menos los de eliminar
-         * @param typ si estan disponibles o no
-         */
         private void EnableForm(Boolean typ)
         {
             text_dni.Enabled =  typ;
@@ -172,18 +110,78 @@ namespace WindowsFormsApplication1
             btn_eliminar_si.Enabled = !typ;
         }
 
+        #endregion
+
+        #region Botones
+        /**
+         * Si buscamos una mascota
+         */
+        private void btn_buscar_Click(object sender, EventArgs e) {
+            state = Utils.State.NEW;
+            controller.Buscar();
+        }
+
+        /**
+         * Si anaydimos una mascota nueva
+         */
+        private void btn_anaydir_Click(object sender, EventArgs e)
+        {
+            if(menu.LaunchMascotaScreen(Utils.State.NEW, controller.clienteEN, null))
+                    DesactivateForm();
+
+            //Hide();
+            //new FormRecepcionistaMascota(controller.sessionData, controller.clienteEN , null, Utils.State.NEW);
+        }
+
+       /**
+        * Cuando se selecciona el boton guardar
+        */
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            if (state == Utils.State.NONE || state == Utils.State.NEW)
+                state = Utils.State.NEW;
+            else
+                state = Utils.State.MODIFY;
+
+            controller.ProcesarInformacion();
+            EnableForm(true);
+            state = Utils.State.MODIFY;
+        }
+
+        /**
+         * Cuadno se pulsa el boton de cancelar eliminacion
+         */
+        private void btn_eliminar_no_Click(object sender, EventArgs e)
+        {
+            state = Utils.State.MODIFY;
+            EnableForm(true);
+        }
+
+        /**
+         * Cuando se pulsa el boton de proceder a eliminar
+         */
+        private void btn_eliminar_si_Click(object sender, EventArgs e)
+        {
+            state = Utils.State.DESTROY;
+            EnableForm(true);
+            controller.ProcesarInformacion();
+            state = Utils.State.NONE;
+        }
+
 
         /**
          * Cuando se pulsa el boton eliminar principal
          */
-        private void btn_eliminar_Click(object sender, EventArgs e) {
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
             EnableForm(false);
         }
 
         /**
          * Si clickea el boton de buscar cliente por dni desde la pantalla cliente
          */
-        private void btn_buscar_dni_Click(object sender, EventArgs e) {
+        private void btn_buscar_dni_Click(object sender, EventArgs e)
+        {
             changeState(Utils.State.MODIFY, null);
         }
 
@@ -192,7 +190,7 @@ namespace WindowsFormsApplication1
          */
         private void btn_erase_Click(object sender, EventArgs e)
         {
-            if(state==Utils.State.MODIFY)
+            if (state == Utils.State.MODIFY)
                 text_dni.Enabled = true;
 
             controller.ClearForm();
@@ -208,55 +206,41 @@ namespace WindowsFormsApplication1
 
         }
 
+        #endregion
 
+        #region DataGridView_Mascotas
 
+        /**
+        * Pinta el tamaño de las celdas
+        */
+        private void dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e){
+            //controller.paintDataGrid(e);
+        }
 
+        /**
+         * Comprueba donde se ha pulsado
+         */
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Utils.State aux_state = Utils.State.NONE;
+            MascotaEN msc = controller.getDataGridViewState(e, ref aux_state);
 
+           // Console.WriteLine("Estado: " + mscState + "ANIMAL: " + msc.IdMascota);
+            //Ir a formulario mascotas
+            if (msc != null && aux_state!=Utils.State.NONE)
+            {
+                if (menu.LaunchMascotaScreen(aux_state, msc.Cliente, msc))
+                    DesactivateForm();
+            }
+            else if (msc != null && aux_state==Utils.State.NONE) 
+            {
+                changeState(Utils.State.MODIFY, Utils._IClienteCAD.DameClientePorOID(""));
+            }
+        }
 
+        #endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        ////MENU SUPERIOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        ////MENU SUPERIOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        ////MENU SUPERIOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        ////MENU SUPERIOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        ////MENU SUPERIOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
-
-
-
-
-
-
-
+        #region MenuSuperior
 
         /**
          * Pinta panel superior menu
@@ -272,23 +256,29 @@ namespace WindowsFormsApplication1
          */
         private void picture_start_Click(object sender, EventArgs e)
         {
-            Hide();
-            new FormRecepcionistaAdministradorInicio(controller.sessionData);
+            if (menu.LaunchStartScreen())
+                DesactivateForm();
+
+            //Hide();
+            //new FormRecepcionistaAdministradorInicio(controller.sessionData);
         }
 
         /**
          * Cuando se slecciona la opcion clientes
          */
         private void picture_clientes_Click(object sender, EventArgs e)
-        { }
+        {
+            if (menu.LaunchClienteScreen(Utils.State.NONE, null))
+                DesactivateForm();
+        }
 
         /**
          * Cuando se slecciona la opcion consultas
          */
         private void picture_consultas_Click(object sender, EventArgs e)
         {
-            Hide();
-            new FormRecepcionistaConsulta(controller.sessionData, Utils.State.NONE);
+            if(menu.LaunchConsultaScreen(Utils.State.NONE, null))
+                DesactivateForm();
         }
 
         /**
@@ -297,7 +287,7 @@ namespace WindowsFormsApplication1
         private void picture_facturas_Click(object sender, EventArgs e)
         {
             Hide();
-            new FormRecepcionistaFactura(controller.sessionData);
+            new FormRecepcionistaFactura(menu.sessionData);
         }
 
         /**
@@ -309,6 +299,9 @@ namespace WindowsFormsApplication1
             //donde puede cambiar algunos datos personales, la constraseña la foto y desconectarse
         }
 
+        #endregion
+
+        #region SubMenuSuperior
 
         /**
          * Pinta el panel segun la pantalla
@@ -324,14 +317,20 @@ namespace WindowsFormsApplication1
          */
         private void picture_cliente_opcion_mascota_Click(object sender, EventArgs e)
         {
-            Hide();
-            new FormRecepcionistaMascota(controller.sessionData, null, null, Utils.State.NONE);
+            if (menu.LaunchMascotaScreen(Utils.State.NONE, null, null))
+                DesactivateForm();
+
+            //Hide();
+            //new FormRecepcionistaMascota(controller.sessionData, null, null, Utils.State.NONE);
         }
 
         /**
          *  Si seleccionamos la opcion cliente del panel clientes
          */
-        private void picture_cliente_opcion_cliente_Click(object sender, EventArgs e)
-        { }
+        private void picture_cliente_opcion_cliente_Click(object sender, EventArgs e){
+            picture_clientes_Click(sender, e);
+        }
+
+        #endregion
     }
 }

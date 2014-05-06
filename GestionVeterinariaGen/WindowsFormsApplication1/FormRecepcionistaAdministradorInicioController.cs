@@ -17,6 +17,7 @@ namespace WindowsFormsApplication1
      */
     public partial class FormRecepcionistaAdministradorInicioController
     {
+        #region Variables
         /** Datos de sesion */
         public FormLoginDataSessionTicket sessionData;
 
@@ -28,7 +29,9 @@ namespace WindowsFormsApplication1
 
         /** Lista de empleados mostrados */
         private List<EmpleadoEN> empleados_buscados;
+        #endregion
 
+        #region Constructor
         /**
          * Constructor
          * @param view la vista
@@ -53,7 +56,9 @@ namespace WindowsFormsApplication1
             form.log_date.Text = sessionData.fecha;
             //la foto
         }
+        #endregion
 
+        #region Busquedas
         //Busca segun el tipo de usuario
         public void buscar()
         {
@@ -203,7 +208,10 @@ namespace WindowsFormsApplication1
             else
                 form.dataGrid_clientes.Rows.Clear();
         }
+        #endregion
 
+        #region DataGridView_Clientes
+        
         /**
          * Pinta el datagrid
          */
@@ -263,6 +271,8 @@ namespace WindowsFormsApplication1
                 }
 
             return cliEN;
-        }    
+        }
+
+        #endregion
     }
 }

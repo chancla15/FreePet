@@ -14,11 +14,23 @@ namespace WindowsFormsApplication1
 {
     public partial class FormRecepcionistaMascota : Form
     {
+        #region Variables
+
         /** El controlador */
-        private FormRecepcionistaMascotaController controller;
+        private FormRecepcionistaMascotaController controller = null;
 
         /** El estado de la pantalla */
-        public Utils.State state;
+        public Utils.State state = Utils.State.NONE;
+
+        /** EL identificador de la pantalla */
+        public string ID = "MASCOTA";
+
+        /** El menu superior */
+        public ScreenControllerRecepcionista menu = null;
+
+        #endregion
+
+        #region Constructor
 
         /**
          * Contructor de clase de cuando lo llamamos para modificar/eliminar una mascota
@@ -26,13 +38,35 @@ namespace WindowsFormsApplication1
          * @param mascota la mascota
          * @param action el tipo de accion (mod OR del)
          */
-        public FormRecepcionistaMascota(FormLoginDataSessionTicket session, ClienteEN cliente, MascotaEN mascota, Utils.State st)
+        public FormRecepcionistaMascota(ScreenControllerRecepcionista menu)
         {
-            ActivateForm();
+            this.menu = menu;
             InitializeComponent();
-            controller = new FormRecepcionistaMascotaController(session, this);
-            changeState(st, cliente, mascota);            
+            controller = new FormRecepcionistaMascotaController(this);          
         }
+
+        /**
+        * Cambiar el estado de la pantalla
+        * @st el estado a cambiar
+        */
+        public void changeState(Utils.State st, ClienteEN cli, MascotaEN msc)
+        {
+           // controller.ClearForm();
+            state = st;
+
+            if (state == Utils.State.MODIFY || state == Utils.State.DESTROY)
+            {
+                text_cliente.Enabled = false;
+
+                if (state == Utils.State.DESTROY)
+                    btn_eliminar_Click(new object(), new EventArgs());
+            }
+            controller.loadDataCliente(cli, msc);
+        }
+
+        #endregion
+
+        #region I/O_Form
 
         /**
          * Activa el formulario
@@ -52,35 +86,49 @@ namespace WindowsFormsApplication1
         }
 
         /**
-         * Cambiar el estado de la pantalla
-         * @st el estado a cambiar
+         * Bloquea los componentes del formulario dependiendo de la accion
+         * @param action la accion
+         * @param block el tipo de bloqueo
          */
-        public void changeState(Utils.State st, ClienteEN cli, MascotaEN msc)
+        private void EnableForm(bool block)
         {
-            state= st;
+            text_cliente.Enabled = block;
+            text_especie.Enabled = block;
+            text_raza.Enabled = block;
+            dateTime_fnac.Enabled = block;
+            combo_sexo.Enabled = block;
 
-            if (state == Utils.State.MODIFY || state == Utils.State.DESTROY)
+            if (state == Utils.State.DESTROY)
             {
-                text_cliente.Enabled = false;
+                text_color.Enabled = block;
+                combo_nombreAnimal.Enabled = block;
+                text_peso.Enabled = block;
+                combo_sexo.Enabled = block;
+                combo_tamanyo.Enabled = block;
+                combo_microchip.Enabled = block;
+                btn_anaydir.Enabled = block;
+                btn_buscar_cliente.Enabled = block;
+                btn_erase.Enabled = block;
+                dataGridView.Enabled = block;
+                panel_clientes_opcion.Enabled = block;
+                panel_top.Enabled = block;
 
-                if (state == Utils.State.DESTROY)
-                    btn_eliminar_Click(new object(), new EventArgs());
+                alerta_eliminar.Visible = alerta_eliminar.Enabled = !block;
+                btn_eliminar_si.Visible = btn_eliminar_si.Enabled = !block;
+                btn_eliminar_no.Visible = btn_eliminar_no.Enabled = !block;
+                label_eliminar_box.Visible = label_eliminar_box.Enabled = !block;
             }
-            controller.loadDataCliente(cli, msc);            
         }
 
-       /**
-        * Cuando se clickea en el dataGrid
-        */
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        #endregion
 
-        }
+        #region Botones_y_ComboBoxAnimal
 
         /**
          * Cuando se clickea el boton guardar
          */
-        private void btn_guardar_Click(object sender, EventArgs e) {
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
             controller.ProcesarInformacion();
         }
 
@@ -115,14 +163,16 @@ namespace WindowsFormsApplication1
         /**
          * Borrar los campos del formulario
          */
-        private void btn_erase_Click(object sender, EventArgs e) {
+        private void btn_erase_Click(object sender, EventArgs e)
+        {
             controller.ClearForm();
         }
 
         /**
          * Cuando pulsamos el boton de no eliminar
          */
-        private void btn_eliminar_no_Click(object sender, EventArgs e) {
+        private void btn_eliminar_no_Click(object sender, EventArgs e)
+        {
             EnableForm(true);
             state = Utils.State.MODIFY;
         }
@@ -130,98 +180,40 @@ namespace WindowsFormsApplication1
         /**
          * Cuando pasamos el boton de eliminar si
          */
-        private void btn_eliminar_si_Click(object sender, EventArgs e) {
+        private void btn_eliminar_si_Click(object sender, EventArgs e)
+        {
             controller.ProcesarInformacion();
             EnableForm(true);
             controller.ClearForm();
             state = Utils.State.NONE;
         }
 
-        /**
-         * Bloquea los componentes del formulario dependiendo de la accion
-         * @param action la accion
-         * @param block el tipo de bloqueo
-         */
-        private void EnableForm(bool block)
+       /**
+        * Si se selecciona una mascota del cliente se cargan los datos de esta mascota
+        */
+        private void combo_nombreAnimal_SelectedIndexChanged(object sender, EventArgs e)
         {
-                text_cliente.Enabled = block;
-                text_especie.Enabled = block;
-                text_raza.Enabled = block;
-                dateTime_fnac.Enabled = block;
-                combo_sexo.Enabled = block;
+            changeState(Utils.State.MODIFY, null, null);
+        }
 
-                if (state==Utils.State.DESTROY)
-                {
-                    text_color.Enabled = block;
-                    combo_nombreAnimal.Enabled = block;
-                    text_peso.Enabled = block;
-                    combo_sexo.Enabled = block;
-                    combo_tamanyo.Enabled = block;
-                    combo_microchip.Enabled = block;
-                    btn_anaydir.Enabled = block;
-                    btn_buscar_cliente.Enabled = block;
-                    btn_erase.Enabled = block;
-                    dataGridView.Enabled = block;
-                    panel_clientes_opcion.Enabled = block;
-                    panel_top.Enabled = block;
+        #endregion
 
-                    alerta_eliminar.Visible = alerta_eliminar.Enabled = !block;
-                    btn_eliminar_si.Visible = btn_eliminar_si.Enabled = !block;
-                    btn_eliminar_no.Visible = btn_eliminar_no.Enabled = !block;
-                    label_eliminar_box.Visible = label_eliminar_box.Enabled = !block;
-                }
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //// MENU SUPERIOR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //// MENU SUPERIOR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //// MENU SUPERIOR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //// MENU SUPERIOR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        #region DataGridView
 
         /**
-         * Pinta el panel menu superior
+        * Cuando se clickea en el dataGrid
+        */
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        #region MenuSuperior
+
+        /**
+         * Pinta el panel superior
          */
         private void panel_top_Paint(object sender, PaintEventArgs e)
         {
@@ -229,14 +221,13 @@ namespace WindowsFormsApplication1
             this.panel_top.BackColor = Color.LightBlue;
         }
 
-
         /**
-        * Cuando se slecciona la opcion start
-        */
+         * Cuando se slecciona la opcion start
+         */
         private void picture_start_Click(object sender, EventArgs e)
         {
-            Hide();
-            new FormRecepcionistaAdministradorInicio(controller.sessionData);
+            if (menu.LaunchStartScreen())
+                 DesactivateForm();
         }
 
         /**
@@ -244,7 +235,8 @@ namespace WindowsFormsApplication1
          */
         private void picture_clientes_Click(object sender, EventArgs e)
         {
-           //NONE
+            if (menu.LaunchClienteScreen(Utils.State.NONE, null))
+                 DesactivateForm();
         }
 
         /**
@@ -252,8 +244,8 @@ namespace WindowsFormsApplication1
          */
         private void picture_consultas_Click(object sender, EventArgs e)
         {
-            Hide();
-            new FormRecepcionistaConsulta(controller.sessionData, Utils.State.NONE);
+            if (menu.LaunchConsultaScreen(Utils.State.NONE, null))
+                 DesactivateForm();
         }
 
         /**
@@ -261,8 +253,8 @@ namespace WindowsFormsApplication1
          */
         private void picture_facturas_Click(object sender, EventArgs e)
         {
-            Hide();
-            new FormRecepcionistaFactura(controller.sessionData);
+            if(menu.LaunchFacturaScreen())
+                 DesactivateForm();
         }
 
         /**
@@ -274,6 +266,13 @@ namespace WindowsFormsApplication1
             //donde puede cambiar algunos datos personales, la constraseña la foto y desconectarse
         }
 
+        #endregion
+
+        #region SubMenuSuperior
+
+        /**
+        * Pinta el panel segun la pantalla
+        */
         private void panel_clientes_opcion_Paint(object sender, PaintEventArgs e)
         {
             this.picture_cliente_opcion_mascota.BackColor = Color.White;
@@ -281,26 +280,21 @@ namespace WindowsFormsApplication1
         }
 
         /**
-         * Cuando se selecciona la opcion mascotas de clientes
+         * Si pulsa la opcion cliente
          */
-        private void picture_cliente_opcion_mascota_Click(object sender, EventArgs e)
-        { }
-
-        /** 
-         * Cuando se selcciona la opcion cliente de clientes
-         */
-        private void picture_cliente_opcion_cliente_Click(object sender, EventArgs e)
-        {
-            Hide();
-            new FormRecepcionistaCliente(controller.sessionData, null, Utils.State.NONE);
+        private void picture_cliente_opcion_cliente_Click(object sender, EventArgs e){
+            picture_clientes_Click(sender, e);
         }
 
         /**
-         * Si se selecciona una mascota del cliente se cargan los datos de esta mascota
+         * Si pulsa la opcion mascota
          */
-        private void combo_nombreAnimal_SelectedIndexChanged(object sender, EventArgs e)
+        private void picture_cliente_opcion_mascota_Click(object sender, EventArgs e)
         {
-            changeState(Utils.State.MODIFY, null, null);
+            if (menu.LaunchMascotaScreen(Utils.State.NONE, null, null))
+                DesactivateForm();
         }
+
+        #endregion
     }
 }
