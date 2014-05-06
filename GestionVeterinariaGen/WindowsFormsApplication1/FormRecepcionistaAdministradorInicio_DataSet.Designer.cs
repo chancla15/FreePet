@@ -574,8 +574,6 @@ namespace WindowsFormsApplication1 {
                 xs.Add(dsSchema);
                 return type;
             }
-
-            public bool ClearBeforeFill { get; set; }
         }
         
         /// <summary>

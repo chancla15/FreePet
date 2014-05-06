@@ -17,21 +17,21 @@ namespace WindowsFormsApplication1
         /** El controlador */
         private FormRecepcionistaMascotaController controller;
 
+        /** El estado de la pantalla */
+        public Utils.State state;
+
         /**
          * Contructor de clase de cuando lo llamamos para modificar/eliminar una mascota
          * @param session el ticket de sesion
          * @param mascota la mascota
          * @param action el tipo de accion (mod OR del)
          */
-        public FormRecepcionistaMascota(FormLoginDataSessionTicket session, string mascota, char action)
+        public FormRecepcionistaMascota(FormLoginDataSessionTicket session, ClienteEN cliente, MascotaEN mascota, Utils.State st)
         {
+            ActivateForm();
             InitializeComponent();
             controller = new FormRecepcionistaMascotaController(session, this);
-            ActivateForm();
-            this.Visible = true;
-            EnableForm(action, false);
-            controller.loadData(mascota);
-            
+            changeState(st, cliente, mascota);            
         }
 
         /**
@@ -41,10 +41,35 @@ namespace WindowsFormsApplication1
         {
             Activate();
             this.Visible = true;
-            controller.Clear();
         }
 
         /**
+         * Desactivar formulario
+         */
+        public void DesactivateForm()
+        {
+            this.Visible= false;
+        }
+
+        /**
+         * Cambiar el estado de la pantalla
+         * @st el estado a cambiar
+         */
+        public void changeState(Utils.State st, ClienteEN cli, MascotaEN msc)
+        {
+            state= st;
+
+            if (state == Utils.State.MODIFY || state == Utils.State.DESTROY)
+            {
+                text_cliente.Enabled = false;
+
+                if (state == Utils.State.DESTROY)
+                    btn_eliminar_Click(new object(), new EventArgs());
+            }
+            controller.loadDataCliente(cli, msc);            
+        }
+
+       /**
         * Cuando se clickea en el dataGrid
         */
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -55,9 +80,8 @@ namespace WindowsFormsApplication1
         /**
          * Cuando se clickea el boton guardar
          */
-        private void btn_guardar_Click(object sender, EventArgs e)
-        {
-            //GUARDA O MODIFICA EL ANIMAL
+        private void btn_guardar_Click(object sender, EventArgs e) {
+            controller.ProcesarInformacion();
         }
 
         /**
@@ -65,7 +89,8 @@ namespace WindowsFormsApplication1
          */
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            EnableForm('E', false);
+            state = Utils.State.DESTROY;
+            EnableForm(false);
         }
 
         /**
@@ -73,8 +98,10 @@ namespace WindowsFormsApplication1
          */
         private void btn_anaydir_Click(object sender, EventArgs e)
         {
-            Hide();
-            new FormRecepcionistaConsulta(controller.sessionData, Utils.State.MODIFY, null);
+            //Hide();
+            //Cargar consulta con mascota
+            //Utils.State.NEW_CONSULTAS_MASCOTA,
+            //new FormRecepcionistaConsulta(controller.sessionData, controller.mascotaEN);
         }
 
         /**
@@ -88,27 +115,26 @@ namespace WindowsFormsApplication1
         /**
          * Borrar los campos del formulario
          */
-        private void btn_erase_Click(object sender, EventArgs e)
-        {
-            EnableForm('E', true);
-            controller.Clear();
+        private void btn_erase_Click(object sender, EventArgs e) {
+            controller.ClearForm();
         }
 
         /**
          * Cuando pulsamos el boton de no eliminar
          */
-        private void btn_eliminar_no_Click(object sender, EventArgs e)
-        {
-            EnableForm('E', true);
+        private void btn_eliminar_no_Click(object sender, EventArgs e) {
+            EnableForm(true);
+            state = Utils.State.MODIFY;
         }
 
         /**
          * Cuando pasamos el boton de eliminar si
          */
-        private void btn_eliminar_si_Click(object sender, EventArgs e)
-        {
-            EnableForm('E', true);
-            //controller.Borrar();
+        private void btn_eliminar_si_Click(object sender, EventArgs e) {
+            controller.ProcesarInformacion();
+            EnableForm(true);
+            controller.ClearForm();
+            state = Utils.State.NONE;
         }
 
         /**
@@ -116,20 +142,18 @@ namespace WindowsFormsApplication1
          * @param action la accion
          * @param block el tipo de bloqueo
          */
-        private void EnableForm(char action, bool block)
+        private void EnableForm(bool block)
         {
-            if (action == 'M' || action == 'E')
-            {
                 text_cliente.Enabled = block;
                 text_especie.Enabled = block;
                 text_raza.Enabled = block;
                 dateTime_fnac.Enabled = block;
                 combo_sexo.Enabled = block;
 
-                if (action == 'E')
+                if (state==Utils.State.DESTROY)
                 {
                     text_color.Enabled = block;
-                    text_nombre.Enabled = block;
+                    combo_nombreAnimal.Enabled = block;
                     text_peso.Enabled = block;
                     combo_sexo.Enabled = block;
                     combo_tamanyo.Enabled = block;
@@ -147,7 +171,17 @@ namespace WindowsFormsApplication1
                     label_eliminar_box.Visible = label_eliminar_box.Enabled = !block;
                 }
             }
-        }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -210,7 +244,7 @@ namespace WindowsFormsApplication1
          */
         private void picture_clientes_Click(object sender, EventArgs e)
         {
-            //NONE
+           //NONE
         }
 
         /**
@@ -259,6 +293,14 @@ namespace WindowsFormsApplication1
         {
             Hide();
             new FormRecepcionistaCliente(controller.sessionData, null, Utils.State.NONE);
+        }
+
+        /**
+         * Si se selecciona una mascota del cliente se cargan los datos de esta mascota
+         */
+        private void combo_nombreAnimal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changeState(Utils.State.MODIFY, null, null);
         }
     }
 }

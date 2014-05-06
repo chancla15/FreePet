@@ -77,7 +77,7 @@ namespace WindowsFormsApplication1
         private void btn_anaydir_Click(object sender, EventArgs e)
         {
             Hide();
-            //new FormRecepcionistaMascota(controller.sessionData, null , null, Utils.State.NEW);
+            new FormRecepcionistaMascota(controller.sessionData, controller.clienteEN , null, Utils.State.NEW);
         }
 
         /**
@@ -93,18 +93,18 @@ namespace WindowsFormsApplication1
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Utils.State mscState = Utils.State.NONE;
-            string msc = controller.getDataGridViewState(e, mscState);
+            MascotaEN msc = controller.getDataGridViewState(e, ref mscState);
 
+           // Console.WriteLine("Estado: " + mscState + "ANIMAL: " + msc.IdMascota);
             //Ir a formulario mascotas
-            if (msc != "" && mscState!=Utils.State.NONE)
+            if (msc != null && mscState!=Utils.State.NONE)
             {
-                //Hide();
-                //new FormRecepcionistaMascota(controller.sessionData, msc, mscState);
+                Hide();
+                new FormRecepcionistaMascota(controller.sessionData, msc.Cliente, msc, mscState);
             }
-            else if (msc != "" && mscState==Utils.State.NONE && state==Utils.State.MODIFY) 
+            else if (msc != null && mscState==Utils.State.NONE) 
             {
-                text_dni.Enabled = false;
-                controller.loadData(Utils._IClienteCAD.DameClientePorOID(msc));
+                changeState(Utils.State.MODIFY, null);
             }
         }
 
@@ -113,7 +113,7 @@ namespace WindowsFormsApplication1
          */
         private void btn_guardar_Click(object sender, EventArgs e) 
         {
-            if (state == Utils.State.NONE)
+            if (state == Utils.State.NONE || state == Utils.State.NEW)
                 state = Utils.State.NEW;
             else
                 state = Utils.State.MODIFY;
@@ -184,7 +184,7 @@ namespace WindowsFormsApplication1
          * Si clickea el boton de buscar cliente por dni desde la pantalla cliente
          */
         private void btn_buscar_dni_Click(object sender, EventArgs e) {
-            controller.loadData(null);
+            changeState(Utils.State.MODIFY, null);
         }
 
         /**
@@ -197,6 +197,15 @@ namespace WindowsFormsApplication1
 
             controller.ClearForm();
             state = Utils.State.NONE;
+        }
+
+
+        /**
+         * El boton que te llevara al formulario facturas de un determinado cliente
+         */
+        private void button_facturas_Click(object sender, EventArgs e)
+        {
+
         }
 
 
@@ -316,7 +325,7 @@ namespace WindowsFormsApplication1
         private void picture_cliente_opcion_mascota_Click(object sender, EventArgs e)
         {
             Hide();
-            new FormRecepcionistaMascota(controller.sessionData, null, 'A');
+            new FormRecepcionistaMascota(controller.sessionData, null, null, Utils.State.NONE);
         }
 
         /**

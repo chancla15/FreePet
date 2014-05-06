@@ -21,6 +21,15 @@ namespace WindowsFormsApplication1
         /** El ticket de sesion */
         public FormLoginDataSessionTicket sessionData;
 
+        /** La lista de mascotas del cliente por si se ha metido al formulario para meter una nueva mascota */
+        public IList<MascotaEN> list_mascotas_clientes = null;
+
+        /** El cliente de esta pantalla */
+        public ClienteEN clienteEN = null;
+
+        /** La mascota de esta pantalla */
+        public MascotaEN mascotaEN = null;
+
          /**
          * El constructor
          * @param s el ticket de sesion
@@ -45,71 +54,172 @@ namespace WindowsFormsApplication1
         }
 
         /**
-         * Carga los datos de una mascota dado un cliente y un identificador de mascota en una MascotaEN
-         * y lo inserta/modifica/elimina
+         * Carga los datos de una mascota en el formulario 
          */
-        public void GuardarModificarEliminar()
+        public void loadDataMascota(MascotaEN msc)
         {
-            MascotaEN mascota = null;// _IMascotaCAD.BuscarMascotaPorOID();
+            mascotaEN = msc;
 
-            if (mascota != null)
+            if (mascotaEN != null)
             {
-                mascota.Cliente.DNI = Utils._IClienteCAD.DameClientePorOID(form.text_cliente.Text).DNI;
-                mascota.Nombre = form.text_nombre.Text;
-                mascota.Especie = form.text_especie.Text;;
-                mascota.Raza = form.text_raza.Text;
-               // mascota.Tamanyo = form.combo_tamanyo.SelectedItem;
-                mascota.Peso = float.Parse(form.text_peso.Text);
-                mascota.FNacimiento = Convert.ToDateTime(form.dateTime_fnac.Text);
-                // mascota.Sexo = form.combo_sexo.SelectedItem.ToString();
-                mascota.Color = form.text_color.Text;
-                // mascota.Microchip = form.combo_microchip.SelectedItem.ToString();
-                //mascota.Consulta = ConsultaCEN.DameConsultaPorAnimal(Id);
-            }
-            else
-            {
-                //ERROR MASCOTA NO ENCONTRADA
+                form.text_cliente.Text = mascotaEN.Cliente.DNI;
+                form.text_especie.Text = mascotaEN.Especie;
+                form.text_raza.Text = mascotaEN.Raza;
+                form.combo_tamanyo.SelectedItem = mascotaEN.Tamanyo;
+                form.text_peso.Text = mascotaEN.Peso.ToString();
+                form.dateTime_fnac.Value = mascotaEN.FNacimiento.Value;
+                form.combo_sexo.SelectedItem = mascotaEN.Sexo;
+                form.text_color.Text = mascotaEN.Color;
+                form.combo_microchip.SelectedItem = mascotaEN.Microchip;
             }
         }
 
         /**
-         * Carga una mascota en el formulario
-         */
-        public void loadData(string msc)
+        * Carga una mascota en el formulario
+        */
+        public void loadDataCliente(ClienteEN cli, MascotaEN msc)
         {
-            MascotaEN mascota = null;
+            ClearForm();
+            clienteEN = cli;
+            mascotaEN = msc;
+            string dni = "";
 
-            if(msc!="")
-                mascota = Utils._IMascotaCAD.BuscarMascotaPorOID(Convert.ToInt32(msc));
-
-            if (mascota != null)
+            if (clienteEN == null && mascotaEN == null)
             {
-                form.text_cliente.Text = mascota.Cliente.DNI;
-                form.text_nombre.Text = mascota.Nombre;
-                form.text_especie.Text = mascota.Especie;
-                form.text_raza.Text = mascota.Raza;
-                form.combo_tamanyo.SelectedItem = mascota.Tamanyo;
-                form.text_peso.Text = mascota.Peso.ToString();
-                form.dateTime_fnac.Value = mascota.FNacimiento.Value;
-                form.combo_sexo.SelectedItem = mascota.Sexo;
-                form.text_color.Text = mascota.Color;
-                form.combo_microchip.SelectedItem = mascota.Microchip;
+            }
+            else if (clienteEN != null && mascotaEN == null)
+            {
+                form.text_cliente.Text = clienteEN.DNI;
+                dni = clienteEN.DNI;
+            }
+            else if (mascotaEN != null)
+            {
+                dni = clienteEN.DNI;
+                loadDataMascota(msc);
+            }
 
-                IList<ConsultaEN> consultas = Utils._IConsultaCAD.DameConsultaPorAnimal(Convert.ToInt32(msc));
-                VeterinarioEN veterinario = null;
-                form.dataGridView.DataSource = null;
-                form.dataGridView.Refresh();
-                if (form.dataGridView.Rows.Count > 0)
-                    form.dataGridView.Rows.Clear();
+            //MUESTRA EL DNI CLIENTE CON UN COMBOBOX CON LAS MASCOTAS QUE TIENE Y LA OPCION DE AÑADIR UNA
+            list_mascotas_clientes = Utils._IMascotaCAD.DameMascotaPorCliente(dni);
 
-                if (consultas != null && consultas.Count > 0)
-                {
-                    for (int i = 0; i < consultas.Count; i++)
-                    {
-                        veterinario = Utils._IVeterinarioCAD.DameVetarinarioPorOID(consultas[i].Veterinario.DNI);
-                        string vet = veterinario.Nombre + " " + veterinario.Apellidos;
-                        form.dataGridView.Rows.Add(consultas[i].Fecha.Value.ToString(), consultas[i].MotivoConsulta, consultas[i].Lugar, vet);
+            if (list_mascotas_clientes != null && list_mascotas_clientes.Count > 0)
+            {
+                for (int i = 0; i < list_mascotas_clientes.Count; i++)
+                    form.combo_nombreAnimal.Items.Add(list_mascotas_clientes[i].Nombre);
+            }
+
+            if(mascotaEN!=null)
+                form.combo_nombreAnimal.SelectedItem = mascotaEN.Nombre;
+        }
+
+        /**
+         * Carga las consultas de un animal una vez seleccionada uno
+         */
+        public void cargarConsultasAnimal()
+        {
+            if (mascotaEN == null) {
+                String nameMsc = form.combo_nombreAnimal.SelectedItem.ToString();
+
+                for (int i = 0; i < list_mascotas_clientes.Count; i++) {
+                    if (list_mascotas_clientes[i].Nombre == nameMsc) {
+                        mascotaEN = list_mascotas_clientes[i];
+                        break;
                     }
+                }
+            }
+
+            IList<ConsultaEN> consultas = Utils._IConsultaCAD.DameConsultaPorAnimal(mascotaEN.IdMascota);
+            VeterinarioEN veterinario = null;
+            form.dataGridView.DataSource = null;
+            form.dataGridView.Refresh();
+            if (form.dataGridView.Rows.Count > 0)
+                form.dataGridView.Rows.Clear();
+
+            if (consultas != null && consultas.Count > 0) {
+                for (int i = 0; i < consultas.Count; i++) {
+                    veterinario = Utils._IVeterinarioCAD.DameVetarinarioPorOID(consultas[i].Veterinario.DNI);
+                    string vet = veterinario.Nombre + " " + veterinario.Apellidos;
+                    form.dataGridView.Rows.Add(consultas[i].Fecha.Value.ToString(), consultas[i].MotivoConsulta, consultas[i].Lugar, vet);
+                }
+            }
+        }
+
+        /**
+         * Procesa la informacion del formulario y dependiendo del estado de la pantalla
+         * hace una cosa o otra
+         */
+        public void ProcesarInformacion()
+        {
+            //SI es una nueva mascota se añade todo, sino solo los campos disponibles
+            if ((mascotaEN == null && form.state == Utils.State.NEW)
+                || (clienteEN != null && form.state == Utils.State.MODIFY)
+                || (clienteEN != null && form.state == Utils.State.DESTROY))
+            {
+
+                //Comprueba el cliente
+                if (form.text_cliente.Text != "")
+                    mascotaEN.Cliente = Utils._IClienteCAD.DameClientePorOID(form.text_cliente.Text);
+                else { }
+
+                //Comprueba el nombre del animal
+                if (form.combo_nombreAnimal.SelectedItem != null)
+                    mascotaEN.Nombre = form.combo_nombreAnimal.SelectedItem.ToString();
+                else { }
+
+                //Comprueba la especie del animal
+                if (form.text_especie.Text != "")
+                    mascotaEN.Especie = form.text_especie.Text;
+                else { }
+
+                //Comprueba la raza del animal
+                if (form.text_raza.Text != "")
+                    mascotaEN.Raza = form.text_raza.Text;
+                else { }
+
+                //Adquiere la fecha
+                mascotaEN.FNacimiento = form.dateTime_fnac.Value;
+
+                //Adquiere el sexo
+               /* if (form.combo_sexo.SelectedItem != null)
+                    mascotaEN.Sexo = form.combo_sexo.SelectedItem;
+                else { }*/
+
+                //Adquiere el tamaño
+               /* if (form.combo_tamanyo.SelectedItem != null)
+                    mascotaEN.Tamanyo = form.combo_tamanyo.SelectedItem;
+                else { }*/
+
+                //Adquiere el peso
+                /*if (form.text_peso.Text != "")
+                    mascotaEN.Peso = Convert.ToDecimal(form.text_peso.Text);
+                else { }*/
+
+                //Adquiere el color
+                if (form.text_color.Text != "")
+                    mascotaEN.Color = form.text_color.Text;
+                else { }
+
+                //Adquiere si tiene microchip o no
+                /*if (form.combo_microchip.SelectedItem != null)
+                    mascotaEN.Microchip = form.combo_microchip.SelectedItem;
+                else { }*/
+
+
+
+                switch (form.state)
+                {
+                    case Utils.State.NONE:
+                        break;
+                    case Utils.State.NEW:
+                            Utils._MascotaCEN.New_(mascotaEN.Nombre, mascotaEN.Raza, mascotaEN.Sexo, mascotaEN.Peso, mascotaEN.Especie, mascotaEN.FNacimiento, mascotaEN.Tamanyo, mascotaEN.Cliente.DNI, mascotaEN.Color, mascotaEN.Microchip, mascotaEN.Foto);
+                        break;
+                    case Utils.State.MODIFY:
+                            Utils._MascotaCEN.Modify(mascotaEN.IdMascota, mascotaEN.Nombre, mascotaEN.Raza, mascotaEN.Sexo, mascotaEN.Peso, mascotaEN.Especie, mascotaEN.FNacimiento, mascotaEN.Tamanyo, mascotaEN.Color, mascotaEN.Microchip, mascotaEN.Foto); 
+                        break;
+                    case Utils.State.DESTROY:
+                            Utils._MascotaCEN.Destroy(mascotaEN.IdMascota);
+                        break;
+                    default:
+                        break;
                 }
             }
         }
@@ -119,18 +229,17 @@ namespace WindowsFormsApplication1
          * @param ev la columna seleccionada
          * @param action el tipo de accion
          */
-        public string getStateScreen(DataGridViewCellEventArgs ev, ref char action)
+        public string getStateScreen(DataGridViewCellEventArgs ev, ref Utils.State st)
         {
             string cli = "";
-
-            if (form.dataGridView.Columns[ev.ColumnIndex].Name.Equals("Eliminar"))
-                action = 'E';
+            /*if (form.dataGridView.Columns[ev.ColumnIndex].Name.Equals("Eliminar"))
+                st = Utils.State.DESTROY;
             else if (form.dataGridView.Columns[ev.ColumnIndex].Name.Equals("Modificar"))
-                action = 'M';
+                st = Utils.State.MODIFY;
 
-            if (action == 'E' || action == 'M')
+            if (st== Utils.State.MODIFY || st==Utils.State.DESTROY)
                 cli = form.dataGridView.Rows[ev.RowIndex].Cells[0].Value.ToString();
-            
+            */
             return cli;
         }
 
@@ -138,10 +247,11 @@ namespace WindowsFormsApplication1
         /**
          * Borra todos los campos del formulario
          */
-        public void Clear()
+        public void ClearForm()
         {
+            form.text_cliente.Enabled = true;
             form.text_cliente.Text = "";
-            form.text_nombre.Text = "";
+            form.combo_nombreAnimal.SelectedItem = null;
             form.text_especie.Text = "";
             form.text_raza.Text = "";
             form.combo_tamanyo.SelectedItem = null;

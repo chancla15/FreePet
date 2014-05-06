@@ -111,7 +111,9 @@ namespace WindowsFormsApplication1
 
                                 for (int i = 0; i < lista.Count; i++)
                                 {
-                                    string s= (lista[i].Fecha.Value.Hour + ":" + lista[i].Fecha.Value.Minute + " - " + lista[i].Veterinario.Nombre + " " + lista[i].Veterinario.Apellidos);
+                                    //string s = "";
+                                    string s= (lista[i].Fecha.Value.Hour + ":" + lista[i].Fecha.Value.Minute); //+ " - " + lista[i].Veterinario.Nombre + " " + lista[i].Veterinario.Apellidos);
+                                    node.Nodes.Add(s);
                                     Console.WriteLine(f.ToString() + " HORA: " + s);
                                 }
                                lista.Clear();

@@ -256,7 +256,7 @@ namespace WindowsFormsApplication1
                 cli = form.dataGrid_clientes.Rows[ev.RowIndex].Cells[0].Value.ToString();
 
             for(int i=0;i<clientes_buscados.Count;i++)
-                if (cli == clientes_buscados[i].DNI)
+                if (cli.Equals(clientes_buscados[i].DNI))
                 {
                     cliEN = clientes_buscados[i];
                     break;

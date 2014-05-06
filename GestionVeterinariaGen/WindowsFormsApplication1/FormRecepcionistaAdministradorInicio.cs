@@ -80,8 +80,12 @@ namespace WindowsFormsApplication1
 
             ClienteEN cliente = controller.getStateScreen(e, ref st);
 
+            if (cliente!=null && cliente.Mascota != null)
+                Console.WriteLine("mascotas in");
+
             if(cliente!=null) {
                  Hide();
+                 Console.WriteLine(cliente.DNI + "   " + cliente.Direccion);
                  new FormRecepcionistaCliente(controller.sessionData, cliente, st);
             }
         }

@@ -79,6 +79,7 @@
             this.btn_buscar_dni = new System.Windows.Forms.PictureBox();
             this.btn_anaydir = new System.Windows.Forms.PictureBox();
             this.foto_cliente = new System.Windows.Forms.PictureBox();
+            this.button_facturas = new System.Windows.Forms.Button();
             this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).BeginInit();
@@ -347,6 +348,9 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.AutoGenerateColumns = false;
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -536,6 +540,7 @@
             // 
             // btn_anaydir
             // 
+            this.btn_anaydir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_anaydir.BackColor = System.Drawing.Color.Transparent;
             this.btn_anaydir.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add;
             this.btn_anaydir.Location = new System.Drawing.Point(653, 252);
@@ -555,11 +560,22 @@
             this.foto_cliente.TabIndex = 54;
             this.foto_cliente.TabStop = false;
             // 
+            // button_facturas
+            // 
+            this.button_facturas.Location = new System.Drawing.Point(594, 88);
+            this.button_facturas.Name = "button_facturas";
+            this.button_facturas.Size = new System.Drawing.Size(75, 23);
+            this.button_facturas.TabIndex = 81;
+            this.button_facturas.Text = "Facturas";
+            this.button_facturas.UseVisualStyleBackColor = true;
+            this.button_facturas.Click += new System.EventHandler(this.button_facturas_Click);
+            // 
             // FormRecepcionistaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 483);
+            this.Controls.Add(this.button_facturas);
             this.Controls.Add(this.btn_erase);
             this.Controls.Add(this.btn_buscar_dni);
             this.Controls.Add(this.alerta_eliminar);
@@ -669,5 +685,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
         private System.Windows.Forms.DataGridViewButtonColumn Modificar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
+        private System.Windows.Forms.Button button_facturas;
     }
 }

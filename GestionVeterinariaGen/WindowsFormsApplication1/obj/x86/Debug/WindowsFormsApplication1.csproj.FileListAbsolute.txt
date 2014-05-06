@@ -176,3 +176,6 @@ C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplicati
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormVeterinarioInicio.resources
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormAdministradorTratamiento.resources
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormRecepcionistaFactura.resources
+C:\Users\admin\Desktop\dssproyecto14aa\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\admin\Desktop\dssproyecto14aa\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Users\admin\Desktop\dssproyecto14aa\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb

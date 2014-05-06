@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1
          *  con anterioridad
          */
         public enum State {
-            NEW, MODIFY, DESTROY, NONE
+            NEW, MODIFY, DESTROY, NEW_CONSULTAS_MASCOTA, NONE
         }
 
         /** Cliente para acceder a la DDBB */

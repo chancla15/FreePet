@@ -108,6 +108,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataBaseInfo_ALL.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FormRecepcionistaAdministradorInicio_DataSet.cs">
+      <DependentUpon>FormRecepcionistaAdministradorInicio_DataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FormRecepcionistaAdministradorInicio_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

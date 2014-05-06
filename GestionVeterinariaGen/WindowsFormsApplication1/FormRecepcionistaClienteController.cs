@@ -121,12 +121,7 @@ namespace WindowsFormsApplication1
         {
             clienteEN = cliente;
 
-            if (clienteEN != null)
-            {
-                form.text_dni.Text = clienteEN.DNI;
-                Buscar();
-            }
-            else
+            if (clienteEN == null)
                 clienteEN = Utils._IClienteCAD.DameClientePorOID(form.text_dni.Text);
 
             if (clienteEN != null)
@@ -139,7 +134,8 @@ namespace WindowsFormsApplication1
                 form.text_localidad.Text = clienteEN.Localidad;
                 form.text_cp.Text = clienteEN.Cp;
                 form.text_telefono.Text = clienteEN.Telefono;
-            } 
+                Buscar();
+            }
         }
 
         /**
@@ -188,27 +184,51 @@ namespace WindowsFormsApplication1
         /**
          * Devuelve la columna pulsada del datagrid junto con su identficador
          */
-        public string getDataGridViewState(DataGridViewCellEventArgs ev, Utils.State st)
+        public MascotaEN getDataGridViewState(DataGridViewCellEventArgs ev, ref Utils.State st)
         {
             string cli = "";
+            MascotaEN mascota = null;
 
             if (form.dataGridView.Columns[ev.ColumnIndex].Name.Equals("Eliminar"))
                 st = Utils.State.DESTROY;
             else if (form.dataGridView.Columns[ev.ColumnIndex].Name.Equals("Modificar"))
                 st = Utils.State.MODIFY;
             else //if (form.dataGridView.Columns[ev.ColumnIndex].Name.Equals("Cliente"))
-                form.state = Utils.State.MODIFY;
+                st = Utils.State.NONE;
+
+            cli = form.dataGridView.Rows[ev.RowIndex].Cells[0].Value.ToString();
+
+            if (st == Utils.State.NONE)
+                form.text_dni.Text = form.dataGridView.Rows[ev.RowIndex].Cells[4].Value.ToString();
+
+            if (lista_mascotas != null && lista_mascotas.Count > 0)
+            {
+                for (int i = 0; i < lista_mascotas.Count; i++)
+                {
+                    if (lista_mascotas[i].IdMascota==Convert.ToInt32(cli))
+                    {
+                        mascota = lista_mascotas[i];
+                        break;
+                    }
+                }
+            }
+
+
             //else
               //  st = Utils.State.NONE;
 
-            if (st==Utils.State.DESTROY || st==Utils.State.MODIFY)
+            /*if (st == Utils.State.DESTROY || st == Utils.State.MODIFY)
+            {
                 cli = form.dataGridView.Rows[ev.RowIndex].Cells[0].Value.ToString();
-            else if (st==Utils.State.NONE && form.state==Utils.State.MODIFY)
+            }
+            else if (st == Utils.State.NONE)
+            {
                 cli = form.dataGridView.Rows[ev.RowIndex].Cells[4].Value.ToString();
+            }
             else
-                cli = "";
-
-            return cli;
+                mascota = null;*/
+            
+            return mascota;
         }
 
         /** 
@@ -259,6 +279,7 @@ namespace WindowsFormsApplication1
                 lista_mascotas = null;
             }
             form.text_dni.Text = "";
+            form.text_dni.Enabled = true;
             form.text_nombre.Text = "";
             form.text_apellidos.Text = "";
             form.text_direccion.Text = "";

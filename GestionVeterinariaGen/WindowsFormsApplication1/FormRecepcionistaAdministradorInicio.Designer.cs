@@ -240,7 +240,7 @@
             // btn_add
             // 
             this.btn_add.BackColor = System.Drawing.Color.Transparent;
-            this.btn_add.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add1;
+            this.btn_add.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add;
             this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_add.Location = new System.Drawing.Point(650, 171);
             this.btn_add.Name = "btn_add";
