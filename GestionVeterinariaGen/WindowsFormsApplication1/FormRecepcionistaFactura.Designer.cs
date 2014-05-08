@@ -35,8 +35,6 @@
             this.picture_consultas = new System.Windows.Forms.PictureBox();
             this.picture_start = new System.Windows.Forms.PictureBox();
             this.btn_add = new System.Windows.Forms.Button();
-            this.btn_buscar = new System.Windows.Forms.Button();
-            this.text_buscar = new System.Windows.Forms.TextBox();
             this.log_photo = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,8 +42,8 @@
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mascota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pagada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c_Tratamiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pagada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.l_Nombre = new System.Windows.Forms.Label();
             this.gp_ModificarFactura = new System.Windows.Forms.GroupBox();
             this.ll_Modificar = new System.Windows.Forms.LinkLabel();
@@ -59,14 +57,23 @@
             this.tb_Motivo = new System.Windows.Forms.TextBox();
             this.l_Motivo = new System.Windows.Forms.Label();
             this.l_Mascota = new System.Windows.Forms.Label();
-            this.tb_Pagada = new System.Windows.Forms.TextBox();
+            this.tb_Pagada_gpModificar = new System.Windows.Forms.TextBox();
             this.l_Pagada = new System.Windows.Forms.Label();
-            this.tb_Total = new System.Windows.Forms.TextBox();
-            this.l_Total = new System.Windows.Forms.Label();
+            this.tb_Total_gpModificar = new System.Windows.Forms.TextBox();
+            this.l_Total_gpModificar = new System.Windows.Forms.Label();
             this.tb_Fecha = new System.Windows.Forms.TextBox();
-            this.l_Fecha = new System.Windows.Forms.Label();
+            this.l_Fecha_gpModificar = new System.Windows.Forms.Label();
             this.ll_Eliminar = new System.Windows.Forms.LinkLabel();
-            this.ll_Cancelar = new System.Windows.Forms.LinkLabel();
+            this.ll_Cancelar_gpModificar = new System.Windows.Forms.LinkLabel();
+            this.gp_CrearFactura = new System.Windows.Forms.GroupBox();
+            this.ll_Crear = new System.Windows.Forms.LinkLabel();
+            this.ll_Cancelar_gpCrear = new System.Windows.Forms.LinkLabel();
+            this.l_Consultas = new System.Windows.Forms.Label();
+            this.cb_Consultas = new System.Windows.Forms.ComboBox();
+            this.tb_Pagada_gpCrear = new System.Windows.Forms.TextBox();
+            this.l_Pagada_gpCrear = new System.Windows.Forms.Label();
+            this.tb_Total_gpCrear = new System.Windows.Forms.TextBox();
+            this.l_Total_gpCrear = new System.Windows.Forms.Label();
             this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).BeginInit();
@@ -76,6 +83,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gp_ModificarFactura.SuspendLayout();
+            this.gp_CrearFactura.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_top
@@ -90,6 +98,7 @@
             this.panel_top.Name = "panel_top";
             this.panel_top.Size = new System.Drawing.Size(690, 34);
             this.panel_top.TabIndex = 61;
+            this.panel_top.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_top_Paint);
             // 
             // picture_ajustes
             // 
@@ -150,30 +159,12 @@
             this.btn_add.BackColor = System.Drawing.Color.Transparent;
             this.btn_add.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add1;
             this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_add.Location = new System.Drawing.Point(621, 188);
+            this.btn_add.Location = new System.Drawing.Point(650, 197);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(20, 21);
             this.btn_add.TabIndex = 60;
             this.btn_add.UseVisualStyleBackColor = false;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
-            // 
-            // btn_buscar
-            // 
-            this.btn_buscar.BackColor = System.Drawing.Color.Transparent;
-            this.btn_buscar.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.btn_buscar_id;
-            this.btn_buscar.Location = new System.Drawing.Point(461, 193);
-            this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(16, 16);
-            this.btn_buscar.TabIndex = 58;
-            this.btn_buscar.UseVisualStyleBackColor = false;
-            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
-            // 
-            // text_buscar
-            // 
-            this.text_buscar.Location = new System.Drawing.Point(12, 189);
-            this.text_buscar.Name = "text_buscar";
-            this.text_buscar.Size = new System.Drawing.Size(443, 20);
-            this.text_buscar.TabIndex = 57;
             // 
             // log_photo
             // 
@@ -198,13 +189,13 @@
             this.Total,
             this.Mascota,
             this.Motivo,
-            this.Pagada,
-            this.c_Tratamiento});
+            this.c_Tratamiento,
+            this.Pagada});
             this.dataGridView1.Location = new System.Drawing.Point(3, 226);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(685, 254);
+            this.dataGridView1.Size = new System.Drawing.Size(667, 245);
             this.dataGridView1.TabIndex = 49;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -238,17 +229,17 @@
             this.Motivo.Name = "Motivo";
             this.Motivo.ReadOnly = true;
             // 
-            // Pagada
-            // 
-            this.Pagada.HeaderText = "Pagada";
-            this.Pagada.Name = "Pagada";
-            this.Pagada.ReadOnly = true;
-            // 
             // c_Tratamiento
             // 
             this.c_Tratamiento.HeaderText = "Tratamiento";
             this.c_Tratamiento.Name = "c_Tratamiento";
             this.c_Tratamiento.ReadOnly = true;
+            // 
+            // Pagada
+            // 
+            this.Pagada.HeaderText = "Pagada";
+            this.Pagada.Name = "Pagada";
+            this.Pagada.ReadOnly = true;
             // 
             // l_Nombre
             // 
@@ -275,16 +266,16 @@
             this.gp_ModificarFactura.Controls.Add(this.tb_Motivo);
             this.gp_ModificarFactura.Controls.Add(this.l_Motivo);
             this.gp_ModificarFactura.Controls.Add(this.l_Mascota);
-            this.gp_ModificarFactura.Controls.Add(this.tb_Pagada);
+            this.gp_ModificarFactura.Controls.Add(this.tb_Pagada_gpModificar);
             this.gp_ModificarFactura.Controls.Add(this.l_Pagada);
-            this.gp_ModificarFactura.Controls.Add(this.tb_Total);
-            this.gp_ModificarFactura.Controls.Add(this.l_Total);
+            this.gp_ModificarFactura.Controls.Add(this.tb_Total_gpModificar);
+            this.gp_ModificarFactura.Controls.Add(this.l_Total_gpModificar);
             this.gp_ModificarFactura.Controls.Add(this.tb_Fecha);
-            this.gp_ModificarFactura.Controls.Add(this.l_Fecha);
+            this.gp_ModificarFactura.Controls.Add(this.l_Fecha_gpModificar);
             this.gp_ModificarFactura.Controls.Add(this.ll_Eliminar);
-            this.gp_ModificarFactura.Controls.Add(this.ll_Cancelar);
+            this.gp_ModificarFactura.Controls.Add(this.ll_Cancelar_gpModificar);
             this.gp_ModificarFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gp_ModificarFactura.Location = new System.Drawing.Point(344, 126);
+            this.gp_ModificarFactura.Location = new System.Drawing.Point(323, 104);
             this.gp_ModificarFactura.Name = "gp_ModificarFactura";
             this.gp_ModificarFactura.Size = new System.Drawing.Size(271, 354);
             this.gp_ModificarFactura.TabIndex = 63;
@@ -384,12 +375,12 @@
             this.l_Mascota.TabIndex = 64;
             this.l_Mascota.Text = "Mascota actual:";
             // 
-            // tb_Pagada
+            // tb_Pagada_gpModificar
             // 
-            this.tb_Pagada.Location = new System.Drawing.Point(110, 97);
-            this.tb_Pagada.Name = "tb_Pagada";
-            this.tb_Pagada.Size = new System.Drawing.Size(154, 20);
-            this.tb_Pagada.TabIndex = 63;
+            this.tb_Pagada_gpModificar.Location = new System.Drawing.Point(110, 97);
+            this.tb_Pagada_gpModificar.Name = "tb_Pagada_gpModificar";
+            this.tb_Pagada_gpModificar.Size = new System.Drawing.Size(154, 20);
+            this.tb_Pagada_gpModificar.TabIndex = 63;
             // 
             // l_Pagada
             // 
@@ -400,21 +391,21 @@
             this.l_Pagada.TabIndex = 62;
             this.l_Pagada.Text = "Pagada:";
             // 
-            // tb_Total
+            // tb_Total_gpModificar
             // 
-            this.tb_Total.Location = new System.Drawing.Point(110, 57);
-            this.tb_Total.Name = "tb_Total";
-            this.tb_Total.Size = new System.Drawing.Size(154, 20);
-            this.tb_Total.TabIndex = 61;
+            this.tb_Total_gpModificar.Location = new System.Drawing.Point(110, 57);
+            this.tb_Total_gpModificar.Name = "tb_Total_gpModificar";
+            this.tb_Total_gpModificar.Size = new System.Drawing.Size(154, 20);
+            this.tb_Total_gpModificar.TabIndex = 61;
             // 
-            // l_Total
+            // l_Total_gpModificar
             // 
-            this.l_Total.AutoSize = true;
-            this.l_Total.Location = new System.Drawing.Point(6, 57);
-            this.l_Total.Name = "l_Total";
-            this.l_Total.Size = new System.Drawing.Size(34, 13);
-            this.l_Total.TabIndex = 60;
-            this.l_Total.Text = "Total:";
+            this.l_Total_gpModificar.AutoSize = true;
+            this.l_Total_gpModificar.Location = new System.Drawing.Point(6, 57);
+            this.l_Total_gpModificar.Name = "l_Total_gpModificar";
+            this.l_Total_gpModificar.Size = new System.Drawing.Size(34, 13);
+            this.l_Total_gpModificar.TabIndex = 60;
+            this.l_Total_gpModificar.Text = "Total:";
             // 
             // tb_Fecha
             // 
@@ -423,14 +414,14 @@
             this.tb_Fecha.Size = new System.Drawing.Size(154, 20);
             this.tb_Fecha.TabIndex = 59;
             // 
-            // l_Fecha
+            // l_Fecha_gpModificar
             // 
-            this.l_Fecha.AutoSize = true;
-            this.l_Fecha.Location = new System.Drawing.Point(6, 17);
-            this.l_Fecha.Name = "l_Fecha";
-            this.l_Fecha.Size = new System.Drawing.Size(40, 13);
-            this.l_Fecha.TabIndex = 58;
-            this.l_Fecha.Text = "Fecha:";
+            this.l_Fecha_gpModificar.AutoSize = true;
+            this.l_Fecha_gpModificar.Location = new System.Drawing.Point(6, 17);
+            this.l_Fecha_gpModificar.Name = "l_Fecha_gpModificar";
+            this.l_Fecha_gpModificar.Size = new System.Drawing.Size(40, 13);
+            this.l_Fecha_gpModificar.TabIndex = 58;
+            this.l_Fecha_gpModificar.Text = "Fecha:";
             // 
             // ll_Eliminar
             // 
@@ -443,31 +434,121 @@
             this.ll_Eliminar.Text = "Eliminar";
             this.ll_Eliminar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_Eliminar_LinkClicked);
             // 
-            // ll_Cancelar
+            // ll_Cancelar_gpModificar
             // 
-            this.ll_Cancelar.AutoSize = true;
-            this.ll_Cancelar.Location = new System.Drawing.Point(30, 322);
-            this.ll_Cancelar.Name = "ll_Cancelar";
-            this.ll_Cancelar.Size = new System.Drawing.Size(49, 13);
-            this.ll_Cancelar.TabIndex = 0;
-            this.ll_Cancelar.TabStop = true;
-            this.ll_Cancelar.Text = "Cancelar";
-            this.ll_Cancelar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_Cancelar_LinkClicked);
+            this.ll_Cancelar_gpModificar.AutoSize = true;
+            this.ll_Cancelar_gpModificar.Location = new System.Drawing.Point(30, 322);
+            this.ll_Cancelar_gpModificar.Name = "ll_Cancelar_gpModificar";
+            this.ll_Cancelar_gpModificar.Size = new System.Drawing.Size(49, 13);
+            this.ll_Cancelar_gpModificar.TabIndex = 0;
+            this.ll_Cancelar_gpModificar.TabStop = true;
+            this.ll_Cancelar_gpModificar.Text = "Cancelar";
+            this.ll_Cancelar_gpModificar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_Cancelar_gpModificar_LinkClicked);
+            // 
+            // gp_CrearFactura
+            // 
+            this.gp_CrearFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.gp_CrearFactura.Controls.Add(this.ll_Crear);
+            this.gp_CrearFactura.Controls.Add(this.ll_Cancelar_gpCrear);
+            this.gp_CrearFactura.Controls.Add(this.l_Consultas);
+            this.gp_CrearFactura.Controls.Add(this.cb_Consultas);
+            this.gp_CrearFactura.Controls.Add(this.tb_Pagada_gpCrear);
+            this.gp_CrearFactura.Controls.Add(this.l_Pagada_gpCrear);
+            this.gp_CrearFactura.Controls.Add(this.tb_Total_gpCrear);
+            this.gp_CrearFactura.Controls.Add(this.l_Total_gpCrear);
+            this.gp_CrearFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gp_CrearFactura.Location = new System.Drawing.Point(25, 253);
+            this.gp_CrearFactura.Name = "gp_CrearFactura";
+            this.gp_CrearFactura.Size = new System.Drawing.Size(663, 148);
+            this.gp_CrearFactura.TabIndex = 75;
+            this.gp_CrearFactura.TabStop = false;
+            this.gp_CrearFactura.Visible = false;
+            // 
+            // ll_Crear
+            // 
+            this.ll_Crear.AutoSize = true;
+            this.ll_Crear.Location = new System.Drawing.Point(201, 124);
+            this.ll_Crear.Name = "ll_Crear";
+            this.ll_Crear.Size = new System.Drawing.Size(32, 13);
+            this.ll_Crear.TabIndex = 76;
+            this.ll_Crear.TabStop = true;
+            this.ll_Crear.Text = "Crear";
+            this.ll_Crear.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_Crear_LinkClicked);
+            // 
+            // ll_Cancelar_gpCrear
+            // 
+            this.ll_Cancelar_gpCrear.AutoSize = true;
+            this.ll_Cancelar_gpCrear.Location = new System.Drawing.Point(100, 123);
+            this.ll_Cancelar_gpCrear.Name = "ll_Cancelar_gpCrear";
+            this.ll_Cancelar_gpCrear.Size = new System.Drawing.Size(49, 13);
+            this.ll_Cancelar_gpCrear.TabIndex = 75;
+            this.ll_Cancelar_gpCrear.TabStop = true;
+            this.ll_Cancelar_gpCrear.Text = "Cancelar";
+            this.ll_Cancelar_gpCrear.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_Cancelar_gpCrear_LinkClicked);
+            // 
+            // l_Consultas
+            // 
+            this.l_Consultas.AutoSize = true;
+            this.l_Consultas.Location = new System.Drawing.Point(9, 66);
+            this.l_Consultas.Name = "l_Consultas";
+            this.l_Consultas.Size = new System.Drawing.Size(56, 13);
+            this.l_Consultas.TabIndex = 25;
+            this.l_Consultas.Text = "Consultas:";
+            // 
+            // cb_Consultas
+            // 
+            this.cb_Consultas.FormattingEnabled = true;
+            this.cb_Consultas.Location = new System.Drawing.Point(103, 66);
+            this.cb_Consultas.Name = "cb_Consultas";
+            this.cb_Consultas.Size = new System.Drawing.Size(543, 21);
+            this.cb_Consultas.TabIndex = 24;
+            // 
+            // tb_Pagada_gpCrear
+            // 
+            this.tb_Pagada_gpCrear.Location = new System.Drawing.Point(328, 20);
+            this.tb_Pagada_gpCrear.Name = "tb_Pagada_gpCrear";
+            this.tb_Pagada_gpCrear.Size = new System.Drawing.Size(100, 20);
+            this.tb_Pagada_gpCrear.TabIndex = 21;
+            // 
+            // l_Pagada_gpCrear
+            // 
+            this.l_Pagada_gpCrear.AutoSize = true;
+            this.l_Pagada_gpCrear.Location = new System.Drawing.Point(234, 20);
+            this.l_Pagada_gpCrear.Name = "l_Pagada_gpCrear";
+            this.l_Pagada_gpCrear.Size = new System.Drawing.Size(47, 13);
+            this.l_Pagada_gpCrear.TabIndex = 20;
+            this.l_Pagada_gpCrear.Text = "Pagada:";
+            // 
+            // tb_Total_gpCrear
+            // 
+            this.tb_Total_gpCrear.Location = new System.Drawing.Point(103, 20);
+            this.tb_Total_gpCrear.Name = "tb_Total_gpCrear";
+            this.tb_Total_gpCrear.Size = new System.Drawing.Size(100, 20);
+            this.tb_Total_gpCrear.TabIndex = 19;
+            // 
+            // l_Total_gpCrear
+            // 
+            this.l_Total_gpCrear.AutoSize = true;
+            this.l_Total_gpCrear.Location = new System.Drawing.Point(9, 20);
+            this.l_Total_gpCrear.Name = "l_Total_gpCrear";
+            this.l_Total_gpCrear.Size = new System.Drawing.Size(34, 13);
+            this.l_Total_gpCrear.TabIndex = 18;
+            this.l_Total_gpCrear.Text = "Total:";
             // 
             // FormRecepcionistaFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 482);
+            this.ClientSize = new System.Drawing.Size(682, 483);
+            this.Controls.Add(this.gp_CrearFactura);
             this.Controls.Add(this.gp_ModificarFactura);
             this.Controls.Add(this.l_Nombre);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel_top);
             this.Controls.Add(this.btn_add);
-            this.Controls.Add(this.btn_buscar);
-            this.Controls.Add(this.text_buscar);
             this.Controls.Add(this.log_photo);
             this.Name = "FormRecepcionistaFactura";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRecepcionistaFactura";
             this.panel_top.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).EndInit();
@@ -479,6 +560,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.gp_ModificarFactura.ResumeLayout(false);
             this.gp_ModificarFactura.PerformLayout();
+            this.gp_CrearFactura.ResumeLayout(false);
+            this.gp_CrearFactura.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,37 +576,44 @@
         private System.Windows.Forms.PictureBox picture_consultas;
         private System.Windows.Forms.PictureBox picture_start;
         public System.Windows.Forms.Button btn_add;
-        public System.Windows.Forms.Button btn_buscar;
-        public System.Windows.Forms.TextBox text_buscar;
         public System.Windows.Forms.PictureBox log_photo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Num;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Mascota;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Motivo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pagada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn c_Tratamiento;
         public System.Windows.Forms.DataGridView dataGridView1;
         public System.Windows.Forms.GroupBox gp_ModificarFactura;
         public System.Windows.Forms.LinkLabel ll_Eliminar;
-        public System.Windows.Forms.LinkLabel ll_Cancelar;
+        public System.Windows.Forms.LinkLabel ll_Cancelar_gpModificar;
         private System.Windows.Forms.Label l_TratamientoElegir;
         private System.Windows.Forms.Label l_Tratamiento;
         private System.Windows.Forms.Label l_MascotaElegir;
         private System.Windows.Forms.Label l_Motivo;
         private System.Windows.Forms.Label l_Mascota;
         private System.Windows.Forms.Label l_Pagada;
-        private System.Windows.Forms.Label l_Total;
-        private System.Windows.Forms.Label l_Fecha;
+        private System.Windows.Forms.Label l_Total_gpModificar;
+        private System.Windows.Forms.Label l_Fecha_gpModificar;
         public System.Windows.Forms.Label l_Nombre;
         public System.Windows.Forms.ComboBox cb_Tratamiento;
         public System.Windows.Forms.TextBox tb_Tratamiento;
         public System.Windows.Forms.TextBox tb_Mascota;
         public System.Windows.Forms.ComboBox cb_Mascota;
         public System.Windows.Forms.TextBox tb_Motivo;
-        public System.Windows.Forms.TextBox tb_Pagada;
-        public System.Windows.Forms.TextBox tb_Total;
+        public System.Windows.Forms.TextBox tb_Pagada_gpModificar;
+        public System.Windows.Forms.TextBox tb_Total_gpModificar;
         public System.Windows.Forms.TextBox tb_Fecha;
         public System.Windows.Forms.LinkLabel ll_Modificar;
+        public System.Windows.Forms.GroupBox gp_CrearFactura;
+        private System.Windows.Forms.Label l_Consultas;
+        private System.Windows.Forms.Label l_Pagada_gpCrear;
+        private System.Windows.Forms.Label l_Total_gpCrear;
+        public System.Windows.Forms.LinkLabel ll_Crear;
+        public System.Windows.Forms.LinkLabel ll_Cancelar_gpCrear;
+        public System.Windows.Forms.ComboBox cb_Consultas;
+        public System.Windows.Forms.TextBox tb_Pagada_gpCrear;
+        public System.Windows.Forms.TextBox tb_Total_gpCrear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Num;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mascota;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Motivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn c_Tratamiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pagada;
     }
 }

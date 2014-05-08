@@ -59,6 +59,21 @@ namespace WindowsFormsApplication1
 
         #region ProcesarDatos
 
+
+        public void loadData(MascotaEN msc)
+        {
+            mascotaEN = msc;
+
+            if (mascotaEN == null)
+            {
+                //Poner el cliente del msc en el form_text_cliente
+                //Rellenar el combo_box con las mascotas del cliente
+            }
+        }
+
+
+
+
         /**
          * Carga los datos de una mascota en el formulario 
          */

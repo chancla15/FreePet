@@ -47,6 +47,9 @@ namespace WindowsFormsApplication1
         /** Administrador para acceder a la DDBB */
         public static AdministradorCAD _IAdministradorCAD = new AdministradorCAD();
 
+        /** Tratamiento para acceder a la DDBB */
+        public static TratamientoCAD _ITratamientoCAD = new TratamientoCAD();
+
         /** CEN de cliente */
         public static ClienteCEN _ClienteCEN = new ClienteCEN(_IClienteCAD);
 
@@ -70,5 +73,8 @@ namespace WindowsFormsApplication1
 
         /** CEN de administrador */
         public static AdministradorCEN _AdministradorCEN = new AdministradorCEN(_IAdministradorCAD);
+
+        /** CEN de tratamiento */
+        public static TratamientoCEN _TratamientoCEN = new TratamientoCEN(_ITratamientoCAD);
     }
 }

@@ -286,8 +286,8 @@ namespace WindowsFormsApplication1
          */
         private void picture_facturas_Click(object sender, EventArgs e)
         {
-            Hide();
-            new FormRecepcionistaFactura(menu.sessionData);
+            if (menu.LaunchFacturaScreen(Utils.State.NONE, null))
+                 DesactivateForm();
         }
 
         /**

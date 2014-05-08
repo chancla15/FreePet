@@ -97,6 +97,7 @@ namespace WindowsFormsApplication1
             text_raza.Enabled = block;
             dateTime_fnac.Enabled = block;
             combo_sexo.Enabled = block;
+            btn_add_NombreMascota.Enabled = block;
 
             if (state == Utils.State.DESTROY)
             {
@@ -142,10 +143,22 @@ namespace WindowsFormsApplication1
         }
 
         /**
+         * Cuando se pulsa el boton anaydir de una nueva mascota
+         */
+        private void btn_add_NombreMascota_Click(object sender, EventArgs e)
+        {
+            btn_add_NombreMascota.Visible = false;
+            box_NombreAnimal.Visible = true;
+            box_NombreAnimal.Enabled = true;
+        }
+
+        /**
          * Cuando se clickea el boton (imagen) anaydir
          */
         private void btn_anaydir_Click(object sender, EventArgs e)
         {
+            //ConsultaEN.Animal= mascotaEN;
+            //if(State.NEW, consultaEN)
             //Hide();
             //Cargar consulta con mascota
             //Utils.State.NEW_CONSULTAS_MASCOTA,
@@ -194,6 +207,34 @@ namespace WindowsFormsApplication1
         private void combo_nombreAnimal_SelectedIndexChanged(object sender, EventArgs e)
         {
             changeState(Utils.State.MODIFY, null, null);
+        }
+
+        #endregion
+
+        #region Box_Controller_Nombre_Animal
+
+        /**
+         * El boton cancelar
+         */
+        private void box_label_cancelar_Click(object sender, EventArgs e)
+        {
+            box_NombreAnimal.Visible = false;
+            box_NombreAnimal.Enabled = false;
+        }
+
+        /**
+         * El boton aceptar
+         */
+        private void box_label_aceptar_Click(object sender, EventArgs e)
+        {
+            string name_msc = box_text_nombre_mascota.Text;
+
+            if (name_msc != "")
+            {
+                //agregar al combo_box de mascotas
+                box_NombreAnimal.Visible = false;
+                box_NombreAnimal.Enabled = false;
+            }
         }
 
         #endregion
@@ -253,8 +294,8 @@ namespace WindowsFormsApplication1
          */
         private void picture_facturas_Click(object sender, EventArgs e)
         {
-            if(menu.LaunchFacturaScreen())
-                 DesactivateForm();
+            if (menu.LaunchFacturaScreen(Utils.State.NONE, null))
+                DesactivateForm();
         }
 
         /**

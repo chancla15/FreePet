@@ -77,6 +77,12 @@
             this.btn_eliminar_si = new System.Windows.Forms.Button();
             this.consultaTableAdapter = new WindowsFormsApplication1.FormRecepcionistaMascota_DataSetTableAdapters.ConsultaTableAdapter();
             this.combo_nombreAnimal = new System.Windows.Forms.ComboBox();
+            this.box_NombreAnimal = new System.Windows.Forms.Panel();
+            this.box_text_nombre_mascota = new System.Windows.Forms.TextBox();
+            this.box_label_nombre_mascota = new System.Windows.Forms.Label();
+            this.box_label_aceptar = new System.Windows.Forms.Label();
+            this.box_label_cancelar = new System.Windows.Forms.Label();
+            this.btn_add_NombreMascota = new System.Windows.Forms.PictureBox();
             this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).BeginInit();
@@ -94,6 +100,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_cliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).BeginInit();
             this.alerta_eliminar.SuspendLayout();
+            this.box_NombreAnimal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_add_NombreMascota)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_top
@@ -545,12 +553,77 @@
             this.combo_nombreAnimal.TabIndex = 85;
             this.combo_nombreAnimal.SelectedIndexChanged += new System.EventHandler(this.combo_nombreAnimal_SelectedIndexChanged);
             // 
+            // box_NombreAnimal
+            // 
+            this.box_NombreAnimal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.box_NombreAnimal.Controls.Add(this.box_label_cancelar);
+            this.box_NombreAnimal.Controls.Add(this.box_label_aceptar);
+            this.box_NombreAnimal.Controls.Add(this.box_label_nombre_mascota);
+            this.box_NombreAnimal.Controls.Add(this.box_text_nombre_mascota);
+            this.box_NombreAnimal.Location = new System.Drawing.Point(224, 109);
+            this.box_NombreAnimal.Name = "box_NombreAnimal";
+            this.box_NombreAnimal.Size = new System.Drawing.Size(232, 78);
+            this.box_NombreAnimal.TabIndex = 86;
+            this.box_NombreAnimal.Visible = false;
+            // 
+            // box_text_nombre_mascota
+            // 
+            this.box_text_nombre_mascota.Location = new System.Drawing.Point(13, 27);
+            this.box_text_nombre_mascota.Name = "box_text_nombre_mascota";
+            this.box_text_nombre_mascota.Size = new System.Drawing.Size(204, 20);
+            this.box_text_nombre_mascota.TabIndex = 0;
+            // 
+            // box_label_nombre_mascota
+            // 
+            this.box_label_nombre_mascota.AutoSize = true;
+            this.box_label_nombre_mascota.BackColor = System.Drawing.Color.Transparent;
+            this.box_label_nombre_mascota.Location = new System.Drawing.Point(13, 8);
+            this.box_label_nombre_mascota.Name = "box_label_nombre_mascota";
+            this.box_label_nombre_mascota.Size = new System.Drawing.Size(176, 13);
+            this.box_label_nombre_mascota.TabIndex = 1;
+            this.box_label_nombre_mascota.Text = "Introduce un nombre para el animal:";
+            // 
+            // box_label_aceptar
+            // 
+            this.box_label_aceptar.AutoSize = true;
+            this.box_label_aceptar.BackColor = System.Drawing.Color.Transparent;
+            this.box_label_aceptar.Location = new System.Drawing.Point(173, 57);
+            this.box_label_aceptar.Name = "box_label_aceptar";
+            this.box_label_aceptar.Size = new System.Drawing.Size(44, 13);
+            this.box_label_aceptar.TabIndex = 2;
+            this.box_label_aceptar.Text = "Aceptar";
+            this.box_label_aceptar.Click += new System.EventHandler(this.box_label_aceptar_Click);
+            // 
+            // box_label_cancelar
+            // 
+            this.box_label_cancelar.AutoSize = true;
+            this.box_label_cancelar.BackColor = System.Drawing.Color.Transparent;
+            this.box_label_cancelar.Location = new System.Drawing.Point(10, 57);
+            this.box_label_cancelar.Name = "box_label_cancelar";
+            this.box_label_cancelar.Size = new System.Drawing.Size(49, 13);
+            this.box_label_cancelar.TabIndex = 3;
+            this.box_label_cancelar.Text = "Cancelar";
+            this.box_label_cancelar.Click += new System.EventHandler(this.box_label_cancelar_Click);
+            // 
+            // btn_add_NombreMascota
+            // 
+            this.btn_add_NombreMascota.BackColor = System.Drawing.Color.Transparent;
+            this.btn_add_NombreMascota.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add;
+            this.btn_add_NombreMascota.Location = new System.Drawing.Point(327, 112);
+            this.btn_add_NombreMascota.Name = "btn_add_NombreMascota";
+            this.btn_add_NombreMascota.Size = new System.Drawing.Size(16, 16);
+            this.btn_add_NombreMascota.TabIndex = 87;
+            this.btn_add_NombreMascota.TabStop = false;
+            this.btn_add_NombreMascota.Click += new System.EventHandler(this.btn_add_NombreMascota_Click);
+            // 
             // FormRecepcionistaMascota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(682, 483);
+            this.Controls.Add(this.btn_add_NombreMascota);
+            this.Controls.Add(this.box_NombreAnimal);
             this.Controls.Add(this.combo_nombreAnimal);
             this.Controls.Add(this.btn_erase);
             this.Controls.Add(this.alerta_eliminar);
@@ -602,6 +675,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).EndInit();
             this.alerta_eliminar.ResumeLayout(false);
             this.alerta_eliminar.PerformLayout();
+            this.box_NombreAnimal.ResumeLayout(false);
+            this.box_NombreAnimal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_add_NombreMascota)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -657,5 +733,11 @@
         public System.Windows.Forms.DataGridViewTextBoxColumn Veterinario;
         public System.Windows.Forms.DataGridViewImageColumn Ver;
         public System.Windows.Forms.ComboBox combo_nombreAnimal;
+        private System.Windows.Forms.Panel box_NombreAnimal;
+        private System.Windows.Forms.Label box_label_cancelar;
+        private System.Windows.Forms.Label box_label_aceptar;
+        private System.Windows.Forms.Label box_label_nombre_mascota;
+        private System.Windows.Forms.TextBox box_text_nombre_mascota;
+        private System.Windows.Forms.PictureBox btn_add_NombreMascota;
     }
 }

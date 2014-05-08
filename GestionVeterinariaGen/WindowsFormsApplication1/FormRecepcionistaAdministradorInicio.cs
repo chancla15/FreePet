@@ -170,8 +170,8 @@ namespace WindowsFormsApplication1
          */
         private void picture_facturas_Click(object sender, EventArgs e)
         {
-            if(menu.LaunchFacturaScreen())
-                     DesactivateForm();
+            if (menu.LaunchFacturaScreen(Utils.State.NONE, null))
+                DesactivateForm();
         }
 
         /**

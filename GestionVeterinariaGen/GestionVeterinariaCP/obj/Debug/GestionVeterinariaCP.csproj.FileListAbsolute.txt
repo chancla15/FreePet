@@ -1,0 +1,4 @@
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\GestionVeterinariaCP\bin\Debug\GestionVeterinariaCP.dll
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\GestionVeterinariaCP\bin\Debug\GestionVeterinariaCP.pdb
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\GestionVeterinariaCP\obj\Debug\GestionVeterinariaCP.dll
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\GestionVeterinariaCP\obj\Debug\GestionVeterinariaCP.pdb

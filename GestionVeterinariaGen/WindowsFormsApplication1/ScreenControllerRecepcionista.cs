@@ -57,9 +57,9 @@ namespace WindowsFormsApplication1
             sessionData = ticket;
             f_inicio = new FormRecepcionistaAdministradorInicio(this);
             f_cliente = new FormRecepcionistaCliente(this);
-            f_mascota = new FormRecepcionistaMascota(this);//(sessionData, null, null, Utils.State.NONE);
+            f_mascota = new FormRecepcionistaMascota(this);
             f_consulta = new FormRecepcionistaConsulta(this);
-            f_factura = new FormRecepcionistaFactura(sessionData);
+            f_factura = new FormRecepcionistaFactura(this);
             LaunchStartScreen();
         }
         #endregion
@@ -136,18 +136,16 @@ namespace WindowsFormsApplication1
         /**
          * Cuando lanza la pantalla factura
          */
-        public bool LaunchFacturaScreen()
+        public bool LaunchFacturaScreen(Utils.State state, string cli)
         {
             bool ret = false;
 
-            if (FormActual != "FACTURA")
+            if (FormActual != f_factura.ID)
             {
                 ret = true;
-                FormActual = "FACTURA";
-                new FormRecepcionistaFactura(sessionData);
-                
-                //f_factura.ActivateForm();
-                //f_factura.changeState( ... );
+                FormActual = f_factura.ID;
+                f_factura.ActivateForm();
+                f_factura.changeState(state, cli);
             }
             return ret;
         }
@@ -166,6 +164,7 @@ namespace WindowsFormsApplication1
         }
 
         /**
+         * Cuando cierra el programa  (LA X DE LA BARRA DE HERRAMIENTAS)
          * Cierra todos los formularios
          */
         public void CloseForms()
