@@ -34,7 +34,15 @@
             this.log_name = new System.Windows.Forms.Label();
             this.log_photo = new System.Windows.Forms.PictureBox();
             this.Calendar = new System.Windows.Forms.MonthCalendar();
+            this.label_fecha_consulta = new System.Windows.Forms.Label();
+            this.dataGrid_consultas = new System.Windows.Forms.DataGridView();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_consultas)).BeginInit();
             this.SuspendLayout();
             // 
             // log_date
@@ -92,26 +100,93 @@
             // 
             // Calendar
             // 
-            this.Calendar.CalendarDimensions = new System.Drawing.Size(3, 2);
-            this.Calendar.Location = new System.Drawing.Point(12, 164);
+            this.Calendar.Location = new System.Drawing.Point(506, 18);
+            this.Calendar.MaxDate = new System.DateTime(2018, 12, 31, 0, 0, 0, 0);
+            this.Calendar.MinDate = new System.DateTime(2014, 1, 1, 0, 0, 0, 0);
             this.Calendar.Name = "Calendar";
             this.Calendar.TabIndex = 47;
             this.Calendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.Calendar_DateChanged);
             // 
-            // FormStartVeterinario
+            // label_fecha_consulta
+            // 
+            this.label_fecha_consulta.AutoSize = true;
+            this.label_fecha_consulta.BackColor = System.Drawing.Color.Transparent;
+            this.label_fecha_consulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_fecha_consulta.Location = new System.Drawing.Point(12, 173);
+            this.label_fecha_consulta.Name = "label_fecha_consulta";
+            this.label_fecha_consulta.Size = new System.Drawing.Size(51, 20);
+            this.label_fecha_consulta.TabIndex = 48;
+            this.label_fecha_consulta.Text = "label5";
+            // 
+            // dataGrid_consultas
+            // 
+            this.dataGrid_consultas.AllowUserToAddRows = false;
+            this.dataGrid_consultas.AllowUserToDeleteRows = false;
+            this.dataGrid_consultas.AllowUserToResizeRows = false;
+            this.dataGrid_consultas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGrid_consultas.BackgroundColor = System.Drawing.Color.White;
+            this.dataGrid_consultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_consultas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Fecha,
+            this.Motivo,
+            this.Lugar,
+            this.Modificar,
+            this.Eliminar});
+            this.dataGrid_consultas.Location = new System.Drawing.Point(12, 196);
+            this.dataGrid_consultas.Name = "dataGrid_consultas";
+            this.dataGrid_consultas.ReadOnly = true;
+            this.dataGrid_consultas.RowHeadersVisible = false;
+            this.dataGrid_consultas.Size = new System.Drawing.Size(658, 274);
+            this.dataGrid_consultas.TabIndex = 49;
+            this.dataGrid_consultas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_consultas_CellContentClick);
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            // 
+            // Motivo
+            // 
+            this.Motivo.HeaderText = "Motivo";
+            this.Motivo.Name = "Motivo";
+            this.Motivo.ReadOnly = true;
+            // 
+            // Lugar
+            // 
+            this.Lugar.HeaderText = "Lugar";
+            this.Lugar.Name = "Lugar";
+            this.Lugar.ReadOnly = true;
+            // 
+            // Modificar
+            // 
+            this.Modificar.HeaderText = "Modificar";
+            this.Modificar.Name = "Modificar";
+            this.Modificar.ReadOnly = true;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            // 
+            // FormVeterinarioInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 483);
+            this.Controls.Add(this.dataGrid_consultas);
+            this.Controls.Add(this.label_fecha_consulta);
             this.Controls.Add(this.Calendar);
             this.Controls.Add(this.log_date);
             this.Controls.Add(this.log_type);
             this.Controls.Add(this.log_id);
             this.Controls.Add(this.log_name);
             this.Controls.Add(this.log_photo);
-            this.Name = "FormStartVeterinario";
+            this.Name = "FormVeterinarioInicio";
             this.Text = "FormStartVeterinario";
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_consultas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,5 +200,12 @@
         public System.Windows.Forms.Label log_name;
         public System.Windows.Forms.PictureBox log_photo;
         private System.Windows.Forms.MonthCalendar Calendar;
+        public System.Windows.Forms.Label label_fecha_consulta;
+        public System.Windows.Forms.DataGridView dataGrid_consultas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Motivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lugar;
+        private System.Windows.Forms.DataGridViewButtonColumn Modificar;
+        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }
 }

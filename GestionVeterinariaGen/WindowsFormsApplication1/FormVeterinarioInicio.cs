@@ -31,6 +31,11 @@ namespace WindowsFormsApplication1
          */
         private void Calendar_DateChanged(object sender, DateRangeEventArgs e)
         {
+            controller.mostrarConsultas(Calendar.SelectionStart);
+        }
+
+        private void dataGrid_consultas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
