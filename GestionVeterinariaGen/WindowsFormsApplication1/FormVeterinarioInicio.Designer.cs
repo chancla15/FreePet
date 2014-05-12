@@ -174,7 +174,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 483);
+            this.ClientSize = new System.Drawing.Size(745, 483);
             this.Controls.Add(this.dataGrid_consultas);
             this.Controls.Add(this.label_fecha_consulta);
             this.Controls.Add(this.Calendar);
