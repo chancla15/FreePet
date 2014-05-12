@@ -138,18 +138,6 @@
 	<Compile Include="CEN\GestionVeterinaria\TratamientoCEN.cs" />
 	<Compile Include="CAD\GestionVeterinaria\ITratamientoCAD.cs" />
 	<Compile Include="CAD\GestionVeterinaria\TratamientoCAD.cs" />
-	<Compile Include="EN\GestionVeterinaria\VacunaEN.cs" />
-	<Compile Include="CEN\GestionVeterinaria\VacunaCEN.cs" />
-	<Compile Include="CAD\GestionVeterinaria\IVacunaCAD.cs" />
-	<Compile Include="CAD\GestionVeterinaria\VacunaCAD.cs" />
-	<Compile Include="EN\GestionVeterinaria\FarmacoEN.cs" />
-	<Compile Include="CEN\GestionVeterinaria\FarmacoCEN.cs" />
-	<Compile Include="CAD\GestionVeterinaria\IFarmacoCAD.cs" />
-	<Compile Include="CAD\GestionVeterinaria\FarmacoCAD.cs" />
-	<Compile Include="EN\GestionVeterinaria\OrtopediaEN.cs" />
-	<Compile Include="CEN\GestionVeterinaria\OrtopediaCEN.cs" />
-	<Compile Include="CAD\GestionVeterinaria\IOrtopediaCAD.cs" />
-	<Compile Include="CAD\GestionVeterinaria\OrtopediaCAD.cs" />
 	<Compile Include="EN\GestionVeterinaria\FacturaEN.cs" />
 	<Compile Include="CEN\GestionVeterinaria\FacturaCEN.cs" />
 	<Compile Include="CAD\GestionVeterinaria\IFacturaCAD.cs" />
@@ -184,9 +172,6 @@
 	<EmbeddedResource Include="Mappings\GestionVeterinaria\recepcionista.hbm.xml" />
 	<EmbeddedResource Include="Mappings\GestionVeterinaria\consulta.hbm.xml" />
 	<EmbeddedResource Include="Mappings\GestionVeterinaria\tratamiento.hbm.xml" />
-	<EmbeddedResource Include="Mappings\GestionVeterinaria\vacuna.hbm.xml" />
-	<EmbeddedResource Include="Mappings\GestionVeterinaria\farmaco.hbm.xml" />
-	<EmbeddedResource Include="Mappings\GestionVeterinaria\ortopedia.hbm.xml" />
 	<EmbeddedResource Include="Mappings\GestionVeterinaria\factura.hbm.xml" />
 	<EmbeddedResource Include="Mappings\GestionVeterinaria\administrador.hbm.xml" />
 	

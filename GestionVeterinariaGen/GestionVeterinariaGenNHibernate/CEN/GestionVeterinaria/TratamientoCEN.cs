@@ -32,7 +32,7 @@ public ITratamientoCAD get_ITratamientoCAD ()
         return this._ITratamientoCAD;
 }
 
-public string New_ (string p_nombre, Nullable<DateTime> p_fechaInicio, float p_precio, Nullable<DateTime> p_fechaFin)
+public string New_ (string p_nombre, float p_precio, string p_descripcion, int p_stock, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum p_dosis_diaria)
 {
         TratamientoEN tratamientoEN = null;
         string oid;
@@ -41,11 +41,13 @@ public string New_ (string p_nombre, Nullable<DateTime> p_fechaInicio, float p_p
         tratamientoEN = new TratamientoEN ();
         tratamientoEN.Nombre = p_nombre;
 
-        tratamientoEN.FechaInicio = p_fechaInicio;
-
         tratamientoEN.Precio = p_precio;
 
-        tratamientoEN.FechaFin = p_fechaFin;
+        tratamientoEN.Descripcion = p_descripcion;
+
+        tratamientoEN.Stock = p_stock;
+
+        tratamientoEN.Dosis_diaria = p_dosis_diaria;
 
         //Call to TratamientoCAD
 
@@ -53,16 +55,17 @@ public string New_ (string p_nombre, Nullable<DateTime> p_fechaInicio, float p_p
         return oid;
 }
 
-public void Modify (string p_Tratamiento_OID, Nullable<DateTime> p_fechaInicio, float p_precio, Nullable<DateTime> p_fechaFin)
+public void Modify (string p_Tratamiento_OID, float p_precio, string p_descripcion, int p_stock, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum p_dosis_diaria)
 {
         TratamientoEN tratamientoEN = null;
 
         //Initialized TratamientoEN
         tratamientoEN = new TratamientoEN ();
         tratamientoEN.Nombre = p_Tratamiento_OID;
-        tratamientoEN.FechaInicio = p_fechaInicio;
         tratamientoEN.Precio = p_precio;
-        tratamientoEN.FechaFin = p_fechaFin;
+        tratamientoEN.Descripcion = p_descripcion;
+        tratamientoEN.Stock = p_stock;
+        tratamientoEN.Dosis_diaria = p_dosis_diaria;
         //Call to TratamientoCAD
 
         _ITratamientoCAD.Modify (tratamientoEN);

@@ -35,9 +35,9 @@ namespace WindowsFormsApplication1
         private void initPerfil()
         {
             form.log_name.Text = sessionData.name;
-            form.log_id.Text = sessionData.TOKEN_SESSION;
-            form.log_type.Text = sessionData.tipo;
-            form.log_date.Text = sessionData.fecha;
+            //form.log_id.Text = sessionData.TOKEN_SESSION;
+            //form.log_type.Text = sessionData.tipo;
+            //form.log_date.Text = sessionData.fecha;
             //la foto
         }
 

@@ -15,12 +15,6 @@ private string nombre;
  *
  */
 
-private Nullable<DateTime> fechaInicio;
-
-/**
- *
- */
-
 private System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta;
 
 /**
@@ -33,7 +27,19 @@ private float precio;
  *
  */
 
-private Nullable<DateTime> fechaFin;
+private string descripcion;
+
+/**
+ *
+ */
+
+private int stock;
+
+/**
+ *
+ */
+
+private GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum dosis_diaria;
 
 
 
@@ -41,11 +47,6 @@ private Nullable<DateTime> fechaFin;
 
 public virtual string Nombre {
         get { return nombre; } set { nombre = value;  }
-}
-
-
-public virtual Nullable<DateTime> FechaInicio {
-        get { return fechaInicio; } set { fechaInicio = value;  }
 }
 
 
@@ -59,8 +60,18 @@ public virtual float Precio {
 }
 
 
-public virtual Nullable<DateTime> FechaFin {
-        get { return fechaFin; } set { fechaFin = value;  }
+public virtual string Descripcion {
+        get { return descripcion; } set { descripcion = value;  }
+}
+
+
+public virtual int Stock {
+        get { return stock; } set { stock = value;  }
+}
+
+
+public virtual GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum Dosis_diaria {
+        get { return dosis_diaria; } set { dosis_diaria = value;  }
 }
 
 
@@ -74,29 +85,31 @@ public TratamientoEN()
 
 
 
-public TratamientoEN(string nombre, Nullable<DateTime> fechaInicio, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio, Nullable<DateTime> fechaFin)
+public TratamientoEN(string nombre, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio, string descripcion, int stock, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum dosis_diaria)
 {
-        this.init (nombre, fechaInicio, consulta, precio, fechaFin);
+        this.init (nombre, consulta, precio, descripcion, stock, dosis_diaria);
 }
 
 
 public TratamientoEN(TratamientoEN tratamiento)
 {
-        this.init (tratamiento.Nombre, tratamiento.FechaInicio, tratamiento.Consulta, tratamiento.Precio, tratamiento.FechaFin);
+        this.init (tratamiento.Nombre, tratamiento.Consulta, tratamiento.Precio, tratamiento.Descripcion, tratamiento.Stock, tratamiento.Dosis_diaria);
 }
 
-private void init (string nombre, Nullable<DateTime> fechaInicio, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio, Nullable<DateTime> fechaFin)
+private void init (string nombre, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio, string descripcion, int stock, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum dosis_diaria)
 {
         this.Nombre = nombre;
 
-
-        this.FechaInicio = fechaInicio;
 
         this.Consulta = consulta;
 
         this.Precio = precio;
 
-        this.FechaFin = fechaFin;
+        this.Descripcion = descripcion;
+
+        this.Stock = stock;
+
+        this.Dosis_diaria = dosis_diaria;
 }
 
 public override bool Equals (object obj)

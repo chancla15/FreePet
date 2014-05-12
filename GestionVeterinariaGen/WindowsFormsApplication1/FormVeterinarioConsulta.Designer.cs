@@ -44,6 +44,8 @@
             this.label_tratamientos = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_ficha = new System.Windows.Forms.GroupBox();
             this.textBox_chip = new System.Windows.Forms.TextBox();
@@ -65,10 +67,7 @@
             this.textBox_mascota = new System.Windows.Forms.TextBox();
             this.textBox_cliente = new System.Windows.Forms.TextBox();
             this.button_realizar = new System.Windows.Forms.Button();
-            this.button_factura = new System.Windows.Forms.Button();
             this.button_anular = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label_prescripcion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox_ficha.SuspendLayout();
@@ -201,10 +200,12 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre,
+            this.Descripcion,
+            this.Dosis,
             this.Precio});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 404);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 404);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(243, 108);
+            this.dataGridView1.Size = new System.Drawing.Size(442, 108);
             this.dataGridView1.TabIndex = 62;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -212,6 +213,16 @@
             // 
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            // 
+            // Dosis
+            // 
+            this.Dosis.HeaderText = "Dosis";
+            this.Dosis.Name = "Dosis";
             // 
             // Precio
             // 
@@ -390,57 +401,28 @@
             // 
             // button_realizar
             // 
-            this.button_realizar.Location = new System.Drawing.Point(282, 677);
+            this.button_realizar.Location = new System.Drawing.Point(519, 549);
             this.button_realizar.Name = "button_realizar";
             this.button_realizar.Size = new System.Drawing.Size(135, 23);
             this.button_realizar.TabIndex = 66;
             this.button_realizar.Text = "Realizar consulta";
             this.button_realizar.UseVisualStyleBackColor = true;
             // 
-            // button_factura
-            // 
-            this.button_factura.Location = new System.Drawing.Point(430, 677);
-            this.button_factura.Name = "button_factura";
-            this.button_factura.Size = new System.Drawing.Size(230, 23);
-            this.button_factura.TabIndex = 67;
-            this.button_factura.Text = "Realizar consulta con Factura";
-            this.button_factura.UseVisualStyleBackColor = true;
-            // 
             // button_anular
             // 
-            this.button_anular.Location = new System.Drawing.Point(125, 677);
+            this.button_anular.Location = new System.Drawing.Point(372, 549);
             this.button_anular.Name = "button_anular";
             this.button_anular.Size = new System.Drawing.Size(135, 23);
             this.button_anular.TabIndex = 68;
             this.button_anular.Text = "Anular consulta";
             this.button_anular.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 545);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(646, 68);
-            this.textBox1.TabIndex = 69;
-            // 
-            // label_prescripcion
-            // 
-            this.label_prescripcion.AutoSize = true;
-            this.label_prescripcion.Location = new System.Drawing.Point(12, 529);
-            this.label_prescripcion.Name = "label_prescripcion";
-            this.label_prescripcion.Size = new System.Drawing.Size(160, 13);
-            this.label_prescripcion.TabIndex = 70;
-            this.label_prescripcion.Text = "Prescripción de losTratamientos:";
-            // 
             // FormVeterinarioConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 733);
-            this.Controls.Add(this.label_prescripcion);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(684, 601);
             this.Controls.Add(this.button_anular);
-            this.Controls.Add(this.button_factura);
             this.Controls.Add(this.button_realizar);
             this.Controls.Add(this.textBox_cliente);
             this.Controls.Add(this.textBox_mascota);
@@ -489,8 +471,6 @@
         private System.Windows.Forms.TextBox text_lugar;
         private System.Windows.Forms.Label label_tratamientos;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.GroupBox groupBox_ficha;
         private System.Windows.Forms.Label label_raza;
         private System.Windows.Forms.Label label_peso;
@@ -511,9 +491,10 @@
         private System.Windows.Forms.TextBox textBox_chip;
         private System.Windows.Forms.TextBox textBox_color;
         private System.Windows.Forms.Button button_realizar;
-        private System.Windows.Forms.Button button_factura;
         private System.Windows.Forms.Button button_anular;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label_prescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dosis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
     }
 }

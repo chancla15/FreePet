@@ -79,5 +79,10 @@ namespace WindowsFormsApplication1
             text_user.Text = "";
             text_pass.Text = "";
         }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
