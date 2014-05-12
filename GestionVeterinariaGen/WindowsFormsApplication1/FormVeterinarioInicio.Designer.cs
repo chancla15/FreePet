@@ -36,13 +36,20 @@
             this.Calendar = new System.Windows.Forms.MonthCalendar();
             this.label_fecha_consulta = new System.Windows.Forms.Label();
             this.dataGrid_consultas = new System.Windows.Forms.DataGridView();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Raza = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Especie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Ver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.picture_inicio_veterinario = new System.Windows.Forms.PictureBox();
+            this.picture_consulta_veterinario = new System.Windows.Forms.PictureBox();
+            this.picture_desconectar_veterinario = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_consultas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).BeginInit();
             this.SuspendLayout();
             // 
             // log_date
@@ -50,7 +57,7 @@
             this.log_date.AutoSize = true;
             this.log_date.BackColor = System.Drawing.Color.Transparent;
             this.log_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.log_date.Location = new System.Drawing.Point(108, 132);
+            this.log_date.Location = new System.Drawing.Point(108, 154);
             this.log_date.Name = "log_date";
             this.log_date.Size = new System.Drawing.Size(51, 20);
             this.log_date.TabIndex = 46;
@@ -61,7 +68,7 @@
             this.log_type.AutoSize = true;
             this.log_type.BackColor = System.Drawing.Color.Transparent;
             this.log_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.log_type.Location = new System.Drawing.Point(108, 100);
+            this.log_type.Location = new System.Drawing.Point(108, 122);
             this.log_type.Name = "log_type";
             this.log_type.Size = new System.Drawing.Size(51, 20);
             this.log_type.TabIndex = 45;
@@ -72,7 +79,7 @@
             this.log_id.AutoSize = true;
             this.log_id.BackColor = System.Drawing.Color.Transparent;
             this.log_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.log_id.Location = new System.Drawing.Point(108, 67);
+            this.log_id.Location = new System.Drawing.Point(108, 89);
             this.log_id.Name = "log_id";
             this.log_id.Size = new System.Drawing.Size(51, 20);
             this.log_id.TabIndex = 44;
@@ -83,7 +90,7 @@
             this.log_name.AutoSize = true;
             this.log_name.BackColor = System.Drawing.Color.Transparent;
             this.log_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.log_name.Location = new System.Drawing.Point(108, 32);
+            this.log_name.Location = new System.Drawing.Point(108, 54);
             this.log_name.Name = "log_name";
             this.log_name.Size = new System.Drawing.Size(51, 20);
             this.log_name.TabIndex = 43;
@@ -92,7 +99,7 @@
             // log_photo
             // 
             this.log_photo.Image = global::WindowsFormsApplication1.Properties.Resources.sinFoto;
-            this.log_photo.Location = new System.Drawing.Point(12, 32);
+            this.log_photo.Location = new System.Drawing.Point(12, 54);
             this.log_photo.Name = "log_photo";
             this.log_photo.Size = new System.Drawing.Size(90, 120);
             this.log_photo.TabIndex = 42;
@@ -100,7 +107,7 @@
             // 
             // Calendar
             // 
-            this.Calendar.Location = new System.Drawing.Point(506, 18);
+            this.Calendar.Location = new System.Drawing.Point(506, 54);
             this.Calendar.MaxDate = new System.DateTime(2018, 12, 31, 0, 0, 0, 0);
             this.Calendar.MinDate = new System.DateTime(2014, 1, 1, 0, 0, 0, 0);
             this.Calendar.Name = "Calendar";
@@ -112,7 +119,7 @@
             this.label_fecha_consulta.AutoSize = true;
             this.label_fecha_consulta.BackColor = System.Drawing.Color.Transparent;
             this.label_fecha_consulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_fecha_consulta.Location = new System.Drawing.Point(12, 173);
+            this.label_fecha_consulta.Location = new System.Drawing.Point(12, 189);
             this.label_fecha_consulta.Name = "label_fecha_consulta";
             this.label_fecha_consulta.Size = new System.Drawing.Size(51, 20);
             this.label_fecha_consulta.TabIndex = 48;
@@ -127,24 +134,37 @@
             this.dataGrid_consultas.BackgroundColor = System.Drawing.Color.White;
             this.dataGrid_consultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGrid_consultas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Fecha,
+            this.Hora,
+            this.Raza,
+            this.Especie,
             this.Motivo,
             this.Lugar,
-            this.Modificar,
-            this.Eliminar});
-            this.dataGrid_consultas.Location = new System.Drawing.Point(12, 196);
+            this.Ver});
+            this.dataGrid_consultas.Location = new System.Drawing.Point(12, 230);
             this.dataGrid_consultas.Name = "dataGrid_consultas";
             this.dataGrid_consultas.ReadOnly = true;
             this.dataGrid_consultas.RowHeadersVisible = false;
-            this.dataGrid_consultas.Size = new System.Drawing.Size(658, 274);
+            this.dataGrid_consultas.Size = new System.Drawing.Size(658, 240);
             this.dataGrid_consultas.TabIndex = 49;
             this.dataGrid_consultas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_consultas_CellContentClick);
             // 
-            // Fecha
+            // Hora
             // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
+            this.Hora.HeaderText = "Hora";
+            this.Hora.Name = "Hora";
+            this.Hora.ReadOnly = true;
+            // 
+            // Raza
+            // 
+            this.Raza.HeaderText = "Raza";
+            this.Raza.Name = "Raza";
+            this.Raza.ReadOnly = true;
+            // 
+            // Especie
+            // 
+            this.Especie.HeaderText = "Especie";
+            this.Especie.Name = "Especie";
+            this.Especie.ReadOnly = true;
             // 
             // Motivo
             // 
@@ -158,23 +178,50 @@
             this.Lugar.Name = "Lugar";
             this.Lugar.ReadOnly = true;
             // 
-            // Modificar
+            // Ver
             // 
-            this.Modificar.HeaderText = "Modificar";
-            this.Modificar.Name = "Modificar";
-            this.Modificar.ReadOnly = true;
+            this.Ver.HeaderText = "Ver";
+            this.Ver.Name = "Ver";
+            this.Ver.ReadOnly = true;
             // 
-            // Eliminar
+            // picture_inicio_veterinario
             // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
+            this.picture_inicio_veterinario.Image = global::WindowsFormsApplication1.Properties.Resources.start;
+            this.picture_inicio_veterinario.Location = new System.Drawing.Point(2, -2);
+            this.picture_inicio_veterinario.Name = "picture_inicio_veterinario";
+            this.picture_inicio_veterinario.Size = new System.Drawing.Size(100, 50);
+            this.picture_inicio_veterinario.TabIndex = 50;
+            this.picture_inicio_veterinario.TabStop = false;
+            this.picture_inicio_veterinario.Click += new System.EventHandler(this.picture_inicio_veterinario_Click);
+            // 
+            // picture_consulta_veterinario
+            // 
+            this.picture_consulta_veterinario.Image = global::WindowsFormsApplication1.Properties.Resources.doctor;
+            this.picture_consulta_veterinario.Location = new System.Drawing.Point(112, -2);
+            this.picture_consulta_veterinario.Name = "picture_consulta_veterinario";
+            this.picture_consulta_veterinario.Size = new System.Drawing.Size(100, 50);
+            this.picture_consulta_veterinario.TabIndex = 51;
+            this.picture_consulta_veterinario.TabStop = false;
+            this.picture_consulta_veterinario.Click += new System.EventHandler(this.picture_consulta_veterinario_Click);
+            // 
+            // picture_desconectar_veterinario
+            // 
+            this.picture_desconectar_veterinario.Image = global::WindowsFormsApplication1.Properties.Resources.ajustes;
+            this.picture_desconectar_veterinario.Location = new System.Drawing.Point(246, -2);
+            this.picture_desconectar_veterinario.Name = "picture_desconectar_veterinario";
+            this.picture_desconectar_veterinario.Size = new System.Drawing.Size(100, 50);
+            this.picture_desconectar_veterinario.TabIndex = 52;
+            this.picture_desconectar_veterinario.TabStop = false;
+            this.picture_desconectar_veterinario.Click += new System.EventHandler(this.picture_ajustes_veterinario_Click);
             // 
             // FormVeterinarioInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 483);
+            this.ClientSize = new System.Drawing.Size(682, 483);
+            this.Controls.Add(this.picture_desconectar_veterinario);
+            this.Controls.Add(this.picture_consulta_veterinario);
+            this.Controls.Add(this.picture_inicio_veterinario);
             this.Controls.Add(this.dataGrid_consultas);
             this.Controls.Add(this.label_fecha_consulta);
             this.Controls.Add(this.Calendar);
@@ -184,9 +231,13 @@
             this.Controls.Add(this.log_name);
             this.Controls.Add(this.log_photo);
             this.Name = "FormVeterinarioInicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormStartVeterinario";
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_consultas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,13 +250,17 @@
         public System.Windows.Forms.Label log_id;
         public System.Windows.Forms.Label log_name;
         public System.Windows.Forms.PictureBox log_photo;
-        private System.Windows.Forms.MonthCalendar Calendar;
+        public System.Windows.Forms.MonthCalendar Calendar;
         public System.Windows.Forms.Label label_fecha_consulta;
         public System.Windows.Forms.DataGridView dataGrid_consultas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Raza;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Especie;
         private System.Windows.Forms.DataGridViewTextBoxColumn Motivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lugar;
-        private System.Windows.Forms.DataGridViewButtonColumn Modificar;
-        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ver;
+        private System.Windows.Forms.PictureBox picture_inicio_veterinario;
+        private System.Windows.Forms.PictureBox picture_consulta_veterinario;
+        private System.Windows.Forms.PictureBox picture_desconectar_veterinario;
     }
 }
