@@ -203,7 +203,13 @@ namespace WindowsFormsApplication1
          */
         private void button_facturas_Click(object sender, EventArgs e)
         {
-
+            if (state == Utils.State.MODIFY)
+            {
+                menu.f_cliente.DesactivateForm();
+                FormRecepcionistaFactura frf = menu.f_factura;
+                frf.changeState(Utils.State.MODIFY, text_dni.Text);
+                frf.ActivateForm();
+            }
         }
 
         #endregion

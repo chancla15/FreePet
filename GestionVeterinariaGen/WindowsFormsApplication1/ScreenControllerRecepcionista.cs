@@ -136,7 +136,7 @@ namespace WindowsFormsApplication1
         /**
          * Cuando lanza la pantalla factura
          */
-        public bool LaunchFacturaScreen(Utils.State state, string cli)
+        public bool LaunchFacturaScreen(Utils.State state, string DNI)
         {
             bool ret = false;
 
@@ -145,7 +145,7 @@ namespace WindowsFormsApplication1
                 ret = true;
                 FormActual = f_factura.ID;
                 f_factura.ActivateForm();
-                f_factura.changeState(state, cli);
+                f_factura.changeState(state, DNI);
             }
             return ret;
         }

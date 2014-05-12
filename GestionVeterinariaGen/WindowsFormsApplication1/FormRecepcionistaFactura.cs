@@ -29,6 +29,8 @@ namespace WindowsFormsApplication1
         /** El identificador del form */
         public string ID = "FACTURA";
 
+
+
         #endregion
 
         #region Constructor
@@ -44,33 +46,24 @@ namespace WindowsFormsApplication1
             controller = new FormRecepcionistaFacturaController(this);
         }
 
-        /**
-         * Cambia el estado del form
-         * @param st el estado nuevo
-         * @param cli ??
-         */
-        public void changeState(Utils.State st, string cli)
+        public void changeState(Utils.State st, string DNI)
         {
             //AQUI COMPRUEBO EL ESTADO ACTUAL DE LA PANTALLA, PORQUE ESTE METODO SOLO SE EJECUTARA
             //CADA VEZ QUE HAGAMOS UNA ACCION REFERIDA CON AÑADIR, MODIFICAR O ELIMINAR EN LA PANTALLA
             //TANTO SI PINCHAMOS EN EL DATAGRID COMO SI NOS LA INFORMACION DE OTRA PANTALLA
-
+            
             state = st;
 
-            if (state == Utils.State.MODIFY || state == Utils.State.DESTROY)
+            if (state == Utils.State.MODIFY)
             {
                 // lo que tenga que hacer en comun para los dos casos
                 //si hace algo en comun
-                controller.loadData(cli);
+                controller.loadData(DNI);
 
-                if (state == Utils.State.DESTROY)
-                {
-                    //Lo que tenga que hacer si le manda la accion eliminar
-                    //mira el otro form (clientes, mascota y  consulta estan casi casi casi acabados)
-                }
             }
-           
+
         }
+
 
         #endregion
 
@@ -94,44 +87,31 @@ namespace WindowsFormsApplication1
         /**
          * Cuando se pulsa el boton buscar
          */
-        private void btn_buscar_Click(object sender, EventArgs e)
+        private void btn_buscar_dni_Click(object sender, EventArgs e)
         {
+            changeState(Utils.State.MODIFY,text_dni.Text);
         }
 
-        private void btn_add_Click(object sender, EventArgs e)
+        private void btn_erase_Click(object sender, EventArgs e)
         {
-            controller.CargarGroupBoxCrear();
+            text_dni.Clear(); //Borra el texto del campo DNI
+            text_dni.Enabled = true; //Activa de nuevo el campo DNI
+        }
+
+        private void btn_pagar_si_Click(object sender, EventArgs e)
+        {
+            controller.pagarFactura();   //Si pulsamos Si en la alerta pagamos la factura
+            controller.AlertaPagar(false, -1); //Desactiva la alerta de pagar factura
+        }
+        
+        private void btn_pagar_no_Click(object sender, EventArgs e)
+        {
+            controller.AlertaPagar(false, -1); //Desactiva la alerta de pagar factura
         }
 
         #endregion
 
         #region LabelClick
-
-        private void ll_Cancelar_gpCrear_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            gp_CrearFactura.Visible = false;
-        }
-
-        private void ll_Cancelar_gpModificar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            gp_ModificarFactura.Visible = false;
-        }
-
-        private void ll_Modificar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            controller.ModificarFactura();
-        }
-
-        private void ll_Eliminar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            controller.EliminarFactura();
-        }
-
-        private void ll_Crear_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            controller.CrearFactura();
-        }
-
         #endregion
 
         #region DataGridView
@@ -147,15 +127,20 @@ namespace WindowsFormsApplication1
         /**
         * Comprueba el contenido de la casilla pulsada
         */
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (!e.RowIndex.Equals(-1))
             {
-                controller.CargarGroupBoxModificar(e.RowIndex);
-
+                FacturaEN factura = controller.getScreenState(e, ref state);
+                if (factura != null)
+                {
+                    //Activa la alerta de pagar factura
+                    controller.AlertaPagar(true, e.RowIndex);
+                }
             }
         }
+
+
 
         #endregion
 
@@ -216,5 +201,13 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
+
+
+
+        
+
+
+
+
     }
 }

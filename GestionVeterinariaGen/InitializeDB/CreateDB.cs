@@ -354,7 +354,7 @@ namespace InitializeDB
                 //He tenido que añadir en FormConsultarecepcionistaController.cs en public void guardarCuadroInformacion() una cadena vacia dado que ahora hay un nuevo argumento en las consultas
                 ConsultaEN c1 = new ConsultaEN();
                 c1.Diagnostico = "Pata rota";
-                c1.Fecha = new DateTime(2014, 5, 5);
+                c1.Fecha = new DateTime(2014, 5, 20);
                 c1.IdConsulta = 10;
                 c1.Lugar = "Sala 1";
                 c1.Mascota = new MascotaEN();
@@ -376,8 +376,8 @@ namespace InitializeDB
                 c2.Veterinario = new VeterinarioEN();
                 c2.Veterinario.DNI = "2";
 
-                ConsultaCEN.New_(c1.Fecha, c1.MotivoConsulta, c1.Diagnostico, c1.Mascota.IdMascota, c1.Veterinario.DNI, c1.Tratamiento.Nombre, c1.Lugar);
-                ConsultaCEN.New_(c2.Fecha, c2.MotivoConsulta, c2.Diagnostico, c2.Mascota.IdMascota, c2.Veterinario.DNI, c2.Tratamiento.Nombre, c2.Lugar);
+                //ConsultaCEN.New_(c1.Fecha, c1.MotivoConsulta, c1.Diagnostico, c1.Mascota.IdMascota, c1.Veterinario.DNI, c1.Tratamiento.Nombre, c1.Lugar);
+                //ConsultaCEN.New_(c2.Fecha, c2.MotivoConsulta, c2.Diagnostico, c2.Mascota.IdMascota, c2.Veterinario.DNI, c2.Tratamiento.Nombre, c2.Lugar);
 
                 #endregion
 
