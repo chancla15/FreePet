@@ -189,7 +189,6 @@
     <Compile Include="FormVeterinarioInicio.Designer.cs">
       <DependentUpon>FormVeterinarioInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormVeterinarioInicioController.cs" />
     <Compile Include="FormAdministradorTratamiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +196,7 @@
       <DependentUpon>FormAdministradorTratamiento.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAdministradorTratamientoController.cs" />
+    <Compile Include="FormVeterinarioInicioController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScreenControllerRecepcionista.cs" />

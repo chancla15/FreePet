@@ -167,96 +167,96 @@ public static void InitializeData ()
                 #endregion
 
                 /*#region Vacuna
-                VacunaEN v1 = new VacunaEN ();
-                v1.Consulta = null;
-                v1.FechaInicio = new DateTime (2014, 1, 2);
-                v1.FechaFin = new DateTime (2014, 1, 10);
-                v1.Nombre = "Parvovirosis";
-                v1.Precio = 10;
-                v1.Tipo = "Vial";
-
-                VacunaEN v2 = new VacunaEN ();
-                v2.Consulta = null;
-                v2.FechaInicio = new DateTime (2014, 1, 2);
-                v2.FechaFin = new DateTime (2014, 1, 10);
-                v2.Nombre = "Rabia";
-                v2.Precio = 15.5f;
-                v2.Tipo = "Inyeccion";
-
-                VacunaEN v3 = new VacunaEN ();
-                v3.Consulta = null;
-                v3.FechaInicio = new DateTime (2014, 1, 2);
-                v3.FechaFin = new DateTime (2014, 1, 10);
-                v3.Nombre = "Hepatits";
-                v3.Precio = 5.5f;
-                v3.Tipo = "Inyeccion";
-
-                VacunaEN v4 = new VacunaEN ();
-                v4.Consulta = null;
-                v4.FechaInicio = new DateTime (2014, 1, 2);
-                v4.FechaFin = new DateTime (2014, 1, 10);
-                v4.Nombre = "Leptospirosis";
-                v4.Precio = 12.9f;
-                v4.Tipo = "Inyeccion";
-
-                VacunaEN v5 = new VacunaEN ();
-                v5.Consulta = null;
-                v5.FechaInicio = new DateTime (2014, 1, 2);
-                v5.FechaFin = new DateTime (2014, 1, 10);
-                v5.Nombre = "Moquillo";
-                v5.Precio = 8.5f;
-                v5.Tipo = "Inyeccion";
-
-                VacunaEN v6 = new VacunaEN ();
-                v6.Consulta = null;
-                v6.FechaInicio = new DateTime (2014, 1, 2);
-                v6.FechaFin = new DateTime (2014, 1, 10);
-                v6.Nombre = "Traqueobronquitis";
-                v6.Precio = 10;
-                v6.Tipo = "Inyeccion";
-
-                VacunaEN v7 = new VacunaEN ();
-                v7.Consulta = null;
-                v7.FechaInicio = new DateTime (2014, 1, 2);
-                v7.FechaFin = new DateTime (2014, 1, 10);
-                v7.Nombre = "Piroplasmosis";
-                v7.Precio = 13.5f;
-                v7.Tipo = "Inyeccion";
-
-                VacunaEN v8 = new VacunaEN ();
-                v8.Consulta = null;
-                v8.FechaInicio = new DateTime (2014, 1, 2);
-                v8.FechaFin = new DateTime (2014, 1, 10);
-                v8.Nombre = "Coronavirus";
-                v8.Precio = 25.9f;
-                v8.Tipo = "Inyeccion";
-
-                VacunaCEN.New_ (v1.Nombre, v1.FechaInicio, v1.Precio, v1.FechaFin, v1.Tipo);
-                VacunaCEN.New_ (v2.Nombre, v2.FechaInicio, v2.Precio, v2.FechaFin, v2.Tipo);
-                VacunaCEN.New_ (v3.Nombre, v3.FechaInicio, v3.Precio, v3.FechaFin, v3.Tipo);
-                VacunaCEN.New_ (v4.Nombre, v4.FechaInicio, v4.Precio, v4.FechaFin, v4.Tipo);
-                VacunaCEN.New_ (v5.Nombre, v5.FechaInicio, v5.Precio, v5.FechaFin, v5.Tipo);
-                VacunaCEN.New_ (v6.Nombre, v6.FechaInicio, v6.Precio, v6.FechaFin, v6.Tipo);
-                VacunaCEN.New_ (v7.Nombre, v7.FechaInicio, v7.Precio, v7.FechaFin, v7.Tipo);
-                VacunaCEN.New_ (v8.Nombre, v8.FechaInicio, v8.Precio, v8.FechaFin, v8.Tipo);
-
-                #endregion
-
-                #region Ortopedia
-                OrtopediaEN o1 = new OrtopediaEN ();
-                o1.Consulta = null;
-                o1.FechaInicio = new DateTime (2014, 1, 2);
-                o1.FechaFin = new DateTime (2014, 1, 10);
-                o1.Nombre = "Escayolado";
-                o1.Precio = 5;
-                o1.Longitud = 1;
-                o1.Talla = "S";
-
-                OrtopediaCEN.New_ (o1.Nombre, o1.FechaInicio, o1.Precio, o1.FechaFin, o1.Talla, o1.Longitud);
-
-                #endregion
-
-                /*#region Farmaco
+                 * VacunaEN v1 = new VacunaEN ();
+                 * v1.Consulta = null;
+                 * v1.FechaInicio = new DateTime (2014, 1, 2);
+                 * v1.FechaFin = new DateTime (2014, 1, 10);
+                 * v1.Nombre = "Parvovirosis";
+                 * v1.Precio = 10;
+                 * v1.Tipo = "Vial";
+                 *
+                 * VacunaEN v2 = new VacunaEN ();
+                 * v2.Consulta = null;
+                 * v2.FechaInicio = new DateTime (2014, 1, 2);
+                 * v2.FechaFin = new DateTime (2014, 1, 10);
+                 * v2.Nombre = "Rabia";
+                 * v2.Precio = 15.5f;
+                 * v2.Tipo = "Inyeccion";
+                 *
+                 * VacunaEN v3 = new VacunaEN ();
+                 * v3.Consulta = null;
+                 * v3.FechaInicio = new DateTime (2014, 1, 2);
+                 * v3.FechaFin = new DateTime (2014, 1, 10);
+                 * v3.Nombre = "Hepatits";
+                 * v3.Precio = 5.5f;
+                 * v3.Tipo = "Inyeccion";
+                 *
+                 * VacunaEN v4 = new VacunaEN ();
+                 * v4.Consulta = null;
+                 * v4.FechaInicio = new DateTime (2014, 1, 2);
+                 * v4.FechaFin = new DateTime (2014, 1, 10);
+                 * v4.Nombre = "Leptospirosis";
+                 * v4.Precio = 12.9f;
+                 * v4.Tipo = "Inyeccion";
+                 *
+                 * VacunaEN v5 = new VacunaEN ();
+                 * v5.Consulta = null;
+                 * v5.FechaInicio = new DateTime (2014, 1, 2);
+                 * v5.FechaFin = new DateTime (2014, 1, 10);
+                 * v5.Nombre = "Moquillo";
+                 * v5.Precio = 8.5f;
+                 * v5.Tipo = "Inyeccion";
+                 *
+                 * VacunaEN v6 = new VacunaEN ();
+                 * v6.Consulta = null;
+                 * v6.FechaInicio = new DateTime (2014, 1, 2);
+                 * v6.FechaFin = new DateTime (2014, 1, 10);
+                 * v6.Nombre = "Traqueobronquitis";
+                 * v6.Precio = 10;
+                 * v6.Tipo = "Inyeccion";
+                 *
+                 * VacunaEN v7 = new VacunaEN ();
+                 * v7.Consulta = null;
+                 * v7.FechaInicio = new DateTime (2014, 1, 2);
+                 * v7.FechaFin = new DateTime (2014, 1, 10);
+                 * v7.Nombre = "Piroplasmosis";
+                 * v7.Precio = 13.5f;
+                 * v7.Tipo = "Inyeccion";
+                 *
+                 * VacunaEN v8 = new VacunaEN ();
+                 * v8.Consulta = null;
+                 * v8.FechaInicio = new DateTime (2014, 1, 2);
+                 * v8.FechaFin = new DateTime (2014, 1, 10);
+                 * v8.Nombre = "Coronavirus";
+                 * v8.Precio = 25.9f;
+                 * v8.Tipo = "Inyeccion";
+                 *
+                 * VacunaCEN.New_ (v1.Nombre, v1.FechaInicio, v1.Precio, v1.FechaFin, v1.Tipo);
+                 * VacunaCEN.New_ (v2.Nombre, v2.FechaInicio, v2.Precio, v2.FechaFin, v2.Tipo);
+                 * VacunaCEN.New_ (v3.Nombre, v3.FechaInicio, v3.Precio, v3.FechaFin, v3.Tipo);
+                 * VacunaCEN.New_ (v4.Nombre, v4.FechaInicio, v4.Precio, v4.FechaFin, v4.Tipo);
+                 * VacunaCEN.New_ (v5.Nombre, v5.FechaInicio, v5.Precio, v5.FechaFin, v5.Tipo);
+                 * VacunaCEN.New_ (v6.Nombre, v6.FechaInicio, v6.Precio, v6.FechaFin, v6.Tipo);
+                 * VacunaCEN.New_ (v7.Nombre, v7.FechaInicio, v7.Precio, v7.FechaFin, v7.Tipo);
+                 * VacunaCEN.New_ (v8.Nombre, v8.FechaInicio, v8.Precio, v8.FechaFin, v8.Tipo);
+                 *
+                 * #endregion
+                 *
+                 * #region Ortopedia
+                 * OrtopediaEN o1 = new OrtopediaEN ();
+                 * o1.Consulta = null;
+                 * o1.FechaInicio = new DateTime (2014, 1, 2);
+                 * o1.FechaFin = new DateTime (2014, 1, 10);
+                 * o1.Nombre = "Escayolado";
+                 * o1.Precio = 5;
+                 * o1.Longitud = 1;
+                 * o1.Talla = "S";
+                 *
+                 * OrtopediaCEN.New_ (o1.Nombre, o1.FechaInicio, o1.Precio, o1.FechaFin, o1.Talla, o1.Longitud);
+                 *
+                 * #endregion
+                 *
+                 * /*#region Farmaco
                  * FarmacoEN f1 = new FarmacoEN ();
                  * f1.Consulta = null;
                  * f1.FechaInicio = new DateTime (2014, 1, 2);
@@ -375,8 +375,8 @@ public static void InitializeData ()
                 c2.Veterinario = new VeterinarioEN ();
                 c2.Veterinario.DNI = "2";
 
-                ConsultaCEN.New_ (c1.Fecha, c1.MotivoConsulta, c1.Diagnostico, c1.Mascota.IdMascota, c1.Veterinario.DNI, c1.Tratamiento.Nombre, c1.Lugar);
-                ConsultaCEN.New_ (c2.Fecha, c2.MotivoConsulta, c2.Diagnostico, c2.Mascota.IdMascota, c2.Veterinario.DNI, c2.Tratamiento.Nombre, c2.Lugar);
+                //ConsultaCEN.New_ (c1.Fecha, c1.MotivoConsulta, c1.Diagnostico, c1.Mascota.IdMascota, c1.Veterinario.DNI, c1.Tratamiento.Nombre, c1.Lugar);
+                //ConsultaCEN.New_ (c2.Fecha, c2.MotivoConsulta, c2.Diagnostico, c2.Mascota.IdMascota, c2.Veterinario.DNI, c2.Tratamiento.Nombre, c2.Lugar);
 
                 #endregion
 

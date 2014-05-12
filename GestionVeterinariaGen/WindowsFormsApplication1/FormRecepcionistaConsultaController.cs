@@ -26,7 +26,7 @@ namespace WindowsFormsApplication1
 
         /** Consulta para la DDBB */
         ConsultaEN consultaEN;
-        
+
         /** Lista de veterinarios */
         IList<VeterinarioEN> lista_veterinariosTotal;
 
@@ -289,9 +289,15 @@ namespace WindowsFormsApplication1
             consultaEN.MotivoConsulta = form.box_text_motivo.Text;
             consultaEN.Lugar = form.box_text_lugar.Text;
 
+            //Necesita arreglo inicio
+            consultaEN.Diagnostico = ""; //Necesitamos campo diagnostico
+            consultaEN.Tratamiento = null; //Tratamiento temporal
+            //Necesita arreglo fin
+
+            /* Esto no hace nada con la nueva insercion, retesteado, lo dejo para que no se ponga de nuevo
             if(form.state==Utils.State.NEW)
                 consultaEN.Factura = null;
-
+            */
             if (form.box_combo_mascotas.SelectedItem != null)
             {
                 if (list_mascotasCliente != null && list_mascotasCliente.Count > 0)
@@ -343,13 +349,20 @@ namespace WindowsFormsApplication1
                     case Utils.State.NONE:
                         break;
                     case Utils.State.NEW:
-                        Utils._ConsultaCEN.New_(consultaEN.Fecha, consultaEN.MotivoConsulta, "", consultaEN.Mascota.IdMascota, consultaEN.Veterinario.DNI, "", consultaEN.Lugar);
+                        //Utils._ConsultaCEN.New_(consultaEN.Fecha, consultaEN.MotivoConsulta, "", consultaEN.Mascota.IdMascota, consultaEN.Veterinario.DNI, null, consultaEN.Lugar);
+                        //El total en la factura es temporal, habrá que obtenerlo de los tratamientos + coste por consulta
+                        Utils._FacturaCEN.New_(consultaEN.Fecha, 20, form.box_text_cliente.Text, consultaEN, false);
                         break;
                     case Utils.State.MODIFY:
-                        Utils._ConsultaCEN.Modify(consultaEN.IdConsulta, consultaEN.Fecha, consultaEN.MotivoConsulta, consultaEN.Diagnostico, consultaEN.Lugar);
+                        //Utils._ConsultaCEN.Modify(consultaEN.IdConsulta, consultaEN.Fecha, consultaEN.MotivoConsulta, consultaEN.Diagnostico, consultaEN.Lugar);
+                        //La unica manera de modificar una consulta que está ligada a una factura es borrar la factura y recrearla con la nueva consulta
+                        //Sin testear, se necesita poder borrar consultas para probarlo
+                        Utils._FacturaCEN.Destroy(consultaEN.Factura.IdFactura);
+                        Utils._FacturaCEN.New_(consultaEN.Fecha, 20, form.box_text_cliente.Text, consultaEN, false);
                         break;
                     case Utils.State.DESTROY:
-                        Utils._ConsultaCEN.Destroy(consultaEN.IdConsulta);
+                        //Utils._ConsultaCEN.Destroy(consultaEN.IdConsulta);
+                        Utils._FacturaCEN.Destroy(consultaEN.Factura.IdFactura);
                         break;
                     default:
                         break;

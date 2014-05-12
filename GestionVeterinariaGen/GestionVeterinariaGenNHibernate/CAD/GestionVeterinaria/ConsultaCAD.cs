@@ -67,9 +67,10 @@ public int New_ (ConsultaEN consulta)
                         consulta.Veterinario.Consulta.Add (consulta);
                 }
                 if (consulta.Tratamiento != null) {
-                        consulta.Tratamiento = (GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN)session.Load (typeof(GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN), consulta.Tratamiento.Nombre);
-
-                        consulta.Tratamiento.Consulta.Add (consulta);
+                        for (int i = 0; i < consulta.Tratamiento.Count; i++) {
+                                consulta.Tratamiento [i] = (GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN)session.Load (typeof(GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN), consulta.Tratamiento [i].Nombre);
+                                consulta.Tratamiento [i].Consulta.Add (consulta);
+                        }
                 }
 
                 session.Save (consulta);
