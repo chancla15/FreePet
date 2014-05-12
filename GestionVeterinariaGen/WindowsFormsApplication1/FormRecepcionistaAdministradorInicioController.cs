@@ -55,6 +55,22 @@ namespace WindowsFormsApplication1
             form.log_type.Text = sessionData.tipo;
             form.log_date.Text = sessionData.fecha;
             //la foto
+
+            try
+            {
+
+                System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\" + sessionData.TOKEN_SESSION + ".png", System.IO.FileMode.Open);
+                form.log_photo.Image = Image.FromStream(fs);
+                form.log_photo.SizeMode = PictureBoxSizeMode.StretchImage;
+                fs.Close();
+
+            }
+            catch (Exception ex)
+            {
+                System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\sinFoto.png", System.IO.FileMode.Open);
+                form.log_photo.Image = Image.FromStream(fs);
+                fs.Close();
+            }
         }
         #endregion
 
@@ -62,10 +78,18 @@ namespace WindowsFormsApplication1
         //Busca segun el tipo de usuario
         public void buscar()
         {
-            if (sessionData.tipo == "Recepcionista")
+            if (sessionData.tipo == "Recepcionista"){
+                //form.text_buscar.Text = "Buscar Clientes";
                 buscarClientes();
-            else if (sessionData.tipo == "Administrador")
+                form.dataGrid_clientes.Visible=true;
+                form.ListaEmpleados.Visible=false;
+
+            }else if (sessionData.tipo == "Administrador"){
+                //form.text_buscar.Text = "Buscar Empleados";
                 buscarEmpleados();
+                form.ListaEmpleados.Visible=true;
+                form.dataGrid_clientes.Visible=false;
+            }
         }
         
         /**
@@ -73,141 +97,155 @@ namespace WindowsFormsApplication1
          */
         public void buscarClientes()
         {
-            form.dataGrid_clientes.DataSource = null;
-            form.dataGrid_clientes.Refresh();
+            String buscar = form.text_buscar.Text.ToString();//String a buscar
 
-            if(clientes_buscados!=null)
-                clientes_buscados.Clear();
+            ClienteCEN cen_c = new ClienteCEN();
+            /** 
+             * BUSQUEDA POR NOMBRE Y APELLIDOS DE CLIENTE
+             * **/
+            IList<ClienteEN> en_cli_nombre = cen_c.BuscarClientePorNombre(buscar);
+            IList<ClienteEN> en_cli_apellido = cen_c.BuscarClientePorApellidos(buscar);
 
-            String buscar = form.text_buscar.Text.ToString();
+            ArrayList dni = new ArrayList(); //para que no aparezca personas repetidas
+            bool dni_repetido = false;
 
-            if (buscar != "")
+            if (en_cli_nombre.Count == 0 && en_cli_apellido.Count == 0)
             {
-                ClienteEN cliente_dni = Utils._IClienteCAD.DameClientePorOID(buscar);
-                IList<ClienteEN> clientes_nombre = Utils._IClienteCAD.BuscarClientePorNombre(buscar);
-                IList<ClienteEN> clientes_apellidos = Utils._IClienteCAD.BuscarClientePorApellidos(buscar);
-                List<string> dni = new List<string>();
 
-                if (cliente_dni == null && clientes_nombre.Count == 0 && clientes_apellidos.Count == 0)
-                    MessageBox.Show("La búsqueda no ha producido ningún resultado");
-                else
+                MessageBox.Show("La búsqueda no ha producido ningún resultado");
+
+            }
+            else
+            {
+                form.dataGrid_clientes.DataSource = null;
+                form.dataGrid_clientes.Refresh();
+
+                if (form.dataGrid_clientes.Rows.Count != 0)
                 {
-                    if (cliente_dni != null)
+                    form.dataGrid_clientes.Rows.Clear();
+                }
+
+
+                for (int x = 0; x < en_cli_nombre.Count; x++)
+                {
+                    form.dataGrid_clientes.Rows.Add(en_cli_nombre[x].DNI, en_cli_nombre[x].Nombre, en_cli_nombre[x].Apellidos);
+                    dni.Add(en_cli_nombre[x].DNI);//metemos el dni en el array auxiliar
+                }
+                for (int i = 0; i < en_cli_apellido.Count; i++)
+                {
+
+                    for (int z = 0; z < dni.Count; z++)
                     {
-                        clientes_buscados.Add(cliente_dni);
-                        dni.Add(cliente_dni.DNI);
+                        if (en_cli_apellido[i].DNI.Equals(dni[z].ToString()))//Si el dni esta repetido ya no lo ponemos en la busqueda
+                            dni_repetido = true;
                     }
 
-                    if (clientes_nombre != null && clientes_nombre.Count > 0)
-                    {
-                        for (int i = 0; i < clientes_nombre.Count; i++)
-                        {
-                            if (!dni.Contains(clientes_nombre[i].DNI))
-                            {
-                                clientes_buscados.Add(clientes_nombre[i]);
-                                dni.Add(clientes_nombre[i].DNI);
-                            }
-                        }
-                    }
+                    if (!dni_repetido)
+                        form.dataGrid_clientes.Rows.Add(en_cli_apellido[i].DNI, en_cli_apellido[i].Nombre, en_cli_apellido[i].Apellidos);
 
-                    if (clientes_apellidos != null && clientes_apellidos.Count > 0)
-                    {
-                        for (int i = 0; i < clientes_apellidos.Count; i++)
-                        {
-                            if (!dni.Contains(clientes_apellidos[i].DNI))
-                            {
-                                clientes_buscados.Add(clientes_apellidos[i]);
-                                dni.Add(clientes_apellidos[i].DNI);
-                            }
-                        }
-                    }
-
-                    dni.Clear();
-
-                    for (int i = 0; i < clientes_buscados.Count; i++)
-                        form.dataGrid_clientes.Rows.Add(clientes_buscados[i].DNI, clientes_buscados[i].Nombre, clientes_buscados[i].Apellidos);
-
-
-
-                    /*for (int x = 0; x < en_cli_nombre.Count; x++)
-                    {
-                        form.dataGrid_clientes.Rows.Add(en_cli_nombre[x].DNI, en_cli_nombre[x].Nombre, en_cli_nombre[x].Apellidos);
-                        //metemos el dni en el array auxiliar
-                        dni.Add(en_cli_nombre[x].DNI);
-                    }
-
-                    for (int i = 0; i < en_cli_apellido.Count; i++)
-                    {
-                        for (int z = 0; z < dni.Count; z++)
-                        {
-                            if (en_cli_apellido[i].DNI.Equals(dni[z].ToString()))//Si el dni esta repetido ya no lo ponemos en la busqueda
-                                dni_repetido = true;
-                        }
-
-                        if (!dni_repetido)
-                            form.dataGrid_clientes.Rows.Add(en_cli_apellido[i].DNI, en_cli_apellido[i].Nombre, en_cli_apellido[i].Apellidos);
-
-                        dni_repetido = false;
-                    }*/
+                    dni_repetido = false;
                 }
             }
         }
-
 
         /**
          * Busca empleados aplicar mismo metodo que clientes pero con empleados
          */
         public void buscarEmpleados()
         {
-            String buscar = form.text_buscar.Text;
 
-            EmpleadoEN empleado_dni = null;
-            IList<EmpleadoEN> empleado_name = null;
-            IList<EmpleadoEN> empleado_surname = null;
-            ArrayList dniOnDataGrind = new ArrayList();
+            String buscar = form.text_buscar.Text.ToString();//String a buscar
 
+            IList<VeterinarioEN> en_vet_apellido = Utils._IVeterinarioCAD.BuscarVetPorApellidos(buscar);
+            IList<RecepcionistaEN> en_rec_apellido = Utils._IRecepcionistaCAD.BuscarRecepPorApellidos(buscar);
 
-            if (buscar != "")
+            VeterinarioEN empleadovet_dni = Utils._IVeterinarioCAD.DameVetarinarioPorOID(buscar);
+            IList<VeterinarioEN> en_vet_nombre = Utils._IVeterinarioCAD.BuscarVetPorNombre(buscar);
+
+            RecepcionistaEN empleadore_dni = Utils._IRecepcionistaCAD.BuscarRecepPorOID(buscar);
+            IList<RecepcionistaEN> en_rec_nombre = Utils._IRecepcionistaCAD.BuscarRecepPorNombre(buscar);
+
+            ArrayList dni_vet = new ArrayList(); //para que no aparezca personas repetidas
+            bool dni_repetido_vet = false;
+
+            ArrayList dni_rec = new ArrayList(); //para que no aparezca personas repetidas
+            bool dni_repetido_rece = false;
+
+            if (empleadovet_dni==null && en_vet_nombre.Count == 0 && empleadore_dni==null && en_vet_apellido.Count == 0 && en_rec_nombre.Count == 0 && en_rec_apellido.Count == 0)
             {
-                form.dataGrid_clientes.DataSource = null;
-                form.dataGrid_clientes.Refresh();
-                form.dataGrid_clientes.Rows.Clear();
-
-                empleado_dni = Utils._IEmpleadoCAD.DameEmpleadoPorOID(buscar);
-                //empleado_name = _IEmpleadoCAD.DameEmpleadoPorNombre(buscar);
-                //empleado_surname = _IEmpleadoCAD.DameEmpleadoPorApellidos(buscar);
-
-                if (empleado_name == null && empleado_surname == null && empleado_dni==null)
-                    MessageBox.Show("La búsqueda no ha producido ningún resultado");
-                else
-                {
-                    if (empleado_dni != null) {
-                        form.dataGrid_clientes.Rows.Add(empleado_dni.DNI, empleado_dni.Nombre, empleado_dni.Apellidos);
-                        dniOnDataGrind.Add(empleado_dni.DNI);
-                    }
-
-                    if (empleado_name!=null && empleado_name.Count > 0) {
-                        for (int x = 0; x < empleado_name.Count; x++) {
-                            if (!dniOnDataGrind.Contains(empleado_name[x].DNI)) {
-                                form.dataGrid_clientes.Rows.Add(empleado_name[x].DNI, empleado_name[x].Nombre, empleado_name[x].Apellidos);
-                                dniOnDataGrind.Add(empleado_name[x].DNI);
-                            }
-                        }
-                    }
-                    if (empleado_surname!=null && empleado_surname.Count > 0) {
-                        for (int x = 0; x < empleado_surname.Count; x++) {
-                            if (!dniOnDataGrind.Contains(empleado_surname[x].DNI)) {
-                                form.dataGrid_clientes.Rows.Add(empleado_surname[x].DNI, empleado_surname[x].Nombre, empleado_surname[x].Apellidos);
-                                dniOnDataGrind.Add(empleado_surname[x].DNI);
-                            }
-                        }
-                    }
-                    dniOnDataGrind.Clear();
-                }
+                MessageBox.Show("La búsqueda no ha producido ningún resultado");
             }
             else
-                form.dataGrid_clientes.Rows.Clear();
+            {
+
+                form.ListaEmpleados.DataSource = null;
+                form.ListaEmpleados.Refresh();
+
+                if (form.ListaEmpleados.Rows.Count != 0)
+                {
+                    form.ListaEmpleados.Rows.Clear();
+                }
+
+                if (empleadovet_dni != null)
+                {
+
+                    form.ListaEmpleados.Rows.Add(empleadovet_dni.DNI, empleadovet_dni.Nombre, empleadovet_dni.Apellidos, "Veterinario");
+                }
+                else
+                {
+
+                    for (int x = 0; x < en_vet_nombre.Count; x++)
+                    {
+                        form.ListaEmpleados.Rows.Add(en_vet_nombre[x].DNI, en_vet_nombre[x].Nombre, en_vet_nombre[x].Apellidos, "Veterinario");
+                        dni_vet.Add(en_vet_nombre[x].DNI);//metemos el dni en el array auxiliar
+                    }
+
+                    for (int i = 0; i < en_vet_apellido.Count; i++)
+                    {
+
+                        for (int z = 0; z < dni_vet.Count; z++)
+                        {
+                            if (en_vet_apellido[i].DNI.Equals(dni_vet[z].ToString()))//Si el dni esta repetido ya no lo ponemos en la busqueda
+                                dni_repetido_vet = true;
+                        }
+
+                        if (!dni_repetido_vet)
+                            form.ListaEmpleados.Rows.Add(en_vet_apellido[i].DNI, en_vet_apellido[i].Nombre, en_vet_apellido[i].Apellidos, "Veterinario");
+
+                        dni_repetido_vet = false;
+                    }
+                }
+
+                if (empleadore_dni != null)
+                {
+                    form.ListaEmpleados.Rows.Add(empleadore_dni.DNI, empleadore_dni.Nombre, empleadore_dni.Apellidos, "Recepcionista");
+                }
+                else
+                {
+
+                    for (int x = 0; x < en_rec_nombre.Count; x++)
+                    {
+                        form.ListaEmpleados.Rows.Add(en_rec_nombre[x].DNI, en_rec_nombre[x].Nombre, en_rec_nombre[x].Apellidos, "Recepcionista");
+                        dni_rec.Add(en_rec_nombre[x].DNI);//metemos el dni en el array auxiliar
+                    }
+                    for (int i = 0; i < en_rec_apellido.Count; i++)
+                    {
+
+                        for (int z = 0; z < dni_rec.Count; z++)
+                        {
+                            if (en_rec_apellido[i].DNI.Equals(dni_rec[z].ToString()))//Si el dni esta repetido ya no lo ponemos en la busqueda
+                                dni_repetido_rece = true;
+                        }
+
+                        if (!dni_repetido_rece)
+                            form.ListaEmpleados.Rows.Add(en_rec_apellido[i].DNI, en_rec_apellido[i].Nombre, en_rec_apellido[i].Apellidos, "Recepcionista");
+
+                        dni_repetido_rece = false;
+                    }
+                }
+            }
         }
+
         #endregion
 
         #region DataGridView_Clientes
@@ -222,7 +260,7 @@ namespace WindowsFormsApplication1
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
                 DataGridViewButtonCell celBoton = form.dataGrid_clientes.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
-                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\close-icon.ico");
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\delete.ico");
                 e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
 
                 form.dataGrid_clientes.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
@@ -237,7 +275,7 @@ namespace WindowsFormsApplication1
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
                 DataGridViewButtonCell celBoton = form.dataGrid_clientes.Rows[e.RowIndex].Cells["Modificar"] as DataGridViewButtonCell;
-                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\edit-icon.ico");
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\edit.ico");
                 e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
 
                 form.dataGrid_clientes.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
@@ -245,7 +283,44 @@ namespace WindowsFormsApplication1
 
                 e.Handled = true;
             }
+
+            
         }
+
+        public void paintDataGridView_Empleados(DataGridViewCellPaintingEventArgs e)
+        {
+
+            if (e.ColumnIndex >= 0 && form.ListaEmpleados.Columns[e.ColumnIndex].Name == "EliminarEmpleado" && e.RowIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                DataGridViewButtonCell celBoton = form.ListaEmpleados.Rows[e.RowIndex].Cells["EliminarEmpleado"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\delete.ico");
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
+
+                form.ListaEmpleados.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
+                form.ListaEmpleados.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
+
+                e.Handled = true;
+
+            }
+
+            if (e.ColumnIndex >= 0 && form.ListaEmpleados.Columns[e.ColumnIndex].Name == "ModificarEmpleado" && e.RowIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                DataGridViewButtonCell celBoton = form.ListaEmpleados.Rows[e.RowIndex].Cells["ModificarEmpleado"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\edit.ico");
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left+3, e.CellBounds.Top+3);
+
+                form.ListaEmpleados.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
+                form.ListaEmpleados.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
+
+                e.Handled = true;
+            }
+
+        }
+       
 
         /** 
          * Devuelve un cliente dependiendo de donde se haya pulsado en el datagrid
@@ -272,6 +347,30 @@ namespace WindowsFormsApplication1
 
             return cliEN;
         }
+
+        public EmpleadoEN CellClick_Empleados(DataGridViewCellEventArgs ev, ref Utils.State action)
+        {
+            EmpleadoEN empEN = null;
+            string emp = "";
+
+            if (form.ListaEmpleados.Columns[ev.ColumnIndex].Name.Equals("EliminarEmpleado"))
+                action = Utils.State.DESTROY;
+            else if (form.ListaEmpleados.Columns[ev.ColumnIndex].Name.Equals("ModificarEmpleado"))
+                action = Utils.State.MODIFY;
+
+            if (action == Utils.State.DESTROY || action == Utils.State.MODIFY)
+                emp = form.ListaEmpleados.Rows[ev.RowIndex].Cells[0].Value.ToString();
+
+            for(int i=0;i<empleados_buscados.Count;i++)
+                if (emp.Equals(empleados_buscados[i].DNI))
+                {
+                    empEN = empleados_buscados[i];
+                    break;
+                }
+
+            return empEN;
+        }
+        
 
         #endregion
     }

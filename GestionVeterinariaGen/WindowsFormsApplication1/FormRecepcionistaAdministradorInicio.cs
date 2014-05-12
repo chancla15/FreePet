@@ -13,7 +13,7 @@ namespace WindowsFormsApplication1
         public FormRecepcionistaAdministradorInicioController controller = null;
 
         /** El menu superior */
-        public ScreenControllerRecepcionista menu = null;
+        public ScreenController menu = null;
 
         /** IDENTIFICADOR */
         public string ID = "START";
@@ -25,12 +25,16 @@ namespace WindowsFormsApplication1
          * Constructor de la clase
          * @param sesion datos de la sesion
          */
-        public FormRecepcionistaAdministradorInicio(ScreenControllerRecepcionista menu)
+        public FormRecepcionistaAdministradorInicio(ScreenController menu)
         {
-           // ActivateForm();
+
+
+            // ActivateForm();
             this.menu = menu;
             InitializeComponent();
+
             controller = new FormRecepcionistaAdministradorInicioController(this, this.menu.sessionData);
+
 
             //IMPLEMENTAR PARATE CONTROLADOR ADMINSITRADOR.........
 
@@ -41,9 +45,9 @@ namespace WindowsFormsApplication1
 
 
 
-                //mostraria la otra barra
-                //sino muestra la normal de recepcionista
-            
+            //mostraria la otra barra
+            //sino muestra la normal de recepcionista
+
         }
 
         #endregion
@@ -82,14 +86,15 @@ namespace WindowsFormsApplication1
 
             ClienteEN cliente = controller.getStateScreen(e, ref st);
 
-            if (cliente!=null && cliente.Mascota != null)
+            if (cliente != null && cliente.Mascota != null)
                 Console.WriteLine("mascotas in");
 
-            if(cliente!=null) {
-                 //Hide();
-                 Console.WriteLine(cliente.DNI + "   " + cliente.Direccion);
-                 menu.LaunchClienteScreen(st, cliente);
-                 //new FormRecepcionistaCliente(controller.sessionData, cliente, st);
+            if (cliente != null)
+            {
+                //Hide();
+                Console.WriteLine(cliente.DNI + "   " + cliente.Direccion);
+                menu.LaunchClienteScreen(st, cliente);
+                //new FormRecepcionistaCliente(controller.sessionData, cliente, st);
             }
         }
 
@@ -117,13 +122,37 @@ namespace WindowsFormsApplication1
             {
                 new FormAdministradorEmpleado(controller.sessionData);
             }
-            else if(controller.sessionData.tipo.Equals("Recepcionista"))
+            else if (controller.sessionData.tipo.Equals("Recepcionista"))
             {
                 //new FormRecepcionistaCliente(controller.sessionData, null, Utils.State.NEW);
             }
         }
 
         #endregion
+
+
+        //Activa menu recepcionista
+        public void EnableMenuRecepcionista(bool b)
+        {
+            picture_start_recepcionista.Visible = picture_start_recepcionista.Enabled= b;
+            picture_consultas_recepcionista.Visible = picture_consultas_recepcionista.Enabled = b;
+            picture_clientes_recepcionista.Visible = picture_clientes_recepcionista.Enabled= b;
+            picture_facturas_recepcionista.Visible = picture_facturas_recepcionista.Enabled= b;
+            picture_ajustes_recepcionista.Visible = picture_ajustes_recepcionista.Enabled= b;
+        }
+
+        //Activa menu administrador
+        public void EnableMenuAdministrador(bool b)
+        {
+            picture_start_admin.Visible = picture_start_admin.Enabled = b;
+            picture_empleados_admin.Visible = picture_empleados_admin.Enabled = b;
+            picture_tratamientos_admin.Visible = picture_tratamientos_admin.Enabled = b;
+            picture_ajustes_admin.Visible = picture_ajustes_admin.Enabled = b;
+
+        }
+
+
+
 
         #region MenuSuperior
 
@@ -134,7 +163,7 @@ namespace WindowsFormsApplication1
          */
         private void panel_top_Paint(object sender, PaintEventArgs e)
         {
-            this.picture_start.BackColor = Color.White;
+            this.picture_start_recepcionista.BackColor = Color.White;
             this.panel_top.BackColor = Color.LightBlue;
         }
 
@@ -144,7 +173,7 @@ namespace WindowsFormsApplication1
         private void picture_start_Click(object sender, EventArgs e)
         {
             if (menu.LaunchStartScreen())
-                    DesactivateForm();
+                DesactivateForm();
         }
 
         /**
@@ -153,7 +182,7 @@ namespace WindowsFormsApplication1
         private void picture_clientes_Click(object sender, EventArgs e)
         {
             if (menu.LaunchClienteScreen(Utils.State.NONE, null))
-                     DesactivateForm();
+                DesactivateForm();
         }
 
         /**
@@ -162,7 +191,7 @@ namespace WindowsFormsApplication1
         private void picture_consultas_Click(object sender, EventArgs e)
         {
             if (menu.LaunchConsultaScreen(Utils.State.NONE, null))
-                     DesactivateForm();
+                DesactivateForm();
         }
 
         /**
@@ -184,5 +213,55 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
+
+        #region DataGridEmpleados
+        private void CellPainting_empleados(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            controller.paintDataGridView_Empleados(e);
+        }
+
+        private void CellContentClick_empleados(object sender, DataGridViewCellEventArgs e)
+        {
+            Utils.State st = Utils.State.NONE;
+
+            EmpleadoEN empleado = controller.CellClick_Empleados(e, ref st);
+
+            /*if (empleado != null && empleado.Mascota != null)
+                Console.WriteLine("mascotas in");
+
+            if (cliente != null)
+            {
+                //Hide();
+                Console.WriteLine(cliente.DNI + "   " + cliente.Direccion);
+                menu.LaunchEmpleadoScreen(st, empleado);
+                //new FormRecepcionistaCliente(controller.sessionData, cliente, st);
+            } */
+
+        }
+        #endregion
+
+
+        #region MenuSuperiorAdministrador
+        private void picture_start_admin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        private void picture_empleados_admin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picture_tratamientos_admin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picture_ajustes_admin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

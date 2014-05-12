@@ -91,10 +91,16 @@ namespace WindowsFormsApplication1
                 try
                 {
                     photo = new System.IO.FileStream(Environment.CurrentDirectory + @"\" + empEN.DNI.ToString() + ".png", System.IO.FileMode.Open);
+
                 }
                 catch (Exception ex)
                 {
                     photo = new System.IO.FileStream(Environment.CurrentDirectory + @"\sinFoto.png", System.IO.FileMode.Open);
+                }
+                finally
+                {
+
+                    photo.Close();
                 }
             }
             return log;

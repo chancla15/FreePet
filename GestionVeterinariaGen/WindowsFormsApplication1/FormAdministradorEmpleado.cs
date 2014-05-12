@@ -13,8 +13,22 @@ namespace WindowsFormsApplication1
 {
     public partial class FormAdministradorEmpleado : Form
     {
-        /** El controlador de esta vista */
-        private FormAdministradorEmpleadoController controller;
+
+        #region Variables
+
+        /** El controlador */
+        private FormAdministradorEmpleadoController controller = null;
+
+        /** EL tipo de accion, ADD,MOD,DEL */
+        public Utils.State state = Utils.State.NONE;
+
+        /** El identificador de la clase */
+        public string ID = "EMPLEADO";
+
+        /** EL controlador del menu superior */
+        public ScreenControllerAdministrador menu = null;
+
+        #endregion
 
 
         /**

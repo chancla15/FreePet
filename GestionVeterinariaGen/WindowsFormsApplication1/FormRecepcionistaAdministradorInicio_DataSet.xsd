@@ -90,7 +90,29 @@ SELECT DNI, nombre, apellidos FROM Usuario WHERE (DNI = @DNI)</CommandText>
               <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
               <Mapping SourceColumn="apellidos" DataSetColumn="apellidos" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="GestionVeterinariaGenNHibernateConnectionString (Settings)" DbObjectName="GestionVeterinariaGenNHibernate.dbo.Usuario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="empleados" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="empleados" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="empleados">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        Usuario.DNI, Usuario.nombre, Usuario.apellidos
+FROM            Usuario INNER JOIN
+                         Veterinario ON Usuario.DNI = Veterinario.DNI INNER JOIN
+                         Recepcionista ON Usuario.DNI = Recepcionista.DNI</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="GestionVeterinariaGenNHibernateConnectionString (Settings)" DbObjectName="GestionVeterinariaGenNHibernate.dbo.Usuario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="listaempleados" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="listaempleados" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="listaempleados">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        Usuario.DNI, Usuario.nombre, Usuario.apellidos
+FROM            Usuario INNER JOIN
+                         Empleado ON Usuario.DNI = Empleado.DNI</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
@@ -100,7 +122,7 @@ SELECT DNI, nombre, apellidos FROM Usuario WHERE (DNI = @DNI)</CommandText>
   <xs:element name="FormRecepcionistaAdministradorInicio_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="FormRecepcionistaAdministradorInicio_DataSet" msprop:Generator_UserDSName="FormRecepcionistaAdministradorInicio_DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Cliente" msprop:Generator_TableClassName="ClienteDataTable" msprop:Generator_TableVarName="tableCliente" msprop:Generator_RowChangedName="ClienteRowChanged" msprop:Generator_TablePropName="Cliente" msprop:Generator_RowDeletingName="ClienteRowDeleting" msprop:Generator_RowChangingName="ClienteRowChanging" msprop:Generator_RowEvHandlerName="ClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="ClienteRowDeleted" msprop:Generator_RowClassName="ClienteRow" msprop:Generator_UserTableName="Cliente" msprop:Generator_RowEvArgName="ClienteRowChangeEvent">
+        <xs:element name="Cliente" msprop:Generator_TableClassName="ClienteDataTable" msprop:Generator_TableVarName="tableCliente" msprop:Generator_TablePropName="Cliente" msprop:Generator_RowDeletingName="ClienteRowDeleting" msprop:Generator_RowChangingName="ClienteRowChanging" msprop:Generator_RowEvHandlerName="ClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="ClienteRowDeleted" msprop:Generator_UserTableName="Cliente" msprop:Generator_RowChangedName="ClienteRowChanged" msprop:Generator_RowEvArgName="ClienteRowChangeEvent" msprop:Generator_RowClassName="ClienteRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DNI" msprop:Generator_ColumnVarNameInTable="columnDNI" msprop:Generator_ColumnPropNameInRow="DNI" msprop:Generator_ColumnPropNameInTable="DNIColumn" msprop:Generator_UserColumnName="DNI">
@@ -113,7 +135,7 @@ SELECT DNI, nombre, apellidos FROM Usuario WHERE (DNI = @DNI)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Usuario" msprop:Generator_TableClassName="UsuarioDataTable" msprop:Generator_TableVarName="tableUsuario" msprop:Generator_RowChangedName="UsuarioRowChanged" msprop:Generator_TablePropName="Usuario" msprop:Generator_RowDeletingName="UsuarioRowDeleting" msprop:Generator_RowChangingName="UsuarioRowChanging" msprop:Generator_RowEvHandlerName="UsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuarioRowDeleted" msprop:Generator_RowClassName="UsuarioRow" msprop:Generator_UserTableName="Usuario" msprop:Generator_RowEvArgName="UsuarioRowChangeEvent">
+        <xs:element name="Usuario" msprop:Generator_TableClassName="UsuarioDataTable" msprop:Generator_TableVarName="tableUsuario" msprop:Generator_TablePropName="Usuario" msprop:Generator_RowDeletingName="UsuarioRowDeleting" msprop:Generator_RowChangingName="UsuarioRowChanging" msprop:Generator_RowEvHandlerName="UsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuarioRowDeleted" msprop:Generator_UserTableName="Usuario" msprop:Generator_RowChangedName="UsuarioRowChanged" msprop:Generator_RowEvArgName="UsuarioRowChangeEvent" msprop:Generator_RowClassName="UsuarioRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DNI" msprop:Generator_ColumnVarNameInTable="columnDNI" msprop:Generator_ColumnPropNameInRow="DNI" msprop:Generator_ColumnPropNameInTable="DNIColumn" msprop:Generator_UserColumnName="DNI">
@@ -153,7 +175,7 @@ SELECT DNI, nombre, apellidos FROM Usuario WHERE (DNI = @DNI)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK6E5B2BE16437A749" msdata:parent="Usuario" msdata:child="Cliente" msdata:parentkey="DNI" msdata:childkey="DNI" msprop:Generator_UserChildTable="Cliente" msprop:Generator_ChildPropName="GetClienteRows" msprop:Generator_UserRelationName="FK6E5B2BE16437A749" msprop:Generator_ParentPropName="UsuarioRow" msprop:Generator_RelationVarName="relationFK6E5B2BE16437A749" msprop:Generator_UserParentTable="Usuario" />
+      <msdata:Relationship name="FK6E5B2BE16437A749" msdata:parent="Usuario" msdata:child="Cliente" msdata:parentkey="DNI" msdata:childkey="DNI" msprop:Generator_UserChildTable="Cliente" msprop:Generator_ChildPropName="GetClienteRows" msprop:Generator_UserRelationName="FK6E5B2BE16437A749" msprop:Generator_RelationVarName="relationFK6E5B2BE16437A749" msprop:Generator_UserParentTable="Usuario" msprop:Generator_ParentPropName="UsuarioRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

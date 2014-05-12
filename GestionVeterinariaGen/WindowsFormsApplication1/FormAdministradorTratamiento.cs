@@ -12,8 +12,32 @@ namespace WindowsFormsApplication1
 {
     public partial class FormAdministradorTratamiento : Form
     {
+
+        #region Variables
+
         /** El controlador */
-        private FormAdministradorTratamientoController controller;
+        private FormAdministradorTratamientoController controller = null;
+
+        /** EL tipo de accion, ADD,MOD,DEL */
+        public Utils.State state = Utils.State.NONE;
+
+        /** El identificador de la clase */
+        public string ID = "TRATAMIENTO";
+
+        /** EL controlador del menu superior */
+        public ScreenControllerAdministrador menu = null;
+
+        #endregion
+
+
+
+
+
+
+
+
+
+
 
         /**
          * Constructor de clase
@@ -56,6 +80,13 @@ namespace WindowsFormsApplication1
             {
 
             }
+        }
+
+        private void FormAdministradorTratamiento_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'formAdministradorTratamientoDataSet.Tratamiento' Puede moverla o quitarla según sea necesario.
+            this.tratamientoTableAdapter.Fill(this.formAdministradorTratamientoDataSet.Tratamiento);
+
         }
     }
 }

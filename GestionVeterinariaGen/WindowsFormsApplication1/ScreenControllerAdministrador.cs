@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1
      *      FORM_RECEPCIONISTA_CONSULTA
      *      FORM_RECEPCIONISTA_FACTURA
      */
-    public class ScreenControllerRecepcionista : ScreenController
+    public class ScreenControllerAdministrador : ScreenController
     {
         #region Variables
 
@@ -28,16 +28,11 @@ namespace WindowsFormsApplication1
         public FormRecepcionistaAdministradorInicio f_inicio = null;
 
         /** El formulario de cliente */
-        public FormRecepcionistaCliente f_cliente = null;
+        public FormAdministradorEmpleado f_empleado = null;
 
         /** El formulario de mascota */
-        public FormRecepcionistaMascota f_mascota = null;
+        public FormAdministradorTratamiento f_tratamiento = null;
 
-        /** EL formulario de consulta */
-        public FormRecepcionistaConsulta f_consulta = null;
-
-        /** El formulario de factura */
-        public FormRecepcionistaFactura f_factura = null;
         
         #endregion
 
@@ -46,19 +41,19 @@ namespace WindowsFormsApplication1
          * Crea todos los formularios que usara el recepcionista
          * @param ticket el ticket de sesion
          */
-        public ScreenControllerRecepcionista(FormLoginDataSessionTicket ticket):base(ticket)
+        public ScreenControllerAdministrador(FormLoginDataSessionTicket ticket):base(ticket)
         {
             f_inicio = new FormRecepcionistaAdministradorInicio(this);
-            f_cliente = new FormRecepcionistaCliente(this);
-            f_mascota = new FormRecepcionistaMascota(this);
-            f_consulta = new FormRecepcionistaConsulta(this);
-            f_factura = new FormRecepcionistaFactura(this);
+            //f_empleado = new FormAdministradorEmpleado(this);
+            //f_tratamiento = new FormAdministradorTratamiento(this);
             LaunchStartScreen();
         }
         #endregion
 
         #region LanzadorDePantallas
 
+
+        
         /**
          * Cuando lanza la pantalla principal
          */
@@ -76,80 +71,55 @@ namespace WindowsFormsApplication1
         }
 
         /**
-         * Cuando lanza la pantalla clientes
+         * Cuando lanza la pantalla empleados
          */
-        override public bool LaunchClienteScreen(Utils.State state, ClienteEN cliente)
+        override public bool LaunchEmpleadoScreen(Utils.State state, EmpleadoEN empleado)
         {
             bool ret = false;
 
-            if (FormActual != f_cliente.ID)
+            if (FormActual != f_empleado.ID)
             {
                 ret = true;
-                FormActual = f_cliente.ID;
-                f_cliente.ActivateForm();
-                f_cliente.changeState(state, cliente);
+                FormActual = f_empleado.ID;
+                //f_empleado.ActivateForm();
+                //f_empleado.changeState(state, empleado);
             }
             return ret;
         }
 
         /**
-         * Cuando lanza la pantalla mascota
+         * Cuando lanza la pantalla tratamiento
          */
-        override public bool LaunchMascotaScreen(Utils.State state, ClienteEN cliente, MascotaEN mascota)
+        override public bool LaunchTratamientoScreen(Utils.State state,TratamientoEN tratamiento)
         {
             bool ret = false;
 
-            if (FormActual != f_mascota.ID)
+            if (FormActual != f_tratamiento.ID)
             {
                 ret = true;
-                FormActual = f_mascota.ID;
-                f_mascota.ActivateForm();
-                f_mascota.changeState(state, cliente, mascota);
+                FormActual = f_tratamiento.ID;
+                //f_tratamiento.ActivateForm();
+               // f_tratamiento.changeState(state,tratamiento);
             }
             return ret;
         }
 
-        /**
-         * Cuando lanza la pantalla consulta
-         */
-        override public bool LaunchConsultaScreen(Utils.State state, ConsultaEN consulta)
-        {
-            bool ret = false;
-
-            if (FormActual != f_consulta.ID)
-            {
-                ret = true;
-                FormActual = f_consulta.ID;
-                f_consulta.ActivateForm();
-                f_consulta.changeState(state, consulta);
-            }
-            return ret;
-        }
-
-        /**
-         * Cuando lanza la pantalla factura
-         */
-        override public bool LaunchFacturaScreen(Utils.State state, string cli)
-        {
-            bool ret = false;
-
-            if (FormActual != f_factura.ID)
-            {
-                ret = true;
-                FormActual = f_factura.ID;
-                f_factura.ActivateForm();
-                f_factura.changeState(state, cli);
-            }
-            return ret;
-        }
-
-
-        override public bool LaunchEmpleadoScreen(Utils.State s, EmpleadoEN e)
+        override public bool LaunchClienteScreen(Utils.State s, ClienteEN c)
         {
             throw new NotImplementedException();
         }
 
-        override public bool LaunchTratamientoScreen(Utils.State s, TratamientoEN t)
+        override public bool LaunchMascotaScreen(Utils.State s, ClienteEN c, MascotaEN m)
+        {
+            throw new NotImplementedException();
+        }
+
+        override public bool LaunchFacturaScreen(Utils.State s, string f)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool LaunchConsultaScreen(Utils.State s, ConsultaEN c)
         {
             throw new NotImplementedException();
         }
@@ -176,10 +146,9 @@ namespace WindowsFormsApplication1
         {
             FormActual = "";
             f_inicio.Hide();
-            f_cliente.Hide();
-            f_mascota.Hide();
-            f_consulta.Hide();
-            f_factura.Hide();
+            f_empleado.Hide();
+            f_tratamiento.Hide();
+
         }
 
         #endregion
