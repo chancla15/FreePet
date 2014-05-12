@@ -68,9 +68,15 @@
             this.textBox_cliente = new System.Windows.Forms.TextBox();
             this.button_realizar = new System.Windows.Forms.Button();
             this.button_anular = new System.Windows.Forms.Button();
+            this.picture_desconectar_veterinario = new System.Windows.Forms.PictureBox();
+            this.picture_consulta_veterinario = new System.Windows.Forms.PictureBox();
+            this.picture_inicio_veterinario = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox_ficha.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).BeginInit();
             this.SuspendLayout();
             // 
             // log_type
@@ -78,7 +84,7 @@
             this.log_type.AutoSize = true;
             this.log_type.BackColor = System.Drawing.Color.Transparent;
             this.log_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.log_type.Location = new System.Drawing.Point(108, 99);
+            this.log_type.Location = new System.Drawing.Point(108, 129);
             this.log_type.Name = "log_type";
             this.log_type.Size = new System.Drawing.Size(57, 18);
             this.log_type.TabIndex = 45;
@@ -89,7 +95,7 @@
             this.log_name.AutoSize = true;
             this.log_name.BackColor = System.Drawing.Color.Transparent;
             this.log_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.log_name.Location = new System.Drawing.Point(108, 30);
+            this.log_name.Location = new System.Drawing.Point(108, 60);
             this.log_name.Name = "log_name";
             this.log_name.Size = new System.Drawing.Size(134, 20);
             this.log_name.TabIndex = 43;
@@ -98,7 +104,7 @@
             // log_photo
             // 
             this.log_photo.Image = global::WindowsFormsApplication1.Properties.Resources.sinFoto;
-            this.log_photo.Location = new System.Drawing.Point(12, 30);
+            this.log_photo.Location = new System.Drawing.Point(12, 60);
             this.log_photo.Name = "log_photo";
             this.log_photo.Size = new System.Drawing.Size(90, 120);
             this.log_photo.TabIndex = 42;
@@ -106,7 +112,7 @@
             // 
             // text_hora
             // 
-            this.text_hora.Location = new System.Drawing.Point(206, 178);
+            this.text_hora.Location = new System.Drawing.Point(206, 208);
             this.text_hora.Name = "text_hora";
             this.text_hora.Size = new System.Drawing.Size(100, 20);
             this.text_hora.TabIndex = 50;
@@ -114,7 +120,7 @@
             // label_hora
             // 
             this.label_hora.AutoSize = true;
-            this.label_hora.Location = new System.Drawing.Point(167, 181);
+            this.label_hora.Location = new System.Drawing.Point(167, 211);
             this.label_hora.Name = "label_hora";
             this.label_hora.Size = new System.Drawing.Size(33, 13);
             this.label_hora.TabIndex = 49;
@@ -122,7 +128,7 @@
             // 
             // text_fecha
             // 
-            this.text_fecha.Location = new System.Drawing.Point(57, 178);
+            this.text_fecha.Location = new System.Drawing.Point(57, 208);
             this.text_fecha.Name = "text_fecha";
             this.text_fecha.Size = new System.Drawing.Size(100, 20);
             this.text_fecha.TabIndex = 52;
@@ -130,7 +136,7 @@
             // label_fecha
             // 
             this.label_fecha.AutoSize = true;
-            this.label_fecha.Location = new System.Drawing.Point(11, 181);
+            this.label_fecha.Location = new System.Drawing.Point(11, 211);
             this.label_fecha.Name = "label_fecha";
             this.label_fecha.Size = new System.Drawing.Size(40, 13);
             this.label_fecha.TabIndex = 51;
@@ -138,7 +144,7 @@
             // 
             // text_motivo
             // 
-            this.text_motivo.Location = new System.Drawing.Point(126, 210);
+            this.text_motivo.Location = new System.Drawing.Point(126, 240);
             this.text_motivo.Name = "text_motivo";
             this.text_motivo.Size = new System.Drawing.Size(528, 20);
             this.text_motivo.TabIndex = 56;
@@ -146,7 +152,7 @@
             // label_motivo
             // 
             this.label_motivo.AutoSize = true;
-            this.label_motivo.Location = new System.Drawing.Point(9, 213);
+            this.label_motivo.Location = new System.Drawing.Point(9, 243);
             this.label_motivo.Name = "label_motivo";
             this.label_motivo.Size = new System.Drawing.Size(111, 13);
             this.label_motivo.TabIndex = 55;
@@ -154,16 +160,16 @@
             // 
             // text_diagnostico
             // 
-            this.text_diagnostico.Location = new System.Drawing.Point(12, 260);
+            this.text_diagnostico.Location = new System.Drawing.Point(12, 288);
             this.text_diagnostico.Multiline = true;
             this.text_diagnostico.Name = "text_diagnostico";
-            this.text_diagnostico.Size = new System.Drawing.Size(642, 116);
+            this.text_diagnostico.Size = new System.Drawing.Size(642, 99);
             this.text_diagnostico.TabIndex = 58;
             // 
             // label_diagnostico
             // 
             this.label_diagnostico.AutoSize = true;
-            this.label_diagnostico.Location = new System.Drawing.Point(9, 244);
+            this.label_diagnostico.Location = new System.Drawing.Point(9, 272);
             this.label_diagnostico.Name = "label_diagnostico";
             this.label_diagnostico.Size = new System.Drawing.Size(66, 13);
             this.label_diagnostico.TabIndex = 57;
@@ -172,7 +178,7 @@
             // label_lugar
             // 
             this.label_lugar.AutoSize = true;
-            this.label_lugar.Location = new System.Drawing.Point(329, 181);
+            this.label_lugar.Location = new System.Drawing.Point(329, 211);
             this.label_lugar.Name = "label_lugar";
             this.label_lugar.Size = new System.Drawing.Size(37, 13);
             this.label_lugar.TabIndex = 59;
@@ -180,7 +186,7 @@
             // 
             // text_lugar
             // 
-            this.text_lugar.Location = new System.Drawing.Point(372, 178);
+            this.text_lugar.Location = new System.Drawing.Point(372, 208);
             this.text_lugar.Name = "text_lugar";
             this.text_lugar.Size = new System.Drawing.Size(282, 20);
             this.text_lugar.TabIndex = 60;
@@ -188,7 +194,7 @@
             // label_tratamientos
             // 
             this.label_tratamientos.AutoSize = true;
-            this.label_tratamientos.Location = new System.Drawing.Point(11, 388);
+            this.label_tratamientos.Location = new System.Drawing.Point(11, 399);
             this.label_tratamientos.Name = "label_tratamientos";
             this.label_tratamientos.Size = new System.Drawing.Size(71, 13);
             this.label_tratamientos.TabIndex = 61;
@@ -203,7 +209,7 @@
             this.Descripcion,
             this.Dosis,
             this.Precio});
-            this.dataGridView1.Location = new System.Drawing.Point(14, 404);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 415);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(442, 108);
             this.dataGridView1.TabIndex = 62;
@@ -248,7 +254,7 @@
             this.groupBox_ficha.Controls.Add(this.label_fn);
             this.groupBox_ficha.Controls.Add(this.label_raza);
             this.groupBox_ficha.Controls.Add(this.label_peso);
-            this.groupBox_ficha.Location = new System.Drawing.Point(282, 23);
+            this.groupBox_ficha.Location = new System.Drawing.Point(282, 53);
             this.groupBox_ficha.Name = "groupBox_ficha";
             this.groupBox_ficha.Size = new System.Drawing.Size(378, 127);
             this.groupBox_ficha.TabIndex = 63;
@@ -387,21 +393,21 @@
             // 
             // textBox_mascota
             // 
-            this.textBox_mascota.Location = new System.Drawing.Point(112, 62);
+            this.textBox_mascota.Location = new System.Drawing.Point(112, 92);
             this.textBox_mascota.Name = "textBox_mascota";
             this.textBox_mascota.Size = new System.Drawing.Size(130, 20);
             this.textBox_mascota.TabIndex = 64;
             // 
             // textBox_cliente
             // 
-            this.textBox_cliente.Location = new System.Drawing.Point(112, 122);
+            this.textBox_cliente.Location = new System.Drawing.Point(112, 152);
             this.textBox_cliente.Name = "textBox_cliente";
             this.textBox_cliente.Size = new System.Drawing.Size(130, 20);
             this.textBox_cliente.TabIndex = 65;
             // 
             // button_realizar
             // 
-            this.button_realizar.Location = new System.Drawing.Point(519, 549);
+            this.button_realizar.Location = new System.Drawing.Point(519, 560);
             this.button_realizar.Name = "button_realizar";
             this.button_realizar.Size = new System.Drawing.Size(135, 23);
             this.button_realizar.TabIndex = 66;
@@ -410,18 +416,50 @@
             // 
             // button_anular
             // 
-            this.button_anular.Location = new System.Drawing.Point(372, 549);
+            this.button_anular.Location = new System.Drawing.Point(372, 560);
             this.button_anular.Name = "button_anular";
             this.button_anular.Size = new System.Drawing.Size(135, 23);
             this.button_anular.TabIndex = 68;
             this.button_anular.Text = "Anular consulta";
             this.button_anular.UseVisualStyleBackColor = true;
             // 
+            // picture_desconectar_veterinario
+            // 
+            this.picture_desconectar_veterinario.Image = global::WindowsFormsApplication1.Properties.Resources.ajustes;
+            this.picture_desconectar_veterinario.Location = new System.Drawing.Point(224, 4);
+            this.picture_desconectar_veterinario.Name = "picture_desconectar_veterinario";
+            this.picture_desconectar_veterinario.Size = new System.Drawing.Size(100, 50);
+            this.picture_desconectar_veterinario.TabIndex = 71;
+            this.picture_desconectar_veterinario.TabStop = false;
+            // 
+            // picture_consulta_veterinario
+            // 
+            this.picture_consulta_veterinario.Image = global::WindowsFormsApplication1.Properties.Resources.doctor;
+            this.picture_consulta_veterinario.Location = new System.Drawing.Point(118, 4);
+            this.picture_consulta_veterinario.Name = "picture_consulta_veterinario";
+            this.picture_consulta_veterinario.Size = new System.Drawing.Size(100, 50);
+            this.picture_consulta_veterinario.TabIndex = 70;
+            this.picture_consulta_veterinario.TabStop = false;
+            this.picture_consulta_veterinario.Click += new System.EventHandler(this.picture_consulta_veterinario_Click);
+            // 
+            // picture_inicio_veterinario
+            // 
+            this.picture_inicio_veterinario.Image = global::WindowsFormsApplication1.Properties.Resources.start;
+            this.picture_inicio_veterinario.Location = new System.Drawing.Point(12, 4);
+            this.picture_inicio_veterinario.Name = "picture_inicio_veterinario";
+            this.picture_inicio_veterinario.Size = new System.Drawing.Size(100, 50);
+            this.picture_inicio_veterinario.TabIndex = 69;
+            this.picture_inicio_veterinario.TabStop = false;
+            this.picture_inicio_veterinario.Click += new System.EventHandler(this.picture_inicio_veterinario_Click);
+            // 
             // FormVeterinarioConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 601);
+            this.Controls.Add(this.picture_desconectar_veterinario);
+            this.Controls.Add(this.picture_consulta_veterinario);
+            this.Controls.Add(this.picture_inicio_veterinario);
             this.Controls.Add(this.button_anular);
             this.Controls.Add(this.button_realizar);
             this.Controls.Add(this.textBox_cliente);
@@ -443,12 +481,16 @@
             this.Controls.Add(this.log_name);
             this.Controls.Add(this.log_photo);
             this.Name = "FormVeterinarioConsulta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormConsultaVeterinario";
             this.Load += new System.EventHandler(this.FormConsultaVeterinario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox_ficha.ResumeLayout(false);
             this.groupBox_ficha.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -496,5 +538,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dosis;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.PictureBox picture_desconectar_veterinario;
+        private System.Windows.Forms.PictureBox picture_consulta_veterinario;
+        private System.Windows.Forms.PictureBox picture_inicio_veterinario;
     }
 }

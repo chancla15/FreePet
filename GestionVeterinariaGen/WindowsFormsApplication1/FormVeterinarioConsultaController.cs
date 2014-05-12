@@ -14,18 +14,14 @@ namespace WindowsFormsApplication1
         /** La vista */
         FormVeterinarioConsulta form;
 
-        /** El ticket de sesion */
-        FormLoginDataSessionTicket sessionData;
-
         /**
          * Constructor de la clase
          * @param session el ticket de sesion
          * @param la vista a controlar
          */
-        public FormVeterinarioConsultaController(FormLoginDataSessionTicket session, FormVeterinarioConsulta form)
+        public FormVeterinarioConsultaController(FormVeterinarioConsulta form)
         {
             this.form = form;
-            this.sessionData = session;
             initPerfil();
         }
 
@@ -34,7 +30,7 @@ namespace WindowsFormsApplication1
       */
         private void initPerfil()
         {
-            form.log_name.Text = sessionData.name;
+            //form.log_name.Text = form.menu.sessionData.name;
             //form.log_id.Text = sessionData.TOKEN_SESSION;
             //form.log_type.Text = sessionData.tipo;
             //form.log_date.Text = sessionData.fecha;

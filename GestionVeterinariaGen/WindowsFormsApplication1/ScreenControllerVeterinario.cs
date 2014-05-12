@@ -34,7 +34,7 @@ namespace WindowsFormsApplication1
         {
             sessionData = ticket;
             f_inicio = new FormVeterinarioInicio(this);
-            //f_consulta = new FormVeterinarioConsulta(this);
+            f_consulta = new FormVeterinarioConsulta(this);
             LaunchStartScreen();
         }
         #endregion
@@ -58,7 +58,7 @@ namespace WindowsFormsApplication1
             return ret;
         }
 
-       /* public bool LaunchConsultaScreen()
+       public bool LaunchConsultaScreen()
         {
             bool ret = false ;
 
@@ -69,7 +69,7 @@ namespace WindowsFormsApplication1
                 f_consulta.ActivateForm();
             }
             return ret;
-        }*/
+        }
 
         #endregion
     }

@@ -197,7 +197,7 @@
             // picture_consulta_veterinario
             // 
             this.picture_consulta_veterinario.Image = global::WindowsFormsApplication1.Properties.Resources.doctor;
-            this.picture_consulta_veterinario.Location = new System.Drawing.Point(112, -2);
+            this.picture_consulta_veterinario.Location = new System.Drawing.Point(108, -2);
             this.picture_consulta_veterinario.Name = "picture_consulta_veterinario";
             this.picture_consulta_veterinario.Size = new System.Drawing.Size(100, 50);
             this.picture_consulta_veterinario.TabIndex = 51;
@@ -207,7 +207,7 @@
             // picture_desconectar_veterinario
             // 
             this.picture_desconectar_veterinario.Image = global::WindowsFormsApplication1.Properties.Resources.ajustes;
-            this.picture_desconectar_veterinario.Location = new System.Drawing.Point(246, -2);
+            this.picture_desconectar_veterinario.Location = new System.Drawing.Point(214, -2);
             this.picture_desconectar_veterinario.Name = "picture_desconectar_veterinario";
             this.picture_desconectar_veterinario.Size = new System.Drawing.Size(100, 50);
             this.picture_desconectar_veterinario.TabIndex = 52;

@@ -11,15 +11,35 @@ namespace WindowsFormsApplication1
 {
     public partial class FormVeterinarioConsulta : Form
     {
+
+        public string ID = "CONSULTA";
+        public ScreenControllerVeterinario menu;
+
         private FormVeterinarioConsultaController controller;
 
-        public FormVeterinarioConsulta(FormLoginDataSessionTicket session)
+        public FormVeterinarioConsulta(ScreenControllerVeterinario menu)
+        {
+            this.menu = menu;
+            InitializeComponent();
+            controller = new FormVeterinarioConsultaController(this);
+        }
+
+
+        #region IO
+
+        /** Activa el formulario */
+        public void ActivateForm()
         {
             Activate();
             this.Visible = true;
-            InitializeComponent();
-            controller = new FormVeterinarioConsultaController(session, this);
         }
+
+        /** Desactiva el formulario */
+        public void DesactivateForm()
+        {
+            this.Visible = false;
+        }
+        #endregion
 
         private void FormConsultaVeterinario_Load(object sender, EventArgs e)
         {
@@ -44,6 +64,19 @@ namespace WindowsFormsApplication1
         private void textBox8_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void picture_inicio_veterinario_Click(object sender, EventArgs e)
+        {
+            if (menu.LaunchStartScreen())
+                DesactivateForm();
+        }
+
+        private void picture_consulta_veterinario_Click(object sender, EventArgs e)
+        {
+            //añadir launchConsultasScreen
+            if (menu.LaunchConsultaScreen())
+              DesactivateForm();
         }
     }
 }
