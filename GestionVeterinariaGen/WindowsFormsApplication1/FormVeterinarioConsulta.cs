@@ -43,6 +43,8 @@ namespace WindowsFormsApplication1
 
         private void FormConsultaVeterinario_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'gestionVeterinariaGenNHibernateDataSet.Tratamiento' Puede moverla o quitarla según sea necesario.
+            //this.tratamientoTableAdapter.Fill(this.gestionVeterinariaGenNHibernateDataSet.Tratamiento);
 
         }
 
@@ -77,6 +79,11 @@ namespace WindowsFormsApplication1
             //añadir launchConsultasScreen
             if (menu.LaunchConsultaScreenVeterinario())
               DesactivateForm();
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
