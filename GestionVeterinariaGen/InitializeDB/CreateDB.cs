@@ -342,6 +342,7 @@ public static void InitializeData ()
                  * #endregion
                  */
                 //nombre, precio, descripcion, stock, dosis_diaria
+                         
                 TratamientoEN t1 = new TratamientoEN();
                 t1.Consulta = null;
                 t1.Nombre = "Anti Parvovirus";
@@ -360,7 +361,7 @@ public static void InitializeData ()
 
                 TratamientoEN t3 = new TratamientoEN();
                 t3.Consulta = null;
-                t3.Nombre = "Antihepatitis";
+                t3.Nombre = "Antimoquillo";
                 t3.Precio = 30.9f;
                 t3.Descripcion = "Canigen MHA2. Caja con 10 dosis";
                 t3.Stock = 20;
@@ -370,7 +371,7 @@ public static void InitializeData ()
                 t4.Consulta = null;
                 t4.Nombre = "Antihepatitis";
                 t4.Precio = 30.5f;
-                t4.Descripcion = "Canigen MHA2. Caja con 10 dosis";
+                t4.Descripcion = "Prueba 1. Caja con 15 dosis";
                 t4.Stock = 20;
                 t4.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
 
@@ -378,7 +379,7 @@ public static void InitializeData ()
                 t5.Consulta = null;
                 t5.Nombre = "Antileptospirosis";
                 t5.Precio = 15.8f;
-                t5.Descripcion = "Canigen MHA2. Caja con 10 dosis";
+                t5.Descripcion = "Prueba 2. Caja con 20 dosis";
                 t5.Stock = 20;
                 t5.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
 
@@ -388,6 +389,7 @@ public static void InitializeData ()
                 TratamientoCEN.New_(t3.Nombre, t3.Precio, t3.Descripcion, t3.Stock, t3.Dosis_diaria);
                 TratamientoCEN.New_(t4.Nombre, t4.Precio, t4.Descripcion, t4.Stock, t4.Dosis_diaria);
                 TratamientoCEN.New_(t5.Nombre, t5.Precio, t5.Descripcion, t5.Stock, t5.Dosis_diaria);
+                
                 #region Consulta
                 //He modificado la relacion tratamiento - consulta era 0 * - 0 *
                 //He tenido que añadir en FormConsultarecepcionistaController.cs en public void guardarCuadroInformacion() una cadena vacia dado que ahora hay un nuevo argumento en las consultas
