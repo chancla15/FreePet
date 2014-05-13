@@ -14,7 +14,7 @@ namespace WindowsFormsApplication1
         public FormVeterinarioInicio f_inicio = null;
 
         /** El formulario de cliente */
-        public FormVeterinarioConsulta f_consulta = null;
+        //public FormVeterinarioConsulta f_consulta = null;
 
         //Aquí el futuro formulario de ajustes del Veterinario
 
@@ -28,7 +28,7 @@ namespace WindowsFormsApplication1
         public ScreenControllerVeterinario(FormLoginDataSessionTicket ticket):base(ticket)
         {
             f_inicio = new FormVeterinarioInicio(this);
-            f_consulta = new FormVeterinarioConsulta(this);
+            //f_consulta = new FormVeterinarioConsulta(this);
             LaunchStartScreenVeterinario();
         }
         #endregion
@@ -55,12 +55,12 @@ namespace WindowsFormsApplication1
         {
             bool ret = false ;
 
-            if (FormActual != f_consulta.ID)
+           /* if (FormActual != f_consulta.ID)
             {
                 ret = true;
                 FormActual = f_consulta.ID;
                 f_consulta.ActivateForm();
-            }
+            }*/
             return ret;
         }
 
@@ -124,7 +124,7 @@ namespace WindowsFormsApplication1
        {
            FormActual = "";
            f_inicio.Hide();
-           f_consulta.Hide();
+           //f_consulta.Hide();
        }
 
        #endregion

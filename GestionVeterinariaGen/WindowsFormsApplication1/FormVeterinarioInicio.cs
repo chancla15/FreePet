@@ -80,7 +80,7 @@ namespace WindowsFormsApplication1
 
         private void picture_ajustes_veterinario_Click(object sender, EventArgs e)
         {
-            menu.Disconnect();
+            //menu.Disconnect();
         }
     }
 }
