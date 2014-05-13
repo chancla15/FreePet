@@ -51,7 +51,7 @@ namespace WindowsFormsApplication1
                 else if (sessionData.tipo == "Veterinario")
                     new ScreenControllerVeterinario(sessionData);
                 else if (sessionData.tipo == "Administrador")
-                    new ScreenControllerRecepcionista(sessionData);
+                    new ScreenControllerAdministrador(sessionData);
                     
                     
                     //new FormRecepcionistaAdministradorInicio(sessionData);
