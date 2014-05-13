@@ -13,7 +13,7 @@ namespace WindowsFormsApplication1
     public partial class FormVeterinarioInicio : Form
     {
         public string ID = "INICIO";
-        public ScreenControllerVeterinario menu;
+        public ScreenController menu;
         /** El controlador */
         private FormVeterinarioInicioController controller;
 
@@ -21,7 +21,7 @@ namespace WindowsFormsApplication1
          * Constructor
          * @param session el ticket de sesion
          */
-        public FormVeterinarioInicio(ScreenControllerVeterinario menu)
+        public FormVeterinarioInicio(ScreenController menu)
         {
             this.menu = menu;
             InitializeComponent();
