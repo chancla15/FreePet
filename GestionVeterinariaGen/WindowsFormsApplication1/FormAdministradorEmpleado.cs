@@ -30,38 +30,168 @@ namespace WindowsFormsApplication1
 
         #endregion
 
+        #region Constructor
 
         /**
-         * Contructor de clase
+         * Constructor
+         * @param session el ticket de sesion
+         * @param showType el tipo de accion
          */
-        public FormAdministradorEmpleado(FormLoginDataSessionTicket log) 
+        public FormAdministradorEmpleado(ScreenControllerAdministrador menu) 
         {
-            Activate();
-            this.Visible = true;
+            this.menu = menu;
             InitializeComponent();
-            controller = new FormAdministradorEmpleadoController(log, this);
+            controller=new FormAdministradorEmpleadoController(this);
         }
 
         /**
-         * Cuando se pulsa el boton salir
+         * Cambia el estado de la pantalla 
+         * @param el estado de la pantalla
+         * @param el cliente si es estado modificar o eliminar
          */
-        private void btn_salir_Click(object sender, EventArgs e)
+        public void changeState(Utils.State st, EmpleadoEN emp)
         {
-            Hide();
-            //new FormRecepcionistaAdministradorInicio(controller.sessionData);
+           // controller.ClearForm();
+            state = st;
+            if (state == Utils.State.MODIFY || state == Utils.State.DESTROY)
+            {
+                tb_dni.Enabled = false;
+                controller.loadData(emp);
+
+                if (state == Utils.State.DESTROY) {
+                    btn_eliminar_Click(new object(), new EventArgs());
+                }
+            }
+        }
+
+        #endregion
+
+        #region IO
+
+        public void ActivateForm()
+        {
+            Activate();
+            this.Visible = true;
+        }
+
+        public void DesactivateForm()
+        {
+            this.Visible = false;
+        }
+
+        /**
+        * Pone typ todos los elementos del formulario menos los de eliminar
+        * @param typ si estan disponibles o no
+        */
+        private void EnableForm(Boolean typ)
+        {
+            tb_dni.Enabled = typ;
+            tb_nombre.Enabled = typ;
+            tb_apellidos.Enabled = typ;
+            tb_direccion.Enabled = typ;
+            tb_provincia.Enabled = typ;
+            tb_localidad.Enabled = typ;
+            tb_cp.Enabled = typ;
+            tb_tel.Enabled = typ;
+
+            tb_sueldo.Enabled = typ;
+            tb_tipo.Enabled = typ;
+
+            btn_buscar_dni.Enabled = typ;
+            btn_erase.Enabled = typ;
+            //btn_buscar.Enabled = typ;
+            btn_guardar.Enabled = typ;
+            btn_eliminar.Enabled = typ;
+            //dataGridView.Enabled = typ;
+            //panel_clientes_opcion.Enabled = typ;
+            panel_top.Enabled = typ;
+            //btn_anaydir.Enabled = typ;
+
+            alerta_eliminar.Enabled = !typ;
+            alerta_eliminar.Visible = !typ;
+            btn_eliminar_no.Enabled = !typ;
+            btn_eliminar_si.Enabled = !typ;
+        }
+
+        #endregion
+
+        #region Botones
+
+        /**
+         * Cuando se selecciona el boton guardar
+         */
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            if (state == Utils.State.NONE || state == Utils.State.NEW)
+                state = Utils.State.NEW;
+            else
+                state = Utils.State.MODIFY;
+
+            controller.ProcesarInformacion();
+            EnableForm(true);
+            state = Utils.State.MODIFY;
+        }
+
+        /**
+         * Cuadno se pulsa el boton de cancelar eliminacion
+         */
+        private void btn_eliminar_no_Click(object sender, EventArgs e)
+        {
+            state = Utils.State.MODIFY;
+            EnableForm(true);
+        }
+
+        /**
+         * Cuando se pulsa el boton de proceder a eliminar
+         */
+        private void btn_eliminar_si_Click(object sender, EventArgs e)
+        {
+            state = Utils.State.DESTROY;
+            EnableForm(true);
+            controller.ProcesarInformacion();
+            state = Utils.State.NONE;
+        }
+
+
+        /**
+         * Cuando se pulsa el boton eliminar principal
+         */
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            EnableForm(false);
+        }
+
+        /**
+         * Si clickea el boton de buscar cliente por dni desde la pantalla empleado
+         */
+        private void btn_buscar_dni_Click(object sender, EventArgs e)
+        {
+            changeState(Utils.State.MODIFY, null);
+        }
+
+        /**
+         * Cuando se pulsa el boton erase que es la gomita se borran todos los campos
+         */
+        private void btn_erase_Click(object sender, EventArgs e)
+        {
+            if (state == Utils.State.MODIFY)
+                tb_dni.Enabled = true;
+
+            controller.ClearForm();
+            state = Utils.State.NONE;
         }
 
 
         /** 
          * Cuando se pulsa el boton modificar
          */
-        private void bt_modificar_Click(object sender, EventArgs e) 
+        /*private void bt_modificar_Click(object sender, EventArgs e) 
         {
             if (controller.modifiData()) {
                 Hide();
                 //new FormRecepcionistaAdministradorInicio(controller.sessionData);
             }
-        }
+        }*/
 
         /**
          * Cuando se pulsa la foto
@@ -76,5 +206,12 @@ namespace WindowsFormsApplication1
         private void tb_dni_TextChanged(object sender, EventArgs e) {
             controller.showData();
         }
+
+        private void picture_desconectar_admin_Click(object sender, EventArgs e)
+        {
+            menu.Disconnect();
+        }
+
+        #endregion
     }
 }

@@ -29,6 +29,7 @@ namespace WindowsFormsApplication1
 
         /** Lista de empleados mostrados */
         private List<EmpleadoEN> empleados_buscados;
+
         #endregion
 
         #region Constructor
@@ -45,16 +46,14 @@ namespace WindowsFormsApplication1
             empleados_buscados = new List<EmpleadoEN>();
         }
 
-        /**
-        * Inicializa los datos de sesion FALTA LA FOTO!!!!!!!!!!!!!!!!!!!!!
-        */
+
+        //Inicializa los datos de sesion
         private void initPerfil()
         {
             form.log_name.Text = sessionData.name;
             form.log_id.Text = sessionData.TOKEN_SESSION;
             form.log_type.Text = sessionData.tipo;
             form.log_date.Text = sessionData.fecha;
-            //la foto
 
             try
             {
@@ -79,13 +78,11 @@ namespace WindowsFormsApplication1
         public void buscar()
         {
             if (sessionData.tipo == "Recepcionista"){
-                //form.text_buscar.Text = "Buscar Clientes";
                 buscarClientes();
                 form.dataGrid_clientes.Visible=true;
                 form.ListaEmpleados.Visible=false;
 
             }else if (sessionData.tipo == "Administrador"){
-                //form.text_buscar.Text = "Buscar Empleados";
                 buscarEmpleados();
                 form.ListaEmpleados.Visible=true;
                 form.dataGrid_clientes.Visible=false;
@@ -253,7 +250,7 @@ namespace WindowsFormsApplication1
         /**
          * Pinta el datagrid
          */
-        public void paintDataGridView(DataGridViewCellPaintingEventArgs e)
+        public void paintDataGridView_Clientes(DataGridViewCellPaintingEventArgs e)
         {
             if (e.ColumnIndex >= 0 && form.dataGrid_clientes.Columns[e.ColumnIndex].Name == "Eliminar" && e.RowIndex >= 0)
             {
@@ -286,6 +283,36 @@ namespace WindowsFormsApplication1
 
             
         }
+
+        /** 
+         * Devuelve un cliente dependiendo de donde se haya pulsado en el datagrid
+         */
+        public ClienteEN getStateScreen_Clientes(DataGridViewCellEventArgs ev, ref Utils.State action)
+        {
+            ClienteEN cliEN = null;
+            string cli = "";
+
+            if (form.dataGrid_clientes.Columns[ev.ColumnIndex].Name.Equals("Eliminar"))
+                action = Utils.State.DESTROY;
+            else if (form.dataGrid_clientes.Columns[ev.ColumnIndex].Name.Equals("Modificar"))
+                action = Utils.State.MODIFY;
+
+            if (action == Utils.State.DESTROY || action == Utils.State.MODIFY)
+                cli = form.dataGrid_clientes.Rows[ev.RowIndex].Cells[0].Value.ToString();
+
+            for (int i = 0; i < clientes_buscados.Count; i++)
+                if (cli.Equals(clientes_buscados[i].DNI))
+                {
+                    cliEN = clientes_buscados[i];
+                    break;
+                }
+
+            return cliEN;
+        }
+
+        #endregion
+
+        #region DataGrid_EMPELADOS
 
         public void paintDataGridView_Empleados(DataGridViewCellPaintingEventArgs e)
         {
@@ -320,35 +347,9 @@ namespace WindowsFormsApplication1
             }
 
         }
-       
 
-        /** 
-         * Devuelve un cliente dependiendo de donde se haya pulsado en el datagrid
-         */
-        public ClienteEN getStateScreen(DataGridViewCellEventArgs ev, ref Utils.State action)
-        {
-            ClienteEN cliEN = null;
-            string cli = "";
 
-            if (form.dataGrid_clientes.Columns[ev.ColumnIndex].Name.Equals("Eliminar"))
-                action = Utils.State.DESTROY;
-            else if (form.dataGrid_clientes.Columns[ev.ColumnIndex].Name.Equals("Modificar"))
-                action = Utils.State.MODIFY;
-
-            if (action == Utils.State.DESTROY || action == Utils.State.MODIFY)
-                cli = form.dataGrid_clientes.Rows[ev.RowIndex].Cells[0].Value.ToString();
-
-            for(int i=0;i<clientes_buscados.Count;i++)
-                if (cli.Equals(clientes_buscados[i].DNI))
-                {
-                    cliEN = clientes_buscados[i];
-                    break;
-                }
-
-            return cliEN;
-        }
-
-        public EmpleadoEN CellClick_Empleados(DataGridViewCellEventArgs ev, ref Utils.State action)
+        public EmpleadoEN getStateScreen_Empleados(DataGridViewCellEventArgs ev, ref Utils.State action)
         {
             EmpleadoEN empEN = null;
             string emp = "";
@@ -373,5 +374,6 @@ namespace WindowsFormsApplication1
         
 
         #endregion
+
     }
 }

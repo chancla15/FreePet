@@ -44,7 +44,7 @@ namespace WindowsFormsApplication1
         public ScreenControllerAdministrador(FormLoginDataSessionTicket ticket):base(ticket)
         {
             f_inicio = new FormRecepcionistaAdministradorInicio(this);
-            //f_empleado = new FormAdministradorEmpleado(this);
+            f_empleado = new FormAdministradorEmpleado(this);
             //f_tratamiento = new FormAdministradorTratamiento(this);
             LaunchStartScreen();
         }
@@ -81,8 +81,8 @@ namespace WindowsFormsApplication1
             {
                 ret = true;
                 FormActual = f_empleado.ID;
-                //f_empleado.ActivateForm();
-                //f_empleado.changeState(state, empleado);
+                f_empleado.ActivateForm();
+                f_empleado.changeState(state, empleado);
             }
             return ret;
         }
@@ -99,7 +99,7 @@ namespace WindowsFormsApplication1
                 ret = true;
                 FormActual = f_tratamiento.ID;
                 //f_tratamiento.ActivateForm();
-               // f_tratamiento.changeState(state,tratamiento);
+                //f_tratamiento.changeState(state,tratamiento);
             }
             return ret;
         }
