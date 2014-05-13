@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
 
 namespace WindowsFormsApplication1
 {
@@ -49,13 +50,21 @@ namespace WindowsFormsApplication1
          */
         private void Calendar_DateChanged(object sender, DateRangeEventArgs e)
         {
-            controller.mostrarConsultas();
+            controller.mostrarConsultas(Calendar.SelectionRange.Start);
         }
 
         private void dataGrid_consultas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            if (menu.LaunchConsultaScreen())
+                DesactivateForm();
         }
+
+        private void CellPainting_veterinario(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            controller.paintDataGridView(e);
+        }
+
+
 
         private void picture_inicio_veterinario_Click(object sender, EventArgs e)
         {
@@ -72,7 +81,7 @@ namespace WindowsFormsApplication1
 
         private void picture_ajustes_veterinario_Click(object sender, EventArgs e)
         {
-
+            menu.Disconnect();
         }
     }
 }

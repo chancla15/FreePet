@@ -72,5 +72,29 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
+
+       #region SalirAplicacion
+
+       /**
+         * Cuando se desconecta de la aplicacion
+         */
+       public void Disconnect()
+       {
+           CloseForms();
+           sessionData.Disconnect();
+       }
+
+       /**
+        * Cuando cierra el programa  (LA X DE LA BARRA DE HERRAMIENTAS)
+        * Cierra todos los formularios
+        */
+       public void CloseForms()
+       {
+           FormActual = "";
+           f_inicio.Hide();
+           f_consulta.Hide();
+       }
+
+       #endregion
     }
 }
