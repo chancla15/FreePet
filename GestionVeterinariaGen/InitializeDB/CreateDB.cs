@@ -128,8 +128,8 @@ public static void InitializeData ()
 
                 #region Veterinario
                 VeterinarioCEN.New_ ("2", "Alfonso", "Guerra Biologica", "C/ San Miguel 20", "966662222", "Ares", "Alicante", "02120", 1100, "2", 1);
-                VeterinarioCEN.New_ ("3", "Miguel Angel", "Martinez Perez", "C/ Barcelona 3", "966663333", "Algorfa", "Alicante", "03130", 1200, "c4ca4238a0b923820dcc509a6f75849b", 2);
-                VeterinarioCEN.New_ ("4", "Juan", "Aznar Padilla", "Av. de la libertad 50", "966664444", "Adsubia", "Alicante", "04140", 1300, "c4ca4238a0b923820dcc509a6f75849b", 3);
+                VeterinarioCEN.New_ ("3", "Miguel Angel", "Martinez Perez", "C/ Barcelona 3", "966663333", "Algorfa", "Alicante", "03130", 1200, "3", 2);
+                VeterinarioCEN.New_ ("4", "Juan", "Aznar Padilla", "Av. de la libertad 50", "966664444", "Adsubia", "Alicante", "04140", 1300, "4", 3);
                 #endregion
 
                 #region Recepcionista
