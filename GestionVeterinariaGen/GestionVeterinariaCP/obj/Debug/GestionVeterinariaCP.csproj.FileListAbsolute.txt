@@ -1,0 +1,9 @@
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\GestionVeterinariaCP\bin\Debug\GestionVeterinariaCP.dll
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\GestionVeterinariaCP\bin\Debug\GestionVeterinariaCP.pdb
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\GestionVeterinariaCP\obj\Debug\GestionVeterinariaCP.dll
+C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\GestionVeterinariaCP\obj\Debug\GestionVeterinariaCP.pdb
+C:\Users\Godric\Desktop\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaCP\bin\Debug\GestionVeterinariaCP.dll
+C:\Users\Godric\Desktop\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaCP\bin\Debug\GestionVeterinariaCP.pdb
+C:\Users\Godric\Desktop\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaCP\obj\Debug\GestionVeterinariaCP.csprojResolveAssemblyReference.cache
+C:\Users\Godric\Desktop\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaCP\obj\Debug\GestionVeterinariaCP.dll
+C:\Users\Godric\Desktop\DSS\Grupo\GestionVeterinariaGen\GestionVeterinariaCP\obj\Debug\GestionVeterinariaCP.pdb

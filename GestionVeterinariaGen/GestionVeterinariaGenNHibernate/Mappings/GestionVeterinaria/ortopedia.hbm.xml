@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="GestionVeterinariaGenNHibernate"
+		                   namespace="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria">
+				
+<joined-subclass name="OrtopediaEN" extends="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN" table="[Ortopedia]">
+	<key>
+    		<column name="[Nombre]"/>
+   	</key>
+
+					<property name="Talla" type="string"> 
+						<column name="[talla]"  not-null="true"/>
+					</property>
+					<property name="Longitud" type="integer"> 
+						<column name="[longitud]"  not-null="true"/>
+					</property>
+			
+			
+					
+					
+		
+		  </joined-subclass>	
+		  
+		  <query name="OrtopediaENReadAllHQL">from OrtopediaEN</query>
+		</hibernate-mapping>
+	
