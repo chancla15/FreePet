@@ -56,6 +56,9 @@
     <Reference Include="Castle.DynamicProxy2">
       <HintPath>..\GestionVeterinariaGenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
     </Reference>
+    <Reference Include="GestionVeterinariaGenNHibernateDataSet.Designer.cs">
+      <HintPath>obj\x86\Release\TempPE\GestionVeterinariaGenNHibernateDataSet.Designer.cs.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\GestionVeterinariaGenNHibernate\AppLib\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -167,13 +170,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FormRecepcionistaMascota_DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FormVeterinarioConsulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormVeterinarioConsulta.Designer.cs">
-      <DependentUpon>FormVeterinarioConsulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormVeterinarioConsultaController.cs" />
     <Compile Include="FormLoginDataSessionTicket.cs" />
     <Compile Include="FormRecepcionistaMascotaController.cs" />
     <Compile Include="FormRecepcionistaAdministradorInicioController.cs" />
@@ -228,9 +224,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRecepcionistaFactura.resx">
       <DependentUpon>FormRecepcionistaFactura.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormVeterinarioConsulta.resx">
-      <DependentUpon>FormVeterinarioConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRecepcionistaMascota.resx">
       <DependentUpon>FormRecepcionistaMascota.cs</DependentUpon>
@@ -483,6 +476,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\edit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
