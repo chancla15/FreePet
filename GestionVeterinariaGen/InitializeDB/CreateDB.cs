@@ -395,7 +395,7 @@ public static void InitializeData ()
                 //He tenido que añadir en FormConsultarecepcionistaController.cs en public void guardarCuadroInformacion() una cadena vacia dado que ahora hay un nuevo argumento en las consultas
                 ConsultaEN c1 = new ConsultaEN ();
                 c1.Diagnostico = "Pata rota";
-                c1.Fecha = new DateTime (2014, 5, 5);
+                c1.Fecha = new DateTime (2014, 5, 15);
                 c1.IdConsulta = 10;
                 c1.Lugar = "Sala 1";
                 c1.Mascota = new MascotaEN ();
@@ -405,20 +405,46 @@ public static void InitializeData ()
                 c1.Veterinario = new VeterinarioEN ();
                 c1.Veterinario.DNI = "2";
 
-                ConsultaEN c2 = new ConsultaEN ();
+                ConsultaEN c2 = new ConsultaEN();
                 c2.Diagnostico = "Pulgas";
-                c2.Fecha = new DateTime (2014, 7, 7);
+                c2.Fecha = new DateTime(2014, 5, 15);
                 c2.IdConsulta = 10;
                 c2.Lugar = "Sala 1";
-                c2.Mascota = new MascotaEN ();
+                c2.Mascota = new MascotaEN();
                 c2.Mascota.IdMascota = 1;
                 c2.MotivoConsulta = "Picores";
                 //c2.Tratamiento = o1;
-                c2.Veterinario = new VeterinarioEN ();
+                c2.Veterinario = new VeterinarioEN();
                 c2.Veterinario.DNI = "2";
 
-                //ConsultaCEN.New_ (c1.Fecha, c1.MotivoConsulta, c1.Diagnostico, c1.Mascota.IdMascota, c1.Veterinario.DNI, c1.Tratamiento.Nombre, c1.Lugar);
-                //ConsultaCEN.New_ (c2.Fecha, c2.MotivoConsulta, c2.Diagnostico, c2.Mascota.IdMascota, c2.Veterinario.DNI, c2.Tratamiento.Nombre, c2.Lugar);
+                ConsultaEN c3 = new ConsultaEN();
+                c3.Diagnostico = "Rabia";
+                c3.Fecha = new DateTime(2014, 5, 16);
+                c3.IdConsulta = 10;
+                c3.Lugar = "Sala 2";
+                c3.Mascota = new MascotaEN();
+                c3.Mascota.IdMascota = 1;
+                c3.MotivoConsulta = "Espuma por la boca";
+                //c3.Tratamiento = o1;
+                c3.Veterinario = new VeterinarioEN();
+                c3.Veterinario.DNI = "3";
+
+                ConsultaEN c4 = new ConsultaEN();
+                c4.Diagnostico = "Hepatitis B";
+                c4.Fecha = new DateTime(2014, 5, 16);
+                c4.IdConsulta = 10;
+                c4.Lugar = "Sala 2";
+                c4.Mascota = new MascotaEN();
+                c4.Mascota.IdMascota = 1;
+                c4.MotivoConsulta = "Diarrea y vomitos";
+                //c4.Tratamiento = o1;
+                c4.Veterinario = new VeterinarioEN();
+                c4.Veterinario.DNI = "4";
+
+                ConsultaCEN.New_(c1.Fecha, c1.MotivoConsulta, c1.Diagnostico, c1.Mascota.IdMascota, c1.Veterinario.DNI, null, c1.Lugar);
+                ConsultaCEN.New_(c2.Fecha, c2.MotivoConsulta, c2.Diagnostico, c2.Mascota.IdMascota, c2.Veterinario.DNI, null, c2.Lugar);
+                ConsultaCEN.New_(c3.Fecha, c3.MotivoConsulta, c3.Diagnostico, c3.Mascota.IdMascota, c3.Veterinario.DNI, null, c3.Lugar);
+                ConsultaCEN.New_(c4.Fecha, c4.MotivoConsulta, c4.Diagnostico, c4.Mascota.IdMascota, c4.Veterinario.DNI, null, c4.Lugar);
 
                 #endregion
 
