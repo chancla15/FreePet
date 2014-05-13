@@ -18,8 +18,6 @@ namespace WindowsFormsApplication1
     public partial class FormRecepcionistaAdministradorInicioController
     {
         #region Variables
-        /** Datos de sesion */
-        public FormLoginDataSessionTicket sessionData;
 
         /** Formulario a controlar */
         private FormRecepcionistaAdministradorInicio form;
@@ -38,9 +36,8 @@ namespace WindowsFormsApplication1
          * @param view la vista
          * @param sesion datos de sesion
          */
-        public FormRecepcionistaAdministradorInicioController(FormRecepcionistaAdministradorInicio f, FormLoginDataSessionTicket sesion) {
+        public FormRecepcionistaAdministradorInicioController(FormRecepcionistaAdministradorInicio f) {
             this.form = f;
-            this.sessionData = sesion;
             initPerfil();
             clientes_buscados = new List<ClienteEN>();
             empleados_buscados = new List<EmpleadoEN>();
@@ -50,15 +47,15 @@ namespace WindowsFormsApplication1
         //Inicializa los datos de sesion
         private void initPerfil()
         {
-            form.log_name.Text = sessionData.name;
-            form.log_id.Text = sessionData.TOKEN_SESSION;
-            form.log_type.Text = sessionData.tipo;
-            form.log_date.Text = sessionData.fecha;
+            form.log_name.Text = form.menu.sessionData.name;
+            form.log_id.Text = form.menu.sessionData.TOKEN_SESSION;
+            form.log_type.Text = form.menu.sessionData.tipo;
+            form.log_date.Text = form.menu.sessionData.fecha;
 
             try
             {
 
-                System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\" + sessionData.TOKEN_SESSION + ".png", System.IO.FileMode.Open);
+                System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\" + form.menu.sessionData.TOKEN_SESSION + ".png", System.IO.FileMode.Open);
                 form.log_photo.Image = Image.FromStream(fs);
                 form.log_photo.SizeMode = PictureBoxSizeMode.StretchImage;
                 fs.Close();
@@ -77,16 +74,12 @@ namespace WindowsFormsApplication1
         //Busca segun el tipo de usuario
         public void buscar()
         {
-            if (sessionData.tipo == "Recepcionista"){
-                buscarClientes();
-                form.dataGrid_clientes.Visible=true;
-                form.ListaEmpleados.Visible=false;
+            string type= form.menu.sessionData.tipo;
 
-            }else if (sessionData.tipo == "Administrador"){
+            if (type == "Recepcionista")
+                buscarClientes();
+            else if (type == "Administrador")
                 buscarEmpleados();
-                form.ListaEmpleados.Visible=true;
-                form.dataGrid_clientes.Visible=false;
-            }
         }
         
         /**
@@ -94,6 +87,7 @@ namespace WindowsFormsApplication1
          */
         public void buscarClientes()
         {
+            clientes_buscados.Clear();
             String buscar = form.text_buscar.Text.ToString();//String a buscar
 
             ClienteCEN cen_c = new ClienteCEN();
@@ -127,6 +121,7 @@ namespace WindowsFormsApplication1
                 {
                     form.dataGrid_clientes.Rows.Add(en_cli_nombre[x].DNI, en_cli_nombre[x].Nombre, en_cli_nombre[x].Apellidos);
                     dni.Add(en_cli_nombre[x].DNI);//metemos el dni en el array auxiliar
+                    clientes_buscados.Add(en_cli_nombre[x]);
                 }
                 for (int i = 0; i < en_cli_apellido.Count; i++)
                 {
@@ -138,8 +133,10 @@ namespace WindowsFormsApplication1
                     }
 
                     if (!dni_repetido)
+                    {
                         form.dataGrid_clientes.Rows.Add(en_cli_apellido[i].DNI, en_cli_apellido[i].Nombre, en_cli_apellido[i].Apellidos);
-
+                        clientes_buscados.Add(en_cli_nombre[i]);
+                    }
                     dni_repetido = false;
                 }
             }
@@ -150,7 +147,7 @@ namespace WindowsFormsApplication1
          */
         public void buscarEmpleados()
         {
-
+            empleados_buscados.Clear();
             String buscar = form.text_buscar.Text.ToString();//String a buscar
 
             IList<VeterinarioEN> en_vet_apellido = Utils._IVeterinarioCAD.BuscarVetPorApellidos(buscar);
@@ -185,7 +182,7 @@ namespace WindowsFormsApplication1
 
                 if (empleadovet_dni != null)
                 {
-
+                    empleados_buscados.Add(empleadovet_dni);
                     form.ListaEmpleados.Rows.Add(empleadovet_dni.DNI, empleadovet_dni.Nombre, empleadovet_dni.Apellidos, "Veterinario");
                 }
                 else
@@ -195,6 +192,7 @@ namespace WindowsFormsApplication1
                     {
                         form.ListaEmpleados.Rows.Add(en_vet_nombre[x].DNI, en_vet_nombre[x].Nombre, en_vet_nombre[x].Apellidos, "Veterinario");
                         dni_vet.Add(en_vet_nombre[x].DNI);//metemos el dni en el array auxiliar
+                        empleados_buscados.Add(en_vet_nombre[x]);
                     }
 
                     for (int i = 0; i < en_vet_apellido.Count; i++)
@@ -207,14 +205,17 @@ namespace WindowsFormsApplication1
                         }
 
                         if (!dni_repetido_vet)
+                        {
                             form.ListaEmpleados.Rows.Add(en_vet_apellido[i].DNI, en_vet_apellido[i].Nombre, en_vet_apellido[i].Apellidos, "Veterinario");
-
+                            empleados_buscados.Add(en_vet_apellido[i]);
+                        }
                         dni_repetido_vet = false;
                     }
                 }
 
                 if (empleadore_dni != null)
                 {
+                    empleados_buscados.Add(empleadore_dni);
                     form.ListaEmpleados.Rows.Add(empleadore_dni.DNI, empleadore_dni.Nombre, empleadore_dni.Apellidos, "Recepcionista");
                 }
                 else
@@ -224,6 +225,7 @@ namespace WindowsFormsApplication1
                     {
                         form.ListaEmpleados.Rows.Add(en_rec_nombre[x].DNI, en_rec_nombre[x].Nombre, en_rec_nombre[x].Apellidos, "Recepcionista");
                         dni_rec.Add(en_rec_nombre[x].DNI);//metemos el dni en el array auxiliar
+                        empleados_buscados.Add(en_rec_nombre[x]);
                     }
                     for (int i = 0; i < en_rec_apellido.Count; i++)
                     {
@@ -235,8 +237,10 @@ namespace WindowsFormsApplication1
                         }
 
                         if (!dni_repetido_rece)
+                        {
                             form.ListaEmpleados.Rows.Add(en_rec_apellido[i].DNI, en_rec_apellido[i].Nombre, en_rec_apellido[i].Apellidos, "Recepcionista");
-
+                            empleados_buscados.Add(en_rec_apellido[i]);
+                        }
                         dni_repetido_rece = false;
                     }
                 }
@@ -257,11 +261,11 @@ namespace WindowsFormsApplication1
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
                 DataGridViewButtonCell celBoton = form.dataGrid_clientes.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
-                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\delete.ico");
-                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
+                //Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\delete.ico");
+                //e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
 
-                form.dataGrid_clientes.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
-                form.dataGrid_clientes.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
+                //form.dataGrid_clientes.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
+                //form.dataGrid_clientes.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
 
                 e.Handled = true;
 
@@ -272,11 +276,11 @@ namespace WindowsFormsApplication1
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
                 DataGridViewButtonCell celBoton = form.dataGrid_clientes.Rows[e.RowIndex].Cells["Modificar"] as DataGridViewButtonCell;
-                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\edit.ico");
-                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
+               // Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\edit.ico");
+               // e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
 
-                form.dataGrid_clientes.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
-                form.dataGrid_clientes.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
+                //form.dataGrid_clientes.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
+                //form.dataGrid_clientes.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
 
                 e.Handled = true;
             }
@@ -322,12 +326,12 @@ namespace WindowsFormsApplication1
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
                 DataGridViewButtonCell celBoton = form.ListaEmpleados.Rows[e.RowIndex].Cells["EliminarEmpleado"] as DataGridViewButtonCell;
-                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\delete.ico");
+                /*Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\delete.ico");
                 e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
 
                 form.ListaEmpleados.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
                 form.ListaEmpleados.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
-
+                */
                 e.Handled = true;
 
             }
@@ -337,12 +341,12 @@ namespace WindowsFormsApplication1
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
                 DataGridViewButtonCell celBoton = form.ListaEmpleados.Rows[e.RowIndex].Cells["ModificarEmpleado"] as DataGridViewButtonCell;
-                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\edit.ico");
+                /*Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\edit.ico");
                 e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left+3, e.CellBounds.Top+3);
 
                 form.ListaEmpleados.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
                 form.ListaEmpleados.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
-
+                */
                 e.Handled = true;
             }
 

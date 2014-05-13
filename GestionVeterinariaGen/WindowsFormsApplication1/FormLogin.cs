@@ -44,17 +44,12 @@ namespace WindowsFormsApplication1
          
             if (login) {
                 Hide();
-                Console.WriteLine("Empezar con pantalla: " + sessionData.tipo + " " + sessionData.TOKEN_SESSION );
                 if (sessionData.tipo == "Recepcionista")
                     new ScreenControllerRecepcionista(sessionData);
-                //new FormRecepcionistaAdministradorInicio(sessionData);
                 else if (sessionData.tipo == "Veterinario")
                     new ScreenControllerVeterinario(sessionData);
                 else if (sessionData.tipo == "Administrador")
                     new ScreenControllerAdministrador(sessionData);
-                    
-                    
-                    //new FormRecepcionistaAdministradorInicio(sessionData);
             }
             
             label1.Text = "Datos incorrectos";

@@ -119,7 +119,17 @@ namespace WindowsFormsApplication1
             throw new NotImplementedException();
         }
 
-        public override bool LaunchConsultaScreen(Utils.State s, ConsultaEN c)
+        override public bool LaunchConsultaScreen(Utils.State s, ConsultaEN c)
+        {
+            throw new NotImplementedException();
+        }
+
+        override public bool LaunchStartScreenVeterinario()
+        {
+            throw new NotImplementedException();
+        }
+
+        override public bool LaunchConsultaScreenVeterinario()
         {
             throw new NotImplementedException();
         }
@@ -148,10 +158,8 @@ namespace WindowsFormsApplication1
             f_inicio.Hide();
             f_empleado.Hide();
             f_tratamiento.Hide();
-
         }
 
         #endregion
-
     }
 }

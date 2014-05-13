@@ -154,6 +154,16 @@ namespace WindowsFormsApplication1
             throw new NotImplementedException();
         }
 
+        override public bool LaunchStartScreenVeterinario()
+        {
+            throw new NotImplementedException();
+        }
+
+        override public bool LaunchConsultaScreenVeterinario()
+        {
+            throw new NotImplementedException();
+        }
+
 
         #endregion
 

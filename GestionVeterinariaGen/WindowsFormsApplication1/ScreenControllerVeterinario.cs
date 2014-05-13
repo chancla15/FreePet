@@ -2,18 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
 
 namespace WindowsFormsApplication1
 {
-    public class ScreenControllerVeterinario
+    public class ScreenControllerVeterinario : ScreenController
     {
         #region Variables
-
-        /** El ticket de sesion */
-        public FormLoginDataSessionTicket sessionData = null;
-
-        /** El formulario donde se encuentra actualmente */
-        public string FormActual = "";
 
         /** EL formulario de inicio */
         public FormVeterinarioInicio f_inicio = null;
@@ -30,22 +25,20 @@ namespace WindowsFormsApplication1
          * Crea todos los formularios que usara el recepcionista
          * @param ticket el ticket de sesion
          */
-        public ScreenControllerVeterinario(FormLoginDataSessionTicket ticket)
+        public ScreenControllerVeterinario(FormLoginDataSessionTicket ticket):base(ticket)
         {
-            sessionData = ticket;
             f_inicio = new FormVeterinarioInicio(this);
             f_consulta = new FormVeterinarioConsulta(this);
-            LaunchStartScreen();
+            LaunchStartScreenVeterinario();
         }
         #endregion
-
 
         #region LanzadorDePantallas
 
         /**
          * Cuando lanza la pantalla principal
          */
-        public bool LaunchStartScreen()
+        override public bool LaunchStartScreenVeterinario()
         {
             bool ret = false;
 
@@ -58,7 +51,7 @@ namespace WindowsFormsApplication1
             return ret;
         }
 
-       public bool LaunchConsultaScreen()
+        override public bool LaunchConsultaScreenVeterinario()
         {
             bool ret = false ;
 
@@ -71,7 +64,46 @@ namespace WindowsFormsApplication1
             return ret;
         }
 
+        override public bool LaunchEmpleadoScreen(Utils.State s, EmpleadoEN e)
+        {
+            throw new NotImplementedException();
+        }
+
+        override public bool LaunchTratamientoScreen(Utils.State s, TratamientoEN t)
+        {
+            throw new NotImplementedException();
+        }
+
+        override public bool LaunchStartScreen()
+        {
+            throw new NotImplementedException();
+        }
+
+        override public bool LaunchClienteScreen(Utils.State s, ClienteEN c)
+        {
+            throw new NotImplementedException();
+        }
+
+        override public bool LaunchMascotaScreen(Utils.State s, ClienteEN c, MascotaEN m)
+        {
+            throw new NotImplementedException();
+        }
+
+        override public bool LaunchFacturaScreen(Utils.State s, string f)
+        {
+            throw new NotImplementedException();
+        }
+
+        override public bool LaunchConsultaScreen(Utils.State s, ConsultaEN c)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
+
+
+
+
 
        #region SalirAplicacion
 

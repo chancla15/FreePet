@@ -75,7 +75,7 @@ namespace WindowsFormsApplication1
         private void picture_consulta_veterinario_Click(object sender, EventArgs e)
         {
             //añadir launchConsultasScreen
-            if (menu.LaunchConsultaScreen())
+            if (menu.LaunchConsultaScreenVeterinario())
               DesactivateForm();
         }
     }

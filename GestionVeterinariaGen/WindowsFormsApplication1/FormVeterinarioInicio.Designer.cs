@@ -185,7 +185,7 @@
             // picture_desconectar_veterinario
             // 
             this.picture_desconectar_veterinario.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.picture_desconectar_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.desconectar;
+//            this.picture_desconectar_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.desconectar;
             this.picture_desconectar_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picture_desconectar_veterinario.Location = new System.Drawing.Point(506, 0);
             this.picture_desconectar_veterinario.Name = "picture_desconectar_veterinario";
@@ -196,7 +196,7 @@
             // 
             // picture_consulta_veterinario
             // 
-            this.picture_consulta_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.consulta;
+//            this.picture_consulta_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.consulta;
             this.picture_consulta_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picture_consulta_veterinario.Location = new System.Drawing.Point(257, 0);
             this.picture_consulta_veterinario.Name = "picture_consulta_veterinario";
@@ -207,7 +207,7 @@
             // 
             // picture_inicio_veterinario
             // 
-            this.picture_inicio_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.home;
+//            this.picture_inicio_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.home;
             this.picture_inicio_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picture_inicio_veterinario.Location = new System.Drawing.Point(9, 0);
             this.picture_inicio_veterinario.Name = "picture_inicio_veterinario";
@@ -242,7 +242,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_VETERINARIA_blanco_;
+//            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_VETERINARIA_blanco_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(682, 476);
             this.Controls.Add(this.dataGrid_consultas);

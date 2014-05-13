@@ -25,7 +25,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRecepcionistaAdministradorInicio));
             this.log_date = new System.Windows.Forms.Label();
             this.log_type = new System.Windows.Forms.Label();
             this.log_id = new System.Windows.Forms.Label();
@@ -242,7 +241,6 @@
             // picture_tratamientos_admin
             // 
             this.picture_tratamientos_admin.BackColor = System.Drawing.Color.Transparent;
-            this.picture_tratamientos_admin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_tratamientos_admin.BackgroundImage")));
             this.picture_tratamientos_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picture_tratamientos_admin.Location = new System.Drawing.Point(345, 0);
             this.picture_tratamientos_admin.Name = "picture_tratamientos_admin";
@@ -254,7 +252,6 @@
             // picture_empleados_admin
             // 
             this.picture_empleados_admin.BackColor = System.Drawing.Color.Transparent;
-            this.picture_empleados_admin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_empleados_admin.BackgroundImage")));
             this.picture_empleados_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picture_empleados_admin.Location = new System.Drawing.Point(174, 0);
             this.picture_empleados_admin.Name = "picture_empleados_admin";
@@ -266,7 +263,6 @@
             // picture_desconectar_admin
             // 
             this.picture_desconectar_admin.BackColor = System.Drawing.Color.Transparent;
-            this.picture_desconectar_admin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_desconectar_admin.BackgroundImage")));
             this.picture_desconectar_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picture_desconectar_admin.Location = new System.Drawing.Point(516, 0);
             this.picture_desconectar_admin.Name = "picture_desconectar_admin";
@@ -278,7 +274,6 @@
             // picture_start_admin
             // 
             this.picture_start_admin.BackColor = System.Drawing.Color.Transparent;
-            this.picture_start_admin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_start_admin.BackgroundImage")));
             this.picture_start_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picture_start_admin.Location = new System.Drawing.Point(3, 0);
             this.picture_start_admin.Name = "picture_start_admin";
@@ -290,7 +285,6 @@
             // picture_ajustes_recepcionista
             // 
             this.picture_ajustes_recepcionista.BackColor = System.Drawing.Color.Transparent;
-            this.picture_ajustes_recepcionista.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_ajustes_recepcionista.BackgroundImage")));
             this.picture_ajustes_recepcionista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picture_ajustes_recepcionista.Location = new System.Drawing.Point(559, 0);
             this.picture_ajustes_recepcionista.Name = "picture_ajustes_recepcionista";
@@ -360,7 +354,7 @@
             this.ModificarEmpleado,
             this.EliminarEmpleado});
             this.ListaEmpleados.DataSource = this.bindingSource2;
-            this.ListaEmpleados.Location = new System.Drawing.Point(12, 194);
+            this.ListaEmpleados.Location = new System.Drawing.Point(12, 233);
             this.ListaEmpleados.Name = "ListaEmpleados";
             this.ListaEmpleados.ReadOnly = true;
             this.ListaEmpleados.RowHeadersVisible = false;
