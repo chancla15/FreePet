@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.log_type = new System.Windows.Forms.Label();
             this.log_name = new System.Windows.Forms.Label();
             this.log_photo = new System.Windows.Forms.PictureBox();
@@ -42,11 +43,6 @@
             this.label_lugar = new System.Windows.Forms.Label();
             this.text_lugar = new System.Windows.Forms.TextBox();
             this.label_tratamientos = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_ficha = new System.Windows.Forms.GroupBox();
             this.textBox_chip = new System.Windows.Forms.TextBox();
             this.textBox_color = new System.Windows.Forms.TextBox();
@@ -71,12 +67,21 @@
             this.picture_desconectar_veterinario = new System.Windows.Forms.PictureBox();
             this.picture_consulta_veterinario = new System.Windows.Forms.PictureBox();
             this.picture_inicio_veterinario = new System.Windows.Forms.PictureBox();
+            this.label_doctor = new System.Windows.Forms.Label();
+            this.gestionVeterinariaGenNHibernateDataSet = new WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSet();
+            this.tratamientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tratamientoTableAdapter = new WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSetTableAdapters.TratamientoTableAdapter();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.listBox2 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox_ficha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionVeterinariaGenNHibernateDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tratamientoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // log_type
@@ -84,7 +89,7 @@
             this.log_type.AutoSize = true;
             this.log_type.BackColor = System.Drawing.Color.Transparent;
             this.log_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.log_type.Location = new System.Drawing.Point(108, 129);
+            this.log_type.Location = new System.Drawing.Point(108, 144);
             this.log_type.Name = "log_type";
             this.log_type.Size = new System.Drawing.Size(57, 18);
             this.log_type.TabIndex = 45;
@@ -95,7 +100,7 @@
             this.log_name.AutoSize = true;
             this.log_name.BackColor = System.Drawing.Color.Transparent;
             this.log_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.log_name.Location = new System.Drawing.Point(108, 60);
+            this.log_name.Location = new System.Drawing.Point(108, 75);
             this.log_name.Name = "log_name";
             this.log_name.Size = new System.Drawing.Size(134, 20);
             this.log_name.TabIndex = 43;
@@ -104,7 +109,7 @@
             // log_photo
             // 
             this.log_photo.Image = global::WindowsFormsApplication1.Properties.Resources.sinFoto;
-            this.log_photo.Location = new System.Drawing.Point(12, 60);
+            this.log_photo.Location = new System.Drawing.Point(12, 75);
             this.log_photo.Name = "log_photo";
             this.log_photo.Size = new System.Drawing.Size(90, 120);
             this.log_photo.TabIndex = 42;
@@ -112,7 +117,7 @@
             // 
             // text_hora
             // 
-            this.text_hora.Location = new System.Drawing.Point(206, 208);
+            this.text_hora.Location = new System.Drawing.Point(206, 223);
             this.text_hora.Name = "text_hora";
             this.text_hora.Size = new System.Drawing.Size(100, 20);
             this.text_hora.TabIndex = 50;
@@ -120,7 +125,7 @@
             // label_hora
             // 
             this.label_hora.AutoSize = true;
-            this.label_hora.Location = new System.Drawing.Point(167, 211);
+            this.label_hora.Location = new System.Drawing.Point(167, 226);
             this.label_hora.Name = "label_hora";
             this.label_hora.Size = new System.Drawing.Size(33, 13);
             this.label_hora.TabIndex = 49;
@@ -128,7 +133,7 @@
             // 
             // text_fecha
             // 
-            this.text_fecha.Location = new System.Drawing.Point(57, 208);
+            this.text_fecha.Location = new System.Drawing.Point(57, 223);
             this.text_fecha.Name = "text_fecha";
             this.text_fecha.Size = new System.Drawing.Size(100, 20);
             this.text_fecha.TabIndex = 52;
@@ -136,7 +141,7 @@
             // label_fecha
             // 
             this.label_fecha.AutoSize = true;
-            this.label_fecha.Location = new System.Drawing.Point(11, 211);
+            this.label_fecha.Location = new System.Drawing.Point(11, 226);
             this.label_fecha.Name = "label_fecha";
             this.label_fecha.Size = new System.Drawing.Size(40, 13);
             this.label_fecha.TabIndex = 51;
@@ -144,7 +149,7 @@
             // 
             // text_motivo
             // 
-            this.text_motivo.Location = new System.Drawing.Point(126, 240);
+            this.text_motivo.Location = new System.Drawing.Point(126, 256);
             this.text_motivo.Name = "text_motivo";
             this.text_motivo.Size = new System.Drawing.Size(528, 20);
             this.text_motivo.TabIndex = 56;
@@ -152,7 +157,7 @@
             // label_motivo
             // 
             this.label_motivo.AutoSize = true;
-            this.label_motivo.Location = new System.Drawing.Point(9, 243);
+            this.label_motivo.Location = new System.Drawing.Point(9, 259);
             this.label_motivo.Name = "label_motivo";
             this.label_motivo.Size = new System.Drawing.Size(111, 13);
             this.label_motivo.TabIndex = 55;
@@ -160,16 +165,16 @@
             // 
             // text_diagnostico
             // 
-            this.text_diagnostico.Location = new System.Drawing.Point(12, 288);
+            this.text_diagnostico.Location = new System.Drawing.Point(12, 304);
             this.text_diagnostico.Multiline = true;
             this.text_diagnostico.Name = "text_diagnostico";
-            this.text_diagnostico.Size = new System.Drawing.Size(642, 99);
+            this.text_diagnostico.Size = new System.Drawing.Size(642, 64);
             this.text_diagnostico.TabIndex = 58;
             // 
             // label_diagnostico
             // 
             this.label_diagnostico.AutoSize = true;
-            this.label_diagnostico.Location = new System.Drawing.Point(9, 272);
+            this.label_diagnostico.Location = new System.Drawing.Point(9, 288);
             this.label_diagnostico.Name = "label_diagnostico";
             this.label_diagnostico.Size = new System.Drawing.Size(66, 13);
             this.label_diagnostico.TabIndex = 57;
@@ -178,7 +183,7 @@
             // label_lugar
             // 
             this.label_lugar.AutoSize = true;
-            this.label_lugar.Location = new System.Drawing.Point(329, 211);
+            this.label_lugar.Location = new System.Drawing.Point(329, 226);
             this.label_lugar.Name = "label_lugar";
             this.label_lugar.Size = new System.Drawing.Size(37, 13);
             this.label_lugar.TabIndex = 59;
@@ -186,7 +191,7 @@
             // 
             // text_lugar
             // 
-            this.text_lugar.Location = new System.Drawing.Point(372, 208);
+            this.text_lugar.Location = new System.Drawing.Point(372, 223);
             this.text_lugar.Name = "text_lugar";
             this.text_lugar.Size = new System.Drawing.Size(282, 20);
             this.text_lugar.TabIndex = 60;
@@ -194,47 +199,12 @@
             // label_tratamientos
             // 
             this.label_tratamientos.AutoSize = true;
-            this.label_tratamientos.Location = new System.Drawing.Point(11, 399);
+            this.label_tratamientos.Location = new System.Drawing.Point(11, 375);
             this.label_tratamientos.Name = "label_tratamientos";
             this.label_tratamientos.Size = new System.Drawing.Size(71, 13);
             this.label_tratamientos.TabIndex = 61;
             this.label_tratamientos.Text = "Tratamientos:";
             this.label_tratamientos.Click += new System.EventHandler(this.label_tratamientos_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nombre,
-            this.Descripcion,
-            this.Dosis,
-            this.Precio});
-            this.dataGridView1.Location = new System.Drawing.Point(14, 415);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(442, 108);
-            this.dataGridView1.TabIndex = 62;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            // 
-            // Dosis
-            // 
-            this.Dosis.HeaderText = "Dosis";
-            this.Dosis.Name = "Dosis";
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
             // 
             // groupBox_ficha
             // 
@@ -254,7 +224,7 @@
             this.groupBox_ficha.Controls.Add(this.label_fn);
             this.groupBox_ficha.Controls.Add(this.label_raza);
             this.groupBox_ficha.Controls.Add(this.label_peso);
-            this.groupBox_ficha.Location = new System.Drawing.Point(282, 53);
+            this.groupBox_ficha.Location = new System.Drawing.Point(282, 68);
             this.groupBox_ficha.Name = "groupBox_ficha";
             this.groupBox_ficha.Size = new System.Drawing.Size(378, 127);
             this.groupBox_ficha.TabIndex = 63;
@@ -393,21 +363,21 @@
             // 
             // textBox_mascota
             // 
-            this.textBox_mascota.Location = new System.Drawing.Point(112, 92);
+            this.textBox_mascota.Location = new System.Drawing.Point(112, 107);
             this.textBox_mascota.Name = "textBox_mascota";
             this.textBox_mascota.Size = new System.Drawing.Size(130, 20);
             this.textBox_mascota.TabIndex = 64;
             // 
             // textBox_cliente
             // 
-            this.textBox_cliente.Location = new System.Drawing.Point(112, 152);
+            this.textBox_cliente.Location = new System.Drawing.Point(112, 167);
             this.textBox_cliente.Name = "textBox_cliente";
             this.textBox_cliente.Size = new System.Drawing.Size(130, 20);
             this.textBox_cliente.TabIndex = 65;
             // 
             // button_realizar
             // 
-            this.button_realizar.Location = new System.Drawing.Point(519, 560);
+            this.button_realizar.Location = new System.Drawing.Point(519, 566);
             this.button_realizar.Name = "button_realizar";
             this.button_realizar.Size = new System.Drawing.Size(135, 23);
             this.button_realizar.TabIndex = 66;
@@ -416,7 +386,7 @@
             // 
             // button_anular
             // 
-            this.button_anular.Location = new System.Drawing.Point(372, 560);
+            this.button_anular.Location = new System.Drawing.Point(372, 566);
             this.button_anular.Name = "button_anular";
             this.button_anular.Size = new System.Drawing.Size(135, 23);
             this.button_anular.TabIndex = 68;
@@ -452,11 +422,77 @@
             this.picture_inicio_veterinario.TabStop = false;
             this.picture_inicio_veterinario.Click += new System.EventHandler(this.picture_inicio_veterinario_Click);
             // 
+            // label_doctor
+            // 
+            this.label_doctor.AutoSize = true;
+            this.label_doctor.Location = new System.Drawing.Point(12, 571);
+            this.label_doctor.Name = "label_doctor";
+            this.label_doctor.Size = new System.Drawing.Size(166, 13);
+            this.label_doctor.TabIndex = 72;
+            this.label_doctor.Text = "Consulta realizada por del Doctor:";
+            this.label_doctor.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // gestionVeterinariaGenNHibernateDataSet
+            // 
+            this.gestionVeterinariaGenNHibernateDataSet.DataSetName = "GestionVeterinariaGenNHibernateDataSet";
+            this.gestionVeterinariaGenNHibernateDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tratamientoBindingSource
+            // 
+            this.tratamientoBindingSource.DataMember = "Tratamiento";
+            this.tratamientoBindingSource.DataSource = this.gestionVeterinariaGenNHibernateDataSet;
+            // 
+            // tratamientoTableAdapter
+            // 
+            this.tratamientoTableAdapter.ClearBeforeFill = true;
+            // 
+            // listBox1
+            // 
+            this.listBox1.DataSource = this.tratamientoBindingSource;
+            this.listBox1.DisplayMember = "Nombre";
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(14, 391);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(558, 69);
+            this.listBox1.TabIndex = 73;
+            this.listBox1.ValueMember = "precio";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(578, 391);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 74;
+            this.button1.Text = "Añadir";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(579, 437);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 75;
+            this.button2.Text = "Quitar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(15, 466);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(557, 69);
+            this.listBox2.TabIndex = 76;
+            // 
             // FormVeterinarioConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 601);
+            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.label_doctor);
             this.Controls.Add(this.picture_desconectar_veterinario);
             this.Controls.Add(this.picture_consulta_veterinario);
             this.Controls.Add(this.picture_inicio_veterinario);
@@ -465,7 +501,6 @@
             this.Controls.Add(this.textBox_cliente);
             this.Controls.Add(this.textBox_mascota);
             this.Controls.Add(this.groupBox_ficha);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label_tratamientos);
             this.Controls.Add(this.text_lugar);
             this.Controls.Add(this.label_lugar);
@@ -485,12 +520,13 @@
             this.Text = "FormConsultaVeterinario";
             this.Load += new System.EventHandler(this.FormConsultaVeterinario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox_ficha.ResumeLayout(false);
             this.groupBox_ficha.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionVeterinariaGenNHibernateDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tratamientoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -512,7 +548,6 @@
         private System.Windows.Forms.Label label_lugar;
         private System.Windows.Forms.TextBox text_lugar;
         private System.Windows.Forms.Label label_tratamientos;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox_ficha;
         private System.Windows.Forms.Label label_raza;
         private System.Windows.Forms.Label label_peso;
@@ -534,12 +569,16 @@
         private System.Windows.Forms.TextBox textBox_color;
         private System.Windows.Forms.Button button_realizar;
         private System.Windows.Forms.Button button_anular;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dosis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.PictureBox picture_desconectar_veterinario;
         private System.Windows.Forms.PictureBox picture_consulta_veterinario;
         private System.Windows.Forms.PictureBox picture_inicio_veterinario;
+        private System.Windows.Forms.Label label_doctor;
+        private GestionVeterinariaGenNHibernateDataSet gestionVeterinariaGenNHibernateDataSet;
+        private System.Windows.Forms.BindingSource tratamientoBindingSource;
+        private GestionVeterinariaGenNHibernateDataSetTableAdapters.TratamientoTableAdapter tratamientoTableAdapter;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox listBox2;
     }
 }
