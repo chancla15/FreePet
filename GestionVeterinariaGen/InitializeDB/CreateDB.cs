@@ -99,15 +99,8 @@ public static void InitializeData ()
                 IFacturaCAD _IFacturaCAD = new FacturaCAD ();
                 FacturaCEN FacturaCEN = new FacturaCEN (_IFacturaCAD);
 
-                //IVacunaCAD _IVacunaCAD = new VacunaCAD ();
-                //VacunaCEN VacunaCEN = new VacunaCEN (_IVacunaCAD);
-
-                //IOrtopediaCAD _IOrtopediaCAD = new OrtopediaCAD ();
-                //OrtopediaCEN OrtopediaCEN = new OrtopediaCEN (_IOrtopediaCAD);
-
-                //IFarmacoCAD _IFarmacoCAD = new FarmacoCAD ();
-                //FarmacoCEN FarmacoCEN = new FarmacoCEN (_IFarmacoCAD);
-
+                ITratamientoCAD _ITratamiendoCAD = new TratamientoCAD();
+                TratamientoCEN TratamientoCEN = new TratamientoCEN(_ITratamiendoCAD);
 
                 #region Administrador
                 AdministradorCEN.New_ ("admin", "adminNombre", "adminApellidos", "adminDireccion", "adminTelefono", "adminLocalidad", "adminProvincia", "adminCp", 9999, "admin");
@@ -348,6 +341,53 @@ public static void InitializeData ()
                  *
                  * #endregion
                  */
+                //nombre, precio, descripcion, stock, dosis_diaria
+                TratamientoEN t1 = new TratamientoEN();
+                t1.Consulta = null;
+                t1.Nombre = "Anti Parvovirus";
+                t1.Precio = 10;
+                t1.Descripcion = "NOBIVAC PARVO-C. Caja con 10 frascos de una dosis";
+                t1.Stock = 20;
+                t1.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
+
+                TratamientoEN t2 = new TratamientoEN();
+                t2.Consulta = null;
+                t2.Nombre = "Antirrabico";
+                t2.Precio = 15.5f;
+                t2.Descripcion = "VACUNA ANTIRRABICA MERIEUX. 1 vial + 1 jeringa sin aguja";
+                t2.Stock = 20;
+                t2.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
+
+                TratamientoEN t3 = new TratamientoEN();
+                t3.Consulta = null;
+                t3.Nombre = "Antihepatitis";
+                t3.Precio = 30.9f;
+                t3.Descripcion = "Canigen MHA2. Caja con 10 dosis";
+                t3.Stock = 20;
+                t3.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
+
+                TratamientoEN t4 = new TratamientoEN();
+                t4.Consulta = null;
+                t4.Nombre = "Antihepatitis";
+                t4.Precio = 30.5f;
+                t4.Descripcion = "Canigen MHA2. Caja con 10 dosis";
+                t4.Stock = 20;
+                t4.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
+
+                TratamientoEN t5 = new TratamientoEN();
+                t5.Consulta = null;
+                t5.Nombre = "Antileptospirosis";
+                t5.Precio = 15.8f;
+                t5.Descripcion = "Canigen MHA2. Caja con 10 dosis";
+                t5.Stock = 20;
+                t5.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
+
+
+                TratamientoCEN.New_(t1.Nombre, t1.Precio, t1.Descripcion, t1.Stock, t1.Dosis_diaria);
+                TratamientoCEN.New_(t2.Nombre, t2.Precio, t2.Descripcion, t2.Stock, t2.Dosis_diaria);
+                TratamientoCEN.New_(t3.Nombre, t3.Precio, t3.Descripcion, t3.Stock, t3.Dosis_diaria);
+                TratamientoCEN.New_(t4.Nombre, t4.Precio, t4.Descripcion, t4.Stock, t4.Dosis_diaria);
+                TratamientoCEN.New_(t5.Nombre, t5.Precio, t5.Descripcion, t5.Stock, t5.Dosis_diaria);
                 #region Consulta
                 //He modificado la relacion tratamiento - consulta era 0 * - 0 *
                 //He tenido que añadir en FormConsultarecepcionistaController.cs en public void guardarCuadroInformacion() una cadena vacia dado que ahora hay un nuevo argumento en las consultas
