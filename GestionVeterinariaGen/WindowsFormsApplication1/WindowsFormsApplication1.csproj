@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{87063061-3D86-4D5E-B94D-00642C8D849A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WindowsFormsApplication1</RootNamespace>
+    <AssemblyName>WindowsFormsApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\GestionVeterinariaGenNHibernate\AppLib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2">
+      <HintPath>..\GestionVeterinariaGenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\GestionVeterinariaGenNHibernate\AppLib\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="LinFu.DynamicProxy">
+      <HintPath>..\GestionVeterinariaGenNHibernate\AppLib\LinFu.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\GestionVeterinariaGenNHibernate\AppLib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\GestionVeterinariaGenNHibernate\AppLib\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\GestionVeterinariaGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.LinFu">
+      <HintPath>..\GestionVeterinariaGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.core">
+      <HintPath>..\GestionVeterinariaGenNHibernate\AppLib\nunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\GestionVeterinariaGenNHibernate\AppLib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=3.5.1.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Windows\assembly\GAC_MSIL\System.Data.SqlServerCe\3.5.1.0__89845dcd8080cc91\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AcercaDe.Designer.cs">
+      <DependentUpon>AcercaDe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScreenController.cs" />
+    <Compile Include="ScreenControllerAdministrador.cs" />
+    <Compile Include="DataBaseInfo_ALL.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseInfo_ALL.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormAdministradorTratamientoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormAdministradorTratamientoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecepcionistaAdministradorInicio_DataSet.cs">
+      <DependentUpon>FormRecepcionistaAdministradorInicio_DataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FormRecepcionistaAdministradorInicio_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormRecepcionistaAdministradorInicio_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecepcionistaAdministradorInicio_DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormRecepcionistaAdministradorInicio_DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecepcionistaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecepcionistaCliente.Designer.cs">
+      <DependentUpon>FormRecepcionistaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecepcionistaClienteController.cs" />
+    <Compile Include="FormAdministradorEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdministradorEmpleado.designer.cs">
+      <DependentUpon>FormAdministradorEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAdministradorEmpleadoController.cs" />
+    <Compile Include="FormRecepcionistaCliente_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormRecepcionistaCliente_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecepcionistaConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecepcionistaConsulta.designer.cs">
+      <DependentUpon>FormRecepcionistaConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecepcionistaConsultaController.cs" />
+    <Compile Include="FormRecepcionistaFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecepcionistaFactura.designer.cs">
+      <DependentUpon>FormRecepcionistaFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecepcionistaFacturaController.cs" />
+    <Compile Include="FormRecepcionistaMascota_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FormRecepcionistaMascota_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormVeterinarioConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVeterinarioConsulta.Designer.cs">
+      <DependentUpon>FormVeterinarioConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVeterinarioConsultaController.cs" />
+    <Compile Include="FormLoginDataSessionTicket.cs" />
+    <Compile Include="FormRecepcionistaMascotaController.cs" />
+    <Compile Include="FormRecepcionistaAdministradorInicioController.cs" />
+    <Compile Include="FormRecepcionistaMascota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecepcionistaMascota.Designer.cs">
+      <DependentUpon>FormRecepcionistaMascota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecepcionistaAdministradorInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecepcionistaAdministradorInicio.Designer.cs">
+      <DependentUpon>FormRecepcionistaAdministradorInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVeterinarioInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVeterinarioInicio.Designer.cs">
+      <DependentUpon>FormVeterinarioInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVeterinarioInicioController.cs" />
+    <Compile Include="FormAdministradorTratamiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdministradorTratamiento.Designer.cs">
+      <DependentUpon>FormAdministradorTratamiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAdministradorTratamientoController.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScreenControllerRecepcionista.cs" />
+    <Compile Include="ScreenControllerVeterinario.cs" />
+    <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="AcercaDe.resx">
+      <DependentUpon>AcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecepcionistaCliente.resx">
+      <DependentUpon>FormRecepcionistaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdministradorEmpleado.resx">
+      <DependentUpon>FormAdministradorEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecepcionistaConsulta.resx">
+      <DependentUpon>FormRecepcionistaConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecepcionistaFactura.resx">
+      <DependentUpon>FormRecepcionistaFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVeterinarioConsulta.resx">
+      <DependentUpon>FormVeterinarioConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecepcionistaMascota.resx">
+      <DependentUpon>FormRecepcionistaMascota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecepcionistaAdministradorInicio.resx">
+      <DependentUpon>FormRecepcionistaAdministradorInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVeterinarioInicio.resx">
+      <DependentUpon>FormVeterinarioInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdministradorTratamiento.resx">
+      <DependentUpon>FormAdministradorTratamiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="DataBaseInfo_ALL.xsc">
+      <DependentUpon>DataBaseInfo_ALL.xsd</DependentUpon>
+    </None>
+    <None Include="DataBaseInfo_ALL.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataBaseInfo_ALL.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataBaseInfo_ALL.xss">
+      <DependentUpon>DataBaseInfo_ALL.xsd</DependentUpon>
+    </None>
+    <None Include="FormAdministradorTratamientoDataSet.xsc">
+      <DependentUpon>FormAdministradorTratamientoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FormAdministradorTratamientoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FormAdministradorTratamientoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FormAdministradorTratamientoDataSet.xss">
+      <DependentUpon>FormAdministradorTratamientoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FormRecepcionistaAdministradorInicio_DataSet.xsc">
+      <DependentUpon>FormRecepcionistaAdministradorInicio_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FormRecepcionistaAdministradorInicio_DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FormRecepcionistaAdministradorInicio_DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FormRecepcionistaAdministradorInicio_DataSet.xss">
+      <DependentUpon>FormRecepcionistaAdministradorInicio_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FormRecepcionistaAdministradorInicio_DataSet2.xsc">
+      <DependentUpon>FormRecepcionistaAdministradorInicio_DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="FormRecepcionistaAdministradorInicio_DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FormRecepcionistaAdministradorInicio_DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FormRecepcionistaAdministradorInicio_DataSet2.xss">
+      <DependentUpon>FormRecepcionistaAdministradorInicio_DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="FormRecepcionistaCliente_DataSet.xsc">
+      <DependentUpon>FormRecepcionistaCliente_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FormRecepcionistaCliente_DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FormRecepcionistaCliente_DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FormRecepcionistaCliente_DataSet.xss">
+      <DependentUpon>FormRecepcionistaCliente_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FormRecepcionistaMascota_DataSet.xsc">
+      <DependentUpon>FormRecepcionistaMascota_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FormRecepcionistaMascota_DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FormRecepcionistaMascota_DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FormRecepcionistaMascota_DataSet.xss">
+      <DependentUpon>FormRecepcionistaMascota_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GestionVeterinariaGenNHibernate\GestionVeterinariaGenNHibernate.csproj">
+      <Project>{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}</Project>
+      <Name>GestionVeterinariaGenNHibernate</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.3.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 3.5 SP2</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-1-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\sinFoto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\sinFotoa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo nuevo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_return.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start_off.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start_on.tiff" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doctor_on.tiff" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doctor_off.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\client_off.tiff" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\client_off.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bill_on.tiff" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bill_off.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajuts_on.tiff" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajuts_off.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\facturas.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doctor.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clientes.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajustes.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clientes_PerfilCliente.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mascotas_PerfilCliente.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clientes_PerfilMascota.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clientes_PerfilCliente1.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mascotas_PerfilCliente1.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cliente_PerfilCliente.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cliente_PerfilMascota.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_identifier.tiff" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_buscar_id.tiff" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eraser.tiff" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FONDO VETERINARIA nuevo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\consulta1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\desconectar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FONDO VETERINARIA blanco 1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

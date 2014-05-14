@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="GestionVeterinariaGenNHibernate"
+		                   namespace="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria">
+				
+<joined-subclass name="FarmacoEN" extends="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN" table="[Farmaco]">
+	<key>
+    		<column name="[Nombre]"/>
+   	</key>
+
+					<property name="Cantidad" type="string"> 
+						<column name="[cantidad]"  not-null="true"/>
+					</property>
+					<property name="Frecuencia" > 
+						<column name="[frecuencia]"  not-null="true"/>
+					</property>
+					<property name="FechaCaducidad" type="date"> 
+						<column name="[FechaCaducidad]"  not-null="true"/>
+					</property>
+			
+			
+			
+					
+					
+					
+		
+		  </joined-subclass>	
+		  
+		  <query name="FarmacoENReadAllHQL">from FarmacoEN</query>
+		</hibernate-mapping>
+	

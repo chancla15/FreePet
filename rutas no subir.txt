@@ -1,0 +1,11 @@
+dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin
+dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj
+
+aparte de ficheros 	.suo
+			.sln
+			.csproj
+			.csproj.user
+
+Solo subir .cs
+
+y si modificais HQL los xml y el .model
