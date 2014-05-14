@@ -103,6 +103,11 @@
     <Compile Include="AcercaDe.Designer.cs">
       <DependentUpon>AcercaDe.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionVeterinariaGenNHibernateDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionVeterinariaGenNHibernateDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ScreenController.cs" />
     <Compile Include="ScreenControllerAdministrador.cs" />
     <Compile Include="DataBaseInfo_ALL.Designer.cs">
@@ -323,6 +328,17 @@
     </None>
     <None Include="FormRecepcionistaMascota_DataSet.xss">
       <DependentUpon>FormRecepcionistaMascota_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestionVeterinariaGenNHibernateDataSet.xsc">
+      <DependentUpon>GestionVeterinariaGenNHibernateDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestionVeterinariaGenNHibernateDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionVeterinariaGenNHibernateDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestionVeterinariaGenNHibernateDataSet.xss">
+      <DependentUpon>GestionVeterinariaGenNHibernateDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
