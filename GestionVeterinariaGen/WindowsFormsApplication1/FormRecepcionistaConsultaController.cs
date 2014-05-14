@@ -36,6 +36,13 @@ namespace WindowsFormsApplication1
         /** Lista de veterinario disponibles para una hora y fecha */
         IList<VeterinarioEN> list_veterinariosToday;
 
+        /** Las horas de trabajo de un mismo dia */
+        static string[] horas =
+                {
+                    "09:00", "09:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30",
+                    "17:00", "17:30","18:00","18:30","19:00","19:30","20:00","20:30"
+                };
+
         #endregion
 
         #region Constructor
@@ -128,6 +135,8 @@ namespace WindowsFormsApplication1
 
         /**
         * Cambia la fecha
+        * 
+        * CAMBIA LA FECHA AL ENTRAR AL PINCHAR EN OTRA FECHA EN LA TREEVIEW
         */
         public void cambiarFecha()
         {
@@ -153,16 +162,13 @@ namespace WindowsFormsApplication1
 
        /**
         * Carga la informacion de las horas disponibles para una fecha
+        * 
+        * CARGA LAS HORAS PARA UNA FECHA!!!!!!!!!!!!!!!!!
         */
-        private void cargarHoras()
+        public void cargarHoras()
         {
             form.box_combo_hora.Items.Clear();
-            form.box_combo_hora.FormattingEnabled = true;
-            string[] horas =
-                {
-                    "09:00", "09:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30",
-                    "17:00", "17:30","18:00","18:30","19:00","19:30","20:00","20:30"
-                };
+
             form.box_combo_hora.Items.AddRange(horas);
 
             if (lista_consultasToday != null && lista_consultasToday.Count > 0)
@@ -178,12 +184,17 @@ namespace WindowsFormsApplication1
         }
 
         /**
-        * Comprueba los veterinarios disponibles a esa fecha
+        * Comprueba los veterinarios disponibles a esa fecha/hora
+        * 
+        * CARGA LOS VETERINARIOS PARA UNA FECHA/HORA DETERMINADA!!!!!!!!!!!!!!!!!!!!!!
         */
         public void checkBoxVeterinarios()
         {
-            if (form.box_text_fecha.Text != "" && form.box_combo_hora != null)
+            form.box_combo_veterinario.Items.Clear();
+
+            if (form.box_text_fecha.Text != "" && form.box_combo_hora.Text!="")
             {
+                Console.WriteLine("fecha: " + form.box_text_fecha.Text + " hora: " + form.box_combo_hora.Text);
                 consultaEN.Fecha = Convert.ToDateTime(form.box_text_fecha.Text + ' ' + form.box_combo_hora.SelectedItem.ToString() + ":00");
                 list_veterinariosToday = lista_veterinariosTotal;
 
@@ -197,14 +208,31 @@ namespace WindowsFormsApplication1
                             list_veterinariosToday.Remove(lista_consultasToday[i].Veterinario);
                     }
                 }
-
-                for (int i = 0; i < list_veterinariosToday.Count; i++)
-                    form.box_combo_veterinario.Items.Add(list_veterinariosToday[i].Nombre + ' ' + list_veterinariosToday[i].Apellidos);
             }
+            else
+                list_veterinariosToday = lista_veterinariosTotal;
+
+            for (int i = 0; i < list_veterinariosToday.Count; i++)
+                form.box_combo_veterinario.Items.Add(list_veterinariosToday[i].Nombre + ' ' + list_veterinariosToday[i].Apellidos);
         }
 
+
+
+
+
         /**
-        * Comprueba que el campo cliente es correcto y sino muestra las mascotas
+         * Comprueba las horas disponibles selecionado un veterinario
+         */
+        public void checkBoxHorasWithVeterinario()
+        {
+        }
+
+
+
+        /**
+        * Comprueba que el campo cliente es correcto y si ES CORRECTO muestra las mascotas
+        * 
+        *   COMPRUEBA CLIENTE Y MUESTRA MASCOTAS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
         */
         public bool checkClienteAndShowPets()
         {

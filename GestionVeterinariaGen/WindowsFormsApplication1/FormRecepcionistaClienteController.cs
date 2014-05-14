@@ -206,7 +206,7 @@ namespace WindowsFormsApplication1
                 st = Utils.State.DESTROY;
             else if (form.dataGridView.Columns[ev.ColumnIndex].Name.Equals("Modificar"))
                 st = Utils.State.MODIFY;
-            else //if (form.dataGridView.Columns[ev.ColumnIndex].Name.Equals("Cliente"))
+            else
                 st = Utils.State.NONE;
 
             cli = form.dataGridView.Rows[ev.RowIndex].Cells[0].Value.ToString();
@@ -226,21 +226,6 @@ namespace WindowsFormsApplication1
                     }
                 }
             }
-
-
-            //else
-              //  st = Utils.State.NONE;
-
-            /*if (st == Utils.State.DESTROY || st == Utils.State.MODIFY)
-            {
-                cli = form.dataGridView.Rows[ev.RowIndex].Cells[0].Value.ToString();
-            }
-            else if (st == Utils.State.NONE)
-            {
-                cli = form.dataGridView.Rows[ev.RowIndex].Cells[4].Value.ToString();
-            }
-            else
-                mascota = null;*/
             
             return mascota;
         }

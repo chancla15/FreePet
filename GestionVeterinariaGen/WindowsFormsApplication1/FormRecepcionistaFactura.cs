@@ -89,7 +89,9 @@ namespace WindowsFormsApplication1
          */
         private void btn_buscar_dni_Click(object sender, EventArgs e)
         {
-            changeState(Utils.State.MODIFY,text_dni.Text);
+            //changeState(Utils.State.MODIFY,text_dni.Text);
+            if ((state == Utils.State.NONE || state == Utils.State.NEW) && menu.LaunchStartScreen())
+                DesactivateForm();
         }
 
         private void btn_erase_Click(object sender, EventArgs e)

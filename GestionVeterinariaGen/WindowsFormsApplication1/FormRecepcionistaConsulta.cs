@@ -68,6 +68,7 @@ namespace WindowsFormsApplication1
         public void ActivateForm()
         {
             Activate();
+            btn_erase_Click(new object(), new EventArgs());
             this.Visible = true;
         }
 
@@ -115,7 +116,7 @@ namespace WindowsFormsApplication1
         {
             state = Utils.State.NEW;
             label_error_fecha.Visible = false;
-            
+            box_combo_hora.Text = "";
             if(!controller.buscarPorFechas())
                 label_error_fecha.Visible=true;
         }
@@ -125,10 +126,12 @@ namespace WindowsFormsApplication1
         */
         private void btn_buscar_cliente_Click(object sender, EventArgs e)
         {
-            box_error_cliente.Visible = false;
+            if ((state == Utils.State.NONE || state == Utils.State.NEW) && menu.LaunchStartScreen())
+                DesactivateForm();
+            //box_error_cliente.Visible = false;
 
-            if (!controller.checkClienteAndShowPets())
-                box_error_cliente.Visible = true;
+            //if (!controller.checkClienteAndShowPets())
+              //  box_error_cliente.Visible = true;
         }  
 
         /**
@@ -197,17 +200,47 @@ namespace WindowsFormsApplication1
             state = Utils.State.NONE;
         }
 
+        /** 
+         * Si el pulsa el boton de la goma de al lao del veterinario
+         */
+        private void erase_veterinario_Click(object sender, EventArgs e)
+        {
+            controller.checkBoxVeterinarios();
+            controller.cargarHoras();
+            box_combo_veterinario.Text = "";
+        }
+
+        /**
+         * Si pulsa el boton de la goma de al lado de la horas
+         */
+        private void erase_horas_Click(object sender, EventArgs e)
+        {
+            controller.checkBoxVeterinarios();
+            controller.cargarHoras();
+            box_combo_hora.Text = "";
+        }
 
         #endregion
 
         #region ComboBox
 
         /**
-        * Dada una fecha determinada mostrara todas las horas libres disponibles para ese dia
+        * Dada una fecha y una hora mostrara todos los veterinarios disponibles para esa fecha determinada
+        * a no ser que pulse el boton borrar de hora entonces se muetran todos los veterinarios
         */
         private void box_combo_hora_SelectedIndexChanged(object sender, EventArgs e)
         {
             controller.checkBoxVeterinarios();
+        }
+
+        /**
+         * Cuando dada una fecha y/o hora y elige un veterinario solo le saldrán las horas para
+         * ese vetinario a no que ser que le de al clear de veterinario entonces se cargan 
+         * todas las horas
+         */
+        private void box_combo_veterinario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //controller.checkBoxHorasWithVeterinario();
         }
 
         #endregion

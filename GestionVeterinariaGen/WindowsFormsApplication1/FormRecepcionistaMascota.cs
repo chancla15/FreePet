@@ -170,7 +170,8 @@ namespace WindowsFormsApplication1
          */
         private void btn_buscar_cliente_Click(object sender, EventArgs e)
         {
-            //Busca por cliente
+            if ((state == Utils.State.NONE || state == Utils.State.NEW) && menu.LaunchStartScreen())
+                DesactivateForm();
         }
 
         /**
