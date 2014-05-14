@@ -60,6 +60,7 @@ namespace WindowsFormsApplication1
                  ret = true;
                  FormActual = f_consulta.ID;
                  f_consulta.ActivateForm();
+                 f_consulta.changeState(mascota);
              }
             return ret;
         }

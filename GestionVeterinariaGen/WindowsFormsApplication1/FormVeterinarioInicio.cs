@@ -57,12 +57,12 @@ namespace WindowsFormsApplication1
 
         private void dataGrid_consultas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //mascota = dataGrid_consultas.TabIndexChanged();
-            //int indice = dataGrid_consultas.Columns[e.RowIndex].Index;
-            //Console.WriteLine("Cerdo :"+dataGrid_consultas.Columns[indice].Selected);
+            
             DataGridViewRow fila = dataGrid_consultas.Rows[e.RowIndex];
             String s = Convert.ToString(fila.Cells["Nombre"].Value);
-            MessageBox.Show(s);
+            IList<MascotaEN> m = Utils._MascotaCEN.DameMascotaPorNombre(s);
+            mascota = m[0];
+
             if (menu.LaunchConsultaScreenVeterinario(mascota))
                 DesactivateForm();
         }

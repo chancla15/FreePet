@@ -44,6 +44,12 @@ namespace WindowsFormsApplication1
         }
         #endregion
 
+        public void changeState(MascotaEN mascota)
+        {
+            controller.loadData(mascota);
+        }
+
+
         private void FormConsultaVeterinario_Load(object sender, EventArgs e)
         {
 
@@ -86,6 +92,11 @@ namespace WindowsFormsApplication1
             //Solucion Provisional
             menu.sessionData.Disconnect();
             this.Hide();
+        }
+
+        private void button_realizar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
 
 namespace WindowsFormsApplication1
 {
@@ -37,5 +38,26 @@ namespace WindowsFormsApplication1
             //la foto
         }
 
+        public void loadData(MascotaEN mascota)
+        {
+            if (mascota != null)
+            {
+                form.label_doc.Text = "Consulta realizada por "+form.menu.sessionData.name;
+                form.textBox_mascota.Text = mascota.Nombre;
+                form.textBox_color.Text = mascota.Color;
+                form.textBox_especie.Text = mascota.Especie;
+                //form.textBox_fn.Text = System.DateTime.Parse(mascota.FNacimiento.ToString());
+                form.textBox_peso.Text = ""+mascota.Peso;
+                form.textBox_sexo.Text = ""+mascota.Sexo;
+                form.textBox_tam.Text = ""+mascota.Tamanyo;
+                form.textBox_raza.Text = mascota.Raza;
+
+                if (mascota.Microchip)
+                    form.textBox_chip.Text = "Sí";
+                else
+                    form.textBox_chip.Text = "No";
+                
+            }
+        }
     }
 }
