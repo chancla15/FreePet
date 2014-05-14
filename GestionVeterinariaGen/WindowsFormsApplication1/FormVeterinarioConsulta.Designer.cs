@@ -68,15 +68,17 @@
             this.textBox_cliente = new System.Windows.Forms.TextBox();
             this.button_realizar = new System.Windows.Forms.Button();
             this.button_anular = new System.Windows.Forms.Button();
-            this.picture_desconectar_veterinario = new System.Windows.Forms.PictureBox();
-            this.picture_consulta_veterinario = new System.Windows.Forms.PictureBox();
             this.picture_inicio_veterinario = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.picture_consulta_veterinario = new System.Windows.Forms.PictureBox();
+            this.picture_desconectar_veterinario = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox_ficha.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).BeginInit();
             this.SuspendLayout();
             // 
             // log_type
@@ -423,43 +425,58 @@
             this.button_anular.Text = "Anular consulta";
             this.button_anular.UseVisualStyleBackColor = true;
             // 
-            // picture_desconectar_veterinario
+            // picture_inicio_veterinario
             // 
-            this.picture_desconectar_veterinario.Image = global::WindowsFormsApplication1.Properties.Resources.ajustes;
-            this.picture_desconectar_veterinario.Location = new System.Drawing.Point(224, 4);
-            this.picture_desconectar_veterinario.Name = "picture_desconectar_veterinario";
-            this.picture_desconectar_veterinario.Size = new System.Drawing.Size(100, 50);
-            this.picture_desconectar_veterinario.TabIndex = 71;
-            this.picture_desconectar_veterinario.TabStop = false;
+            this.picture_inicio_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.home;
+            this.picture_inicio_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_inicio_veterinario.Location = new System.Drawing.Point(9, 0);
+            this.picture_inicio_veterinario.Name = "picture_inicio_veterinario";
+            this.picture_inicio_veterinario.Size = new System.Drawing.Size(165, 34);
+            this.picture_inicio_veterinario.TabIndex = 50;
+            this.picture_inicio_veterinario.TabStop = false;
+            this.picture_inicio_veterinario.Click += new System.EventHandler(this.picture_inicio_veterinario_Click_1);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Controls.Add(this.picture_inicio_veterinario);
+            this.panel1.Controls.Add(this.picture_consulta_veterinario);
+            this.panel1.Controls.Add(this.picture_desconectar_veterinario);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(684, 34);
+            this.panel1.TabIndex = 69;
             // 
             // picture_consulta_veterinario
             // 
-            this.picture_consulta_veterinario.Image = global::WindowsFormsApplication1.Properties.Resources.doctor;
-            this.picture_consulta_veterinario.Location = new System.Drawing.Point(118, 4);
+            this.picture_consulta_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.consulta;
+            this.picture_consulta_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_consulta_veterinario.Location = new System.Drawing.Point(257, 0);
             this.picture_consulta_veterinario.Name = "picture_consulta_veterinario";
-            this.picture_consulta_veterinario.Size = new System.Drawing.Size(100, 50);
-            this.picture_consulta_veterinario.TabIndex = 70;
+            this.picture_consulta_veterinario.Size = new System.Drawing.Size(165, 34);
+            this.picture_consulta_veterinario.TabIndex = 51;
             this.picture_consulta_veterinario.TabStop = false;
-            this.picture_consulta_veterinario.Click += new System.EventHandler(this.picture_consulta_veterinario_Click);
+            this.picture_consulta_veterinario.Click += new System.EventHandler(this.picture_consulta_veterinario_Click_1);
             // 
-            // picture_inicio_veterinario
+            // picture_desconectar_veterinario
             // 
-            this.picture_inicio_veterinario.Image = global::WindowsFormsApplication1.Properties.Resources.start;
-            this.picture_inicio_veterinario.Location = new System.Drawing.Point(12, 4);
-            this.picture_inicio_veterinario.Name = "picture_inicio_veterinario";
-            this.picture_inicio_veterinario.Size = new System.Drawing.Size(100, 50);
-            this.picture_inicio_veterinario.TabIndex = 69;
-            this.picture_inicio_veterinario.TabStop = false;
-            this.picture_inicio_veterinario.Click += new System.EventHandler(this.picture_inicio_veterinario_Click);
+            this.picture_desconectar_veterinario.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.picture_desconectar_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.desconectar;
+            this.picture_desconectar_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_desconectar_veterinario.Location = new System.Drawing.Point(506, 0);
+            this.picture_desconectar_veterinario.Name = "picture_desconectar_veterinario";
+            this.picture_desconectar_veterinario.Size = new System.Drawing.Size(165, 34);
+            this.picture_desconectar_veterinario.TabIndex = 52;
+            this.picture_desconectar_veterinario.TabStop = false;
+            this.picture_desconectar_veterinario.Click += new System.EventHandler(this.picture_desconectar_veterinario_Click_1);
             // 
             // FormVeterinarioConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(684, 601);
-            this.Controls.Add(this.picture_desconectar_veterinario);
-            this.Controls.Add(this.picture_consulta_veterinario);
-            this.Controls.Add(this.picture_inicio_veterinario);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button_anular);
             this.Controls.Add(this.button_realizar);
             this.Controls.Add(this.textBox_cliente);
@@ -488,9 +505,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox_ficha.ResumeLayout(false);
             this.groupBox_ficha.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -538,8 +556,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dosis;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.PictureBox picture_desconectar_veterinario;
-        private System.Windows.Forms.PictureBox picture_consulta_veterinario;
         private System.Windows.Forms.PictureBox picture_inicio_veterinario;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox picture_consulta_veterinario;
+        private System.Windows.Forms.PictureBox picture_desconectar_veterinario;
     }
 }

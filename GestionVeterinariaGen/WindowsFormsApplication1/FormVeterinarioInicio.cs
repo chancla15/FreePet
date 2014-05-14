@@ -79,7 +79,9 @@ namespace WindowsFormsApplication1
 
         private void picture_ajustes_veterinario_Click(object sender, EventArgs e)
         {
-            //menu.Disconnect();
+            //Solucion Provisional
+            menu.sessionData.Disconnect();
+            this.Hide();
         }
     }
 }

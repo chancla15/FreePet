@@ -256,16 +256,16 @@ namespace WindowsFormsApplication1.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap fondo_nuevo_b {
+        internal static System.Drawing.Bitmap FONDO_VETERINARIA_blanco_ {
             get {
-                object obj = ResourceManager.GetObject("fondo nuevo b", resourceCulture);
+                object obj = ResourceManager.GetObject("FONDO VETERINARIA blanco ", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap FONDO_VETERINARIA_blanco_ {
+        internal static System.Drawing.Bitmap FONDO_VETERINARIA_nuevo {
             get {
-                object obj = ResourceManager.GetObject("FONDO VETERINARIA blanco ", resourceCulture);
+                object obj = ResourceManager.GetObject("FONDO VETERINARIA nuevo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

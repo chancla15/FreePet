@@ -66,17 +66,23 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void picture_inicio_veterinario_Click(object sender, EventArgs e)
+        private void picture_inicio_veterinario_Click_1(object sender, EventArgs e)
         {
-            if (menu.LaunchStartScreen())
+            if (menu.LaunchStartScreenVeterinario())
                 DesactivateForm();
         }
 
-        private void picture_consulta_veterinario_Click(object sender, EventArgs e)
+        private void picture_consulta_veterinario_Click_1(object sender, EventArgs e)
         {
-            //añadir launchConsultasScreen
-            //if (menu.LaunchConsultaScreen())
-              //DesactivateForm();
+            if (menu.LaunchConsultaScreenVeterinario())
+                DesactivateForm();
+        }
+
+        private void picture_desconectar_veterinario_Click_1(object sender, EventArgs e)
+        {
+            //Solucion Provisional
+            menu.sessionData.Disconnect();
+            this.Hide();
         }
     }
 }
