@@ -30,6 +30,7 @@ namespace WindowsFormsApplication1
       */
         private void initPerfil()
         {
+            form.label_doc.Text = "Consulta realizada por " + form.menu.sessionData.name;
             //form.log_name.Text = form.menu.sessionData.name;
             //form.log_id.Text = sessionData.TOKEN_SESSION;
             //form.log_type.Text = sessionData.tipo;
