@@ -42,16 +42,16 @@
             this.Lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.log_photo = new System.Windows.Forms.PictureBox();
             this.picture_inicio_veterinario = new System.Windows.Forms.PictureBox();
             this.picture_consulta_veterinario = new System.Windows.Forms.PictureBox();
             this.picture_desconectar_veterinario = new System.Windows.Forms.PictureBox();
+            this.log_photo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_consultas)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
             this.SuspendLayout();
             // 
             // log_date
@@ -193,16 +193,6 @@
             this.panel1.Size = new System.Drawing.Size(684, 34);
             this.panel1.TabIndex = 56;
             // 
-            // log_photo
-            // 
-            this.log_photo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.log_photo.Image = global::WindowsFormsApplication1.Properties.Resources.sinFoto;
-            this.log_photo.Location = new System.Drawing.Point(12, 54);
-            this.log_photo.Name = "log_photo";
-            this.log_photo.Size = new System.Drawing.Size(90, 120);
-            this.log_photo.TabIndex = 42;
-            this.log_photo.TabStop = false;
-            // 
             // picture_inicio_veterinario
             // 
             this.picture_inicio_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.home;
@@ -237,12 +227,21 @@
             this.picture_desconectar_veterinario.TabStop = false;
             this.picture_desconectar_veterinario.Click += new System.EventHandler(this.picture_ajustes_veterinario_Click);
             // 
+            // log_photo
+            // 
+            this.log_photo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.log_photo.Image = global::WindowsFormsApplication1.Properties.Resources.sinFoto;
+            this.log_photo.Location = new System.Drawing.Point(12, 54);
+            this.log_photo.Name = "log_photo";
+            this.log_photo.Size = new System.Drawing.Size(90, 120);
+            this.log_photo.TabIndex = 42;
+            this.log_photo.TabStop = false;
+            // 
             // FormVeterinarioInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_VETERINARIA_blanco_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(682, 476);
             this.Controls.Add(this.dataGrid_consultas);
@@ -260,10 +259,10 @@
             this.Text = "FormStartVeterinario";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_consultas)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.log_photo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.log_photo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
