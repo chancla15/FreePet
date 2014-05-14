@@ -52,6 +52,10 @@ namespace WindowsFormsApplication1
 
         private void FormConsultaVeterinario_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'gestionVeterinariaGenNHibernateDataSet1.Tratamiento' Puede moverla o quitarla según sea necesario.
+            this.tratamientoTableAdapter1.Fill(this.gestionVeterinariaGenNHibernateDataSet1.Tratamiento);
+            // TODO: esta línea de código carga datos en la tabla 'gestionVeterinariaGenNHibernateDataSet.Tratamiento' Puede moverla o quitarla según sea necesario.
+            this.tratamientoTableAdapter.Fill(this.gestionVeterinariaGenNHibernateDataSet.Tratamiento);
 
         }
 
