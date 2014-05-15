@@ -52,6 +52,8 @@ namespace WindowsFormsApplication1
 
         private void FormConsultaVeterinario_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'formAdministradorTratamientoDataSet.Tratamiento' Puede moverla o quitarla según sea necesario.
+            this.tratamientoTableAdapter.Fill(this.formAdministradorTratamientoDataSet.Tratamiento);
 
         }
 
@@ -97,6 +99,26 @@ namespace WindowsFormsApplication1
         private void button_realizar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void listBox_addTratamiento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView_ConsultaPet_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            panel_tratamientos.Visible = false;
+        }
+
+        private void textBox_tam_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_add_Click(object sender, EventArgs e)
+        {
+            panel_tratamientos.Visible = true;
         }
     }
 }

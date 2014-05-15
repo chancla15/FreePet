@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.log_type = new System.Windows.Forms.Label();
             this.log_name = new System.Windows.Forms.Label();
             this.log_photo = new System.Windows.Forms.PictureBox();
@@ -42,11 +43,6 @@
             this.label_lugar = new System.Windows.Forms.Label();
             this.text_lugar = new System.Windows.Forms.TextBox();
             this.label_tratamientos = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_ficha = new System.Windows.Forms.GroupBox();
             this.textBox_chip = new System.Windows.Forms.TextBox();
             this.textBox_color = new System.Windows.Forms.TextBox();
@@ -76,13 +72,27 @@
             this.label_doc = new System.Windows.Forms.Label();
             this.button_add = new System.Windows.Forms.Button();
             this.button_del = new System.Windows.Forms.Button();
+            this.dataGridView_ConsultaPet = new System.Windows.Forms.DataGridView();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dosisdiariaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tratamientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.formAdministradorTratamientoDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.formAdministradorTratamientoDataSet = new WindowsFormsApplication1.FormAdministradorTratamientoDataSet();
+            this.tratamientoTableAdapter = new WindowsFormsApplication1.FormAdministradorTratamientoDataSetTableAdapters.TratamientoTableAdapter();
+            this.panel_tratamientos = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox_ficha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ConsultaPet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tratamientoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formAdministradorTratamientoDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formAdministradorTratamientoDataSet)).BeginInit();
+            this.panel_tratamientos.SuspendLayout();
             this.SuspendLayout();
             // 
             // log_type
@@ -119,6 +129,7 @@
             // text_hora
             // 
             this.text_hora.Location = new System.Drawing.Point(206, 198);
+            this.text_hora.MaxLength = 5;
             this.text_hora.Name = "text_hora";
             this.text_hora.Size = new System.Drawing.Size(100, 20);
             this.text_hora.TabIndex = 50;
@@ -200,47 +211,12 @@
             // label_tratamientos
             // 
             this.label_tratamientos.AutoSize = true;
-            this.label_tratamientos.Location = new System.Drawing.Point(12, 333);
+            this.label_tratamientos.Location = new System.Drawing.Point(10, 329);
             this.label_tratamientos.Name = "label_tratamientos";
             this.label_tratamientos.Size = new System.Drawing.Size(71, 13);
             this.label_tratamientos.TabIndex = 61;
             this.label_tratamientos.Text = "Tratamientos:";
             this.label_tratamientos.Click += new System.EventHandler(this.label_tratamientos_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nombre,
-            this.Descripcion,
-            this.Dosis,
-            this.Precio});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 349);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(641, 80);
-            this.dataGridView1.TabIndex = 62;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            // 
-            // Dosis
-            // 
-            this.Dosis.HeaderText = "Dosis";
-            this.Dosis.Name = "Dosis";
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
             // 
             // groupBox_ficha
             // 
@@ -302,6 +278,7 @@
             this.textBox_tam.Name = "textBox_tam";
             this.textBox_tam.Size = new System.Drawing.Size(125, 20);
             this.textBox_tam.TabIndex = 69;
+            this.textBox_tam.TextChanged += new System.EventHandler(this.textBox_tam_TextChanged);
             // 
             // textBox_raza
             // 
@@ -413,7 +390,7 @@
             // 
             // button_realizar
             // 
-            this.button_realizar.Location = new System.Drawing.Point(519, 560);
+            this.button_realizar.Location = new System.Drawing.Point(536, 442);
             this.button_realizar.Name = "button_realizar";
             this.button_realizar.Size = new System.Drawing.Size(135, 23);
             this.button_realizar.TabIndex = 66;
@@ -423,7 +400,7 @@
             // 
             // button_anular
             // 
-            this.button_anular.Location = new System.Drawing.Point(372, 560);
+            this.button_anular.Location = new System.Drawing.Point(372, 442);
             this.button_anular.Name = "button_anular";
             this.button_anular.Size = new System.Drawing.Size(135, 23);
             this.button_anular.TabIndex = 68;
@@ -478,15 +455,16 @@
             // listBox_addTratamiento
             // 
             this.listBox_addTratamiento.FormattingEnabled = true;
-            this.listBox_addTratamiento.Location = new System.Drawing.Point(15, 455);
+            this.listBox_addTratamiento.Location = new System.Drawing.Point(9, 347);
             this.listBox_addTratamiento.Name = "listBox_addTratamiento";
-            this.listBox_addTratamiento.Size = new System.Drawing.Size(444, 82);
+            this.listBox_addTratamiento.Size = new System.Drawing.Size(563, 82);
             this.listBox_addTratamiento.TabIndex = 70;
+            this.listBox_addTratamiento.SelectedIndexChanged += new System.EventHandler(this.listBox_addTratamiento_SelectedIndexChanged);
             // 
             // label_doc
             // 
             this.label_doc.AutoSize = true;
-            this.label_doc.Location = new System.Drawing.Point(15, 560);
+            this.label_doc.Location = new System.Drawing.Point(17, 444);
             this.label_doc.Name = "label_doc";
             this.label_doc.Size = new System.Drawing.Size(35, 13);
             this.label_doc.TabIndex = 71;
@@ -494,28 +472,109 @@
             // 
             // button_add
             // 
-            this.button_add.Location = new System.Drawing.Point(478, 455);
+            this.button_add.Location = new System.Drawing.Point(589, 349);
             this.button_add.Name = "button_add";
             this.button_add.Size = new System.Drawing.Size(75, 23);
             this.button_add.TabIndex = 72;
             this.button_add.Text = "Añadir";
             this.button_add.UseVisualStyleBackColor = true;
+            this.button_add.Click += new System.EventHandler(this.button_add_Click);
             // 
             // button_del
             // 
-            this.button_del.Location = new System.Drawing.Point(478, 502);
+            this.button_del.Location = new System.Drawing.Point(590, 378);
             this.button_del.Name = "button_del";
             this.button_del.Size = new System.Drawing.Size(75, 23);
             this.button_del.TabIndex = 73;
             this.button_del.Text = "Quitar";
             this.button_del.UseVisualStyleBackColor = true;
             // 
+            // dataGridView_ConsultaPet
+            // 
+            this.dataGridView_ConsultaPet.AccessibleDescription = "";
+            this.dataGridView_ConsultaPet.AllowUserToAddRows = false;
+            this.dataGridView_ConsultaPet.AllowUserToDeleteRows = false;
+            this.dataGridView_ConsultaPet.AutoGenerateColumns = false;
+            this.dataGridView_ConsultaPet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_ConsultaPet.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView_ConsultaPet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_ConsultaPet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nombreDataGridViewTextBoxColumn,
+            this.descripcionDataGridViewTextBoxColumn,
+            this.dosisdiariaDataGridViewTextBoxColumn,
+            this.precioDataGridViewTextBoxColumn});
+            this.dataGridView_ConsultaPet.DataSource = this.tratamientoBindingSource;
+            this.dataGridView_ConsultaPet.Location = new System.Drawing.Point(17, 16);
+            this.dataGridView_ConsultaPet.Name = "dataGridView_ConsultaPet";
+            this.dataGridView_ConsultaPet.ReadOnly = true;
+            this.dataGridView_ConsultaPet.RowHeadersVisible = false;
+            this.dataGridView_ConsultaPet.Size = new System.Drawing.Size(640, 100);
+            this.dataGridView_ConsultaPet.TabIndex = 74;
+            this.dataGridView_ConsultaPet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_ConsultaPet_CellContentClick);
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripción";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dosisdiariaDataGridViewTextBoxColumn
+            // 
+            this.dosisdiariaDataGridViewTextBoxColumn.DataPropertyName = "dosis_diaria";
+            this.dosisdiariaDataGridViewTextBoxColumn.HeaderText = "Dosis";
+            this.dosisdiariaDataGridViewTextBoxColumn.Name = "dosisdiariaDataGridViewTextBoxColumn";
+            this.dosisdiariaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // precioDataGridViewTextBoxColumn
+            // 
+            this.precioDataGridViewTextBoxColumn.DataPropertyName = "precio";
+            this.precioDataGridViewTextBoxColumn.HeaderText = "Precio";
+            this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
+            this.precioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tratamientoBindingSource
+            // 
+            this.tratamientoBindingSource.DataMember = "Tratamiento";
+            this.tratamientoBindingSource.DataSource = this.formAdministradorTratamientoDataSetBindingSource;
+            // 
+            // formAdministradorTratamientoDataSetBindingSource
+            // 
+            this.formAdministradorTratamientoDataSetBindingSource.DataSource = this.formAdministradorTratamientoDataSet;
+            this.formAdministradorTratamientoDataSetBindingSource.Position = 0;
+            // 
+            // formAdministradorTratamientoDataSet
+            // 
+            this.formAdministradorTratamientoDataSet.DataSetName = "FormAdministradorTratamientoDataSet";
+            this.formAdministradorTratamientoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tratamientoTableAdapter
+            // 
+            this.tratamientoTableAdapter.ClearBeforeFill = true;
+            // 
+            // panel_tratamientos
+            // 
+            this.panel_tratamientos.Controls.Add(this.dataGridView_ConsultaPet);
+            this.panel_tratamientos.Location = new System.Drawing.Point(0, 187);
+            this.panel_tratamientos.Name = "panel_tratamientos";
+            this.panel_tratamientos.Size = new System.Drawing.Size(672, 133);
+            this.panel_tratamientos.TabIndex = 75;
+            this.panel_tratamientos.Visible = false;
+            // 
             // FormVeterinarioConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(684, 601);
+            this.ClientSize = new System.Drawing.Size(674, 471);
+            this.Controls.Add(this.panel_tratamientos);
             this.Controls.Add(this.button_del);
             this.Controls.Add(this.button_add);
             this.Controls.Add(this.label_doc);
@@ -526,7 +585,6 @@
             this.Controls.Add(this.textBox_cliente);
             this.Controls.Add(this.textBox_mascota);
             this.Controls.Add(this.groupBox_ficha);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label_tratamientos);
             this.Controls.Add(this.text_lugar);
             this.Controls.Add(this.label_lugar);
@@ -546,13 +604,17 @@
             this.Text = "FormConsultaVeterinario";
             this.Load += new System.EventHandler(this.FormConsultaVeterinario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox_ficha.ResumeLayout(false);
             this.groupBox_ficha.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ConsultaPet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tratamientoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formAdministradorTratamientoDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formAdministradorTratamientoDataSet)).EndInit();
+            this.panel_tratamientos.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -563,15 +625,12 @@
         public System.Windows.Forms.Label log_type;
         public System.Windows.Forms.Label log_name;
         public System.Windows.Forms.PictureBox log_photo;
-        private System.Windows.Forms.TextBox text_hora;
         private System.Windows.Forms.Label label_hora;
-        private System.Windows.Forms.TextBox text_fecha;
         private System.Windows.Forms.Label label_fecha;
         private System.Windows.Forms.Label label_motivo;
         private System.Windows.Forms.Label label_diagnostico;
         private System.Windows.Forms.Label label_lugar;
         private System.Windows.Forms.Label label_tratamientos;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox_ficha;
         private System.Windows.Forms.Label label_raza;
         private System.Windows.Forms.Label label_peso;
@@ -583,10 +642,6 @@
         private System.Windows.Forms.Label label_sexo;
         private System.Windows.Forms.Button button_realizar;
         private System.Windows.Forms.Button button_anular;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dosis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.PictureBox picture_inicio_veterinario;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox picture_consulta_veterinario;
@@ -608,5 +663,17 @@
         private System.Windows.Forms.Button button_add;
         private System.Windows.Forms.Button button_del;
         public System.Windows.Forms.Label label_doc;
+        private System.Windows.Forms.DataGridView dataGridView_ConsultaPet;
+        private System.Windows.Forms.BindingSource formAdministradorTratamientoDataSetBindingSource;
+        private FormAdministradorTratamientoDataSet formAdministradorTratamientoDataSet;
+        private System.Windows.Forms.BindingSource tratamientoBindingSource;
+        private FormAdministradorTratamientoDataSetTableAdapters.TratamientoTableAdapter tratamientoTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dosisdiariaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
+        public System.Windows.Forms.TextBox text_hora;
+        public System.Windows.Forms.TextBox text_fecha;
+        private System.Windows.Forms.Panel panel_tratamientos;
     }
 }

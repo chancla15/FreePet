@@ -46,11 +46,19 @@ namespace WindowsFormsApplication1
                 form.textBox_mascota.Text = mascota.Nombre;
                 form.textBox_color.Text = mascota.Color;
                 form.textBox_especie.Text = mascota.Especie;
-                //form.textBox_fn.Text = System.DateTime.Parse(mascota.FNacimiento.ToString());
-                form.textBox_peso.Text = ""+mascota.Peso;
-                form.textBox_sexo.Text = ""+mascota.Sexo;
-                form.textBox_tam.Text = ""+mascota.Tamanyo;
+                form.textBox_fn.Text = mascota.FNacimiento.Value.Day.ToString() + "/" + mascota.FNacimiento.Value.Month.ToString() + "/" + mascota.FNacimiento.Value.Year.ToString();
+                form.textBox_sexo.Text = mascota.Sexo.ToString();
+                form.textBox_peso.Text = mascota.Peso.ToString();
+                form.textBox_tam.Text = mascota.Tamanyo.ToString();
                 form.textBox_raza.Text = mascota.Raza;
+                form.textBox_cliente.Text = "" + mascota.Cliente.DNI.ToString();
+                form.text_hora.Text = DateTime.Now.Hour+ ":" + DateTime.Now.Minute.ToString();
+                form.text_fecha.Text = form.textBox_fn.Text = DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
+
+                //form.text_lugar.Text = consulta.Lugar;
+                //form.text_motivo.Text = consulta.MotivoConsulta;
+
+
 
                 if (mascota.Microchip)
                     form.textBox_chip.Text = "Sí";
