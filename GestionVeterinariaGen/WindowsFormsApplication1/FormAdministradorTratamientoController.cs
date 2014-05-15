@@ -144,6 +144,7 @@ namespace WindowsFormsApplication1
         public void ProcesarInformacion()
         {
             string id = form.text_nombre.Text;
+            bool ok = false;
 
             if (Utils._ITratamientoCAD.DameTratamientoPorOID(id) == null)
                 form.state = Utils.State.NEW;
@@ -151,9 +152,13 @@ namespace WindowsFormsApplication1
 
             if (form.text_nombre.Text != "")
                 tratamientoEN.Nombre = form.text_nombre.Text;
+            else
+                ok = true;
 
             if (form.text_descripcion.Text != "")
                 tratamientoEN.Descripcion = form.text_descripcion.Text;
+            else
+                ok = true;
 
             if (form.lista_dosis.SelectedItem != null)
             {
@@ -176,17 +181,24 @@ namespace WindowsFormsApplication1
                 }
 
             }
+            else
+                ok = true;
 
-            if (form.text_precio.Text != "")
+           
+            decimal number = 0;
+            if (form.text_precio.Text != "" && decimal.TryParse(form.text_stock.Text, out number))
                 tratamientoEN.Precio = Convert.ToSingle(form.text_precio.Text);
+            else
+                ok = true;
 
-            if (form.text_stock.Text != "")
+            int i = 0;
+            if (form.text_stock.Text != "" && int.TryParse(form.text_precio.Text.ToString(), out i))
                 tratamientoEN.Stock = Convert.ToInt16(form.text_stock.Text);
+            else
+                ok = true;
 
 
-            MessageBox.Show(tratamientoEN.Nombre + " " + tratamientoEN.Precio + " " + tratamientoEN.Descripcion + " " + tratamientoEN.Stock + " " + tratamientoEN.Dosis_diaria);
-
-            if (tratamientoEN != null)
+            if (tratamientoEN != null && !ok)
             {
                 switch (form.state)
                 {
@@ -211,7 +223,10 @@ namespace WindowsFormsApplication1
                     default:
                         break;
                 }
-            }
+
+            }else
+                MessageBox.Show("Revisa los campos");
+
             ClearForm();
             Buscar();
         }
