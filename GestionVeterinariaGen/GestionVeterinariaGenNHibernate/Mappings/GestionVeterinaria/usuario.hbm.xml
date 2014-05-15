@@ -46,5 +46,6 @@
 		  
 		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
 		  <query name="UsuarioENbuscarPorNombreHQL"><![CDATA[FROM UsuarioEN  as u where u.Nombre like '%'+:p_nombre+'%']]></query>
+		  <query name="UsuarioENdameTodosLosUsuariosHQL"><![CDATA[FROM UsuarioEN]]></query>
 		</hibernate-mapping>
 	

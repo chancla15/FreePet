@@ -136,17 +136,17 @@ public void Destroy (string nombre)
         }
 }
 
-public System.Collections.Generic.IList<TratamientoEN> DameTodosLosTratamientos (int first, int size)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> DameTodosLosTratamientos ()
 {
-        System.Collections.Generic.IList<TratamientoEN> result = null;
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(TratamientoEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<TratamientoEN>();
-                else
-                        result = session.CreateCriteria (typeof(TratamientoEN)).List<TratamientoEN>();
+                //String sql = @"FROM TratamientoEN self where FROM TratamientoEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("TratamientoENdameTodosLosTratamientosHQL");
+
+                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN>();
                 SessionCommit ();
         }
 
@@ -165,7 +165,6 @@ public System.Collections.Generic.IList<TratamientoEN> DameTodosLosTratamientos 
 
         return result;
 }
-
 public TratamientoEN DameTratamientoPorOID (string nombre)
 {
         TratamientoEN tratamientoEN = null;

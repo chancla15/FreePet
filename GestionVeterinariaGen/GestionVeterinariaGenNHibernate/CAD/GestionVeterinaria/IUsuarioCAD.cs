@@ -19,7 +19,7 @@ void Destroy (string DNI);
 System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.UsuarioEN> BuscarPorNombre (string arg0);
 
 
-System.Collections.Generic.IList<UsuarioEN> DameTodosLosUsuarios (int first, int size);
+System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.UsuarioEN> DameTodosLosUsuarios ();
 
 
 UsuarioEN DameUsuarioPorDNI (string DNI);

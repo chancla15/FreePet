@@ -80,6 +80,7 @@
 		  </class>
 		  
 		  <query name="MascotaENReadAllHQL">from MascotaEN</query>
+		  <query name="MascotaENdameTodasLasMascotasHQL"><![CDATA[FROM MascotaEN]]></query>
 		  <query name="MascotaENdameMascotaPorNombreHQL"><![CDATA[FROM MascotaEN m WHERE m.Nombre like '%'+:busqueda+'%' ]]></query>
 		  <query name="MascotaENcontadorMascotasHQL"><![CDATA[FROM MascotaEN]]></query>
 		  <query name="MascotaENDameMascotaPorClienteHQL"><![CDATA[FROM MascotaEN m WHERE m.Cliente.DNI=:nif]]></query>

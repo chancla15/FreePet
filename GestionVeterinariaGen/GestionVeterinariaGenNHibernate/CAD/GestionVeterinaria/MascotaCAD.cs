@@ -186,17 +186,17 @@ public MascotaEN BuscarMascotaPorOID (int IdMascota)
         return mascotaEN;
 }
 
-public System.Collections.Generic.IList<MascotaEN> DameTodasLasMascotas (int first, int size)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> DameTodasLasMascotas ()
 {
-        System.Collections.Generic.IList<MascotaEN> result = null;
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(MascotaEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<MascotaEN>();
-                else
-                        result = session.CreateCriteria (typeof(MascotaEN)).List<MascotaEN>();
+                //String sql = @"FROM MascotaEN self where FROM MascotaEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MascotaENdameTodasLasMascotasHQL");
+
+                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN>();
                 SessionCommit ();
         }
 
@@ -215,7 +215,6 @@ public System.Collections.Generic.IList<MascotaEN> DameTodasLasMascotas (int fir
 
         return result;
 }
-
 public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> DameMascotaPorNombre (string busqueda)
 {
         System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> result;

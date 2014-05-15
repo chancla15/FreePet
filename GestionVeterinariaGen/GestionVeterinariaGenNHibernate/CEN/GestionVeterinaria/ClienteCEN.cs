@@ -115,5 +115,9 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 {
         return _IClienteCAD.BuscarClientePorApellidos (busqueda);
 }
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN> DameTodosLosClientes ()
+{
+        return _IClienteCAD.DameTodosLosClientes ();
+}
 }
 }

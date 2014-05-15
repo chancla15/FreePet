@@ -91,12 +91,9 @@ public void Destroy (string DNI)
         _IRecepcionistaCAD.Destroy (DNI);
 }
 
-public System.Collections.Generic.IList<RecepcionistaEN> DameTodos (int first, int size)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.RecepcionistaEN> DameTodoLosRecepcionistas ()
 {
-        System.Collections.Generic.IList<RecepcionistaEN> list = null;
-
-        list = _IRecepcionistaCAD.DameTodos (first, size);
-        return list;
+        return _IRecepcionistaCAD.DameTodoLosRecepcionistas ();
 }
 public RecepcionistaEN BuscarRecepPorOID (string DNI)
 {

@@ -51,17 +51,17 @@ public FacturaEN ReadOIDDefault (int idFactura)
 }
 
 
-public System.Collections.Generic.IList<FacturaEN> DameTodasLasFacturas (int first, int size)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN> DameTodasLasFacturas ()
 {
-        System.Collections.Generic.IList<FacturaEN> result = null;
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(FacturaEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<FacturaEN>();
-                else
-                        result = session.CreateCriteria (typeof(FacturaEN)).List<FacturaEN>();
+                //String sql = @"FROM FacturaEN self where FROM FacturaEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("FacturaENdameTodasLasFacturasHQL");
+
+                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN>();
                 SessionCommit ();
         }
 
@@ -80,7 +80,6 @@ public System.Collections.Generic.IList<FacturaEN> DameTodasLasFacturas (int fir
 
         return result;
 }
-
 public int New_ (FacturaEN factura)
 {
         try

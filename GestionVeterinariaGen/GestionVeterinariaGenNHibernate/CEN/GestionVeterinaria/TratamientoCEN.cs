@@ -76,12 +76,9 @@ public void Destroy (string nombre)
         _ITratamientoCAD.Destroy (nombre);
 }
 
-public System.Collections.Generic.IList<TratamientoEN> DameTodosLosTratamientos (int first, int size)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> DameTodosLosTratamientos ()
 {
-        System.Collections.Generic.IList<TratamientoEN> list = null;
-
-        list = _ITratamientoCAD.DameTodosLosTratamientos (first, size);
-        return list;
+        return _ITratamientoCAD.DameTodosLosTratamientos ();
 }
 public TratamientoEN DameTratamientoPorOID (string nombre)
 {

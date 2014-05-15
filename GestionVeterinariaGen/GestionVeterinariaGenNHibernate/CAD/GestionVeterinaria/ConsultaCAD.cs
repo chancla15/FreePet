@@ -179,17 +179,17 @@ public ConsultaEN DameConsultaPorOID (int IdConsulta)
         return consultaEN;
 }
 
-public System.Collections.Generic.IList<ConsultaEN> DameTodasLasConsultas (int first, int size)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameTodasLasConsultas ()
 {
-        System.Collections.Generic.IList<ConsultaEN> result = null;
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(ConsultaEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<ConsultaEN>();
-                else
-                        result = session.CreateCriteria (typeof(ConsultaEN)).List<ConsultaEN>();
+                //String sql = @"FROM ConsultaEN self where FROM ConsultaEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ConsultaENdameTodasLasConsultasHQL");
+
+                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN>();
                 SessionCommit ();
         }
 
@@ -208,7 +208,6 @@ public System.Collections.Generic.IList<ConsultaEN> DameTodasLasConsultas (int f
 
         return result;
 }
-
 public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> BuscarConsultaPorFecha (Nullable<DateTime> fecha)
 {
         System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> result;

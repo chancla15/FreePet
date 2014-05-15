@@ -8,7 +8,7 @@ public partial interface IFacturaCAD
 {
 FacturaEN ReadOIDDefault (int idFactura);
 
-System.Collections.Generic.IList<FacturaEN> DameTodasLasFacturas (int first, int size);
+System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN> DameTodasLasFacturas ();
 
 
 int New_ (FacturaEN factura);

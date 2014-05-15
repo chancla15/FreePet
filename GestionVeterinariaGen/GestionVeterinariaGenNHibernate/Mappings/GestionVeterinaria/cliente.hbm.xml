@@ -34,5 +34,6 @@
 		  <query name="ClienteENReadAllHQL">from ClienteEN</query>
 		  <query name="ClienteENbuscarClientePorNombreHQL"><![CDATA[FROM ClienteEN  as u where u.Nombre like '%'+:busqueda+'%']]></query>
 		  <query name="ClienteENbuscarClientePorApellidosHQL"><![CDATA[FROM ClienteEN  as u where u.Apellidos like '%'+:busqueda+'%']]></query>
+		  <query name="ClienteENdameTodosLosClientesHQL"><![CDATA[FROM ClienteEN]]></query>
 		</hibernate-mapping>
 	

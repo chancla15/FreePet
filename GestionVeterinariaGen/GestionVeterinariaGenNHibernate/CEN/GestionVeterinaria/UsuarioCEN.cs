@@ -85,12 +85,9 @@ public void Destroy (string DNI)
         _IUsuarioCAD.Destroy (DNI);
 }
 
-public System.Collections.Generic.IList<UsuarioEN> DameTodosLosUsuarios (int first, int size)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.UsuarioEN> DameTodosLosUsuarios ()
 {
-        System.Collections.Generic.IList<UsuarioEN> list = null;
-
-        list = _IUsuarioCAD.DameTodosLosUsuarios (first, size);
-        return list;
+        return _IUsuarioCAD.DameTodosLosUsuarios ();
 }
 public UsuarioEN DameUsuarioPorDNI (string DNI)
 {

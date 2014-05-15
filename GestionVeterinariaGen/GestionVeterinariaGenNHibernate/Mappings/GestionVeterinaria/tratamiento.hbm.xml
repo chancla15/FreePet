@@ -41,5 +41,6 @@
 		  </class>
 		  
 		  <query name="TratamientoENReadAllHQL">from TratamientoEN</query>
+		  <query name="TratamientoENdameTodosLosTratamientosHQL"><![CDATA[FROM TratamientoEN]]></query>
 		</hibernate-mapping>
 	

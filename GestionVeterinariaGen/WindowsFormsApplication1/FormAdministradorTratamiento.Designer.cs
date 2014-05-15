@@ -56,7 +56,6 @@
             this.formAdministradorTratamientoDataSet = new WindowsFormsApplication1.FormAdministradorTratamientoDataSet();
             this.tratamientoTableAdapter = new WindowsFormsApplication1.FormAdministradorTratamientoDataSetTableAdapters.TratamientoTableAdapter();
             this.btn_delete = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_erase = new System.Windows.Forms.Button();
             this.lista_dosis = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_add)).BeginInit();
@@ -69,7 +68,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tratamientoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formAdministradorTratamientoDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_delete)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_buscar
@@ -89,7 +87,7 @@
             // 
             this.btn_add.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add;
             this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_add.Location = new System.Drawing.Point(638, 216);
+            this.btn_add.Location = new System.Drawing.Point(602, 113);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(24, 24);
             this.btn_add.TabIndex = 55;
@@ -250,11 +248,11 @@
             this.stockDataGridViewTextBoxColumn,
             this.dosisdiariaDataGridViewTextBoxColumn});
             this.dataGrid_tratamientos.DataSource = this.tratamientoBindingSource;
-            this.dataGrid_tratamientos.Location = new System.Drawing.Point(15, 246);
+            this.dataGrid_tratamientos.Location = new System.Drawing.Point(12, 204);
             this.dataGrid_tratamientos.Name = "dataGrid_tratamientos";
             this.dataGrid_tratamientos.ReadOnly = true;
             this.dataGrid_tratamientos.RowHeadersVisible = false;
-            this.dataGrid_tratamientos.Size = new System.Drawing.Size(650, 213);
+            this.dataGrid_tratamientos.Size = new System.Drawing.Size(650, 255);
             this.dataGrid_tratamientos.TabIndex = 70;
             this.dataGrid_tratamientos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -311,22 +309,12 @@
             // 
             this.btn_delete.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.delete;
             this.btn_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_delete.Location = new System.Drawing.Point(600, 216);
+            this.btn_delete.Location = new System.Drawing.Point(638, 113);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(24, 24);
             this.btn_delete.TabIndex = 71;
             this.btn_delete.TabStop = false;
             this.btn_delete.Click += new System.EventHandler(this.btn_eliminar_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.mod;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(552, 216);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.TabIndex = 72;
-            this.pictureBox1.TabStop = false;
             // 
             // btn_erase
             // 
@@ -357,12 +345,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.fondo_nuevo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(674, 471);
             this.Controls.Add(this.lista_dosis);
             this.Controls.Add(this.btn_erase);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.dataGrid_tratamientos);
             this.Controls.Add(this.label4);
@@ -390,7 +376,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tratamientoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formAdministradorTratamientoDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_delete)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,7 +409,6 @@
         public System.Windows.Forms.DataGridViewTextBoxColumn stockDataGridViewTextBoxColumn;
         public System.Windows.Forms.DataGridViewTextBoxColumn dosisdiariaDataGridViewTextBoxColumn;
         public System.Windows.Forms.PictureBox btn_delete;
-        public System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.Button btn_erase;
         public System.Windows.Forms.ComboBox lista_dosis;
     }

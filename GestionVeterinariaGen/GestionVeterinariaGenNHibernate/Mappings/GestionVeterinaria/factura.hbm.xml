@@ -42,6 +42,7 @@
 		  </class>
 		  
 		  <query name="FacturaENReadAllHQL">from FacturaEN</query>
+		  <query name="FacturaENdameTodasLasFacturasHQL"><![CDATA[FROM FacturaEN]]></query>
 		  <query name="FacturaENdameFacturaPorFechaHQL"><![CDATA[FROM FacturaEN f WHERE f.Fecha = :param]]></query>
 		  <query name="FacturaENdameImpagosHQL"><![CDATA[FROM FacturaEN f WHERE f.Pagada =FALSE]]></query>
 		  <query name="FacturaENdameFacturasPorClienteHQL"><![CDATA[FROM FacturaEN f WHERE f.Cliente.DNI=:nif]]></query>

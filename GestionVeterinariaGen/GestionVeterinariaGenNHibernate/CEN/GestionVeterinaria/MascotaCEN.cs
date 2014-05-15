@@ -106,12 +106,9 @@ public MascotaEN BuscarMascotaPorOID (int IdMascota)
         return mascotaEN;
 }
 
-public System.Collections.Generic.IList<MascotaEN> DameTodasLasMascotas (int first, int size)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> DameTodasLasMascotas ()
 {
-        System.Collections.Generic.IList<MascotaEN> list = null;
-
-        list = _IMascotaCAD.DameTodasLasMascotas (first, size);
-        return list;
+        return _IMascotaCAD.DameTodasLasMascotas ();
 }
 public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> DameMascotaPorNombre (string busqueda)
 {

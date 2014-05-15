@@ -16,7 +16,7 @@ void Modify (TratamientoEN tratamiento);
 void Destroy (string nombre);
 
 
-System.Collections.Generic.IList<TratamientoEN> DameTodosLosTratamientos (int first, int size);
+System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> DameTodosLosTratamientos ();
 
 
 TratamientoEN DameTratamientoPorOID (string nombre);

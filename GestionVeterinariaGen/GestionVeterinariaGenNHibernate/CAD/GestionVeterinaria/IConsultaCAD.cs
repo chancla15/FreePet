@@ -19,7 +19,7 @@ void Destroy (int IdConsulta);
 ConsultaEN DameConsultaPorOID (int IdConsulta);
 
 
-System.Collections.Generic.IList<ConsultaEN> DameTodasLasConsultas (int first, int size);
+System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameTodasLasConsultas ();
 
 
 System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> BuscarConsultaPorFecha (Nullable<DateTime> fecha);

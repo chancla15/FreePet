@@ -51,7 +51,7 @@ namespace WindowsFormsApplication1
         public void changeState(Utils.State st, TratamientoEN tra)
         {
             // controller.ClearForm();
-            controller.Buscar();
+            
             state = st;
             if (state == Utils.State.MODIFY || state == Utils.State.DESTROY)
             {
@@ -63,6 +63,7 @@ namespace WindowsFormsApplication1
                     btn_eliminar_Click(new object(), new EventArgs());
                 }
             }
+          
         }
 
         #endregion
@@ -111,8 +112,6 @@ namespace WindowsFormsApplication1
             else
                 state = Utils.State.MODIFY;
 
-            Console.WriteLine("Estadoooo: " + state.ToString());
-
             controller.ProcesarInformacion();
             EnableForm(true);
             state = Utils.State.MODIFY;
@@ -123,17 +122,26 @@ namespace WindowsFormsApplication1
          */
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            EnableForm(false);
+            if (state == Utils.State.MODIFY)
+            {
+                EnableForm(false);
+                if (MessageBox.Show("Seguro que desea despedir a este empleado", "Despedir usuario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    state = Utils.State.DESTROY;
+                    controller.ProcesarInformacion();
+                }
+                else
+                    state = Utils.State.MODIFY;
+
+                EnableForm(true);
+            }
         }
 
         /**
-         * Si clickea el boton de buscar cliente por dni desde la pantalla cliente
+         * Si clickea el boton de buscar tratamientos
          */
         private void btn_buscar_id_Click(object sender, EventArgs e)
         {
-            //if ((state==Utils.State.NONE || state==Utils.State.NEW) && menu.LaunchStartScreen())
-                //DesactivateForm();
-
             state = Utils.State.NEW;
             controller.Buscar();
         }
@@ -148,19 +156,12 @@ namespace WindowsFormsApplication1
 
             controller.ClearForm();
             state = Utils.State.NONE;
+            EnableForm(true);
         }
 
         #endregion
 
         #region DataGridView_Tratamientos
-
-        /**
-        * Pinta el tamaño de las celdas
-        */
-        private void dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            //controller.paintDataGrid(e);
-        }
 
         /**
          * Comprueba donde se ha pulsado
@@ -220,8 +221,6 @@ namespace WindowsFormsApplication1
         private void picture_desconectar_Click(object sender, EventArgs e)
         {
             menu.Disconnect();
-            //Esto solo le da a un formulario
-            //donde puede cambiar algunos datos personales, la constraseña la foto y desconectarse
         }
 
         #endregion

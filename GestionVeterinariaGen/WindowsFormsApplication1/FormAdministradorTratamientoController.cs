@@ -21,7 +21,7 @@ namespace WindowsFormsApplication1
         private FormAdministradorTratamiento form;
 
         /** la lista de mascotas buscadas */
-        private IList<TratamientoEN> lista_tratamiento;
+        private IList<TratamientoEN> lista_tratamientoTotal = null;
 
         /** El cliente actual en el formulario */
         public TratamientoEN tratamientoEN = null;
@@ -40,6 +40,7 @@ namespace WindowsFormsApplication1
             this.form = form;
             form.dataGrid_tratamientos.Refresh();
             tratamientoEN = new TratamientoEN();
+            lista_tratamientoTotal = Utils._ITratamientoCAD.DameTodosLosTratamientos();
         }
 
         #endregion
@@ -51,14 +52,8 @@ namespace WindowsFormsApplication1
          */
         public void Buscar()
         {
-            if (lista_tratamiento != null)
-            {
-                lista_tratamiento.Clear();
-                lista_tratamiento = null;
-            }
-
-            String id = form.text_nombre.Text;
-            String dosis = "";
+            string id = form.text_nombre.Text;
+            string dosis = "";
 
             //Actualizamos la tabla
             form.dataGrid_tratamientos.DataSource = null;
@@ -67,41 +62,40 @@ namespace WindowsFormsApplication1
             if (form.dataGrid_tratamientos.Rows.Count > 0)
                 form.dataGrid_tratamientos.Rows.Clear();
 
-
-            lista_tratamiento = Utils._ITratamientoCAD.DameTodosLosTratamientos(0, 0);
-
-            if (lista_tratamiento != null && lista_tratamiento.Count > 0)
+            if (lista_tratamientoTotal != null)
             {
+                if (id != "")
+                {
+                    for (int i = 0; i < lista_tratamientoTotal.Count; i++)
+                    {
+                        if (lista_tratamientoTotal[i].Nombre.Contains(id))
+                        {
+                            if (lista_tratamientoTotal[i].Dosis_diaria.ToString() == "Uno_al_dia")
+                                dosis = "1";
+                            else if (lista_tratamientoTotal[i].Dosis_diaria.ToString() == "Dos_al_dia")
+                                dosis = "2";
+                            else
+                                dosis = "3";
+                            form.dataGrid_tratamientos.Rows.Add(lista_tratamientoTotal[i].Nombre, lista_tratamientoTotal[i].Precio, lista_tratamientoTotal[i].Descripcion, lista_tratamientoTotal[i].Stock, dosis);
+                        }
+                    }
 
-                for (int x = 0; x < lista_tratamiento.Count; x++)
+                }
+                else
                 {
 
-                    if (lista_tratamiento[x].Nombre.Contains(form.text_nombre.Text))
+                    for (int i = 0; i < lista_tratamientoTotal.Count; i++)
                     {
-                        if (lista_tratamiento[x].Dosis_diaria.ToString() == "Uno_al_dia")
-                        {
+                        if (lista_tratamientoTotal[i].Dosis_diaria.ToString() == "Uno_al_dia")
                             dosis = "1";
-                        }
-                        else if (lista_tratamiento[x].Dosis_diaria.ToString() == "Dos_al_dia")
-                        {
+                        else if (lista_tratamientoTotal[i].Dosis_diaria.ToString() == "Dos_al_dia")
                             dosis = "2";
-                        }
                         else
-                        {
                             dosis = "3";
-
-                        }
-                        form.dataGrid_tratamientos.Rows.Add(lista_tratamiento[x].Nombre, lista_tratamiento[x].Precio, lista_tratamiento[x].Descripcion, lista_tratamiento[x].Stock, dosis);
+                        form.dataGrid_tratamientos.Rows.Add(lista_tratamientoTotal[i].Nombre, lista_tratamientoTotal[i].Precio, lista_tratamientoTotal[i].Descripcion, lista_tratamientoTotal[i].Stock, dosis);
                     }
                 }
             }
-
-            /*
-            if (lista_tratamiento != null && lista_tratamiento.Count > 0)
-                for (int i = 0; i < lista_tratamiento.Count; i++)
-                    form.dataGrid_tratamientos.Rows.Add(lista_tratamiento[i].Nombre, lista_tratamiento[i].Precio, lista_tratamiento[i].Descripcion, lista_tratamiento[i].Stock, lista_tratamiento[i].Dosis_diaria);
-        
-             */
         }
 
         #endregion
@@ -125,7 +119,22 @@ namespace WindowsFormsApplication1
                 form.text_stock.Text = tratamientoEN.Stock.ToString();
                 form.text_descripcion.Text = tratamientoEN.Descripcion;
                 form.lista_dosis.SelectedItem = tratamientoEN.Dosis_diaria.ToString();
-               // Buscar();
+
+                if (tratamientoEN.Dosis_diaria.ToString() == "Uno_al_dia")
+                {
+                    form.lista_dosis.SelectedIndex = 0;
+                }
+                else if (tratamientoEN.Dosis_diaria.ToString() == "Dos_al_dia")
+                {
+                    form.lista_dosis.SelectedIndex = 1;
+                }
+                else
+                {
+                    form.lista_dosis.SelectedIndex = 2;
+
+                }
+
+                form.lista_dosis.Refresh();
             }
         }
 
@@ -134,6 +143,12 @@ namespace WindowsFormsApplication1
          */
         public void ProcesarInformacion()
         {
+            string id = form.text_nombre.Text;
+
+            if (Utils._ITratamientoCAD.DameTratamientoPorOID(id) == null)
+                form.state = Utils.State.NEW;
+
+
             if (form.text_nombre.Text != "")
                 tratamientoEN.Nombre = form.text_nombre.Text;
 
@@ -173,24 +188,32 @@ namespace WindowsFormsApplication1
 
             if (tratamientoEN != null)
             {
-
                 switch (form.state)
                 {
                     case Utils.State.NONE:
                         break;
                     case Utils.State.NEW:
                         Utils._TratamientoCEN.New_(tratamientoEN.Nombre, tratamientoEN.Precio, tratamientoEN.Descripcion, tratamientoEN.Stock, tratamientoEN.Dosis_diaria);
+                        MessageBox.Show("Tratamiento insertado con exito");
+                        lista_tratamientoTotal.Add(tratamientoEN);
                         break;
                     case Utils.State.MODIFY:
+                        lista_tratamientoTotal.Remove(tratamientoEN);
                         Utils._TratamientoCEN.Modify(tratamientoEN.Nombre, tratamientoEN.Precio, tratamientoEN.Descripcion, tratamientoEN.Stock, tratamientoEN.Dosis_diaria);
+                        MessageBox.Show("Tratamiento modificado con exito");
+                        lista_tratamientoTotal.Add(tratamientoEN);
                         break;
                     case Utils.State.DESTROY:
                         Utils._TratamientoCEN.Destroy(tratamientoEN.Nombre);
+                        MessageBox.Show("Tratamiento eliminado con exito");
+                        lista_tratamientoTotal.Remove(tratamientoEN);
                         break;
                     default:
                         break;
                 }
             }
+            ClearForm();
+            Buscar();
         }
 
         #endregion
@@ -210,13 +233,13 @@ namespace WindowsFormsApplication1
 
             cli = form.dataGrid_tratamientos.Rows[ev.RowIndex].Cells[0].Value.ToString();
 
-            if (lista_tratamiento != null && lista_tratamiento.Count > 0 && cli != "")
+            if (lista_tratamientoTotal != null && lista_tratamientoTotal.Count > 0 && cli != "")
             {
-                for (int i = 0; i < lista_tratamiento.Count; i++)
+                for (int i = 0; i < lista_tratamientoTotal.Count; i++)
                 {
-                    if (lista_tratamiento[i].Nombre == cli)
+                    if (lista_tratamientoTotal[i].Nombre == cli)
                     {
-                        tratamiento = lista_tratamiento[i];
+                        tratamiento = lista_tratamientoTotal[i];
                         break;
                     }
                 }
@@ -236,22 +259,13 @@ namespace WindowsFormsApplication1
         public void ClearForm()
         {
             tratamientoEN = null;
-            if (lista_tratamiento != null)
-            {
-                lista_tratamiento.Clear();
-                lista_tratamiento = null;
-            }
+            tratamientoEN = new TratamientoEN();
             form.text_nombre.Text = "";
             form.text_nombre.Enabled = true;
             form.text_descripcion.Text = "";
             form.text_precio.Text = "";
             form.text_stock.Text = "";
             form.lista_dosis.SelectedItem = null;
-
-            form.dataGrid_tratamientos.DataSource = null;
-            form.dataGrid_tratamientos.Refresh();
-            if (form.dataGrid_tratamientos.Rows.Count > 0)
-                form.dataGrid_tratamientos.Rows.Clear();
         }
         #endregion
     }

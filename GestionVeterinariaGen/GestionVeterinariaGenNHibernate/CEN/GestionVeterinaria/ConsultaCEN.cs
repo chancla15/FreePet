@@ -108,12 +108,9 @@ public ConsultaEN DameConsultaPorOID (int IdConsulta)
         return consultaEN;
 }
 
-public System.Collections.Generic.IList<ConsultaEN> DameTodasLasConsultas (int first, int size)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameTodasLasConsultas ()
 {
-        System.Collections.Generic.IList<ConsultaEN> list = null;
-
-        list = _IConsultaCAD.DameTodasLasConsultas (first, size);
-        return list;
+        return _IConsultaCAD.DameTodasLasConsultas ();
 }
 public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> BuscarConsultaPorFecha (Nullable<DateTime> fecha)
 {

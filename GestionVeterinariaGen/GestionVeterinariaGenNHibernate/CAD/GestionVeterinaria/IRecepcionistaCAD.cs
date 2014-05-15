@@ -16,7 +16,7 @@ void Modify (RecepcionistaEN recepcionista);
 void Destroy (string DNI);
 
 
-System.Collections.Generic.IList<RecepcionistaEN> DameTodos (int first, int size);
+System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.RecepcionistaEN> DameTodoLosRecepcionistas ();
 
 
 RecepcionistaEN BuscarRecepPorOID (string DNI);

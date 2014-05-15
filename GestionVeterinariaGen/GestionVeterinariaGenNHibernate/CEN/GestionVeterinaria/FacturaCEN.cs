@@ -32,12 +32,9 @@ public IFacturaCAD get_IFacturaCAD ()
         return this._IFacturaCAD;
 }
 
-public System.Collections.Generic.IList<FacturaEN> DameTodasLasFacturas (int first, int size)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN> DameTodasLasFacturas ()
 {
-        System.Collections.Generic.IList<FacturaEN> list = null;
-
-        list = _IFacturaCAD.DameTodasLasFacturas (first, size);
-        return list;
+        return _IFacturaCAD.DameTodasLasFacturas ();
 }
 public int New_ (Nullable<DateTime> p_fecha, float p_total, string p_cliente, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN p_consulta, bool p_pagada)
 {

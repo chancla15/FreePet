@@ -151,17 +151,17 @@ public void Destroy (string DNI)
         }
 }
 
-public System.Collections.Generic.IList<RecepcionistaEN> DameTodos (int first, int size)
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.RecepcionistaEN> DameTodoLosRecepcionistas ()
 {
-        System.Collections.Generic.IList<RecepcionistaEN> result = null;
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.RecepcionistaEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(RecepcionistaEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<RecepcionistaEN>();
-                else
-                        result = session.CreateCriteria (typeof(RecepcionistaEN)).List<RecepcionistaEN>();
+                //String sql = @"FROM RecepcionistaEN self where FROM RecepcionistaEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("RecepcionistaENdameTodoLosRecepcionistasHQL");
+
+                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.RecepcionistaEN>();
                 SessionCommit ();
         }
 
@@ -180,7 +180,6 @@ public System.Collections.Generic.IList<RecepcionistaEN> DameTodos (int first, i
 
         return result;
 }
-
 public RecepcionistaEN BuscarRecepPorOID (string DNI)
 {
         RecepcionistaEN recepcionistaEN = null;
