@@ -29,64 +29,201 @@ namespace WindowsFormsApplication1
 
         #endregion
 
-
-
-
-
-
-
-
-
-
+        #region Constructor
 
         /**
-         * Constructor de clase
-         * @param session
+         * Constructor
+         * @param session el ticket de sesion
+         * @param showType el tipo de accion
          */
-        public FormAdministradorTratamiento(FormLoginDataSessionTicket session)
+        public FormAdministradorTratamiento(ScreenControllerAdministrador menu)
         {
-            Activate();
-            this.Visible = true;
+            this.menu = menu;
             InitializeComponent();
-            controller = new FormAdministradorTratamientoController(session, this);
+            controller = new FormAdministradorTratamientoController(this);
         }
 
         /**
-         * Cuando se pulsa el boton buscar
+         * Cambia el estado de la pantalla 
+         * @param el estado de la pantalla
+         * @param el cliente si es estado modificar o eliminar
          */
-        private void btn_buscar_Click(object sender, EventArgs e) {
-            controller.BuscarFactura();
-        }
-
-        /**
-         * Cuando se clickea la opcion añadir
-         */
-        private void btn_add_Click(object sender, EventArgs e) {
-            //Hide();
-            //COMO AÑADO??
-            //new FormTratamientoAdministrado(sessionData);
-        }
-
-        /** 
-         * Cuando se clickea la opcion del datagrid
-         * @param e el dato pulsado
-         */
-        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void changeState(Utils.State st, TratamientoEN tra)
         {
-            char action = '\0';
-            string tratamiento = controller.getStateScreen(e, action);
-
-            if (tratamiento != "")
+            // controller.ClearForm();
+            controller.Buscar();
+            state = st;
+            if (state == Utils.State.MODIFY || state == Utils.State.DESTROY)
             {
+                text_nombre.Enabled = false;
+                controller.loadData(tra);
 
+                if (state == Utils.State.DESTROY)
+                {
+                    btn_eliminar_Click(new object(), new EventArgs());
+                }
             }
         }
 
-        private void FormAdministradorTratamiento_Load(object sender, EventArgs e)
-        {
-            // TODO: esta línea de código carga datos en la tabla 'formAdministradorTratamientoDataSet.Tratamiento' Puede moverla o quitarla según sea necesario.
-            this.tratamientoTableAdapter.Fill(this.formAdministradorTratamientoDataSet.Tratamiento);
+        #endregion
 
+        #region I/O_Form
+
+        /** Activa el formulario */
+        public void ActivateForm()
+        {
+            Activate();
+            this.Visible = true;
         }
+
+        /** Desactiva el formulario */
+        public void DesactivateForm()
+        {
+            this.Visible = false;
+        }
+
+        /**
+         * Pone typ todos los elementos del formulario menos los de eliminar
+         * @param typ si estan disponibles o no
+         */
+        private void EnableForm(Boolean typ)
+        {
+            text_nombre.Enabled = typ;
+            lista_dosis.Enabled = typ;
+            text_precio.Enabled = typ;
+            text_descripcion.Enabled = typ;
+            text_stock.Enabled = typ;
+
+            panel_top.Enabled = typ;
+        }
+
+        #endregion
+
+        #region Botones
+
+        /**
+        * Cuando se selecciona el boton guardar
+        */
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            if (state == Utils.State.NONE || state == Utils.State.NEW)
+                state = Utils.State.NEW;
+            else
+                state = Utils.State.MODIFY;
+
+            Console.WriteLine("Estadoooo: " + state.ToString());
+
+            controller.ProcesarInformacion();
+            EnableForm(true);
+            state = Utils.State.MODIFY;
+        }
+
+        /**
+         * Cuando se pulsa el boton eliminar principal
+         */
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            EnableForm(false);
+        }
+
+        /**
+         * Si clickea el boton de buscar cliente por dni desde la pantalla cliente
+         */
+        private void btn_buscar_id_Click(object sender, EventArgs e)
+        {
+            //if ((state==Utils.State.NONE || state==Utils.State.NEW) && menu.LaunchStartScreen())
+                //DesactivateForm();
+
+            state = Utils.State.NEW;
+            controller.Buscar();
+        }
+
+        /**
+         * Cuando se pulsa el boton erase que es la gomita se borran todos los campos
+         */
+        private void btn_erase_Click(object sender, EventArgs e)
+        {
+            if (state == Utils.State.MODIFY)
+                text_nombre.Enabled = true;
+
+            controller.ClearForm();
+            state = Utils.State.NONE;
+        }
+
+        #endregion
+
+        #region DataGridView_Tratamientos
+
+        /**
+        * Pinta el tamaño de las celdas
+        */
+        private void dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            //controller.paintDataGrid(e);
+        }
+
+        /**
+         * Comprueba donde se ha pulsado
+         */
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Utils.State st = Utils.State.NONE;
+            TratamientoEN tratamiento = controller.getDataGridViewState(e,ref st);
+
+            if (tratamiento != null)
+                changeState(st, tratamiento);
+        }
+
+        #endregion
+
+        #region MenuSuperior
+
+        /**
+         * Pinta panel superior menu
+         */
+        private void panel_top_Paint(object sender, PaintEventArgs e)
+        {
+            this.picture_empleado.BackColor = Color.White;
+            this.panel_top.BackColor = Color.LightBlue;
+        }
+
+        /**
+         * Cuando se slecciona la opcion start
+         */
+        private void picture_start_Click(object sender, EventArgs e)
+        {
+            if (menu.LaunchStartScreen())
+                DesactivateForm();
+        }
+
+        /**
+         * Cuando se slecciona la opcion clientes
+         */
+        private void picture_empleados_Click(object sender, EventArgs e)
+        {
+            if (menu.LaunchEmpleadoScreen(Utils.State.NONE, null))
+                DesactivateForm();
+        }
+
+        /**
+         * Cuando se slecciona la opcion consultas
+         */
+        private void picture_tratatamiento_Click(object sender, EventArgs e)
+        {
+            if (menu.LaunchTratamientoScreen(Utils.State.NONE, null))
+                DesactivateForm();
+        }
+
+        /**
+         * Cuando se slecciona la opcion ajustes
+         */
+        private void picture_desconectar_Click(object sender, EventArgs e)
+        {
+            menu.Disconnect();
+            //Esto solo le da a un formulario
+            //donde puede cambiar algunos datos personales, la constraseña la foto y desconectarse
+        }
+
+        #endregion
     }
 }

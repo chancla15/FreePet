@@ -182,6 +182,11 @@ namespace WindowsFormsApplication1
             //donde puede cambiar algunos datos personales, la constraseña la foto y desconectarse
         }
 
+        private void picture_desconectar_admin_Click(object sender, EventArgs e)
+        {
+            menu.sessionData.Disconnect();
+        }
+
         #endregion
 
         #region DataGridEmpleados
@@ -226,9 +231,5 @@ namespace WindowsFormsApplication1
 
         #endregion
 
-        private void picture_desconectar_admin_Click(object sender, EventArgs e)
-        {
-            menu.sessionData.Disconnect();
-        }
     }
 }

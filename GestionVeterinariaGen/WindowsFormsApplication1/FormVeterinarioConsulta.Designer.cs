@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.log_type = new System.Windows.Forms.Label();
             this.log_name = new System.Windows.Forms.Label();
             this.log_photo = new System.Windows.Forms.PictureBox();
@@ -44,6 +43,10 @@
             this.text_lugar = new System.Windows.Forms.TextBox();
             this.label_tratamientos = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_ficha = new System.Windows.Forms.GroupBox();
             this.textBox_chip = new System.Windows.Forms.TextBox();
             this.textBox_color = new System.Windows.Forms.TextBox();
@@ -73,16 +76,6 @@
             this.label_doc = new System.Windows.Forms.Label();
             this.button_add = new System.Windows.Forms.Button();
             this.button_del = new System.Windows.Forms.Button();
-            this.gestionVeterinariaGenNHibernateDataSet = new WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSet();
-            this.tratamientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tratamientoTableAdapter = new WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSetTableAdapters.TratamientoTableAdapter();
-            this.gestionVeterinariaGenNHibernateDataSet1 = new WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSet1();
-            this.tratamientoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.tratamientoTableAdapter1 = new WindowsFormsApplication1.GestionVeterinariaGenNHibernateDataSet1TableAdapters.TratamientoTableAdapter();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dosisdiariaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox_ficha.SuspendLayout();
@@ -90,10 +83,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionVeterinariaGenNHibernateDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tratamientoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionVeterinariaGenNHibernateDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tratamientoBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // log_type
@@ -129,7 +118,7 @@
             // 
             // text_hora
             // 
-            this.text_hora.Location = new System.Drawing.Point(205, 185);
+            this.text_hora.Location = new System.Drawing.Point(206, 198);
             this.text_hora.Name = "text_hora";
             this.text_hora.Size = new System.Drawing.Size(100, 20);
             this.text_hora.TabIndex = 50;
@@ -137,7 +126,7 @@
             // label_hora
             // 
             this.label_hora.AutoSize = true;
-            this.label_hora.Location = new System.Drawing.Point(166, 188);
+            this.label_hora.Location = new System.Drawing.Point(167, 201);
             this.label_hora.Name = "label_hora";
             this.label_hora.Size = new System.Drawing.Size(33, 13);
             this.label_hora.TabIndex = 49;
@@ -145,7 +134,7 @@
             // 
             // text_fecha
             // 
-            this.text_fecha.Location = new System.Drawing.Point(56, 185);
+            this.text_fecha.Location = new System.Drawing.Point(57, 198);
             this.text_fecha.Name = "text_fecha";
             this.text_fecha.Size = new System.Drawing.Size(100, 20);
             this.text_fecha.TabIndex = 52;
@@ -153,7 +142,7 @@
             // label_fecha
             // 
             this.label_fecha.AutoSize = true;
-            this.label_fecha.Location = new System.Drawing.Point(10, 188);
+            this.label_fecha.Location = new System.Drawing.Point(11, 201);
             this.label_fecha.Name = "label_fecha";
             this.label_fecha.Size = new System.Drawing.Size(40, 13);
             this.label_fecha.TabIndex = 51;
@@ -161,7 +150,7 @@
             // 
             // text_motivo
             // 
-            this.text_motivo.Location = new System.Drawing.Point(125, 217);
+            this.text_motivo.Location = new System.Drawing.Point(126, 230);
             this.text_motivo.Name = "text_motivo";
             this.text_motivo.Size = new System.Drawing.Size(528, 20);
             this.text_motivo.TabIndex = 56;
@@ -169,7 +158,7 @@
             // label_motivo
             // 
             this.label_motivo.AutoSize = true;
-            this.label_motivo.Location = new System.Drawing.Point(8, 220);
+            this.label_motivo.Location = new System.Drawing.Point(9, 233);
             this.label_motivo.Name = "label_motivo";
             this.label_motivo.Size = new System.Drawing.Size(111, 13);
             this.label_motivo.TabIndex = 55;
@@ -177,16 +166,16 @@
             // 
             // text_diagnostico
             // 
-            this.text_diagnostico.Location = new System.Drawing.Point(10, 265);
+            this.text_diagnostico.Location = new System.Drawing.Point(12, 278);
             this.text_diagnostico.Multiline = true;
             this.text_diagnostico.Name = "text_diagnostico";
-            this.text_diagnostico.Size = new System.Drawing.Size(642, 49);
+            this.text_diagnostico.Size = new System.Drawing.Size(642, 42);
             this.text_diagnostico.TabIndex = 58;
             // 
             // label_diagnostico
             // 
             this.label_diagnostico.AutoSize = true;
-            this.label_diagnostico.Location = new System.Drawing.Point(9, 249);
+            this.label_diagnostico.Location = new System.Drawing.Point(9, 262);
             this.label_diagnostico.Name = "label_diagnostico";
             this.label_diagnostico.Size = new System.Drawing.Size(66, 13);
             this.label_diagnostico.TabIndex = 57;
@@ -195,7 +184,7 @@
             // label_lugar
             // 
             this.label_lugar.AutoSize = true;
-            this.label_lugar.Location = new System.Drawing.Point(328, 188);
+            this.label_lugar.Location = new System.Drawing.Point(329, 201);
             this.label_lugar.Name = "label_lugar";
             this.label_lugar.Size = new System.Drawing.Size(37, 13);
             this.label_lugar.TabIndex = 59;
@@ -203,7 +192,7 @@
             // 
             // text_lugar
             // 
-            this.text_lugar.Location = new System.Drawing.Point(371, 185);
+            this.text_lugar.Location = new System.Drawing.Point(372, 198);
             this.text_lugar.Name = "text_lugar";
             this.text_lugar.Size = new System.Drawing.Size(282, 20);
             this.text_lugar.TabIndex = 60;
@@ -211,7 +200,7 @@
             // label_tratamientos
             // 
             this.label_tratamientos.AutoSize = true;
-            this.label_tratamientos.Location = new System.Drawing.Point(10, 327);
+            this.label_tratamientos.Location = new System.Drawing.Point(12, 333);
             this.label_tratamientos.Name = "label_tratamientos";
             this.label_tratamientos.Size = new System.Drawing.Size(71, 13);
             this.label_tratamientos.TabIndex = 61;
@@ -220,21 +209,38 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nombreDataGridViewTextBoxColumn,
-            this.descripcionDataGridViewTextBoxColumn,
-            this.dosisdiariaDataGridViewTextBoxColumn,
-            this.precioDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.tratamientoBindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 343);
+            this.Nombre,
+            this.Descripcion,
+            this.Dosis,
+            this.Precio});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 349);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(641, 113);
+            this.dataGridView1.Size = new System.Drawing.Size(641, 80);
             this.dataGridView1.TabIndex = 62;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            // 
+            // Dosis
+            // 
+            this.Dosis.HeaderText = "Dosis";
+            this.Dosis.Name = "Dosis";
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
             // 
             // groupBox_ficha
             // 
@@ -407,7 +413,7 @@
             // 
             // button_realizar
             // 
-            this.button_realizar.Location = new System.Drawing.Point(519, 566);
+            this.button_realizar.Location = new System.Drawing.Point(519, 560);
             this.button_realizar.Name = "button_realizar";
             this.button_realizar.Size = new System.Drawing.Size(135, 23);
             this.button_realizar.TabIndex = 66;
@@ -417,7 +423,7 @@
             // 
             // button_anular
             // 
-            this.button_anular.Location = new System.Drawing.Point(372, 566);
+            this.button_anular.Location = new System.Drawing.Point(372, 560);
             this.button_anular.Name = "button_anular";
             this.button_anular.Size = new System.Drawing.Size(135, 23);
             this.button_anular.TabIndex = 68;
@@ -472,15 +478,15 @@
             // listBox_addTratamiento
             // 
             this.listBox_addTratamiento.FormattingEnabled = true;
-            this.listBox_addTratamiento.Location = new System.Drawing.Point(10, 462);
+            this.listBox_addTratamiento.Location = new System.Drawing.Point(15, 455);
             this.listBox_addTratamiento.Name = "listBox_addTratamiento";
-            this.listBox_addTratamiento.Size = new System.Drawing.Size(560, 69);
+            this.listBox_addTratamiento.Size = new System.Drawing.Size(444, 82);
             this.listBox_addTratamiento.TabIndex = 70;
             // 
             // label_doc
             // 
             this.label_doc.AutoSize = true;
-            this.label_doc.Location = new System.Drawing.Point(16, 566);
+            this.label_doc.Location = new System.Drawing.Point(15, 560);
             this.label_doc.Name = "label_doc";
             this.label_doc.Size = new System.Drawing.Size(35, 13);
             this.label_doc.TabIndex = 71;
@@ -488,7 +494,7 @@
             // 
             // button_add
             // 
-            this.button_add.Location = new System.Drawing.Point(576, 479);
+            this.button_add.Location = new System.Drawing.Point(478, 455);
             this.button_add.Name = "button_add";
             this.button_add.Size = new System.Drawing.Size(75, 23);
             this.button_add.TabIndex = 72;
@@ -497,64 +503,12 @@
             // 
             // button_del
             // 
-            this.button_del.Location = new System.Drawing.Point(576, 508);
+            this.button_del.Location = new System.Drawing.Point(478, 502);
             this.button_del.Name = "button_del";
             this.button_del.Size = new System.Drawing.Size(75, 23);
             this.button_del.TabIndex = 73;
             this.button_del.Text = "Quitar";
             this.button_del.UseVisualStyleBackColor = true;
-            // 
-            // gestionVeterinariaGenNHibernateDataSet
-            // 
-            this.gestionVeterinariaGenNHibernateDataSet.DataSetName = "GestionVeterinariaGenNHibernateDataSet";
-            this.gestionVeterinariaGenNHibernateDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tratamientoBindingSource
-            // 
-            this.tratamientoBindingSource.DataMember = "Tratamiento";
-            this.tratamientoBindingSource.DataSource = this.gestionVeterinariaGenNHibernateDataSet;
-            // 
-            // tratamientoTableAdapter
-            // 
-            this.tratamientoTableAdapter.ClearBeforeFill = true;
-            // 
-            // gestionVeterinariaGenNHibernateDataSet1
-            // 
-            this.gestionVeterinariaGenNHibernateDataSet1.DataSetName = "GestionVeterinariaGenNHibernateDataSet1";
-            this.gestionVeterinariaGenNHibernateDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tratamientoBindingSource1
-            // 
-            this.tratamientoBindingSource1.DataMember = "Tratamiento";
-            this.tratamientoBindingSource1.DataSource = this.gestionVeterinariaGenNHibernateDataSet1;
-            // 
-            // tratamientoTableAdapter1
-            // 
-            this.tratamientoTableAdapter1.ClearBeforeFill = true;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            // 
-            // descripcionDataGridViewTextBoxColumn
-            // 
-            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "descripcion";
-            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
-            // 
-            // dosisdiariaDataGridViewTextBoxColumn
-            // 
-            this.dosisdiariaDataGridViewTextBoxColumn.DataPropertyName = "dosis_diaria";
-            this.dosisdiariaDataGridViewTextBoxColumn.HeaderText = "dosis_diaria";
-            this.dosisdiariaDataGridViewTextBoxColumn.Name = "dosisdiariaDataGridViewTextBoxColumn";
-            // 
-            // precioDataGridViewTextBoxColumn
-            // 
-            this.precioDataGridViewTextBoxColumn.DataPropertyName = "precio";
-            this.precioDataGridViewTextBoxColumn.HeaderText = "precio";
-            this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
             // 
             // FormVeterinarioConsulta
             // 
@@ -599,10 +553,6 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionVeterinariaGenNHibernateDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tratamientoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionVeterinariaGenNHibernateDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tratamientoBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -633,6 +583,10 @@
         private System.Windows.Forms.Label label_sexo;
         private System.Windows.Forms.Button button_realizar;
         private System.Windows.Forms.Button button_anular;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dosis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.PictureBox picture_inicio_veterinario;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox picture_consulta_veterinario;
@@ -654,15 +608,5 @@
         private System.Windows.Forms.Button button_add;
         private System.Windows.Forms.Button button_del;
         public System.Windows.Forms.Label label_doc;
-        private GestionVeterinariaGenNHibernateDataSet gestionVeterinariaGenNHibernateDataSet;
-        private System.Windows.Forms.BindingSource tratamientoBindingSource;
-        private GestionVeterinariaGenNHibernateDataSetTableAdapters.TratamientoTableAdapter tratamientoTableAdapter;
-        private GestionVeterinariaGenNHibernateDataSet1 gestionVeterinariaGenNHibernateDataSet1;
-        private System.Windows.Forms.BindingSource tratamientoBindingSource1;
-        private GestionVeterinariaGenNHibernateDataSet1TableAdapters.TratamientoTableAdapter tratamientoTableAdapter1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dosisdiariaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
     }
 }

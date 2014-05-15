@@ -46,7 +46,7 @@ namespace WindowsFormsApplication1
         {
             f_inicio = new FormRecepcionistaAdministradorInicio(this);
             f_empleado = new FormAdministradorEmpleado(this);
-            //f_tratamiento = new FormAdministradorTratamiento(this);
+            f_tratamiento = new FormAdministradorTratamiento(this);
             LaunchStartScreen();
         }
         #endregion
@@ -99,8 +99,8 @@ namespace WindowsFormsApplication1
             {
                 ret = true;
                 FormActual = f_tratamiento.ID;
-                //f_tratamiento.ActivateForm();
-                //f_tratamiento.changeState(state,tratamiento);
+                f_tratamiento.ActivateForm();
+                f_tratamiento.changeState(state,tratamiento);
             }
             return ret;
         }
@@ -158,7 +158,7 @@ namespace WindowsFormsApplication1
             FormActual = "";
             f_inicio.Hide();
             f_empleado.Hide();
-            //f_tratamiento.Hide();
+            f_tratamiento.Hide();
         }
 
         #endregion

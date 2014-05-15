@@ -118,3 +118,33 @@ C:\Documents and Settings\ooh4riaUser\Desktop\DSS 14 Mayo\GestionVeterinariaGen\
 C:\Documents and Settings\ooh4riaUser\Desktop\DSS 14 Mayo\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\ooh4riaUser\Desktop\DSS 14 Mayo\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\obj\Debug\GestionVeterinariaGenNHibernate.dll
 C:\Documents and Settings\ooh4riaUser\Desktop\DSS 14 Mayo\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\obj\Debug\GestionVeterinariaGenNHibernate.pdb
+C:\Users\Rafael\Desktop\DSS[d14h8]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\hibernate.cfg.xml
+C:\Users\Rafael\Desktop\DSS[d14h8]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\GestionVeterinariaGenNHibernate.dll.config
+C:\Users\Rafael\Desktop\DSS[d14h8]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\GestionVeterinariaGenNHibernate.dll
+C:\Users\Rafael\Desktop\DSS[d14h8]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\GestionVeterinariaGenNHibernate.pdb
+C:\Users\Rafael\Desktop\DSS[d14h8]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\Castle.DynamicProxy2.dll
+C:\Users\Rafael\Desktop\DSS[d14h8]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\LinFu.DynamicProxy.dll
+C:\Users\Rafael\Desktop\DSS[d14h8]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\Users\Rafael\Desktop\DSS[d14h8]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\Users\Rafael\Desktop\DSS[d14h8]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\NHibernate.dll
+C:\Users\Rafael\Desktop\DSS[d14h8]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\Iesi.Collections.dll
+C:\Users\Rafael\Desktop\DSS[d14h8]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Rafael\Desktop\DSS[d14h8]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\log4net.dll
+C:\Users\Rafael\Desktop\DSS[d14h8]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\obj\Debug\GestionVeterinariaGenNHibernate.csprojResolveAssemblyReference.cache
+C:\Users\Rafael\Desktop\DSS[d14h8]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\obj\Debug\GestionVeterinariaGenNHibernate.dll
+C:\Users\Rafael\Desktop\DSS[d14h8]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\obj\Debug\GestionVeterinariaGenNHibernate.pdb
+C:\Users\Rafael\Desktop\DSS[d15h2]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\hibernate.cfg.xml
+C:\Users\Rafael\Desktop\DSS[d15h2]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\GestionVeterinariaGenNHibernate.dll.config
+C:\Users\Rafael\Desktop\DSS[d15h2]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\GestionVeterinariaGenNHibernate.dll
+C:\Users\Rafael\Desktop\DSS[d15h2]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\GestionVeterinariaGenNHibernate.pdb
+C:\Users\Rafael\Desktop\DSS[d15h2]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\Castle.DynamicProxy2.dll
+C:\Users\Rafael\Desktop\DSS[d15h2]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\LinFu.DynamicProxy.dll
+C:\Users\Rafael\Desktop\DSS[d15h2]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\Users\Rafael\Desktop\DSS[d15h2]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\Users\Rafael\Desktop\DSS[d15h2]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\NHibernate.dll
+C:\Users\Rafael\Desktop\DSS[d15h2]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\Iesi.Collections.dll
+C:\Users\Rafael\Desktop\DSS[d15h2]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Rafael\Desktop\DSS[d15h2]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Debug\log4net.dll
+C:\Users\Rafael\Desktop\DSS[d15h2]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\obj\Debug\GestionVeterinariaGenNHibernate.csprojResolveAssemblyReference.cache
+C:\Users\Rafael\Desktop\DSS[d15h2]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\obj\Debug\GestionVeterinariaGenNHibernate.dll
+C:\Users\Rafael\Desktop\DSS[d15h2]\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\obj\Debug\GestionVeterinariaGenNHibernate.pdb

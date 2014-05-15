@@ -213,5 +213,58 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
+
+        #region MenuSuperior
+
+        /**
+         * Pinta panel superior menu
+         */
+        private void panel_top_Paint(object sender, PaintEventArgs e)
+        {
+            this.picture_empleado.BackColor = Color.White;
+            this.panel_top.BackColor = Color.LightBlue;
+        }
+
+        /**
+         * Cuando se slecciona la opcion start
+         */
+        private void picture_start_Click(object sender, EventArgs e)
+        {
+            if (menu.LaunchStartScreen())
+                DesactivateForm();
+
+            //Hide();
+            //new FormRecepcionistaAdministradorInicio(controller.sessionData);
+        }
+
+        /**
+         * Cuando se slecciona la opcion clientes
+         */
+        private void picture_empleados_Click(object sender, EventArgs e)
+        {
+            if (menu.LaunchEmpleadoScreen(Utils.State.NONE, null))
+                DesactivateForm();
+        }
+
+
+        /**
+         * Cuando se slecciona la opcion facturas
+         */
+        private void picture_tratamientos_Click(object sender, EventArgs e)
+        {
+            if (menu.LaunchTratamientoScreen(Utils.State.NONE, null))
+                DesactivateForm();
+        }
+
+        /**
+         * Cuando se slecciona la opcion ajustes
+         */
+        private void picture_desconectar_Click(object sender, EventArgs e)
+        {
+
+            menu.sessionData.Disconnect();
+        }
+
+        #endregion
     }
 }

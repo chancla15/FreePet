@@ -28,6 +28,7 @@ namespace WindowsFormsApplication1
         public ScreenControllerVeterinario(FormLoginDataSessionTicket ticket):base(ticket)
         {
             f_inicio = new FormVeterinarioInicio(this);
+            f_inicio.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             f_consulta = new FormVeterinarioConsulta(this);
             LaunchStartScreenVeterinario();
         }

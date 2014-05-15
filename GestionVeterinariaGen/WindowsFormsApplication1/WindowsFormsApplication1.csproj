@@ -103,15 +103,10 @@
     <Compile Include="AcercaDe.Designer.cs">
       <DependentUpon>AcercaDe.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionVeterinariaGenNHibernateDataSet.Designer.cs">
+    <Compile Include="FormAdministradorTratamientoDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="GestionVeterinariaGenNHibernateDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet1.xsd</DependentUpon>
+      <DependentUpon>FormAdministradorTratamientoDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ScreenController.cs" />
     <Compile Include="ScreenControllerAdministrador.cs" />
@@ -119,11 +114,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataBaseInfo_ALL.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="FormAdministradorTratamientoDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FormAdministradorTratamientoDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="FormRecepcionistaAdministradorInicio_DataSet.cs">
       <DependentUpon>FormRecepcionistaAdministradorInicio_DataSet.xsd</DependentUpon>
@@ -333,28 +323,6 @@
     </None>
     <None Include="FormRecepcionistaMascota_DataSet.xss">
       <DependentUpon>FormRecepcionistaMascota_DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet.xsc">
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionVeterinariaGenNHibernateDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet.xss">
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet1.xsc">
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionVeterinariaGenNHibernateDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GestionVeterinariaGenNHibernateDataSet1.xss">
-      <DependentUpon>GestionVeterinariaGenNHibernateDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

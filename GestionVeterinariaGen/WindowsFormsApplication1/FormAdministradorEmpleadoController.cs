@@ -137,6 +137,7 @@ namespace WindowsFormsApplication1
                             break;
                         case Utils.State.NEW:
                             Utils._EmpleadoCEN.New_(empleadoEN.DNI, empleadoEN.Nombre, empleadoEN.Apellidos, empleadoEN.Direccion, empleadoEN.Telefono, empleadoEN.Localidad, empleadoEN.Provincia, empleadoEN.Cp, empleadoEN.Sueldo, empleadoEN.Password);
+                            MessageBox.Show("Creado correctamente", "");
                             break;
                         case Utils.State.MODIFY:
                             Utils._EmpleadoCEN.Modify(empleadoEN.DNI, empleadoEN.Nombre, empleadoEN.Apellidos, empleadoEN.Direccion, empleadoEN.Telefono, empleadoEN.Localidad, empleadoEN.Provincia, empleadoEN.Cp, empleadoEN.Sueldo, empleadoEN.Password);

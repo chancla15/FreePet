@@ -281,11 +281,13 @@ namespace WindowsFormsApplication1 {
             
             private global::System.Data.DataColumn columnNombre;
             
-            private global::System.Data.DataColumn columnfechaInicio;
-            
             private global::System.Data.DataColumn columnprecio;
             
-            private global::System.Data.DataColumn columnfechaFin;
+            private global::System.Data.DataColumn columndescripcion;
+            
+            private global::System.Data.DataColumn columnstock;
+            
+            private global::System.Data.DataColumn columndosis_diaria;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -330,14 +332,6 @@ namespace WindowsFormsApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn fechaInicioColumn {
-                get {
-                    return this.columnfechaInicio;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn precioColumn {
                 get {
                     return this.columnprecio;
@@ -346,9 +340,25 @@ namespace WindowsFormsApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn fechaFinColumn {
+            public global::System.Data.DataColumn descripcionColumn {
                 get {
-                    return this.columnfechaFin;
+                    return this.columndescripcion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn stockColumn {
+                get {
+                    return this.columnstock;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn dosis_diariaColumn {
+                get {
+                    return this.columndosis_diaria;
                 }
             }
             
@@ -389,13 +399,14 @@ namespace WindowsFormsApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TratamientoRow AddTratamientoRow(string Nombre, System.DateTime fechaInicio, float precio, System.DateTime fechaFin) {
+            public TratamientoRow AddTratamientoRow(string Nombre, float precio, string descripcion, int stock, int dosis_diaria) {
                 TratamientoRow rowTratamientoRow = ((TratamientoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Nombre,
-                        fechaInicio,
                         precio,
-                        fechaFin};
+                        descripcion,
+                        stock,
+                        dosis_diaria};
                 rowTratamientoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTratamientoRow);
                 return rowTratamientoRow;
@@ -426,9 +437,10 @@ namespace WindowsFormsApplication1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnNombre = base.Columns["Nombre"];
-                this.columnfechaInicio = base.Columns["fechaInicio"];
                 this.columnprecio = base.Columns["precio"];
-                this.columnfechaFin = base.Columns["fechaFin"];
+                this.columndescripcion = base.Columns["descripcion"];
+                this.columnstock = base.Columns["stock"];
+                this.columndosis_diaria = base.Columns["dosis_diaria"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -436,20 +448,24 @@ namespace WindowsFormsApplication1 {
             private void InitClass() {
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
-                this.columnfechaInicio = new global::System.Data.DataColumn("fechaInicio", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfechaInicio);
                 this.columnprecio = new global::System.Data.DataColumn("precio", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprecio);
-                this.columnfechaFin = new global::System.Data.DataColumn("fechaFin", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfechaFin);
+                this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescripcion);
+                this.columnstock = new global::System.Data.DataColumn("stock", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstock);
+                this.columndosis_diaria = new global::System.Data.DataColumn("dosis_diaria", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndosis_diaria);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnNombre}, true));
                 this.columnNombre.AllowDBNull = false;
                 this.columnNombre.Unique = true;
                 this.columnNombre.MaxLength = 255;
-                this.columnfechaInicio.AllowDBNull = false;
                 this.columnprecio.AllowDBNull = false;
-                this.columnfechaFin.AllowDBNull = false;
+                this.columndescripcion.AllowDBNull = false;
+                this.columndescripcion.MaxLength = 255;
+                this.columnstock.AllowDBNull = false;
+                this.columndosis_diaria.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -603,17 +619,6 @@ namespace WindowsFormsApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime fechaInicio {
-                get {
-                    return ((global::System.DateTime)(this[this.tableTratamiento.fechaInicioColumn]));
-                }
-                set {
-                    this[this.tableTratamiento.fechaInicioColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public float precio {
                 get {
                     return ((float)(this[this.tableTratamiento.precioColumn]));
@@ -625,12 +630,34 @@ namespace WindowsFormsApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime fechaFin {
+            public string descripcion {
                 get {
-                    return ((global::System.DateTime)(this[this.tableTratamiento.fechaFinColumn]));
+                    return ((string)(this[this.tableTratamiento.descripcionColumn]));
                 }
                 set {
-                    this[this.tableTratamiento.fechaFinColumn] = value;
+                    this[this.tableTratamiento.descripcionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int stock {
+                get {
+                    return ((int)(this[this.tableTratamiento.stockColumn]));
+                }
+                set {
+                    this[this.tableTratamiento.stockColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int dosis_diaria {
+                get {
+                    return ((int)(this[this.tableTratamiento.dosis_diariaColumn]));
+                }
+                set {
+                    this[this.tableTratamiento.dosis_diariaColumn] = value;
                 }
             }
         }
@@ -795,43 +822,49 @@ namespace WindowsFormsApplication1.FormAdministradorTratamientoDataSetTableAdapt
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Tratamiento";
             tableMapping.ColumnMappings.Add("Nombre", "Nombre");
-            tableMapping.ColumnMappings.Add("fechaInicio", "fechaInicio");
             tableMapping.ColumnMappings.Add("precio", "precio");
-            tableMapping.ColumnMappings.Add("fechaFin", "fechaFin");
+            tableMapping.ColumnMappings.Add("descripcion", "descripcion");
+            tableMapping.ColumnMappings.Add("stock", "stock");
+            tableMapping.ColumnMappings.Add("dosis_diaria", "dosis_diaria");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Tratamiento] WHERE (([Nombre] = @Original_Nombre) AND ([fechaI" +
-                "nicio] = @Original_fechaInicio) AND ([precio] = @Original_precio) AND ([fechaFin" +
-                "] = @Original_fechaFin))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Tratamiento] WHERE (([Nombre] = @Original_Nombre) AND ([precio" +
+                "] = @Original_precio) AND ([descripcion] = @Original_descripcion) AND ([stock] =" +
+                " @Original_stock) AND ([dosis_diaria] = @Original_dosis_diaria))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nombre", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fechaInicio", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaInicio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_precio", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "precio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fechaFin", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaFin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_descripcion", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stock", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dosis_diaria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dosis_diaria", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Tratamiento] ([Nombre], [fechaInicio], [precio], [fechaFin]) V" +
-                "ALUES (@Nombre, @fechaInicio, @precio, @fechaFin);\r\nSELECT Nombre, fechaInicio, " +
-                "precio, fechaFin FROM Tratamiento WHERE (Nombre = @Nombre)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Tratamiento] ([Nombre], [precio], [descripcion], [stock], [dos" +
+                "is_diaria]) VALUES (@Nombre, @precio, @descripcion, @stock, @dosis_diaria);\r\nSEL" +
+                "ECT Nombre, precio, descripcion, stock, dosis_diaria FROM Tratamiento WHERE (Nom" +
+                "bre = @Nombre)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaInicio", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaInicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@precio", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "precio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaFin", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaFin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dosis_diaria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dosis_diaria", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Tratamiento] SET [Nombre] = @Nombre, [fechaInicio] = @fechaInicio, [precio] = @precio, [fechaFin] = @fechaFin WHERE (([Nombre] = @Original_Nombre) AND ([fechaInicio] = @Original_fechaInicio) AND ([precio] = @Original_precio) AND ([fechaFin] = @Original_fechaFin));
-SELECT Nombre, fechaInicio, precio, fechaFin FROM Tratamiento WHERE (Nombre = @Nombre)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Tratamiento] SET [Nombre] = @Nombre, [precio] = @precio, [descripcion] = @descripcion, [stock] = @stock, [dosis_diaria] = @dosis_diaria WHERE (([Nombre] = @Original_Nombre) AND ([precio] = @Original_precio) AND ([descripcion] = @Original_descripcion) AND ([stock] = @Original_stock) AND ([dosis_diaria] = @Original_dosis_diaria));
+SELECT Nombre, precio, descripcion, stock, dosis_diaria FROM Tratamiento WHERE (Nombre = @Nombre)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaInicio", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaInicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@precio", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "precio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaFin", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaFin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@stock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dosis_diaria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dosis_diaria", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nombre", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fechaInicio", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaInicio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_precio", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "precio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fechaFin", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fechaFin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_descripcion", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_stock", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "stock", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dosis_diaria", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dosis_diaria", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -847,7 +880,7 @@ SELECT Nombre, fechaInicio, precio, fechaFin FROM Tratamiento WHERE (Nombre = @N
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Nombre, fechaInicio, precio, fechaFin FROM dbo.Tratamiento";
+            this._commandCollection[0].CommandText = "SELECT Nombre, precio, descripcion, stock, dosis_diaria FROM dbo.Tratamiento";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -908,16 +941,22 @@ SELECT Nombre, fechaInicio, precio, fechaFin FROM Tratamiento WHERE (Nombre = @N
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Nombre, System.DateTime Original_fechaInicio, float Original_precio, System.DateTime Original_fechaFin) {
+        public virtual int Delete(string Original_Nombre, float Original_precio, string Original_descripcion, int Original_stock, int Original_dosis_diaria) {
             if ((Original_Nombre == null)) {
                 throw new global::System.ArgumentNullException("Original_Nombre");
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Nombre));
             }
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((System.DateTime)(Original_fechaInicio));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((float)(Original_precio));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_fechaFin));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((float)(Original_precio));
+            if ((Original_descripcion == null)) {
+                throw new global::System.ArgumentNullException("Original_descripcion");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_descripcion));
+            }
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_stock));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_dosis_diaria));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -938,16 +977,22 @@ SELECT Nombre, fechaInicio, precio, fechaFin FROM Tratamiento WHERE (Nombre = @N
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Nombre, System.DateTime fechaInicio, float precio, System.DateTime fechaFin) {
+        public virtual int Insert(string Nombre, float precio, string descripcion, int stock, int dosis_diaria) {
             if ((Nombre == null)) {
                 throw new global::System.ArgumentNullException("Nombre");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Nombre));
             }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(fechaInicio));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((float)(precio));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(fechaFin));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((float)(precio));
+            if ((descripcion == null)) {
+                throw new global::System.ArgumentNullException("descripcion");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(descripcion));
+            }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(stock));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(dosis_diaria));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -968,25 +1013,37 @@ SELECT Nombre, fechaInicio, precio, fechaFin FROM Tratamiento WHERE (Nombre = @N
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Nombre, System.DateTime fechaInicio, float precio, System.DateTime fechaFin, string Original_Nombre, System.DateTime Original_fechaInicio, float Original_precio, System.DateTime Original_fechaFin) {
+        public virtual int Update(string Nombre, float precio, string descripcion, int stock, int dosis_diaria, string Original_Nombre, float Original_precio, string Original_descripcion, int Original_stock, int Original_dosis_diaria) {
             if ((Nombre == null)) {
                 throw new global::System.ArgumentNullException("Nombre");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Nombre));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(fechaInicio));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((float)(precio));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(fechaFin));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((float)(precio));
+            if ((descripcion == null)) {
+                throw new global::System.ArgumentNullException("descripcion");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(descripcion));
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(stock));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(dosis_diaria));
             if ((Original_Nombre == null)) {
                 throw new global::System.ArgumentNullException("Original_Nombre");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_Nombre));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Nombre));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Original_fechaInicio));
             this.Adapter.UpdateCommand.Parameters[6].Value = ((float)(Original_precio));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(Original_fechaFin));
+            if ((Original_descripcion == null)) {
+                throw new global::System.ArgumentNullException("Original_descripcion");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_descripcion));
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_stock));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_dosis_diaria));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1007,8 +1064,8 @@ SELECT Nombre, fechaInicio, precio, fechaFin FROM Tratamiento WHERE (Nombre = @N
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.DateTime fechaInicio, float precio, System.DateTime fechaFin, string Original_Nombre, System.DateTime Original_fechaInicio, float Original_precio, System.DateTime Original_fechaFin) {
-            return this.Update(Original_Nombre, fechaInicio, precio, fechaFin, Original_Nombre, Original_fechaInicio, Original_precio, Original_fechaFin);
+        public virtual int Update(float precio, string descripcion, int stock, int dosis_diaria, string Original_Nombre, float Original_precio, string Original_descripcion, int Original_stock, int Original_dosis_diaria) {
+            return this.Update(Original_Nombre, precio, descripcion, stock, dosis_diaria, Original_Nombre, Original_precio, Original_descripcion, Original_stock, Original_dosis_diaria);
         }
     }
     

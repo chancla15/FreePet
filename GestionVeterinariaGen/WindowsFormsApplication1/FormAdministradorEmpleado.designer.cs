@@ -51,9 +51,9 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel_top = new System.Windows.Forms.Panel();
             this.picture_desconectar_admin = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.picture_home = new System.Windows.Forms.PictureBox();
+            this.picture_tratamiento = new System.Windows.Forms.PictureBox();
+            this.picture_empleado = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_tipo = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -71,9 +71,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
             this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_admin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_home)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_tratamiento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_empleado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_dni)).BeginInit();
             this.alerta_eliminar.SuspendLayout();
@@ -321,9 +321,9 @@
             // 
             this.panel_top.BackColor = System.Drawing.Color.Transparent;
             this.panel_top.Controls.Add(this.picture_desconectar_admin);
-            this.panel_top.Controls.Add(this.pictureBox3);
-            this.panel_top.Controls.Add(this.pictureBox1);
-            this.panel_top.Controls.Add(this.pictureBox2);
+            this.panel_top.Controls.Add(this.picture_home);
+            this.panel_top.Controls.Add(this.picture_tratamiento);
+            this.panel_top.Controls.Add(this.picture_empleado);
             this.panel_top.Location = new System.Drawing.Point(-2, 0);
             this.panel_top.Name = "panel_top";
             this.panel_top.Size = new System.Drawing.Size(676, 34);
@@ -341,38 +341,41 @@
             this.picture_desconectar_admin.TabStop = false;
             this.picture_desconectar_admin.Click += new System.EventHandler(this.picture_desconectar_admin_Click);
             // 
-            // pictureBox3
+            // picture_home
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(165, 34);
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
+            this.picture_home.BackColor = System.Drawing.Color.Transparent;
+            this.picture_home.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_home.BackgroundImage")));
+            this.picture_home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_home.Location = new System.Drawing.Point(3, 0);
+            this.picture_home.Name = "picture_home";
+            this.picture_home.Size = new System.Drawing.Size(165, 34);
+            this.picture_home.TabIndex = 5;
+            this.picture_home.TabStop = false;
+            this.picture_home.Click += new System.EventHandler(this.picture_start_Click);
             // 
-            // pictureBox1
+            // picture_tratamiento
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(345, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(165, 34);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.picture_tratamiento.BackColor = System.Drawing.Color.Transparent;
+            this.picture_tratamiento.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_tratamiento.BackgroundImage")));
+            this.picture_tratamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_tratamiento.Location = new System.Drawing.Point(345, 0);
+            this.picture_tratamiento.Name = "picture_tratamiento";
+            this.picture_tratamiento.Size = new System.Drawing.Size(165, 34);
+            this.picture_tratamiento.TabIndex = 8;
+            this.picture_tratamiento.TabStop = false;
+            this.picture_tratamiento.Click += new System.EventHandler(this.picture_tratamientos_Click);
             // 
-            // pictureBox2
+            // picture_empleado
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(174, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(165, 34);
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
+            this.picture_empleado.BackColor = System.Drawing.Color.Transparent;
+            this.picture_empleado.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_empleado.BackgroundImage")));
+            this.picture_empleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_empleado.Location = new System.Drawing.Point(174, 0);
+            this.picture_empleado.Name = "picture_empleado";
+            this.picture_empleado.Size = new System.Drawing.Size(165, 34);
+            this.picture_empleado.TabIndex = 7;
+            this.picture_empleado.TabStop = false;
+            this.picture_empleado.Click += new System.EventHandler(this.picture_empleados_Click);
             // 
             // label1
             // 
@@ -557,14 +560,15 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormAdministradorEmpleado";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empleados";
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).EndInit();
             this.panel_top.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_admin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_home)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_tratamiento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_empleado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_dni)).EndInit();
             this.alerta_eliminar.ResumeLayout(false);
@@ -597,9 +601,9 @@
         public System.Windows.Forms.ComboBox tb_provincia;
         public System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Panel panel_top;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox picture_tratamiento;
+        private System.Windows.Forms.PictureBox picture_empleado;
+        private System.Windows.Forms.PictureBox picture_home;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.ComboBox tb_tipo;
         private System.Windows.Forms.PictureBox picture_desconectar_admin;
