@@ -119,6 +119,19 @@ namespace WindowsFormsApplication1
         private void button_add_Click(object sender, EventArgs e)
         {
             panel_tratamientos.Visible = true;
+            //DataGridViewRow fila = dataGrid_consultas.Rows[e.RowIndex];
+            //String s = Convert.ToString(fila.Cells["Nombre"].Value);
+            listBox_addTratamiento.Items.Add(dataGridView_ConsultaPet.Rows.ToString());
+        }
+
+        private void button_cerrartrat_Click(object sender, EventArgs e)
+        {
+            panel_tratamientos.Visible = false;
+        }
+
+        private void button_del_Click(object sender, EventArgs e)
+        {
+            listBox_addTratamiento.Items.Remove(listBox_addTratamiento.SelectedItem);
         }
     }
 }

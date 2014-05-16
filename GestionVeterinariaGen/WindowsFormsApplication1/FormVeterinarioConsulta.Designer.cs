@@ -82,6 +82,7 @@
             this.formAdministradorTratamientoDataSet = new WindowsFormsApplication1.FormAdministradorTratamientoDataSet();
             this.tratamientoTableAdapter = new WindowsFormsApplication1.FormAdministradorTratamientoDataSetTableAdapters.TratamientoTableAdapter();
             this.panel_tratamientos = new System.Windows.Forms.Panel();
+            this.button_cerrartrat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
             this.groupBox_ficha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).BeginInit();
@@ -488,6 +489,7 @@
             this.button_del.TabIndex = 73;
             this.button_del.Text = "Quitar";
             this.button_del.UseVisualStyleBackColor = true;
+            this.button_del.Click += new System.EventHandler(this.button_del_Click);
             // 
             // dataGridView_ConsultaPet
             // 
@@ -568,12 +570,23 @@
             this.panel_tratamientos.TabIndex = 75;
             this.panel_tratamientos.Visible = false;
             // 
+            // button_cerrartrat
+            // 
+            this.button_cerrartrat.Location = new System.Drawing.Point(590, 405);
+            this.button_cerrartrat.Name = "button_cerrartrat";
+            this.button_cerrartrat.Size = new System.Drawing.Size(75, 23);
+            this.button_cerrartrat.TabIndex = 76;
+            this.button_cerrartrat.Text = "Cerrar";
+            this.button_cerrartrat.UseVisualStyleBackColor = true;
+            this.button_cerrartrat.Click += new System.EventHandler(this.button_cerrartrat_Click);
+            // 
             // FormVeterinarioConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(674, 471);
+            this.Controls.Add(this.button_cerrartrat);
             this.Controls.Add(this.panel_tratamientos);
             this.Controls.Add(this.button_del);
             this.Controls.Add(this.button_add);
@@ -675,5 +688,6 @@
         public System.Windows.Forms.TextBox text_hora;
         public System.Windows.Forms.TextBox text_fecha;
         private System.Windows.Forms.Panel panel_tratamientos;
+        private System.Windows.Forms.Button button_cerrartrat;
     }
 }
