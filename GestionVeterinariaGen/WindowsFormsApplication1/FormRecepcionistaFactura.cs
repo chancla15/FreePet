@@ -51,7 +51,7 @@ namespace WindowsFormsApplication1
             //AQUI COMPRUEBO EL ESTADO ACTUAL DE LA PANTALLA, PORQUE ESTE METODO SOLO SE EJECUTARA
             //CADA VEZ QUE HAGAMOS UNA ACCION REFERIDA CON AÑADIR, MODIFICAR O ELIMINAR EN LA PANTALLA
             //TANTO SI PINCHAMOS EN EL DATAGRID COMO SI NOS LA INFORMACION DE OTRA PANTALLA
-            
+
             state = st;
 
             if (state == Utils.State.MODIFY)
@@ -77,7 +77,7 @@ namespace WindowsFormsApplication1
 
         public void DesactivateForm()
         {
-            this.Visible=false;
+            this.Visible = false;
         }
 
         #endregion
@@ -89,9 +89,7 @@ namespace WindowsFormsApplication1
          */
         private void btn_buscar_dni_Click(object sender, EventArgs e)
         {
-            //changeState(Utils.State.MODIFY,text_dni.Text);
-            if ((state == Utils.State.NONE || state == Utils.State.NEW) && menu.LaunchStartScreen())
-                DesactivateForm();
+            changeState(Utils.State.MODIFY, text_dni.Text);
         }
 
         private void btn_erase_Click(object sender, EventArgs e)
@@ -102,15 +100,20 @@ namespace WindowsFormsApplication1
 
         private void btn_pagar_si_Click(object sender, EventArgs e)
         {
-            controller.pagarFactura();   //Si pulsamos Si en la alerta pagamos la factura
+            controller.PagarFactura();   //Si pulsamos Si en la alerta pagamos la factura
             controller.AlertaPagar(false, -1); //Desactiva la alerta de pagar factura
         }
-        
+
         private void btn_pagar_no_Click(object sender, EventArgs e)
         {
             controller.AlertaPagar(false, -1); //Desactiva la alerta de pagar factura
         }
 
+        private void btn_trata_ok_Click(object sender, EventArgs e)
+        {
+            panel_tratamientos.Visible = false;
+        }
+        
         #endregion
 
         #region LabelClick
@@ -137,7 +140,14 @@ namespace WindowsFormsApplication1
                 if (factura != null)
                 {
                     //Activa la alerta de pagar factura
-                    controller.AlertaPagar(true, e.RowIndex);
+                    if (dataGridFacturas.Columns[e.ColumnIndex].Name.Equals("Pagar"))
+                        controller.AlertaPagar(true, e.RowIndex);
+                    //Activa el panel que muestra los tratamientos
+                    if (dataGridFacturas.Columns[e.ColumnIndex].Name.Equals("Tratamiento"))
+                        controller.MostrarTratamientos(true, e.RowIndex);
+                    //Exporta la factura en formato PDF
+                    if (dataGridFacturas.Columns[e.ColumnIndex].Name.Equals("Exportar"))
+                        controller.ExportarFactura(e.RowIndex);
                 }
             }
         }
@@ -206,7 +216,12 @@ namespace WindowsFormsApplication1
 
 
 
-        
+
+
+
+
+
+
 
 
 
