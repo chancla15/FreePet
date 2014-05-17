@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="GestionVeterinariaGenNHibernate"
+		                   namespace="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria">
+				
+<joined-subclass name="ClienteEN" extends="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.UsuarioEN" table="[Cliente]">
+	<key>
+    		<column name="[DNI]"/>
+   	</key>
+
+			
+		  			
+						<bag name="Mascota" cascade="delete">
+							<key>
+								<column name="[FK_DNI_idCliente]"/>
+					      	</key>
+							<one-to-many class="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Factura" >
+							<key>
+								<column name="[FK_DNI_idCliente]"/>
+					      	</key>
+							<one-to-many class="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN"/>
+					    </bag>
+					
+					
+					
+		
+		  </joined-subclass>	
+		  
+		  <query name="ClienteENReadAllHQL">from ClienteEN</query>
+		  <query name="ClienteENbuscarClientePorNombreHQL"><![CDATA[FROM ClienteEN  as u where u.Nombre like '%'+:busqueda+'%']]></query>
+		  <query name="ClienteENbuscarClientePorApellidosHQL"><![CDATA[FROM ClienteEN  as u where u.Apellidos like '%'+:busqueda+'%']]></query>
+		  <query name="ClienteENdameTodosLosClientesHQL"><![CDATA[FROM ClienteEN]]></query>
+		</hibernate-mapping>
+	
