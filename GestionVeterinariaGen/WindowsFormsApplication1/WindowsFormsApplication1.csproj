@@ -59,6 +59,15 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\GestionVeterinariaGenNHibernate\AppLib\Iesi.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>Resources\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>Resources\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>Resources\itextsharp.xtra.dll</HintPath>
+    </Reference>
     <Reference Include="LinFu.DynamicProxy">
       <HintPath>..\GestionVeterinariaGenNHibernate\AppLib\LinFu.DynamicProxy.dll</HintPath>
     </Reference>
