@@ -94,7 +94,6 @@
             this.tb_dni.Name = "tb_dni";
             this.tb_dni.Size = new System.Drawing.Size(163, 20);
             this.tb_dni.TabIndex = 5;
-            this.tb_dni.TextChanged += new System.EventHandler(this.tb_dni_TextChanged);
             // 
             // tb_nombre
             // 
