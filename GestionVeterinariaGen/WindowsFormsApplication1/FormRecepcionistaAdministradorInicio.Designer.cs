@@ -33,11 +33,6 @@
             this.text_buscar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGrid_clientes = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.formRecepcionistaAdministradorInicioDataSet2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.formRecepcionistaAdministradorInicio_DataSet2 = new WindowsFormsApplication1.FormRecepcionistaAdministradorInicio_DataSet2();
@@ -66,6 +61,10 @@
             this.log_photo = new System.Windows.Forms.PictureBox();
             this.usuarioTableAdapter1 = new WindowsFormsApplication1.FormRecepcionistaAdministradorInicio_DataSetTableAdapters.UsuarioTableAdapter();
             this.usuarioTableAdapter = new WindowsFormsApplication1.FormRecepcionistaAdministradorInicio_DataSet2TableAdapters.UsuarioTableAdapter();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_clientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaAdministradorInicioDataSet2BindingSource)).BeginInit();
@@ -161,8 +160,7 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
-            this.Modificar,
-            this.Eliminar});
+            this.Ver});
             this.dataGrid_clientes.DataSource = this.bindingSource1;
             this.dataGrid_clientes.Location = new System.Drawing.Point(12, 194);
             this.dataGrid_clientes.Name = "dataGrid_clientes";
@@ -172,39 +170,6 @@
             this.dataGrid_clientes.TabIndex = 46;
             this.dataGrid_clientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellContentClick_Clientes);
             this.dataGrid_clientes.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.CellPainting_Clientes);
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "DNI";
-            this.dataGridViewTextBoxColumn4.HeaderText = "DNI";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "nombre";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "apellidos";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Apellidos";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // Modificar
-            // 
-            this.Modificar.HeaderText = "Modificar";
-            this.Modificar.Name = "Modificar";
-            this.Modificar.ReadOnly = true;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
             // 
             // bindingSource1
             // 
@@ -360,7 +325,7 @@
             this.ModificarEmpleado,
             this.EliminarEmpleado});
             this.ListaEmpleados.DataSource = this.bindingSource2;
-            this.ListaEmpleados.Location = new System.Drawing.Point(12, 194);
+            this.ListaEmpleados.Location = new System.Drawing.Point(12, 198);
             this.ListaEmpleados.Name = "ListaEmpleados";
             this.ListaEmpleados.ReadOnly = true;
             this.ListaEmpleados.RowHeadersVisible = false;
@@ -469,6 +434,33 @@
             // 
             this.usuarioTableAdapter.ClearBeforeFill = true;
             // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "DNI";
+            this.dataGridViewTextBoxColumn4.HeaderText = "DNI";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "nombre";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "apellidos";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Apellidos";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // Ver
+            // 
+            this.Ver.HeaderText = "Ver";
+            this.Ver.Name = "Ver";
+            this.Ver.ReadOnly = true;
+            // 
             // FormRecepcionistaAdministradorInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -565,7 +557,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewButtonColumn Modificar;
-        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
+        private System.Windows.Forms.DataGridViewButtonColumn Ver;
     }
 }

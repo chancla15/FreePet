@@ -56,13 +56,6 @@
             this.text_nombre = new System.Windows.Forms.TextBox();
             this.text_dni = new System.Windows.Forms.TextBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Especie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Raza = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.mascotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.formRecepcionistaCliente_DataSet = new WindowsFormsApplication1.FormRecepcionistaCliente_DataSet();
             this.text_buscar = new System.Windows.Forms.TextBox();
@@ -80,6 +73,12 @@
             this.btn_anaydir = new System.Windows.Forms.PictureBox();
             this.foto_cliente = new System.Windows.Forms.PictureBox();
             this.button_facturas = new System.Windows.Forms.Button();
+            this.aa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Especie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Raza = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).BeginInit();
@@ -191,7 +190,7 @@
             // picture_cliente_opcion_mascota
             // 
             this.picture_cliente_opcion_mascota.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.cliente_PerfilMascota;
-            this.picture_cliente_opcion_mascota.Location = new System.Drawing.Point(341, 0);
+            this.picture_cliente_opcion_mascota.Location = new System.Drawing.Point(343, 0);
             this.picture_cliente_opcion_mascota.Name = "picture_cliente_opcion_mascota";
             this.picture_cliente_opcion_mascota.Size = new System.Drawing.Size(345, 32);
             this.picture_cliente_opcion_mascota.TabIndex = 54;
@@ -355,13 +354,12 @@
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
+            this.aa,
             this.Nombre,
             this.Especie,
             this.Raza,
             this.Cliente,
-            this.Modificar,
-            this.Eliminar});
+            this.Ver});
             this.dataGridView.DataSource = this.mascotaBindingSource;
             this.dataGridView.Location = new System.Drawing.Point(15, 274);
             this.dataGridView.Name = "dataGridView";
@@ -370,53 +368,6 @@
             this.dataGridView.TabIndex = 72;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "ID";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Especie
-            // 
-            this.Especie.DataPropertyName = "especie";
-            this.Especie.HeaderText = "Especie";
-            this.Especie.Name = "Especie";
-            this.Especie.ReadOnly = true;
-            // 
-            // Raza
-            // 
-            this.Raza.DataPropertyName = "raza";
-            this.Raza.HeaderText = "Raza";
-            this.Raza.Name = "Raza";
-            this.Raza.ReadOnly = true;
-            // 
-            // Cliente
-            // 
-            this.Cliente.DataPropertyName = "FK_DNI_idCliente";
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.Name = "Cliente";
-            this.Cliente.ReadOnly = true;
-            // 
-            // Modificar
-            // 
-            this.Modificar.HeaderText = "Modificar";
-            this.Modificar.Name = "Modificar";
-            this.Modificar.ReadOnly = true;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
             // 
             // mascotaBindingSource
             // 
@@ -520,7 +471,7 @@
             // 
             this.btn_erase.BackColor = System.Drawing.Color.Transparent;
             this.btn_erase.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.eraser;
-            this.btn_erase.Location = new System.Drawing.Point(361, 85);
+            this.btn_erase.Location = new System.Drawing.Point(418, 247);
             this.btn_erase.Name = "btn_erase";
             this.btn_erase.Size = new System.Drawing.Size(16, 16);
             this.btn_erase.TabIndex = 80;
@@ -569,6 +520,47 @@
             this.button_facturas.Text = "Facturas";
             this.button_facturas.UseVisualStyleBackColor = true;
             this.button_facturas.Click += new System.EventHandler(this.button_facturas_Click);
+            // 
+            // aa
+            // 
+            this.aa.DataPropertyName = "ID";
+            this.aa.HeaderText = "Id";
+            this.aa.Name = "aa";
+            this.aa.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Especie
+            // 
+            this.Especie.DataPropertyName = "especie";
+            this.Especie.HeaderText = "Especie";
+            this.Especie.Name = "Especie";
+            this.Especie.ReadOnly = true;
+            // 
+            // Raza
+            // 
+            this.Raza.DataPropertyName = "raza";
+            this.Raza.HeaderText = "Raza";
+            this.Raza.Name = "Raza";
+            this.Raza.ReadOnly = true;
+            // 
+            // Cliente
+            // 
+            this.Cliente.DataPropertyName = "FK_DNI_idCliente";
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            // 
+            // Ver
+            // 
+            this.Ver.HeaderText = "Ver";
+            this.Ver.Name = "Ver";
+            this.Ver.ReadOnly = true;
             // 
             // FormRecepcionistaCliente
             // 
@@ -678,13 +670,12 @@
         public System.Windows.Forms.Button btn_eliminar_si;
         public System.Windows.Forms.PictureBox btn_buscar_dni;
         public System.Windows.Forms.PictureBox btn_erase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.Button button_facturas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Especie;
         private System.Windows.Forms.DataGridViewTextBoxColumn Raza;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
-        private System.Windows.Forms.DataGridViewButtonColumn Modificar;
-        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
-        private System.Windows.Forms.Button button_facturas;
+        private System.Windows.Forms.DataGridViewButtonColumn Ver;
     }
 }

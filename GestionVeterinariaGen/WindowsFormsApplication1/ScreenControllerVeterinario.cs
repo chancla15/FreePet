@@ -81,12 +81,12 @@ namespace WindowsFormsApplication1
             throw new NotImplementedException();
         }
 
-        override public bool LaunchClienteScreen(Utils.State s, ClienteEN c)
+        override public bool LaunchClienteScreen()
         {
             throw new NotImplementedException();
         }
 
-        override public bool LaunchMascotaScreen(Utils.State s, ClienteEN c, MascotaEN m)
+        override public bool LaunchMascotaScreen(Utils.State s, MascotaEN m)
         {
             throw new NotImplementedException();
         }
@@ -100,6 +100,12 @@ namespace WindowsFormsApplication1
         {
             throw new NotImplementedException();
         }
+
+        override public void CargarClienteCompartidoRecepcionista(ClienteEN c)
+        {
+            throw new NotImplementedException();
+        }
+
 
         #endregion
 

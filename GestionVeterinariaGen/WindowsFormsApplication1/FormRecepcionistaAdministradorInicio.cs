@@ -89,7 +89,9 @@ namespace WindowsFormsApplication1
 
             if (cliente != null)
             {
-                if (menu.LaunchClienteScreen(st, cliente))
+                menu.CargarClienteCompartidoRecepcionista(cliente);
+
+                if (menu.LaunchClienteScreen())
                     DesactivateForm();
             }
         }
@@ -118,8 +120,12 @@ namespace WindowsFormsApplication1
                     DesactivateForm();
             }
             else
-                if (menu.LaunchClienteScreen(Utils.State.NEW, null))
+            {
+                menu.CargarClienteCompartidoRecepcionista(null);
+
+                if (menu.LaunchClienteScreen())
                     DesactivateForm();
+            }
         }
 
         #endregion
@@ -151,7 +157,7 @@ namespace WindowsFormsApplication1
          */
         private void picture_clientes_Click(object sender, EventArgs e)
         {
-            if (menu.LaunchClienteScreen(Utils.State.NONE, null))
+            if (menu.LaunchClienteScreen())
                 DesactivateForm();
         }
 

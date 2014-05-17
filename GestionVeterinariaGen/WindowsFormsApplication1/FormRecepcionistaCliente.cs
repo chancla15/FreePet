@@ -15,7 +15,7 @@ namespace WindowsFormsApplication1
         #region Variables
 
         /** El controlador */
-        private FormRecepcionistaClienteController controller = null;
+        public FormRecepcionistaClienteController controller = null;
 
         /** EL tipo de accion, ADD,MOD,DEL */
         public Utils.State state = Utils.State.NONE;
@@ -25,6 +25,9 @@ namespace WindowsFormsApplication1
 
         /** EL controlador del menu superior */
         public ScreenControllerRecepcionista menu = null;
+
+        /** Por si borra el cliente que vuelva a cargar el cliente en la pantalla antes de salir */
+        public Boolean haBorradoCliente = false;
         
         #endregion
 
@@ -47,15 +50,12 @@ namespace WindowsFormsApplication1
          * @param el estado de la pantalla
          * @param el cliente si es estado modificar o eliminar
          */
-        public void changeState(Utils.State st, ClienteEN cli)
+        public void changeState(Utils.State st)
         {
-           // controller.ClearForm();
             state = st;
             if (state == Utils.State.MODIFY || state == Utils.State.DESTROY)
             {
                 text_dni.Enabled = false;
-                controller.loadData(cli);
-
                 if (state == Utils.State.DESTROY) {
                     btn_eliminar_Click(new object(), new EventArgs());
                 }
@@ -77,6 +77,12 @@ namespace WindowsFormsApplication1
         public void DesactivateForm()
         {
             this.Visible = false;
+
+            if (haBorradoCliente)
+            {
+                controller.cargarDatosCliente(menu.clienteCompartido);
+                haBorradoCliente = false;
+            }
         }
 
        /**
@@ -126,11 +132,8 @@ namespace WindowsFormsApplication1
          */
         private void btn_anaydir_Click(object sender, EventArgs e)
         {
-            if(menu.LaunchMascotaScreen(Utils.State.NEW, controller.clienteEN, null))
+            if(menu.LaunchMascotaScreen(Utils.State.NEW, null))
                     DesactivateForm();
-
-            //Hide();
-            //new FormRecepcionistaMascota(controller.sessionData, controller.clienteEN , null, Utils.State.NEW);
         }
 
        /**
@@ -166,6 +169,7 @@ namespace WindowsFormsApplication1
             EnableForm(true);
             controller.ProcesarInformacion();
             state = Utils.State.NONE;
+            menu.CargarClienteCompartidoRecepcionista(null);
         }
 
 
@@ -191,10 +195,10 @@ namespace WindowsFormsApplication1
          */
         private void btn_erase_Click(object sender, EventArgs e)
         {
-            if (state == Utils.State.MODIFY)
-                text_dni.Enabled = true;
-
+            haBorradoCliente = true;
+            text_dni.Enabled = true;
             controller.ClearForm();
+            controller.Buscar();
             state = Utils.State.NONE;
         }
 
@@ -206,10 +210,8 @@ namespace WindowsFormsApplication1
         {
             if (state == Utils.State.MODIFY)
             {
-                menu.f_cliente.DesactivateForm();
-                FormRecepcionistaFactura frf = menu.f_factura;
-                frf.changeState(Utils.State.MODIFY, text_dni.Text);
-                frf.ActivateForm();
+                if(menu.LaunchFacturaScreen(Utils.State.MODIFY, text_dni.Text))
+                     menu.f_cliente.DesactivateForm();
             }
         }
 
@@ -230,19 +232,15 @@ namespace WindowsFormsApplication1
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Utils.State aux_state = Utils.State.NONE;
-            MascotaEN msc = controller.getDataGridViewState(e, ref aux_state);
+            ClienteEN aux_cliente = null;
+            MascotaEN msc = controller.getDataGridViewState(e, ref aux_state, ref aux_cliente);
 
-           // Console.WriteLine("Estado: " + mscState + "ANIMAL: " + msc.IdMascota);
-            //Ir a formulario mascotas
-            if (msc != null && aux_state!=Utils.State.NONE)
-            {
-                if (menu.LaunchMascotaScreen(aux_state, msc.Cliente, msc))
-                    DesactivateForm();
-            }
-            else if (msc != null && aux_state==Utils.State.NONE) 
-            {
-                changeState(Utils.State.MODIFY, Utils._IClienteCAD.DameClientePorOID(""));
-            }
+            if (aux_cliente != null)
+                menu.CargarClienteCompartidoRecepcionista(aux_cliente);
+
+            if (msc != null)
+                if (menu.LaunchMascotaScreen(aux_state, msc))
+                    DesactivateForm();       
         }
 
         #endregion
@@ -275,7 +273,7 @@ namespace WindowsFormsApplication1
          */
         private void picture_clientes_Click(object sender, EventArgs e)
         {
-            if (menu.LaunchClienteScreen(Utils.State.NONE, null))
+            if (menu.LaunchClienteScreen())
                 DesactivateForm();
         }
 
@@ -324,7 +322,7 @@ namespace WindowsFormsApplication1
          */
         private void picture_cliente_opcion_mascota_Click(object sender, EventArgs e)
         {
-            if (menu.LaunchMascotaScreen(Utils.State.NONE, null, null))
+            if (menu.LaunchMascotaScreen(Utils.State.NEW, null))
                 DesactivateForm();
 
             //Hide();

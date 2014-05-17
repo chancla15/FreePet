@@ -4,64 +4,70 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
+using System.Collections.Generic;
 
 namespace WindowsFormsApplication1
 {
-    /**
-     * Esto controlaria el cambio de pantallas de la barra de superior del menu 
-     * 
-     * USUARIO: 
-     *      RECEPCIONISTA
-     *
-     * PANTALLAS:
-     *      FORM_RECEPCIONISTA_ADMINISTRADOR_INICIO
-     *      FORM_RECEPCIONISTA_CLIENTE
-     *      FORM_RECEPCIONISTA_MASCOTA
-     *      FORM_RECEPCIONISTA_CONSULTA
-     *      FORM_RECEPCIONISTA_FACTURA
-     */
     public class ScreenControllerRecepcionista : ScreenController
     {
         #region Variables
 
-        /** EL formulario de inicio */
         public FormRecepcionistaAdministradorInicio f_inicio = null;
-
-        /** El formulario de cliente */
         public FormRecepcionistaCliente f_cliente = null;
-
-        /** El formulario de mascota */
         public FormRecepcionistaMascota f_mascota = null;
-
-        /** EL formulario de consulta */
         public FormRecepcionistaConsulta f_consulta = null;
-
-        /** El formulario de factura */
         public FormRecepcionistaFactura f_factura = null;
-        
+        public ClienteEN clienteCompartido = null;
+
         #endregion
 
         #region Constructor
-        /**
-         * Crea todos los formularios que usara el recepcionista
-         * @param ticket el ticket de sesion
-         */
+
         public ScreenControllerRecepcionista(FormLoginDataSessionTicket ticket):base(ticket)
         {
             f_inicio = new FormRecepcionistaAdministradorInicio(this);
             f_cliente = new FormRecepcionistaCliente(this);
             f_mascota = new FormRecepcionistaMascota(this);
             f_consulta = new FormRecepcionistaConsulta(this);
-            f_factura = new FormRecepcionistaFactura(this);
+            f_factura = new FormRecepcionistaFactura(this);        
             LaunchStartScreen();
         }
+
+        #endregion
+
+        #region CargaClienteCompartidoEnPantallas
+
+        override public void CargarClienteCompartidoRecepcionista(ClienteEN cliente)
+        {
+            clienteCompartido = cliente;
+
+            if (clienteCompartido != null)
+            {
+                f_cliente.controller.cargarDatosCliente(clienteCompartido);
+                f_cliente.changeState(Utils.State.MODIFY);
+
+                f_mascota.controller.cargarDatosCliente(clienteCompartido);
+                f_mascota.changeState(Utils.State.NEW, null);
+
+                f_consulta.controller.cargarDatosCliente(clienteCompartido);
+                f_consulta.changeState(Utils.State.NEW, null);
+
+                //f_factura.controller.cargarDatosCliente(clienteCompartido);
+                //f_factura.changeState(Utils.State.NONE);
+            }
+            else
+            {
+                f_cliente.controller.ClearForm();
+                f_mascota.controller.ClearForm();
+                f_consulta.controller.ClearForm();
+               // f_factura.controller.ClearForm();
+            }
+        }
+
         #endregion
 
         #region LanzadorDePantallas
 
-        /**
-         * Cuando lanza la pantalla principal
-         */
         override public bool LaunchStartScreen()
         {
             bool ret = false;
@@ -75,10 +81,7 @@ namespace WindowsFormsApplication1
             return ret;
         }
 
-        /**
-         * Cuando lanza la pantalla clientes
-         */
-        override public bool LaunchClienteScreen(Utils.State state, ClienteEN cliente)
+        override public bool LaunchClienteScreen()
         {
             bool ret = false;
 
@@ -87,15 +90,11 @@ namespace WindowsFormsApplication1
                 ret = true;
                 FormActual = f_cliente.ID;
                 f_cliente.ActivateForm();
-                f_cliente.changeState(state, cliente);
             }
             return ret;
         }
 
-        /**
-         * Cuando lanza la pantalla mascota
-         */
-        override public bool LaunchMascotaScreen(Utils.State state, ClienteEN cliente, MascotaEN mascota)
+        override public bool LaunchMascotaScreen(Utils.State st, MascotaEN mascota)
         {
             bool ret = false;
 
@@ -104,14 +103,11 @@ namespace WindowsFormsApplication1
                 ret = true;
                 FormActual = f_mascota.ID;
                 f_mascota.ActivateForm();
-                f_mascota.changeState(state, cliente, mascota);
+                f_mascota.changeState(st, mascota);
             }
             return ret;
         }
 
-        /**
-         * Cuando lanza la pantalla consulta
-         */
         override public bool LaunchConsultaScreen(Utils.State state, ConsultaEN consulta)
         {
             bool ret = false;
@@ -126,9 +122,6 @@ namespace WindowsFormsApplication1
             return ret;
         }
 
-        /**
-         * Cuando lanza la pantalla factura
-         */
         override public bool LaunchFacturaScreen(Utils.State state, string cli)
         {
             bool ret = false;
@@ -142,7 +135,6 @@ namespace WindowsFormsApplication1
             }
             return ret;
         }
-
 
         override public bool LaunchEmpleadoScreen(Utils.State s, EmpleadoEN e)
         {
@@ -164,24 +156,16 @@ namespace WindowsFormsApplication1
             throw new NotImplementedException();
         }
 
-
         #endregion
 
         #region SalirAplicacion
 
-        /**
-         * Cuando se desconecta de la aplicacion
-         */
         public void Disconnect()
         {
             CloseForms();
             sessionData.Disconnect();
         }
 
-        /**
-         * Cuando cierra el programa  (LA X DE LA BARRA DE HERRAMIENTAS)
-         * Cierra todos los formularios
-         */
         public void CloseForms()
         {
             FormActual = "";
@@ -193,6 +177,5 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
-
     }
 }

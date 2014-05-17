@@ -64,8 +64,6 @@
             this.btn_buscar_cliente = new System.Windows.Forms.Button();
             this.label_error_mascota = new System.Windows.Forms.Label();
             this.label_error_veterinario = new System.Windows.Forms.Label();
-            this.erase_veterinario = new System.Windows.Forms.PictureBox();
-            this.erase_horas = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.image_add)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.image_del)).BeginInit();
             this.alerta_eliminar.SuspendLayout();
@@ -76,8 +74,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picture_consultas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_start)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erase_veterinario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erase_horas)).BeginInit();
             this.SuspendLayout();
             // 
             // datetime_fin
@@ -141,7 +137,6 @@
             this.box_combo_veterinario.Name = "box_combo_veterinario";
             this.box_combo_veterinario.Size = new System.Drawing.Size(140, 21);
             this.box_combo_veterinario.TabIndex = 14;
-            this.box_combo_veterinario.SelectedIndexChanged += new System.EventHandler(this.box_combo_veterinario_SelectedIndexChanged);
             // 
             // box_combo_mascotas
             // 
@@ -431,35 +426,11 @@
             this.label_error_veterinario.Text = "*";
             this.label_error_veterinario.Visible = false;
             // 
-            // erase_veterinario
-            // 
-            this.erase_veterinario.BackColor = System.Drawing.Color.Transparent;
-            this.erase_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.eraser;
-            this.erase_veterinario.Location = new System.Drawing.Point(631, 143);
-            this.erase_veterinario.Name = "erase_veterinario";
-            this.erase_veterinario.Size = new System.Drawing.Size(16, 16);
-            this.erase_veterinario.TabIndex = 89;
-            this.erase_veterinario.TabStop = false;
-            this.erase_veterinario.Click += new System.EventHandler(this.erase_veterinario_Click);
-            // 
-            // erase_horas
-            // 
-            this.erase_horas.BackColor = System.Drawing.Color.Transparent;
-            this.erase_horas.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.eraser;
-            this.erase_horas.Location = new System.Drawing.Point(388, 56);
-            this.erase_horas.Name = "erase_horas";
-            this.erase_horas.Size = new System.Drawing.Size(16, 16);
-            this.erase_horas.TabIndex = 90;
-            this.erase_horas.TabStop = false;
-            this.erase_horas.Click += new System.EventHandler(this.erase_horas_Click);
-            // 
             // FormRecepcionistaConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 483);
-            this.Controls.Add(this.erase_horas);
-            this.Controls.Add(this.erase_veterinario);
             this.Controls.Add(this.label_error_veterinario);
             this.Controls.Add(this.label_error_mascota);
             this.Controls.Add(this.btn_buscar_cliente);
@@ -505,8 +476,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picture_consultas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_start)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erase_veterinario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erase_horas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -550,7 +519,5 @@
         public System.Windows.Forms.Button btn_buscar_cliente;
         public System.Windows.Forms.Label label_error_mascota;
         public System.Windows.Forms.Label label_error_veterinario;
-        public System.Windows.Forms.PictureBox erase_veterinario;
-        public System.Windows.Forms.PictureBox erase_horas;
     }
 }

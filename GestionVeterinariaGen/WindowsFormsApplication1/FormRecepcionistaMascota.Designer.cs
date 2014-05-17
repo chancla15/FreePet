@@ -35,9 +35,6 @@
             this.picture_clientes = new System.Windows.Forms.PictureBox();
             this.picture_consultas = new System.Windows.Forms.PictureBox();
             this.picture_start = new System.Windows.Forms.PictureBox();
-            this.panel_clientes_opcion = new System.Windows.Forms.Panel();
-            this.picture_cliente_opcion_mascota = new System.Windows.Forms.PictureBox();
-            this.picture_cliente_opcion_cliente = new System.Windows.Forms.PictureBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,7 +67,6 @@
             this.btn_anaydir = new System.Windows.Forms.PictureBox();
             this.btn_buscar_cliente = new System.Windows.Forms.PictureBox();
             this.text_especie = new System.Windows.Forms.TextBox();
-            this.btn_erase = new System.Windows.Forms.PictureBox();
             this.alerta_eliminar = new System.Windows.Forms.Panel();
             this.label_eliminar_box = new System.Windows.Forms.Label();
             this.btn_eliminar_no = new System.Windows.Forms.Button();
@@ -78,30 +74,39 @@
             this.consultaTableAdapter = new WindowsFormsApplication1.FormRecepcionistaMascota_DataSetTableAdapters.ConsultaTableAdapter();
             this.combo_nombreAnimal = new System.Windows.Forms.ComboBox();
             this.box_NombreAnimal = new System.Windows.Forms.Panel();
-            this.box_text_nombre_mascota = new System.Windows.Forms.TextBox();
-            this.box_label_nombre_mascota = new System.Windows.Forms.Label();
-            this.box_label_aceptar = new System.Windows.Forms.Label();
             this.box_label_cancelar = new System.Windows.Forms.Label();
+            this.box_label_aceptar = new System.Windows.Forms.Label();
+            this.box_label_nombre_mascota = new System.Windows.Forms.Label();
+            this.box_text_nombre_mascota = new System.Windows.Forms.TextBox();
             this.btn_add_NombreMascota = new System.Windows.Forms.PictureBox();
+            this.panel_clientes_opcion = new System.Windows.Forms.Panel();
+            this.picture_cliente_opcion_mascota = new System.Windows.Forms.PictureBox();
+            this.picture_cliente_opcion_cliente = new System.Windows.Forms.PictureBox();
+            this.error_nombre = new System.Windows.Forms.Label();
+            this.error_especie = new System.Windows.Forms.Label();
+            this.error_raza = new System.Windows.Forms.Label();
+            this.error_fechanac = new System.Windows.Forms.Label();
+            this.error_sexo = new System.Windows.Forms.Label();
+            this.error_tamanyo = new System.Windows.Forms.Label();
+            this.error_peso = new System.Windows.Forms.Label();
             this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_clientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_consultas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_start)).BeginInit();
-            this.panel_clientes_opcion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_mascota)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_cliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.consultaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaMascota_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_foto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_anaydir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_cliente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).BeginInit();
             this.alerta_eliminar.SuspendLayout();
             this.box_NombreAnimal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_add_NombreMascota)).BeginInit();
+            this.panel_clientes_opcion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_mascota)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_cliente)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_top
@@ -173,37 +178,6 @@
             this.picture_start.TabStop = false;
             this.picture_start.Click += new System.EventHandler(this.picture_start_Click);
             // 
-            // panel_clientes_opcion
-            // 
-            this.panel_clientes_opcion.BackColor = System.Drawing.Color.Transparent;
-            this.panel_clientes_opcion.Controls.Add(this.picture_cliente_opcion_mascota);
-            this.panel_clientes_opcion.Controls.Add(this.picture_cliente_opcion_cliente);
-            this.panel_clientes_opcion.Location = new System.Drawing.Point(-2, 34);
-            this.panel_clientes_opcion.Name = "panel_clientes_opcion";
-            this.panel_clientes_opcion.Size = new System.Drawing.Size(687, 32);
-            this.panel_clientes_opcion.TabIndex = 54;
-            this.panel_clientes_opcion.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_clientes_opcion_Paint);
-            // 
-            // picture_cliente_opcion_mascota
-            // 
-            this.picture_cliente_opcion_mascota.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.cliente_PerfilMascota;
-            this.picture_cliente_opcion_mascota.Location = new System.Drawing.Point(342, 0);
-            this.picture_cliente_opcion_mascota.Name = "picture_cliente_opcion_mascota";
-            this.picture_cliente_opcion_mascota.Size = new System.Drawing.Size(345, 32);
-            this.picture_cliente_opcion_mascota.TabIndex = 54;
-            this.picture_cliente_opcion_mascota.TabStop = false;
-            this.picture_cliente_opcion_mascota.Click += new System.EventHandler(this.picture_cliente_opcion_mascota_Click);
-            // 
-            // picture_cliente_opcion_cliente
-            // 
-            this.picture_cliente_opcion_cliente.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.cliente_PerfilCliente;
-            this.picture_cliente_opcion_cliente.Location = new System.Drawing.Point(3, 0);
-            this.picture_cliente_opcion_cliente.Name = "picture_cliente_opcion_cliente";
-            this.picture_cliente_opcion_cliente.Size = new System.Drawing.Size(345, 32);
-            this.picture_cliente_opcion_cliente.TabIndex = 0;
-            this.picture_cliente_opcion_cliente.TabStop = false;
-            this.picture_cliente_opcion_cliente.Click += new System.EventHandler(this.picture_cliente_opcion_cliente_Click);
-            // 
             // dataGridView
             // 
             this.dataGridView.AllowUserToAddRows = false;
@@ -223,7 +197,7 @@
             this.dataGridView.ReadOnly = true;
             this.dataGridView.Size = new System.Drawing.Size(658, 209);
             this.dataGridView.TabIndex = 55;
-            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // Fecha
             // 
@@ -487,17 +461,6 @@
             this.text_especie.Size = new System.Drawing.Size(118, 20);
             this.text_especie.TabIndex = 82;
             // 
-            // btn_erase
-            // 
-            this.btn_erase.BackColor = System.Drawing.Color.Transparent;
-            this.btn_erase.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.eraser;
-            this.btn_erase.Location = new System.Drawing.Point(357, 78);
-            this.btn_erase.Name = "btn_erase";
-            this.btn_erase.Size = new System.Drawing.Size(16, 16);
-            this.btn_erase.TabIndex = 84;
-            this.btn_erase.TabStop = false;
-            this.btn_erase.Click += new System.EventHandler(this.btn_erase_Click);
-            // 
             // alerta_eliminar
             // 
             this.alerta_eliminar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -560,39 +523,11 @@
             this.box_NombreAnimal.Controls.Add(this.box_label_aceptar);
             this.box_NombreAnimal.Controls.Add(this.box_label_nombre_mascota);
             this.box_NombreAnimal.Controls.Add(this.box_text_nombre_mascota);
-            this.box_NombreAnimal.Location = new System.Drawing.Point(224, 109);
+            this.box_NombreAnimal.Location = new System.Drawing.Point(250, 89);
             this.box_NombreAnimal.Name = "box_NombreAnimal";
             this.box_NombreAnimal.Size = new System.Drawing.Size(232, 78);
             this.box_NombreAnimal.TabIndex = 86;
             this.box_NombreAnimal.Visible = false;
-            // 
-            // box_text_nombre_mascota
-            // 
-            this.box_text_nombre_mascota.Location = new System.Drawing.Point(13, 27);
-            this.box_text_nombre_mascota.Name = "box_text_nombre_mascota";
-            this.box_text_nombre_mascota.Size = new System.Drawing.Size(204, 20);
-            this.box_text_nombre_mascota.TabIndex = 0;
-            // 
-            // box_label_nombre_mascota
-            // 
-            this.box_label_nombre_mascota.AutoSize = true;
-            this.box_label_nombre_mascota.BackColor = System.Drawing.Color.Transparent;
-            this.box_label_nombre_mascota.Location = new System.Drawing.Point(13, 8);
-            this.box_label_nombre_mascota.Name = "box_label_nombre_mascota";
-            this.box_label_nombre_mascota.Size = new System.Drawing.Size(176, 13);
-            this.box_label_nombre_mascota.TabIndex = 1;
-            this.box_label_nombre_mascota.Text = "Introduce un nombre para el animal:";
-            // 
-            // box_label_aceptar
-            // 
-            this.box_label_aceptar.AutoSize = true;
-            this.box_label_aceptar.BackColor = System.Drawing.Color.Transparent;
-            this.box_label_aceptar.Location = new System.Drawing.Point(173, 57);
-            this.box_label_aceptar.Name = "box_label_aceptar";
-            this.box_label_aceptar.Size = new System.Drawing.Size(44, 13);
-            this.box_label_aceptar.TabIndex = 2;
-            this.box_label_aceptar.Text = "Aceptar";
-            this.box_label_aceptar.Click += new System.EventHandler(this.box_label_aceptar_Click);
             // 
             // box_label_cancelar
             // 
@@ -605,6 +540,34 @@
             this.box_label_cancelar.Text = "Cancelar";
             this.box_label_cancelar.Click += new System.EventHandler(this.box_label_cancelar_Click);
             // 
+            // box_label_aceptar
+            // 
+            this.box_label_aceptar.AutoSize = true;
+            this.box_label_aceptar.BackColor = System.Drawing.Color.Transparent;
+            this.box_label_aceptar.Location = new System.Drawing.Point(173, 57);
+            this.box_label_aceptar.Name = "box_label_aceptar";
+            this.box_label_aceptar.Size = new System.Drawing.Size(44, 13);
+            this.box_label_aceptar.TabIndex = 2;
+            this.box_label_aceptar.Text = "Aceptar";
+            this.box_label_aceptar.Click += new System.EventHandler(this.box_label_aceptar_Click);
+            // 
+            // box_label_nombre_mascota
+            // 
+            this.box_label_nombre_mascota.AutoSize = true;
+            this.box_label_nombre_mascota.BackColor = System.Drawing.Color.Transparent;
+            this.box_label_nombre_mascota.Location = new System.Drawing.Point(13, 8);
+            this.box_label_nombre_mascota.Name = "box_label_nombre_mascota";
+            this.box_label_nombre_mascota.Size = new System.Drawing.Size(176, 13);
+            this.box_label_nombre_mascota.TabIndex = 1;
+            this.box_label_nombre_mascota.Text = "Introduce un nombre para el animal:";
+            // 
+            // box_text_nombre_mascota
+            // 
+            this.box_text_nombre_mascota.Location = new System.Drawing.Point(13, 27);
+            this.box_text_nombre_mascota.Name = "box_text_nombre_mascota";
+            this.box_text_nombre_mascota.Size = new System.Drawing.Size(204, 20);
+            this.box_text_nombre_mascota.TabIndex = 0;
+            // 
             // btn_add_NombreMascota
             // 
             this.btn_add_NombreMascota.BackColor = System.Drawing.Color.Transparent;
@@ -616,16 +579,131 @@
             this.btn_add_NombreMascota.TabStop = false;
             this.btn_add_NombreMascota.Click += new System.EventHandler(this.btn_add_NombreMascota_Click);
             // 
+            // panel_clientes_opcion
+            // 
+            this.panel_clientes_opcion.BackColor = System.Drawing.Color.Transparent;
+            this.panel_clientes_opcion.Controls.Add(this.picture_cliente_opcion_mascota);
+            this.panel_clientes_opcion.Controls.Add(this.picture_cliente_opcion_cliente);
+            this.panel_clientes_opcion.Location = new System.Drawing.Point(-2, 34);
+            this.panel_clientes_opcion.Name = "panel_clientes_opcion";
+            this.panel_clientes_opcion.Size = new System.Drawing.Size(690, 32);
+            this.panel_clientes_opcion.TabIndex = 88;
+            this.panel_clientes_opcion.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_clientes_opcion_Paint);
+            // 
+            // picture_cliente_opcion_mascota
+            // 
+            this.picture_cliente_opcion_mascota.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.cliente_PerfilMascota;
+            this.picture_cliente_opcion_mascota.Location = new System.Drawing.Point(345, 0);
+            this.picture_cliente_opcion_mascota.Name = "picture_cliente_opcion_mascota";
+            this.picture_cliente_opcion_mascota.Size = new System.Drawing.Size(345, 32);
+            this.picture_cliente_opcion_mascota.TabIndex = 54;
+            this.picture_cliente_opcion_mascota.TabStop = false;
+            this.picture_cliente_opcion_mascota.Click += new System.EventHandler(this.picture_cliente_opcion_mascota_Click);
+            // 
+            // picture_cliente_opcion_cliente
+            // 
+            this.picture_cliente_opcion_cliente.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.cliente_PerfilCliente;
+            this.picture_cliente_opcion_cliente.Location = new System.Drawing.Point(0, 0);
+            this.picture_cliente_opcion_cliente.Name = "picture_cliente_opcion_cliente";
+            this.picture_cliente_opcion_cliente.Size = new System.Drawing.Size(345, 32);
+            this.picture_cliente_opcion_cliente.TabIndex = 0;
+            this.picture_cliente_opcion_cliente.TabStop = false;
+            this.picture_cliente_opcion_cliente.Click += new System.EventHandler(this.picture_cliente_opcion_cliente_Click);
+            // 
+            // error_nombre
+            // 
+            this.error_nombre.AutoSize = true;
+            this.error_nombre.ForeColor = System.Drawing.Color.Red;
+            this.error_nombre.Location = new System.Drawing.Point(349, 113);
+            this.error_nombre.Name = "error_nombre";
+            this.error_nombre.Size = new System.Drawing.Size(11, 13);
+            this.error_nombre.TabIndex = 88;
+            this.error_nombre.Text = "*";
+            this.error_nombre.Visible = false;
+            // 
+            // error_especie
+            // 
+            this.error_especie.AutoSize = true;
+            this.error_especie.ForeColor = System.Drawing.Color.Red;
+            this.error_especie.Location = new System.Drawing.Point(324, 144);
+            this.error_especie.Name = "error_especie";
+            this.error_especie.Size = new System.Drawing.Size(11, 13);
+            this.error_especie.TabIndex = 89;
+            this.error_especie.Text = "*";
+            this.error_especie.Visible = false;
+            // 
+            // error_raza
+            // 
+            this.error_raza.AutoSize = true;
+            this.error_raza.ForeColor = System.Drawing.Color.Red;
+            this.error_raza.Location = new System.Drawing.Point(324, 179);
+            this.error_raza.Name = "error_raza";
+            this.error_raza.Size = new System.Drawing.Size(11, 13);
+            this.error_raza.TabIndex = 90;
+            this.error_raza.Text = "*";
+            this.error_raza.Visible = false;
+            // 
+            // error_fechanac
+            // 
+            this.error_fechanac.AutoSize = true;
+            this.error_fechanac.ForeColor = System.Drawing.Color.Red;
+            this.error_fechanac.Location = new System.Drawing.Point(211, 220);
+            this.error_fechanac.Name = "error_fechanac";
+            this.error_fechanac.Size = new System.Drawing.Size(11, 13);
+            this.error_fechanac.TabIndex = 91;
+            this.error_fechanac.Text = "*";
+            this.error_fechanac.Visible = false;
+            // 
+            // error_sexo
+            // 
+            this.error_sexo.AutoSize = true;
+            this.error_sexo.ForeColor = System.Drawing.Color.Red;
+            this.error_sexo.Location = new System.Drawing.Point(324, 220);
+            this.error_sexo.Name = "error_sexo";
+            this.error_sexo.Size = new System.Drawing.Size(11, 13);
+            this.error_sexo.TabIndex = 92;
+            this.error_sexo.Text = "*";
+            this.error_sexo.Visible = false;
+            // 
+            // error_tamanyo
+            // 
+            this.error_tamanyo.AutoSize = true;
+            this.error_tamanyo.ForeColor = System.Drawing.Color.Red;
+            this.error_tamanyo.Location = new System.Drawing.Point(473, 144);
+            this.error_tamanyo.Name = "error_tamanyo";
+            this.error_tamanyo.Size = new System.Drawing.Size(11, 13);
+            this.error_tamanyo.TabIndex = 88;
+            this.error_tamanyo.Text = "*";
+            this.error_tamanyo.Visible = false;
+            // 
+            // error_peso
+            // 
+            this.error_peso.AutoSize = true;
+            this.error_peso.ForeColor = System.Drawing.Color.Red;
+            this.error_peso.Location = new System.Drawing.Point(473, 179);
+            this.error_peso.Name = "error_peso";
+            this.error_peso.Size = new System.Drawing.Size(11, 13);
+            this.error_peso.TabIndex = 93;
+            this.error_peso.Text = "*";
+            this.error_peso.Visible = false;
+            // 
             // FormRecepcionistaMascota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(682, 483);
-            this.Controls.Add(this.btn_add_NombreMascota);
+            this.Controls.Add(this.error_peso);
+            this.Controls.Add(this.error_tamanyo);
+            this.Controls.Add(this.error_sexo);
+            this.Controls.Add(this.error_fechanac);
+            this.Controls.Add(this.error_raza);
+            this.Controls.Add(this.error_nombre);
+            this.Controls.Add(this.error_especie);
             this.Controls.Add(this.box_NombreAnimal);
+            this.Controls.Add(this.panel_clientes_opcion);
+            this.Controls.Add(this.btn_add_NombreMascota);
             this.Controls.Add(this.combo_nombreAnimal);
-            this.Controls.Add(this.btn_erase);
             this.Controls.Add(this.alerta_eliminar);
             this.Controls.Add(this.text_especie);
             this.Controls.Add(this.btn_buscar_cliente);
@@ -652,7 +730,6 @@
             this.Controls.Add(this.text_cliente);
             this.Controls.Add(this.label_cliente);
             this.Controls.Add(this.dataGridView);
-            this.Controls.Add(this.panel_clientes_opcion);
             this.Controls.Add(this.panel_top);
             this.Name = "FormRecepcionistaMascota";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -663,21 +740,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.picture_clientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_consultas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_start)).EndInit();
-            this.panel_clientes_opcion.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_mascota)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_cliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.consultaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaMascota_DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_foto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_anaydir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_cliente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).EndInit();
             this.alerta_eliminar.ResumeLayout(false);
             this.alerta_eliminar.PerformLayout();
             this.box_NombreAnimal.ResumeLayout(false);
             this.box_NombreAnimal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_add_NombreMascota)).EndInit();
+            this.panel_clientes_opcion.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_mascota)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_cliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -691,9 +767,6 @@
         public System.Windows.Forms.PictureBox picture_clientes;
         public System.Windows.Forms.PictureBox picture_consultas;
         public System.Windows.Forms.PictureBox picture_start;
-        public System.Windows.Forms.Panel panel_clientes_opcion;
-        public System.Windows.Forms.PictureBox picture_cliente_opcion_mascota;
-        public System.Windows.Forms.PictureBox picture_cliente_opcion_cliente;
         public System.Windows.Forms.DataGridView dataGridView;
         public FormRecepcionistaMascota_DataSet formRecepcionistaMascota_DataSet;
         public System.Windows.Forms.BindingSource consultaBindingSource;
@@ -722,7 +795,6 @@
         public System.Windows.Forms.PictureBox btn_anaydir;
         public System.Windows.Forms.PictureBox btn_buscar_cliente;
         public System.Windows.Forms.TextBox text_especie;
-        public System.Windows.Forms.PictureBox btn_erase;
         public System.Windows.Forms.Panel alerta_eliminar;
         public System.Windows.Forms.Label label_eliminar_box;
         public System.Windows.Forms.Button btn_eliminar_no;
@@ -737,7 +809,17 @@
         private System.Windows.Forms.Label box_label_cancelar;
         private System.Windows.Forms.Label box_label_aceptar;
         private System.Windows.Forms.Label box_label_nombre_mascota;
-        private System.Windows.Forms.TextBox box_text_nombre_mascota;
-        private System.Windows.Forms.PictureBox btn_add_NombreMascota;
+        public System.Windows.Forms.TextBox box_text_nombre_mascota;
+        public System.Windows.Forms.PictureBox btn_add_NombreMascota;
+        public System.Windows.Forms.Panel panel_clientes_opcion;
+        public System.Windows.Forms.PictureBox picture_cliente_opcion_mascota;
+        public System.Windows.Forms.PictureBox picture_cliente_opcion_cliente;
+        public System.Windows.Forms.Label error_nombre;
+        public System.Windows.Forms.Label error_especie;
+        public System.Windows.Forms.Label error_raza;
+        public System.Windows.Forms.Label error_fechanac;
+        public System.Windows.Forms.Label error_sexo;
+        public System.Windows.Forms.Label error_tamanyo;
+        public System.Windows.Forms.Label error_peso;
     }
 }

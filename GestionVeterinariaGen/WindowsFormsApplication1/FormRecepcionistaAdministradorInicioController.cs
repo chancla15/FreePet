@@ -297,21 +297,20 @@ namespace WindowsFormsApplication1
             ClienteEN cliEN = null;
             string cli = "";
 
-            if (form.dataGrid_clientes.Columns[ev.ColumnIndex].Name.Equals("Eliminar"))
-                action = Utils.State.DESTROY;
-            else if (form.dataGrid_clientes.Columns[ev.ColumnIndex].Name.Equals("Modificar"))
+            if (form.dataGrid_clientes.Columns[ev.ColumnIndex].Name.Equals("Ver"))
+            {
                 action = Utils.State.MODIFY;
-
-            if (action == Utils.State.DESTROY || action == Utils.State.MODIFY)
                 cli = form.dataGrid_clientes.Rows[ev.RowIndex].Cells[0].Value.ToString();
 
-            for (int i = 0; i < clientes_buscados.Count; i++)
-                if (cli.Equals(clientes_buscados[i].DNI))
-                {
-                    cliEN = clientes_buscados[i];
-                    break;
-                }
+                for (int i = 0; i < clientes_buscados.Count; i++)
+                    if (cli.Equals(clientes_buscados[i].DNI))
+                    {
+                        cliEN = clientes_buscados[i];
+                        break;
+                    }
+            }
 
+          
             return cliEN;
         }
 

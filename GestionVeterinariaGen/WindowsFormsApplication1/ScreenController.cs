@@ -8,24 +8,21 @@ namespace WindowsFormsApplication1
 {
     public abstract class ScreenController
     {
-        /** El ticket de sesion */
         public FormLoginDataSessionTicket sessionData = null;
-
-        /** El formulario donde se encuentra actualmente */
         public string FormActual = "";
 
-        public ScreenController(FormLoginDataSessionTicket ticket)
-        {
+        public ScreenController(FormLoginDataSessionTicket ticket) {
             sessionData = ticket;
         }
 
-
         //RECEPCIONISTA
         public abstract bool LaunchStartScreen();   //Tambien sirve para veterinario
-        public abstract bool LaunchClienteScreen(Utils.State s, ClienteEN c);
-        public abstract bool LaunchMascotaScreen(Utils.State s, ClienteEN c, MascotaEN m);
+        public abstract bool LaunchClienteScreen();
+        public abstract bool LaunchMascotaScreen(Utils.State s, MascotaEN m);
         public abstract bool LaunchConsultaScreen(Utils.State s, ConsultaEN c);
         public abstract bool LaunchFacturaScreen(Utils.State s, string f);
+
+        public abstract void CargarClienteCompartidoRecepcionista(ClienteEN c);
 
 
         //ADMINISTRADOR

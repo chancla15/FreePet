@@ -181,7 +181,7 @@ namespace WindowsFormsApplication1
          */
         private void picture_clientes_Click(object sender, EventArgs e)
         {
-            if (menu.LaunchClienteScreen(Utils.State.NONE, null))
+            if (menu.LaunchClienteScreen())
                 DesactivateForm();
         }
 
