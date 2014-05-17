@@ -65,7 +65,7 @@ namespace WindowsFormsApplication1
                 return log;
 
             empEN = Utils._IEmpleadoCAD.ReadOIDDefault(User);
-           // admin = Utils._IAdministradorCAD.ReadOIDDefault(User);
+            admin = Utils._IAdministradorCAD.ReadOIDDefault(User);
 
             if (empEN != null && Utils._EmpleadoCEN.Login(User, Pass))
             {
