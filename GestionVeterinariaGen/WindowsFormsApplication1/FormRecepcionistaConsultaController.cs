@@ -375,6 +375,7 @@ namespace WindowsFormsApplication1
             form.box_combo_hora.Items.Clear();
             form.box_combo_mascotas.SelectedItem = null;
             form.box_combo_mascotas.Items.Clear();
+            form.box_combo_veterinario.Text = "";
             form.box_combo_veterinario.SelectedItem = null;
             form.box_combo_veterinario.Items.Clear();
             form.treeViewConsultas.Nodes.Clear();
