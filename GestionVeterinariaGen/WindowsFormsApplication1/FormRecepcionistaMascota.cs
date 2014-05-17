@@ -29,15 +29,13 @@ namespace WindowsFormsApplication1
         {
             this.menu = menu;
             InitializeComponent();
-            controller = new FormRecepcionistaMascotaController(this);          
+            controller = new FormRecepcionistaMascotaController(this);
+            text_cliente.Enabled = false;
         }
 
         public void changeState(Utils.State st, MascotaEN msc)
         {
             state = st;
-
-            if(state!=Utils.State.NONE)
-                 text_cliente.Enabled = true;
 
             if(msc!=null)
                 controller.cargarDatosMascota(msc);
@@ -65,32 +63,23 @@ namespace WindowsFormsApplication1
 
         private void EnableForm(bool block)
         {
-            text_cliente.Enabled = block;
             text_especie.Enabled = block;
             text_raza.Enabled = block;
             dateTime_fnac.Enabled = block;
             combo_sexo.Enabled = block;
             btn_add_NombreMascota.Enabled = block;
+            text_color.Enabled = block;
+            combo_nombreAnimal.Enabled = block;
+            text_peso.Enabled = block;
+            combo_sexo.Enabled = block;
+            combo_tamanyo.Enabled = block;
+            combo_microchip.Enabled = block;
+            btn_anaydir.Enabled = block;
+            btn_buscar_cliente.Enabled = block;
+            dataGridView.Enabled = block;
+            //panel_clientes_opcion.Enabled = block;
+            panel_top.Enabled = block;
 
-            if (state == Utils.State.DESTROY)
-            {
-                text_color.Enabled = block;
-                combo_nombreAnimal.Enabled = block;
-                text_peso.Enabled = block;
-                combo_sexo.Enabled = block;
-                combo_tamanyo.Enabled = block;
-                combo_microchip.Enabled = block;
-                btn_anaydir.Enabled = block;
-                btn_buscar_cliente.Enabled = block;
-                dataGridView.Enabled = block;
-                panel_clientes_opcion.Enabled = block;
-                panel_top.Enabled = block;
-
-                alerta_eliminar.Visible = alerta_eliminar.Enabled = !block;
-                btn_eliminar_si.Visible = btn_eliminar_si.Enabled = !block;
-                btn_eliminar_no.Visible = btn_eliminar_no.Enabled = !block;
-                label_eliminar_box.Visible = label_eliminar_box.Enabled = !block;
-            }
         }
 
         #endregion
@@ -112,14 +101,27 @@ namespace WindowsFormsApplication1
 
         private void btn_buscar_cliente_Click(object sender, EventArgs e)
         {
-            if ((state == Utils.State.NONE || state == Utils.State.NEW) && menu.LaunchStartScreen())
+            if ((state == Utils.State.NONE || state == Utils.State.NEW || state == Utils.State.MODIFY) && menu.LaunchStartScreen())
                 DesactivateForm();
         }
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            state = Utils.State.DESTROY;
-            EnableForm(false);
+                if (MessageBox.Show("Seguro que desea eliminar a esta mascota", "Eliminar Mascota", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    state = Utils.State.DESTROY;
+                    EnableForm(true);
+                    controller.ProcesarInformacion();
+                    state = Utils.State.NONE;
+                    menu.CargarClienteCompartidoRecepcionista(null);
+                    controller.DevolverMascotaENComboBox();
+                }
+                else
+                {
+                    EnableForm(true);
+                    state = Utils.State.MODIFY;
+                }
+          
         }
 
         private void btn_eliminar_no_Click(object sender, EventArgs e)
@@ -173,7 +175,9 @@ namespace WindowsFormsApplication1
         }
 
         private void combo_nombreAnimal_SelectedIndexChanged(object sender, EventArgs e) {
-            changeState(Utils.State.MODIFY, controller.DevolverMascotaENComboBox());
+
+                changeState(Utils.State.MODIFY, controller.DevolverMascotaENComboBox());
+
         }
         
         #endregion
@@ -235,7 +239,7 @@ namespace WindowsFormsApplication1
 
         private void panel_clientes_opcion_Paint(object sender, PaintEventArgs e) {
             this.picture_cliente_opcion_mascota.BackColor = Color.White;
-            this.panel_clientes_opcion.BackColor = Color.LightCyan;
+            //this.panel_clientes_opcion.BackColor = Color.LightCyan;
         }
 
         private void picture_cliente_opcion_cliente_Click(object sender, EventArgs e){
@@ -248,5 +252,10 @@ namespace WindowsFormsApplication1
         }
 
         #endregion 
+
+        private void picture_foto_Click(object sender, EventArgs e)
+        {
+            controller.clickInPhoto();
+        }
     }
 }

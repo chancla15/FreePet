@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel_top = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.picture_ajustes = new System.Windows.Forms.PictureBox();
             this.picture_facturas = new System.Windows.Forms.PictureBox();
             this.picture_clientes = new System.Windows.Forms.PictureBox();
@@ -61,25 +66,20 @@
             this.combo_sexo = new System.Windows.Forms.ComboBox();
             this.label_microchip = new System.Windows.Forms.Label();
             this.combo_microchip = new System.Windows.Forms.ComboBox();
-            this.picture_foto = new System.Windows.Forms.PictureBox();
+            this.log_photo = new System.Windows.Forms.PictureBox();
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_anaydir = new System.Windows.Forms.PictureBox();
             this.btn_buscar_cliente = new System.Windows.Forms.PictureBox();
             this.text_especie = new System.Windows.Forms.TextBox();
-            this.alerta_eliminar = new System.Windows.Forms.Panel();
-            this.label_eliminar_box = new System.Windows.Forms.Label();
-            this.btn_eliminar_no = new System.Windows.Forms.Button();
-            this.btn_eliminar_si = new System.Windows.Forms.Button();
             this.consultaTableAdapter = new WindowsFormsApplication1.FormRecepcionistaMascota_DataSetTableAdapters.ConsultaTableAdapter();
             this.combo_nombreAnimal = new System.Windows.Forms.ComboBox();
             this.box_NombreAnimal = new System.Windows.Forms.Panel();
+            this.box_label_nombre_mascota = new System.Windows.Forms.Label();
             this.box_label_cancelar = new System.Windows.Forms.Label();
             this.box_label_aceptar = new System.Windows.Forms.Label();
-            this.box_label_nombre_mascota = new System.Windows.Forms.Label();
             this.box_text_nombre_mascota = new System.Windows.Forms.TextBox();
             this.btn_add_NombreMascota = new System.Windows.Forms.PictureBox();
-            this.panel_clientes_opcion = new System.Windows.Forms.Panel();
             this.picture_cliente_opcion_mascota = new System.Windows.Forms.PictureBox();
             this.picture_cliente_opcion_cliente = new System.Windows.Forms.PictureBox();
             this.error_nombre = new System.Windows.Forms.Label();
@@ -89,6 +89,7 @@
             this.error_sexo = new System.Windows.Forms.Label();
             this.error_tamanyo = new System.Windows.Forms.Label();
             this.error_peso = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).BeginInit();
@@ -98,13 +99,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.consultaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaMascota_DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_foto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_anaydir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_cliente)).BeginInit();
-            this.alerta_eliminar.SuspendLayout();
             this.box_NombreAnimal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_add_NombreMascota)).BeginInit();
-            this.panel_clientes_opcion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_mascota)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_cliente)).BeginInit();
             this.SuspendLayout();
@@ -112,6 +111,11 @@
             // panel_top
             // 
             this.panel_top.BackColor = System.Drawing.Color.Transparent;
+            this.panel_top.Controls.Add(this.label1);
+            this.panel_top.Controls.Add(this.label15);
+            this.panel_top.Controls.Add(this.label14);
+            this.panel_top.Controls.Add(this.label13);
+            this.panel_top.Controls.Add(this.label12);
             this.panel_top.Controls.Add(this.picture_ajustes);
             this.panel_top.Controls.Add(this.picture_facturas);
             this.panel_top.Controls.Add(this.picture_clientes);
@@ -119,14 +123,60 @@
             this.panel_top.Controls.Add(this.picture_start);
             this.panel_top.Location = new System.Drawing.Point(-2, 0);
             this.panel_top.Name = "panel_top";
-            this.panel_top.Size = new System.Drawing.Size(690, 34);
+            this.panel_top.Size = new System.Drawing.Size(676, 60);
             this.panel_top.TabIndex = 52;
             this.panel_top.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_top_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(166, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.TabIndex = 99;
+            this.label1.Text = "CONSULTAS";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(289, 37);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(110, 13);
+            this.label15.TabIndex = 98;
+            this.label15.Text = "GESTIÓN CLIENTES";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(44, 37);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(39, 13);
+            this.label14.TabIndex = 95;
+            this.label14.Text = "INICIO";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(453, 37);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(64, 13);
+            this.label13.TabIndex = 96;
+            this.label13.Text = "FACTURAS";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(603, 37);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 13);
+            this.label12.TabIndex = 97;
+            this.label12.Text = "  SALIR";
             // 
             // picture_ajustes
             // 
             this.picture_ajustes.BackColor = System.Drawing.Color.Transparent;
-            this.picture_ajustes.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.ajustes;
+            this.picture_ajustes.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.desconectar;
+            this.picture_ajustes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picture_ajustes.Location = new System.Drawing.Point(559, 0);
             this.picture_ajustes.Name = "picture_ajustes";
             this.picture_ajustes.Size = new System.Drawing.Size(128, 34);
@@ -159,7 +209,8 @@
             // picture_consultas
             // 
             this.picture_consultas.BackColor = System.Drawing.Color.Transparent;
-            this.picture_consultas.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.doctor;
+            this.picture_consultas.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.consulta;
+            this.picture_consultas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picture_consultas.Location = new System.Drawing.Point(140, 0);
             this.picture_consultas.Name = "picture_consultas";
             this.picture_consultas.Size = new System.Drawing.Size(128, 34);
@@ -170,7 +221,8 @@
             // picture_start
             // 
             this.picture_start.BackColor = System.Drawing.Color.Transparent;
-            this.picture_start.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.start;
+            this.picture_start.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.home;
+            this.picture_start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picture_start.Location = new System.Drawing.Point(0, 0);
             this.picture_start.Name = "picture_start";
             this.picture_start.Size = new System.Drawing.Size(128, 34);
@@ -183,8 +235,8 @@
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AutoGenerateColumns = false;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Fecha,
             this.Motivo,
@@ -192,10 +244,11 @@
             this.Veterinario,
             this.Ver});
             this.dataGridView.DataSource = this.consultaBindingSource;
-            this.dataGridView.Location = new System.Drawing.Point(12, 262);
+            this.dataGridView.Location = new System.Drawing.Point(12, 300);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
-            this.dataGridView.Size = new System.Drawing.Size(658, 209);
+            this.dataGridView.RowHeadersVisible = false;
+            this.dataGridView.Size = new System.Drawing.Size(658, 171);
             this.dataGridView.TabIndex = 55;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -247,7 +300,7 @@
             // 
             this.label_cliente.AutoSize = true;
             this.label_cliente.BackColor = System.Drawing.Color.Transparent;
-            this.label_cliente.Location = new System.Drawing.Point(119, 81);
+            this.label_cliente.Location = new System.Drawing.Point(119, 113);
             this.label_cliente.Name = "label_cliente";
             this.label_cliente.Size = new System.Drawing.Size(39, 13);
             this.label_cliente.TabIndex = 56;
@@ -255,7 +308,7 @@
             // 
             // text_cliente
             // 
-            this.text_cliente.Location = new System.Drawing.Point(203, 78);
+            this.text_cliente.Location = new System.Drawing.Point(203, 110);
             this.text_cliente.Name = "text_cliente";
             this.text_cliente.Size = new System.Drawing.Size(118, 20);
             this.text_cliente.TabIndex = 57;
@@ -264,7 +317,7 @@
             // 
             this.label_nombre.AutoSize = true;
             this.label_nombre.BackColor = System.Drawing.Color.Transparent;
-            this.label_nombre.Location = new System.Drawing.Point(119, 117);
+            this.label_nombre.Location = new System.Drawing.Point(119, 149);
             this.label_nombre.Name = "label_nombre";
             this.label_nombre.Size = new System.Drawing.Size(44, 13);
             this.label_nombre.TabIndex = 58;
@@ -274,7 +327,7 @@
             // 
             this.label_especie.AutoSize = true;
             this.label_especie.BackColor = System.Drawing.Color.Transparent;
-            this.label_especie.Location = new System.Drawing.Point(119, 147);
+            this.label_especie.Location = new System.Drawing.Point(119, 179);
             this.label_especie.Name = "label_especie";
             this.label_especie.Size = new System.Drawing.Size(45, 13);
             this.label_especie.TabIndex = 60;
@@ -284,7 +337,7 @@
             // 
             this.label_raza.AutoSize = true;
             this.label_raza.BackColor = System.Drawing.Color.Transparent;
-            this.label_raza.Location = new System.Drawing.Point(119, 182);
+            this.label_raza.Location = new System.Drawing.Point(119, 214);
             this.label_raza.Name = "label_raza";
             this.label_raza.Size = new System.Drawing.Size(32, 13);
             this.label_raza.TabIndex = 61;
@@ -294,7 +347,7 @@
             // 
             this.label_fechanac.AutoSize = true;
             this.label_fechanac.BackColor = System.Drawing.Color.Transparent;
-            this.label_fechanac.Location = new System.Drawing.Point(12, 220);
+            this.label_fechanac.Location = new System.Drawing.Point(9, 252);
             this.label_fechanac.Name = "label_fechanac";
             this.label_fechanac.Size = new System.Drawing.Size(69, 13);
             this.label_fechanac.TabIndex = 62;
@@ -302,14 +355,14 @@
             // 
             // text_raza
             // 
-            this.text_raza.Location = new System.Drawing.Point(203, 176);
+            this.text_raza.Location = new System.Drawing.Point(203, 208);
             this.text_raza.Name = "text_raza";
             this.text_raza.Size = new System.Drawing.Size(118, 20);
             this.text_raza.TabIndex = 63;
             // 
             // dateTime_fnac
             // 
-            this.dateTime_fnac.Location = new System.Drawing.Point(87, 217);
+            this.dateTime_fnac.Location = new System.Drawing.Point(87, 249);
             this.dateTime_fnac.Name = "dateTime_fnac";
             this.dateTime_fnac.Size = new System.Drawing.Size(118, 20);
             this.dateTime_fnac.TabIndex = 64;
@@ -318,7 +371,7 @@
             // 
             this.label_sexo.AutoSize = true;
             this.label_sexo.BackColor = System.Drawing.Color.Transparent;
-            this.label_sexo.Location = new System.Drawing.Point(221, 220);
+            this.label_sexo.Location = new System.Drawing.Point(221, 252);
             this.label_sexo.Name = "label_sexo";
             this.label_sexo.Size = new System.Drawing.Size(31, 13);
             this.label_sexo.TabIndex = 66;
@@ -328,7 +381,7 @@
             // 
             this.label_color.AutoSize = true;
             this.label_color.BackColor = System.Drawing.Color.Transparent;
-            this.label_color.Location = new System.Drawing.Point(337, 219);
+            this.label_color.Location = new System.Drawing.Point(337, 251);
             this.label_color.Name = "label_color";
             this.label_color.Size = new System.Drawing.Size(31, 13);
             this.label_color.TabIndex = 67;
@@ -338,7 +391,7 @@
             // 
             this.label_peso.AutoSize = true;
             this.label_peso.BackColor = System.Drawing.Color.Transparent;
-            this.label_peso.Location = new System.Drawing.Point(337, 179);
+            this.label_peso.Location = new System.Drawing.Point(337, 211);
             this.label_peso.Name = "label_peso";
             this.label_peso.Size = new System.Drawing.Size(31, 13);
             this.label_peso.TabIndex = 68;
@@ -348,7 +401,7 @@
             // 
             this.label_tamayo.AutoSize = true;
             this.label_tamayo.BackColor = System.Drawing.Color.Transparent;
-            this.label_tamayo.Location = new System.Drawing.Point(337, 144);
+            this.label_tamayo.Location = new System.Drawing.Point(337, 176);
             this.label_tamayo.Name = "label_tamayo";
             this.label_tamayo.Size = new System.Drawing.Size(46, 13);
             this.label_tamayo.TabIndex = 69;
@@ -356,14 +409,14 @@
             // 
             // text_color
             // 
-            this.text_color.Location = new System.Drawing.Point(399, 215);
+            this.text_color.Location = new System.Drawing.Point(399, 247);
             this.text_color.Name = "text_color";
             this.text_color.Size = new System.Drawing.Size(68, 20);
             this.text_color.TabIndex = 70;
             // 
             // text_peso
             // 
-            this.text_peso.Location = new System.Drawing.Point(399, 176);
+            this.text_peso.Location = new System.Drawing.Point(399, 208);
             this.text_peso.Name = "text_peso";
             this.text_peso.Size = new System.Drawing.Size(68, 20);
             this.text_peso.TabIndex = 71;
@@ -371,7 +424,7 @@
             // combo_tamanyo
             // 
             this.combo_tamanyo.FormattingEnabled = true;
-            this.combo_tamanyo.Location = new System.Drawing.Point(399, 142);
+            this.combo_tamanyo.Location = new System.Drawing.Point(399, 174);
             this.combo_tamanyo.Name = "combo_tamanyo";
             this.combo_tamanyo.Size = new System.Drawing.Size(68, 21);
             this.combo_tamanyo.TabIndex = 72;
@@ -379,7 +432,7 @@
             // combo_sexo
             // 
             this.combo_sexo.FormattingEnabled = true;
-            this.combo_sexo.Location = new System.Drawing.Point(258, 216);
+            this.combo_sexo.Location = new System.Drawing.Point(258, 248);
             this.combo_sexo.Name = "combo_sexo";
             this.combo_sexo.Size = new System.Drawing.Size(63, 21);
             this.combo_sexo.TabIndex = 73;
@@ -388,7 +441,7 @@
             // 
             this.label_microchip.AutoSize = true;
             this.label_microchip.BackColor = System.Drawing.Color.Transparent;
-            this.label_microchip.Location = new System.Drawing.Point(493, 219);
+            this.label_microchip.Location = new System.Drawing.Point(493, 251);
             this.label_microchip.Name = "label_microchip";
             this.label_microchip.Size = new System.Drawing.Size(53, 13);
             this.label_microchip.TabIndex = 74;
@@ -397,24 +450,27 @@
             // combo_microchip
             // 
             this.combo_microchip.FormattingEnabled = true;
-            this.combo_microchip.Location = new System.Drawing.Point(557, 217);
+            this.combo_microchip.Location = new System.Drawing.Point(557, 249);
             this.combo_microchip.Name = "combo_microchip";
             this.combo_microchip.Size = new System.Drawing.Size(49, 21);
             this.combo_microchip.TabIndex = 75;
             // 
-            // picture_foto
+            // log_photo
             // 
-            this.picture_foto.BackColor = System.Drawing.Color.Transparent;
-            this.picture_foto.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.sinFotoa;
-            this.picture_foto.Location = new System.Drawing.Point(12, 81);
-            this.picture_foto.Name = "picture_foto";
-            this.picture_foto.Size = new System.Drawing.Size(101, 124);
-            this.picture_foto.TabIndex = 76;
-            this.picture_foto.TabStop = false;
+            this.log_photo.BackColor = System.Drawing.Color.Transparent;
+            this.log_photo.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.sinFotoa;
+            this.log_photo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.log_photo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.log_photo.Location = new System.Drawing.Point(12, 113);
+            this.log_photo.Name = "log_photo";
+            this.log_photo.Size = new System.Drawing.Size(94, 120);
+            this.log_photo.TabIndex = 76;
+            this.log_photo.TabStop = false;
+            this.log_photo.Click += new System.EventHandler(this.picture_foto_Click);
             // 
             // btn_eliminar
             // 
-            this.btn_eliminar.Location = new System.Drawing.Point(595, 144);
+            this.btn_eliminar.Location = new System.Drawing.Point(595, 176);
             this.btn_eliminar.Name = "btn_eliminar";
             this.btn_eliminar.Size = new System.Drawing.Size(75, 23);
             this.btn_eliminar.TabIndex = 79;
@@ -424,7 +480,7 @@
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(595, 109);
+            this.btn_guardar.Location = new System.Drawing.Point(595, 141);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(75, 23);
             this.btn_guardar.TabIndex = 78;
@@ -436,7 +492,7 @@
             // 
             this.btn_anaydir.BackColor = System.Drawing.Color.Transparent;
             this.btn_anaydir.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add;
-            this.btn_anaydir.Location = new System.Drawing.Point(654, 240);
+            this.btn_anaydir.Location = new System.Drawing.Point(654, 278);
             this.btn_anaydir.Name = "btn_anaydir";
             this.btn_anaydir.Size = new System.Drawing.Size(16, 16);
             this.btn_anaydir.TabIndex = 80;
@@ -447,7 +503,7 @@
             // 
             this.btn_buscar_cliente.BackColor = System.Drawing.Color.Transparent;
             this.btn_buscar_cliente.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.btn_buscar_id;
-            this.btn_buscar_cliente.Location = new System.Drawing.Point(327, 78);
+            this.btn_buscar_cliente.Location = new System.Drawing.Point(327, 110);
             this.btn_buscar_cliente.Name = "btn_buscar_cliente";
             this.btn_buscar_cliente.Size = new System.Drawing.Size(16, 16);
             this.btn_buscar_cliente.TabIndex = 81;
@@ -456,52 +512,10 @@
             // 
             // text_especie
             // 
-            this.text_especie.Location = new System.Drawing.Point(203, 142);
+            this.text_especie.Location = new System.Drawing.Point(203, 174);
             this.text_especie.Name = "text_especie";
             this.text_especie.Size = new System.Drawing.Size(118, 20);
             this.text_especie.TabIndex = 82;
-            // 
-            // alerta_eliminar
-            // 
-            this.alerta_eliminar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.alerta_eliminar.Controls.Add(this.label_eliminar_box);
-            this.alerta_eliminar.Controls.Add(this.btn_eliminar_no);
-            this.alerta_eliminar.Controls.Add(this.btn_eliminar_si);
-            this.alerta_eliminar.Location = new System.Drawing.Point(389, 69);
-            this.alerta_eliminar.Name = "alerta_eliminar";
-            this.alerta_eliminar.Size = new System.Drawing.Size(200, 67);
-            this.alerta_eliminar.TabIndex = 83;
-            this.alerta_eliminar.Visible = false;
-            // 
-            // label_eliminar_box
-            // 
-            this.label_eliminar_box.AutoSize = true;
-            this.label_eliminar_box.Location = new System.Drawing.Point(3, 16);
-            this.label_eliminar_box.Name = "label_eliminar_box";
-            this.label_eliminar_box.Size = new System.Drawing.Size(89, 13);
-            this.label_eliminar_box.TabIndex = 2;
-            this.label_eliminar_box.Text = "¿Eliminar Animal?";
-            this.label_eliminar_box.Visible = false;
-            // 
-            // btn_eliminar_no
-            // 
-            this.btn_eliminar_no.Location = new System.Drawing.Point(104, 35);
-            this.btn_eliminar_no.Name = "btn_eliminar_no";
-            this.btn_eliminar_no.Size = new System.Drawing.Size(41, 23);
-            this.btn_eliminar_no.TabIndex = 1;
-            this.btn_eliminar_no.Text = "No";
-            this.btn_eliminar_no.UseVisualStyleBackColor = true;
-            this.btn_eliminar_no.Click += new System.EventHandler(this.btn_eliminar_no_Click);
-            // 
-            // btn_eliminar_si
-            // 
-            this.btn_eliminar_si.Location = new System.Drawing.Point(151, 35);
-            this.btn_eliminar_si.Name = "btn_eliminar_si";
-            this.btn_eliminar_si.Size = new System.Drawing.Size(38, 23);
-            this.btn_eliminar_si.TabIndex = 0;
-            this.btn_eliminar_si.Text = "Si";
-            this.btn_eliminar_si.UseVisualStyleBackColor = true;
-            this.btn_eliminar_si.Click += new System.EventHandler(this.btn_eliminar_si_Click);
             // 
             // consultaTableAdapter
             // 
@@ -510,7 +524,7 @@
             // combo_nombreAnimal
             // 
             this.combo_nombreAnimal.FormattingEnabled = true;
-            this.combo_nombreAnimal.Location = new System.Drawing.Point(203, 110);
+            this.combo_nombreAnimal.Location = new System.Drawing.Point(203, 142);
             this.combo_nombreAnimal.Name = "combo_nombreAnimal";
             this.combo_nombreAnimal.Size = new System.Drawing.Size(121, 21);
             this.combo_nombreAnimal.TabIndex = 85;
@@ -519,21 +533,31 @@
             // box_NombreAnimal
             // 
             this.box_NombreAnimal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.box_NombreAnimal.Controls.Add(this.box_label_nombre_mascota);
             this.box_NombreAnimal.Controls.Add(this.box_label_cancelar);
             this.box_NombreAnimal.Controls.Add(this.box_label_aceptar);
-            this.box_NombreAnimal.Controls.Add(this.box_label_nombre_mascota);
             this.box_NombreAnimal.Controls.Add(this.box_text_nombre_mascota);
-            this.box_NombreAnimal.Location = new System.Drawing.Point(250, 89);
+            this.box_NombreAnimal.Location = new System.Drawing.Point(366, 99);
             this.box_NombreAnimal.Name = "box_NombreAnimal";
-            this.box_NombreAnimal.Size = new System.Drawing.Size(232, 78);
+            this.box_NombreAnimal.Size = new System.Drawing.Size(207, 69);
             this.box_NombreAnimal.TabIndex = 86;
             this.box_NombreAnimal.Visible = false;
+            // 
+            // box_label_nombre_mascota
+            // 
+            this.box_label_nombre_mascota.AutoSize = true;
+            this.box_label_nombre_mascota.BackColor = System.Drawing.Color.Transparent;
+            this.box_label_nombre_mascota.Location = new System.Drawing.Point(15, 8);
+            this.box_label_nombre_mascota.Name = "box_label_nombre_mascota";
+            this.box_label_nombre_mascota.Size = new System.Drawing.Size(176, 13);
+            this.box_label_nombre_mascota.TabIndex = 1;
+            this.box_label_nombre_mascota.Text = "Introduce un nombre para el animal:";
             // 
             // box_label_cancelar
             // 
             this.box_label_cancelar.AutoSize = true;
             this.box_label_cancelar.BackColor = System.Drawing.Color.Transparent;
-            this.box_label_cancelar.Location = new System.Drawing.Point(10, 57);
+            this.box_label_cancelar.Location = new System.Drawing.Point(18, 47);
             this.box_label_cancelar.Name = "box_label_cancelar";
             this.box_label_cancelar.Size = new System.Drawing.Size(49, 13);
             this.box_label_cancelar.TabIndex = 3;
@@ -544,58 +568,37 @@
             // 
             this.box_label_aceptar.AutoSize = true;
             this.box_label_aceptar.BackColor = System.Drawing.Color.Transparent;
-            this.box_label_aceptar.Location = new System.Drawing.Point(173, 57);
+            this.box_label_aceptar.Location = new System.Drawing.Point(140, 47);
             this.box_label_aceptar.Name = "box_label_aceptar";
             this.box_label_aceptar.Size = new System.Drawing.Size(44, 13);
             this.box_label_aceptar.TabIndex = 2;
             this.box_label_aceptar.Text = "Aceptar";
             this.box_label_aceptar.Click += new System.EventHandler(this.box_label_aceptar_Click);
             // 
-            // box_label_nombre_mascota
-            // 
-            this.box_label_nombre_mascota.AutoSize = true;
-            this.box_label_nombre_mascota.BackColor = System.Drawing.Color.Transparent;
-            this.box_label_nombre_mascota.Location = new System.Drawing.Point(13, 8);
-            this.box_label_nombre_mascota.Name = "box_label_nombre_mascota";
-            this.box_label_nombre_mascota.Size = new System.Drawing.Size(176, 13);
-            this.box_label_nombre_mascota.TabIndex = 1;
-            this.box_label_nombre_mascota.Text = "Introduce un nombre para el animal:";
-            // 
             // box_text_nombre_mascota
             // 
-            this.box_text_nombre_mascota.Location = new System.Drawing.Point(13, 27);
+            this.box_text_nombre_mascota.Location = new System.Drawing.Point(18, 24);
             this.box_text_nombre_mascota.Name = "box_text_nombre_mascota";
-            this.box_text_nombre_mascota.Size = new System.Drawing.Size(204, 20);
+            this.box_text_nombre_mascota.Size = new System.Drawing.Size(166, 20);
             this.box_text_nombre_mascota.TabIndex = 0;
             // 
             // btn_add_NombreMascota
             // 
             this.btn_add_NombreMascota.BackColor = System.Drawing.Color.Transparent;
             this.btn_add_NombreMascota.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add;
-            this.btn_add_NombreMascota.Location = new System.Drawing.Point(327, 112);
+            this.btn_add_NombreMascota.Location = new System.Drawing.Point(327, 144);
             this.btn_add_NombreMascota.Name = "btn_add_NombreMascota";
             this.btn_add_NombreMascota.Size = new System.Drawing.Size(16, 16);
             this.btn_add_NombreMascota.TabIndex = 87;
             this.btn_add_NombreMascota.TabStop = false;
             this.btn_add_NombreMascota.Click += new System.EventHandler(this.btn_add_NombreMascota_Click);
             // 
-            // panel_clientes_opcion
-            // 
-            this.panel_clientes_opcion.BackColor = System.Drawing.Color.Transparent;
-            this.panel_clientes_opcion.Controls.Add(this.picture_cliente_opcion_mascota);
-            this.panel_clientes_opcion.Controls.Add(this.picture_cliente_opcion_cliente);
-            this.panel_clientes_opcion.Location = new System.Drawing.Point(-2, 34);
-            this.panel_clientes_opcion.Name = "panel_clientes_opcion";
-            this.panel_clientes_opcion.Size = new System.Drawing.Size(690, 32);
-            this.panel_clientes_opcion.TabIndex = 88;
-            this.panel_clientes_opcion.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_clientes_opcion_Paint);
-            // 
             // picture_cliente_opcion_mascota
             // 
             this.picture_cliente_opcion_mascota.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.cliente_PerfilMascota;
-            this.picture_cliente_opcion_mascota.Location = new System.Drawing.Point(345, 0);
+            this.picture_cliente_opcion_mascota.Location = new System.Drawing.Point(340, 53);
             this.picture_cliente_opcion_mascota.Name = "picture_cliente_opcion_mascota";
-            this.picture_cliente_opcion_mascota.Size = new System.Drawing.Size(345, 32);
+            this.picture_cliente_opcion_mascota.Size = new System.Drawing.Size(345, 34);
             this.picture_cliente_opcion_mascota.TabIndex = 54;
             this.picture_cliente_opcion_mascota.TabStop = false;
             this.picture_cliente_opcion_mascota.Click += new System.EventHandler(this.picture_cliente_opcion_mascota_Click);
@@ -603,9 +606,10 @@
             // picture_cliente_opcion_cliente
             // 
             this.picture_cliente_opcion_cliente.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.cliente_PerfilCliente;
-            this.picture_cliente_opcion_cliente.Location = new System.Drawing.Point(0, 0);
+            this.picture_cliente_opcion_cliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_cliente_opcion_cliente.Location = new System.Drawing.Point(-2, 53);
             this.picture_cliente_opcion_cliente.Name = "picture_cliente_opcion_cliente";
-            this.picture_cliente_opcion_cliente.Size = new System.Drawing.Size(345, 32);
+            this.picture_cliente_opcion_cliente.Size = new System.Drawing.Size(345, 34);
             this.picture_cliente_opcion_cliente.TabIndex = 0;
             this.picture_cliente_opcion_cliente.TabStop = false;
             this.picture_cliente_opcion_cliente.Click += new System.EventHandler(this.picture_cliente_opcion_cliente_Click);
@@ -614,7 +618,7 @@
             // 
             this.error_nombre.AutoSize = true;
             this.error_nombre.ForeColor = System.Drawing.Color.Red;
-            this.error_nombre.Location = new System.Drawing.Point(349, 113);
+            this.error_nombre.Location = new System.Drawing.Point(349, 145);
             this.error_nombre.Name = "error_nombre";
             this.error_nombre.Size = new System.Drawing.Size(11, 13);
             this.error_nombre.TabIndex = 88;
@@ -625,7 +629,7 @@
             // 
             this.error_especie.AutoSize = true;
             this.error_especie.ForeColor = System.Drawing.Color.Red;
-            this.error_especie.Location = new System.Drawing.Point(324, 144);
+            this.error_especie.Location = new System.Drawing.Point(324, 176);
             this.error_especie.Name = "error_especie";
             this.error_especie.Size = new System.Drawing.Size(11, 13);
             this.error_especie.TabIndex = 89;
@@ -636,7 +640,7 @@
             // 
             this.error_raza.AutoSize = true;
             this.error_raza.ForeColor = System.Drawing.Color.Red;
-            this.error_raza.Location = new System.Drawing.Point(324, 179);
+            this.error_raza.Location = new System.Drawing.Point(324, 211);
             this.error_raza.Name = "error_raza";
             this.error_raza.Size = new System.Drawing.Size(11, 13);
             this.error_raza.TabIndex = 90;
@@ -647,7 +651,7 @@
             // 
             this.error_fechanac.AutoSize = true;
             this.error_fechanac.ForeColor = System.Drawing.Color.Red;
-            this.error_fechanac.Location = new System.Drawing.Point(211, 220);
+            this.error_fechanac.Location = new System.Drawing.Point(211, 252);
             this.error_fechanac.Name = "error_fechanac";
             this.error_fechanac.Size = new System.Drawing.Size(11, 13);
             this.error_fechanac.TabIndex = 91;
@@ -658,7 +662,7 @@
             // 
             this.error_sexo.AutoSize = true;
             this.error_sexo.ForeColor = System.Drawing.Color.Red;
-            this.error_sexo.Location = new System.Drawing.Point(324, 220);
+            this.error_sexo.Location = new System.Drawing.Point(324, 252);
             this.error_sexo.Name = "error_sexo";
             this.error_sexo.Size = new System.Drawing.Size(11, 13);
             this.error_sexo.TabIndex = 92;
@@ -669,7 +673,7 @@
             // 
             this.error_tamanyo.AutoSize = true;
             this.error_tamanyo.ForeColor = System.Drawing.Color.Red;
-            this.error_tamanyo.Location = new System.Drawing.Point(473, 144);
+            this.error_tamanyo.Location = new System.Drawing.Point(473, 176);
             this.error_tamanyo.Name = "error_tamanyo";
             this.error_tamanyo.Size = new System.Drawing.Size(11, 13);
             this.error_tamanyo.TabIndex = 88;
@@ -680,37 +684,41 @@
             // 
             this.error_peso.AutoSize = true;
             this.error_peso.ForeColor = System.Drawing.Color.Red;
-            this.error_peso.Location = new System.Drawing.Point(473, 179);
+            this.error_peso.Location = new System.Drawing.Point(473, 211);
             this.error_peso.Name = "error_peso";
             this.error_peso.Size = new System.Drawing.Size(11, 13);
             this.error_peso.TabIndex = 93;
             this.error_peso.Text = "*";
             this.error_peso.Visible = false;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // FormRecepcionistaMascota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(682, 483);
+            this.ClientSize = new System.Drawing.Size(674, 471);
+            this.Controls.Add(this.box_NombreAnimal);
             this.Controls.Add(this.error_peso);
+            this.Controls.Add(this.picture_cliente_opcion_cliente);
             this.Controls.Add(this.error_tamanyo);
+            this.Controls.Add(this.picture_cliente_opcion_mascota);
             this.Controls.Add(this.error_sexo);
             this.Controls.Add(this.error_fechanac);
             this.Controls.Add(this.error_raza);
             this.Controls.Add(this.error_nombre);
             this.Controls.Add(this.error_especie);
-            this.Controls.Add(this.box_NombreAnimal);
-            this.Controls.Add(this.panel_clientes_opcion);
             this.Controls.Add(this.btn_add_NombreMascota);
             this.Controls.Add(this.combo_nombreAnimal);
-            this.Controls.Add(this.alerta_eliminar);
             this.Controls.Add(this.text_especie);
             this.Controls.Add(this.btn_buscar_cliente);
             this.Controls.Add(this.btn_anaydir);
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.btn_guardar);
-            this.Controls.Add(this.picture_foto);
+            this.Controls.Add(this.log_photo);
             this.Controls.Add(this.combo_microchip);
             this.Controls.Add(this.label_microchip);
             this.Controls.Add(this.combo_sexo);
@@ -732,9 +740,11 @@
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.panel_top);
             this.Name = "FormRecepcionistaMascota";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Clientes Mascotas";
+            this.Text = "Mascotas";
             this.panel_top.ResumeLayout(false);
+            this.panel_top.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_clientes)).EndInit();
@@ -743,15 +753,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.consultaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaMascota_DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_foto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.log_photo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_anaydir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_cliente)).EndInit();
-            this.alerta_eliminar.ResumeLayout(false);
-            this.alerta_eliminar.PerformLayout();
             this.box_NombreAnimal.ResumeLayout(false);
             this.box_NombreAnimal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_add_NombreMascota)).EndInit();
-            this.panel_clientes_opcion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_mascota)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_cliente_opcion_cliente)).EndInit();
             this.ResumeLayout(false);
@@ -789,16 +796,12 @@
         public System.Windows.Forms.ComboBox combo_sexo;
         public System.Windows.Forms.Label label_microchip;
         public System.Windows.Forms.ComboBox combo_microchip;
-        public System.Windows.Forms.PictureBox picture_foto;
+        public System.Windows.Forms.PictureBox log_photo;
         public System.Windows.Forms.Button btn_eliminar;
         public System.Windows.Forms.Button btn_guardar;
         public System.Windows.Forms.PictureBox btn_anaydir;
         public System.Windows.Forms.PictureBox btn_buscar_cliente;
         public System.Windows.Forms.TextBox text_especie;
-        public System.Windows.Forms.Panel alerta_eliminar;
-        public System.Windows.Forms.Label label_eliminar_box;
-        public System.Windows.Forms.Button btn_eliminar_no;
-        public System.Windows.Forms.Button btn_eliminar_si;
         public System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         public System.Windows.Forms.DataGridViewTextBoxColumn Motivo;
         public System.Windows.Forms.DataGridViewTextBoxColumn Lugar;
@@ -811,7 +814,6 @@
         private System.Windows.Forms.Label box_label_nombre_mascota;
         public System.Windows.Forms.TextBox box_text_nombre_mascota;
         public System.Windows.Forms.PictureBox btn_add_NombreMascota;
-        public System.Windows.Forms.Panel panel_clientes_opcion;
         public System.Windows.Forms.PictureBox picture_cliente_opcion_mascota;
         public System.Windows.Forms.PictureBox picture_cliente_opcion_cliente;
         public System.Windows.Forms.Label error_nombre;
@@ -821,5 +823,11 @@
         public System.Windows.Forms.Label error_sexo;
         public System.Windows.Forms.Label error_tamanyo;
         public System.Windows.Forms.Label error_peso;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        public System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
