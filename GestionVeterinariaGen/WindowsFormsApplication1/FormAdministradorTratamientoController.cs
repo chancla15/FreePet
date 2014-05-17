@@ -17,24 +17,14 @@ namespace WindowsFormsApplication1
     {
         #region Variables
 
-        /** El formulario a controlar */
         private FormAdministradorTratamiento form;
-
-        /** la lista de mascotas buscadas */
         private IList<TratamientoEN> lista_tratamientoTotal = null;
-
-        /** El cliente actual en el formulario */
         public TratamientoEN tratamientoEN = null;
 
         #endregion
 
         #region Constructor
 
-        /**
-         * Constructor de clase
-         * @param sesion el ticket de sesion
-         * @param form el formulario
-         */
         public FormAdministradorTratamientoController(FormAdministradorTratamiento form)
         {
             this.form = form;
@@ -47,9 +37,6 @@ namespace WindowsFormsApplication1
 
         #region Busquedas
 
-        /**
-         * Para buscar mascotas del cliente
-         */
         public void Buscar()
         {
             string id = form.text_nombre.Text;
@@ -114,10 +101,7 @@ namespace WindowsFormsApplication1
 
         #region ProcesarDatos
 
-        /**
-         * Carga un cliente en los text_view
-         */
-        public void loadData(TratamientoEN tratamiento)
+        public void cargarDatosTratamiento(TratamientoEN tratamiento)
         {
             tratamientoEN = tratamiento;
 
@@ -150,9 +134,6 @@ namespace WindowsFormsApplication1
             }
         }
 
-        /**
-         * AÑADE, MODFIFICA O ELIMINA UN CLIENTE
-         */
         public void ProcesarInformacion()
         {
             string id = form.text_nombre.Text;
@@ -251,17 +232,11 @@ namespace WindowsFormsApplication1
 
         #region DataGridView
 
-        /**
-         * Devuelve la columna pulsada del datagrid junto con su identficador
-         */
         public TratamientoEN getDataGridViewState(DataGridViewCellEventArgs ev, ref Utils.State st)
         {
             string cli = "";
             TratamientoEN tratamiento = null;
             st = Utils.State.MODIFY;
-
-            Console.WriteLine("EvlRow: " + ev.RowIndex +  " dato: " + form.dataGrid_tratamientos.Rows[ev.RowIndex].Cells[3].Value.ToString());
-
             cli = form.dataGrid_tratamientos.Rows[ev.RowIndex].Cells[0].Value.ToString();
 
             if (lista_tratamientoTotal != null && lista_tratamientoTotal.Count > 0 && cli != "")
@@ -279,14 +254,10 @@ namespace WindowsFormsApplication1
             return tratamiento;
         }
 
-
         #endregion
 
         #region BorrarTodosLosCampos
 
-        /**
-         * Borra todos los campos del formulario
-         */
         public void ClearForm()
         {
             tratamientoEN = null;

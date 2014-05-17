@@ -33,6 +33,10 @@
             this.btn_buscar = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.PictureBox();
             this.panel_top = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.picture_desconectar_admin = new System.Windows.Forms.PictureBox();
             this.picture_home = new System.Windows.Forms.PictureBox();
             this.picture_tratamiento = new System.Windows.Forms.PictureBox();
@@ -58,10 +62,6 @@
             this.btn_delete = new System.Windows.Forms.PictureBox();
             this.btn_erase = new System.Windows.Forms.Button();
             this.lista_dosis = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btn_add)).BeginInit();
             this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_admin)).BeginInit();
@@ -113,6 +113,42 @@
             this.panel_top.Name = "panel_top";
             this.panel_top.Size = new System.Drawing.Size(676, 57);
             this.panel_top.TabIndex = 57;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(194, 37);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(124, 13);
+            this.label15.TabIndex = 93;
+            this.label15.Text = "GESTIÓN EMPLEADOS";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(62, 37);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(42, 13);
+            this.label14.TabIndex = 90;
+            this.label14.Text = " INICIO";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(354, 37);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(149, 13);
+            this.label13.TabIndex = 91;
+            this.label13.Text = "  GESTIÓN TRATAMIENTOS";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(576, 37);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 13);
+            this.label12.TabIndex = 92;
+            this.label12.Text = "  SALIR";
             // 
             // picture_desconectar_admin
             // 
@@ -263,6 +299,7 @@
             this.dataGrid_tratamientos.Size = new System.Drawing.Size(650, 255);
             this.dataGrid_tratamientos.TabIndex = 70;
             this.dataGrid_tratamientos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.dataGrid_tratamientos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_tratamientos_CellContentClick);
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -348,42 +385,6 @@
             this.lista_dosis.Name = "lista_dosis";
             this.lista_dosis.Size = new System.Drawing.Size(47, 21);
             this.lista_dosis.TabIndex = 75;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(194, 37);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(124, 13);
-            this.label15.TabIndex = 93;
-            this.label15.Text = "GESTIÓN EMPLEADOS";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(62, 37);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(42, 13);
-            this.label14.TabIndex = 90;
-            this.label14.Text = " INICIO";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(354, 37);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(149, 13);
-            this.label13.TabIndex = 91;
-            this.label13.Text = "  GESTIÓN TRATAMIENTOS";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(576, 37);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 13);
-            this.label12.TabIndex = 92;
-            this.label12.Text = "  SALIR";
             // 
             // FormAdministradorTratamiento
             // 

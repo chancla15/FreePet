@@ -277,7 +277,7 @@ namespace WindowsFormsApplication1
                         switch (form.state)
                         {
                             case Utils.State.NEW:
-                                Utils._MascotaCEN.New_(mascotaEN.Nombre, mascotaEN.Raza, mascotaEN.Sexo, mascotaEN.Peso, mascotaEN.Especie, mascotaEN.FNacimiento, mascotaEN.Tamanyo, mascotaEN.Cliente.DNI, mascotaEN.Color, mascotaEN.Microchip);
+                                mascotaEN.IdMascota= Utils._MascotaCEN.New_(mascotaEN.Nombre, mascotaEN.Raza, mascotaEN.Sexo, mascotaEN.Peso, mascotaEN.Especie, mascotaEN.FNacimiento, mascotaEN.Tamanyo, mascotaEN.Cliente.DNI, mascotaEN.Color, mascotaEN.Microchip);
                                 MessageBox.Show("Mascota creada con exito");
                                 list_mascotas_clientes.Add(mascotaEN);
                                 break;
