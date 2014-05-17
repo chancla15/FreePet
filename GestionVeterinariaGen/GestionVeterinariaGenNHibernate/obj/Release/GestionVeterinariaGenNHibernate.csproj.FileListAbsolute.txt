@@ -10,6 +10,5 @@ C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\GestionVeterinariaGen
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Release\Iesi.Collections.dll
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Release\Antlr3.Runtime.dll
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\bin\Release\log4net.dll
-C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\obj\Release\GestionVeterinariaGenNHibernate.csprojResolveAssemblyReference.cache
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\obj\Release\GestionVeterinariaGenNHibernate.dll
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\GestionVeterinariaGenNHibernate\obj\Release\GestionVeterinariaGenNHibernate.pdb

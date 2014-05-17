@@ -35,5 +35,10 @@ System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeter
 
 
 System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameConsultaPorFechaYHora (Nullable<DateTime> fecha);
+
+
+void AnaydirTratamiento (int p_Consulta_OID, System.Collections.Generic.IList<string> p_tratamiento_OIDs);
+
+void QuitarTratamiento (int p_Consulta_OID, System.Collections.Generic.IList<string> p_tratamiento_OIDs);
 }
 }

@@ -45,12 +45,6 @@ private GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN vete
  *
  */
 
-private System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> tratamiento;
-
-/**
- *
- */
-
 private string lugar;
 
 /**
@@ -58,6 +52,12 @@ private string lugar;
  */
 
 private GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN factura;
+
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> tratamiento;
 
 
 
@@ -93,11 +93,6 @@ public virtual GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.Veterinario
 }
 
 
-public virtual System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> Tratamiento {
-        get { return tratamiento; } set { tratamiento = value;  }
-}
-
-
 public virtual string Lugar {
         get { return lugar; } set { lugar = value;  }
 }
@@ -105,6 +100,11 @@ public virtual string Lugar {
 
 public virtual GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN Factura {
         get { return factura; } set { factura = value;  }
+}
+
+
+public virtual System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> Tratamiento {
+        get { return tratamiento; } set { tratamiento = value;  }
 }
 
 
@@ -118,18 +118,18 @@ public ConsultaEN()
 
 
 
-public ConsultaEN(int idConsulta, Nullable<DateTime> fecha, string motivoConsulta, string diagnostico, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN mascota, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN veterinario, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> tratamiento, string lugar, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN factura)
+public ConsultaEN(int idConsulta, Nullable<DateTime> fecha, string motivoConsulta, string diagnostico, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN mascota, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN veterinario, string lugar, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN factura, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> tratamiento)
 {
-        this.init (idConsulta, fecha, motivoConsulta, diagnostico, mascota, veterinario, tratamiento, lugar, factura);
+        this.init (idConsulta, fecha, motivoConsulta, diagnostico, mascota, veterinario, lugar, factura, tratamiento);
 }
 
 
 public ConsultaEN(ConsultaEN consulta)
 {
-        this.init (consulta.IdConsulta, consulta.Fecha, consulta.MotivoConsulta, consulta.Diagnostico, consulta.Mascota, consulta.Veterinario, consulta.Tratamiento, consulta.Lugar, consulta.Factura);
+        this.init (consulta.IdConsulta, consulta.Fecha, consulta.MotivoConsulta, consulta.Diagnostico, consulta.Mascota, consulta.Veterinario, consulta.Lugar, consulta.Factura, consulta.Tratamiento);
 }
 
-private void init (int idConsulta, Nullable<DateTime> fecha, string motivoConsulta, string diagnostico, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN mascota, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN veterinario, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> tratamiento, string lugar, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN factura)
+private void init (int idConsulta, Nullable<DateTime> fecha, string motivoConsulta, string diagnostico, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN mascota, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN veterinario, string lugar, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.FacturaEN factura, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> tratamiento)
 {
         this.IdConsulta = IdConsulta;
 
@@ -144,11 +144,11 @@ private void init (int idConsulta, Nullable<DateTime> fecha, string motivoConsul
 
         this.Veterinario = veterinario;
 
-        this.Tratamiento = tratamiento;
-
         this.Lugar = lugar;
 
         this.Factura = factura;
+
+        this.Tratamiento = tratamiento;
 }
 
 public override bool Equals (object obj)

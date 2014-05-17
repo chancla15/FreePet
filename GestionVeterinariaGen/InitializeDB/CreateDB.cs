@@ -401,7 +401,7 @@ public static void InitializeData ()
                 c1.Mascota = new MascotaEN ();
                 c1.Mascota.IdMascota = 1;
                 c1.MotivoConsulta = "Dolor pata";
-                //c1.Tratamiento = v1;
+                c1.Tratamiento = null;
                 c1.Veterinario = new VeterinarioEN ();
                 c1.Veterinario.DNI = "2";
 
@@ -413,7 +413,7 @@ public static void InitializeData ()
                 c2.Mascota = new MascotaEN ();
                 c2.Mascota.IdMascota = 1;
                 c2.MotivoConsulta = "Picores";
-                //c2.Tratamiento = o1;
+                c2.Tratamiento = null;
                 c2.Veterinario = new VeterinarioEN ();
                 c2.Veterinario.DNI = "2";
 
@@ -425,7 +425,7 @@ public static void InitializeData ()
                 c3.Mascota = new MascotaEN ();
                 c3.Mascota.IdMascota = 1;
                 c3.MotivoConsulta = "Espuma por la boca";
-                //c3.Tratamiento = o1;
+                c3.Tratamiento = null;
                 c3.Veterinario = new VeterinarioEN ();
                 c3.Veterinario.DNI = "3";
 
@@ -437,15 +437,26 @@ public static void InitializeData ()
                 c4.Mascota = new MascotaEN ();
                 c4.Mascota.IdMascota = 1;
                 c4.MotivoConsulta = "Diarrea y vomitos";
-                //c4.Tratamiento = o1;
+                c4.Tratamiento = null;
                 c4.Veterinario = new VeterinarioEN ();
                 c4.Veterinario.DNI = "4";
 
-                ConsultaCEN.New_ (c1.Fecha, c1.MotivoConsulta, c1.Diagnostico, c1.Mascota.IdMascota, c1.Veterinario.DNI, null, c1.Lugar);
-                ConsultaCEN.New_ (c2.Fecha, c2.MotivoConsulta, c2.Diagnostico, c2.Mascota.IdMascota, c2.Veterinario.DNI, null, c2.Lugar);
-                ConsultaCEN.New_ (c3.Fecha, c3.MotivoConsulta, c3.Diagnostico, c3.Mascota.IdMascota, c3.Veterinario.DNI, null, c3.Lugar);
-                ConsultaCEN.New_ (c4.Fecha, c4.MotivoConsulta, c4.Diagnostico, c4.Mascota.IdMascota, c4.Veterinario.DNI, null, c4.Lugar);
+                int oid_c1 = ConsultaCEN.New_ (c1.Fecha, c1.MotivoConsulta, c1.Diagnostico, c1.Mascota.IdMascota, c1.Veterinario.DNI, c1.Lugar);
+                ConsultaCEN.New_ (c2.Fecha, c2.MotivoConsulta, c2.Diagnostico, c2.Mascota.IdMascota, c2.Veterinario.DNI, c2.Lugar);
+                ConsultaCEN.New_ (c3.Fecha, c3.MotivoConsulta, c3.Diagnostico, c3.Mascota.IdMascota, c3.Veterinario.DNI, c3.Lugar);
+                ConsultaCEN.New_ (c4.Fecha, c4.MotivoConsulta, c4.Diagnostico, c4.Mascota.IdMascota, c4.Veterinario.DNI, c4.Lugar);
 
+
+                //Metientro tratamientos a una consultas
+
+                IList<TratamientoEN> lista = TratamientoCEN.DameTodosLosTratamientos ();
+                IList<string> oids = new List<string>();
+
+                if (lista != null) {
+                        for (int i = 0; i < lista.Count; i++)
+                                oids.Add (lista [i].Nombre);
+                        ConsultaCEN.AnaydirTratamiento (oid_c1, oids);
+                }
                 #endregion
 
                 #region Factura

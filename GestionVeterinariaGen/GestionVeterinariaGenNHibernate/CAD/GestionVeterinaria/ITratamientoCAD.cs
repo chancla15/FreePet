@@ -20,5 +20,8 @@ System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeter
 
 
 TratamientoEN DameTratamientoPorOID (string nombre);
+
+
+System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> DameTratamientosPorConsulta (int id_consulta);
 }
 }

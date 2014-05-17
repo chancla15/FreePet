@@ -36,16 +36,6 @@
 						</many-to-one>
 											 					
 			
-		  			
-						<bag name="Tratamiento" table="[consulta_farmaco]"  >
-							<key>
-									<column name="[FK_IDConsulta_idConsulta]"/>
-							</key>
-      						<many-to-many class="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN">
-									<column name="[FK_Nombre_idFarmaco]"/>
-      						</many-to-many>
-    					</bag>
-			
 			
 		  			
 					
@@ -54,6 +44,16 @@
         					</many-to-one>
 					 
 						
+			
+		  			
+						<bag name="Tratamiento" table="[tratamiento_consulta]" inverse="true" >
+							<key>
+									<column name="[FK_IDConsulta_idConsulta]"/>
+							</key>
+      						<many-to-many class="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN">
+									<column name="[FK_Nombre_idTratamiento]"/>
+      						</many-to-many>
+    					</bag>
 					
 					
 					

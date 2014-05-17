@@ -32,7 +32,7 @@ public IConsultaCAD get_IConsultaCAD ()
         return this._IConsultaCAD;
 }
 
-public int New_ (Nullable<DateTime> p_fecha, string p_motivoConsulta, string p_diagnostico, int p_mascota, string p_veterinario, System.Collections.Generic.IList<string> p_tratamiento, string p_lugar)
+public int New_ (Nullable<DateTime> p_fecha, string p_motivoConsulta, string p_diagnostico, int p_mascota, string p_veterinario, string p_lugar)
 {
         ConsultaEN consultaEN = null;
         int oid;
@@ -55,20 +55,6 @@ public int New_ (Nullable<DateTime> p_fecha, string p_motivoConsulta, string p_d
         if (p_veterinario != null) {
                 consultaEN.Veterinario = new GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.VeterinarioEN ();
                 consultaEN.Veterinario.DNI = p_veterinario;
-        }
-
-
-        consultaEN.Tratamiento = new System.Collections.Generic.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN>();
-        if (p_tratamiento != null) {
-                foreach (string item in p_tratamiento) {
-                        GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN en = new GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN ();
-                        en.Nombre = item;
-                        consultaEN.Tratamiento.Add (en);
-                }
-        }
-
-        else{
-                consultaEN.Tratamiento = new System.Collections.Generic.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN>();
         }
 
         consultaEN.Lugar = p_lugar;
@@ -131,6 +117,18 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> DameConsultaPorFechaYHora (Nullable<DateTime> fecha)
 {
         return _IConsultaCAD.DameConsultaPorFechaYHora (fecha);
+}
+public void AnaydirTratamiento (int p_Consulta_OID, System.Collections.Generic.IList<string> p_tratamiento_OIDs)
+{
+        //Call to ConsultaCAD
+
+        _IConsultaCAD.AnaydirTratamiento (p_Consulta_OID, p_tratamiento_OIDs);
+}
+public void QuitarTratamiento (int p_Consulta_OID, System.Collections.Generic.IList<string> p_tratamiento_OIDs)
+{
+        //Call to ConsultaCAD
+
+        _IConsultaCAD.QuitarTratamiento (p_Consulta_OID, p_tratamiento_OIDs);
 }
 }
 }

@@ -87,5 +87,10 @@ public TratamientoEN DameTratamientoPorOID (string nombre)
         tratamientoEN = _ITratamientoCAD.DameTratamientoPorOID (nombre);
         return tratamientoEN;
 }
+
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> DameTratamientosPorConsulta (int id_consulta)
+{
+        return _ITratamientoCAD.DameTratamientosPorConsulta (id_consulta);
+}
 }
 }

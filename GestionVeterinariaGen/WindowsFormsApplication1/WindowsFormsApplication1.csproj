@@ -120,11 +120,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FormAdministradorTratamientoDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DataBaseInfo_ALL.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataBaseInfo_ALL.xsd</DependentUpon>
-    </Compile>
     <Compile Include="FormRecepcionistaAdministradorInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,17 +265,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
-    <None Include="DataBaseInfo_ALL.xsc">
-      <DependentUpon>DataBaseInfo_ALL.xsd</DependentUpon>
-    </None>
-    <None Include="DataBaseInfo_ALL.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataBaseInfo_ALL.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataBaseInfo_ALL.xss">
-      <DependentUpon>DataBaseInfo_ALL.xsd</DependentUpon>
-    </None>
     <None Include="FormAdministradorTratamientoDataSet.xsc">
       <DependentUpon>FormAdministradorTratamientoDataSet.xsd</DependentUpon>
     </None>

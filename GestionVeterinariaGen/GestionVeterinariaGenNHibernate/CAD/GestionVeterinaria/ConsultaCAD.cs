@@ -66,12 +66,6 @@ public int New_ (ConsultaEN consulta)
 
                         consulta.Veterinario.Consulta.Add (consulta);
                 }
-                if (consulta.Tratamiento != null) {
-                        for (int i = 0; i < consulta.Tratamiento.Count; i++) {
-                                consulta.Tratamiento [i] = (GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN)session.Load (typeof(GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN), consulta.Tratamiento [i].Nombre);
-                                consulta.Tratamiento [i].Consulta.Add (consulta);
-                        }
-                }
 
                 session.Save (consulta);
                 SessionCommit ();
@@ -359,6 +353,83 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
         }
 
         return result;
+}
+public void AnaydirTratamiento (int p_Consulta_OID, System.Collections.Generic.IList<string> p_tratamiento_OIDs)
+{
+        GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN consultaEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                consultaEN = (ConsultaEN)session.Load (typeof(ConsultaEN), p_Consulta_OID);
+                GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN tratamientoENAux = null;
+                if (consultaEN.Tratamiento == null) {
+                        consultaEN.Tratamiento = new System.Collections.Generic.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN>();
+                }
+
+                foreach (string item in p_tratamiento_OIDs) {
+                        tratamientoENAux = new GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN ();
+                        tratamientoENAux = (GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN)session.Load (typeof(GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN), item);
+                        tratamientoENAux.Consulta.Add (consultaEN);
+
+                        consultaEN.Tratamiento.Add (tratamientoENAux);
+                }
+
+
+                session.Update (consultaEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in ConsultaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void QuitarTratamiento (int p_Consulta_OID, System.Collections.Generic.IList<string> p_tratamiento_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN consultaEN = null;
+                consultaEN = (ConsultaEN)session.Load (typeof(ConsultaEN), p_Consulta_OID);
+
+                GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN tratamientoENAux = null;
+                if (consultaEN.Tratamiento != null) {
+                        foreach (string item in p_tratamiento_OIDs) {
+                                tratamientoENAux = (GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN)session.Load (typeof(GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN), item);
+                                if (consultaEN.Tratamiento.Contains (tratamientoENAux) == true) {
+                                        consultaEN.Tratamiento.Remove (tratamientoENAux);
+                                        tratamientoENAux.Consulta.Remove (consultaEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_tratamiento_OIDs you are trying to unrelationer, doesn't exist in ConsultaEN");
+                        }
+                }
+
+                session.Update (consultaEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in ConsultaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
 }
 }
 }

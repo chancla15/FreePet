@@ -191,5 +191,36 @@ public TratamientoEN DameTratamientoPorOID (string nombre)
 
         return tratamientoEN;
 }
+
+public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> DameTratamientosPorConsulta (int id_consulta)
+{
+        System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM TratamientoEN self where SELECT trat FROM TratamientoEN AS trat INNER JOIN trat.Consulta AS cons WHERE cons.IdConsulta=:id_consulta";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("TratamientoENDameTratamientosPorConsultaHQL");
+                query.SetParameter ("id_consulta", id_consulta);
+
+                result = query.List<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.TratamientoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is GestionVeterinariaGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new GestionVeterinariaGenNHibernate.Exceptions.DataLayerException ("Error in TratamientoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

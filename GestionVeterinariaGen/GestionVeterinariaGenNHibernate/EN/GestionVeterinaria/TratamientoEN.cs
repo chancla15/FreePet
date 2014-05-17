@@ -15,12 +15,6 @@ private string nombre;
  *
  */
 
-private System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta;
-
-/**
- *
- */
-
 private float precio;
 
 /**
@@ -41,17 +35,18 @@ private int stock;
 
 private GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum dosis_diaria;
 
+/**
+ *
+ */
+
+private System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta;
+
 
 
 
 
 public virtual string Nombre {
         get { return nombre; } set { nombre = value;  }
-}
-
-
-public virtual System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> Consulta {
-        get { return consulta; } set { consulta = value;  }
 }
 
 
@@ -75,6 +70,11 @@ public virtual GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.Dos
 }
 
 
+public virtual System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> Consulta {
+        get { return consulta; } set { consulta = value;  }
+}
+
+
 
 
 
@@ -85,23 +85,21 @@ public TratamientoEN()
 
 
 
-public TratamientoEN(string nombre, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio, string descripcion, int stock, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum dosis_diaria)
+public TratamientoEN(string nombre, float precio, string descripcion, int stock, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum dosis_diaria, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta)
 {
-        this.init (nombre, consulta, precio, descripcion, stock, dosis_diaria);
+        this.init (nombre, precio, descripcion, stock, dosis_diaria, consulta);
 }
 
 
 public TratamientoEN(TratamientoEN tratamiento)
 {
-        this.init (tratamiento.Nombre, tratamiento.Consulta, tratamiento.Precio, tratamiento.Descripcion, tratamiento.Stock, tratamiento.Dosis_diaria);
+        this.init (tratamiento.Nombre, tratamiento.Precio, tratamiento.Descripcion, tratamiento.Stock, tratamiento.Dosis_diaria, tratamiento.Consulta);
 }
 
-private void init (string nombre, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, float precio, string descripcion, int stock, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum dosis_diaria)
+private void init (string nombre, float precio, string descripcion, int stock, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum dosis_diaria, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta)
 {
         this.Nombre = nombre;
 
-
-        this.Consulta = consulta;
 
         this.Precio = precio;
 
@@ -110,6 +108,8 @@ private void init (string nombre, System.Collections.Generic.IList<GestionVeteri
         this.Stock = stock;
 
         this.Dosis_diaria = dosis_diaria;
+
+        this.Consulta = consulta;
 }
 
 public override bool Equals (object obj)
