@@ -99,18 +99,10 @@ namespace WindowsFormsApplication1
 
             btn_buscar_dni.Enabled = typ;
             btn_erase.Enabled = typ;
-            //btn_buscar.Enabled = typ;
             btn_guardar.Enabled = typ;
             btn_eliminar.Enabled = typ;
-            //dataGridView.Enabled = typ;
-            //panel_clientes_opcion.Enabled = typ;
             panel_top.Enabled = typ;
-            //btn_anaydir.Enabled = typ;
 
-            alerta_eliminar.Enabled = !typ;
-            alerta_eliminar.Visible = !typ;
-            btn_eliminar_no.Enabled = !typ;
-            btn_eliminar_si.Enabled = !typ;
         }
 
         #endregion
@@ -158,7 +150,20 @@ namespace WindowsFormsApplication1
          */
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            EnableForm(false);
+            if (state == Utils.State.MODIFY)
+            {
+                EnableForm(false);
+                if (MessageBox.Show("Seguro que desea despedir a este empleado", "Despedir usuario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    state = Utils.State.DESTROY;
+                    controller.ProcesarInformacion();
+                    controller.ClearForm();
+                }
+                else
+                    state = Utils.State.MODIFY;
+
+                EnableForm(true);
+            }
         }
 
         /**
@@ -166,7 +171,19 @@ namespace WindowsFormsApplication1
          */
         private void btn_buscar_dni_Click(object sender, EventArgs e)
         {
-            changeState(Utils.State.MODIFY, null);
+            /*if ((state == Utils.State.NONE || state == Utils.State.NEW) && menu.LaunchStartScreen())
+                DesactivateForm();*/
+            if ((state == Utils.State.NONE || state == Utils.State.NEW) && controller.showData())
+            {
+                tb_dni.Enabled=false;
+                state = Utils.State.MODIFY;
+            }
+            else
+            {
+                state = Utils.State.NONE;
+            }
+
+            
         }
 
         /**
@@ -181,35 +198,19 @@ namespace WindowsFormsApplication1
             state = Utils.State.NONE;
         }
 
-
-        /** 
-         * Cuando se pulsa el boton modificar
-         */
-        /*private void bt_modificar_Click(object sender, EventArgs e) 
-        {
-            if (controller.modifiData()) {
-                Hide();
-                //new FormRecepcionistaAdministradorInicio(controller.sessionData);
-            }
-        }*/
-
-        /**
-         * Cuando se pulsa la foto
-         */
         private void pictureBox1_Click(object sender, EventArgs e) {
             controller.clickInPhoto();
-        }
-
-        /**
-         * Cuando escribimos el dni
-         */
-        private void tb_dni_TextChanged(object sender, EventArgs e) {
-            controller.showData();
         }
 
         private void picture_desconectar_admin_Click(object sender, EventArgs e)
         {
             menu.Disconnect();
+        }
+
+        // Tipo
+        private void tb_tipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            controller.clickInTipo();
         }
 
         #endregion
@@ -266,5 +267,6 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
+        
     }
 }

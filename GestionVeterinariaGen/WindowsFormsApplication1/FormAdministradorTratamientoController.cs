@@ -79,7 +79,6 @@ namespace WindowsFormsApplication1
                             form.dataGrid_tratamientos.Rows.Add(lista_tratamientoTotal[i].Nombre, lista_tratamientoTotal[i].Precio, lista_tratamientoTotal[i].Descripcion, lista_tratamientoTotal[i].Stock, dosis);
                         }
                     }
-
                 }
                 else
                 {
@@ -92,10 +91,23 @@ namespace WindowsFormsApplication1
                             dosis = "2";
                         else
                             dosis = "3";
+
                         form.dataGrid_tratamientos.Rows.Add(lista_tratamientoTotal[i].Nombre, lista_tratamientoTotal[i].Precio, lista_tratamientoTotal[i].Descripcion, lista_tratamientoTotal[i].Stock, dosis);
+
+                        
                     }
+
+                    
+                }
+
+
+                if (form.dataGrid_tratamientos.RowCount == 0)
+                {
+                    MessageBox.Show("La búsqueda no ha producido ningún resultado");
                 }
             }
+
+
         }
 
         #endregion
@@ -224,11 +236,15 @@ namespace WindowsFormsApplication1
                         break;
                 }
 
+                ClearForm();
+                Buscar();
+
+
             }else
                 MessageBox.Show("Revisa los campos");
 
-            ClearForm();
-            Buscar();
+            
+           
         }
 
         #endregion

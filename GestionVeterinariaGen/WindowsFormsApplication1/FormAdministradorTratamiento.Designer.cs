@@ -365,6 +365,7 @@
             this.Controls.Add(this.btn_buscar);
             this.Name = "FormAdministradorTratamiento";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tratamientos";
             ((System.ComponentModel.ISupportInitialize)(this.btn_add)).EndInit();
             this.panel_top.ResumeLayout(false);

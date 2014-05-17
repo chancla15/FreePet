@@ -61,10 +61,6 @@
             this.btn_erase = new System.Windows.Forms.PictureBox();
             this.btn_buscar_dni = new System.Windows.Forms.PictureBox();
             this.btn_guardar = new System.Windows.Forms.Button();
-            this.alerta_eliminar = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.btn_eliminar_no = new System.Windows.Forms.Button();
-            this.btn_eliminar_si = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.label_col = new System.Windows.Forms.Label();
             this.tb_colegiado = new System.Windows.Forms.TextBox();
@@ -76,12 +72,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.picture_empleado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_dni)).BeginInit();
-            this.alerta_eliminar.SuspendLayout();
             this.SuspendLayout();
             // 
             // log_photo
             // 
             this.log_photo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.log_photo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.log_photo.ErrorImage = null;
             this.log_photo.Image = global::WindowsFormsApplication1.Properties.Resources.sinFoto;
             this.log_photo.InitialImage = null;
@@ -146,10 +142,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(132, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 16);
+            this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 13;
             this.label2.Text = "DNI:";
             // 
@@ -157,10 +152,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(132, 110);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 16);
+            this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 14;
             this.label3.Text = "Nombre:";
             // 
@@ -168,10 +162,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(29, 207);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 16);
+            this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 15;
             this.label4.Text = "Apellidos:";
             // 
@@ -179,11 +172,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(29, 289);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 16);
+            this.label5.Size = new System.Drawing.Size(55, 13);
             this.label5.TabIndex = 16;
             this.label5.Text = "Dirección:";
             // 
@@ -191,11 +182,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(29, 329);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 16);
+            this.label6.Size = new System.Drawing.Size(52, 13);
             this.label6.TabIndex = 17;
             this.label6.Text = "Teléfono:";
             // 
@@ -203,11 +192,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(29, 364);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 16);
+            this.label7.Size = new System.Drawing.Size(56, 13);
             this.label7.TabIndex = 18;
             this.label7.Text = "Localidad:";
             // 
@@ -215,11 +202,9 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(29, 400);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 16);
+            this.label8.Size = new System.Drawing.Size(54, 13);
             this.label8.TabIndex = 19;
             this.label8.Text = "Provincia:";
             // 
@@ -227,11 +212,9 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(29, 430);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 16);
+            this.label9.Size = new System.Drawing.Size(24, 13);
             this.label9.TabIndex = 20;
             this.label9.Text = "CP:";
             // 
@@ -239,11 +222,9 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(29, 245);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(61, 16);
+            this.label11.Size = new System.Drawing.Size(43, 13);
             this.label11.TabIndex = 23;
             this.label11.Text = "Sueldo:";
             // 
@@ -381,10 +362,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(414, 144);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 57;
             this.label1.Text = "Tipo:";
             // 
@@ -398,15 +378,15 @@
             this.tb_tipo.Name = "tb_tipo";
             this.tb_tipo.Size = new System.Drawing.Size(163, 21);
             this.tb_tipo.TabIndex = 58;
+            this.tb_tipo.SelectedIndexChanged += new System.EventHandler(this.tb_tipo_SelectedIndexChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(132, 148);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 16);
+            this.label10.Size = new System.Drawing.Size(56, 13);
             this.label10.TabIndex = 60;
             this.label10.Text = "Password:";
             // 
@@ -416,6 +396,7 @@
             this.tb_pass.Name = "tb_pass";
             this.tb_pass.Size = new System.Drawing.Size(163, 20);
             this.tb_pass.TabIndex = 59;
+            this.tb_pass.UseSystemPasswordChar = true;
             // 
             // btn_erase
             // 
@@ -449,47 +430,6 @@
             this.btn_guardar.UseVisualStyleBackColor = true;
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
-            // alerta_eliminar
-            // 
-            this.alerta_eliminar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.alerta_eliminar.Controls.Add(this.label12);
-            this.alerta_eliminar.Controls.Add(this.btn_eliminar_no);
-            this.alerta_eliminar.Controls.Add(this.btn_eliminar_si);
-            this.alerta_eliminar.Location = new System.Drawing.Point(439, 301);
-            this.alerta_eliminar.Name = "alerta_eliminar";
-            this.alerta_eliminar.Size = new System.Drawing.Size(200, 67);
-            this.alerta_eliminar.TabIndex = 84;
-            this.alerta_eliminar.Visible = false;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 16);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(105, 13);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "¿Eliminar Empleado?";
-            // 
-            // btn_eliminar_no
-            // 
-            this.btn_eliminar_no.Location = new System.Drawing.Point(104, 35);
-            this.btn_eliminar_no.Name = "btn_eliminar_no";
-            this.btn_eliminar_no.Size = new System.Drawing.Size(41, 23);
-            this.btn_eliminar_no.TabIndex = 1;
-            this.btn_eliminar_no.Text = "No";
-            this.btn_eliminar_no.UseVisualStyleBackColor = true;
-            this.btn_eliminar_no.Click += new System.EventHandler(this.btn_eliminar_no_Click);
-            // 
-            // btn_eliminar_si
-            // 
-            this.btn_eliminar_si.Location = new System.Drawing.Point(151, 35);
-            this.btn_eliminar_si.Name = "btn_eliminar_si";
-            this.btn_eliminar_si.Size = new System.Drawing.Size(38, 23);
-            this.btn_eliminar_si.TabIndex = 0;
-            this.btn_eliminar_si.Text = "Si";
-            this.btn_eliminar_si.UseVisualStyleBackColor = true;
-            this.btn_eliminar_si.Click += new System.EventHandler(this.btn_eliminar_si_Click);
-            // 
             // btn_eliminar
             // 
             this.btn_eliminar.Location = new System.Drawing.Point(577, 393);
@@ -504,10 +444,9 @@
             // 
             this.label_col.AutoSize = true;
             this.label_col.BackColor = System.Drawing.Color.Transparent;
-            this.label_col.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_col.Location = new System.Drawing.Point(414, 189);
             this.label_col.Name = "label_col";
-            this.label_col.Size = new System.Drawing.Size(105, 16);
+            this.label_col.Size = new System.Drawing.Size(72, 13);
             this.label_col.TabIndex = 86;
             this.label_col.Text = "Nº Colegiado:";
             // 
@@ -522,13 +461,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.fondo_nuevo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(674, 471);
             this.Controls.Add(this.label_col);
             this.Controls.Add(this.tb_colegiado);
             this.Controls.Add(this.btn_eliminar);
-            this.Controls.Add(this.alerta_eliminar);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.btn_erase);
             this.Controls.Add(this.btn_buscar_dni);
@@ -571,8 +508,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picture_empleado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_dni)).EndInit();
-            this.alerta_eliminar.ResumeLayout(false);
-            this.alerta_eliminar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -611,12 +546,8 @@
         public System.Windows.Forms.TextBox tb_pass;
         public System.Windows.Forms.PictureBox btn_erase;
         public System.Windows.Forms.PictureBox btn_buscar_dni;
-        private System.Windows.Forms.Button btn_guardar;
-        public System.Windows.Forms.Panel alerta_eliminar;
-        public System.Windows.Forms.Label label12;
-        public System.Windows.Forms.Button btn_eliminar_no;
-        public System.Windows.Forms.Button btn_eliminar_si;
-        private System.Windows.Forms.Button btn_eliminar;
+        public System.Windows.Forms.Button btn_guardar;
+        public System.Windows.Forms.Button btn_eliminar;
         public System.Windows.Forms.Label label_col;
         public System.Windows.Forms.TextBox tb_colegiado;
     }
