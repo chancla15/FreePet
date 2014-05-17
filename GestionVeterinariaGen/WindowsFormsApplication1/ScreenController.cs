@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1
         public abstract bool LaunchClienteScreen();
         public abstract bool LaunchMascotaScreen(Utils.State s, MascotaEN m);
         public abstract bool LaunchConsultaScreen(Utils.State s, ConsultaEN c);
-        public abstract bool LaunchFacturaScreen(Utils.State s, string f);
+        public abstract bool LaunchFacturaScreen(Utils.State s);
 
         public abstract void CargarClienteCompartidoRecepcionista(ClienteEN c);
 

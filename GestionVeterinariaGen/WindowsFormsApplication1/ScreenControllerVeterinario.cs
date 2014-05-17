@@ -91,7 +91,7 @@ namespace WindowsFormsApplication1
             throw new NotImplementedException();
         }
 
-        override public bool LaunchFacturaScreen(Utils.State s, string f)
+        override public bool LaunchFacturaScreen(Utils.State s)
         {
             throw new NotImplementedException();
         }

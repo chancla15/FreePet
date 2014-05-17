@@ -52,15 +52,15 @@ namespace WindowsFormsApplication1
                 f_consulta.controller.cargarDatosCliente(clienteCompartido);
                 f_consulta.changeState(Utils.State.NEW, null);
 
-                //f_factura.controller.cargarDatosCliente(clienteCompartido);
-                //f_factura.changeState(Utils.State.NONE);
+                f_factura.controller.cargarDatosCliente(clienteCompartido);
+                f_factura.changeState(Utils.State.MODIFY);
             }
             else
             {
                 f_cliente.controller.ClearForm();
                 f_mascota.controller.ClearForm();
                 f_consulta.controller.ClearForm();
-               // f_factura.controller.ClearForm();
+                f_factura.controller.ClearForm();
             }
         }
 
@@ -122,7 +122,7 @@ namespace WindowsFormsApplication1
             return ret;
         }
 
-        override public bool LaunchFacturaScreen(Utils.State state, string cli)
+        override public bool LaunchFacturaScreen(Utils.State state)
         {
             bool ret = false;
 
@@ -131,7 +131,7 @@ namespace WindowsFormsApplication1
                 ret = true;
                 FormActual = f_factura.ID;
                 f_factura.ActivateForm();
-                f_factura.changeState(state, cli);
+                f_factura.changeState(state);
             }
             return ret;
         }

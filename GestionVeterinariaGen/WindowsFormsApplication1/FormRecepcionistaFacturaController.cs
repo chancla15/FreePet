@@ -13,95 +13,86 @@ using iTextSharp.text.pdf;
 
 namespace WindowsFormsApplication1
 {
-    /**
-     * La clase FormFacturaRecepcionistaController
-     * La encargada de controlar la vista facturas
-     */
-    class FormRecepcionistaFacturaController
+    public class FormRecepcionistaFacturaController
     {
         #region Variables
 
-        /** El formulario a controlar */
         private FormRecepcionistaFactura form = null;
-
         private IList<FacturaEN> facturas = null;
         private IList<MascotaEN> mascotas = null;
         private IList<ConsultaEN> consultas = null;
         private ClienteEN cliente = null;
         private MascotaEN mascota = null;
-
-        /** Factura */
         private FacturaEN factura = null;
-        /** DNI del cliente*/
         private String DNI = "";
 
         #endregion
 
         #region Constructor
 
-        /**
-         * El constructor
-         * @param s el ticket de sesion
-         * @param f el formulario a controlar
-         */
-        public FormRecepcionistaFacturaController(FormRecepcionistaFactura form)
-        {
+        public FormRecepcionistaFacturaController(FormRecepcionistaFactura form) {
             this.form = form;
-
         }
 
-        /**
-         * Carga los datos de un cliente que le pasas por parametro
-         * @param dni el dni del cliente a cargar
-         */
-        public void loadData(string dni)
+        public void cargarDatosCliente(ClienteEN cli)
         {
             List<String> lista = new List<String>();
             lista.Add("hola");
             lista.Add("adios");
-            cliente = null;
-            mascota = null;
-            if (dni != "")
-                cliente = Utils._IClienteCAD.DameClientePorOID(dni);
 
-            if (cliente == null)
-            {
-                form.text_dni.Text = "DNI Incorrecto";
-                form.text_dni.Enabled = false;
-            }
+            cliente = cli;
 
             if (cliente != null)
             {
-                this.DNI = dni; //Lo guardo aqui porque puede dar problemas al introducir un dni incorrecto cuando ya has cargado uno correcto
-                mascotas = Utils._IMascotaCAD.DameMascotaPorCliente(cliente.DNI);
 
+                mascotas = Utils._IMascotaCAD.DameMascotaPorCliente(cliente.DNI);
                 facturas = Utils._IFacturaCAD.DameFacturasPorCliente(cliente.DNI);
-                form.l_Nombre.Text = cliente.Nombre + " " + cliente.Apellidos;
+                form.text_dni.Text = cliente.Nombre + " " + cliente.Apellidos;
+
+                if (facturas != null)
+                {
+                    for (int i = 0; i < facturas.Count; i++)
+                    {
+                        //Num, pagar, fecha, total, mascota, motivo, boton tratamiento, pagada, boton pagar
+                        mascota = Utils._IMascotaCAD.BuscarMascotaPorOID(facturas[i].Consulta.Mascota.IdMascota);
+                        form.dataGridFacturas.Rows.Add(facturas[i].IdFactura, facturas[i].Fecha, facturas[i].Total, mascota.Nombre,
+                            facturas[i].Consulta.MotivoConsulta, "", facturas[i].Pagada == true ? "Si" : "No", "");
+                    }
+                }
+
+                /*
 
                 // INICIO ZONA BORRADOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
                 IList<TratamientoEN> listaprueba = new TratamientoCEN().DameTodosLosTratamientos();
 
-                facturas[0].Consulta.Tratamiento = listaprueba;
-                facturas[1].Consulta.Tratamiento = listaprueba;
-                // FINAL ZONA BORRADOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-                
-                form.dataGridFacturas.Rows.Clear();
-
-
-
-                for (int i = 0; i < facturas.Count; i++)
+                if (listaprueba != null)
                 {
-                    //Num, pagar, fecha, total, mascota, motivo, boton tratamiento, pagada, boton pagar
-                    mascota = Utils._IMascotaCAD.BuscarMascotaPorOID(facturas[i].Consulta.Mascota.IdMascota);
-                    form.dataGridFacturas.Rows.Add(facturas[i].IdFactura, facturas[i].Fecha, facturas[i].Total, mascota.Nombre,
-                        facturas[i].Consulta.MotivoConsulta, "", facturas[i].Pagada == true ? "Si" : "No", "");
+                    facturas[0].Consulta.Tratamiento = listaprueba;
+                    facturas[1].Consulta.Tratamiento = listaprueba;
+                    // FINAL ZONA BORRADOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
+                    form.dataGridFacturas.Rows.Clear();
+
+
+
+                    for (int i = 0; i < facturas.Count; i++)
+                    {
+                        //Num, pagar, fecha, total, mascota, motivo, boton tratamiento, pagada, boton pagar
+                        mascota = Utils._IMascotaCAD.BuscarMascotaPorOID(facturas[i].Consulta.Mascota.IdMascota);
+                        form.dataGridFacturas.Rows.Add(facturas[i].IdFactura, facturas[i].Fecha, facturas[i].Total, mascota.Nombre,
+                            facturas[i].Consulta.MotivoConsulta, "", facturas[i].Pagada == true ? "Si" : "No", "");
+                    }
                 }
+                 
+                 */
+                 
             }
         }
 
         #endregion
 
         #region DataGridView
+
         public FacturaEN getScreenState(DataGridViewCellEventArgs ev, ref Utils.State state)
         {
             factura = null;
@@ -121,9 +112,6 @@ namespace WindowsFormsApplication1
 
         }
 
-        /**
-         * Pinta el datagrid /BOTON PAGAR
-         */
         public void paintDataGrid(DataGridViewCellPaintingEventArgs e)
         {
             if (e.ColumnIndex >= 0 && form.dataGridFacturas.Columns[e.ColumnIndex].Name == "Pagar" && e.RowIndex >= 0)
@@ -159,12 +147,13 @@ namespace WindowsFormsApplication1
 
 
         }
+        
         public void MostrarTratamientos(Boolean activar, int indice)
         {
             form.panel_tratamientos.Visible = activar;
             form.dataGridTratamientos.Rows.Clear();
             IList<TratamientoEN> t = facturas[indice].Consulta.Tratamiento;
-            if (!TratamientoEN.ReferenceEquals(t, null))
+            if (t!=null)
             {
                 for (int i = 0; i < t.Count; i++)
                     form.dataGridTratamientos.Rows.Add(t[i].Nombre, t[i].Descripcion, t[i].Precio);
@@ -210,6 +199,7 @@ namespace WindowsFormsApplication1
             doc.Close();
             System.Diagnostics.Process.Start("Factura" + expFact.IdFactura + ".pdf");
         }
+       
         public PdfPTable TablaParaPDF(FacturaEN expFact, IList<TratamientoEN> tratamientos)
         {
             PdfPTable tabla = new PdfPTable(form.dataGridTratamientos.Columns.Count);
@@ -235,13 +225,29 @@ namespace WindowsFormsApplication1
             tabla.AddCell(new Phrase(total.ToString(), FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 13)));
             return tabla;
         }
+      
         public void PagarFactura()
         {
             //Pone el campo pagada a verdadero, mantiene los demas
             Utils._FacturaCEN.Modify(factura.IdFactura, factura.Fecha, factura.Total, true);
-            form.changeState(Utils.State.MODIFY, DNI);
+            form.changeState(Utils.State.MODIFY);
         }
+        
         #endregion
 
+        #region BorrarCamposFormulario
+
+        public void ClearForm()
+        {
+            form.text_dni.Text = "";
+            
+            if(form.dataGridFacturas!=null)
+                form.dataGridFacturas.Rows.Clear();
+
+            if(form.dataGridTratamientos!=null)
+                form.dataGridTratamientos.Rows.Clear();
+        }
+
+        #endregion
     }
 }

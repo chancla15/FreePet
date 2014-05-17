@@ -24,23 +24,14 @@ namespace WindowsFormsApplication1
     {
         #region Variables
 
-        /** EL formulario de inicio */
         public FormRecepcionistaAdministradorInicio f_inicio = null;
-
-        /** El formulario de cliente */
         public FormAdministradorEmpleado f_empleado = null;
-
-        /** El formulario de mascota */
         public FormAdministradorTratamiento f_tratamiento = null;
-
 
         #endregion
 
         #region Constructor
-        /**
-         * Crea todos los formularios que usara el recepcionista
-         * @param ticket el ticket de sesion
-         */
+
         public ScreenControllerAdministrador(FormLoginDataSessionTicket ticket)
             : base(ticket)
         {
@@ -53,11 +44,6 @@ namespace WindowsFormsApplication1
 
         #region LanzadorDePantallas
 
-
-
-        /**
-         * Cuando lanza la pantalla principal
-         */
         override public bool LaunchStartScreen()
         {
             bool ret = false;
@@ -71,9 +57,6 @@ namespace WindowsFormsApplication1
             return ret;
         }
 
-        /**
-         * Cuando lanza la pantalla empleados
-         */
         override public bool LaunchEmpleadoScreen(Utils.State state, EmpleadoEN empleado)
         {
             bool ret = false;
@@ -88,9 +71,6 @@ namespace WindowsFormsApplication1
             return ret;
         }
 
-        /**
-         * Cuando lanza la pantalla tratamiento
-         */
         override public bool LaunchTratamientoScreen(Utils.State state, TratamientoEN tratamiento)
         {
             bool ret = false;
@@ -115,7 +95,7 @@ namespace WindowsFormsApplication1
             throw new NotImplementedException();
         }
 
-        override public bool LaunchFacturaScreen(Utils.State s, string f)
+        override public bool LaunchFacturaScreen(Utils.State s)
         {
             throw new NotImplementedException();
         }
@@ -145,19 +125,12 @@ namespace WindowsFormsApplication1
 
         #region SalirAplicacion
 
-        /**
-         * Cuando se desconecta de la aplicacion
-         */
         public void Disconnect()
         {
             CloseForms();
             sessionData.Disconnect();
         }
 
-        /**
-         * Cuando cierra el programa  (LA X DE LA BARRA DE HERRAMIENTAS)
-         * Cierra todos los formularios
-         */
         public void CloseForms()
         {
             FormActual = "";

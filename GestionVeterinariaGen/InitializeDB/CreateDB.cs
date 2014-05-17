@@ -449,8 +449,8 @@ public static void InitializeData ()
                 #endregion
 
                 #region Factura
-                //FacturaCEN.New_ (new DateTime (2014, 3, 3), 30, "74669082A", c1, false);
-                //FacturaCEN.New_ (new DateTime (2014, 4, 5), 20, "74669082A", c2, false);
+                FacturaCEN.New_ (new DateTime (2014, 3, 3), 30, "74669082A", c1, false);
+                FacturaCEN.New_ (new DateTime (2014, 4, 5), 20, "74669082A", c2, false);
                 #endregion
                 /*PROTECTED REGION END*/
         }
