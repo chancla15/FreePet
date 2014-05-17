@@ -45,13 +45,12 @@ namespace WindowsFormsApplication1
                 form.text_lugar.Text = consulta.Lugar;
                 form.text_motivo.Text = consulta.MotivoConsulta;
 
-
+                form.text_diagnostico.Text = consulta.Diagnostico;
 
                 if (mascota.Microchip)
                     form.textBox_chip.Text = "Sí";
                 else
                     form.textBox_chip.Text = "No";
-                
             }
         }
     }

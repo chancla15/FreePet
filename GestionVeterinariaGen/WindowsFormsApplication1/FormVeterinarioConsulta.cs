@@ -100,6 +100,7 @@ namespace WindowsFormsApplication1
 
         private void button_realizar_Click(object sender, EventArgs e)
         {
+            //realizar consulta
 
         }
 
@@ -128,7 +129,9 @@ namespace WindowsFormsApplication1
                 DataGridViewRow fila = dataGridView_ConsultaPet.Rows[indice];
                 String s = Convert.ToString(fila.Cells[0].Value);
 
-                listBox_addTratamiento.Items.Add(s);
+                //controlar repetido
+                if(!listBox_addTratamiento.Items.Contains(s))
+                    listBox_addTratamiento.Items.Add(s);
             }
 
             contador++;

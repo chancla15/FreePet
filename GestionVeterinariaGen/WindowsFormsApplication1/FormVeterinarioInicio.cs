@@ -61,14 +61,13 @@ namespace WindowsFormsApplication1
             
             DataGridViewRow fila = dataGrid_consultas.Rows[e.RowIndex];
             String s = Convert.ToString(fila.Cells["Nombre"].Value);
+            String num = Convert.ToString(fila.Cells["Numero"].Value);
             IList<MascotaEN> m = Utils._MascotaCEN.DameMascotaPorNombre(s);
             mascota = m[0];
-            IList<ConsultaEN> c = Utils._ConsultaCEN.DameConsultaPorAnimal(mascota.IdMascota);
-            consulta = c[0];
-            c[0].MotivoConsulta = Convert.ToString(fila.Cells["Motivo"].Value);
-            c[0].Lugar = Convert.ToString(fila.Cells["Lugar"].Value);
 
-            if (menu.LaunchConsultaScreenVeterinario(mascota,consulta))
+            ConsultaEN c = Utils._ConsultaCEN.DameConsultaPorOID(Convert.ToInt32(num));
+
+            if (menu.LaunchConsultaScreenVeterinario(mascota,c))
                 DesactivateForm();
         }
 
