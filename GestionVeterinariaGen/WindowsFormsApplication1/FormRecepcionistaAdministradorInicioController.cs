@@ -136,6 +136,7 @@ namespace WindowsFormsApplication1
                     if (!dni_repetido)
                     {
                         form.dataGrid_clientes.Rows.Add(en_cli_apellido[i].DNI, en_cli_apellido[i].Nombre, en_cli_apellido[i].Apellidos);
+                        if(en_cli_nombre.Count > 0 && i < en_cli_nombre.Count)
                         clientes_buscados.Add(en_cli_nombre[i]);
                     }
                     dni_repetido = false;
