@@ -118,10 +118,19 @@ namespace WindowsFormsApplication1
 
         private void button_add_Click(object sender, EventArgs e)
         {
+            int cont = 0;
             panel_tratamientos.Visible = true;
+            cont++;
             //DataGridViewRow fila = dataGrid_consultas.Rows[e.RowIndex];
-            //String s = Convert.ToString(fila.Cells["Nombre"].Value);
-            listBox_addTratamiento.Items.Add(dataGridView_ConsultaPet.Rows.ToString());
+            //String s = .ToString(fila.Cells["Nombre"].Value);
+            //DataGridViewRow row = dataGridView_ConsultaPet.Rows[1];
+            //String s = "" + row.Cells["Nombre"].Value;
+            if(cont == 1)
+             listBox_addTratamiento.Items.Add("Anti Parvovirus");
+            else if (cont == 2)
+                listBox_addTratamiento.Items.Add("Anti Parvovirus2");
+            cont++;
+
         }
 
         private void button_cerrartrat_Click(object sender, EventArgs e)
@@ -132,6 +141,12 @@ namespace WindowsFormsApplication1
         private void button_del_Click(object sender, EventArgs e)
         {
             listBox_addTratamiento.Items.Remove(listBox_addTratamiento.SelectedItem);
+        }
+
+        private void button_anular_Click(object sender, EventArgs e)
+        {
+            if (menu.LaunchStartScreenVeterinario())
+                DesactivateForm();
         }
     }
 }

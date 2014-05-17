@@ -407,6 +407,7 @@
             this.button_anular.TabIndex = 68;
             this.button_anular.Text = "Anular consulta";
             this.button_anular.UseVisualStyleBackColor = true;
+            this.button_anular.Click += new System.EventHandler(this.button_anular_Click);
             // 
             // picture_inicio_veterinario
             // 
