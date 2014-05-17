@@ -115,9 +115,6 @@ public void Modify (MascotaEN mascota)
 
                 mascotaEN.Microchip = mascota.Microchip;
 
-
-                mascotaEN.Foto = mascota.Foto;
-
                 session.Update (mascotaEN);
                 SessionCommit ();
         }

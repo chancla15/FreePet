@@ -209,10 +209,10 @@ namespace WindowsFormsApplication1
                 switch (form.state)
                 {
                     case Utils.State.NEW:
-                            Utils._MascotaCEN.New_(mascotaEN.Nombre, mascotaEN.Raza, mascotaEN.Sexo, mascotaEN.Peso, mascotaEN.Especie, mascotaEN.FNacimiento, mascotaEN.Tamanyo, mascotaEN.Cliente.DNI, mascotaEN.Color, mascotaEN.Microchip, mascotaEN.Foto);
+                            Utils._MascotaCEN.New_(mascotaEN.Nombre, mascotaEN.Raza, mascotaEN.Sexo, mascotaEN.Peso, mascotaEN.Especie, mascotaEN.FNacimiento, mascotaEN.Tamanyo, mascotaEN.Cliente.DNI, mascotaEN.Color, mascotaEN.Microchip);
                         break;
                     case Utils.State.MODIFY:
-                            Utils._MascotaCEN.Modify(mascotaEN.IdMascota, mascotaEN.Nombre, mascotaEN.Raza, mascotaEN.Sexo, mascotaEN.Peso, mascotaEN.Especie, mascotaEN.FNacimiento, mascotaEN.Tamanyo, mascotaEN.Color, mascotaEN.Microchip, mascotaEN.Foto); 
+                            Utils._MascotaCEN.Modify(mascotaEN.IdMascota, mascotaEN.Nombre, mascotaEN.Raza, mascotaEN.Sexo, mascotaEN.Peso, mascotaEN.Especie, mascotaEN.FNacimiento, mascotaEN.Tamanyo, mascotaEN.Color, mascotaEN.Microchip); 
                         break;
                     case Utils.State.DESTROY:
                             Utils._MascotaCEN.Destroy(mascotaEN.IdMascota);

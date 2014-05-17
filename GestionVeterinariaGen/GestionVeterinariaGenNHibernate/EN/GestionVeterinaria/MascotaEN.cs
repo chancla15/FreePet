@@ -77,12 +77,6 @@ private string color;
 
 private bool microchip;
 
-/**
- *
- */
-
-private string foto;
-
 
 
 
@@ -147,11 +141,6 @@ public virtual bool Microchip {
 }
 
 
-public virtual string Foto {
-        get { return foto; } set { foto = value;  }
-}
-
-
 
 
 
@@ -162,18 +151,18 @@ public MascotaEN()
 
 
 
-public MascotaEN(int idMascota, string nombre, string raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum sexo, float peso, string especie, Nullable<DateTime> fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum tamanyo, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN cliente, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, string color, bool microchip, string foto)
+public MascotaEN(int idMascota, string nombre, string raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum sexo, float peso, string especie, Nullable<DateTime> fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum tamanyo, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN cliente, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, string color, bool microchip)
 {
-        this.init (idMascota, nombre, raza, sexo, peso, especie, fNacimiento, tamanyo, cliente, consulta, color, microchip, foto);
+        this.init (idMascota, nombre, raza, sexo, peso, especie, fNacimiento, tamanyo, cliente, consulta, color, microchip);
 }
 
 
 public MascotaEN(MascotaEN mascota)
 {
-        this.init (mascota.IdMascota, mascota.Nombre, mascota.Raza, mascota.Sexo, mascota.Peso, mascota.Especie, mascota.FNacimiento, mascota.Tamanyo, mascota.Cliente, mascota.Consulta, mascota.Color, mascota.Microchip, mascota.Foto);
+        this.init (mascota.IdMascota, mascota.Nombre, mascota.Raza, mascota.Sexo, mascota.Peso, mascota.Especie, mascota.FNacimiento, mascota.Tamanyo, mascota.Cliente, mascota.Consulta, mascota.Color, mascota.Microchip);
 }
 
-private void init (int idMascota, string nombre, string raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum sexo, float peso, string especie, Nullable<DateTime> fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum tamanyo, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN cliente, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, string color, bool microchip, string foto)
+private void init (int idMascota, string nombre, string raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum sexo, float peso, string especie, Nullable<DateTime> fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum tamanyo, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN cliente, System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN> consulta, string color, bool microchip)
 {
         this.IdMascota = IdMascota;
 
@@ -199,8 +188,6 @@ private void init (int idMascota, string nombre, string raza, GestionVeterinaria
         this.Color = color;
 
         this.Microchip = microchip;
-
-        this.Foto = foto;
 }
 
 public override bool Equals (object obj)

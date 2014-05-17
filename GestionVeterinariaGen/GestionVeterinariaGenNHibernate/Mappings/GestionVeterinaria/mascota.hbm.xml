@@ -34,9 +34,6 @@
 					<property name="Microchip" type="boolean"> 
 						<column name="[microchip]"  not-null="true"/>
 					</property>
-					<property name="Foto" type="string"> 
-						<column name="[foto]"  not-null="true"/>
-					</property>
 			
 			
 			
@@ -62,8 +59,6 @@
 					
 			
 			
-			
-					
 					
 					
 					

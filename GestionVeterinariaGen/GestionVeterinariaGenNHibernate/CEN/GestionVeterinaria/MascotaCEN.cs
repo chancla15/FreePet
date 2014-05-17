@@ -32,7 +32,7 @@ public IMascotaCAD get_IMascotaCAD ()
         return this._IMascotaCAD;
 }
 
-public int New_ (string p_nombre, string p_raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum p_sexo, float p_peso, string p_especie, Nullable<DateTime> p_fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum p_tamanyo, string p_cliente, string p_color, bool p_microchip, string p_foto)
+public int New_ (string p_nombre, string p_raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum p_sexo, float p_peso, string p_especie, Nullable<DateTime> p_fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum p_tamanyo, string p_cliente, string p_color, bool p_microchip)
 {
         MascotaEN mascotaEN = null;
         int oid;
@@ -63,15 +63,13 @@ public int New_ (string p_nombre, string p_raza, GestionVeterinariaGenNHibernate
 
         mascotaEN.Microchip = p_microchip;
 
-        mascotaEN.Foto = p_foto;
-
         //Call to MascotaCAD
 
         oid = _IMascotaCAD.New_ (mascotaEN);
         return oid;
 }
 
-public void Modify (int p_Mascota_OID, string p_nombre, string p_raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum p_sexo, float p_peso, string p_especie, Nullable<DateTime> p_fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum p_tamanyo, string p_color, bool p_microchip, string p_foto)
+public void Modify (int p_Mascota_OID, string p_nombre, string p_raza, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum p_sexo, float p_peso, string p_especie, Nullable<DateTime> p_fNacimiento, GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum p_tamanyo, string p_color, bool p_microchip)
 {
         MascotaEN mascotaEN = null;
 
@@ -87,7 +85,6 @@ public void Modify (int p_Mascota_OID, string p_nombre, string p_raza, GestionVe
         mascotaEN.Tamanyo = p_tamanyo;
         mascotaEN.Color = p_color;
         mascotaEN.Microchip = p_microchip;
-        mascotaEN.Foto = p_foto;
         //Call to MascotaCAD
 
         _IMascotaCAD.Modify (mascotaEN);
