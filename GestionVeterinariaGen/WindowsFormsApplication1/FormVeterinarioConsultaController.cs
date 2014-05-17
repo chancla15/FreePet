@@ -51,7 +51,6 @@ namespace WindowsFormsApplication1
                     form.textBox_chip.Text = "Sí";
                 else
                     form.textBox_chip.Text = "No";
-                
             }
         }
     }
