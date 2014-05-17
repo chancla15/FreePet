@@ -34,6 +34,7 @@ namespace WindowsFormsApplication1
 
             if (menu.sessionData.tipo.Equals("Administrador"))
                 admin = true;
+                
 
             EnableMenuAdministrador(admin);
 
@@ -58,6 +59,11 @@ namespace WindowsFormsApplication1
         //Activa menu administrador
         public void EnableMenuAdministrador(bool b)
         {
+            label12.Visible = b;
+            label13.Visible = b;
+            label14.Visible = b;
+            label15.Visible = b;
+
             ListaEmpleados.Visible = ListaEmpleados.Enabled = b;
             picture_start_admin.Visible = picture_start_admin.Enabled = b;
             picture_empleados_admin.Visible = picture_empleados_admin.Enabled = b;
@@ -236,6 +242,11 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
+
+        private void FormRecepcionistaAdministradorInicio_Load(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }

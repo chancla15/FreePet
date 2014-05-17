@@ -83,6 +83,9 @@
             this.tratamientoTableAdapter = new WindowsFormsApplication1.FormAdministradorTratamientoDataSetTableAdapters.TratamientoTableAdapter();
             this.panel_tratamientos = new System.Windows.Forms.Panel();
             this.button_cerrartrat = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
             this.groupBox_ficha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).BeginInit();
@@ -101,7 +104,7 @@
             this.log_type.AutoSize = true;
             this.log_type.BackColor = System.Drawing.Color.Transparent;
             this.log_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.log_type.Location = new System.Drawing.Point(108, 119);
+            this.log_type.Location = new System.Drawing.Point(113, 137);
             this.log_type.Name = "log_type";
             this.log_type.Size = new System.Drawing.Size(57, 18);
             this.log_type.TabIndex = 45;
@@ -112,7 +115,7 @@
             this.log_name.AutoSize = true;
             this.log_name.BackColor = System.Drawing.Color.Transparent;
             this.log_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.log_name.Location = new System.Drawing.Point(108, 50);
+            this.log_name.Location = new System.Drawing.Point(113, 68);
             this.log_name.Name = "log_name";
             this.log_name.Size = new System.Drawing.Size(134, 20);
             this.log_name.TabIndex = 43;
@@ -121,7 +124,7 @@
             // log_photo
             // 
             this.log_photo.Image = global::WindowsFormsApplication1.Properties.Resources.sinFoto;
-            this.log_photo.Location = new System.Drawing.Point(12, 50);
+            this.log_photo.Location = new System.Drawing.Point(14, 68);
             this.log_photo.Name = "log_photo";
             this.log_photo.Size = new System.Drawing.Size(90, 120);
             this.log_photo.TabIndex = 42;
@@ -129,7 +132,7 @@
             // 
             // text_hora
             // 
-            this.text_hora.Location = new System.Drawing.Point(206, 198);
+            this.text_hora.Location = new System.Drawing.Point(206, 205);
             this.text_hora.MaxLength = 5;
             this.text_hora.Name = "text_hora";
             this.text_hora.Size = new System.Drawing.Size(100, 20);
@@ -138,7 +141,7 @@
             // label_hora
             // 
             this.label_hora.AutoSize = true;
-            this.label_hora.Location = new System.Drawing.Point(167, 201);
+            this.label_hora.Location = new System.Drawing.Point(167, 208);
             this.label_hora.Name = "label_hora";
             this.label_hora.Size = new System.Drawing.Size(33, 13);
             this.label_hora.TabIndex = 49;
@@ -146,7 +149,7 @@
             // 
             // text_fecha
             // 
-            this.text_fecha.Location = new System.Drawing.Point(57, 198);
+            this.text_fecha.Location = new System.Drawing.Point(57, 205);
             this.text_fecha.Name = "text_fecha";
             this.text_fecha.Size = new System.Drawing.Size(100, 20);
             this.text_fecha.TabIndex = 52;
@@ -154,7 +157,7 @@
             // label_fecha
             // 
             this.label_fecha.AutoSize = true;
-            this.label_fecha.Location = new System.Drawing.Point(11, 201);
+            this.label_fecha.Location = new System.Drawing.Point(11, 208);
             this.label_fecha.Name = "label_fecha";
             this.label_fecha.Size = new System.Drawing.Size(40, 13);
             this.label_fecha.TabIndex = 51;
@@ -162,7 +165,7 @@
             // 
             // text_motivo
             // 
-            this.text_motivo.Location = new System.Drawing.Point(126, 230);
+            this.text_motivo.Location = new System.Drawing.Point(126, 240);
             this.text_motivo.Name = "text_motivo";
             this.text_motivo.Size = new System.Drawing.Size(528, 20);
             this.text_motivo.TabIndex = 56;
@@ -170,7 +173,7 @@
             // label_motivo
             // 
             this.label_motivo.AutoSize = true;
-            this.label_motivo.Location = new System.Drawing.Point(9, 233);
+            this.label_motivo.Location = new System.Drawing.Point(9, 243);
             this.label_motivo.Name = "label_motivo";
             this.label_motivo.Size = new System.Drawing.Size(111, 13);
             this.label_motivo.TabIndex = 55;
@@ -196,7 +199,7 @@
             // label_lugar
             // 
             this.label_lugar.AutoSize = true;
-            this.label_lugar.Location = new System.Drawing.Point(329, 201);
+            this.label_lugar.Location = new System.Drawing.Point(329, 208);
             this.label_lugar.Name = "label_lugar";
             this.label_lugar.Size = new System.Drawing.Size(37, 13);
             this.label_lugar.TabIndex = 59;
@@ -204,7 +207,7 @@
             // 
             // text_lugar
             // 
-            this.text_lugar.Location = new System.Drawing.Point(372, 198);
+            this.text_lugar.Location = new System.Drawing.Point(372, 205);
             this.text_lugar.Name = "text_lugar";
             this.text_lugar.Size = new System.Drawing.Size(282, 20);
             this.text_lugar.TabIndex = 60;
@@ -237,7 +240,7 @@
             this.groupBox_ficha.Controls.Add(this.label_fn);
             this.groupBox_ficha.Controls.Add(this.label_raza);
             this.groupBox_ficha.Controls.Add(this.label_peso);
-            this.groupBox_ficha.Location = new System.Drawing.Point(282, 43);
+            this.groupBox_ficha.Location = new System.Drawing.Point(287, 61);
             this.groupBox_ficha.Name = "groupBox_ficha";
             this.groupBox_ficha.Size = new System.Drawing.Size(378, 127);
             this.groupBox_ficha.TabIndex = 63;
@@ -377,14 +380,14 @@
             // 
             // textBox_mascota
             // 
-            this.textBox_mascota.Location = new System.Drawing.Point(112, 82);
+            this.textBox_mascota.Location = new System.Drawing.Point(117, 100);
             this.textBox_mascota.Name = "textBox_mascota";
             this.textBox_mascota.Size = new System.Drawing.Size(130, 20);
             this.textBox_mascota.TabIndex = 64;
             // 
             // textBox_cliente
             // 
-            this.textBox_cliente.Location = new System.Drawing.Point(112, 142);
+            this.textBox_cliente.Location = new System.Drawing.Point(117, 160);
             this.textBox_cliente.Name = "textBox_cliente";
             this.textBox_cliente.Size = new System.Drawing.Size(130, 20);
             this.textBox_cliente.TabIndex = 65;
@@ -423,12 +426,15 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.picture_inicio_veterinario);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.picture_consulta_veterinario);
             this.panel1.Controls.Add(this.picture_desconectar_veterinario);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(684, 34);
+            this.panel1.Size = new System.Drawing.Size(684, 55);
             this.panel1.TabIndex = 69;
             // 
             // picture_consulta_veterinario
@@ -581,6 +587,33 @@
             this.button_cerrartrat.UseVisualStyleBackColor = true;
             this.button_cerrartrat.Click += new System.EventHandler(this.button_cerrartrat_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(571, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 79;
+            this.label3.Text = "SALIR";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(306, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 78;
+            this.label2.Text = "CONSULTAS";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(72, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.TabIndex = 77;
+            this.label1.Text = "INICIO";
+            // 
             // FormVeterinarioConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -622,6 +655,7 @@
             this.groupBox_ficha.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ConsultaPet)).EndInit();
@@ -690,5 +724,8 @@
         public System.Windows.Forms.TextBox text_fecha;
         private System.Windows.Forms.Panel panel_tratamientos;
         private System.Windows.Forms.Button button_cerrartrat;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

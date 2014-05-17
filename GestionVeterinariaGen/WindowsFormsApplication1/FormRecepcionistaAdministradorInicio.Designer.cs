@@ -33,6 +33,10 @@
             this.text_buscar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGrid_clientes = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.formRecepcionistaAdministradorInicioDataSet2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.formRecepcionistaAdministradorInicio_DataSet2 = new WindowsFormsApplication1.FormRecepcionistaAdministradorInicio_DataSet2();
@@ -61,10 +65,10 @@
             this.log_photo = new System.Windows.Forms.PictureBox();
             this.usuarioTableAdapter1 = new WindowsFormsApplication1.FormRecepcionistaAdministradorInicio_DataSetTableAdapters.UsuarioTableAdapter();
             this.usuarioTableAdapter = new WindowsFormsApplication1.FormRecepcionistaAdministradorInicio_DataSet2TableAdapters.UsuarioTableAdapter();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_clientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaAdministradorInicioDataSet2BindingSource)).BeginInit();
@@ -91,7 +95,7 @@
             this.log_date.AutoSize = true;
             this.log_date.BackColor = System.Drawing.Color.Transparent;
             this.log_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.log_date.Location = new System.Drawing.Point(108, 143);
+            this.log_date.Location = new System.Drawing.Point(108, 163);
             this.log_date.Name = "log_date";
             this.log_date.Size = new System.Drawing.Size(51, 20);
             this.log_date.TabIndex = 41;
@@ -102,7 +106,7 @@
             this.log_type.AutoSize = true;
             this.log_type.BackColor = System.Drawing.Color.Transparent;
             this.log_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.log_type.Location = new System.Drawing.Point(108, 112);
+            this.log_type.Location = new System.Drawing.Point(108, 132);
             this.log_type.Name = "log_type";
             this.log_type.Size = new System.Drawing.Size(51, 20);
             this.log_type.TabIndex = 40;
@@ -113,7 +117,7 @@
             this.log_id.AutoSize = true;
             this.log_id.BackColor = System.Drawing.Color.Transparent;
             this.log_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.log_id.Location = new System.Drawing.Point(108, 80);
+            this.log_id.Location = new System.Drawing.Point(108, 100);
             this.log_id.Name = "log_id";
             this.log_id.Size = new System.Drawing.Size(51, 20);
             this.log_id.TabIndex = 39;
@@ -124,7 +128,7 @@
             this.log_name.AutoSize = true;
             this.log_name.BackColor = System.Drawing.Color.Transparent;
             this.log_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.log_name.Location = new System.Drawing.Point(108, 50);
+            this.log_name.Location = new System.Drawing.Point(108, 70);
             this.log_name.Name = "log_name";
             this.log_name.Size = new System.Drawing.Size(51, 20);
             this.log_name.TabIndex = 38;
@@ -132,7 +136,7 @@
             // 
             // text_buscar
             // 
-            this.text_buscar.Location = new System.Drawing.Point(12, 172);
+            this.text_buscar.Location = new System.Drawing.Point(12, 192);
             this.text_buscar.Name = "text_buscar";
             this.text_buscar.Size = new System.Drawing.Size(443, 20);
             this.text_buscar.TabIndex = 42;
@@ -162,14 +166,41 @@
             this.dataGridViewTextBoxColumn6,
             this.Ver});
             this.dataGrid_clientes.DataSource = this.bindingSource1;
-            this.dataGrid_clientes.Location = new System.Drawing.Point(12, 194);
+            this.dataGrid_clientes.Location = new System.Drawing.Point(12, 216);
             this.dataGrid_clientes.Name = "dataGrid_clientes";
             this.dataGrid_clientes.ReadOnly = true;
             this.dataGrid_clientes.RowHeadersVisible = false;
-            this.dataGrid_clientes.Size = new System.Drawing.Size(658, 274);
+            this.dataGrid_clientes.Size = new System.Drawing.Size(658, 252);
             this.dataGrid_clientes.TabIndex = 46;
             this.dataGrid_clientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellContentClick_Clientes);
             this.dataGrid_clientes.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.CellPainting_Clientes);
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "DNI";
+            this.dataGridViewTextBoxColumn4.HeaderText = "DNI";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "nombre";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "apellidos";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Apellidos";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // Ver
+            // 
+            this.Ver.HeaderText = "Ver";
+            this.Ver.Name = "Ver";
+            this.Ver.ReadOnly = true;
             // 
             // bindingSource1
             // 
@@ -189,6 +220,10 @@
             // panel_top
             // 
             this.panel_top.BackColor = System.Drawing.Color.Transparent;
+            this.panel_top.Controls.Add(this.label15);
+            this.panel_top.Controls.Add(this.label14);
+            this.panel_top.Controls.Add(this.label13);
+            this.panel_top.Controls.Add(this.label12);
             this.panel_top.Controls.Add(this.picture_tratamientos_admin);
             this.panel_top.Controls.Add(this.picture_empleados_admin);
             this.panel_top.Controls.Add(this.picture_desconectar_admin);
@@ -200,7 +235,7 @@
             this.panel_top.Controls.Add(this.picture_start_recepcionista);
             this.panel_top.Location = new System.Drawing.Point(-2, 0);
             this.panel_top.Name = "panel_top";
-            this.panel_top.Size = new System.Drawing.Size(690, 34);
+            this.panel_top.Size = new System.Drawing.Size(690, 50);
             this.panel_top.TabIndex = 51;
             this.panel_top.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_top_Paint);
             // 
@@ -325,11 +360,11 @@
             this.ModificarEmpleado,
             this.EliminarEmpleado});
             this.ListaEmpleados.DataSource = this.bindingSource2;
-            this.ListaEmpleados.Location = new System.Drawing.Point(12, 198);
+            this.ListaEmpleados.Location = new System.Drawing.Point(12, 216);
             this.ListaEmpleados.Name = "ListaEmpleados";
             this.ListaEmpleados.ReadOnly = true;
             this.ListaEmpleados.RowHeadersVisible = false;
-            this.ListaEmpleados.Size = new System.Drawing.Size(658, 273);
+            this.ListaEmpleados.Size = new System.Drawing.Size(658, 255);
             this.ListaEmpleados.TabIndex = 52;
             this.ListaEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellContentClick_empleados);
             this.ListaEmpleados.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.CellPainting_empleados);
@@ -395,7 +430,7 @@
             this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_add.FlatAppearance.BorderSize = 0;
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add.Location = new System.Drawing.Point(646, 167);
+            this.btn_add.Location = new System.Drawing.Point(646, 187);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(24, 24);
             this.btn_add.TabIndex = 48;
@@ -409,7 +444,7 @@
             this.btn_buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_buscar.FlatAppearance.BorderSize = 0;
             this.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_buscar.Location = new System.Drawing.Point(461, 172);
+            this.btn_buscar.Location = new System.Drawing.Point(461, 192);
             this.btn_buscar.Name = "btn_buscar";
             this.btn_buscar.Size = new System.Drawing.Size(16, 16);
             this.btn_buscar.TabIndex = 43;
@@ -420,7 +455,7 @@
             // 
             this.log_photo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.log_photo.Image = global::WindowsFormsApplication1.Properties.Resources.sinFoto;
-            this.log_photo.Location = new System.Drawing.Point(12, 44);
+            this.log_photo.Location = new System.Drawing.Point(12, 64);
             this.log_photo.Name = "log_photo";
             this.log_photo.Size = new System.Drawing.Size(90, 120);
             this.log_photo.TabIndex = 36;
@@ -434,32 +469,45 @@
             // 
             this.usuarioTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn4
+            // label15
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "DNI";
-            this.dataGridViewTextBoxColumn4.HeaderText = "DNI";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(197, 37);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(124, 13);
+            this.label15.TabIndex = 93;
+            this.label15.Text = "GESTIÓN EMPLEADOS";
+            this.label15.Visible = false;
             // 
-            // dataGridViewTextBoxColumn5
+            // label14
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "nombre";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(67, 37);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(39, 13);
+            this.label14.TabIndex = 90;
+            this.label14.Text = "INICIO";
+            this.label14.Visible = false;
             // 
-            // dataGridViewTextBoxColumn6
+            // label13
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "apellidos";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Apellidos";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(357, 37);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(143, 13);
+            this.label13.TabIndex = 91;
+            this.label13.Text = "GESTIÓN TRATAMIENTOS";
+            this.label13.Visible = false;
             // 
-            // Ver
+            // label12
             // 
-            this.Ver.HeaderText = "Ver";
-            this.Ver.Name = "Ver";
-            this.Ver.ReadOnly = true;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(575, 37);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 13);
+            this.label12.TabIndex = 92;
+            this.label12.Text = "  SALIR";
+            this.label12.Visible = false;
             // 
             // FormRecepcionistaAdministradorInicio
             // 
@@ -486,11 +534,13 @@
             this.Name = "FormRecepcionistaAdministradorInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
+            this.Load += new System.EventHandler(this.FormRecepcionistaAdministradorInicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_clientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaAdministradorInicioDataSet2BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaAdministradorInicio_DataSet2)).EndInit();
             this.panel_top.ResumeLayout(false);
+            this.panel_top.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_tratamientos_admin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_empleados_admin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_admin)).EndInit();
@@ -558,5 +608,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewButtonColumn Ver;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
     }
 }

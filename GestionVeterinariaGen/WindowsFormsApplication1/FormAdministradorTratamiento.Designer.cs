@@ -58,6 +58,10 @@
             this.btn_delete = new System.Windows.Forms.PictureBox();
             this.btn_erase = new System.Windows.Forms.Button();
             this.lista_dosis = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btn_add)).BeginInit();
             this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_admin)).BeginInit();
@@ -76,7 +80,7 @@
             this.btn_buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_buscar.FlatAppearance.BorderSize = 0;
             this.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_buscar.Location = new System.Drawing.Point(354, 63);
+            this.btn_buscar.Location = new System.Drawing.Point(354, 67);
             this.btn_buscar.Name = "btn_buscar";
             this.btn_buscar.Size = new System.Drawing.Size(16, 16);
             this.btn_buscar.TabIndex = 53;
@@ -97,13 +101,17 @@
             // panel_top
             // 
             this.panel_top.BackColor = System.Drawing.Color.Transparent;
+            this.panel_top.Controls.Add(this.label15);
+            this.panel_top.Controls.Add(this.label14);
+            this.panel_top.Controls.Add(this.label13);
+            this.panel_top.Controls.Add(this.label12);
             this.panel_top.Controls.Add(this.picture_desconectar_admin);
             this.panel_top.Controls.Add(this.picture_home);
             this.panel_top.Controls.Add(this.picture_tratamiento);
             this.panel_top.Controls.Add(this.picture_empleado);
             this.panel_top.Location = new System.Drawing.Point(-3, 0);
             this.panel_top.Name = "panel_top";
-            this.panel_top.Size = new System.Drawing.Size(676, 34);
+            this.panel_top.Size = new System.Drawing.Size(676, 57);
             this.panel_top.TabIndex = 57;
             // 
             // picture_desconectar_admin
@@ -156,14 +164,14 @@
             // 
             // text_stock
             // 
-            this.text_stock.Location = new System.Drawing.Point(62, 95);
+            this.text_stock.Location = new System.Drawing.Point(62, 99);
             this.text_stock.Name = "text_stock";
             this.text_stock.Size = new System.Drawing.Size(55, 20);
             this.text_stock.TabIndex = 59;
             // 
             // text_nombre
             // 
-            this.text_nombre.Location = new System.Drawing.Point(62, 59);
+            this.text_nombre.Location = new System.Drawing.Point(62, 63);
             this.text_nombre.Name = "text_nombre";
             this.text_nombre.Size = new System.Drawing.Size(286, 20);
             this.text_nombre.TabIndex = 60;
@@ -180,7 +188,7 @@
             // 
             this.label_nombre.AutoSize = true;
             this.label_nombre.BackColor = System.Drawing.Color.Transparent;
-            this.label_nombre.Location = new System.Drawing.Point(12, 62);
+            this.label_nombre.Location = new System.Drawing.Point(12, 66);
             this.label_nombre.Name = "label_nombre";
             this.label_nombre.Size = new System.Drawing.Size(44, 13);
             this.label_nombre.TabIndex = 62;
@@ -190,7 +198,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(276, 98);
+            this.label1.Location = new System.Drawing.Point(276, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 64;
@@ -200,7 +208,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(142, 98);
+            this.label2.Location = new System.Drawing.Point(142, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 65;
@@ -210,7 +218,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(12, 98);
+            this.label3.Location = new System.Drawing.Point(12, 102);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 66;
@@ -218,7 +226,7 @@
             // 
             // text_precio
             // 
-            this.text_precio.Location = new System.Drawing.Point(185, 95);
+            this.text_precio.Location = new System.Drawing.Point(185, 99);
             this.text_precio.Name = "text_precio";
             this.text_precio.Size = new System.Drawing.Size(72, 20);
             this.text_precio.TabIndex = 67;
@@ -322,7 +330,7 @@
             this.btn_erase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_erase.FlatAppearance.BorderSize = 0;
             this.btn_erase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_erase.Location = new System.Drawing.Point(376, 63);
+            this.btn_erase.Location = new System.Drawing.Point(376, 67);
             this.btn_erase.Name = "btn_erase";
             this.btn_erase.Size = new System.Drawing.Size(16, 16);
             this.btn_erase.TabIndex = 73;
@@ -336,10 +344,46 @@
             "1",
             "2",
             "3"});
-            this.lista_dosis.Location = new System.Drawing.Point(345, 94);
+            this.lista_dosis.Location = new System.Drawing.Point(345, 98);
             this.lista_dosis.Name = "lista_dosis";
             this.lista_dosis.Size = new System.Drawing.Size(47, 21);
             this.lista_dosis.TabIndex = 75;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(194, 37);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(124, 13);
+            this.label15.TabIndex = 93;
+            this.label15.Text = "GESTIÓN EMPLEADOS";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(62, 37);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(42, 13);
+            this.label14.TabIndex = 90;
+            this.label14.Text = " INICIO";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(354, 37);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(149, 13);
+            this.label13.TabIndex = 91;
+            this.label13.Text = "  GESTIÓN TRATAMIENTOS";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(576, 37);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 13);
+            this.label12.TabIndex = 92;
+            this.label12.Text = "  SALIR";
             // 
             // FormAdministradorTratamiento
             // 
@@ -369,6 +413,7 @@
             this.Text = "Tratamientos";
             ((System.ComponentModel.ISupportInitialize)(this.btn_add)).EndInit();
             this.panel_top.ResumeLayout(false);
+            this.panel_top.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_admin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_home)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_tratamiento)).EndInit();
@@ -412,5 +457,9 @@
         public System.Windows.Forms.PictureBox btn_delete;
         public System.Windows.Forms.Button btn_erase;
         public System.Windows.Forms.ComboBox lista_dosis;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
     }
 }
