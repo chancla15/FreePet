@@ -25,7 +25,7 @@ namespace WindowsFormsApplication1
             this.form = form;
         }
 
-        public void loadData(MascotaEN mascota)
+        public void loadData(MascotaEN mascota, ConsultaEN consulta)
         {
             if (mascota != null)
             {
@@ -42,8 +42,8 @@ namespace WindowsFormsApplication1
                 form.text_hora.Text = DateTime.Now.Hour+ ":" + DateTime.Now.Minute.ToString();
                 form.text_fecha.Text = form.textBox_fn.Text = DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
 
-                //form.text_lugar.Text = consulta.Lugar;
-                //form.text_motivo.Text = consulta.MotivoConsulta;
+                form.text_lugar.Text = consulta.Lugar;
+                form.text_motivo.Text = consulta.MotivoConsulta;
 
 
 

@@ -52,7 +52,7 @@ namespace WindowsFormsApplication1
             return ret;
         }
 
-        override public bool LaunchConsultaScreenVeterinario(MascotaEN mascota)
+        override public bool LaunchConsultaScreenVeterinario(MascotaEN mascota,ConsultaEN consulta)
         {
             bool ret = false;
 
@@ -61,7 +61,7 @@ namespace WindowsFormsApplication1
                  ret = true;
                  FormActual = f_consulta.ID;
                  f_consulta.ActivateForm();
-                 f_consulta.changeState(mascota);
+                 f_consulta.changeState(mascota, consulta);
              }
             return ret;
         }

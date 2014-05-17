@@ -125,7 +125,7 @@ namespace WindowsFormsApplication1
             if (state == Utils.State.MODIFY)
             {
                 EnableForm(false);
-                if (MessageBox.Show("Seguro que desea despedir a este empleado", "Despedir usuario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                if (MessageBox.Show("¿Seguro que desea eliminar este tratamiento?", "Eliminar tratamiento", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     state = Utils.State.DESTROY;
                     controller.ProcesarInformacion();

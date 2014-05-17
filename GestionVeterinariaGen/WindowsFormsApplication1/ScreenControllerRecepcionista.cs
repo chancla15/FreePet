@@ -151,7 +151,7 @@ namespace WindowsFormsApplication1
             throw new NotImplementedException();
         }
 
-        override public bool LaunchConsultaScreenVeterinario(MascotaEN mascota)
+        override public bool LaunchConsultaScreenVeterinario(MascotaEN mascota, ConsultaEN consulta)
         {
             throw new NotImplementedException();
         }

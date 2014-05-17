@@ -15,6 +15,7 @@ namespace WindowsFormsApplication1
         public string ID = "INICIO";
         public ScreenController menu;
         private MascotaEN mascota;
+        private ConsultaEN consulta;
 
         /** El controlador */
         private FormVeterinarioInicioController controller;
@@ -62,8 +63,12 @@ namespace WindowsFormsApplication1
             String s = Convert.ToString(fila.Cells["Nombre"].Value);
             IList<MascotaEN> m = Utils._MascotaCEN.DameMascotaPorNombre(s);
             mascota = m[0];
+            IList<ConsultaEN> c = Utils._ConsultaCEN.DameConsultaPorAnimal(mascota.IdMascota);
+            consulta = c[0];
+            c[0].MotivoConsulta = Convert.ToString(fila.Cells["Motivo"].Value);
+            c[0].Lugar = Convert.ToString(fila.Cells["Lugar"].Value);
 
-            if (menu.LaunchConsultaScreenVeterinario(mascota))
+            if (menu.LaunchConsultaScreenVeterinario(mascota,consulta))
                 DesactivateForm();
         }
 
@@ -81,7 +86,7 @@ namespace WindowsFormsApplication1
 
         private void picture_consulta_veterinario_Click(object sender, EventArgs e)
         {
-            if (menu.LaunchConsultaScreenVeterinario(mascota))
+            if (menu.LaunchConsultaScreenVeterinario(mascota, consulta))
                 DesactivateForm();
         }
 

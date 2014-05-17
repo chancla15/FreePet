@@ -17,6 +17,8 @@ namespace WindowsFormsApplication1
         public ScreenControllerVeterinario menu;
 
         private MascotaEN mascota;
+        private ConsultaEN consulta;
+        public int contador = 0;
 
         private FormVeterinarioConsultaController controller;
 
@@ -44,9 +46,9 @@ namespace WindowsFormsApplication1
         }
         #endregion
 
-        public void changeState(MascotaEN mascota)
+        public void changeState(MascotaEN mascota, ConsultaEN consulta)
         {
-            controller.loadData(mascota);
+            controller.loadData(mascota,consulta);
         }
 
 
@@ -85,7 +87,7 @@ namespace WindowsFormsApplication1
 
         private void picture_consulta_veterinario_Click_1(object sender, EventArgs e)
         {
-            if (menu.LaunchConsultaScreenVeterinario(mascota))
+            if (menu.LaunchConsultaScreenVeterinario(mascota,consulta))
                 DesactivateForm();
         }
 
@@ -118,23 +120,23 @@ namespace WindowsFormsApplication1
 
         private void button_add_Click(object sender, EventArgs e)
         {
-            int cont = 0;
             panel_tratamientos.Visible = true;
-            cont++;
-            //DataGridViewRow fila = dataGrid_consultas.Rows[e.RowIndex];
-            //String s = .ToString(fila.Cells["Nombre"].Value);
-            //DataGridViewRow row = dataGridView_ConsultaPet.Rows[1];
-            //String s = "" + row.Cells["Nombre"].Value;
-            if(cont == 1)
-             listBox_addTratamiento.Items.Add("Anti Parvovirus");
-            else if (cont == 2)
-                listBox_addTratamiento.Items.Add("Anti Parvovirus2");
-            cont++;
 
+            if (contador > 0)
+            {
+                int indice = Convert.ToInt32(dataGridView_ConsultaPet.CurrentRow.Index);
+                DataGridViewRow fila = dataGridView_ConsultaPet.Rows[indice];
+                String s = Convert.ToString(fila.Cells[0].Value);
+
+                listBox_addTratamiento.Items.Add(s);
+            }
+
+            contador++;
         }
 
         private void button_cerrartrat_Click(object sender, EventArgs e)
         {
+            contador = 0;
             panel_tratamientos.Visible = false;
         }
 

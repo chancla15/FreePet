@@ -31,6 +31,6 @@ namespace WindowsFormsApplication1
 
         //VETERINARIO
         public abstract bool LaunchStartScreenVeterinario();
-        public abstract bool LaunchConsultaScreenVeterinario(MascotaEN m);
+        public abstract bool LaunchConsultaScreenVeterinario(MascotaEN m, ConsultaEN c);
     }
 }
