@@ -78,9 +78,6 @@ namespace WindowsFormsApplication1
 
             //hacer la query a la base de datos pasandole la fecha seleccionada mostrar los resultados
             IList<ConsultaEN> consultas = Utils._IConsultaCAD.DameConsultaPorFechaYHora(fecha);
-            //MascotaEN mascota;
-            for (int x = 0; x < consultas.Count; x++)
-                Console.WriteLine(consultas[x].Mascota.IdMascota);
 
             if (consultas.Count > 0)
             {//si ha encontrado consultas las muestra
@@ -89,7 +86,7 @@ namespace WindowsFormsApplication1
                     consultas[x].Mascota = Utils._IMascotaCAD.BuscarMascotaPorOID(consultas[x].Mascota.IdMascota);//Los datos de máscota que necesitamos.
                     if (consultas[x].Fecha.Equals(fecha) && consultas[x].Veterinario.DNI == form.menu.sessionData.TOKEN_SESSION)
                     {
-                        form.dataGrid_consultas.Rows.Add(consultas[x].Fecha, consultas[x].Mascota.Nombre ,consultas[x].Mascota.Raza, consultas[x].Mascota.Especie, consultas[x].MotivoConsulta, consultas[x].Lugar);
+                        form.dataGrid_consultas.Rows.Add(consultas[x].IdConsulta, consultas[x].Fecha, consultas[x].Mascota.Nombre ,consultas[x].Mascota.Raza, consultas[x].Mascota.Especie, consultas[x].MotivoConsulta, consultas[x].Lugar);
                         //form.dataGrid_consultas.Rows.Add(consultas[x].Fecha, consultas[x].MotivoConsulta, consultas[x].Lugar);
                     }
                 }
@@ -97,40 +94,6 @@ namespace WindowsFormsApplication1
 
 
         }
-
-        /**
-         * Devuelve la columna pulsada del datagrid junto con su identficador
-         */
-        //public MascotaEN getDataGridViewState(DataGridViewCellEventArgs ev, ref Utils.State st)
-        // {
-        //   string cli = "";
-        //ConsultaEN consulta = null;
-
-        //if (form.dataGrid_consultas.Columns[ev.ColumnIndex].Name.Equals("Ver"))
-        // st = Utils.State.DESTROY;
-        //else
-        //   st = Utils.State.NONE;
-
-        // cli = form.dataGrid_consultas.Rows[ev.RowIndex].Cells[0].Value.ToString();//Esto que mierda devuelve?
-
-        /*if (st == Utils.State.NONE)
-            form.text_dni.Text = form.dataGridView.Rows[ev.RowIndex].Cells[4].Value.ToString();
-
-
-        if (lista_mascotas != null && lista_mascotas.Count > 0 && cli != "")
-        {
-            for (int i = 0; i < lista_mascotas.Count; i++)
-            {
-                if (lista_mascotas[i].IdMascota == Convert.ToInt32(cli))
-                {
-                    mascota = lista_mascotas[i];
-                    break;
-                }
-            }
-        }*/
-
-        //return consulta;
-        //}
 
         //Dibujar el icono en el datagrid
         public void paintDataGridView(DataGridViewCellPaintingEventArgs e)

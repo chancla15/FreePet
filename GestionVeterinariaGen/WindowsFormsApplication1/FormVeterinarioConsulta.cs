@@ -100,6 +100,7 @@ namespace WindowsFormsApplication1
 
         private void button_realizar_Click(object sender, EventArgs e)
         {
+            //realizar consulta
 
         }
 
