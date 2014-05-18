@@ -298,7 +298,6 @@
             this.dataGrid_tratamientos.RowHeadersVisible = false;
             this.dataGrid_tratamientos.Size = new System.Drawing.Size(650, 255);
             this.dataGrid_tratamientos.TabIndex = 70;
-            this.dataGrid_tratamientos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.dataGrid_tratamientos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_tratamientos_CellContentClick);
             // 
             // nombreDataGridViewTextBoxColumn

@@ -94,10 +94,10 @@ namespace WindowsFormsApplication1
 
         public void cargarDatosConsultaDesdeTreeView()
         {
-
+            Console.WriteLine(form.treeViewConsultas.SelectedNode.ToString());
             string text = Convert.ToString(form.treeViewConsultas.SelectedNode);
             string date_hour = "";
-            DateTime fecha;
+            string aux_hora_lista = "";
 
             for (int i = 0; i < text.Length; i++)
             {
@@ -107,29 +107,19 @@ namespace WindowsFormsApplication1
                     break;
             }
 
-            fecha = Convert.ToDateTime(form.box_text_fecha + " " + date_hour);
             for (int i = 0; i < lista_consultasToday.Count; i++)
-                if (fecha == lista_consultasToday[i].Fecha)
+            {
+                aux_hora_lista = lista_consultasToday[i].Fecha.Value.Hour + ":" + lista_consultasToday[i].Fecha.Value.Minute;
+
+                if (date_hour==aux_hora_lista)
                 {
                     consultaEN = lista_consultasToday[i];
+                    Console.WriteLine(consultaEN.Fecha.Value);
                     break;
                 }
-
-            if (consultaEN != null)
-            {
-                form.box_text_motivo.Text = consultaEN.MotivoConsulta;
-                form.box_text_lugar.Text = consultaEN.Lugar;
-                if (consultaEN.Mascota != null)
-                    form.box_text_cliente.Text = consultaEN.Mascota.Cliente.DNI;
-                form.box_text_fecha.Text = consultaEN.Fecha.Value.Day + "/" + consultaEN.Fecha.Value.Month + "/" + consultaEN.Fecha.Value.Year;
-                form.box_combo_hora.SelectedItem = consultaEN.Fecha.Value.Hour + ':' + consultaEN.Fecha.Value.Minute;
-                form.box_combo_mascotas.SelectedItem = consultaEN.Mascota.Nombre;
-                if (consultaEN.Veterinario != null)
-                    form.box_combo_veterinario.SelectedItem = consultaEN.Veterinario.Nombre + ' ' + consultaEN.Veterinario.Apellidos;
-                form.datetime_init.Value = DateTime.Today;
-                form.datetime_fin.Value = DateTime.Today;
             }
 
+            cargarDatosConsulta(consultaEN);
         }
 
         #endregion
@@ -150,30 +140,41 @@ namespace WindowsFormsApplication1
                 ret = true;
                 IList<ConsultaEN> lista=null;
 
-                /** Recorro las fechas en el intervalo seleccionado */
                 for (DateTime f = form.datetime_init.Value.Date; f <= form.datetime_fin.Value.Date; f = f.AddDays(1))
                 {
-                    /** Si no es dia laborable no muestra fecha */
                     if (f.DayOfWeek != System.DayOfWeek.Saturday && f.DayOfWeek != System.DayOfWeek.Sunday)
                     {
                         TreeNode node= new TreeNode(f.DayOfWeek.ToString() + " - " + f.Day.ToString() + "/" + f.Month.ToString() + "/" + f.Year.ToString());
-                        // Console.Write("Fecha: " + f.ToString() + "\n");
                         try
                         {
                             lista = Utils._IConsultaCAD.BuscarConsultaPorFecha(f);
+                            VeterinarioEN aux_vet=null;
+                            string inforSubConsulta = "";
 
-                            /* Si existen consultas para ese dia se las añado sus horas y pongo el nodo como importante */
                             if (lista != null && lista.Count > 0)
                             {
-                                
-                                Console.Write("Hay una consulta como minimo este dia" + f.ToString());// + " lista.Count: " + lista.Count);
-
                                 for (int i = 0; i < lista.Count; i++)
                                 {
-                                    //string s = "";
-                                    string s= (lista[i].Fecha.Value.Hour + ":" + lista[i].Fecha.Value.Minute); //+ " - " + lista[i].Veterinario.Nombre + " " + lista[i].Veterinario.Apellidos);
-                                    node.Nodes.Add(s);
-                                    Console.WriteLine(f.ToString() + " HORA: " + s);
+                                    inforSubConsulta = lista[i].Fecha.Value.Hour + ":";
+
+                                    if(lista[i].Fecha.Value.Minute==0)
+                                        inforSubConsulta+="00";
+                                    else
+                                        inforSubConsulta+=lista[i].Fecha.Value.Minute;
+
+                                    for (int k = 0; k < lista_veterinariosTotal.Count; k++)
+                                    {
+                                        if (lista[k].Veterinario.DNI == lista_veterinariosTotal[k].DNI)
+                                        {
+                                            aux_vet = lista_veterinariosTotal[k];
+                                            break;
+                                        }
+                                    }
+
+                                    if(aux_vet!=null)
+                                        inforSubConsulta+= " - " + aux_vet.Nombre + " " + aux_vet.Apellidos;
+
+                                    node.Nodes.Add(inforSubConsulta);
                                 }
                                lista.Clear();
                             }
@@ -199,6 +200,10 @@ namespace WindowsFormsApplication1
         public void cambiarFecha()
         {
             TreeNode nodeOp = form.treeViewConsultas.SelectedNode;
+
+            if (nodeOp.Level > 0)
+                nodeOp = nodeOp.Parent;
+
             String date = "";
             String text = Convert.ToString(nodeOp.Text);
 

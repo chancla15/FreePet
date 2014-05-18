@@ -32,15 +32,13 @@ public IConsultaCAD get_IConsultaCAD ()
         return this._IConsultaCAD;
 }
 
-public int New_ (Nullable<DateTime> p_fecha, string p_motivoConsulta, string p_diagnostico, int p_mascota, string p_veterinario, string p_lugar)
+public int New_ (string p_motivoConsulta, string p_diagnostico, int p_mascota, string p_veterinario, string p_lugar, Nullable<DateTime> p_fecha)
 {
         ConsultaEN consultaEN = null;
         int oid;
 
         //Initialized ConsultaEN
         consultaEN = new ConsultaEN ();
-        consultaEN.Fecha = p_fecha;
-
         consultaEN.MotivoConsulta = p_motivoConsulta;
 
         consultaEN.Diagnostico = p_diagnostico;
@@ -59,23 +57,25 @@ public int New_ (Nullable<DateTime> p_fecha, string p_motivoConsulta, string p_d
 
         consultaEN.Lugar = p_lugar;
 
+        consultaEN.Fecha = p_fecha;
+
         //Call to ConsultaCAD
 
         oid = _IConsultaCAD.New_ (consultaEN);
         return oid;
 }
 
-public void Modify (int p_Consulta_OID, Nullable<DateTime> p_fecha, string p_motivoConsulta, string p_diagnostico, string p_lugar)
+public void Modify (int p_Consulta_OID, string p_motivoConsulta, string p_diagnostico, string p_lugar, Nullable<DateTime> p_fecha)
 {
         ConsultaEN consultaEN = null;
 
         //Initialized ConsultaEN
         consultaEN = new ConsultaEN ();
         consultaEN.IdConsulta = p_Consulta_OID;
-        consultaEN.Fecha = p_fecha;
         consultaEN.MotivoConsulta = p_motivoConsulta;
         consultaEN.Diagnostico = p_diagnostico;
         consultaEN.Lugar = p_lugar;
+        consultaEN.Fecha = p_fecha;
         //Call to ConsultaCAD
 
         _IConsultaCAD.Modify (consultaEN);

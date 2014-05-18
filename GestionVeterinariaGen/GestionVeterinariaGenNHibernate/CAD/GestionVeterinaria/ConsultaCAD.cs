@@ -94,9 +94,6 @@ public void Modify (ConsultaEN consulta)
                 SessionInitializeTransaction ();
                 ConsultaEN consultaEN = (ConsultaEN)session.Load (typeof(ConsultaEN), consulta.IdConsulta);
 
-                consultaEN.Fecha = consulta.Fecha;
-
-
                 consultaEN.MotivoConsulta = consulta.MotivoConsulta;
 
 
@@ -104,6 +101,9 @@ public void Modify (ConsultaEN consulta)
 
 
                 consultaEN.Lugar = consulta.Lugar;
+
+
+                consultaEN.Fecha = consulta.Fecha;
 
                 session.Update (consultaEN);
                 SessionCommit ();

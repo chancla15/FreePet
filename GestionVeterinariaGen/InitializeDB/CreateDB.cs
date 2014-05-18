@@ -158,7 +158,7 @@ public static void InitializeData ()
                 MascotaCEN.New_ ("Brutus", "San Bernardo", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Macho, 70, "Perro", new DateTime (2005, 7, 13), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.XL, "65881341C", "Anaranjado", true);
                 MascotaCEN.New_ ("Bella", "Siberiano", GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.SexoEnum.Hembra, 6, "Gato", new DateTime (2014, 1, 2), GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.TamanyoMascotaEnum.S, "71243536D", "Pardo", true);
                 #endregion
-            
+
                 #region Tratamientos
 
                 TratamientoEN t1 = new TratamientoEN ();
@@ -215,7 +215,7 @@ public static void InitializeData ()
                 //He tenido que añadir en FormConsultarecepcionistaController.cs en public void guardarCuadroInformacion() una cadena vacia dado que ahora hay un nuevo argumento en las consultas
                 ConsultaEN c1 = new ConsultaEN ();
                 c1.Diagnostico = "Pata rota";
-                c1.Fecha = new DateTime (2014, 5, 19);
+                c1.Fecha = new DateTime (2014, 5, 19, 10, 30, 00);
                 c1.IdConsulta = 10;
                 c1.Lugar = "Sala 1";
                 c1.Mascota = new MascotaEN ();
@@ -227,7 +227,7 @@ public static void InitializeData ()
 
                 ConsultaEN c2 = new ConsultaEN ();
                 c2.Diagnostico = "Pulgas";
-                c2.Fecha = new DateTime (2014, 5, 20);
+                c2.Fecha = new DateTime (2014, 5, 20, 12, 0, 0);
                 c2.IdConsulta = 10;
                 c2.Lugar = "Sala 1";
                 c2.Mascota = new MascotaEN ();
@@ -239,7 +239,7 @@ public static void InitializeData ()
 
                 ConsultaEN c3 = new ConsultaEN ();
                 c3.Diagnostico = "Rabia";
-                c3.Fecha = new DateTime (2014, 5, 20);
+                c3.Fecha =  new DateTime (2014, 5, 20, 10, 30, 00);
                 c3.IdConsulta = 10;
                 c3.Lugar = "Sala 2";
                 c3.Mascota = new MascotaEN ();
@@ -251,7 +251,7 @@ public static void InitializeData ()
 
                 ConsultaEN c4 = new ConsultaEN ();
                 c4.Diagnostico = "Hepatitis B";
-                c4.Fecha = new DateTime (2014, 5, 21);
+                c4.Fecha =  new DateTime (2014, 5, 21, 11, 00, 00);
                 c4.IdConsulta = 10;
                 c4.Lugar = "Sala 2";
                 c4.Mascota = new MascotaEN ();
@@ -261,10 +261,10 @@ public static void InitializeData ()
                 c4.Veterinario = new VeterinarioEN ();
                 c4.Veterinario.DNI = "4";
 
-                int oid_c1 = ConsultaCEN.New_ (c1.Fecha, c1.MotivoConsulta, c1.Diagnostico, c1.Mascota.IdMascota, c1.Veterinario.DNI, c1.Lugar);
-                ConsultaCEN.New_ (c2.Fecha, c2.MotivoConsulta, c2.Diagnostico, c2.Mascota.IdMascota, c2.Veterinario.DNI, c2.Lugar);
-                ConsultaCEN.New_ (c3.Fecha, c3.MotivoConsulta, c3.Diagnostico, c3.Mascota.IdMascota, c3.Veterinario.DNI, c3.Lugar);
-                ConsultaCEN.New_ (c4.Fecha, c4.MotivoConsulta, c4.Diagnostico, c4.Mascota.IdMascota, c4.Veterinario.DNI, c4.Lugar);
+                int oid_c1 = ConsultaCEN.New_ (c1.MotivoConsulta, c1.Diagnostico, c1.Mascota.IdMascota, c1.Veterinario.DNI, c1.Lugar, c1.Fecha);
+                ConsultaCEN.New_ (c2.MotivoConsulta, c2.Diagnostico, c2.Mascota.IdMascota, c2.Veterinario.DNI, c2.Lugar, c2.Fecha);
+                ConsultaCEN.New_ (c3.MotivoConsulta, c3.Diagnostico, c3.Mascota.IdMascota, c3.Veterinario.DNI, c3.Lugar, c3.Fecha);
+                ConsultaCEN.New_ (c4.MotivoConsulta, c4.Diagnostico, c4.Mascota.IdMascota, c4.Veterinario.DNI, c4.Lugar, c4.Fecha);
 
 
                 //Metientro tratamientos a una consultas

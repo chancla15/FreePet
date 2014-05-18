@@ -189,10 +189,10 @@ namespace WindowsFormsApplication1
 
             if (nodeOp != null)
             {
+                controller.cambiarFecha();
+
                 if (nodeOp.Level == 0)
                 {
-                    controller.cambiarFecha();
-
                     if (state != Utils.State.MODIFY)
                         state = Utils.State.NEW;
                 }
