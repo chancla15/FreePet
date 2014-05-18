@@ -102,6 +102,9 @@ namespace WindowsFormsApplication1
         {
             //realizar consulta
             controller.addTratamientos();
+            MessageBox.Show("Consulta realizada");
+            if (menu.LaunchStartScreenVeterinario())
+                DesactivateForm();
         }
 
         private void listBox_addTratamiento_SelectedIndexChanged(object sender, EventArgs e)
