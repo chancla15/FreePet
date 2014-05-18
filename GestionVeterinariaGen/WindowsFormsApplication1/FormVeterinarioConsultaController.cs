@@ -14,6 +14,7 @@ namespace WindowsFormsApplication1
     {
         /** La vista */
         FormVeterinarioConsulta form;
+        ConsultaEN consulta;
 
         /**
          * Constructor de la clase
@@ -29,6 +30,9 @@ namespace WindowsFormsApplication1
         {
             if (mascota != null)
             {
+                form.listBox_addTratamiento.Items.Clear();
+                this.consulta = consulta;
+                consulta.Tratamiento = Utils._ITratamientoCAD.DameTratamientosPorConsulta(consulta.IdConsulta);
                 form.label_doc.Text = "Consulta realizada por "+form.menu.sessionData.name;
                 form.textBox_mascota.Text = mascota.Nombre;
                 form.textBox_color.Text = mascota.Color;
@@ -51,7 +55,36 @@ namespace WindowsFormsApplication1
                     form.textBox_chip.Text = "Sí";
                 else
                     form.textBox_chip.Text = "No";
+
+                //añadimos al listbox los tratamientos que ya tenga asociado.
+                IList<TratamientoEN> tratamientos = Utils._ITratamientoCAD.DameTratamientosPorConsulta(consulta.IdConsulta);
+                for (int x = 0; x < tratamientos.Count; x++)
+                    form.listBox_addTratamiento.Items.Add(tratamientos[x].Nombre);
             }
+        }
+
+        public void addTratamientos()
+        {
+            IList<string> borrar = new List<string>();
+            ConsultaEN todas_c = Utils._IConsultaCAD.DameConsultaPorOID(consulta.IdConsulta);
+            IList<string> tratamientos = new List<string>();
+
+            for (int i = 0; i < consulta.Tratamiento.Count; i++)
+                borrar.Add(Convert.ToString(consulta.Tratamiento[i].Nombre));
+
+            Utils._ConsultaCEN.QuitarTratamiento(consulta.IdConsulta, borrar);
+
+            if (form.listBox_addTratamiento.Items.Count > 0)
+            {
+                for (int x = 0; x < form.listBox_addTratamiento.Items.Count; x++)
+                {
+                    form.listBox_addTratamiento.SetSelected(x, true);
+                    tratamientos.Add(form.listBox_addTratamiento.SelectedItem.ToString());
+                }
+                //form.listBox_addTratamiento.SetSelected(1, false);//deseleccionamos
+                Utils._ConsultaCEN.AnaydirTratamiento(consulta.IdConsulta, tratamientos);
+            }
+
         }
     }
 }

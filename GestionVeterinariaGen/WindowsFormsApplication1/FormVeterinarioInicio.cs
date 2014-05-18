@@ -95,5 +95,10 @@ namespace WindowsFormsApplication1
             menu.sessionData.Disconnect();
             this.Hide();
         }
+
+        private void FormVeterinarioInicio_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

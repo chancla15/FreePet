@@ -60,7 +60,6 @@ namespace WindowsFormsApplication1
             //cargar por defecto las consultas para el día de hoy
             DateTime hoy = form.Calendar.TodayDate;
             mostrarConsultas(hoy);
-
         }
 
         /*
@@ -77,17 +76,16 @@ namespace WindowsFormsApplication1
 
 
             //hacer la query a la base de datos pasandole la fecha seleccionada mostrar los resultados
-            IList<ConsultaEN> consultas = Utils._IConsultaCAD.DameConsultaPorFechaYHora(fecha);
+            IList<ConsultaEN> consultas = Utils._IConsultaCAD.BuscarConsultaPorFecha(fecha);
 
             if (consultas.Count > 0)
             {//si ha encontrado consultas las muestra
                 for (int x = 0; x < consultas.Count; x++)
                 {//Si la consulta es para el día seleccionado y la realiza el veterinario logeado 
                     consultas[x].Mascota = Utils._IMascotaCAD.BuscarMascotaPorOID(consultas[x].Mascota.IdMascota);//Los datos de máscota que necesitamos.
-                    if (consultas[x].Fecha.Equals(fecha) && consultas[x].Veterinario.DNI == form.menu.sessionData.TOKEN_SESSION)
+                    if (consultas[x].Fecha.Value.ToString("dd/MM/yyyy").Equals(fecha.ToString("dd/MM/yyyy")) && consultas[x].Veterinario.DNI == form.menu.sessionData.TOKEN_SESSION)
                     {
-                        form.dataGrid_consultas.Rows.Add(consultas[x].IdConsulta, consultas[x].Fecha, consultas[x].Mascota.Nombre ,consultas[x].Mascota.Raza, consultas[x].Mascota.Especie, consultas[x].MotivoConsulta, consultas[x].Lugar);
-                        //form.dataGrid_consultas.Rows.Add(consultas[x].Fecha, consultas[x].MotivoConsulta, consultas[x].Lugar);
+                        form.dataGrid_consultas.Rows.Add(consultas[x].IdConsulta, consultas[x].Fecha.Value.ToString("HH:mm") , consultas[x].Mascota.Nombre ,consultas[x].Mascota.Raza, consultas[x].Mascota.Especie, consultas[x].MotivoConsulta, consultas[x].Lugar);
                     }
                 }
             }

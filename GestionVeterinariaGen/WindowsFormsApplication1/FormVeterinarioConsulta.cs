@@ -101,7 +101,7 @@ namespace WindowsFormsApplication1
         private void button_realizar_Click(object sender, EventArgs e)
         {
             //realizar consulta
-
+            controller.addTratamientos();
         }
 
         private void listBox_addTratamiento_SelectedIndexChanged(object sender, EventArgs e)
