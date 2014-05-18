@@ -1,4 +1,22 @@
-﻿using System;
+﻿/* 
+    FreePet. OpenSource Software Veterinarian Management
+    Copyright (C) 2014  Jesus Manresa Parres
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
@@ -46,7 +64,6 @@ namespace WindowsFormsApplication1
         {
             if (b)
             {
-                Console.WriteLine("Activo Adminsitrador");
                 ListaEmpleados.Visible = ListaEmpleados.Enabled =true;
                 dataGrid_clientes.SendToBack();
                 panel_recepcionista.SendToBack();
@@ -55,7 +72,6 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                Console.WriteLine("Activo recepcionista");
                 dataGrid_clientes.Visible = dataGrid_clientes.Enabled = true;
                 dataGrid_clientes.BringToFront();
                 panel_top.SendToBack();

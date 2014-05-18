@@ -1,4 +1,22 @@
-﻿using System;
+﻿/* 
+    FreePet. OpenSource Software Veterinarian Management
+    Copyright (C) 2014  Jesus Manresa Parres
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,31 +28,17 @@ using System.Drawing;
 
 namespace WindowsFormsApplication1
 {
-    /**
-     * El controlador de la pantalla de informacion del cliente del recepcionista
-     */
     public class FormRecepcionistaClienteController
     {
         #region Variables
-
-        /** El formulario a controlar */
         private FormRecepcionistaCliente form;
-
-        /** la lista de mascotas buscadas */
         private IList<MascotaEN> lista_mascotas;
-
-        /** El cliente actual en el formulario */
         public ClienteEN clienteEN = null;
 
         #endregion
 
         #region Constructor
 
-        /**
-         * Constructor de clase
-         * @param sesion el ticket de sesion
-         * @param form el formulario
-         */
         public FormRecepcionistaClienteController(FormRecepcionistaCliente form)
         {
             this.form = form;
@@ -46,9 +50,6 @@ namespace WindowsFormsApplication1
 
         #region Busquedas
 
-        /**
-         * Para buscar mascotas del cliente
-         */
         public void Buscar()
         {
             if (lista_mascotas != null) {
@@ -124,9 +125,6 @@ namespace WindowsFormsApplication1
 
         #region ProcesarDatos
 
-        /**
-         * Carga un cliente en los text_view
-         */
         public void cargarDatosCliente(ClienteEN cliente)
         {
             clienteEN = cliente;
@@ -164,9 +162,6 @@ namespace WindowsFormsApplication1
             }
         }
 
-        /**
-         * AÑADE, MODFIFICA O ELIMINA UN CLIENTE
-         */
         public void ProcesarInformacion()
         {
 
@@ -290,9 +285,6 @@ namespace WindowsFormsApplication1
 
         #region DataGridView
 
-        /**
-         * Devuelve la columna pulsada del datagrid junto con su identficador
-         */
         public MascotaEN getDataGridViewState(DataGridViewCellEventArgs ev, ref Utils.State st, ref ClienteEN aux_cliente)
         {
             string IdMascota = "", idCliente = "";
@@ -324,9 +316,6 @@ namespace WindowsFormsApplication1
             return mascota;
         }
 
-        /** 
-         * Pinta el datagridView de la aplicacion
-         */
         public void paintDataGrid(DataGridViewCellPaintingEventArgs e)
         {
             if (e.ColumnIndex >= 0 && form.dataGridView.Columns[e.ColumnIndex].Name == "Eliminar" && e.RowIndex >= 0)
@@ -360,9 +349,6 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
-
-
-
 
         #region BorrarTodosLosCampos
 
@@ -399,10 +385,6 @@ namespace WindowsFormsApplication1
         }
         #endregion
 
-
-        /** 
-         * Modifica la foto
-         */
         public void clickInPhoto()
         {
             form.openFileDialog1.Filter = "PNG Files(*.png)|*.png";
