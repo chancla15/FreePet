@@ -432,13 +432,13 @@
             // btn_add
             // 
             this.btn_add.BackColor = System.Drawing.Color.Transparent;
-            this.btn_add.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add_1_icon;
+            this.btn_add.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add1;
             this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_add.FlatAppearance.BorderSize = 0;
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add.Location = new System.Drawing.Point(646, 187);
+            this.btn_add.Location = new System.Drawing.Point(654, 194);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(24, 24);
+            this.btn_add.Size = new System.Drawing.Size(16, 16);
             this.btn_add.TabIndex = 48;
             this.btn_add.UseVisualStyleBackColor = false;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);

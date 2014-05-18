@@ -227,5 +227,10 @@ namespace WindowsFormsApplication1
 
         #endregion
 
+        private void foto_cliente_Click(object sender, EventArgs e)
+        {
+            controller.clickInPhoto();
+        }
+
     }
 }

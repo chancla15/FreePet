@@ -280,17 +280,20 @@ namespace WindowsFormsApplication1
                                 mascotaEN.IdMascota= Utils._MascotaCEN.New_(mascotaEN.Nombre, mascotaEN.Raza, mascotaEN.Sexo, mascotaEN.Peso, mascotaEN.Especie, mascotaEN.FNacimiento, mascotaEN.Tamanyo, mascotaEN.Cliente.DNI, mascotaEN.Color, mascotaEN.Microchip);
                                 MessageBox.Show("Mascota creada con exito");
                                 list_mascotas_clientes.Add(mascotaEN);
+                                form.log_photo.Image.Save(Environment.CurrentDirectory + @"\" + mascotaEN.IdMascota + ".png");
                                 break;
                             case Utils.State.MODIFY:
                                 list_mascotas_clientes.Remove(mascotaEN);
                                 Utils._MascotaCEN.Modify(mascotaEN.IdMascota, mascotaEN.Nombre, mascotaEN.Raza, mascotaEN.Sexo, mascotaEN.Peso, mascotaEN.Especie, mascotaEN.FNacimiento, mascotaEN.Tamanyo, mascotaEN.Color, mascotaEN.Microchip);
                                 MessageBox.Show("Mascota modiificada con exito");
                                 list_mascotas_clientes.Add(mascotaEN);
+                                form.log_photo.Image.Save(Environment.CurrentDirectory + @"\" + mascotaEN.IdMascota + ".png");
                                 break;
                             case Utils.State.DESTROY:
                                 Utils._MascotaCEN.Destroy(mascotaEN.IdMascota);
                                 MessageBox.Show("Mascota eliminado con exito");
                                 list_mascotas_clientes.Remove(mascotaEN);
+                                form.log_photo.Image.Save(Environment.CurrentDirectory + @"\" + mascotaEN.IdMascota + ".png");
                                 form.combo_nombreAnimal.Refresh();
                                 break;
                         }
@@ -383,6 +386,11 @@ namespace WindowsFormsApplication1
 
             if (form.dataGridView.Rows.Count > 0)
                 form.dataGridView.Rows.Clear();
+
+            System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\sinFotoa.png", System.IO.FileMode.Open);
+            form.log_photo.Image = Image.FromStream(fs);
+            fs.Close();
+
         }
 
         #endregion

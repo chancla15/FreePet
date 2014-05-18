@@ -142,6 +142,24 @@ namespace WindowsFormsApplication1
                 form.text_localidad.Text = clienteEN.Localidad;
                 form.text_cp.Text = clienteEN.Cp;
                 form.text_telefono.Text = clienteEN.Telefono;
+
+                //Cargamos la imagen
+                try
+                {
+
+                    System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\" + clienteEN.DNI + ".png", System.IO.FileMode.Open);
+                    form.log_photo.Image = Image.FromStream(fs);
+                    form.log_photo.SizeMode = PictureBoxSizeMode.StretchImage;
+                    fs.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\sinFoto.png", System.IO.FileMode.Open);
+                    form.log_photo.Image = Image.FromStream(fs);
+                    fs.Close();
+                }
+
                 Buscar();
             }
         }
@@ -151,42 +169,122 @@ namespace WindowsFormsApplication1
          */
         public void ProcesarInformacion()
         {
-            if (clienteEN == null && (form.state==Utils.State.NEW)
-                || (clienteEN != null && form.state==Utils.State.MODIFY)
-                || (clienteEN!=null && form.state==Utils.State.DESTROY))
-            {
-                clienteEN.Nombre = form.text_nombre.Text;
-                clienteEN.DNI = form.text_dni.Text;
-                clienteEN.Apellidos = form.text_apellidos.Text;
-                clienteEN.Direccion = form.text_direccion.Text;
-                clienteEN.Provincia = form.text_provincia.Text;
-                clienteEN.Localidad = form.text_localidad.Text;
-                clienteEN.Cp = form.text_cp.Text;
-                clienteEN.Telefono = form.text_telefono.Text;
+
+            Boolean fail = false;
+
+                if (form.text_nombre.Text != "")
+                {
+                    clienteEN.Nombre = form.text_nombre.Text;
+                }
+                else
+                {
+                    fail = true;
+
+                }
+
+                if (form.text_dni.Text != "")
+                {
+                    clienteEN.DNI = form.text_dni.Text;
+                }
+                else
+                {
+                    fail = true;
+                }
+
+                if (form.text_apellidos.Text != "")
+                {
+                    clienteEN.Apellidos = form.text_apellidos.Text;
+                }
+                else
+                {
+                    fail = true;
+                }
+
+                if (form.text_direccion.Text != "")
+                {
+                    clienteEN.Direccion = form.text_direccion.Text;
+                }
+                else
+                {
+                    fail = true;
+                }
+
+                if (form.text_provincia.Text != "")
+                {
+                    clienteEN.Provincia = form.text_provincia.Text;
+                }
+                else
+                {
+                    fail = true;
+                }
+
+                if (form.text_localidad.Text != "")
+                {
+                    clienteEN.Localidad = form.text_localidad.Text;
+                }
+                else
+                {
+                    fail = true;
+                }
+
+                if (form.text_cp.Text != "")
+                {
+                    clienteEN.Cp = form.text_cp.Text;
+                }
+                else
+                {
+                    fail = true;
+                }
+
+                if (form.text_telefono.Text != "")
+                {
+                    clienteEN.Telefono = form.text_telefono.Text;
+                }
+                else
+                {
+                    fail = true;
+                }
+
                 IList<MascotaEN> mascotas = Utils._IMascotaCAD.DameMascotaPorCliente(clienteEN.DNI);
 
-                switch(form.state)
+                if (mascotas.Count == 0)
                 {
-                    case Utils.State.NONE:
-                        break;
-                    case Utils.State.NEW:
+
+                    mascotas = null;
+                }
+
+                if (!fail)
+                {
+
+                    switch (form.state)
+                    {
+                        case Utils.State.NONE:
+                            break;
+                        case Utils.State.NEW:
                             Utils._ClienteCEN.New_(clienteEN.DNI, clienteEN.Nombre, clienteEN.Apellidos, clienteEN.Direccion, clienteEN.Telefono, clienteEN.Localidad, clienteEN.Provincia, clienteEN.Cp, mascotas);
-                        break;
-                    case Utils.State.MODIFY:
+                            MessageBox.Show("Cliente creado con exito");
+                            form.log_photo.Image.Save(Environment.CurrentDirectory + @"\" + clienteEN.DNI + ".png");
+                            break;
+                        case Utils.State.MODIFY:
                             Utils._ClienteCEN.Modify(clienteEN.DNI, clienteEN.Nombre, clienteEN.Apellidos, clienteEN.Direccion, clienteEN.Telefono, clienteEN.Localidad, clienteEN.Provincia, clienteEN.Cp);
-                        break;
-                    case Utils.State.DESTROY:
-                             Utils._ClienteCEN.Destroy(clienteEN.DNI);
-                        break;
-                    default:
-                        break;
+                            MessageBox.Show("Cliente modiificada con exito");
+                            form.log_photo.Image.Save(Environment.CurrentDirectory + @"\" + clienteEN.DNI + ".png");
+                            break;
+                        case Utils.State.DESTROY:
+                            Utils._ClienteCEN.Destroy(clienteEN.DNI);
+                            MessageBox.Show("Cliente eliminado con exito");
+                            System.IO.File.Delete(Environment.CurrentDirectory + @"\" + clienteEN.DNI.ToString() + ".png");
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Revisa los campos");
                 }
             }
-            else
-            {
-                //ERROR....DNI MAL (ESTA SI) O OPCION INCORRECTA(QUE NO CREO, PERO X SIACASO)
-            }
-        }
 
         #endregion
 
@@ -263,6 +361,9 @@ namespace WindowsFormsApplication1
 
         #endregion
 
+
+
+
         #region BorrarTodosLosCampos
 
         /**
@@ -289,7 +390,29 @@ namespace WindowsFormsApplication1
             form.dataGridView.Refresh();
             if (form.dataGridView.Rows.Count > 0)
                 form.dataGridView.Rows.Clear();
+
+            System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\sinFoto.png", System.IO.FileMode.Open);
+            form.log_photo.Image = Image.FromStream(fs);
+            fs.Close();
+
+
         }
         #endregion
+
+
+        /** 
+         * Modifica la foto
+         */
+        public void clickInPhoto()
+        {
+            form.openFileDialog1.Filter = "PNG Files(*.png)|*.png";
+
+            if (form.openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string imagen = form.openFileDialog1.FileName;
+                form.log_photo.Image = Image.FromFile(imagen);
+                form.log_photo.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+        }
     }
 }
