@@ -83,9 +83,6 @@
             this.tratamientoTableAdapter = new WindowsFormsApplication1.FormAdministradorTratamientoDataSetTableAdapters.TratamientoTableAdapter();
             this.panel_tratamientos = new System.Windows.Forms.Panel();
             this.button_cerrartrat = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
             this.groupBox_ficha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).BeginInit();
@@ -167,7 +164,7 @@
             // 
             this.text_motivo.Location = new System.Drawing.Point(126, 240);
             this.text_motivo.Name = "text_motivo";
-            this.text_motivo.Size = new System.Drawing.Size(528, 20);
+            this.text_motivo.Size = new System.Drawing.Size(545, 20);
             this.text_motivo.TabIndex = 56;
             // 
             // label_motivo
@@ -184,7 +181,7 @@
             this.text_diagnostico.Location = new System.Drawing.Point(12, 278);
             this.text_diagnostico.Multiline = true;
             this.text_diagnostico.Name = "text_diagnostico";
-            this.text_diagnostico.Size = new System.Drawing.Size(642, 42);
+            this.text_diagnostico.Size = new System.Drawing.Size(660, 42);
             this.text_diagnostico.TabIndex = 58;
             // 
             // label_diagnostico
@@ -209,12 +206,13 @@
             // 
             this.text_lugar.Location = new System.Drawing.Point(372, 205);
             this.text_lugar.Name = "text_lugar";
-            this.text_lugar.Size = new System.Drawing.Size(282, 20);
+            this.text_lugar.Size = new System.Drawing.Size(299, 20);
             this.text_lugar.TabIndex = 60;
             // 
             // label_tratamientos
             // 
             this.label_tratamientos.AutoSize = true;
+            this.label_tratamientos.BackColor = System.Drawing.Color.Transparent;
             this.label_tratamientos.Location = new System.Drawing.Point(10, 329);
             this.label_tratamientos.Name = "label_tratamientos";
             this.label_tratamientos.Size = new System.Drawing.Size(71, 13);
@@ -224,6 +222,8 @@
             // 
             // groupBox_ficha
             // 
+            this.groupBox_ficha.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox_ficha.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.groupBox_ficha.Controls.Add(this.textBox_chip);
             this.groupBox_ficha.Controls.Add(this.textBox_color);
             this.groupBox_ficha.Controls.Add(this.textBox_peso);
@@ -240,7 +240,7 @@
             this.groupBox_ficha.Controls.Add(this.label_fn);
             this.groupBox_ficha.Controls.Add(this.label_raza);
             this.groupBox_ficha.Controls.Add(this.label_peso);
-            this.groupBox_ficha.Location = new System.Drawing.Point(287, 61);
+            this.groupBox_ficha.Location = new System.Drawing.Point(294, 61);
             this.groupBox_ficha.Name = "groupBox_ficha";
             this.groupBox_ficha.Size = new System.Drawing.Size(378, 127);
             this.groupBox_ficha.TabIndex = 63;
@@ -394,7 +394,7 @@
             // 
             // button_realizar
             // 
-            this.button_realizar.Location = new System.Drawing.Point(536, 442);
+            this.button_realizar.Location = new System.Drawing.Point(537, 439);
             this.button_realizar.Name = "button_realizar";
             this.button_realizar.Size = new System.Drawing.Size(135, 23);
             this.button_realizar.TabIndex = 66;
@@ -415,7 +415,7 @@
             // picture_inicio_veterinario
             // 
             this.picture_inicio_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.home;
-            this.picture_inicio_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_inicio_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_inicio_veterinario.Location = new System.Drawing.Point(9, 0);
             this.picture_inicio_veterinario.Name = "picture_inicio_veterinario";
             this.picture_inicio_veterinario.Size = new System.Drawing.Size(165, 34);
@@ -425,22 +425,21 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANEL_RECEPCIONISTA;
             this.panel1.Controls.Add(this.picture_inicio_veterinario);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.picture_consulta_veterinario);
             this.panel1.Controls.Add(this.picture_desconectar_veterinario);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(684, 55);
+            this.panel1.Size = new System.Drawing.Size(690, 44);
             this.panel1.TabIndex = 69;
             // 
             // picture_consulta_veterinario
             // 
+            this.picture_consulta_veterinario.BackColor = System.Drawing.Color.White;
             this.picture_consulta_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.consulta;
-            this.picture_consulta_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_consulta_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_consulta_veterinario.Location = new System.Drawing.Point(257, 0);
             this.picture_consulta_veterinario.Name = "picture_consulta_veterinario";
             this.picture_consulta_veterinario.Size = new System.Drawing.Size(165, 34);
@@ -450,9 +449,9 @@
             // 
             // picture_desconectar_veterinario
             // 
-            this.picture_desconectar_veterinario.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.picture_desconectar_veterinario.BackColor = System.Drawing.Color.Transparent;
             this.picture_desconectar_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.desconectar;
-            this.picture_desconectar_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_desconectar_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_desconectar_veterinario.Location = new System.Drawing.Point(506, 0);
             this.picture_desconectar_veterinario.Name = "picture_desconectar_veterinario";
             this.picture_desconectar_veterinario.Size = new System.Drawing.Size(165, 34);
@@ -472,6 +471,7 @@
             // label_doc
             // 
             this.label_doc.AutoSize = true;
+            this.label_doc.BackColor = System.Drawing.Color.Transparent;
             this.label_doc.Location = new System.Drawing.Point(17, 444);
             this.label_doc.Name = "label_doc";
             this.label_doc.Size = new System.Drawing.Size(35, 13);
@@ -482,7 +482,7 @@
             // 
             this.button_add.Location = new System.Drawing.Point(589, 349);
             this.button_add.Name = "button_add";
-            this.button_add.Size = new System.Drawing.Size(75, 23);
+            this.button_add.Size = new System.Drawing.Size(83, 23);
             this.button_add.TabIndex = 72;
             this.button_add.Text = "Añadir";
             this.button_add.UseVisualStyleBackColor = true;
@@ -492,7 +492,7 @@
             // 
             this.button_del.Location = new System.Drawing.Point(590, 378);
             this.button_del.Name = "button_del";
-            this.button_del.Size = new System.Drawing.Size(75, 23);
+            this.button_del.Size = new System.Drawing.Size(82, 23);
             this.button_del.TabIndex = 73;
             this.button_del.Text = "Quitar";
             this.button_del.UseVisualStyleBackColor = true;
@@ -517,7 +517,7 @@
             this.dataGridView_ConsultaPet.Name = "dataGridView_ConsultaPet";
             this.dataGridView_ConsultaPet.ReadOnly = true;
             this.dataGridView_ConsultaPet.RowHeadersVisible = false;
-            this.dataGridView_ConsultaPet.Size = new System.Drawing.Size(640, 100);
+            this.dataGridView_ConsultaPet.Size = new System.Drawing.Size(655, 100);
             this.dataGridView_ConsultaPet.TabIndex = 74;
             this.dataGridView_ConsultaPet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_ConsultaPet_CellContentClick);
             // 
@@ -570,10 +570,11 @@
             // 
             // panel_tratamientos
             // 
+            this.panel_tratamientos.BackColor = System.Drawing.Color.Transparent;
             this.panel_tratamientos.Controls.Add(this.dataGridView_ConsultaPet);
             this.panel_tratamientos.Location = new System.Drawing.Point(0, 187);
             this.panel_tratamientos.Name = "panel_tratamientos";
-            this.panel_tratamientos.Size = new System.Drawing.Size(672, 133);
+            this.panel_tratamientos.Size = new System.Drawing.Size(684, 133);
             this.panel_tratamientos.TabIndex = 75;
             this.panel_tratamientos.Visible = false;
             // 
@@ -581,45 +582,19 @@
             // 
             this.button_cerrartrat.Location = new System.Drawing.Point(590, 405);
             this.button_cerrartrat.Name = "button_cerrartrat";
-            this.button_cerrartrat.Size = new System.Drawing.Size(75, 23);
+            this.button_cerrartrat.Size = new System.Drawing.Size(82, 23);
             this.button_cerrartrat.TabIndex = 76;
             this.button_cerrartrat.Text = "Cerrar";
             this.button_cerrartrat.UseVisualStyleBackColor = true;
             this.button_cerrartrat.Click += new System.EventHandler(this.button_cerrartrat_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(571, 37);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 79;
-            this.label3.Text = "SALIR";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(306, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
-            this.label2.TabIndex = 78;
-            this.label2.Text = "CONSULTAS";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
-            this.label1.TabIndex = 77;
-            this.label1.Text = "INICIO";
             // 
             // FormVeterinarioConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(674, 471);
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_APP;
+            this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.button_cerrartrat);
             this.Controls.Add(this.panel_tratamientos);
             this.Controls.Add(this.button_del);
@@ -646,6 +621,7 @@
             this.Controls.Add(this.log_type);
             this.Controls.Add(this.log_name);
             this.Controls.Add(this.log_photo);
+            this.DoubleBuffered = true;
             this.Name = "FormVeterinarioConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormConsultaVeterinario";
@@ -655,7 +631,6 @@
             this.groupBox_ficha.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ConsultaPet)).EndInit();
@@ -724,8 +699,5 @@
         public System.Windows.Forms.TextBox text_fecha;
         private System.Windows.Forms.Panel panel_tratamientos;
         private System.Windows.Forms.Button button_cerrartrat;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
     }
 }

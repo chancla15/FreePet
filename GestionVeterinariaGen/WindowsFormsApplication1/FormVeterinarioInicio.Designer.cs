@@ -44,11 +44,8 @@
             this.Lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.picture_inicio_veterinario = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.picture_consulta_veterinario = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.picture_desconectar_veterinario = new System.Windows.Forms.PictureBox();
             this.log_photo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_consultas)).BeginInit();
@@ -203,31 +200,21 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANEL_RECEPCIONISTA;
             this.panel1.Controls.Add(this.picture_inicio_veterinario);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.picture_consulta_veterinario);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.picture_desconectar_veterinario);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(684, 51);
+            this.panel1.Size = new System.Drawing.Size(690, 44);
             this.panel1.TabIndex = 56;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(571, 37);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 59;
-            this.label3.Text = "SALIR";
             // 
             // picture_inicio_veterinario
             // 
+            this.picture_inicio_veterinario.BackColor = System.Drawing.Color.White;
             this.picture_inicio_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.home;
-            this.picture_inicio_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_inicio_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_inicio_veterinario.Location = new System.Drawing.Point(9, 0);
             this.picture_inicio_veterinario.Name = "picture_inicio_veterinario";
             this.picture_inicio_veterinario.Size = new System.Drawing.Size(165, 34);
@@ -235,19 +222,10 @@
             this.picture_inicio_veterinario.TabStop = false;
             this.picture_inicio_veterinario.Click += new System.EventHandler(this.picture_inicio_veterinario_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(309, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
-            this.label2.TabIndex = 58;
-            this.label2.Text = "CONSULTAS";
-            // 
             // picture_consulta_veterinario
             // 
             this.picture_consulta_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.consulta;
-            this.picture_consulta_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_consulta_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_consulta_veterinario.Location = new System.Drawing.Point(257, 0);
             this.picture_consulta_veterinario.Name = "picture_consulta_veterinario";
             this.picture_consulta_veterinario.Size = new System.Drawing.Size(165, 34);
@@ -255,20 +233,11 @@
             this.picture_consulta_veterinario.TabStop = false;
             this.picture_consulta_veterinario.Click += new System.EventHandler(this.picture_consulta_veterinario_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
-            this.label1.TabIndex = 57;
-            this.label1.Text = "INICIO";
-            // 
             // picture_desconectar_veterinario
             // 
-            this.picture_desconectar_veterinario.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.picture_desconectar_veterinario.BackColor = System.Drawing.Color.Transparent;
             this.picture_desconectar_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.desconectar;
-            this.picture_desconectar_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_desconectar_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_desconectar_veterinario.Location = new System.Drawing.Point(506, 0);
             this.picture_desconectar_veterinario.Name = "picture_desconectar_veterinario";
             this.picture_desconectar_veterinario.Size = new System.Drawing.Size(165, 34);
@@ -290,9 +259,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_APP;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(682, 476);
+            this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.dataGrid_consultas);
             this.Controls.Add(this.label_fecha_consulta);
             this.Controls.Add(this.Calendar);
@@ -309,7 +279,6 @@
             this.Load += new System.EventHandler(this.FormVeterinarioInicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_consultas)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_inicio_veterinario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_consulta_veterinario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_veterinario)).EndInit();
@@ -333,9 +302,6 @@
         private System.Windows.Forms.PictureBox picture_consulta_veterinario;
         private System.Windows.Forms.PictureBox picture_desconectar_veterinario;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hora;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;

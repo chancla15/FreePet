@@ -42,15 +42,11 @@
             this.formRecepcionistaAdministradorInicio_DataSet2 = new WindowsFormsApplication1.FormRecepcionistaAdministradorInicio_DataSet2();
             this.panel_top = new System.Windows.Forms.Panel();
             this.panel_recepcionista = new System.Windows.Forms.Panel();
-            this.picture_start_recepcionista = new System.Windows.Forms.PictureBox();
+            this.picture_ajustes_recepcionista = new System.Windows.Forms.PictureBox();
             this.picture_consultas_recepcionista = new System.Windows.Forms.PictureBox();
             this.picture_clientes_recepcionista = new System.Windows.Forms.PictureBox();
             this.picture_facturas_recepcionista = new System.Windows.Forms.PictureBox();
-            this.picture_ajustes_recepcionista = new System.Windows.Forms.PictureBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.picture_start_recepcionista = new System.Windows.Forms.PictureBox();
             this.picture_tratamientos_admin = new System.Windows.Forms.PictureBox();
             this.picture_empleados_admin = new System.Windows.Forms.PictureBox();
             this.picture_desconectar_admin = new System.Windows.Forms.PictureBox();
@@ -76,11 +72,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaAdministradorInicio_DataSet2)).BeginInit();
             this.panel_top.SuspendLayout();
             this.panel_recepcionista.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_start_recepcionista)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes_recepcionista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_consultas_recepcionista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_clientes_recepcionista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_facturas_recepcionista)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes_recepcionista)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_start_recepcionista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_tratamientos_admin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_empleados_admin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_admin)).BeginInit();
@@ -222,18 +218,14 @@
             // panel_top
             // 
             this.panel_top.BackColor = System.Drawing.Color.Transparent;
-            this.panel_top.Controls.Add(this.panel_recepcionista);
-            this.panel_top.Controls.Add(this.label15);
-            this.panel_top.Controls.Add(this.label14);
-            this.panel_top.Controls.Add(this.label13);
-            this.panel_top.Controls.Add(this.label12);
+            this.panel_top.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANEL_RECEPCIONISTA;
             this.panel_top.Controls.Add(this.picture_tratamientos_admin);
             this.panel_top.Controls.Add(this.picture_empleados_admin);
             this.panel_top.Controls.Add(this.picture_desconectar_admin);
             this.panel_top.Controls.Add(this.picture_start_admin);
-            this.panel_top.Location = new System.Drawing.Point(-2, 0);
+            this.panel_top.Location = new System.Drawing.Point(0, 0);
             this.panel_top.Name = "panel_top";
-            this.panel_top.Size = new System.Drawing.Size(690, 50);
+            this.panel_top.Size = new System.Drawing.Size(690, 44);
             this.panel_top.TabIndex = 51;
             this.panel_top.Visible = false;
             this.panel_top.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_top_Paint);
@@ -247,22 +239,23 @@
             this.panel_recepcionista.Controls.Add(this.picture_clientes_recepcionista);
             this.panel_recepcionista.Controls.Add(this.picture_facturas_recepcionista);
             this.panel_recepcionista.Controls.Add(this.picture_start_recepcionista);
-            this.panel_recepcionista.Location = new System.Drawing.Point(1, -2);
+            this.panel_recepcionista.Location = new System.Drawing.Point(12, 85);
             this.panel_recepcionista.Name = "panel_recepcionista";
             this.panel_recepcionista.Size = new System.Drawing.Size(690, 44);
             this.panel_recepcionista.TabIndex = 53;
             this.panel_recepcionista.Visible = false;
             // 
-            // picture_start_recepcionista
+            // picture_ajustes_recepcionista
             // 
-            this.picture_start_recepcionista.BackColor = System.Drawing.Color.White;
-            this.picture_start_recepcionista.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_INICIO;
-            this.picture_start_recepcionista.Location = new System.Drawing.Point(1, 0);
-            this.picture_start_recepcionista.Name = "picture_start_recepcionista";
-            this.picture_start_recepcionista.Size = new System.Drawing.Size(138, 44);
-            this.picture_start_recepcionista.TabIndex = 0;
-            this.picture_start_recepcionista.TabStop = false;
-            this.picture_start_recepcionista.Click += new System.EventHandler(this.picture_start_Click);
+            this.picture_ajustes_recepcionista.BackColor = System.Drawing.Color.Transparent;
+            this.picture_ajustes_recepcionista.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_DESCONECTAR;
+            this.picture_ajustes_recepcionista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_ajustes_recepcionista.Location = new System.Drawing.Point(546, 0);
+            this.picture_ajustes_recepcionista.Name = "picture_ajustes_recepcionista";
+            this.picture_ajustes_recepcionista.Size = new System.Drawing.Size(138, 44);
+            this.picture_ajustes_recepcionista.TabIndex = 4;
+            this.picture_ajustes_recepcionista.TabStop = false;
+            this.picture_ajustes_recepcionista.Click += new System.EventHandler(this.picture_ajustes_Click);
             // 
             // picture_consultas_recepcionista
             // 
@@ -297,63 +290,22 @@
             this.picture_facturas_recepcionista.TabStop = false;
             this.picture_facturas_recepcionista.Click += new System.EventHandler(this.picture_facturas_Click);
             // 
-            // picture_ajustes_recepcionista
+            // picture_start_recepcionista
             // 
-            this.picture_ajustes_recepcionista.BackColor = System.Drawing.Color.Transparent;
-            this.picture_ajustes_recepcionista.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_DESCONECTAR;
-            this.picture_ajustes_recepcionista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picture_ajustes_recepcionista.Location = new System.Drawing.Point(546, 0);
-            this.picture_ajustes_recepcionista.Name = "picture_ajustes_recepcionista";
-            this.picture_ajustes_recepcionista.Size = new System.Drawing.Size(138, 44);
-            this.picture_ajustes_recepcionista.TabIndex = 4;
-            this.picture_ajustes_recepcionista.TabStop = false;
-            this.picture_ajustes_recepcionista.Click += new System.EventHandler(this.picture_ajustes_Click);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(197, 37);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(124, 13);
-            this.label15.TabIndex = 93;
-            this.label15.Text = "GESTIÓN EMPLEADOS";
-            this.label15.Visible = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(67, 37);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(39, 13);
-            this.label14.TabIndex = 90;
-            this.label14.Text = "INICIO";
-            this.label14.Visible = false;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(357, 37);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(143, 13);
-            this.label13.TabIndex = 91;
-            this.label13.Text = "GESTIÓN TRATAMIENTOS";
-            this.label13.Visible = false;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(575, 37);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 13);
-            this.label12.TabIndex = 92;
-            this.label12.Text = "  SALIR";
-            this.label12.Visible = false;
+            this.picture_start_recepcionista.BackColor = System.Drawing.Color.White;
+            this.picture_start_recepcionista.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_INICIO;
+            this.picture_start_recepcionista.Location = new System.Drawing.Point(1, 0);
+            this.picture_start_recepcionista.Name = "picture_start_recepcionista";
+            this.picture_start_recepcionista.Size = new System.Drawing.Size(138, 44);
+            this.picture_start_recepcionista.TabIndex = 0;
+            this.picture_start_recepcionista.TabStop = false;
+            this.picture_start_recepcionista.Click += new System.EventHandler(this.picture_start_Click);
             // 
             // picture_tratamientos_admin
             // 
             this.picture_tratamientos_admin.BackColor = System.Drawing.Color.Transparent;
             this.picture_tratamientos_admin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_tratamientos_admin.BackgroundImage")));
-            this.picture_tratamientos_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_tratamientos_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_tratamientos_admin.Location = new System.Drawing.Point(345, 0);
             this.picture_tratamientos_admin.Name = "picture_tratamientos_admin";
             this.picture_tratamientos_admin.Size = new System.Drawing.Size(165, 34);
@@ -365,7 +317,7 @@
             // 
             this.picture_empleados_admin.BackColor = System.Drawing.Color.Transparent;
             this.picture_empleados_admin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_empleados_admin.BackgroundImage")));
-            this.picture_empleados_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_empleados_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_empleados_admin.Location = new System.Drawing.Point(173, 0);
             this.picture_empleados_admin.Name = "picture_empleados_admin";
             this.picture_empleados_admin.Size = new System.Drawing.Size(165, 34);
@@ -377,7 +329,7 @@
             // 
             this.picture_desconectar_admin.BackColor = System.Drawing.Color.Transparent;
             this.picture_desconectar_admin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_desconectar_admin.BackgroundImage")));
-            this.picture_desconectar_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_desconectar_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_desconectar_admin.Location = new System.Drawing.Point(516, 0);
             this.picture_desconectar_admin.Name = "picture_desconectar_admin";
             this.picture_desconectar_admin.Size = new System.Drawing.Size(165, 34);
@@ -387,9 +339,9 @@
             // 
             // picture_start_admin
             // 
-            this.picture_start_admin.BackColor = System.Drawing.Color.Transparent;
+            this.picture_start_admin.BackColor = System.Drawing.Color.White;
             this.picture_start_admin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_start_admin.BackgroundImage")));
-            this.picture_start_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_start_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_start_admin.Location = new System.Drawing.Point(0, 0);
             this.picture_start_admin.Name = "picture_start_admin";
             this.picture_start_admin.Size = new System.Drawing.Size(165, 34);
@@ -531,6 +483,7 @@
             this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_APP;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(682, 483);
+            this.Controls.Add(this.panel_recepcionista);
             this.Controls.Add(this.panel_top);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.label5);
@@ -554,13 +507,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaAdministradorInicioDataSet2BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaAdministradorInicio_DataSet2)).EndInit();
             this.panel_top.ResumeLayout(false);
-            this.panel_top.PerformLayout();
             this.panel_recepcionista.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picture_start_recepcionista)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes_recepcionista)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_consultas_recepcionista)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_clientes_recepcionista)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_facturas_recepcionista)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes_recepcionista)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_start_recepcionista)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_tratamientos_admin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_empleados_admin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_admin)).EndInit();
@@ -618,10 +570,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewButtonColumn Ver;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox picture_ajustes_recepcionista;
         private System.Windows.Forms.PictureBox picture_facturas_recepcionista;
         private System.Windows.Forms.PictureBox picture_clientes_recepcionista;

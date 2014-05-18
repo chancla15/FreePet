@@ -44,11 +44,6 @@ namespace WindowsFormsApplication1
 
         public void EnableMenuAdministrador(bool b)
         {
-            label12.Visible = b;
-            label13.Visible = b;
-            label14.Visible = b;
-            label15.Visible = b;
-
             if (b)
             {
                 Console.WriteLine("Activo Adminsitrador");

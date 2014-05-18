@@ -172,12 +172,6 @@ namespace WindowsFormsApplication1
 
         #region MenuSuperior
 
-        private void panel_top_Paint(object sender, PaintEventArgs e)
-        {
-            this.picture_empleado.BackColor = Color.White;
-            this.panel_top.BackColor = Color.LightBlue;
-        }
-
         private void picture_start_Click(object sender, EventArgs e)
         {
             if (menu.LaunchStartScreen())
@@ -201,7 +195,6 @@ namespace WindowsFormsApplication1
             menu.Disconnect();
         }
 
-        #endregion
-        
+        #endregion        
     }
 }

@@ -33,10 +33,6 @@
             this.btn_buscar = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.PictureBox();
             this.panel_top = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.picture_desconectar_admin = new System.Windows.Forms.PictureBox();
             this.picture_home = new System.Windows.Forms.PictureBox();
             this.picture_tratamiento = new System.Windows.Forms.PictureBox();
@@ -91,7 +87,7 @@
             // 
             this.btn_add.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add;
             this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_add.Location = new System.Drawing.Point(602, 113);
+            this.btn_add.Location = new System.Drawing.Point(606, 113);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(24, 24);
             this.btn_add.TabIndex = 55;
@@ -101,60 +97,21 @@
             // panel_top
             // 
             this.panel_top.BackColor = System.Drawing.Color.Transparent;
-            this.panel_top.Controls.Add(this.label15);
-            this.panel_top.Controls.Add(this.label14);
-            this.panel_top.Controls.Add(this.label13);
-            this.panel_top.Controls.Add(this.label12);
+            this.panel_top.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANEL_RECEPCIONISTA;
             this.panel_top.Controls.Add(this.picture_desconectar_admin);
             this.panel_top.Controls.Add(this.picture_home);
             this.panel_top.Controls.Add(this.picture_tratamiento);
             this.panel_top.Controls.Add(this.picture_empleado);
-            this.panel_top.Location = new System.Drawing.Point(-3, 0);
+            this.panel_top.Location = new System.Drawing.Point(0, 0);
             this.panel_top.Name = "panel_top";
-            this.panel_top.Size = new System.Drawing.Size(676, 57);
+            this.panel_top.Size = new System.Drawing.Size(690, 44);
             this.panel_top.TabIndex = 57;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(194, 37);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(124, 13);
-            this.label15.TabIndex = 93;
-            this.label15.Text = "GESTIÓN EMPLEADOS";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(62, 37);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(42, 13);
-            this.label14.TabIndex = 90;
-            this.label14.Text = " INICIO";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(354, 37);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(149, 13);
-            this.label13.TabIndex = 91;
-            this.label13.Text = "  GESTIÓN TRATAMIENTOS";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(576, 37);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 13);
-            this.label12.TabIndex = 92;
-            this.label12.Text = "  SALIR";
             // 
             // picture_desconectar_admin
             // 
             this.picture_desconectar_admin.BackColor = System.Drawing.Color.Transparent;
             this.picture_desconectar_admin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_desconectar_admin.BackgroundImage")));
-            this.picture_desconectar_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_desconectar_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_desconectar_admin.Location = new System.Drawing.Point(517, 0);
             this.picture_desconectar_admin.Name = "picture_desconectar_admin";
             this.picture_desconectar_admin.Size = new System.Drawing.Size(165, 34);
@@ -166,7 +123,7 @@
             // 
             this.picture_home.BackColor = System.Drawing.Color.Transparent;
             this.picture_home.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_home.BackgroundImage")));
-            this.picture_home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_home.Location = new System.Drawing.Point(3, 0);
             this.picture_home.Name = "picture_home";
             this.picture_home.Size = new System.Drawing.Size(165, 34);
@@ -176,9 +133,9 @@
             // 
             // picture_tratamiento
             // 
-            this.picture_tratamiento.BackColor = System.Drawing.Color.Transparent;
+            this.picture_tratamiento.BackColor = System.Drawing.Color.White;
             this.picture_tratamiento.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_tratamiento.BackgroundImage")));
-            this.picture_tratamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_tratamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_tratamiento.Location = new System.Drawing.Point(345, 0);
             this.picture_tratamiento.Name = "picture_tratamiento";
             this.picture_tratamiento.Size = new System.Drawing.Size(165, 34);
@@ -190,7 +147,7 @@
             // 
             this.picture_empleado.BackColor = System.Drawing.Color.Transparent;
             this.picture_empleado.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_empleado.BackgroundImage")));
-            this.picture_empleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_empleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_empleado.Location = new System.Drawing.Point(174, 0);
             this.picture_empleado.Name = "picture_empleado";
             this.picture_empleado.Size = new System.Drawing.Size(165, 34);
@@ -217,7 +174,7 @@
             this.text_descripcion.Location = new System.Drawing.Point(12, 143);
             this.text_descripcion.Multiline = true;
             this.text_descripcion.Name = "text_descripcion";
-            this.text_descripcion.Size = new System.Drawing.Size(650, 55);
+            this.text_descripcion.Size = new System.Drawing.Size(658, 55);
             this.text_descripcion.TabIndex = 61;
             // 
             // label_nombre
@@ -296,7 +253,7 @@
             this.dataGrid_tratamientos.Name = "dataGrid_tratamientos";
             this.dataGrid_tratamientos.ReadOnly = true;
             this.dataGrid_tratamientos.RowHeadersVisible = false;
-            this.dataGrid_tratamientos.Size = new System.Drawing.Size(650, 255);
+            this.dataGrid_tratamientos.Size = new System.Drawing.Size(658, 255);
             this.dataGrid_tratamientos.TabIndex = 70;
             this.dataGrid_tratamientos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_tratamientos_CellContentClick);
             // 
@@ -353,7 +310,7 @@
             // 
             this.btn_delete.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.delete;
             this.btn_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_delete.Location = new System.Drawing.Point(638, 113);
+            this.btn_delete.Location = new System.Drawing.Point(646, 113);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(24, 24);
             this.btn_delete.TabIndex = 71;
@@ -389,8 +346,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_APP;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(674, 471);
+            this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.lista_dosis);
             this.Controls.Add(this.btn_erase);
             this.Controls.Add(this.btn_delete);
@@ -413,7 +371,6 @@
             this.Text = "Tratamientos";
             ((System.ComponentModel.ISupportInitialize)(this.btn_add)).EndInit();
             this.panel_top.ResumeLayout(false);
-            this.panel_top.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_admin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_home)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_tratamiento)).EndInit();
@@ -457,9 +414,5 @@
         public System.Windows.Forms.PictureBox btn_delete;
         public System.Windows.Forms.Button btn_erase;
         public System.Windows.Forms.ComboBox lista_dosis;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
     }
 }

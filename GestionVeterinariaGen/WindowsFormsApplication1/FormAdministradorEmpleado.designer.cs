@@ -64,10 +64,6 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.label_col = new System.Windows.Forms.Label();
             this.tb_colegiado = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
             this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_admin)).BeginInit();
@@ -304,24 +300,21 @@
             // panel_top
             // 
             this.panel_top.BackColor = System.Drawing.Color.Transparent;
-            this.panel_top.Controls.Add(this.label15);
-            this.panel_top.Controls.Add(this.label14);
-            this.panel_top.Controls.Add(this.label13);
-            this.panel_top.Controls.Add(this.label12);
+            this.panel_top.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANEL_RECEPCIONISTA;
             this.panel_top.Controls.Add(this.picture_desconectar_admin);
             this.panel_top.Controls.Add(this.picture_home);
             this.panel_top.Controls.Add(this.picture_tratamiento);
             this.panel_top.Controls.Add(this.picture_empleado);
-            this.panel_top.Location = new System.Drawing.Point(-2, 0);
+            this.panel_top.Location = new System.Drawing.Point(0, 0);
             this.panel_top.Name = "panel_top";
-            this.panel_top.Size = new System.Drawing.Size(676, 60);
+            this.panel_top.Size = new System.Drawing.Size(690, 44);
             this.panel_top.TabIndex = 56;
             // 
             // picture_desconectar_admin
             // 
             this.picture_desconectar_admin.BackColor = System.Drawing.Color.Transparent;
             this.picture_desconectar_admin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_desconectar_admin.BackgroundImage")));
-            this.picture_desconectar_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_desconectar_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_desconectar_admin.Location = new System.Drawing.Point(517, 0);
             this.picture_desconectar_admin.Name = "picture_desconectar_admin";
             this.picture_desconectar_admin.Size = new System.Drawing.Size(165, 34);
@@ -333,7 +326,7 @@
             // 
             this.picture_home.BackColor = System.Drawing.Color.Transparent;
             this.picture_home.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_home.BackgroundImage")));
-            this.picture_home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_home.Location = new System.Drawing.Point(3, 0);
             this.picture_home.Name = "picture_home";
             this.picture_home.Size = new System.Drawing.Size(165, 34);
@@ -345,7 +338,7 @@
             // 
             this.picture_tratamiento.BackColor = System.Drawing.Color.Transparent;
             this.picture_tratamiento.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_tratamiento.BackgroundImage")));
-            this.picture_tratamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_tratamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_tratamiento.Location = new System.Drawing.Point(345, 0);
             this.picture_tratamiento.Name = "picture_tratamiento";
             this.picture_tratamiento.Size = new System.Drawing.Size(165, 34);
@@ -355,9 +348,9 @@
             // 
             // picture_empleado
             // 
-            this.picture_empleado.BackColor = System.Drawing.Color.Transparent;
+            this.picture_empleado.BackColor = System.Drawing.Color.White;
             this.picture_empleado.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_empleado.BackgroundImage")));
-            this.picture_empleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picture_empleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_empleado.Location = new System.Drawing.Point(174, 0);
             this.picture_empleado.Name = "picture_empleado";
             this.picture_empleado.Size = new System.Drawing.Size(165, 34);
@@ -369,7 +362,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(414, 153);
+            this.label1.Location = new System.Drawing.Point(432, 153);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 57;
@@ -381,7 +374,7 @@
             this.tb_tipo.Items.AddRange(new object[] {
             "Veterinario",
             "Recepcionista"});
-            this.tb_tipo.Location = new System.Drawing.Point(489, 152);
+            this.tb_tipo.Location = new System.Drawing.Point(507, 152);
             this.tb_tipo.Name = "tb_tipo";
             this.tb_tipo.Size = new System.Drawing.Size(163, 21);
             this.tb_tipo.TabIndex = 58;
@@ -429,7 +422,7 @@
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(577, 422);
+            this.btn_guardar.Location = new System.Drawing.Point(595, 422);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(75, 23);
             this.btn_guardar.TabIndex = 83;
@@ -439,7 +432,7 @@
             // 
             // btn_eliminar
             // 
-            this.btn_eliminar.Location = new System.Drawing.Point(577, 393);
+            this.btn_eliminar.Location = new System.Drawing.Point(595, 393);
             this.btn_eliminar.Name = "btn_eliminar";
             this.btn_eliminar.Size = new System.Drawing.Size(75, 23);
             this.btn_eliminar.TabIndex = 78;
@@ -451,7 +444,7 @@
             // 
             this.label_col.AutoSize = true;
             this.label_col.BackColor = System.Drawing.Color.Transparent;
-            this.label_col.Location = new System.Drawing.Point(414, 189);
+            this.label_col.Location = new System.Drawing.Point(432, 189);
             this.label_col.Name = "label_col";
             this.label_col.Size = new System.Drawing.Size(72, 13);
             this.label_col.TabIndex = 86;
@@ -459,53 +452,18 @@
             // 
             // tb_colegiado
             // 
-            this.tb_colegiado.Location = new System.Drawing.Point(533, 188);
+            this.tb_colegiado.Location = new System.Drawing.Point(551, 188);
             this.tb_colegiado.Name = "tb_colegiado";
             this.tb_colegiado.Size = new System.Drawing.Size(119, 20);
             this.tb_colegiado.TabIndex = 85;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(576, 37);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 13);
-            this.label12.TabIndex = 89;
-            this.label12.Text = "  SALIR";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(358, 37);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(143, 13);
-            this.label13.TabIndex = 88;
-            this.label13.Text = "GESTIÓN TRATAMIENTOS";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(68, 37);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(39, 13);
-            this.label14.TabIndex = 87;
-            this.label14.Text = "INICIO";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(198, 37);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(124, 13);
-            this.label15.TabIndex = 89;
-            this.label15.Text = "GESTIÓN EMPLEADOS";
             // 
             // FormAdministradorEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_APP;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(674, 471);
+            this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.label_col);
             this.Controls.Add(this.tb_colegiado);
             this.Controls.Add(this.btn_eliminar);
@@ -545,7 +503,6 @@
             this.Text = "Empleados";
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).EndInit();
             this.panel_top.ResumeLayout(false);
-            this.panel_top.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_desconectar_admin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_home)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_tratamiento)).EndInit();
@@ -594,9 +551,5 @@
         public System.Windows.Forms.Button btn_eliminar;
         public System.Windows.Forms.Label label_col;
         public System.Windows.Forms.TextBox tb_colegiado;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
     }
 }
