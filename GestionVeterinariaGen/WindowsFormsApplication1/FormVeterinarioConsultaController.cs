@@ -68,7 +68,7 @@ namespace WindowsFormsApplication1
             IList<string> borrar = new List<string>();
             ConsultaEN todas_c = Utils._IConsultaCAD.DameConsultaPorOID(consulta.IdConsulta);
             IList<string> tratamientos = new List<string>();
-
+            float total =10;
             for (int i = 0; i < consulta.Tratamiento.Count; i++)
                 borrar.Add(Convert.ToString(consulta.Tratamiento[i].Nombre));
 
@@ -83,9 +83,16 @@ namespace WindowsFormsApplication1
                 }
                 //form.listBox_addTratamiento.SetSelected(1, false);//deseleccionamos
                 Utils._ConsultaCEN.AnaydirTratamiento(consulta.IdConsulta, tratamientos);
+                IList<TratamientoEN> tratsaux = Utils._ITratamientoCAD.DameTratamientosPorConsulta(consulta.IdConsulta);
+                for (int j = 0; j < tratsaux.Count; j++)
+                    total += tratsaux[j].Precio;
             }
             if (consulta.Factura == null)
-                Utils._FacturaCEN.New_(consulta.Fecha, 10, Utils._IMascotaCAD.DameClientePorMascota(consulta.Mascota.IdMascota).DNI, consulta.IdConsulta, false);
+            {
+                Utils._FacturaCEN.New_(consulta.Fecha, total, Utils._IMascotaCAD.DameClientePorMascota(consulta.Mascota.IdMascota).DNI, consulta.IdConsulta, false);
+            }
+            else
+                Utils._FacturaCEN.Modify(consulta.Factura.IdFactura, consulta.Fecha, total, false);
             
 
         }

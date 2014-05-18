@@ -189,24 +189,100 @@ public static void InitializeData ()
                 t4.Consulta = null;
                 t4.Nombre = "Antihepatitis";
                 t4.Precio = 30.5f;
-                t4.Descripcion = "Prueba 1. Caja con 15 dosis";
+                t4.Descripcion = "Antibioticos, soluciones isotonicas, protectores hepaticos y una dieta hipoproteica";
                 t4.Stock = 20;
                 t4.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
 
-                TratamientoEN t5 = new TratamientoEN ();
+                TratamientoEN t5 = new TratamientoEN();
                 t5.Consulta = null;
                 t5.Nombre = "Antileptospirosis";
                 t5.Precio = 15.8f;
-                t5.Descripcion = "Prueba 2. Caja con 20 dosis";
+                t5.Descripcion = "Frasco con 200 ml. Inyectable";
                 t5.Stock = 20;
                 t5.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
+
+                TratamientoEN t6 = new TratamientoEN();
+                t6.Consulta = null;
+                t6.Nombre = "Escayolado";
+                t6.Precio = 5;
+                t6.Descripcion = "Escayolado de 50 cm";
+                t6.Stock = 20;
+                t6.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
+
+                TratamientoEN t7 = new TratamientoEN();
+                t7.Consulta = null;
+                t7.Nombre = "Castracion";
+                t7.Precio = 20.93f;
+                t7.Descripcion = "Para que no haya camadas indeseadas";
+                t7.Stock = 20;
+                t7.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
+
+                TratamientoEN t8 = new TratamientoEN();
+                t8.Consulta = null;
+                t8.Nombre = "Anticoronavirus";
+                t8.Precio = 35.75f;
+                t8.Descripcion = "Antibiotico CONVENIA 800mg.";
+                t8.Stock = 20;
+                t8.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
+
+                TratamientoEN t9 = new TratamientoEN();
+                t9.Consulta = null;
+                t9.Nombre = "Antiinflamatorio";
+                t9.Precio = 19.99f;
+                t9.Descripcion = "Acicor. 6 frascos de 10 ml. Inyectable.";
+                t9.Stock = 20;
+                t9.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
+
+                TratamientoEN t10 = new TratamientoEN();
+                t10.Consulta = null;
+                t10.Nombre = "Antidiarreico";
+                t10.Precio = 39.23f;
+                t10.Descripcion = "Antidiarreico Ganafort 100ml. Inyectable.";
+                t10.Stock = 20;
+                t10.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
+
+                TratamientoEN t11 = new TratamientoEN();
+                t11.Consulta = null;
+                t11.Nombre = "Antiparasitario externo";
+                t11.Precio = 5.95f;
+                t11.Descripcion = "Collar antiparasitario 50 cm.";
+                t11.Stock = 20;
+                t11.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
+
+                TratamientoEN t12 = new TratamientoEN();
+                t12.Consulta = null;
+                t12.Nombre = "Antiparasitario interno";
+                t12.Precio = 22.59f;
+                t12.Descripcion = "Antiparasitario interno TOTAL EG. Comprimidos, oral.";
+                t12.Stock = 20;
+                t12.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
+
+                TratamientoEN t13 = new TratamientoEN();
+                t12.Consulta = null;
+                t12.Nombre = "Desinfectante";
+                t12.Precio = 40.99f;
+                t12.Descripcion = "Delegolo Vet. 1 litro. Ambientes.";
+                t12.Stock = 20;
+                t12.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
+
+                    
+            
+                        
 
 
                 TratamientoCEN.New_ (t1.Nombre, t1.Precio, t1.Descripcion, t1.Stock, t1.Dosis_diaria);
                 TratamientoCEN.New_ (t2.Nombre, t2.Precio, t2.Descripcion, t2.Stock, t2.Dosis_diaria);
                 TratamientoCEN.New_ (t3.Nombre, t3.Precio, t3.Descripcion, t3.Stock, t3.Dosis_diaria);
-                TratamientoCEN.New_ (t4.Nombre, t4.Precio, t4.Descripcion, t4.Stock, t4.Dosis_diaria);
-                TratamientoCEN.New_ (t5.Nombre, t5.Precio, t5.Descripcion, t5.Stock, t5.Dosis_diaria);
+                TratamientoCEN.New_(t4.Nombre, t4.Precio, t4.Descripcion, t4.Stock, t4.Dosis_diaria);
+                TratamientoCEN.New_(t5.Nombre, t5.Precio, t5.Descripcion, t5.Stock, t5.Dosis_diaria);
+                TratamientoCEN.New_(t6.Nombre, t6.Precio, t6.Descripcion, t6.Stock, t6.Dosis_diaria);
+                TratamientoCEN.New_(t7.Nombre, t7.Precio, t7.Descripcion, t7.Stock, t7.Dosis_diaria);
+                TratamientoCEN.New_(t8.Nombre, t8.Precio, t8.Descripcion, t8.Stock, t8.Dosis_diaria);
+                TratamientoCEN.New_(t9.Nombre, t9.Precio, t9.Descripcion, t9.Stock, t5.Dosis_diaria);
+                TratamientoCEN.New_(t10.Nombre, t10.Precio, t10.Descripcion, t10.Stock, t10.Dosis_diaria);
+                TratamientoCEN.New_(t11.Nombre, t11.Precio, t11.Descripcion, t11.Stock, t11.Dosis_diaria);
+                TratamientoCEN.New_(t12.Nombre, t12.Precio, t12.Descripcion, t12.Stock, t12.Dosis_diaria);
+                TratamientoCEN.New_(t13.Nombre, t13.Precio, t13.Descripcion, t13.Stock, t13.Dosis_diaria);
 
                 #endregion
 

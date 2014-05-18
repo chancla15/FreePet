@@ -152,9 +152,6 @@ namespace WindowsFormsApplication1
 
         public void ExportarFactura(int indice)
         {
-            
-            
-
             FacturaEN expFact = lista_facturas_cliente[indice];
             Document doc = new Document();
             PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Factura" + expFact.IdFactura + ".pdf", FileMode.Create));
@@ -184,22 +181,21 @@ namespace WindowsFormsApplication1
             phrase.Clear();
             if (tratamientos_consulta.Count > 0)
                 doc.Add(TablaParaPDF(expFact));
-            else
-            {
-                phrase.Add(new Chunk("\n\nTotal: ", boldFont));
-                phrase.Add(new Chunk(expFact.Total.ToString(), normalFont));
-            }
+           
+            phrase.Add(new Chunk("\n\nPrecio total: ", boldFont));
+            phrase.Add(new Chunk(expFact.Total.ToString(), normalFont));
+            
             
             doc.Add(phrase);
             phrase.Clear();
-            iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance("Logo.png");
+            iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance("LOGO.gif");
             imagen.SetAbsolutePosition(400, 45);
             doc.Add(imagen);
             pcb.BeginText();
             pcb.SetFontAndSize(FontFactory.GetFont(FontFactory.HELVETICA, 10, iTextSharp.text.Font.BOLD).BaseFont, 15);
             pcb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Gracias por su visita.", 50, 80, 0);
             pcb.SetFontAndSize(FontFactory.GetFont(FontFactory.HELVETICA, 10, iTextSharp.text.Font.BOLD).BaseFont, 10);
-            pcb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Hospital veterinario San Anton. www.sananton.com.es", 50, 50, 0);
+            pcb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Hospital veterinario Free Pet. www.freepetvet.es", 50, 50, 0);
             pcb.EndText();
             doc.Close();
             System.Diagnostics.Process.Start("Factura" + expFact.IdFactura + ".pdf");
@@ -220,15 +216,12 @@ namespace WindowsFormsApplication1
                         tabla.AddCell(new Phrase(form.dataGridTratamientos[k, j].Value.ToString(), FontFactory.GetFont(FontFactory.HELVETICA, 13)));
                 }
             }
-            float total = 0;
-            for (int i = 0; i < tratamientos_consulta.Count; i++)
-                total += tratamientos_consulta[i].Precio;
             //De esta manera se puede fijar un coste por consulta base y luego se suma el total con los tratamientos
             //Aunque la clave reside en que la factura se cree cuando se realiza la consulta
-            total += expFact.Total;
+            
             tabla.AddCell(new Phrase(""));
-            tabla.AddCell(new Phrase("Total", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 13)));
-            tabla.AddCell(new Phrase(total.ToString(), FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 13)));
+            tabla.AddCell(new Phrase("Consulta", FontFactory.GetFont(FontFactory.HELVETICA, 13)));
+            tabla.AddCell(new Phrase("10", FontFactory.GetFont(FontFactory.HELVETICA, 13)));
             return tabla;
         }
 
