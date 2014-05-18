@@ -84,6 +84,9 @@ namespace WindowsFormsApplication1
                 //form.listBox_addTratamiento.SetSelected(1, false);//deseleccionamos
                 Utils._ConsultaCEN.AnaydirTratamiento(consulta.IdConsulta, tratamientos);
             }
+            if (consulta.Factura == null)
+                Utils._FacturaCEN.New_(consulta.Fecha, 10, Utils._IMascotaCAD.DameClientePorMascota(consulta.Mascota.IdMascota).DNI, consulta.IdConsulta, false);
+            
 
         }
     }

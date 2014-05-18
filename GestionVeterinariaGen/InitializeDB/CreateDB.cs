@@ -269,19 +269,14 @@ public static void InitializeData ()
 
                 //Metientro tratamientos a una consultas
 
-                IList<TratamientoEN> lista = TratamientoCEN.DameTodosLosTratamientos ();
+                /*IList<TratamientoEN> lista = TratamientoCEN.DameTodosLosTratamientos ();
                 IList<string> oids = new List<string>();
 
                 if (lista != null) {
                         for (int i = 0; i < lista.Count; i++)
                                 oids.Add (lista [i].Nombre);
                         ConsultaCEN.AnaydirTratamiento (oid_c1, oids);
-                }
-                #endregion
-
-                #region Factura
-                FacturaCEN.New_ (new DateTime (2014, 3, 3), 30, "74669082A", c1, false);
-                FacturaCEN.New_ (new DateTime (2014, 4, 5), 20, "74669082A", c2, false);
+                }*/
                 #endregion
 
                 /*PROTECTED REGION END*/

@@ -91,8 +91,9 @@ public int New_ (FacturaEN factura)
                         factura.Cliente.Factura.Add (factura);
                 }
                 if (factura.Consulta != null) {
+                        factura.Consulta = (GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN)session.Load (typeof(GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN), factura.Consulta.IdConsulta);
+
                         factura.Consulta.Factura = factura;
-                        session.Save (factura.Consulta);
                 }
 
                 session.Save (factura);

@@ -28,7 +28,7 @@
 			
 		  			
 					
-							   <one-to-one name="Consulta" class="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN" property-ref="Factura" cascade="delete"/>							
+							   <one-to-one name="Consulta" class="GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN" property-ref="Factura" />							
 					 
 						
 			

@@ -36,7 +36,7 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 {
         return _IFacturaCAD.DameTodasLasFacturas ();
 }
-public int New_ (Nullable<DateTime> p_fecha, float p_total, string p_cliente, GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN p_consulta, bool p_pagada)
+public int New_ (Nullable<DateTime> p_fecha, float p_total, string p_cliente, int p_consulta, bool p_pagada)
 {
         FacturaEN facturaEN = null;
         int oid;
@@ -53,7 +53,11 @@ public int New_ (Nullable<DateTime> p_fecha, float p_total, string p_cliente, Ge
                 facturaEN.Cliente.DNI = p_cliente;
         }
 
-        facturaEN.Consulta = p_consulta;
+
+        if (p_consulta != -1) {
+                facturaEN.Consulta = new GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ConsultaEN ();
+                facturaEN.Consulta.IdConsulta = p_consulta;
+        }
 
         facturaEN.Pagada = p_pagada;
 
