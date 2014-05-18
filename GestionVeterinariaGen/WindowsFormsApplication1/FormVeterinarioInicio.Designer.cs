@@ -213,22 +213,22 @@
             // picture_inicio_veterinario
             // 
             this.picture_inicio_veterinario.BackColor = System.Drawing.Color.White;
-            this.picture_inicio_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.home;
+            this.picture_inicio_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_VETERINARIO_INICIO;
             this.picture_inicio_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picture_inicio_veterinario.Location = new System.Drawing.Point(9, 0);
+            this.picture_inicio_veterinario.Location = new System.Drawing.Point(0, 0);
             this.picture_inicio_veterinario.Name = "picture_inicio_veterinario";
-            this.picture_inicio_veterinario.Size = new System.Drawing.Size(165, 34);
+            this.picture_inicio_veterinario.Size = new System.Drawing.Size(230, 44);
             this.picture_inicio_veterinario.TabIndex = 50;
             this.picture_inicio_veterinario.TabStop = false;
             this.picture_inicio_veterinario.Click += new System.EventHandler(this.picture_inicio_veterinario_Click);
             // 
             // picture_consulta_veterinario
             // 
-            this.picture_consulta_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.consulta;
+            this.picture_consulta_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_VETERINARIO_CONSULTAS;
             this.picture_consulta_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picture_consulta_veterinario.Location = new System.Drawing.Point(257, 0);
+            this.picture_consulta_veterinario.Location = new System.Drawing.Point(228, 0);
             this.picture_consulta_veterinario.Name = "picture_consulta_veterinario";
-            this.picture_consulta_veterinario.Size = new System.Drawing.Size(165, 34);
+            this.picture_consulta_veterinario.Size = new System.Drawing.Size(230, 44);
             this.picture_consulta_veterinario.TabIndex = 51;
             this.picture_consulta_veterinario.TabStop = false;
             this.picture_consulta_veterinario.Click += new System.EventHandler(this.picture_consulta_veterinario_Click);
@@ -236,11 +236,11 @@
             // picture_desconectar_veterinario
             // 
             this.picture_desconectar_veterinario.BackColor = System.Drawing.Color.Transparent;
-            this.picture_desconectar_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.desconectar;
+            this.picture_desconectar_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_VETERINARIO_DESCONECTAR;
             this.picture_desconectar_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picture_desconectar_veterinario.Location = new System.Drawing.Point(506, 0);
+            this.picture_desconectar_veterinario.Location = new System.Drawing.Point(455, 0);
             this.picture_desconectar_veterinario.Name = "picture_desconectar_veterinario";
-            this.picture_desconectar_veterinario.Size = new System.Drawing.Size(165, 34);
+            this.picture_desconectar_veterinario.Size = new System.Drawing.Size(230, 44);
             this.picture_desconectar_veterinario.TabIndex = 52;
             this.picture_desconectar_veterinario.TabStop = false;
             this.picture_desconectar_veterinario.Click += new System.EventHandler(this.picture_ajustes_veterinario_Click);
@@ -261,7 +261,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_APP;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.dataGrid_consultas);
             this.Controls.Add(this.label_fecha_consulta);

@@ -52,26 +52,26 @@
             this.btn_eliminar_no = new System.Windows.Forms.Button();
             this.btn_eliminar_si = new System.Windows.Forms.Button();
             this.panel_top = new System.Windows.Forms.Panel();
-            this.label_error_mascota = new System.Windows.Forms.Label();
-            this.label_error_veterinario = new System.Windows.Forms.Label();
-            this.btn_buscar_cliente = new System.Windows.Forms.Button();
-            this.btn_erase = new System.Windows.Forms.PictureBox();
             this.picture_ajustes = new System.Windows.Forms.PictureBox();
             this.picture_facturas = new System.Windows.Forms.PictureBox();
             this.picture_clientes = new System.Windows.Forms.PictureBox();
             this.picture_consultas = new System.Windows.Forms.PictureBox();
             this.picture_start = new System.Windows.Forms.PictureBox();
+            this.label_error_mascota = new System.Windows.Forms.Label();
+            this.label_error_veterinario = new System.Windows.Forms.Label();
+            this.btn_buscar_cliente = new System.Windows.Forms.Button();
+            this.btn_erase = new System.Windows.Forms.PictureBox();
             this.image_del = new System.Windows.Forms.PictureBox();
             this.image_add = new System.Windows.Forms.PictureBox();
             this.btnBuscar_Fecha = new System.Windows.Forms.Button();
             this.alerta_eliminar.SuspendLayout();
             this.panel_top.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_clientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_consultas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_start)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.image_del)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.image_add)).BeginInit();
             this.SuspendLayout();
@@ -302,52 +302,6 @@
             this.panel_top.Size = new System.Drawing.Size(690, 44);
             this.panel_top.TabIndex = 59;
             // 
-            // label_error_mascota
-            // 
-            this.label_error_mascota.AutoSize = true;
-            this.label_error_mascota.BackColor = System.Drawing.Color.Transparent;
-            this.label_error_mascota.ForeColor = System.Drawing.Color.Red;
-            this.label_error_mascota.Location = new System.Drawing.Point(381, 100);
-            this.label_error_mascota.Name = "label_error_mascota";
-            this.label_error_mascota.Size = new System.Drawing.Size(11, 13);
-            this.label_error_mascota.TabIndex = 87;
-            this.label_error_mascota.Text = "*";
-            this.label_error_mascota.Visible = false;
-            // 
-            // label_error_veterinario
-            // 
-            this.label_error_veterinario.AutoSize = true;
-            this.label_error_veterinario.BackColor = System.Drawing.Color.Transparent;
-            this.label_error_veterinario.ForeColor = System.Drawing.Color.Red;
-            this.label_error_veterinario.Location = new System.Drawing.Point(614, 142);
-            this.label_error_veterinario.Name = "label_error_veterinario";
-            this.label_error_veterinario.Size = new System.Drawing.Size(11, 13);
-            this.label_error_veterinario.TabIndex = 88;
-            this.label_error_veterinario.Text = "*";
-            this.label_error_veterinario.Visible = false;
-            // 
-            // btn_buscar_cliente
-            // 
-            this.btn_buscar_cliente.BackColor = System.Drawing.Color.Transparent;
-            this.btn_buscar_cliente.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.btn_buscar_id;
-            this.btn_buscar_cliente.Location = new System.Drawing.Point(177, 99);
-            this.btn_buscar_cliente.Name = "btn_buscar_cliente";
-            this.btn_buscar_cliente.Size = new System.Drawing.Size(16, 16);
-            this.btn_buscar_cliente.TabIndex = 86;
-            this.btn_buscar_cliente.UseVisualStyleBackColor = false;
-            this.btn_buscar_cliente.Click += new System.EventHandler(this.btn_buscar_cliente_Click);
-            // 
-            // btn_erase
-            // 
-            this.btn_erase.BackColor = System.Drawing.Color.Transparent;
-            this.btn_erase.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.eraser;
-            this.btn_erase.Location = new System.Drawing.Point(316, 187);
-            this.btn_erase.Name = "btn_erase";
-            this.btn_erase.Size = new System.Drawing.Size(16, 16);
-            this.btn_erase.TabIndex = 85;
-            this.btn_erase.TabStop = false;
-            this.btn_erase.Click += new System.EventHandler(this.btn_erase_Click);
-            // 
             // picture_ajustes
             // 
             this.picture_ajustes.BackColor = System.Drawing.Color.Transparent;
@@ -403,6 +357,52 @@
             this.picture_start.TabStop = false;
             this.picture_start.Click += new System.EventHandler(this.picture_start_Click);
             // 
+            // label_error_mascota
+            // 
+            this.label_error_mascota.AutoSize = true;
+            this.label_error_mascota.BackColor = System.Drawing.Color.Transparent;
+            this.label_error_mascota.ForeColor = System.Drawing.Color.Red;
+            this.label_error_mascota.Location = new System.Drawing.Point(381, 100);
+            this.label_error_mascota.Name = "label_error_mascota";
+            this.label_error_mascota.Size = new System.Drawing.Size(11, 13);
+            this.label_error_mascota.TabIndex = 87;
+            this.label_error_mascota.Text = "*";
+            this.label_error_mascota.Visible = false;
+            // 
+            // label_error_veterinario
+            // 
+            this.label_error_veterinario.AutoSize = true;
+            this.label_error_veterinario.BackColor = System.Drawing.Color.Transparent;
+            this.label_error_veterinario.ForeColor = System.Drawing.Color.Red;
+            this.label_error_veterinario.Location = new System.Drawing.Point(614, 142);
+            this.label_error_veterinario.Name = "label_error_veterinario";
+            this.label_error_veterinario.Size = new System.Drawing.Size(11, 13);
+            this.label_error_veterinario.TabIndex = 88;
+            this.label_error_veterinario.Text = "*";
+            this.label_error_veterinario.Visible = false;
+            // 
+            // btn_buscar_cliente
+            // 
+            this.btn_buscar_cliente.BackColor = System.Drawing.Color.Transparent;
+            this.btn_buscar_cliente.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.btn_buscar_id;
+            this.btn_buscar_cliente.Location = new System.Drawing.Point(177, 99);
+            this.btn_buscar_cliente.Name = "btn_buscar_cliente";
+            this.btn_buscar_cliente.Size = new System.Drawing.Size(16, 16);
+            this.btn_buscar_cliente.TabIndex = 86;
+            this.btn_buscar_cliente.UseVisualStyleBackColor = false;
+            this.btn_buscar_cliente.Click += new System.EventHandler(this.btn_buscar_cliente_Click);
+            // 
+            // btn_erase
+            // 
+            this.btn_erase.BackColor = System.Drawing.Color.Transparent;
+            this.btn_erase.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.eraser;
+            this.btn_erase.Location = new System.Drawing.Point(316, 187);
+            this.btn_erase.Name = "btn_erase";
+            this.btn_erase.Size = new System.Drawing.Size(16, 16);
+            this.btn_erase.TabIndex = 85;
+            this.btn_erase.TabStop = false;
+            this.btn_erase.Click += new System.EventHandler(this.btn_erase_Click);
+            // 
             // image_del
             // 
             this.image_del.BackColor = System.Drawing.Color.Transparent;
@@ -442,6 +442,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_APP;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.label_error_veterinario);
             this.Controls.Add(this.label_error_mascota);
@@ -480,12 +481,12 @@
             this.alerta_eliminar.ResumeLayout(false);
             this.alerta_eliminar.PerformLayout();
             this.panel_top.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_clientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_consultas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_start)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.image_del)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.image_add)).EndInit();
             this.ResumeLayout(false);

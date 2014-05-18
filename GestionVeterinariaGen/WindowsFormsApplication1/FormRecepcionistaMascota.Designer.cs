@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel_top = new System.Windows.Forms.Panel();
+            this.picture_ajustes = new System.Windows.Forms.PictureBox();
+            this.picture_facturas = new System.Windows.Forms.PictureBox();
+            this.picture_clientes = new System.Windows.Forms.PictureBox();
+            this.picture_consultas = new System.Windows.Forms.PictureBox();
+            this.picture_start = new System.Windows.Forms.PictureBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,13 +85,13 @@
             this.btn_buscar_cliente = new System.Windows.Forms.PictureBox();
             this.btn_anaydir = new System.Windows.Forms.PictureBox();
             this.log_photo = new System.Windows.Forms.PictureBox();
-            this.picture_ajustes = new System.Windows.Forms.PictureBox();
-            this.picture_facturas = new System.Windows.Forms.PictureBox();
-            this.picture_clientes = new System.Windows.Forms.PictureBox();
-            this.picture_consultas = new System.Windows.Forms.PictureBox();
-            this.picture_start = new System.Windows.Forms.PictureBox();
             this.panel_clientes_opcion = new System.Windows.Forms.Panel();
             this.panel_top.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_clientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_consultas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_start)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.consultaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaMascota_DataSet)).BeginInit();
@@ -97,11 +102,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_cliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_anaydir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_clientes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_consultas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_start)).BeginInit();
             this.panel_clientes_opcion.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,6 +118,65 @@
             this.panel_top.Name = "panel_top";
             this.panel_top.Size = new System.Drawing.Size(690, 44);
             this.panel_top.TabIndex = 52;
+            // 
+            // picture_ajustes
+            // 
+            this.picture_ajustes.BackColor = System.Drawing.Color.Transparent;
+            this.picture_ajustes.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_DESCONECTAR;
+            this.picture_ajustes.Location = new System.Drawing.Point(544, 0);
+            this.picture_ajustes.Name = "picture_ajustes";
+            this.picture_ajustes.Size = new System.Drawing.Size(138, 44);
+            this.picture_ajustes.TabIndex = 4;
+            this.picture_ajustes.TabStop = false;
+            this.picture_ajustes.Click += new System.EventHandler(this.picture_ajustes_Click);
+            // 
+            // picture_facturas
+            // 
+            this.picture_facturas.BackColor = System.Drawing.Color.Transparent;
+            this.picture_facturas.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_FACTURA;
+            this.picture_facturas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picture_facturas.Location = new System.Drawing.Point(407, 0);
+            this.picture_facturas.Name = "picture_facturas";
+            this.picture_facturas.Size = new System.Drawing.Size(138, 44);
+            this.picture_facturas.TabIndex = 3;
+            this.picture_facturas.TabStop = false;
+            this.picture_facturas.Click += new System.EventHandler(this.picture_facturas_Click);
+            // 
+            // picture_clientes
+            // 
+            this.picture_clientes.BackColor = System.Drawing.Color.White;
+            this.picture_clientes.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_CLIENTE;
+            this.picture_clientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picture_clientes.Location = new System.Drawing.Point(273, 0);
+            this.picture_clientes.Name = "picture_clientes";
+            this.picture_clientes.Size = new System.Drawing.Size(138, 44);
+            this.picture_clientes.TabIndex = 2;
+            this.picture_clientes.TabStop = false;
+            this.picture_clientes.Click += new System.EventHandler(this.picture_clientes_Click);
+            // 
+            // picture_consultas
+            // 
+            this.picture_consultas.BackColor = System.Drawing.Color.Transparent;
+            this.picture_consultas.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_CONSULTA;
+            this.picture_consultas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picture_consultas.Location = new System.Drawing.Point(137, 0);
+            this.picture_consultas.Name = "picture_consultas";
+            this.picture_consultas.Size = new System.Drawing.Size(138, 44);
+            this.picture_consultas.TabIndex = 1;
+            this.picture_consultas.TabStop = false;
+            this.picture_consultas.Click += new System.EventHandler(this.picture_consultas_Click);
+            // 
+            // picture_start
+            // 
+            this.picture_start.BackColor = System.Drawing.Color.Transparent;
+            this.picture_start.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_INICIO;
+            this.picture_start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picture_start.Location = new System.Drawing.Point(1, 0);
+            this.picture_start.Name = "picture_start";
+            this.picture_start.Size = new System.Drawing.Size(138, 44);
+            this.picture_start.TabIndex = 0;
+            this.picture_start.TabStop = false;
+            this.picture_start.Click += new System.EventHandler(this.picture_start_Click);
             // 
             // dataGridView
             // 
@@ -594,65 +653,6 @@
             this.log_photo.TabStop = false;
             this.log_photo.Click += new System.EventHandler(this.picture_foto_Click);
             // 
-            // picture_ajustes
-            // 
-            this.picture_ajustes.BackColor = System.Drawing.Color.Transparent;
-            this.picture_ajustes.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_DESCONECTAR;
-            this.picture_ajustes.Location = new System.Drawing.Point(544, 0);
-            this.picture_ajustes.Name = "picture_ajustes";
-            this.picture_ajustes.Size = new System.Drawing.Size(138, 44);
-            this.picture_ajustes.TabIndex = 4;
-            this.picture_ajustes.TabStop = false;
-            this.picture_ajustes.Click += new System.EventHandler(this.picture_ajustes_Click);
-            // 
-            // picture_facturas
-            // 
-            this.picture_facturas.BackColor = System.Drawing.Color.Transparent;
-            this.picture_facturas.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_FACTURA;
-            this.picture_facturas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picture_facturas.Location = new System.Drawing.Point(407, 0);
-            this.picture_facturas.Name = "picture_facturas";
-            this.picture_facturas.Size = new System.Drawing.Size(138, 44);
-            this.picture_facturas.TabIndex = 3;
-            this.picture_facturas.TabStop = false;
-            this.picture_facturas.Click += new System.EventHandler(this.picture_facturas_Click);
-            // 
-            // picture_clientes
-            // 
-            this.picture_clientes.BackColor = System.Drawing.Color.White;
-            this.picture_clientes.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_CLIENTE;
-            this.picture_clientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picture_clientes.Location = new System.Drawing.Point(273, 0);
-            this.picture_clientes.Name = "picture_clientes";
-            this.picture_clientes.Size = new System.Drawing.Size(138, 44);
-            this.picture_clientes.TabIndex = 2;
-            this.picture_clientes.TabStop = false;
-            this.picture_clientes.Click += new System.EventHandler(this.picture_clientes_Click);
-            // 
-            // picture_consultas
-            // 
-            this.picture_consultas.BackColor = System.Drawing.Color.Transparent;
-            this.picture_consultas.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_CONSULTA;
-            this.picture_consultas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picture_consultas.Location = new System.Drawing.Point(137, 0);
-            this.picture_consultas.Name = "picture_consultas";
-            this.picture_consultas.Size = new System.Drawing.Size(138, 44);
-            this.picture_consultas.TabIndex = 1;
-            this.picture_consultas.TabStop = false;
-            this.picture_consultas.Click += new System.EventHandler(this.picture_consultas_Click);
-            // 
-            // picture_start
-            // 
-            this.picture_start.BackColor = System.Drawing.Color.Transparent;
-            this.picture_start.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_INICIO;
-            this.picture_start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picture_start.Location = new System.Drawing.Point(1, 0);
-            this.picture_start.Name = "picture_start";
-            this.picture_start.Size = new System.Drawing.Size(138, 44);
-            this.picture_start.TabIndex = 0;
-            this.picture_start.TabStop = false;
-            this.picture_start.Click += new System.EventHandler(this.picture_start_Click);
-            // 
             // panel_clientes_opcion
             // 
             this.panel_clientes_opcion.BackColor = System.Drawing.Color.Transparent;
@@ -669,7 +669,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_APP;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.panel_clientes_opcion);
             this.Controls.Add(this.box_NombreAnimal);
@@ -708,11 +708,17 @@
             this.Controls.Add(this.label_cliente);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.panel_top);
+            this.DoubleBuffered = true;
             this.Name = "FormRecepcionistaMascota";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mascotas";
             this.panel_top.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_clientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_consultas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_start)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.consultaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaMascota_DataSet)).EndInit();
@@ -724,11 +730,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_cliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_anaydir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_clientes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_consultas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_start)).EndInit();
             this.panel_clientes_opcion.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

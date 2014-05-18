@@ -313,11 +313,11 @@
             // picture_desconectar_admin
             // 
             this.picture_desconectar_admin.BackColor = System.Drawing.Color.Transparent;
-            this.picture_desconectar_admin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_desconectar_admin.BackgroundImage")));
+            this.picture_desconectar_admin.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_ADMINISTRADOR_DESCONECTAR;
             this.picture_desconectar_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picture_desconectar_admin.Location = new System.Drawing.Point(517, 0);
+            this.picture_desconectar_admin.Location = new System.Drawing.Point(510, 0);
             this.picture_desconectar_admin.Name = "picture_desconectar_admin";
-            this.picture_desconectar_admin.Size = new System.Drawing.Size(165, 34);
+            this.picture_desconectar_admin.Size = new System.Drawing.Size(172, 44);
             this.picture_desconectar_admin.TabIndex = 9;
             this.picture_desconectar_admin.TabStop = false;
             this.picture_desconectar_admin.Click += new System.EventHandler(this.picture_desconectar_admin_Click);
@@ -325,11 +325,11 @@
             // picture_home
             // 
             this.picture_home.BackColor = System.Drawing.Color.Transparent;
-            this.picture_home.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_home.BackgroundImage")));
+            this.picture_home.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_ADMINISTRADOR_INICIO;
             this.picture_home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picture_home.Location = new System.Drawing.Point(3, 0);
+            this.picture_home.Location = new System.Drawing.Point(0, 0);
             this.picture_home.Name = "picture_home";
-            this.picture_home.Size = new System.Drawing.Size(165, 34);
+            this.picture_home.Size = new System.Drawing.Size(172, 44);
             this.picture_home.TabIndex = 5;
             this.picture_home.TabStop = false;
             this.picture_home.Click += new System.EventHandler(this.picture_start_Click);
@@ -339,9 +339,9 @@
             this.picture_tratamiento.BackColor = System.Drawing.Color.Transparent;
             this.picture_tratamiento.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_tratamiento.BackgroundImage")));
             this.picture_tratamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picture_tratamiento.Location = new System.Drawing.Point(345, 0);
+            this.picture_tratamiento.Location = new System.Drawing.Point(340, 0);
             this.picture_tratamiento.Name = "picture_tratamiento";
-            this.picture_tratamiento.Size = new System.Drawing.Size(165, 34);
+            this.picture_tratamiento.Size = new System.Drawing.Size(172, 44);
             this.picture_tratamiento.TabIndex = 8;
             this.picture_tratamiento.TabStop = false;
             this.picture_tratamiento.Click += new System.EventHandler(this.picture_tratamientos_Click);
@@ -349,11 +349,11 @@
             // picture_empleado
             // 
             this.picture_empleado.BackColor = System.Drawing.Color.White;
-            this.picture_empleado.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_empleado.BackgroundImage")));
+            this.picture_empleado.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_ADMINISTRADOR_EMPLEADO;
             this.picture_empleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picture_empleado.Location = new System.Drawing.Point(174, 0);
+            this.picture_empleado.Location = new System.Drawing.Point(169, 0);
             this.picture_empleado.Name = "picture_empleado";
-            this.picture_empleado.Size = new System.Drawing.Size(165, 34);
+            this.picture_empleado.Size = new System.Drawing.Size(172, 44);
             this.picture_empleado.TabIndex = 7;
             this.picture_empleado.TabStop = false;
             this.picture_empleado.Click += new System.EventHandler(this.picture_empleados_Click);
@@ -462,7 +462,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_APP;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.label_col);
             this.Controls.Add(this.tb_colegiado);

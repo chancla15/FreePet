@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.panel_top = new System.Windows.Forms.Panel();
+            this.picture_ajustes = new System.Windows.Forms.PictureBox();
+            this.picture_facturas = new System.Windows.Forms.PictureBox();
+            this.picture_clientes = new System.Windows.Forms.PictureBox();
+            this.picture_consultas = new System.Windows.Forms.PictureBox();
+            this.picture_start = new System.Windows.Forms.PictureBox();
             this.l_Nombre = new System.Windows.Forms.Label();
             this.text_dni = new System.Windows.Forms.TextBox();
             this.label_dni = new System.Windows.Forms.Label();
@@ -53,23 +58,18 @@
             this.btn_trata_ok = new System.Windows.Forms.Button();
             this.panel_tratamientos = new System.Windows.Forms.Panel();
             this.btn_buscar_dni = new System.Windows.Forms.PictureBox();
-            this.picture_ajustes = new System.Windows.Forms.PictureBox();
-            this.picture_facturas = new System.Windows.Forms.PictureBox();
-            this.picture_clientes = new System.Windows.Forms.PictureBox();
-            this.picture_consultas = new System.Windows.Forms.PictureBox();
-            this.picture_start = new System.Windows.Forms.PictureBox();
             this.log_photo = new System.Windows.Forms.PictureBox();
             this.panel_top.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridFacturas)).BeginInit();
-            this.alerta_pagar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridTratamientos)).BeginInit();
-            this.panel_tratamientos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_dni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_clientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_consultas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_start)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridFacturas)).BeginInit();
+            this.alerta_pagar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridTratamientos)).BeginInit();
+            this.panel_tratamientos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_dni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,6 +86,60 @@
             this.panel_top.Name = "panel_top";
             this.panel_top.Size = new System.Drawing.Size(690, 44);
             this.panel_top.TabIndex = 61;
+            // 
+            // picture_ajustes
+            // 
+            this.picture_ajustes.BackColor = System.Drawing.Color.Transparent;
+            this.picture_ajustes.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_DESCONECTAR;
+            this.picture_ajustes.Location = new System.Drawing.Point(545, 0);
+            this.picture_ajustes.Name = "picture_ajustes";
+            this.picture_ajustes.Size = new System.Drawing.Size(138, 44);
+            this.picture_ajustes.TabIndex = 4;
+            this.picture_ajustes.TabStop = false;
+            this.picture_ajustes.Click += new System.EventHandler(this.picture_ajustes_Click);
+            // 
+            // picture_facturas
+            // 
+            this.picture_facturas.BackColor = System.Drawing.Color.White;
+            this.picture_facturas.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_FACTURA;
+            this.picture_facturas.Location = new System.Drawing.Point(409, 0);
+            this.picture_facturas.Name = "picture_facturas";
+            this.picture_facturas.Size = new System.Drawing.Size(138, 44);
+            this.picture_facturas.TabIndex = 3;
+            this.picture_facturas.TabStop = false;
+            // 
+            // picture_clientes
+            // 
+            this.picture_clientes.BackColor = System.Drawing.Color.Transparent;
+            this.picture_clientes.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_CLIENTE;
+            this.picture_clientes.Location = new System.Drawing.Point(272, 0);
+            this.picture_clientes.Name = "picture_clientes";
+            this.picture_clientes.Size = new System.Drawing.Size(138, 44);
+            this.picture_clientes.TabIndex = 2;
+            this.picture_clientes.TabStop = false;
+            this.picture_clientes.Click += new System.EventHandler(this.picture_clientes_Click);
+            // 
+            // picture_consultas
+            // 
+            this.picture_consultas.BackColor = System.Drawing.Color.Transparent;
+            this.picture_consultas.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_CONSULTA;
+            this.picture_consultas.Location = new System.Drawing.Point(136, 0);
+            this.picture_consultas.Name = "picture_consultas";
+            this.picture_consultas.Size = new System.Drawing.Size(138, 44);
+            this.picture_consultas.TabIndex = 1;
+            this.picture_consultas.TabStop = false;
+            this.picture_consultas.Click += new System.EventHandler(this.picture_consultas_Click);
+            // 
+            // picture_start
+            // 
+            this.picture_start.BackColor = System.Drawing.Color.Transparent;
+            this.picture_start.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_INICIO;
+            this.picture_start.Location = new System.Drawing.Point(0, 0);
+            this.picture_start.Name = "picture_start";
+            this.picture_start.Size = new System.Drawing.Size(138, 44);
+            this.picture_start.TabIndex = 0;
+            this.picture_start.TabStop = false;
+            this.picture_start.Click += new System.EventHandler(this.picture_start_Click);
             // 
             // l_Nombre
             // 
@@ -312,60 +366,6 @@
             this.btn_buscar_dni.TabStop = false;
             this.btn_buscar_dni.Click += new System.EventHandler(this.btn_buscar_dni_Click);
             // 
-            // picture_ajustes
-            // 
-            this.picture_ajustes.BackColor = System.Drawing.Color.Transparent;
-            this.picture_ajustes.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_DESCONECTAR;
-            this.picture_ajustes.Location = new System.Drawing.Point(545, 0);
-            this.picture_ajustes.Name = "picture_ajustes";
-            this.picture_ajustes.Size = new System.Drawing.Size(138, 44);
-            this.picture_ajustes.TabIndex = 4;
-            this.picture_ajustes.TabStop = false;
-            this.picture_ajustes.Click += new System.EventHandler(this.picture_ajustes_Click);
-            // 
-            // picture_facturas
-            // 
-            this.picture_facturas.BackColor = System.Drawing.Color.White;
-            this.picture_facturas.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_FACTURA;
-            this.picture_facturas.Location = new System.Drawing.Point(409, 0);
-            this.picture_facturas.Name = "picture_facturas";
-            this.picture_facturas.Size = new System.Drawing.Size(138, 44);
-            this.picture_facturas.TabIndex = 3;
-            this.picture_facturas.TabStop = false;
-            // 
-            // picture_clientes
-            // 
-            this.picture_clientes.BackColor = System.Drawing.Color.Transparent;
-            this.picture_clientes.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_CLIENTE;
-            this.picture_clientes.Location = new System.Drawing.Point(272, 0);
-            this.picture_clientes.Name = "picture_clientes";
-            this.picture_clientes.Size = new System.Drawing.Size(138, 44);
-            this.picture_clientes.TabIndex = 2;
-            this.picture_clientes.TabStop = false;
-            this.picture_clientes.Click += new System.EventHandler(this.picture_clientes_Click);
-            // 
-            // picture_consultas
-            // 
-            this.picture_consultas.BackColor = System.Drawing.Color.Transparent;
-            this.picture_consultas.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_CONSULTA;
-            this.picture_consultas.Location = new System.Drawing.Point(136, 0);
-            this.picture_consultas.Name = "picture_consultas";
-            this.picture_consultas.Size = new System.Drawing.Size(138, 44);
-            this.picture_consultas.TabIndex = 1;
-            this.picture_consultas.TabStop = false;
-            this.picture_consultas.Click += new System.EventHandler(this.picture_consultas_Click);
-            // 
-            // picture_start
-            // 
-            this.picture_start.BackColor = System.Drawing.Color.Transparent;
-            this.picture_start.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_INICIO;
-            this.picture_start.Location = new System.Drawing.Point(0, 0);
-            this.picture_start.Name = "picture_start";
-            this.picture_start.Size = new System.Drawing.Size(138, 44);
-            this.picture_start.TabIndex = 0;
-            this.picture_start.TabStop = false;
-            this.picture_start.Click += new System.EventHandler(this.picture_start_Click);
-            // 
             // log_photo
             // 
             this.log_photo.Image = global::WindowsFormsApplication1.Properties.Resources.sinFoto;
@@ -380,6 +380,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_APP;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.panel_tratamientos);
             this.Controls.Add(this.alerta_pagar);
@@ -394,17 +395,17 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRecepcionistaFactura";
             this.panel_top.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_clientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_consultas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_start)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFacturas)).EndInit();
             this.alerta_pagar.ResumeLayout(false);
             this.alerta_pagar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTratamientos)).EndInit();
             this.panel_tratamientos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_dni)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_clientes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_consultas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_start)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.log_photo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

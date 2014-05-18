@@ -403,6 +403,36 @@ namespace WindowsFormsApplication1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MENU_ADMINISTRADOR_DESCONECTAR {
+            get {
+                object obj = ResourceManager.GetObject("MENU_ADMINISTRADOR_DESCONECTAR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MENU_ADMINISTRADOR_EMPLEADO {
+            get {
+                object obj = ResourceManager.GetObject("MENU_ADMINISTRADOR_EMPLEADO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MENU_ADMINISTRADOR_INICIO {
+            get {
+                object obj = ResourceManager.GetObject("MENU_ADMINISTRADOR_INICIO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MENU_RECEPCIONISTA_CLIENTE {
             get {
                 object obj = ResourceManager.GetObject("MENU_RECEPCIONISTA_CLIENTE", resourceCulture);
@@ -466,6 +496,36 @@ namespace WindowsFormsApplication1.Properties {
         internal static System.Drawing.Bitmap MENU_RECEPCIONISTA_INICIO {
             get {
                 object obj = ResourceManager.GetObject("MENU_RECEPCIONISTA_INICIO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MENU_VETERINARIO_CONSULTAS {
+            get {
+                object obj = ResourceManager.GetObject("MENU_VETERINARIO_CONSULTAS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MENU_VETERINARIO_DESCONECTAR {
+            get {
+                object obj = ResourceManager.GetObject("MENU_VETERINARIO_DESCONECTAR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MENU_VETERINARIO_INICIO {
+            get {
+                object obj = ResourceManager.GetObject("MENU_VETERINARIO_INICIO", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
