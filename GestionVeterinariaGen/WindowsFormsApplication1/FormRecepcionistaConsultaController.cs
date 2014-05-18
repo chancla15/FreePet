@@ -82,23 +82,44 @@ namespace WindowsFormsApplication1
 
             if (consultaEN != null)
             {
+                string hora = "";
                 form.box_text_fecha.Text = consultaEN.Fecha.Value.Day + "/" + consultaEN.Fecha.Value.Month + "/" + consultaEN.Fecha.Value.Year;
-                form.box_combo_hora.SelectedItem = consultaEN.Fecha.Value.Hour + ":" + consultaEN.Fecha.Value.Minute;
+                hora = consultaEN.Fecha.Value.Hour + ":";
+
+                if (consultaEN.Fecha.Value.Minute == 0)
+                    hora += "00";
+                else
+                    hora += consultaEN.Fecha.Value.Minute;
+
+                form.box_combo_hora.SelectedItem = hora;
                 form.box_text_lugar.Text = consultaEN.Lugar;
                 form.box_text_motivo.Text = consultaEN.MotivoConsulta;
 
-                consultaEN.Veterinario = Utils._IVeterinarioCAD.DameVetarinarioPorOID(consultaEN.Veterinario.DNI);
-                form.box_combo_veterinario.SelectedItem = consultaEN.Veterinario.Nombre;
+
+                if (consultaEN.Veterinario != null)
+                {
+                    consultaEN.Veterinario = Utils._IVeterinarioCAD.DameVetarinarioPorOID(consultaEN.Veterinario.DNI);
+                    form.box_combo_veterinario.SelectedItem = consultaEN.Veterinario.Nombre + ' ' + consultaEN.Veterinario.Apellidos;
+
+                    if (consultaEN.Mascota != null)
+                    {
+                        consultaEN.Mascota = Utils._IMascotaCAD.BuscarMascotaPorOID(consultaEN.IdConsulta);
+                        consultaEN.Mascota.Cliente = Utils._IMascotaCAD.DameClientePorMascota(consultaEN.Mascota.IdMascota);
+ 
+                        if (consultaEN.Mascota.Cliente != null)
+                           cargarDatosCliente(consultaEN.Mascota.Cliente);
+
+                        form.box_combo_mascotas.SelectedItem = consultaEN.Mascota.Nombre;
+                    }
+                }
             }
         }
 
         public void cargarDatosConsultaDesdeTreeView()
         {
-            Console.WriteLine(form.treeViewConsultas.SelectedNode.ToString());
-            string text = Convert.ToString(form.treeViewConsultas.SelectedNode);
+            string text = form.treeViewConsultas.SelectedNode.Text;
             string date_hour = "";
             string aux_hora_lista = "";
-
             for (int i = 0; i < text.Length; i++)
             {
                 if (text[i] != ' ')
@@ -109,12 +130,16 @@ namespace WindowsFormsApplication1
 
             for (int i = 0; i < lista_consultasToday.Count; i++)
             {
-                aux_hora_lista = lista_consultasToday[i].Fecha.Value.Hour + ":" + lista_consultasToday[i].Fecha.Value.Minute;
+                aux_hora_lista = lista_consultasToday[i].Fecha.Value.Hour + ":";
 
+                if (lista_consultasToday[i].Fecha.Value.Minute == 0)
+                    aux_hora_lista += "00";
+                else
+                    aux_hora_lista += lista_consultasToday[i].Fecha.Value.Minute;
+                
                 if (date_hour==aux_hora_lista)
                 {
                     consultaEN = lista_consultasToday[i];
-                    Console.WriteLine(consultaEN.Fecha.Value);
                     break;
                 }
             }
@@ -205,20 +230,18 @@ namespace WindowsFormsApplication1
                 nodeOp = nodeOp.Parent;
 
             String date = "";
-            String text = Convert.ToString(nodeOp.Text);
-
-            for (int i = 0; i < text.Length; i++)
+            for (int i = 0; i < nodeOp.Text.Length; i++)
             {
-                if (text[i] != '-')
-                    date += text[i];
+                if (nodeOp.Text[i] != '-')
+                    date += nodeOp.Text[i];
                 else
                 {
                     date = "";
                     i++;
                 }
             }
-            form.box_text_fecha.Text = date;
 
+            form.box_text_fecha.Text = date;
             lista_consultasToday = Utils._IConsultaCAD.BuscarConsultaPorFecha(Convert.ToDateTime(form.box_text_fecha.Text));
             cargarHoras();
         }
@@ -229,7 +252,7 @@ namespace WindowsFormsApplication1
 
             form.box_combo_hora.Items.AddRange(horas);
 
-            if (lista_consultasToday != null && lista_consultasToday.Count > 0)
+            if (lista_consultasToday != null && form.state==Utils.State.NEW && lista_consultasToday.Count > 0)
             {
                 string hour = "";
 
@@ -247,7 +270,6 @@ namespace WindowsFormsApplication1
 
             if (form.box_text_fecha.Text != "" && form.box_combo_hora.Text!="")
             {
-                Console.WriteLine("fecha: " + form.box_text_fecha.Text + " hora: " + form.box_combo_hora.Text);
                 consultaEN.Fecha = Convert.ToDateTime(form.box_text_fecha.Text + ' ' + form.box_combo_hora.SelectedItem.ToString() + ":00");
                 list_veterinariosToday = lista_veterinariosTotal;
 
@@ -275,31 +297,30 @@ namespace WindowsFormsApplication1
 
         public void ProcesarInformacion()
         {
+
+            if (consultaEN == null)
+                consultaEN = new ConsultaEN();
+
             form.label_error_mascota.Visible = false;
             form.label_error_veterinario.Visible = false;
 
-            //Anadido datos del formulario a clienteEN
+            if (consultaEN.Diagnostico == null)
+                consultaEN.Diagnostico = "";
+
             consultaEN.MotivoConsulta = form.box_text_motivo.Text;
             consultaEN.Lugar = form.box_text_lugar.Text;
-
-            //Necesita arreglo inicio
-            consultaEN.Diagnostico = ""; //Necesitamos campo diagnostico
-            consultaEN.Tratamiento = null; //Tratamiento temporal
-            //Necesita arreglo fin
-
-            /* Esto no hace nada con la nueva insercion, retesteado, lo dejo para que no se ponga de nuevo
-            if(form.state==Utils.State.NEW)
-                consultaEN.Factura = null;
-            */
+ 
             if (form.box_combo_mascotas.SelectedItem != null)
             {
                 if (list_mascotasCliente != null && list_mascotasCliente.Count > 0)
                 {
                     for (int i = 0; i < list_mascotasCliente.Count; i++)
                     {
-                        if (list_mascotasCliente[i].Nombre == Convert.ToString(form.box_combo_mascotas.SelectedItem))
+                        if (list_mascotasCliente[i].Nombre == form.box_combo_mascotas.SelectedItem.ToString())
                         {
                             consultaEN.Mascota = list_mascotasCliente[i];
+                            consultaEN.Mascota = Utils._IMascotaCAD.BuscarMascotaPorOID(consultaEN.Mascota.IdMascota);
+                            form.box_combo_mascotas.SelectedItem = consultaEN.Mascota.Nombre;
                             break;
                         }
                     }
@@ -319,9 +340,11 @@ namespace WindowsFormsApplication1
                     for (int i = 0; i < list_veterinariosToday.Count; i++)
                     {
                         name = list_veterinariosToday[i].Nombre + " " + list_veterinariosToday[i].Apellidos;
-                        if (name == Convert.ToString(form.box_combo_veterinario.SelectedItem))
+                        if (name == form.box_combo_veterinario.SelectedItem.ToString())
                         {
                             consultaEN.Veterinario = list_veterinariosToday[i];
+                            consultaEN.Veterinario = Utils._IVeterinarioCAD.DameVetarinarioPorOID(consultaEN.Veterinario.DNI);
+                            form.box_combo_veterinario.SelectedItem = consultaEN.Veterinario.Nombre + ' ' + consultaEN.Veterinario.Apellidos;
                             break;
                         }
                     }
@@ -333,8 +356,6 @@ namespace WindowsFormsApplication1
                 return;
             }
 
-            Console.WriteLine("Me dispongo a crear consulta");
-
             if (consultaEN != null)
             {
                 switch (form.state)
@@ -342,20 +363,13 @@ namespace WindowsFormsApplication1
                     case Utils.State.NONE:
                         break;
                     case Utils.State.NEW:
-                        //Utils._ConsultaCEN.New_(consultaEN.Fecha, consultaEN.MotivoConsulta, "", consultaEN.Mascota.IdMascota, consultaEN.Veterinario.DNI, null, consultaEN.Lugar);
-                        //El total en la factura es temporal, habrá que obtenerlo de los tratamientos + coste por consulta
-                        Utils._FacturaCEN.New_(consultaEN.Fecha, 20, form.box_text_cliente.Text, consultaEN, false);
+                            consultaEN.IdConsulta= Utils._ConsultaCEN.New_(consultaEN.MotivoConsulta, consultaEN.Diagnostico, consultaEN.Mascota.IdMascota, consultaEN.Veterinario.DNI, consultaEN.Lugar, consultaEN.Fecha);
                         break;
                     case Utils.State.MODIFY:
-                        //Utils._ConsultaCEN.Modify(consultaEN.IdConsulta, consultaEN.Fecha, consultaEN.MotivoConsulta, consultaEN.Diagnostico, consultaEN.Lugar);
-                        //La unica manera de modificar una consulta que está ligada a una factura es borrar la factura y recrearla con la nueva consulta
-                        //Sin testear, se necesita poder borrar consultas para probarlo
-                        Utils._FacturaCEN.Destroy(consultaEN.Factura.IdFactura);
-                        Utils._FacturaCEN.New_(consultaEN.Fecha, 20, form.box_text_cliente.Text, consultaEN, false);
+                            Utils._ConsultaCEN.Modify(consultaEN.IdConsulta, consultaEN.MotivoConsulta, consultaEN.Diagnostico, consultaEN.Lugar, consultaEN.Fecha);
                         break;
                     case Utils.State.DESTROY:
-                        //Utils._ConsultaCEN.Destroy(consultaEN.IdConsulta);
-                        Utils._FacturaCEN.Destroy(consultaEN.Factura.IdFactura);
+                            Utils._ConsultaCEN.Destroy(consultaEN.IdConsulta);
                         break;
                     default:
                         break;
@@ -367,9 +381,6 @@ namespace WindowsFormsApplication1
 
         #region BorrarDatosFormulario
 
-        /**
-        * Borrar todos los campos del box_controller asi como su informacoin asociada
-        */
         public void ClearForm()
         {
             form.box_text_motivo.Text = "";

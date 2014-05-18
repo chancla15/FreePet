@@ -239,7 +239,7 @@ public static void InitializeData ()
 
                 ConsultaEN c3 = new ConsultaEN ();
                 c3.Diagnostico = "Rabia";
-                c3.Fecha =  new DateTime (2014, 5, 20, 10, 30, 00);
+                c3.Fecha = new DateTime (2014, 5, 20, 10, 30, 00);
                 c3.IdConsulta = 10;
                 c3.Lugar = "Sala 2";
                 c3.Mascota = new MascotaEN ();
@@ -251,7 +251,7 @@ public static void InitializeData ()
 
                 ConsultaEN c4 = new ConsultaEN ();
                 c4.Diagnostico = "Hepatitis B";
-                c4.Fecha =  new DateTime (2014, 5, 21, 11, 00, 00);
+                c4.Fecha = new DateTime (2014, 5, 21, 11, 00, 00);
                 c4.IdConsulta = 10;
                 c4.Lugar = "Sala 2";
                 c4.Mascota = new MascotaEN ();

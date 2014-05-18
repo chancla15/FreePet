@@ -79,5 +79,6 @@
 		  <query name="MascotaENdameMascotaPorNombreHQL"><![CDATA[FROM MascotaEN m WHERE m.Nombre like '%'+:busqueda+'%' ]]></query>
 		  <query name="MascotaENcontadorMascotasHQL"><![CDATA[FROM MascotaEN]]></query>
 		  <query name="MascotaENDameMascotaPorClienteHQL"><![CDATA[FROM MascotaEN m WHERE m.Cliente.DNI=:nif]]></query>
+		  <query name="MascotaENDameClientePorMascotaHQL"><![CDATA[SELECT msc.Cliente FROM MascotaEN AS msc WHERE msc.IdMascota=:id_msc]]></query>
 		</hibernate-mapping>
 	

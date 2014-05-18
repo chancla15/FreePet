@@ -94,7 +94,7 @@
             // 
             this.btnBuscar_Fecha.BackColor = System.Drawing.Color.Transparent;
             this.btnBuscar_Fecha.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.btn_buscar_id;
-            this.btnBuscar_Fecha.Location = new System.Drawing.Point(294, 212);
+            this.btnBuscar_Fecha.Location = new System.Drawing.Point(291, 187);
             this.btnBuscar_Fecha.Name = "btnBuscar_Fecha";
             this.btnBuscar_Fecha.Size = new System.Drawing.Size(16, 16);
             this.btnBuscar_Fecha.TabIndex = 12;
@@ -105,7 +105,7 @@
             // 
             this.label_error_fecha.AutoSize = true;
             this.label_error_fecha.ForeColor = System.Drawing.Color.Red;
-            this.label_error_fecha.Location = new System.Drawing.Point(316, 215);
+            this.label_error_fecha.Location = new System.Drawing.Point(291, 213);
             this.label_error_fecha.Name = "label_error_fecha";
             this.label_error_fecha.Size = new System.Drawing.Size(11, 13);
             this.label_error_fecha.TabIndex = 15;
@@ -246,7 +246,7 @@
             this.image_add.BackColor = System.Drawing.Color.Transparent;
             this.image_add.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add;
             this.image_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.image_add.Location = new System.Drawing.Point(572, 219);
+            this.image_add.Location = new System.Drawing.Point(653, 53);
             this.image_add.Name = "image_add";
             this.image_add.Size = new System.Drawing.Size(16, 16);
             this.image_add.TabIndex = 22;
@@ -257,7 +257,7 @@
             // 
             this.image_del.BackColor = System.Drawing.Color.Transparent;
             this.image_del.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.delete;
-            this.image_del.Location = new System.Drawing.Point(653, 219);
+            this.image_del.Location = new System.Drawing.Point(653, 94);
             this.image_del.Name = "image_del";
             this.image_del.Size = new System.Drawing.Size(16, 16);
             this.image_del.TabIndex = 23;
@@ -386,7 +386,7 @@
             // 
             this.btn_erase.BackColor = System.Drawing.Color.Transparent;
             this.btn_erase.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.eraser;
-            this.btn_erase.Location = new System.Drawing.Point(611, 219);
+            this.btn_erase.Location = new System.Drawing.Point(316, 187);
             this.btn_erase.Name = "btn_erase";
             this.btn_erase.Size = new System.Drawing.Size(16, 16);
             this.btn_erase.TabIndex = 85;

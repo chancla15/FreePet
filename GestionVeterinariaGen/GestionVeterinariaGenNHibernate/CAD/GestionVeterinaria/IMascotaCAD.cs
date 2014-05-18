@@ -29,5 +29,8 @@ System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeter
 
 
 System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.MascotaEN> DameMascotaPorCliente (string nif);
+
+
+GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN DameClientePorMascota (int id_msc);
 }
 }

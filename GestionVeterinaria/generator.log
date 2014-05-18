@@ -10390,3 +10390,276 @@ enc:utf-8
 ../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\nunit.core.dll
 ../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\nunit.framework.dll
 17684 [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - workflow completed in 16041ms!
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+8    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.2.1, Build v201306110341
+8    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+9    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+9    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/Users/admin/Desktop/dssproyecto14/GestionVeterinaria/templates/workflow/generator.mwe
+9    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+1061 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\Users\admin\Desktop\dssproyecto14'
+1293 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+1490 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+1921 [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/Users/admin/Desktop/dssproyecto14/GestionVeterinaria/templates/workflow/generator.mwe:10
+1923 [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+2741 [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+4662 [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [../GestionVeterinariaGen, CONFIGURATION:../GestionVeterinariaGen(overwrite=false,append=false,fileEncoding=utf-8)]
+configuroConf:C:\Users\admin\AppData\Local\Temp\OOH4RIA366488958790663918.cfg
+enc:utf-8
+6140 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+10450 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan finished in 4.31s
+10452 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Files scanned: 309
+10452 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Regions found: 6
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+34913 [main] INFO         org.eclipse.xpand2.Generator  - Written 5 files to outlet [default](../GestionVeterinariaGen)
+34914 [main] INFO         org.eclipse.xpand2.Generator  - Skipped writing of 72 files to outlet [default](../GestionVeterinariaGen)
+34914 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CreateSolution
+34975 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.UpdateSolution
+35015 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CopyDLLs
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\Antlr3.Runtime.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\Castle.DynamicProxy2.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\Iesi.Collections.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\LinFu.DynamicProxy.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\log4net.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\NHibernate.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\nunit.core.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\nunit.framework.dll
+35030 [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - workflow completed in 33111ms!
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+5    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.2.1, Build v201306110341
+5    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+5    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+5    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/Users/admin/Desktop/dssproyecto14/GestionVeterinaria/templates/workflow/generator.mwe
+5    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+1200 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\Users\admin\Desktop\dssproyecto14'
+1585 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+1814 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+2716 [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/Users/admin/Desktop/dssproyecto14/GestionVeterinaria/templates/workflow/generator.mwe:10
+2718 [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+4086 [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+5570 [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [../GestionVeterinariaGen, CONFIGURATION:../GestionVeterinariaGen(overwrite=false,append=false,fileEncoding=utf-8)]
+configuroConf:C:\Users\admin\AppData\Local\Temp\OOH4RIA3623816128683955185.cfg
+enc:utf-8
+6267 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+7864 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan finished in 1.596s
+7869 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Files scanned: 309
+7869 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Regions found: 6
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+18245 [main] INFO         org.eclipse.xpand2.Generator  - Written 2 files to outlet [default](../GestionVeterinariaGen)
+18248 [main] INFO         org.eclipse.xpand2.Generator  - Skipped writing of 75 files to outlet [default](../GestionVeterinariaGen)
+18248 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CreateSolution
+18276 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.UpdateSolution
+18325 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CopyDLLs
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\Antlr3.Runtime.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\Castle.DynamicProxy2.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\Iesi.Collections.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\LinFu.DynamicProxy.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\log4net.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\NHibernate.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\nunit.core.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\nunit.framework.dll
+18335 [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - workflow completed in 15621ms!
+0    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+3    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - EMF Modeling Workflow Engine 1.2.1, Build v201306110341
+3    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - (c) 2005-2009 openarchitectureware.org and contributors
+3    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - --------------------------------------------------------------------------------------
+3    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - running workflow: C:/Users/admin/Desktop/dssproyecto14/GestionVeterinaria/templates/workflow/generator.mwe
+3    [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - 
+914  [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Registering platform uri 'C:\Users\admin\Desktop\dssproyecto14'
+1178 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'es.ua.dlsi.ooh.conceptualView.ConceptualViewPackage'
+1402 [main] INFO  lipse.emf.mwe.utils.StandaloneSetup  - Adding generated EPackage 'org.eclipse.gmf.runtime.notation.NotationPackage'
+1702 [main] INFO  e.core.container.CompositeComponent  - Workflow: executing workflow workflow::nhibernate::generator.mwe in C:/Users/admin/Desktop/dssproyecto14/GestionVeterinaria/templates/workflow/generator.mwe:10
+1702 [main] INFO  e.core.container.CompositeComponent  - XmiReader: file 'models/default.domainModel' => slot 'es_ua_dlsi_ooh_conceptual_model'
+2888 [main] INFO  e.core.container.CompositeComponent  - CheckComponent: slot es_ua_dlsi_ooh_conceptual_model check file(s): metamodel::Checks 
+3938 [main] INFO  e.core.container.CompositeComponent  - Generator(nhibernate.generator): generating 'workflow::nhibernate::workflow::main FOR true' => [../GestionVeterinariaGen, CONFIGURATION:../GestionVeterinariaGen(overwrite=false,append=false,fileEncoding=utf-8)]
+configuroConf:C:\Users\admin\AppData\Local\Temp\OOH4RIA3945007637279750091.cfg
+enc:utf-8
+4521 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan started ...
+5880 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Source scan finished in 1.358s
+5881 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Files scanned: 309
+5881 [main] INFO  and2.pr.ProtectedRegionResolverImpl  - Regions found: 6
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+enc:utf-8
+15852 [main] INFO         org.eclipse.xpand2.Generator  - Written 2 files to outlet [default](../GestionVeterinariaGen)
+15852 [main] INFO         org.eclipse.xpand2.Generator  - Skipped writing of 75 files to outlet [default](../GestionVeterinariaGen)
+15853 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CreateSolution
+15904 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.UpdateSolution
+15942 [main] INFO  e.core.container.CompositeComponent  - es.ua.dlsi.ooh.persistence.nhibernate.generator.workflowComponents.CopyDLLs
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\Antlr3.Runtime.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\Castle.DynamicProxy2.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\Iesi.Collections.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\LinFu.DynamicProxy.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\log4net.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\NHibernate.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\nunit.core.dll
+../GestionVeterinariaGen\GestionVeterinariaGenNHibernate\AppLib\nunit.framework.dll
+15966 [main] INFO  eclipse.emf.mwe.core.WorkflowEngine  - workflow completed in 14255ms!

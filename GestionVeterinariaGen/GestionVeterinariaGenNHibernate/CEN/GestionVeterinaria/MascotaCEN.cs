@@ -119,5 +119,9 @@ public System.Collections.Generic.IList<GestionVeterinariaGenNHibernate.EN.Gesti
 {
         return _IMascotaCAD.DameMascotaPorCliente (nif);
 }
+public GestionVeterinariaGenNHibernate.EN.GestionVeterinaria.ClienteEN DameClientePorMascota (int id_msc)
+{
+        return _IMascotaCAD.DameClientePorMascota (id_msc);
+}
 }
 }

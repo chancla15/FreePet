@@ -142,7 +142,7 @@ namespace WindowsFormsApplication1
 
         private void image_add_Click(object sender, EventArgs e)
         {
-            if (state == Utils.State.NONE)
+            if (state == Utils.State.NONE || state==Utils.State.NEW)
                 state = Utils.State.NEW;
 
             controller.ProcesarInformacion();
@@ -166,6 +166,7 @@ namespace WindowsFormsApplication1
         private void btn_eliminar_si_Click(object sender, EventArgs e)
         {
             controller.ProcesarInformacion();
+            controller.ClearForm();
             EnableForm(true);
             state = Utils.State.NONE;
         }
@@ -198,6 +199,7 @@ namespace WindowsFormsApplication1
                 }
                 else if (nodeOp.Level == 1)
                 {
+                    haBorradoFormulario = true;
                     state = Utils.State.MODIFY;
                     controller.cargarDatosConsultaDesdeTreeView();
                 }
