@@ -19,6 +19,7 @@ namespace WindowsFormsApplication1
 
         private FormRecepcionistaFactura form = null;
         private IList<FacturaEN> lista_facturas_cliente = null;
+        private IList<TratamientoEN> tratamientos_consulta = null;
         private ClienteEN clienteEN = null;
         private FacturaEN facturaEN = null;
 
@@ -26,7 +27,8 @@ namespace WindowsFormsApplication1
 
         #region Constructor
 
-        public FormRecepcionistaFacturaController(FormRecepcionistaFactura form) {
+        public FormRecepcionistaFacturaController(FormRecepcionistaFactura form)
+        {
             this.form = form;
         }
 
@@ -39,9 +41,11 @@ namespace WindowsFormsApplication1
                 form.text_dni.Text = clienteEN.Nombre + " " + clienteEN.Apellidos;
                 lista_facturas_cliente = Utils._IFacturaCAD.DameFacturasPorCliente(clienteEN.DNI);
 
+                form.dataGridFacturas.Rows.Clear(); //Hay que limpiar aqui el datagrid tb o salen duplicadas en cierto escenario(testeado)
+
                 if (lista_facturas_cliente != null)
                 {
-                    for(int i=0;i<lista_facturas_cliente.Count;i++)
+                    for (int i = 0; i < lista_facturas_cliente.Count; i++)
                     {
                         lista_facturas_cliente[i].Cliente = clienteEN;
                         lista_facturas_cliente[i].Consulta = Utils._IConsultaCAD.DameConsultaPorOID(lista_facturas_cliente[i].Consulta.IdConsulta);
@@ -51,44 +55,17 @@ namespace WindowsFormsApplication1
                             lista_facturas_cliente[i].Consulta.Mascota = Utils._IMascotaCAD.BuscarMascotaPorOID(lista_facturas_cliente[i].Consulta.Mascota.IdMascota);
 
                         //Num, pagar, fecha, total, mascota, motivo, boton tratamiento, pagada, boton pagar
-                         form.dataGridFacturas.Rows.Add(lista_facturas_cliente[i].IdFactura, lista_facturas_cliente[i].Fecha, lista_facturas_cliente[i].Total, lista_facturas_cliente[i].Consulta.Mascota.Nombre,
-                            lista_facturas_cliente[i].Consulta.MotivoConsulta, "", lista_facturas_cliente[i].Pagada == true ? "Si" : "No", "");
+                        form.dataGridFacturas.Rows.Add(lista_facturas_cliente[i].IdFactura, lista_facturas_cliente[i].Fecha, lista_facturas_cliente[i].Total, lista_facturas_cliente[i].Consulta.Mascota.Nombre,
+                           lista_facturas_cliente[i].Consulta.MotivoConsulta, "", lista_facturas_cliente[i].Pagada == true ? "Si" : "No", "");
                     }
                 }
 
-                /*
-
-                // INICIO ZONA BORRADOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-                IList<TratamientoEN> listaprueba = new TratamientoCEN().DameTodosLosTratamientos();
-
-                if (listaprueba != null)
-                {
-                    facturas[0].Consulta.Tratamiento = listaprueba;
-                    facturas[1].Consulta.Tratamiento = listaprueba;
-                    // FINAL ZONA BORRADOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-
-                    form.dataGridFacturas.Rows.Clear();
-
-
-
-                    for (int i = 0; i < facturas.Count; i++)
-                    {
-                        //Num, pagar, fecha, total, mascota, motivo, boton tratamiento, pagada, boton pagar
-                        mascota = Utils._IMascotaCAD.BuscarMascotaPorOID(facturas[i].Consulta.Mascota.IdMascota);
-                        form.dataGridFacturas.Rows.Add(facturas[i].IdFactura, facturas[i].Fecha, facturas[i].Total, mascota.Nombre,
-                            facturas[i].Consulta.MotivoConsulta, "", facturas[i].Pagada == true ? "Si" : "No", "");
-                    }
-                }
-                 
-                 */
-                 
             }
         }
 
         #endregion
 
         #region DataGridView
-
         public FacturaEN getScreenState(DataGridViewCellEventArgs ev, ref Utils.State state)
         {
             facturaEN = null;
@@ -135,83 +112,105 @@ namespace WindowsFormsApplication1
             {
                 form.alerta_pagar.Visible = activar;
                 form.texto_alerta.Enabled = activar;
-                
+
                 if (indice != -1)
                     form.texto_alerta.Text = "¿Pagar Factura " + lista_facturas_cliente[indice].IdFactura + "?";
-                
+
                 form.btn_pagar_no.Enabled = activar;
                 form.btn_pagar_si.Enabled = activar;
             }
         }
-        
-        public void MostrarTratamientos(Boolean activar, int indice)
+
+        public void ExportarFacturaOMostrarTratamientos(int indice, String opcion)
         {
-            form.panel_tratamientos.Visible = activar;
+            int oid_factura = Convert.ToInt32(lista_facturas_cliente[indice].IdFactura);
+            tratamientos_consulta = Utils._ITratamientoCAD.DameTratamientosPorConsulta(oid_factura);
+            //Lo cargo sea tratamientos o exportar para tenerlo cargado, lo necesito para los 2
+            //En exportar es necesario ya que exporto todo el contenido del datagrid al pdf y si no esta cargado no exporta nada
+            CargarDataGridTratamientos(indice);
+
+            //Activa el panel que muestra los tratamientos
+            if (opcion.Equals("Tratamiento"))
+                form.panel_tratamientos.Visible = true;
+            //Exporta la factura en formato PDF
+            if (opcion.Equals("Exportar"))
+                ExportarFactura(indice);
+        }
+
+        public void CargarDataGridTratamientos(int indice)
+        {
+            //form.panel_tratamientos.Visible = false;
             form.dataGridTratamientos.Rows.Clear();
 
-            if (lista_facturas_cliente != null && indice<=lista_facturas_cliente.Count)
-            {
-                int oid_factura = Convert.ToInt32(form.dataGridFacturas.Rows[indice].Cells[0].Value.ToString());
-                IList<TratamientoEN> tratamientos_consulta = Utils._ITratamientoCAD.DameTratamientosPorConsulta(oid_factura);
+            //Ya que no se puede acceder a esta funcion si no hay ninguna factura no merece la pena hacer comprobaciones de si hay facturas
+            if (tratamientos_consulta != null)
+                for (int i = 0; i < tratamientos_consulta.Count; i++)
+                    form.dataGridTratamientos.Rows.Add(tratamientos_consulta[i].Nombre, tratamientos_consulta[i].Descripcion, tratamientos_consulta[i].Precio);
 
-                if (tratamientos_consulta != null)
-                    for (int i = 0; i < tratamientos_consulta.Count; i++)
-                        form.dataGridTratamientos.Rows.Add(tratamientos_consulta[i].Nombre, tratamientos_consulta[i].Descripcion, tratamientos_consulta[i].Precio);
-            }
-            
-            
-           
             //SELECT trat FROM TratamientoEN AS trat INNER JOIN SELECT cons ConsultaEN AS cons WHERE cons.IdConsulta=:id_consulta INNER JOIN cons.Tratamiento AS cons_trart WHERE cons_trat.Nombre=trat.Nombre                             
         }
 
         public void ExportarFactura(int indice)
         {
-            //Aver, esto deberia estar ya cargado....o deberia cargarse al final
-            MostrarTratamientos(false, indice); //Hago esto para cargar el datagrid, si no se puede exportar
             
             
-            FacturaEN expFact = lista_facturas_cliente[indice]; 
+
+            FacturaEN expFact = lista_facturas_cliente[indice];
             Document doc = new Document();
             PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Factura" + expFact.IdFactura + ".pdf", FileMode.Create));
             doc.Open();
+            PdfContentByte pcb = wri.DirectContent;
             var phrase = new Phrase();
             var normalFont = FontFactory.GetFont(FontFactory.HELVETICA, 13);
             var boldFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 13);
-            phrase.Add(new Chunk("Factura " + expFact.IdFactura, FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 16)));
-            phrase.Add(new Chunk("                                                                      " + DateTime.Now, normalFont));
-            phrase.Add(new Chunk("\n\n\nCliente: ", boldFont));
+            phrase.Add(new Chunk("Factura: " + expFact.IdFactura, FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 16)));
+            pcb.BeginText();
+            pcb.SetFontAndSize(FontFactory.GetFont(FontFactory.HELVETICA, 13, iTextSharp.text.Font.NORMAL).BaseFont, 13);
+            pcb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT,DateTime.Now.ToString(),520,806,0); //Esto pone la fecha en la esquina derecha
+            pcb.EndText();
+            phrase.Add(new Chunk("\n\n\n\n\nCliente: ", boldFont));
             phrase.Add(new Chunk(clienteEN.Nombre + " " + clienteEN.Apellidos, normalFont));
             phrase.Add(new Chunk("\n\nDNI: ", boldFont));
             phrase.Add(new Chunk(clienteEN.DNI, normalFont));
             phrase.Add(new Chunk("\n\nMascota: ", boldFont));
-            phrase.Add(new Chunk(expFact.Consulta.Mascota.Nombre , normalFont));
+            phrase.Add(new Chunk(expFact.Consulta.Mascota.Nombre, normalFont));
             phrase.Add(new Chunk("\n\nMotivo consulta: ", boldFont));
             phrase.Add(new Chunk(expFact.Consulta.MotivoConsulta, normalFont));
             phrase.Add(new Chunk("\n\nDiagnostico: ", boldFont));
             phrase.Add(new Chunk(expFact.Consulta.Diagnostico, normalFont));
-            phrase.Add(new Chunk("\n\nTratamientos: \n", boldFont));
+            if (tratamientos_consulta.Count > 0) //Duplico esta comprobación para ahorrarme un doc.ADD y un phrase.Clear
+                phrase.Add(new Chunk("\n\nTratamientos: \n", boldFont));
             doc.Add(phrase);
             phrase.Clear();
-            if (!TratamientoEN.ReferenceEquals(expFact.Consulta.Tratamiento, null))
-                doc.Add(TablaParaPDF(expFact, expFact.Consulta.Tratamiento));
-            phrase.Add(new Chunk("\n\n\n\n\n\nGracias por su visita.", boldFont));
+            if (tratamientos_consulta.Count > 0)
+                doc.Add(TablaParaPDF(expFact));
+            else
+            {
+                phrase.Add(new Chunk("\n\nTotal: ", boldFont));
+                phrase.Add(new Chunk(expFact.Total.ToString(), normalFont));
+            }
+            
             doc.Add(phrase);
             phrase.Clear();
             iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance("Logo.png");
-            imagen.Alignment = 6;
+            imagen.SetAbsolutePosition(400, 45);
             doc.Add(imagen);
-            phrase.Add(new Chunk("\n\nHospital veterinario San Anton. www.sananton.com.es/", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10)));
-            doc.Add(phrase);
+            pcb.BeginText();
+            pcb.SetFontAndSize(FontFactory.GetFont(FontFactory.HELVETICA, 10, iTextSharp.text.Font.BOLD).BaseFont, 15);
+            pcb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Gracias por su visita.", 50, 80, 0);
+            pcb.SetFontAndSize(FontFactory.GetFont(FontFactory.HELVETICA, 10, iTextSharp.text.Font.BOLD).BaseFont, 10);
+            pcb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "Hospital veterinario San Anton. www.sananton.com.es", 50, 50, 0);
+            pcb.EndText();
             doc.Close();
             System.Diagnostics.Process.Start("Factura" + expFact.IdFactura + ".pdf");
         }
-       
-        public PdfPTable TablaParaPDF(FacturaEN expFact, IList<TratamientoEN> tratamientos)
+
+        public PdfPTable TablaParaPDF(FacturaEN expFact)
         {
             PdfPTable tabla = new PdfPTable(form.dataGridTratamientos.Columns.Count);
             for (int i = 0; i < form.dataGridTratamientos.Columns.Count; i++)
                 tabla.AddCell(new Phrase(form.dataGridTratamientos.Columns[i].HeaderText, FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 13)));
-            
+
             tabla.HeaderRows = 1;
             for (int j = 0; j < form.dataGridTratamientos.Rows.Count; j++)
             {
@@ -222,23 +221,25 @@ namespace WindowsFormsApplication1
                 }
             }
             float total = 0;
-            for (int i = 0; i < tratamientos.Count; i++)
-                total += tratamientos[i].Precio;
-            //10 euros por haberle pasado consulta
-            total += 10;
+            for (int i = 0; i < tratamientos_consulta.Count; i++)
+                total += tratamientos_consulta[i].Precio;
+            //De esta manera se puede fijar un coste por consulta base y luego se suma el total con los tratamientos
+            //Aunque la clave reside en que la factura se cree cuando se realiza la consulta
+            total += expFact.Total;
             tabla.AddCell(new Phrase(""));
             tabla.AddCell(new Phrase("Total", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 13)));
             tabla.AddCell(new Phrase(total.ToString(), FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 13)));
             return tabla;
         }
-      
+
         public void PagarFactura()
         {
             //Pone el campo pagada a verdadero, mantiene los demas
             Utils._FacturaCEN.Modify(facturaEN.IdFactura, facturaEN.Fecha, facturaEN.Total, true);
-            form.changeState(Utils.State.MODIFY);
+            //Cargamos los datos de nuevo para que se muestre la factura como pagada
+            cargarDatosCliente(clienteEN);
         }
-        
+
         #endregion
 
         #region BorrarCamposFormulario
@@ -246,11 +247,11 @@ namespace WindowsFormsApplication1
         public void ClearForm()
         {
             form.text_dni.Text = "";
-            
-            if(form.dataGridFacturas!=null)
+
+            if (form.dataGridFacturas != null)
                 form.dataGridFacturas.Rows.Clear();
 
-            if(form.dataGridTratamientos!=null)
+            if (form.dataGridTratamientos != null)
                 form.dataGridTratamientos.Rows.Clear();
         }
 

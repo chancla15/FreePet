@@ -29,7 +29,6 @@ namespace WindowsFormsApplication1
 
         public FormRecepcionistaFactura(ScreenControllerRecepcionista menu)
         {
-            Activate();
             this.menu = menu;
             InitializeComponent();
             controller = new FormRecepcionistaFacturaController(this);
@@ -37,6 +36,10 @@ namespace WindowsFormsApplication1
 
         public void changeState(Utils.State st)
         {
+            //AQUI COMPRUEBO EL ESTADO ACTUAL DE LA PANTALLA, PORQUE ESTE METODO SOLO SE EJECUTARA
+            //CADA VEZ QUE HAGAMOS UNA ACCION REFERIDA CON AÑADIR, MODIFICAR O ELIMINAR EN LA PANTALLA
+            //TANTO SI PINCHAMOS EN EL DATAGRID COMO SI NOS LA INFORMACION DE OTRA PANTALLA
+
             state = st;
 
             if (state == Utils.State.MODIFY)
@@ -47,9 +50,15 @@ namespace WindowsFormsApplication1
 
         #region I/O_Form
 
+        public void ActivateForm()
+        {
+            Activate();
+            this.Visible = true;
+        }
+
         public void DesactivateForm()
         {
-            Hide();
+            this.Visible = false;
 
             if (haBorradoCliente)
             {
@@ -66,12 +75,6 @@ namespace WindowsFormsApplication1
         {
             if (menu.LaunchStartScreen())
                 DesactivateForm();
-        }
-
-        private void btn_erase_Click(object sender, EventArgs e)
-        {
-            text_dni.Enabled= haBorradoCliente = true;
-            controller.ClearForm();
         }
 
         private void btn_pagar_si_Click(object sender, EventArgs e)
@@ -102,7 +105,7 @@ namespace WindowsFormsApplication1
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (!e.RowIndex.Equals(-1))
-            {               
+            {
                 FacturaEN factura = controller.getScreenState(e, ref state);
                 if (factura != null)
                 {
@@ -111,10 +114,10 @@ namespace WindowsFormsApplication1
                         controller.AlertaPagar(true, e.RowIndex);
                     //Activa el panel que muestra los tratamientos
                     if (dataGridFacturas.Columns[e.ColumnIndex].Name.Equals("Tratamiento"))
-                        controller.MostrarTratamientos(true, e.RowIndex);
+                        controller.ExportarFacturaOMostrarTratamientos(e.RowIndex, "Tratamiento");
                     //Exporta la factura en formato PDF
                     if (dataGridFacturas.Columns[e.ColumnIndex].Name.Equals("Exportar"))
-                        controller.ExportarFactura(e.RowIndex);
+                        controller.ExportarFacturaOMostrarTratamientos(e.RowIndex, "Exportar");
                 }
             }
         }

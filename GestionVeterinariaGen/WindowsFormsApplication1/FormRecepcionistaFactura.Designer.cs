@@ -40,17 +40,6 @@
             this.label_dni = new System.Windows.Forms.Label();
             this.btn_buscar_dni = new System.Windows.Forms.PictureBox();
             this.dataGridFacturas = new System.Windows.Forms.DataGridView();
-            this.alerta_pagar = new System.Windows.Forms.Panel();
-            this.texto_alerta = new System.Windows.Forms.Label();
-            this.btn_pagar_no = new System.Windows.Forms.Button();
-            this.btn_pagar_si = new System.Windows.Forms.Button();
-            this.btn_erase = new System.Windows.Forms.PictureBox();
-            this.dataGridTratamientos = new System.Windows.Forms.DataGridView();
-            this.trat_col_Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trat_col_Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trat_col_Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_trata_ok = new System.Windows.Forms.Button();
-            this.panel_tratamientos = new System.Windows.Forms.Panel();
             this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +49,16 @@
             this.Pagada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pagar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Exportar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.alerta_pagar = new System.Windows.Forms.Panel();
+            this.texto_alerta = new System.Windows.Forms.Label();
+            this.btn_pagar_no = new System.Windows.Forms.Button();
+            this.btn_pagar_si = new System.Windows.Forms.Button();
+            this.dataGridTratamientos = new System.Windows.Forms.DataGridView();
+            this.trat_col_Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trat_col_Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trat_col_Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_trata_ok = new System.Windows.Forms.Button();
+            this.panel_tratamientos = new System.Windows.Forms.Panel();
             this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_ajustes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_facturas)).BeginInit();
@@ -70,7 +69,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_buscar_dni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFacturas)).BeginInit();
             this.alerta_pagar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTratamientos)).BeginInit();
             this.panel_tratamientos.SuspendLayout();
             this.SuspendLayout();
@@ -173,11 +171,11 @@
             // 
             this.label_dni.AutoSize = true;
             this.label_dni.BackColor = System.Drawing.Color.Transparent;
-            this.label_dni.Location = new System.Drawing.Point(140, 149);
+            this.label_dni.Location = new System.Drawing.Point(127, 150);
             this.label_dni.Name = "label_dni";
-            this.label_dni.Size = new System.Drawing.Size(29, 13);
+            this.label_dni.Size = new System.Drawing.Size(42, 13);
             this.label_dni.TabIndex = 72;
-            this.label_dni.Text = "DNI:";
+            this.label_dni.Text = "Cliente:";
             // 
             // btn_buscar_dni
             // 
@@ -216,6 +214,64 @@
             this.dataGridFacturas.TabIndex = 81;
             this.dataGridFacturas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridFacturas.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting_1);
+            // 
+            // Num
+            // 
+            this.Num.HeaderText = "Num";
+            this.Num.Name = "Num";
+            this.Num.ReadOnly = true;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            // 
+            // Mascota
+            // 
+            this.Mascota.HeaderText = "Mascota";
+            this.Mascota.Name = "Mascota";
+            this.Mascota.ReadOnly = true;
+            // 
+            // Motivo
+            // 
+            this.Motivo.HeaderText = "Motivo";
+            this.Motivo.Name = "Motivo";
+            this.Motivo.ReadOnly = true;
+            // 
+            // Tratamiento
+            // 
+            this.Tratamiento.HeaderText = "Tratamiento";
+            this.Tratamiento.Name = "Tratamiento";
+            this.Tratamiento.ReadOnly = true;
+            this.Tratamiento.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Tratamiento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Pagada
+            // 
+            this.Pagada.HeaderText = "Pagada";
+            this.Pagada.Name = "Pagada";
+            this.Pagada.ReadOnly = true;
+            // 
+            // Pagar
+            // 
+            this.Pagar.HeaderText = "Pagar";
+            this.Pagar.Name = "Pagar";
+            this.Pagar.ReadOnly = true;
+            // 
+            // Exportar
+            // 
+            this.Exportar.HeaderText = "Exportar";
+            this.Exportar.Name = "Exportar";
+            this.Exportar.ReadOnly = true;
+            this.Exportar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Exportar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // alerta_pagar
             // 
@@ -257,17 +313,6 @@
             this.btn_pagar_si.Text = "Si";
             this.btn_pagar_si.UseVisualStyleBackColor = true;
             this.btn_pagar_si.Click += new System.EventHandler(this.btn_pagar_si_Click);
-            // 
-            // btn_erase
-            // 
-            this.btn_erase.BackColor = System.Drawing.Color.Transparent;
-            this.btn_erase.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.eraser;
-            this.btn_erase.Location = new System.Drawing.Point(337, 150);
-            this.btn_erase.Name = "btn_erase";
-            this.btn_erase.Size = new System.Drawing.Size(16, 16);
-            this.btn_erase.TabIndex = 83;
-            this.btn_erase.TabStop = false;
-            this.btn_erase.Click += new System.EventHandler(this.btn_erase_Click);
             // 
             // dataGridTratamientos
             // 
@@ -330,71 +375,12 @@
             this.panel_tratamientos.TabIndex = 84;
             this.panel_tratamientos.Visible = false;
             // 
-            // Num
-            // 
-            this.Num.HeaderText = "Num";
-            this.Num.Name = "Num";
-            this.Num.ReadOnly = true;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            // 
-            // Mascota
-            // 
-            this.Mascota.HeaderText = "Mascota";
-            this.Mascota.Name = "Mascota";
-            this.Mascota.ReadOnly = true;
-            // 
-            // Motivo
-            // 
-            this.Motivo.HeaderText = "Motivo";
-            this.Motivo.Name = "Motivo";
-            this.Motivo.ReadOnly = true;
-            // 
-            // Tratamiento
-            // 
-            this.Tratamiento.HeaderText = "Tratamiento";
-            this.Tratamiento.Name = "Tratamiento";
-            this.Tratamiento.ReadOnly = true;
-            this.Tratamiento.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Tratamiento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Pagada
-            // 
-            this.Pagada.HeaderText = "Pagada";
-            this.Pagada.Name = "Pagada";
-            this.Pagada.ReadOnly = true;
-            // 
-            // Pagar
-            // 
-            this.Pagar.HeaderText = "Pagar";
-            this.Pagar.Name = "Pagar";
-            this.Pagar.ReadOnly = true;
-            // 
-            // Exportar
-            // 
-            this.Exportar.HeaderText = "Exportar";
-            this.Exportar.Name = "Exportar";
-            this.Exportar.ReadOnly = true;
-            this.Exportar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Exportar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // FormRecepcionistaFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.panel_tratamientos);
-            this.Controls.Add(this.btn_erase);
             this.Controls.Add(this.alerta_pagar);
             this.Controls.Add(this.dataGridFacturas);
             this.Controls.Add(this.btn_buscar_dni);
@@ -417,7 +403,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFacturas)).EndInit();
             this.alerta_pagar.ResumeLayout(false);
             this.alerta_pagar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_erase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTratamientos)).EndInit();
             this.panel_tratamientos.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -443,7 +428,6 @@
         public System.Windows.Forms.Label texto_alerta;
         public System.Windows.Forms.Button btn_pagar_no;
         public System.Windows.Forms.Button btn_pagar_si;
-        public System.Windows.Forms.PictureBox btn_erase;
         public System.Windows.Forms.DataGridView dataGridTratamientos;
         private System.Windows.Forms.DataGridViewTextBoxColumn trat_col_Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn trat_col_Descripcion;
