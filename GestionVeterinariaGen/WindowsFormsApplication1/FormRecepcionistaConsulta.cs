@@ -28,6 +28,7 @@ namespace WindowsFormsApplication1
 
         public FormRecepcionistaConsulta(ScreenControllerRecepcionista menu)
         {
+            Activate();
             this.menu = menu;
             InitializeComponent();
             controller = new FormRecepcionistaConsultaController(this);
@@ -61,16 +62,9 @@ namespace WindowsFormsApplication1
 
         #region I/O_Form
 
-        public void ActivateForm()
-        {
-            Activate();
-            this.Visible = true;
-        }
-
         public void DesactivateForm()
         {
-            this.Visible = false;
-
+            Hide();
             if (haBorradoFormulario)
             {
                 controller.cargarDatosCliente(menu.clienteCompartido);

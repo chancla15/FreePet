@@ -16,39 +16,23 @@ namespace WindowsFormsApplication1
 
         #region Variables
 
-        /** El controlador */
         private FormAdministradorEmpleadoController controller = null;
-
-        /** EL tipo de accion, ADD,MOD,DEL */
         public Utils.State state = Utils.State.NONE;
-
-        /** El identificador de la clase */
         public string ID = "EMPLEADO";
-
-        /** EL controlador del menu superior */
         public ScreenControllerAdministrador menu = null;
 
         #endregion
 
         #region Constructor
 
-        /**
-         * Constructor
-         * @param session el ticket de sesion
-         * @param showType el tipo de accion
-         */
         public FormAdministradorEmpleado(ScreenControllerAdministrador menu) 
         {
+            Activate();
             this.menu = menu;
             InitializeComponent();
             controller=new FormAdministradorEmpleadoController(this);
         }
 
-        /**
-         * Cambia el estado de la pantalla 
-         * @param el estado de la pantalla
-         * @param el cliente si es estado modificar o eliminar
-         */
         public void changeState(Utils.State st, EmpleadoEN emp)
         {
            // controller.ClearForm();
@@ -68,21 +52,11 @@ namespace WindowsFormsApplication1
 
         #region IO
 
-        public void ActivateForm()
-        {
-            Activate();
-            this.Visible = true;
-        }
-
         public void DesactivateForm()
         {
-            this.Visible = false;
+            Hide();
         }
 
-        /**
-        * Pone typ todos los elementos del formulario menos los de eliminar
-        * @param typ si estan disponibles o no
-        */
         private void EnableForm(Boolean typ)
         {
             tb_dni.Enabled = typ;
@@ -109,9 +83,6 @@ namespace WindowsFormsApplication1
 
         #region Botones
 
-        /**
-         * Cuando se selecciona el boton guardar
-         */
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             if (state == Utils.State.NONE || state == Utils.State.NEW)
@@ -124,18 +95,12 @@ namespace WindowsFormsApplication1
             state = Utils.State.MODIFY;
         }
 
-        /**
-         * Cuadno se pulsa el boton de cancelar eliminacion
-         */
         private void btn_eliminar_no_Click(object sender, EventArgs e)
         {
             state = Utils.State.MODIFY;
             EnableForm(true);
         }
 
-        /**
-         * Cuando se pulsa el boton de proceder a eliminar
-         */
         private void btn_eliminar_si_Click(object sender, EventArgs e)
         {
             state = Utils.State.DESTROY;
@@ -144,10 +109,6 @@ namespace WindowsFormsApplication1
             state = Utils.State.NONE;
         }
 
-
-        /**
-         * Cuando se pulsa el boton eliminar principal
-         */
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
             if (state == Utils.State.MODIFY)
@@ -166,9 +127,6 @@ namespace WindowsFormsApplication1
             }
         }
 
-        /**
-         * Si clickea el boton de buscar cliente por dni desde la pantalla empleado
-         */
         private void btn_buscar_dni_Click(object sender, EventArgs e)
         {
             /*if ((state == Utils.State.NONE || state == Utils.State.NEW) && menu.LaunchStartScreen())
@@ -186,9 +144,6 @@ namespace WindowsFormsApplication1
             
         }
 
-        /**
-         * Cuando se pulsa el boton erase que es la gomita se borran todos los campos
-         */
         private void btn_erase_Click(object sender, EventArgs e)
         {
             if (state == Utils.State.MODIFY)
@@ -217,53 +172,33 @@ namespace WindowsFormsApplication1
 
         #region MenuSuperior
 
-        /**
-         * Pinta panel superior menu
-         */
         private void panel_top_Paint(object sender, PaintEventArgs e)
         {
             this.picture_empleado.BackColor = Color.White;
             this.panel_top.BackColor = Color.LightBlue;
         }
 
-        /**
-         * Cuando se slecciona la opcion start
-         */
         private void picture_start_Click(object sender, EventArgs e)
         {
             if (menu.LaunchStartScreen())
                 DesactivateForm();
-
-            //Hide();
-            //new FormRecepcionistaAdministradorInicio(controller.sessionData);
         }
 
-        /**
-         * Cuando se slecciona la opcion clientes
-         */
         private void picture_empleados_Click(object sender, EventArgs e)
         {
             if (menu.LaunchEmpleadoScreen(Utils.State.NONE, null))
                 DesactivateForm();
         }
 
-
-        /**
-         * Cuando se slecciona la opcion facturas
-         */
         private void picture_tratamientos_Click(object sender, EventArgs e)
         {
             if (menu.LaunchTratamientoScreen(Utils.State.NONE, null))
                 DesactivateForm();
         }
 
-        /**
-         * Cuando se slecciona la opcion ajustes
-         */
         private void picture_desconectar_Click(object sender, EventArgs e)
         {
-
-            menu.sessionData.Disconnect();
+            menu.Disconnect();
         }
 
         #endregion

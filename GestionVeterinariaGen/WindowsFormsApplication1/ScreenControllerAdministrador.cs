@@ -7,19 +7,6 @@ using GestionVeterinariaGenNHibernate.EN.GestionVeterinaria;
 
 namespace WindowsFormsApplication1
 {
-    /**
-     * Esto controlaria el cambio de pantallas de la barra de superior del menu 
-     * 
-     * USUARIO: 
-     *      RECEPCIONISTA
-     *
-     * PANTALLAS:
-     *      FORM_RECEPCIONISTA_ADMINISTRADOR_INICIO
-     *      FORM_RECEPCIONISTA_CLIENTE
-     *      FORM_RECEPCIONISTA_MASCOTA
-     *      FORM_RECEPCIONISTA_CONSULTA
-     *      FORM_RECEPCIONISTA_FACTURA
-     */
     public class ScreenControllerAdministrador : ScreenController
     {
         #region Variables
@@ -40,6 +27,7 @@ namespace WindowsFormsApplication1
             f_tratamiento = new FormAdministradorTratamiento(this);
             LaunchStartScreen();
         }
+       
         #endregion
 
         #region LanzadorDePantallas
@@ -52,7 +40,7 @@ namespace WindowsFormsApplication1
             {
                 ret = true;
                 FormActual = f_inicio.ID;
-                f_inicio.ActivateForm();
+                f_inicio.Show();
             }
             return ret;
         }
@@ -65,7 +53,7 @@ namespace WindowsFormsApplication1
             {
                 ret = true;
                 FormActual = f_empleado.ID;
-                f_empleado.ActivateForm();
+                f_empleado.Show();
                 f_empleado.changeState(state, empleado);
             }
             return ret;
@@ -79,7 +67,7 @@ namespace WindowsFormsApplication1
             {
                 ret = true;
                 FormActual = f_tratamiento.ID;
-                f_tratamiento.ActivateForm();
+                f_tratamiento.Show();
                 f_tratamiento.changeState(state,tratamiento);
             }
             return ret;
@@ -120,18 +108,17 @@ namespace WindowsFormsApplication1
             throw new NotImplementedException();
         }
 
-
         #endregion
 
         #region SalirAplicacion
 
-        public void Disconnect()
+        override public void Disconnect()
         {
             CloseForms();
             sessionData.Disconnect();
         }
 
-        public void CloseForms()
+        override public void CloseForms()
         {
             FormActual = "";
             f_inicio.Hide();

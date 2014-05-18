@@ -27,6 +27,7 @@ namespace WindowsFormsApplication1
 
         public FormRecepcionistaMascota(ScreenControllerRecepcionista menu)
         {
+            Activate();
             this.menu = menu;
             InitializeComponent();
             controller = new FormRecepcionistaMascotaController(this);
@@ -50,15 +51,9 @@ namespace WindowsFormsApplication1
 
         #region I/O_Form
 
-        public void ActivateForm()
-        {
-            Activate();
-            this.Visible = true;
-        }
-
         public void DesactivateForm()
         {
-            this.Visible= false;
+            Hide();
         }
 
         private void EnableForm(bool block)

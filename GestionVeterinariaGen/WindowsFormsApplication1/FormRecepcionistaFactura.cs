@@ -29,6 +29,7 @@ namespace WindowsFormsApplication1
 
         public FormRecepcionistaFactura(ScreenControllerRecepcionista menu)
         {
+            Activate();
             this.menu = menu;
             InitializeComponent();
             controller = new FormRecepcionistaFacturaController(this);
@@ -36,10 +37,6 @@ namespace WindowsFormsApplication1
 
         public void changeState(Utils.State st)
         {
-            //AQUI COMPRUEBO EL ESTADO ACTUAL DE LA PANTALLA, PORQUE ESTE METODO SOLO SE EJECUTARA
-            //CADA VEZ QUE HAGAMOS UNA ACCION REFERIDA CON AÑADIR, MODIFICAR O ELIMINAR EN LA PANTALLA
-            //TANTO SI PINCHAMOS EN EL DATAGRID COMO SI NOS LA INFORMACION DE OTRA PANTALLA
-
             state = st;
 
             if (state == Utils.State.MODIFY)
@@ -50,15 +47,9 @@ namespace WindowsFormsApplication1
 
         #region I/O_Form
 
-        public void ActivateForm()
-        {
-            Activate();
-            this.Visible = true;
-        }
-
         public void DesactivateForm()
         {
-            this.Visible = false;
+            Hide();
 
             if (haBorradoCliente)
             {

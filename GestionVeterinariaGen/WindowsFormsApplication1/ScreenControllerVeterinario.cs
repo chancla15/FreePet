@@ -10,21 +10,13 @@ namespace WindowsFormsApplication1
     {
         #region Variables
 
-        /** EL formulario de inicio */
         public FormVeterinarioInicio f_inicio = null;
-
-        /** El formulario de cliente */
         public FormVeterinarioConsulta f_consulta = null;
-
-        //Aquí el futuro formulario de ajustes del Veterinario
 
         #endregion
 
         #region Constructor
-        /**
-         * Crea todos los formularios que usara el recepcionista
-         * @param ticket el ticket de sesion
-         */
+      
         public ScreenControllerVeterinario(FormLoginDataSessionTicket ticket):base(ticket)
         {
             f_inicio = new FormVeterinarioInicio(this);
@@ -32,13 +24,11 @@ namespace WindowsFormsApplication1
             f_consulta = new FormVeterinarioConsulta(this);
             LaunchStartScreenVeterinario();
         }
+        
         #endregion
 
         #region LanzadorDePantallas
 
-        /**
-         * Cuando lanza la pantalla principal
-         */
         override public bool LaunchStartScreenVeterinario()
         {
             bool ret = false;
@@ -47,7 +37,7 @@ namespace WindowsFormsApplication1
             {
                 ret = true;
                 FormActual = f_inicio.ID;
-                f_inicio.ActivateForm();
+                f_inicio.Show();
             }
             return ret;
         }
@@ -60,7 +50,7 @@ namespace WindowsFormsApplication1
              {
                  ret = true;
                  FormActual = f_consulta.ID;
-                 f_consulta.ActivateForm();
+                 f_consulta.Show();
                  f_consulta.changeState(mascota, consulta);
              }
             return ret;
@@ -106,9 +96,23 @@ namespace WindowsFormsApplication1
             throw new NotImplementedException();
         }
 
-
         #endregion
 
+        #region Desconectar
 
+        override public void Disconnect()
+        {
+            CloseForms();
+            sessionData.Disconnect();
+        }
+
+        override public void CloseForms()
+        {
+            FormActual = "";
+            f_inicio.DesactivateForm();
+            f_consulta.DesactivateForm();
+        }
+
+        #endregion
     }
 }

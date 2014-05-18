@@ -21,7 +21,6 @@ namespace WindowsFormsApplication1
         public abstract bool LaunchMascotaScreen(Utils.State s, MascotaEN m);
         public abstract bool LaunchConsultaScreen(Utils.State s, ConsultaEN c);
         public abstract bool LaunchFacturaScreen(Utils.State s);
-
         public abstract void CargarClienteCompartidoRecepcionista(ClienteEN c);
 
 
@@ -32,5 +31,9 @@ namespace WindowsFormsApplication1
         //VETERINARIO
         public abstract bool LaunchStartScreenVeterinario();
         public abstract bool LaunchConsultaScreenVeterinario(MascotaEN m, ConsultaEN c);
+
+        //DESCONECTAR
+        public abstract void Disconnect();
+        public abstract void CloseForms();
     }
 }

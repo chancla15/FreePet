@@ -76,7 +76,7 @@ namespace WindowsFormsApplication1
             {
                 ret = true;
                 FormActual = f_inicio.ID;
-                f_inicio.ActivateForm();
+                f_inicio.Show();
             }        
             return ret;
         }
@@ -89,7 +89,7 @@ namespace WindowsFormsApplication1
             {
                 ret = true;
                 FormActual = f_cliente.ID;
-                f_cliente.ActivateForm();
+                f_cliente.Show();
             }
             return ret;
         }
@@ -102,7 +102,7 @@ namespace WindowsFormsApplication1
             {
                 ret = true;
                 FormActual = f_mascota.ID;
-                f_mascota.ActivateForm();
+                f_mascota.Show();
                 f_mascota.changeState(st, mascota);
             }
             return ret;
@@ -116,7 +116,7 @@ namespace WindowsFormsApplication1
             {
                 ret = true;
                 FormActual = f_consulta.ID;
-                f_consulta.ActivateForm();
+                f_consulta.Show();
                 f_consulta.changeState(state, consulta);
             }
             return ret;
@@ -130,7 +130,7 @@ namespace WindowsFormsApplication1
             {
                 ret = true;
                 FormActual = f_factura.ID;
-                f_factura.ActivateForm();
+                f_factura.Show();
                 f_factura.changeState(state);
             }
             return ret;
@@ -160,20 +160,20 @@ namespace WindowsFormsApplication1
 
         #region SalirAplicacion
 
-        public void Disconnect()
+        override public void Disconnect()
         {
             CloseForms();
             sessionData.Disconnect();
         }
 
-        public void CloseForms()
+        override public void CloseForms()
         {
             FormActual = "";
-            f_inicio.Hide();
-            f_cliente.Hide();
-            f_mascota.Hide();
-            f_consulta.Hide();
-            f_factura.Hide();
+            f_inicio.DesactivateForm();
+            f_cliente.DesactivateForm();
+            f_mascota.DesactivateForm();
+            f_consulta.DesactivateForm();
+            f_factura.DesactivateForm();
         }
 
         #endregion

@@ -26,6 +26,7 @@ namespace WindowsFormsApplication1
          */
         public FormVeterinarioInicio(ScreenController menu)
         {
+            Activate();
             this.menu = menu;
             InitializeComponent();
             controller = new FormVeterinarioInicioController(this);
@@ -33,18 +34,11 @@ namespace WindowsFormsApplication1
 
         #region IO
 
-        /** Activa el formulario */
-        public void ActivateForm()
-        {
-            Activate();
-            this.Visible = true;
-        }
-
-        /** Desactiva el formulario */
         public void DesactivateForm()
         {
-            this.Visible = false;
+            Hide();
         }
+
         #endregion
 
 
