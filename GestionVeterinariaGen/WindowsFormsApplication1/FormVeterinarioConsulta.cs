@@ -97,7 +97,7 @@ namespace WindowsFormsApplication1
         {
             //realizar consulta
             controller.addTratamientos();
-            MessageBox.Show("Consulta realizada");
+            MessageBox.Show("Consulta realizada ");
             if (menu.LaunchStartScreenVeterinario())
                 DesactivateForm();
         }
