@@ -49,18 +49,25 @@ namespace WindowsFormsApplication1
             label14.Visible = b;
             label15.Visible = b;
 
-            ListaEmpleados.Visible = ListaEmpleados.Enabled = b;
-            picture_start_admin.Visible = picture_start_admin.Enabled = b;
-            picture_empleados_admin.Visible = picture_empleados_admin.Enabled = b;
-            picture_tratamientos_admin.Visible = picture_tratamientos_admin.Enabled = b;
-            picture_desconectar_admin.Visible = picture_desconectar_admin.Enabled = b;
-
-            dataGrid_clientes.Visible = dataGrid_clientes.Enabled = !b;
-            picture_start_recepcionista.Visible = picture_start_recepcionista.Enabled = !b;
-            picture_consultas_recepcionista.Visible = picture_consultas_recepcionista.Enabled = !b;
-            picture_clientes_recepcionista.Visible = picture_clientes_recepcionista.Enabled = !b;
-            picture_facturas_recepcionista.Visible = picture_facturas_recepcionista.Enabled = !b;
-            picture_ajustes_recepcionista.Visible = picture_ajustes_recepcionista.Enabled = !b;
+            if (b)
+            {
+                Console.WriteLine("Activo Adminsitrador");
+                ListaEmpleados.Visible = ListaEmpleados.Enabled =true;
+                dataGrid_clientes.SendToBack();
+                panel_recepcionista.SendToBack();
+                panel_top.BringToFront(); 
+                panel_top.Enabled = true;
+            }
+            else
+            {
+                Console.WriteLine("Activo recepcionista");
+                dataGrid_clientes.Visible = dataGrid_clientes.Enabled = true;
+                dataGrid_clientes.BringToFront();
+                panel_top.SendToBack();
+                ListaEmpleados.SendToBack();
+                panel_recepcionista.BringToFront();
+                panel_recepcionista.Visible = panel_recepcionista.Enabled = true;
+            }
         }
 
         #endregion
@@ -116,12 +123,6 @@ namespace WindowsFormsApplication1
 
         #region MenuSuperior
 
-        private void panel_top_Paint(object sender, PaintEventArgs e)
-        {
-            this.picture_start_recepcionista.BackColor = Color.White;
-            this.panel_top.BackColor = Color.LightBlue;
-        }
-
         private void picture_start_Click(object sender, EventArgs e)
         {
             if (menu.LaunchStartScreen())
@@ -169,10 +170,15 @@ namespace WindowsFormsApplication1
                 if (menu.LaunchEmpleadoScreen(aux_state, emp))
                     DesactivateForm();
         }
-       
+
         #endregion
 
         #region MenuSuperiorAdministrador
+
+        private void panel_top_Paint(object sender, PaintEventArgs e)
+        {
+            this.panel_top.BackColor = Color.LightBlue;
+        }
 
         private void picture_start_admin_Click(object sender, EventArgs e)
         {
@@ -198,5 +204,7 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
+
+       
     }
 }

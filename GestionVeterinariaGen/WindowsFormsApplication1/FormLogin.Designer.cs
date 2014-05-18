@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.btn_accpt = new System.Windows.Forms.Button();
             this.text_user = new System.Windows.Forms.TextBox();
             this.text_pass = new System.Windows.Forms.TextBox();
@@ -134,7 +133,7 @@
             this.AcceptButton = this.btn_accpt;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_APP;
             this.ClientSize = new System.Drawing.Size(500, 300);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);

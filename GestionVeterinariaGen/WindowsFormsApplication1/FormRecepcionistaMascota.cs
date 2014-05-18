@@ -193,12 +193,6 @@ namespace WindowsFormsApplication1
 
         #region MenuSuperior
 
-        private void panel_top_Paint(object sender, PaintEventArgs e)
-        {
-            this.picture_clientes.BackColor = Color.White;
-            this.panel_top.BackColor = Color.LightBlue;
-        }
-
         private void picture_start_Click(object sender, EventArgs e)
         {
             if (menu.LaunchStartScreen())
@@ -231,11 +225,6 @@ namespace WindowsFormsApplication1
         #endregion
 
         #region SubMenuSuperior
-
-        private void panel_clientes_opcion_Paint(object sender, PaintEventArgs e) {
-            this.picture_cliente_opcion_mascota.BackColor = Color.White;
-            //this.panel_clientes_opcion.BackColor = Color.LightCyan;
-        }
 
         private void picture_cliente_opcion_cliente_Click(object sender, EventArgs e){
             picture_clientes_Click(sender, e);
