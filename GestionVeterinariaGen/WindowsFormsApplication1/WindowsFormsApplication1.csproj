@@ -109,12 +109,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcercaDe.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AcercaDe.Designer.cs">
-      <DependentUpon>AcercaDe.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormAdministradorTratamientoDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -230,9 +224,6 @@
     <Compile Include="ScreenControllerRecepcionista.cs" />
     <Compile Include="ScreenControllerVeterinario.cs" />
     <Compile Include="Utils.cs" />
-    <EmbeddedResource Include="AcercaDe.resx">
-      <DependentUpon>AcercaDe.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormAdministradorEmpleado.resx">
       <DependentUpon>FormAdministradorEmpleado.cs</DependentUpon>
     </EmbeddedResource>
@@ -544,6 +535,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MENU_RECEPCIONISTA_FICHA_MASCOTA.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MENU_ADMINISTRADOR_EMPLEADO.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MENU_ADMINISTRADOR_INICIO.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MENU_ADMINISTRADOR_DESCONECTAR.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MENU_VETERINARIO_INICIO.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MENU_VETERINARIO_CONSULTAS.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MENU_VETERINARIO_DESCONECTAR.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FONDO.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BARRA_MENU.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MENU_ADMINISTRADOR_TRATAMIENTO.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGO.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

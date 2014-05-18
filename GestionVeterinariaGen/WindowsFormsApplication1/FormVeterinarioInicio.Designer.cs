@@ -201,7 +201,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANEL_RECEPCIONISTA;
+            this.panel1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.BARRA_MENU;
             this.panel1.Controls.Add(this.picture_inicio_veterinario);
             this.panel1.Controls.Add(this.picture_consulta_veterinario);
             this.panel1.Controls.Add(this.picture_desconectar_veterinario);
@@ -260,7 +260,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_APP;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.dataGrid_consultas);

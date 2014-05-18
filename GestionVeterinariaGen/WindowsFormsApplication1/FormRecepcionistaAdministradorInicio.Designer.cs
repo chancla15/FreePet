@@ -25,7 +25,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRecepcionistaAdministradorInicio));
             this.log_date = new System.Windows.Forms.Label();
             this.log_type = new System.Windows.Forms.Label();
             this.log_id = new System.Windows.Forms.Label();
@@ -218,7 +217,7 @@
             // panel_top
             // 
             this.panel_top.BackColor = System.Drawing.Color.Transparent;
-            this.panel_top.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANEL_RECEPCIONISTA;
+            this.panel_top.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.BARRA_MENU;
             this.panel_top.Controls.Add(this.picture_tratamientos_admin);
             this.panel_top.Controls.Add(this.picture_empleados_admin);
             this.panel_top.Controls.Add(this.picture_desconectar_admin);
@@ -233,7 +232,7 @@
             // picture_tratamientos_admin
             // 
             this.picture_tratamientos_admin.BackColor = System.Drawing.Color.Transparent;
-            this.picture_tratamientos_admin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_tratamientos_admin.BackgroundImage")));
+            this.picture_tratamientos_admin.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_ADMINISTRADOR_TRATAMIENTO;
             this.picture_tratamientos_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_tratamientos_admin.Location = new System.Drawing.Point(342, 0);
             this.picture_tratamientos_admin.Name = "picture_tratamientos_admin";
@@ -281,13 +280,13 @@
             // panel_recepcionista
             // 
             this.panel_recepcionista.BackColor = System.Drawing.Color.Transparent;
-            this.panel_recepcionista.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANEL_RECEPCIONISTA;
+            this.panel_recepcionista.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.BARRA_MENU;
             this.panel_recepcionista.Controls.Add(this.picture_ajustes_recepcionista);
             this.panel_recepcionista.Controls.Add(this.picture_consultas_recepcionista);
             this.panel_recepcionista.Controls.Add(this.picture_clientes_recepcionista);
             this.panel_recepcionista.Controls.Add(this.picture_facturas_recepcionista);
             this.panel_recepcionista.Controls.Add(this.picture_start_recepcionista);
-            this.panel_recepcionista.Location = new System.Drawing.Point(12, 85);
+            this.panel_recepcionista.Location = new System.Drawing.Point(0, 0);
             this.panel_recepcionista.Name = "panel_recepcionista";
             this.panel_recepcionista.Size = new System.Drawing.Size(690, 44);
             this.panel_recepcionista.TabIndex = 53;
@@ -357,6 +356,7 @@
             this.ListaEmpleados.AutoGenerateColumns = false;
             this.ListaEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ListaEmpleados.BackgroundColor = System.Drawing.Color.White;
+            this.ListaEmpleados.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.ListaEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ListaEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -480,7 +480,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_APP;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.panel_recepcionista);

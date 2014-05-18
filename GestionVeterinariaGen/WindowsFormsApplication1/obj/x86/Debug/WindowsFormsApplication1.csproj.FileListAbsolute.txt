@@ -87,7 +87,6 @@ C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplicati
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\GestionVeterinariaGenNHibernate.pdb
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\bin\Debug\itextsharp.xml
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
-C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.AcercaDe.resources
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormRecepcionistaCliente.resources
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormAdministradorEmpleado.resources
 C:\Users\admin\Desktop\dssproyecto14\GestionVeterinariaGen\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.FormRecepcionistaConsulta.resources

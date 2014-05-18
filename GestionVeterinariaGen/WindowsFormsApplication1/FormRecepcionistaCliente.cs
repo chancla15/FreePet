@@ -76,7 +76,7 @@ namespace WindowsFormsApplication1
             btn_eliminar.Enabled = typ;
             dataGridView.Enabled = typ;
             panel_clientes_opcion.Enabled = typ;
-            panel_top.Enabled = typ;
+            panel_recepcionista.Enabled = typ;
             btn_anaydir.Enabled = typ;
 
             alerta_eliminar.Enabled = !typ;
@@ -226,5 +226,6 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
+
     }
 }

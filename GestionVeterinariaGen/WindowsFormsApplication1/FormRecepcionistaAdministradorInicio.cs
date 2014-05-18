@@ -51,7 +51,7 @@ namespace WindowsFormsApplication1
                 dataGrid_clientes.SendToBack();
                 panel_recepcionista.SendToBack();
                 panel_top.BringToFront(); 
-                panel_top.Enabled = true;
+                panel_top.Enabled = panel_top.Visible= true;
             }
             else
             {

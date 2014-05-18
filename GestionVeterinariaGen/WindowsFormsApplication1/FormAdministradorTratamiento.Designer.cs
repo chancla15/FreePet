@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdministradorTratamiento));
             this.btn_buscar = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.PictureBox();
             this.panel_top = new System.Windows.Forms.Panel();
@@ -72,6 +71,7 @@
             // 
             // btn_buscar
             // 
+            this.btn_buscar.BackColor = System.Drawing.Color.Transparent;
             this.btn_buscar.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.search_identifier;
             this.btn_buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_buscar.FlatAppearance.BorderSize = 0;
@@ -80,11 +80,12 @@
             this.btn_buscar.Name = "btn_buscar";
             this.btn_buscar.Size = new System.Drawing.Size(16, 16);
             this.btn_buscar.TabIndex = 53;
-            this.btn_buscar.UseVisualStyleBackColor = true;
+            this.btn_buscar.UseVisualStyleBackColor = false;
             this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_id_Click);
             // 
             // btn_add
             // 
+            this.btn_add.BackColor = System.Drawing.Color.Transparent;
             this.btn_add.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add;
             this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_add.Location = new System.Drawing.Point(606, 113);
@@ -97,7 +98,7 @@
             // panel_top
             // 
             this.panel_top.BackColor = System.Drawing.Color.Transparent;
-            this.panel_top.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANEL_RECEPCIONISTA;
+            this.panel_top.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.BARRA_MENU;
             this.panel_top.Controls.Add(this.picture_desconectar_admin);
             this.panel_top.Controls.Add(this.picture_home);
             this.panel_top.Controls.Add(this.picture_tratamiento);
@@ -134,7 +135,7 @@
             // picture_tratamiento
             // 
             this.picture_tratamiento.BackColor = System.Drawing.Color.White;
-            this.picture_tratamiento.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_tratamiento.BackgroundImage")));
+            this.picture_tratamiento.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_ADMINISTRADOR_TRATAMIENTO;
             this.picture_tratamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_tratamiento.Location = new System.Drawing.Point(339, 0);
             this.picture_tratamiento.Name = "picture_tratamiento";
@@ -253,7 +254,7 @@
             this.dataGrid_tratamientos.Name = "dataGrid_tratamientos";
             this.dataGrid_tratamientos.ReadOnly = true;
             this.dataGrid_tratamientos.RowHeadersVisible = false;
-            this.dataGrid_tratamientos.Size = new System.Drawing.Size(658, 255);
+            this.dataGrid_tratamientos.Size = new System.Drawing.Size(658, 267);
             this.dataGrid_tratamientos.TabIndex = 70;
             this.dataGrid_tratamientos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_tratamientos_CellContentClick);
             // 
@@ -308,6 +309,7 @@
             // 
             // btn_delete
             // 
+            this.btn_delete.BackColor = System.Drawing.Color.Transparent;
             this.btn_delete.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.delete;
             this.btn_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_delete.Location = new System.Drawing.Point(646, 113);
@@ -319,6 +321,7 @@
             // 
             // btn_erase
             // 
+            this.btn_erase.BackColor = System.Drawing.Color.Transparent;
             this.btn_erase.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.eraser;
             this.btn_erase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_erase.FlatAppearance.BorderSize = 0;
@@ -327,7 +330,7 @@
             this.btn_erase.Name = "btn_erase";
             this.btn_erase.Size = new System.Drawing.Size(16, 16);
             this.btn_erase.TabIndex = 73;
-            this.btn_erase.UseVisualStyleBackColor = true;
+            this.btn_erase.UseVisualStyleBackColor = false;
             this.btn_erase.Click += new System.EventHandler(this.btn_erase_Click);
             // 
             // lista_dosis
@@ -346,7 +349,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_APP;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.lista_dosis);

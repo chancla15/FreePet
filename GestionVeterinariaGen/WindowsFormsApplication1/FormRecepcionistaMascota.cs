@@ -72,14 +72,19 @@ namespace WindowsFormsApplication1
             btn_anaydir.Enabled = block;
             btn_buscar_cliente.Enabled = block;
             dataGridView.Enabled = block;
-            //panel_clientes_opcion.Enabled = block;
-            panel_top.Enabled = block;
+            panel_clientes_opcion.Enabled = block;
+            panel_recepcionista.Enabled = block;
 
         }
 
         #endregion
 
         #region Botones
+
+        private void picture_foto_Click(object sender, EventArgs e)
+        {
+            controller.clickInPhoto();
+        }
 
         private void btn_anaydir_Click(object sender, EventArgs e)
         {
@@ -236,10 +241,5 @@ namespace WindowsFormsApplication1
         }
 
         #endregion 
-
-        private void picture_foto_Click(object sender, EventArgs e)
-        {
-            controller.clickInPhoto();
-        }
     }
 }

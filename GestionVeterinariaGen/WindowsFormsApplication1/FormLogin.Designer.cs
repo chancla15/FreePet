@@ -35,17 +35,19 @@
             this.btn_salir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_accpt
             // 
             this.btn_accpt.BackColor = System.Drawing.Color.Gray;
             this.btn_accpt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_accpt.Location = new System.Drawing.Point(309, 187);
+            this.btn_accpt.Location = new System.Drawing.Point(201, 187);
             this.btn_accpt.Name = "btn_accpt";
             this.btn_accpt.Size = new System.Drawing.Size(90, 38);
             this.btn_accpt.TabIndex = 0;
-            this.btn_accpt.Text = "ACEPTAR";
+            this.btn_accpt.Text = "LOGIN";
             this.btn_accpt.UseVisualStyleBackColor = false;
             this.btn_accpt.Click += new System.EventHandler(this.btn_accept_Click);
             // 
@@ -83,9 +85,9 @@
             // 
             this.btn_salir.BackColor = System.Drawing.Color.Gray;
             this.btn_salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_salir.Location = new System.Drawing.Point(201, 187);
+            this.btn_salir.Location = new System.Drawing.Point(310, 187);
             this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(102, 38);
+            this.btn_salir.Size = new System.Drawing.Size(89, 38);
             this.btn_salir.TabIndex = 4;
             this.btn_salir.Text = "SALIR";
             this.btn_salir.UseVisualStyleBackColor = false;
@@ -115,14 +117,25 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "CONTRASEÑA:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.LOGO1;
+            this.pictureBox1.Location = new System.Drawing.Point(137, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(263, 96);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormLogin
             // 
             this.AcceptButton = this.btn_accpt;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_APP;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO;
             this.ClientSize = new System.Drawing.Size(411, 237);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_salir);
@@ -137,6 +150,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FormLogin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,6 +165,7 @@
         public System.Windows.Forms.Button btn_salir;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

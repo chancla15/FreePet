@@ -74,25 +74,6 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void picture_inicio_veterinario_Click_1(object sender, EventArgs e)
-        {
-            if (menu.LaunchStartScreenVeterinario())
-                DesactivateForm();
-        }
-
-        private void picture_consulta_veterinario_Click_1(object sender, EventArgs e)
-        {
-            if (menu.LaunchConsultaScreenVeterinario(mascota,consulta))
-                DesactivateForm();
-        }
-
-        private void picture_desconectar_veterinario_Click_1(object sender, EventArgs e)
-        {
-            //Solucion Provisional
-            menu.sessionData.Disconnect();
-            this.Hide();
-        }
-
         private void button_realizar_Click(object sender, EventArgs e)
         {
             //realizar consulta
@@ -151,5 +132,27 @@ namespace WindowsFormsApplication1
             if (menu.LaunchStartScreenVeterinario())
                 DesactivateForm();
         }
+
+        #region MenuSuperior
+
+        private void picture_inicio_veterinario_Click(object sender, EventArgs e)
+        {
+            if (menu.LaunchStartScreenVeterinario())
+                DesactivateForm();
+        }
+
+        private void picture_consulta_veterinario_Click(object sender, EventArgs e)
+        {
+            if (menu.LaunchConsultaScreenVeterinario(mascota, consulta))
+                DesactivateForm();
+        }
+
+        private void picture_desconectar_veterinario_Click(object sender, EventArgs e)
+        {
+            menu.Disconnect();
+        }
+
+        #endregion
+
     }
 }

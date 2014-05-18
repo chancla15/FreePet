@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdministradorEmpleado));
             this.log_photo = new System.Windows.Forms.PictureBox();
             this.tb_dni = new System.Windows.Forms.TextBox();
             this.tb_nombre = new System.Windows.Forms.TextBox();
@@ -300,7 +299,7 @@
             // panel_top
             // 
             this.panel_top.BackColor = System.Drawing.Color.Transparent;
-            this.panel_top.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANEL_RECEPCIONISTA;
+            this.panel_top.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.BARRA_MENU;
             this.panel_top.Controls.Add(this.picture_desconectar_admin);
             this.panel_top.Controls.Add(this.picture_home);
             this.panel_top.Controls.Add(this.picture_tratamiento);
@@ -337,7 +336,7 @@
             // picture_tratamiento
             // 
             this.picture_tratamiento.BackColor = System.Drawing.Color.Transparent;
-            this.picture_tratamiento.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_tratamiento.BackgroundImage")));
+            this.picture_tratamiento.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_ADMINISTRADOR_TRATAMIENTO;
             this.picture_tratamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_tratamiento.Location = new System.Drawing.Point(340, 0);
             this.picture_tratamiento.Name = "picture_tratamiento";
@@ -461,7 +460,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO_APP;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.label_col);

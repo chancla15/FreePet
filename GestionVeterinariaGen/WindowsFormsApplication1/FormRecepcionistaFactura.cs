@@ -146,8 +146,7 @@ namespace WindowsFormsApplication1
 
         private void picture_facturas_Click(object sender, EventArgs e)
         {
-            if (menu.LaunchFacturaScreen(Utils.State.NONE))
-                DesactivateForm();
+
         }
 
         private void picture_ajustes_Click(object sender, EventArgs e)

@@ -118,187 +118,202 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="clientes_PerfilCliente" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clientes_PerfilCliente.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MENU_ADMINISTRADOR_EMPLEADO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MENU_ADMINISTRADOR_EMPLEADO.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mascotas_PerfilCliente" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mascotas_PerfilCliente.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_return" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btn_return.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sinFoto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\sinFoto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ajustes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ajustes.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="doctor_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\doctor_on.tiff;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FONDO VETERINARIA nuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FONDO VETERINARIA nuevo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MENU_RECEPCIONISTA_FACTURA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MENU_RECEPCIONISTA_FACTURA.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="start_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\start_off.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MENU_VETERINARIO_INICIO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MENU_VETERINARIO_INICIO.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="start" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\start.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_return1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btn_return.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cliente_PerfilCliente" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cliente_PerfilCliente.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MENU_ADMINISTRADOR_INICIO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MENU_ADMINISTRADOR_INICIO.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="client_off1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\client_off.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="facturas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\facturas.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="recept" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\recept.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="add1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MENU_RECEPCIONISTA_FICHA_MASCOTA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MENU_RECEPCIONISTA_FICHA_MASCOTA.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PANEL_RECEPCIONISTA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PANEL_RECEPCIONISTA.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bill_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bill_on.tiff;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="search_identifier" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search_identifier.tiff;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fondo nuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fondo nuevo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mascotas_PerfilCliente1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mascotas_PerfilCliente1.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="consulta" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\consulta1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MENU_RECEPCIONISTA_FICHA_CLIENTE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MENU_RECEPCIONISTA_FICHA_CLIENTE.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MENU_RECEPCIONISTA_DESCONECTAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MENU_RECEPCIONISTA_DESCONECTAR.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="doctor_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\doctor_off.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bill_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bill_off.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MENU_ADMINISTRADOR_DESCONECTAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MENU_ADMINISTRADOR_DESCONECTAR.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MENU_VETERINARIO_CONSULTAS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MENU_VETERINARIO_CONSULTAS.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FONDO_APP" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FONDO_APP.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="start_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\start_on.tiff;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MENU_RECEPCIONISTA_INICIO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MENU_RECEPCIONISTA_INICIO.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ajuts_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ajuts_on.tiff;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="user2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="add-1-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add-1-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MENU_RECEPCIONISTA_CLIENTE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MENU_RECEPCIONISTA_CLIENTE.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_buscar_id" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btn_buscar_id.tiff;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clientes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clientes.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sinFotoa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\sinFotoa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PANEL_RECEPCIONISTA_FICHAS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PANEL_RECEPCIONISTA_FICHAS.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="desconectar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\desconectar2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="eraser" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eraser.tiff;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ajuts_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ajuts_off.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="client_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\client_off.tiff;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="recep" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\recep.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clientes_PerfilCliente1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clientes_PerfilCliente1.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FONDO VETERINARIA blanco " type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FONDO VETERINARIA blanco 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MENU_RECEPCIONISTA_CONSULTA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MENU_RECEPCIONISTA_CONSULTA.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="mod" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mod.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_return1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_return.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FONDO VETERINARIA nuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FONDO VETERINARIA nuevo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="start_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\start_on.tiff;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ajuts_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ajuts_on.tiff;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="doctor_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\doctor_on.tiff;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cliente_PerfilMascota" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cliente_PerfilMascota.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="FONDO_APP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FONDO_APP.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ajustes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ajustes.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bill_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bill_on.tiff;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="clientes_PerfilMascota" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clientes_PerfilMascota.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MENU_RECEPCIONISTA_FICHA_CLIENTE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MENU_RECEPCIONISTA_FICHA_CLIENTE.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MENU_ADMINISTRADOR_DESCONECTAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MENU_ADMINISTRADOR_DESCONECTAR.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="client_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\client_off.tiff;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sinFotoa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\sinFotoa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clientes_PerfilCliente1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clientes_PerfilCliente1.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ajuts_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ajuts_off.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondo nuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo nuevo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MENU_ADMINISTRADOR_INICIO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MENU_ADMINISTRADOR_INICIO.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clientes_PerfilCliente" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clientes_PerfilCliente.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="doctor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\doctor.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="add-1-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-1-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_return" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_return.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mascotas_PerfilCliente1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mascotas_PerfilCliente1.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="recep" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\recep.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clientes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clientes.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search_identifier" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search_identifier.tiff;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MENU_ADMINISTRADOR_EMPLEADO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MENU_ADMINISTRADOR_EMPLEADO.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MENU_ADMINISTRADOR_TRATAMIENTO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MENU_ADMINISTRADOR_TRATAMIENTO.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sinFoto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\sinFoto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PANEL_RECEPCIONISTA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PANEL_RECEPCIONISTA.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="start" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\start.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="consulta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\consulta1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FONDO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FONDO.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MENU_VETERINARIO_CONSULTAS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MENU_VETERINARIO_CONSULTAS.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LOGO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FONDO VETERINARIA blanco " type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FONDO VETERINARIA blanco 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="client_off1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\client_off.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eraser" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eraser.tiff;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="facturas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\facturas.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PANEL_RECEPCIONISTA_FICHAS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PANEL_RECEPCIONISTA_FICHAS.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mascotas_PerfilCliente" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mascotas_PerfilCliente.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MENU_RECEPCIONISTA_FICHA_MASCOTA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MENU_RECEPCIONISTA_FICHA_MASCOTA.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MENU_RECEPCIONISTA_DESCONECTAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MENU_RECEPCIONISTA_DESCONECTAR.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MENU_RECEPCIONISTA_FACTURA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MENU_RECEPCIONISTA_FACTURA.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MENU_VETERINARIO_INICIO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MENU_VETERINARIO_INICIO.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="desconectar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\desconectar2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MENU_VETERINARIO_DESCONECTAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MENU_VETERINARIO_DESCONECTAR.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MENU_RECEPCIONISTA_CONSULTA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MENU_RECEPCIONISTA_CONSULTA.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="start_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\start_off.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_buscar_id" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_buscar_id.tiff;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bill_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bill_off.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BARRA_MENU" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BARRA_MENU.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="doctor_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\doctor_off.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="recept" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\recept.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cliente_PerfilCliente" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cliente_PerfilCliente.tif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MENU_RECEPCIONISTA_INICIO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MENU_RECEPCIONISTA_INICIO.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MENU_RECEPCIONISTA_CLIENTE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MENU_RECEPCIONISTA_CLIENTE.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LOGO1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LOGO.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -123,6 +123,16 @@ namespace WindowsFormsApplication1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BARRA_MENU {
+            get {
+                object obj = ResourceManager.GetObject("BARRA_MENU", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bill_off {
             get {
                 object obj = ResourceManager.GetObject("bill_off", resourceCulture);
@@ -333,6 +343,16 @@ namespace WindowsFormsApplication1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FONDO {
+            get {
+                object obj = ResourceManager.GetObject("FONDO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FONDO_APP {
             get {
                 object obj = ResourceManager.GetObject("FONDO_APP", resourceCulture);
@@ -383,6 +403,26 @@ namespace WindowsFormsApplication1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LOGO {
+            get {
+                object obj = ResourceManager.GetObject("LOGO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LOGO1 {
+            get {
+                object obj = ResourceManager.GetObject("LOGO1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mascotas_PerfilCliente {
             get {
                 object obj = ResourceManager.GetObject("mascotas_PerfilCliente", resourceCulture);
@@ -426,6 +466,16 @@ namespace WindowsFormsApplication1.Properties {
         internal static System.Drawing.Bitmap MENU_ADMINISTRADOR_INICIO {
             get {
                 object obj = ResourceManager.GetObject("MENU_ADMINISTRADOR_INICIO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MENU_ADMINISTRADOR_TRATAMIENTO {
+            get {
+                object obj = ResourceManager.GetObject("MENU_ADMINISTRADOR_TRATAMIENTO", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
