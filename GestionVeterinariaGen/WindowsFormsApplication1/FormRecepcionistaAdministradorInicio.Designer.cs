@@ -534,7 +534,6 @@
             this.Name = "FormRecepcionistaAdministradorInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
-            this.Load += new System.EventHandler(this.FormRecepcionistaAdministradorInicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_clientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaAdministradorInicioDataSet2BindingSource)).EndInit();

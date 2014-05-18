@@ -24,6 +24,7 @@ namespace WindowsFormsApplication1
 
         public FormVeterinarioConsulta(ScreenControllerVeterinario menu)
         {
+            Activate();
             this.menu = menu;
             InitializeComponent();
             controller = new FormVeterinarioConsultaController(this);
@@ -32,18 +33,12 @@ namespace WindowsFormsApplication1
 
         #region IO
 
-        /** Activa el formulario */
-        public void ActivateForm()
-        {
-            Activate();
-            this.Visible = true;
-        }
-
-        /** Desactiva el formulario */
+       
         public void DesactivateForm()
         {
-            this.Visible = false;
+            Hide();
         }
+
         #endregion
 
         public void changeState(MascotaEN mascota, ConsultaEN consulta)
