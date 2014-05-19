@@ -166,7 +166,7 @@ namespace WindowsFormsApplication1
 
         private void picture_empleados_Click(object sender, EventArgs e)
         {
-            if (menu.LaunchEmpleadoScreen(Utils.State.NONE, null))
+            if (menu.LaunchEmpleadoScreen(Utils.State.NONE))
                 DesactivateForm();
         }
 

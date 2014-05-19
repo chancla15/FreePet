@@ -99,5 +99,6 @@ namespace WindowsFormsApplication1
         {
             this.StartPosition = FormStartPosition.CenterScreen;
         }
+
     }
 }

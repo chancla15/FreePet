@@ -59,6 +59,22 @@ namespace WindowsFormsApplication1
                 form.text_dni.Text = clienteEN.Nombre + " " + clienteEN.Apellidos;
                 lista_facturas_cliente = Utils._IFacturaCAD.DameFacturasPorCliente(clienteEN.DNI);
 
+                try
+                {
+
+                    System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\" + clienteEN.DNI + ".png", System.IO.FileMode.Open);
+                    form.log_photo.Image = System.Drawing.Image.FromStream(fs);
+                    form.log_photo.SizeMode = PictureBoxSizeMode.StretchImage;
+                    fs.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\sinFoto.png", System.IO.FileMode.Open);
+                    form.log_photo.Image = System.Drawing.Image.FromStream(fs);
+                    fs.Close();
+                }
+
                 form.dataGridFacturas.Rows.Clear(); //Hay que limpiar aqui el datagrid tb o salen duplicadas en cierto escenario(testeado)
 
                 if (lista_facturas_cliente != null)
@@ -73,7 +89,7 @@ namespace WindowsFormsApplication1
                             lista_facturas_cliente[i].Consulta.Mascota = Utils._IMascotaCAD.BuscarMascotaPorOID(lista_facturas_cliente[i].Consulta.Mascota.IdMascota);
 
                         //Num, pagar, fecha, total, mascota, motivo, boton tratamiento, pagada, boton pagar
-                        form.dataGridFacturas.Rows.Add(lista_facturas_cliente[i].IdFactura, lista_facturas_cliente[i].Fecha, lista_facturas_cliente[i].Total, lista_facturas_cliente[i].Consulta.Mascota.Nombre,
+                        form.dataGridFacturas.Rows.Add(lista_facturas_cliente[i].IdFactura, lista_facturas_cliente[i].Fecha, lista_facturas_cliente[i].Total + "€", lista_facturas_cliente[i].Consulta.Mascota.Nombre,
                            lista_facturas_cliente[i].Consulta.MotivoConsulta, "", lista_facturas_cliente[i].Pagada == true ? "Si" : "No", "");
                     }
                 }
@@ -110,7 +126,35 @@ namespace WindowsFormsApplication1
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
                 DataGridViewButtonCell celBoton = form.dataGridFacturas.Rows[e.RowIndex].Cells["Pagar"] as DataGridViewButtonCell;
-                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\edit-icon.ico");
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\pagar.ico");
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
+
+                form.dataGridFacturas.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
+                form.dataGridFacturas.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
+
+                e.Handled = true;
+            }
+
+            if (e.ColumnIndex >= 0 && form.dataGridFacturas.Columns[e.ColumnIndex].Name == "Exportar" && e.RowIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                DataGridViewButtonCell celBoton = form.dataGridFacturas.Rows[e.RowIndex].Cells["Exportar"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\pdf.ico");
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
+
+                form.dataGridFacturas.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
+                form.dataGridFacturas.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
+
+                e.Handled = true;
+            }
+
+            if (e.ColumnIndex >= 0 && form.dataGridFacturas.Columns[e.ColumnIndex].Name == "Tratamiento" && e.RowIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                DataGridViewButtonCell celBoton = form.dataGridFacturas.Rows[e.RowIndex].Cells["Tratamiento"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\tratamiento.ico");
                 e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
 
                 form.dataGridFacturas.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
@@ -181,7 +225,7 @@ namespace WindowsFormsApplication1
             phrase.Add(new Chunk("Factura: " + expFact.IdFactura, FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 16)));
             pcb.BeginText();
             pcb.SetFontAndSize(FontFactory.GetFont(FontFactory.HELVETICA, 13, iTextSharp.text.Font.NORMAL).BaseFont, 13);
-            pcb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT,DateTime.Now.ToString(),520,806,0); //Esto pone la fecha en la esquina derecha
+            pcb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, DateTime.Now.ToString(), 520, 806, 0); //Esto pone la fecha en la esquina derecha
             pcb.EndText();
             phrase.Add(new Chunk("\n\n\n\n\nCliente: ", boldFont));
             phrase.Add(new Chunk(clienteEN.Nombre + " " + clienteEN.Apellidos, normalFont));
@@ -199,15 +243,17 @@ namespace WindowsFormsApplication1
             phrase.Clear();
             if (tratamientos_consulta.Count > 0)
                 doc.Add(TablaParaPDF(expFact));
-           
-            phrase.Add(new Chunk("\n\nPrecio total: ", boldFont));
-            phrase.Add(new Chunk(expFact.Total.ToString(), normalFont));
-            
-            
+            else
+            {
+                phrase.Add(new Chunk("\n\nPrecio Consulta: ", boldFont));
+                phrase.Add(new Chunk(expFact.Total+ "€", normalFont));
+            }
+
+
             doc.Add(phrase);
             phrase.Clear();
             iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance("LOGO.gif");
-            imagen.SetAbsolutePosition(400, 45);
+            imagen.SetAbsolutePosition(320, 30);
             doc.Add(imagen);
             pcb.BeginText();
             pcb.SetFontAndSize(FontFactory.GetFont(FontFactory.HELVETICA, 10, iTextSharp.text.Font.BOLD).BaseFont, 15);
@@ -236,10 +282,16 @@ namespace WindowsFormsApplication1
             }
             //De esta manera se puede fijar un coste por consulta base y luego se suma el total con los tratamientos
             //Aunque la clave reside en que la factura se cree cuando se realiza la consulta
-            
+
             tabla.AddCell(new Phrase(""));
             tabla.AddCell(new Phrase("Consulta", FontFactory.GetFont(FontFactory.HELVETICA, 13)));
-            tabla.AddCell(new Phrase("10", FontFactory.GetFont(FontFactory.HELVETICA, 13)));
+            tabla.AddCell(new Phrase("10€", FontFactory.GetFont(FontFactory.HELVETICA, 13)));
+            tabla.AddCell(new Phrase(""));
+            tabla.AddCell(new Phrase("Total Sin IVA", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 13)));
+            tabla.AddCell(new Phrase(expFact.Total + "€ ", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 13)));
+            tabla.AddCell(new Phrase(""));
+            tabla.AddCell(new Phrase("Total Con IVA(18%)", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 13)));
+            tabla.AddCell(new Phrase((expFact.Total * 1.18).ToString("0.00") + "€ ", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 13)));
             return tabla;
         }
 

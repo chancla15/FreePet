@@ -205,6 +205,7 @@ namespace WindowsFormsApplication1
             // 
             // alerta_pagar
             // 
+            this.alerta_pagar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.alerta_pagar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.alerta_pagar.Controls.Add(this.texto_alerta);
             this.alerta_pagar.Controls.Add(this.btn_pagar_no);
@@ -318,8 +319,10 @@ namespace WindowsFormsApplication1
             // 
             // log_photo
             // 
+            this.log_photo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.log_photo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.log_photo.Image = global::WindowsFormsApplication1.Properties.Resources.sinFoto;
-            this.log_photo.Location = new System.Drawing.Point(12, 46);
+            this.log_photo.Location = new System.Drawing.Point(12, 56);
             this.log_photo.Name = "log_photo";
             this.log_photo.Size = new System.Drawing.Size(90, 120);
             this.log_photo.TabIndex = 52;
@@ -328,7 +331,7 @@ namespace WindowsFormsApplication1
             // panel_recepcionista
             // 
             this.panel_recepcionista.BackColor = System.Drawing.Color.Transparent;
-            this.panel_recepcionista.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.BARRA_MENU;
+            this.panel_recepcionista.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANELSUPERIOR;
             this.panel_recepcionista.Controls.Add(this.picture_ajustes);
             this.panel_recepcionista.Controls.Add(this.picture_consultas);
             this.panel_recepcionista.Controls.Add(this.picture_clientes);
@@ -375,7 +378,7 @@ namespace WindowsFormsApplication1
             // 
             // picture_facturas
             // 
-            this.picture_facturas.BackColor = System.Drawing.Color.White;
+            this.picture_facturas.BackColor = System.Drawing.Color.GreenYellow;
             this.picture_facturas.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_FACTURA;
             this.picture_facturas.Location = new System.Drawing.Point(409, 0);
             this.picture_facturas.Name = "picture_facturas";
@@ -399,7 +402,7 @@ namespace WindowsFormsApplication1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDOAPP;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.panel_recepcionista);

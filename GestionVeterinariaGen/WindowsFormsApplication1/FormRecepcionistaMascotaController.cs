@@ -295,28 +295,31 @@ namespace WindowsFormsApplication1
                         switch (form.state)
                         {
                             case Utils.State.NEW:
+                                mascotaEN.Cliente = clienteEN;
                                 mascotaEN.IdMascota= Utils._MascotaCEN.New_(mascotaEN.Nombre, mascotaEN.Raza, mascotaEN.Sexo, mascotaEN.Peso, mascotaEN.Especie, mascotaEN.FNacimiento, mascotaEN.Tamanyo, mascotaEN.Cliente.DNI, mascotaEN.Color, mascotaEN.Microchip);
                                 MessageBox.Show("Mascota creada con exito");
-                                list_mascotas_clientes.Add(mascotaEN);
+                                if (form.log_photo.Image != null)
+                                    list_mascotas_clientes.Add(mascotaEN);
                                 form.log_photo.Image.Save(Environment.CurrentDirectory + @"\" + mascotaEN.IdMascota + ".png");
                                 break;
                             case Utils.State.MODIFY:
                                 list_mascotas_clientes.Remove(mascotaEN);
                                 Utils._MascotaCEN.Modify(mascotaEN.IdMascota, mascotaEN.Nombre, mascotaEN.Raza, mascotaEN.Sexo, mascotaEN.Peso, mascotaEN.Especie, mascotaEN.FNacimiento, mascotaEN.Tamanyo, mascotaEN.Color, mascotaEN.Microchip);
                                 MessageBox.Show("Mascota modiificada con exito");
-                                list_mascotas_clientes.Add(mascotaEN);
+                                if (form.log_photo.Image != null)
+                                    list_mascotas_clientes.Add(mascotaEN);
                                 form.log_photo.Image.Save(Environment.CurrentDirectory + @"\" + mascotaEN.IdMascota + ".png");
                                 break;
                             case Utils.State.DESTROY:
                                 Utils._MascotaCEN.Destroy(mascotaEN.IdMascota);
                                 MessageBox.Show("Mascota eliminado con exito");
                                 list_mascotas_clientes.Remove(mascotaEN);
-                                form.log_photo.Image.Save(Environment.CurrentDirectory + @"\" + mascotaEN.IdMascota + ".png");
-                                form.combo_nombreAnimal.Refresh();
+                                if (form.log_photo.Image != null)
+                                     form.log_photo.Image.Save(Environment.CurrentDirectory + @"\" + mascotaEN.IdMascota + ".png");
                                 break;
                         }
-                        
 
+                        form.combo_nombreAnimal.Refresh();
                         ClearForm();
 
                     }
@@ -348,7 +351,6 @@ namespace WindowsFormsApplication1
             }
 
             consultas_animal = Utils._IConsultaCAD.DameConsultaPorAnimal(mascotaEN.IdMascota);
-            VeterinarioEN veterinario = null;
             form.dataGridView.DataSource = null;
             form.dataGridView.Refresh();
             if (form.dataGridView.Rows.Count > 0)
@@ -358,9 +360,15 @@ namespace WindowsFormsApplication1
             {
                 for (int i = 0; i < consultas_animal.Count; i++)
                 {
-                    veterinario = Utils._IVeterinarioCAD.DameVetarinarioPorOID(consultas_animal[i].Veterinario.DNI);
-                    string vet = veterinario.Nombre + " " + veterinario.Apellidos;
-                    form.dataGridView.Rows.Add(consultas_animal[i].Fecha.Value.ToString(), consultas_animal[i].MotivoConsulta, consultas_animal[i].Lugar, vet);
+                    consultas_animal[i].Veterinario = Utils._IVeterinarioCAD.DameVetarinarioPorOID(consultas_animal[i].Veterinario.DNI);
+
+                    if (consultas_animal[i].Veterinario != null)
+                    {
+
+                        string vet = consultas_animal[i].Veterinario.Nombre + " " + consultas_animal[i].Veterinario.Apellidos;
+                        form.dataGridView.Rows.Add(consultas_animal[i].IdConsulta, consultas_animal[i].Fecha.Value.ToString(), consultas_animal[i].MotivoConsulta, consultas_animal[i].Lugar, vet);
+
+                    }
                 }
             }
         }
@@ -372,13 +380,31 @@ namespace WindowsFormsApplication1
             if (form.dataGridView.Columns[ev.ColumnIndex].Name.Equals("Ver"))
                 st = Utils.State.MODIFY;
 
-            if (st != Utils.State.NONE)
-                cli = form.dataGridView.Rows[ev.RowIndex].Cells[0].Value.ToString();
+             cli = form.dataGridView.Rows[ev.RowIndex].Cells[0].Value.ToString();
 
-            //  if (cli != "")
-            //    c = Utils._IConsultaCAD.DameConsultaPorOID(Convert.ToInt32(cli));
+              if (cli != "")
+                c = Utils._IConsultaCAD.DameConsultaPorOID(Convert.ToInt32(cli));
 
             return c;
+        }
+
+        public void paintDataGrid(DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && form.dataGridView.Columns[e.ColumnIndex].Name == "Ver" && e.RowIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                DataGridViewButtonCell celBoton = form.dataGridView.Rows[e.RowIndex].Cells["Ver"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\ver.ico");
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left, e.CellBounds.Top);
+
+                form.dataGridView.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
+                form.dataGridView.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
+
+                e.Handled = true;
+
+            }
+
         }
 
         #endregion

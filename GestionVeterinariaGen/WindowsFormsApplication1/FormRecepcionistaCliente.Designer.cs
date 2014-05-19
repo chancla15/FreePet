@@ -96,8 +96,8 @@ namespace WindowsFormsApplication1
             this.picture_clientes = new System.Windows.Forms.PictureBox();
             this.picture_facturas = new System.Windows.Forms.PictureBox();
             this.picture_start = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mascotaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaCliente_DataSet)).BeginInit();
@@ -272,11 +272,11 @@ namespace WindowsFormsApplication1
             this.Cliente,
             this.Ver});
             this.dataGridView.DataSource = this.mascotaBindingSource;
-            this.dataGridView.Location = new System.Drawing.Point(15, 301);
+            this.dataGridView.Location = new System.Drawing.Point(15, 320);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
-            this.dataGridView.Size = new System.Drawing.Size(655, 170);
+            this.dataGridView.Size = new System.Drawing.Size(655, 151);
             this.dataGridView.TabIndex = 72;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
@@ -334,9 +334,9 @@ namespace WindowsFormsApplication1
             // 
             // text_buscar
             // 
-            this.text_buscar.Location = new System.Drawing.Point(157, 273);
+            this.text_buscar.Location = new System.Drawing.Point(12, 294);
             this.text_buscar.Name = "text_buscar";
-            this.text_buscar.Size = new System.Drawing.Size(254, 20);
+            this.text_buscar.Size = new System.Drawing.Size(396, 20);
             this.text_buscar.TabIndex = 73;
             // 
             // btn_guardar
@@ -370,6 +370,7 @@ namespace WindowsFormsApplication1
             // 
             // alerta_eliminar
             // 
+            this.alerta_eliminar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.alerta_eliminar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.alerta_eliminar.Controls.Add(this.label1);
             this.alerta_eliminar.Controls.Add(this.btn_eliminar_no);
@@ -424,7 +425,7 @@ namespace WindowsFormsApplication1
             this.btn_erase.BackColor = System.Drawing.Color.Transparent;
             this.btn_erase.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.eraser;
             this.btn_erase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_erase.Location = new System.Drawing.Point(439, 274);
+            this.btn_erase.Location = new System.Drawing.Point(436, 295);
             this.btn_erase.Name = "btn_erase";
             this.btn_erase.Size = new System.Drawing.Size(16, 16);
             this.btn_erase.TabIndex = 80;
@@ -447,7 +448,7 @@ namespace WindowsFormsApplication1
             this.btn_anaydir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_anaydir.BackColor = System.Drawing.Color.Transparent;
             this.btn_anaydir.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.add;
-            this.btn_anaydir.Location = new System.Drawing.Point(653, 277);
+            this.btn_anaydir.Location = new System.Drawing.Point(653, 295);
             this.btn_anaydir.Name = "btn_anaydir";
             this.btn_anaydir.Size = new System.Drawing.Size(16, 16);
             this.btn_anaydir.TabIndex = 75;
@@ -461,7 +462,7 @@ namespace WindowsFormsApplication1
             this.btn_buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_buscar.FlatAppearance.BorderSize = 0;
             this.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_buscar.Location = new System.Drawing.Point(417, 274);
+            this.btn_buscar.Location = new System.Drawing.Point(414, 295);
             this.btn_buscar.Name = "btn_buscar";
             this.btn_buscar.Size = new System.Drawing.Size(16, 16);
             this.btn_buscar.TabIndex = 74;
@@ -484,7 +485,7 @@ namespace WindowsFormsApplication1
             // panel_clientes_opcion
             // 
             this.panel_clientes_opcion.BackColor = System.Drawing.Color.Transparent;
-            this.panel_clientes_opcion.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.BARRA_MENU;
+            this.panel_clientes_opcion.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANELSUPERIOR;
             this.panel_clientes_opcion.Controls.Add(this.picture_cliente_opcion_mascota);
             this.panel_clientes_opcion.Controls.Add(this.picture_cliente_opcion_cliente);
             this.panel_clientes_opcion.Location = new System.Drawing.Point(0, 44);
@@ -504,7 +505,7 @@ namespace WindowsFormsApplication1
             // 
             // picture_cliente_opcion_cliente
             // 
-            this.picture_cliente_opcion_cliente.BackColor = System.Drawing.Color.White;
+            this.picture_cliente_opcion_cliente.BackColor = System.Drawing.Color.GreenYellow;
             this.picture_cliente_opcion_cliente.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_FICHA_CLIENTE;
             this.picture_cliente_opcion_cliente.Location = new System.Drawing.Point(-1, 0);
             this.picture_cliente_opcion_cliente.Name = "picture_cliente_opcion_cliente";
@@ -516,7 +517,7 @@ namespace WindowsFormsApplication1
             // panel_recepcionista
             // 
             this.panel_recepcionista.BackColor = System.Drawing.Color.Transparent;
-            this.panel_recepcionista.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.BARRA_MENU;
+            this.panel_recepcionista.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANELSUPERIOR;
             this.panel_recepcionista.Controls.Add(this.picture_ajustes);
             this.panel_recepcionista.Controls.Add(this.picture_consultas);
             this.panel_recepcionista.Controls.Add(this.picture_clientes);
@@ -552,7 +553,7 @@ namespace WindowsFormsApplication1
             // 
             // picture_clientes
             // 
-            this.picture_clientes.BackColor = System.Drawing.Color.White;
+            this.picture_clientes.BackColor = System.Drawing.Color.GreenYellow;
             this.picture_clientes.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_CLIENTE;
             this.picture_clientes.Location = new System.Drawing.Point(273, 0);
             this.picture_clientes.Name = "picture_clientes";
@@ -583,25 +584,25 @@ namespace WindowsFormsApplication1
             this.picture_start.TabStop = false;
             this.picture_start.Click += new System.EventHandler(this.picture_start_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(12, 276);
+            this.label2.Location = new System.Drawing.Point(12, 277);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 13);
+            this.label2.Size = new System.Drawing.Size(89, 13);
             this.label2.TabIndex = 83;
-            this.label2.Text = "Buscar Mascotas de Cliente:";
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.label2.Text = "Buscar Mascotas";
             // 
             // FormRecepcionistaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDOAPP;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.label2);
@@ -715,7 +716,7 @@ namespace WindowsFormsApplication1
         private System.Windows.Forms.PictureBox picture_clientes;
         private System.Windows.Forms.PictureBox picture_facturas;
         private System.Windows.Forms.PictureBox picture_start;
-        public System.Windows.Forms.Label label2;
         public System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -125,6 +125,18 @@ namespace WindowsFormsApplication1
 
         #region ProcesarDatos
 
+        public void clickInPhoto()
+        {
+            form.openFileDialog1.Filter = "PNG Files(*.png)|*.png";
+
+            if (form.openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string imagen = form.openFileDialog1.FileName;
+                form.log_photo.Image = Image.FromFile(imagen);
+                form.log_photo.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+        }
+
         public void cargarDatosCliente(ClienteEN cliente)
         {
             clienteEN = cliente;
@@ -166,6 +178,9 @@ namespace WindowsFormsApplication1
         {
 
             Boolean fail = false;
+
+            if (clienteEN == null)
+                clienteEN = new ClienteEN();
 
                 if (form.text_nombre.Text != "")
                 {
@@ -256,19 +271,23 @@ namespace WindowsFormsApplication1
                         case Utils.State.NONE:
                             break;
                         case Utils.State.NEW:
-                            Utils._ClienteCEN.New_(clienteEN.DNI, clienteEN.Nombre, clienteEN.Apellidos, clienteEN.Direccion, clienteEN.Telefono, clienteEN.Localidad, clienteEN.Provincia, clienteEN.Cp, mascotas);
+                            clienteEN.DNI= Utils._ClienteCEN.New_(clienteEN.DNI, clienteEN.Nombre, clienteEN.Apellidos, clienteEN.Direccion, clienteEN.Telefono, clienteEN.Localidad, clienteEN.Provincia, clienteEN.Cp, mascotas);
+                            form.menu.CargarClienteCompartido(clienteEN);
                             MessageBox.Show("Cliente creado con exito");
-                            form.log_photo.Image.Save(Environment.CurrentDirectory + @"\" + clienteEN.DNI + ".png");
+                            if(form.log_photo.Image!=null)
+                              form.log_photo.Image.Save(Environment.CurrentDirectory + @"\" + clienteEN.DNI + ".png");
                             break;
                         case Utils.State.MODIFY:
                             Utils._ClienteCEN.Modify(clienteEN.DNI, clienteEN.Nombre, clienteEN.Apellidos, clienteEN.Direccion, clienteEN.Telefono, clienteEN.Localidad, clienteEN.Provincia, clienteEN.Cp);
-                            MessageBox.Show("Cliente modiificada con exito");
-                            form.log_photo.Image.Save(Environment.CurrentDirectory + @"\" + clienteEN.DNI + ".png");
+                            MessageBox.Show("Cliente modificado con exito");
+                            if (form.log_photo.Image != null)
+                                 form.log_photo.Image.Save(Environment.CurrentDirectory + @"\" + clienteEN.DNI + ".png");
                             break;
                         case Utils.State.DESTROY:
                             Utils._ClienteCEN.Destroy(clienteEN.DNI);
                             MessageBox.Show("Cliente eliminado con exito");
-                            System.IO.File.Delete(Environment.CurrentDirectory + @"\" + clienteEN.DNI.ToString() + ".png");
+                            if (form.log_photo.Image != null)
+                                 System.IO.File.Delete(Environment.CurrentDirectory + @"\" + clienteEN.DNI.ToString() + ".png");
                             break;
                         default:
                             break;
@@ -306,47 +325,16 @@ namespace WindowsFormsApplication1
                     }
                 }
             }
-            else 
-            {
-                idCliente = form.dataGridView.Rows[ev.RowIndex].Cells[4].Value.ToString();
+                
+            idCliente = form.dataGridView.Rows[ev.RowIndex].Cells[4].Value.ToString();
                 if (idCliente != "")
                     aux_cliente = Utils._IClienteCAD.DameClientePorOID(idCliente);
-            }
+            
            
             return mascota;
         }
 
-        public void paintDataGrid(DataGridViewCellPaintingEventArgs e)
-        {
-            if (e.ColumnIndex >= 0 && form.dataGridView.Columns[e.ColumnIndex].Name == "Eliminar" && e.RowIndex >= 0)
-            {
-                /*e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                DataGridViewButtonCell celBoton = form.dataGridView.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
-                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\close-icon.ico");
-                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left, e.CellBounds.Top);
-
-               // form.dataGridView.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
-                //form.dataGridView.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
-
-                e.Handled = true;*/
-
-            }
-
-            if (e.ColumnIndex >= 0 && form.dataGridView.Columns[e.ColumnIndex].Name == "Modificar" && e.RowIndex >= 0)
-            {
-               /* e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                DataGridViewButtonCell celBoton = form.dataGridView.Rows[e.RowIndex].Cells["Modificar"] as DataGridViewButtonCell;
-                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\edit-icon.ico");
-                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left, e.CellBounds.Top);
-
-                //form.dataGridView.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
-                //form.dataGridView.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
-
-                e.Handled = true;*/
-            }
-        }
+        
 
         #endregion
 
@@ -385,16 +373,6 @@ namespace WindowsFormsApplication1
         }
         #endregion
 
-        public void clickInPhoto()
-        {
-            form.openFileDialog1.Filter = "PNG Files(*.png)|*.png";
 
-            if (form.openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string imagen = form.openFileDialog1.FileName;
-                form.log_photo.Image = Image.FromFile(imagen);
-                form.log_photo.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-        }
     }
 }

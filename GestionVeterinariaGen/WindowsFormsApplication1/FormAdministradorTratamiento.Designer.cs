@@ -116,7 +116,7 @@ namespace WindowsFormsApplication1
             // panel_top
             // 
             this.panel_top.BackColor = System.Drawing.Color.Transparent;
-            this.panel_top.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.BARRA_MENU;
+            this.panel_top.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANELSUPERIOR;
             this.panel_top.Controls.Add(this.picture_desconectar_admin);
             this.panel_top.Controls.Add(this.picture_home);
             this.panel_top.Controls.Add(this.picture_tratamiento);
@@ -152,7 +152,7 @@ namespace WindowsFormsApplication1
             // 
             // picture_tratamiento
             // 
-            this.picture_tratamiento.BackColor = System.Drawing.Color.White;
+            this.picture_tratamiento.BackColor = System.Drawing.Color.GreenYellow;
             this.picture_tratamiento.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_ADMINISTRADOR_TRATAMIENTO;
             this.picture_tratamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_tratamiento.Location = new System.Drawing.Point(339, 0);
@@ -367,7 +367,7 @@ namespace WindowsFormsApplication1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDOAPP;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.lista_dosis);

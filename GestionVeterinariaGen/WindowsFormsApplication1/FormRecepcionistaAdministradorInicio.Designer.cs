@@ -73,8 +73,7 @@ namespace WindowsFormsApplication1
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModificarEmpleado = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.EliminarEmpleado = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.VerEmpleado = new System.Windows.Forms.DataGridViewButtonColumn();
             this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.formRecepcionistaAdministradorInicioDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.formRecepcionistaAdministradorInicio_DataSet = new WindowsFormsApplication1.FormRecepcionistaAdministradorInicio_DataSet();
@@ -235,7 +234,7 @@ namespace WindowsFormsApplication1
             // panel_top
             // 
             this.panel_top.BackColor = System.Drawing.Color.Transparent;
-            this.panel_top.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.BARRA_MENU;
+            this.panel_top.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANELSUPERIOR;
             this.panel_top.Controls.Add(this.picture_tratamientos_admin);
             this.panel_top.Controls.Add(this.picture_empleados_admin);
             this.panel_top.Controls.Add(this.picture_desconectar_admin);
@@ -285,7 +284,7 @@ namespace WindowsFormsApplication1
             // 
             // picture_start_admin
             // 
-            this.picture_start_admin.BackColor = System.Drawing.Color.White;
+            this.picture_start_admin.BackColor = System.Drawing.Color.GreenYellow;
             this.picture_start_admin.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_ADMINISTRADOR_INICIO;
             this.picture_start_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_start_admin.Location = new System.Drawing.Point(0, 0);
@@ -298,7 +297,7 @@ namespace WindowsFormsApplication1
             // panel_recepcionista
             // 
             this.panel_recepcionista.BackColor = System.Drawing.Color.Transparent;
-            this.panel_recepcionista.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.BARRA_MENU;
+            this.panel_recepcionista.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANELSUPERIOR;
             this.panel_recepcionista.Controls.Add(this.picture_ajustes_recepcionista);
             this.panel_recepcionista.Controls.Add(this.picture_consultas_recepcionista);
             this.panel_recepcionista.Controls.Add(this.picture_clientes_recepcionista);
@@ -357,7 +356,7 @@ namespace WindowsFormsApplication1
             // 
             // picture_start_recepcionista
             // 
-            this.picture_start_recepcionista.BackColor = System.Drawing.Color.White;
+            this.picture_start_recepcionista.BackColor = System.Drawing.Color.GreenYellow;
             this.picture_start_recepcionista.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_INICIO;
             this.picture_start_recepcionista.Location = new System.Drawing.Point(1, 0);
             this.picture_start_recepcionista.Name = "picture_start_recepcionista";
@@ -381,8 +380,7 @@ namespace WindowsFormsApplication1
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.Tipo,
-            this.ModificarEmpleado,
-            this.EliminarEmpleado});
+            this.VerEmpleado});
             this.ListaEmpleados.DataSource = this.bindingSource2;
             this.ListaEmpleados.Location = new System.Drawing.Point(12, 216);
             this.ListaEmpleados.Name = "ListaEmpleados";
@@ -420,17 +418,11 @@ namespace WindowsFormsApplication1
             this.Tipo.Name = "Tipo";
             this.Tipo.ReadOnly = true;
             // 
-            // ModificarEmpleado
+            // VerEmpleado
             // 
-            this.ModificarEmpleado.HeaderText = "Modificar";
-            this.ModificarEmpleado.Name = "ModificarEmpleado";
-            this.ModificarEmpleado.ReadOnly = true;
-            // 
-            // EliminarEmpleado
-            // 
-            this.EliminarEmpleado.HeaderText = "Eliminar";
-            this.EliminarEmpleado.Name = "EliminarEmpleado";
-            this.EliminarEmpleado.ReadOnly = true;
+            this.VerEmpleado.HeaderText = "Ver";
+            this.VerEmpleado.Name = "VerEmpleado";
+            this.VerEmpleado.ReadOnly = true;
             // 
             // bindingSource2
             // 
@@ -498,7 +490,7 @@ namespace WindowsFormsApplication1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDOAPP;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.panel_recepcionista);
@@ -576,12 +568,6 @@ namespace WindowsFormsApplication1
         private FormRecepcionistaAdministradorInicio_DataSet2TableAdapters.UsuarioTableAdapter usuarioTableAdapter;
         private System.Windows.Forms.BindingSource formRecepcionistaAdministradorInicioDataSetBindingSource;
         private FormRecepcionistaAdministradorInicio_DataSet formRecepcionistaAdministradorInicio_DataSet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-        private System.Windows.Forms.DataGridViewButtonColumn ModificarEmpleado;
-        private System.Windows.Forms.DataGridViewButtonColumn EliminarEmpleado;
         private System.Windows.Forms.BindingSource bindingSource2;
         private FormRecepcionistaAdministradorInicio_DataSetTableAdapters.UsuarioTableAdapter usuarioTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -594,5 +580,10 @@ namespace WindowsFormsApplication1
         private System.Windows.Forms.PictureBox picture_consultas_recepcionista;
         private System.Windows.Forms.PictureBox picture_start_recepcionista;
         private System.Windows.Forms.Panel panel_recepcionista;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+        private System.Windows.Forms.DataGridViewButtonColumn VerEmpleado;
     }
 }

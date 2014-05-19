@@ -34,10 +34,11 @@ namespace WindowsFormsApplication1
 
         #region Variables
 
-        private FormAdministradorEmpleadoController controller = null;
+        public FormAdministradorEmpleadoController controller = null;
         public Utils.State state = Utils.State.NONE;
         public string ID = "EMPLEADO";
         public ScreenControllerAdministrador menu = null;
+        public bool haBorradoEmpleado = false;
 
         #endregion
 
@@ -51,14 +52,12 @@ namespace WindowsFormsApplication1
             controller=new FormAdministradorEmpleadoController(this);
         }
 
-        public void changeState(Utils.State st, EmpleadoEN emp)
+        public void changeState(Utils.State st)
         {
-           // controller.ClearForm();
             state = st;
             if (state == Utils.State.MODIFY || state == Utils.State.DESTROY)
             {
                 tb_dni.Enabled = false;
-                controller.loadData(emp);
 
                 if (state == Utils.State.DESTROY) {
                     btn_eliminar_Click(new object(), new EventArgs());
@@ -73,6 +72,12 @@ namespace WindowsFormsApplication1
         public void DesactivateForm()
         {
             Hide();
+
+            if (haBorradoEmpleado)
+            {
+                menu.CargarEmpleadoCompartido(menu.empleadoCompartido);
+                haBorradoEmpleado = false;
+            }
         }
 
         private void EnableForm(Boolean typ)
@@ -147,23 +152,15 @@ namespace WindowsFormsApplication1
 
         private void btn_buscar_dni_Click(object sender, EventArgs e)
         {
-            /*if ((state == Utils.State.NONE || state == Utils.State.NEW) && menu.LaunchStartScreen())
-                DesactivateForm();*/
-            if ((state == Utils.State.NONE || state == Utils.State.NEW) && controller.showData())
-            {
-                tb_dni.Enabled=false;
-                state = Utils.State.MODIFY;
-            }
-            else
-            {
-                state = Utils.State.NONE;
-            }
-
-            
+            if ((state == Utils.State.NONE || state == Utils.State.NEW) && menu.LaunchStartScreen())
+                DesactivateForm();        
         }
 
         private void btn_erase_Click(object sender, EventArgs e)
         {
+            state = Utils.State.NEW;
+            haBorradoEmpleado = true;
+
             if (state == Utils.State.MODIFY)
                 tb_dni.Enabled = true;
 
@@ -180,7 +177,6 @@ namespace WindowsFormsApplication1
             menu.Disconnect();
         }
 
-        // Tipo
         private void tb_tipo_SelectedIndexChanged(object sender, EventArgs e)
         {
             controller.clickInTipo();
@@ -198,7 +194,7 @@ namespace WindowsFormsApplication1
 
         private void picture_empleados_Click(object sender, EventArgs e)
         {
-            if (menu.LaunchEmpleadoScreen(Utils.State.NONE, null))
+            if (menu.LaunchEmpleadoScreen(Utils.State.NONE))
                 DesactivateForm();
         }
 

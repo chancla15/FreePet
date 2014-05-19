@@ -61,7 +61,7 @@ namespace WindowsFormsApplication1
 
         public void changeState(MascotaEN mascota, ConsultaEN consulta)
         {
-            controller.loadData(mascota,consulta);
+            controller.cargarDatosMascotaConsulta(mascota,consulta);
         }
 
 

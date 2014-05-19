@@ -32,6 +32,7 @@ namespace WindowsFormsApplication1
         public FormRecepcionistaAdministradorInicio f_inicio = null;
         public FormAdministradorEmpleado f_empleado = null;
         public FormAdministradorTratamiento f_tratamiento = null;
+        public EmpleadoEN empleadoCompartido = null;
 
         #endregion
 
@@ -48,6 +49,19 @@ namespace WindowsFormsApplication1
        
         #endregion
 
+        #region CargarEmpleadoCompartido
+
+        public override void  CargarEmpleadoCompartido(EmpleadoEN e)
+        {
+            empleadoCompartido = e;
+            if (empleadoCompartido != null)
+                f_empleado.controller.cargarDatosEmpleado(empleadoCompartido);
+            else
+                f_empleado.controller.ClearForm();
+        }
+
+        #endregion
+
         #region LanzadorDePantallas
 
         override public bool LaunchStartScreen()
@@ -58,12 +72,13 @@ namespace WindowsFormsApplication1
             {
                 ret = true;
                 FormActual = f_inicio.ID;
+                f_inicio.controller.buscar();
                 f_inicio.Show();
             }
             return ret;
         }
 
-        override public bool LaunchEmpleadoScreen(Utils.State state, EmpleadoEN empleado)
+        override public bool LaunchEmpleadoScreen(Utils.State state)
         {
             bool ret = false;
 
@@ -72,7 +87,7 @@ namespace WindowsFormsApplication1
                 ret = true;
                 FormActual = f_empleado.ID;
                 f_empleado.Show();
-                f_empleado.changeState(state, empleado);
+                f_empleado.changeState(state);
             }
             return ret;
         }
@@ -121,7 +136,7 @@ namespace WindowsFormsApplication1
             throw new NotImplementedException();
         }
 
-        override public void CargarClienteCompartidoRecepcionista(ClienteEN c)
+        override public void CargarClienteCompartido(ClienteEN c)
         {
             throw new NotImplementedException();
         }

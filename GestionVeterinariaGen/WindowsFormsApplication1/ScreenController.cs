@@ -39,12 +39,13 @@ namespace WindowsFormsApplication1
         public abstract bool LaunchMascotaScreen(Utils.State s, MascotaEN m);
         public abstract bool LaunchConsultaScreen(Utils.State s, ConsultaEN c);
         public abstract bool LaunchFacturaScreen(Utils.State s);
-        public abstract void CargarClienteCompartidoRecepcionista(ClienteEN c);
+        public abstract void CargarClienteCompartido(ClienteEN c);
 
 
         //ADMINISTRADOR
-        public abstract bool LaunchEmpleadoScreen(Utils.State s, EmpleadoEN e);
+        public abstract bool LaunchEmpleadoScreen(Utils.State s);
         public abstract bool LaunchTratamientoScreen(Utils.State s, TratamientoEN t);
+        public abstract void CargarEmpleadoCompartido(EmpleadoEN e);
 
         //VETERINARIO
         public abstract bool LaunchStartScreenVeterinario();

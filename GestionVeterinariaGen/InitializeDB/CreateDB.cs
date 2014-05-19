@@ -275,12 +275,12 @@ public static void InitializeData ()
                 t12.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
 
                 TratamientoEN t13 = new TratamientoEN();
-                t12.Consulta = null;
-                t12.Nombre = "Desinfectante";
-                t12.Precio = 40.99f;
-                t12.Descripcion = "Delegolo Vet. 1 litro. Ambientes.";
-                t12.Stock = 20;
-                t12.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
+                t13.Consulta = null;
+                t13.Nombre = "Desinfectante";
+                t13.Precio = 40.99f;
+                t13.Descripcion = "Delegolo Vet. 1 litro. Ambientes.";
+                t13.Stock = 20;
+                t13.Dosis_diaria = GestionVeterinariaGenNHibernate.Enumerated.GestionVeterinaria.DosisEnum.Uno_al_dia;
 
                     
             
@@ -300,7 +300,7 @@ public static void InitializeData ()
                 TratamientoCEN.New_(t11.Nombre, t11.Precio, t11.Descripcion, t11.Stock, t11.Dosis_diaria);
                 TratamientoCEN.New_(t12.Nombre, t12.Precio, t12.Descripcion, t12.Stock, t12.Dosis_diaria);
                 TratamientoCEN.New_(t13.Nombre, t13.Precio, t13.Descripcion, t13.Stock, t13.Dosis_diaria);
-
+            
                 #endregion
 
                 #region Consulta

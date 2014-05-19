@@ -56,6 +56,9 @@ namespace WindowsFormsApplication1
         {
             state = st;
 
+            if (state == Utils.State.NEW)
+                btn_add_NombreMascota_Click(new object(), new EventArgs());
+
             if(msc!=null)
                 controller.cargarDatosMascota(msc);
             
@@ -72,6 +75,7 @@ namespace WindowsFormsApplication1
         public void DesactivateForm()
         {
             Hide();
+            state = Utils.State.NONE;
         }
 
         private void EnableForm(bool block)
@@ -131,7 +135,7 @@ namespace WindowsFormsApplication1
                     EnableForm(true);
                     controller.ProcesarInformacion();
                     state = Utils.State.NONE;
-                    menu.CargarClienteCompartidoRecepcionista(null);
+                    menu.CargarClienteCompartido(null);
                     controller.DevolverMascotaENComboBox();
                 }
                 else
@@ -154,7 +158,7 @@ namespace WindowsFormsApplication1
             EnableForm(true);
             controller.ProcesarInformacion();
             state = Utils.State.NONE;
-            menu.CargarClienteCompartidoRecepcionista(null);
+            menu.CargarClienteCompartido(null);
         }
 
         #endregion
@@ -211,6 +215,24 @@ namespace WindowsFormsApplication1
                 if (menu.LaunchConsultaScreen(aux_state, aux_consulta))
                     DesactivateForm();
         }
+
+        private void dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && dataGridView.Columns[e.ColumnIndex].Name == "Ver" && e.RowIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                DataGridViewButtonCell celBoton = dataGridView.Rows[e.RowIndex].Cells["Ver"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\ver.ico");
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left, e.CellBounds.Top);
+
+                dataGridView.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
+                dataGridView.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
+
+                e.Handled = true;
+
+            }
+        }
   
         #endregion
 
@@ -259,5 +281,7 @@ namespace WindowsFormsApplication1
         }
 
         #endregion 
+
+        
     }
 }

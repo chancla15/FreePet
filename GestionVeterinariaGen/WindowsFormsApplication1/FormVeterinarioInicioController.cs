@@ -53,6 +53,7 @@ namespace WindowsFormsApplication1
       */
         private void initPerfil()
         {
+            form.Calendar.MinDate = form.Calendar.TodayDate;
             form.log_name.Text = form.menu.sessionData.name;
             form.log_id.Text = form.menu.sessionData.TOKEN_SESSION;
             form.log_type.Text = form.menu.sessionData.tipo;

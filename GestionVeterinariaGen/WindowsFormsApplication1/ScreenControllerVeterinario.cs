@@ -74,7 +74,12 @@ namespace WindowsFormsApplication1
             return ret;
         }
 
-        override public bool LaunchEmpleadoScreen(Utils.State s, EmpleadoEN e)
+        public override void CargarEmpleadoCompartido(EmpleadoEN e)
+        {
+            throw new NotImplementedException();
+        }
+
+        override public bool LaunchEmpleadoScreen(Utils.State s)
         {
             throw new NotImplementedException();
         }
@@ -109,7 +114,7 @@ namespace WindowsFormsApplication1
             throw new NotImplementedException();
         }
 
-        override public void CargarClienteCompartidoRecepcionista(ClienteEN c)
+        override public void CargarClienteCompartido(ClienteEN c)
         {
             throw new NotImplementedException();
         }

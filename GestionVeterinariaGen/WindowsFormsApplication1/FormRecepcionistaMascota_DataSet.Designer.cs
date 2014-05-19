@@ -287,6 +287,10 @@ namespace WindowsFormsApplication1 {
             
             private global::System.Data.DataColumn columnFK_DNI_idVeterinario;
             
+            private global::System.Data.DataColumn columnIDConsulta;
+            
+            private global::System.Data.DataColumn columnIDConsulta1;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ConsultaDataTable() {
@@ -354,6 +358,22 @@ namespace WindowsFormsApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IDConsultaColumn {
+                get {
+                    return this.columnIDConsulta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IDConsulta1Column {
+                get {
+                    return this.columnIDConsulta1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -389,16 +409,25 @@ namespace WindowsFormsApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ConsultaRow AddConsultaRow(System.DateTime fecha, string motivoConsulta, string lugar, string FK_DNI_idVeterinario) {
+            public ConsultaRow AddConsultaRow(System.DateTime fecha, string motivoConsulta, string lugar, string FK_DNI_idVeterinario, string IDConsulta) {
                 ConsultaRow rowConsultaRow = ((ConsultaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         fecha,
                         motivoConsulta,
                         lugar,
-                        FK_DNI_idVeterinario};
+                        FK_DNI_idVeterinario,
+                        IDConsulta,
+                        null};
                 rowConsultaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConsultaRow);
                 return rowConsultaRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ConsultaRow FindByIDConsulta1(int IDConsulta1) {
+                return ((ConsultaRow)(this.Rows.Find(new object[] {
+                            IDConsulta1})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -422,6 +451,8 @@ namespace WindowsFormsApplication1 {
                 this.columnmotivoConsulta = base.Columns["motivoConsulta"];
                 this.columnlugar = base.Columns["lugar"];
                 this.columnFK_DNI_idVeterinario = base.Columns["FK_DNI_idVeterinario"];
+                this.columnIDConsulta = base.Columns["IDConsulta"];
+                this.columnIDConsulta1 = base.Columns["IDConsulta1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -435,12 +466,25 @@ namespace WindowsFormsApplication1 {
                 base.Columns.Add(this.columnlugar);
                 this.columnFK_DNI_idVeterinario = new global::System.Data.DataColumn("FK_DNI_idVeterinario", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFK_DNI_idVeterinario);
+                this.columnIDConsulta = new global::System.Data.DataColumn("IDConsulta", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDConsulta);
+                this.columnIDConsulta1 = new global::System.Data.DataColumn("IDConsulta1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDConsulta1);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnIDConsulta1}, true));
                 this.columnfecha.AllowDBNull = false;
                 this.columnmotivoConsulta.AllowDBNull = false;
                 this.columnmotivoConsulta.MaxLength = 255;
                 this.columnlugar.AllowDBNull = false;
                 this.columnlugar.MaxLength = 255;
                 this.columnFK_DNI_idVeterinario.MaxLength = 255;
+                this.columnIDConsulta1.AutoIncrement = true;
+                this.columnIDConsulta1.AutoIncrementSeed = -1;
+                this.columnIDConsulta1.AutoIncrementStep = -1;
+                this.columnIDConsulta1.AllowDBNull = false;
+                this.columnIDConsulta1.ReadOnly = true;
+                this.columnIDConsulta1.Unique = true;
+                this.columnIDConsulta1.Caption = "IDConsulta";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -632,6 +676,33 @@ namespace WindowsFormsApplication1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string IDConsulta {
+                get {
+                    try {
+                        return ((string)(this[this.tableConsulta.IDConsultaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'IDConsulta\' de la tabla \'Consulta\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConsulta.IDConsultaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int IDConsulta1 {
+                get {
+                    return ((int)(this[this.tableConsulta.IDConsulta1Column]));
+                }
+                set {
+                    this[this.tableConsulta.IDConsulta1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFK_DNI_idVeterinarioNull() {
                 return this.IsNull(this.tableConsulta.FK_DNI_idVeterinarioColumn);
             }
@@ -640,6 +711,18 @@ namespace WindowsFormsApplication1 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFK_DNI_idVeterinarioNull() {
                 this[this.tableConsulta.FK_DNI_idVeterinarioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIDConsultaNull() {
+                return this.IsNull(this.tableConsulta.IDConsultaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIDConsultaNull() {
+                this[this.tableConsulta.IDConsultaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -806,6 +889,7 @@ namespace WindowsFormsApplication1.FormRecepcionistaMascota_DataSetTableAdapters
             tableMapping.ColumnMappings.Add("motivoConsulta", "motivoConsulta");
             tableMapping.ColumnMappings.Add("lugar", "lugar");
             tableMapping.ColumnMappings.Add("FK_DNI_idVeterinario", "FK_DNI_idVeterinario");
+            tableMapping.ColumnMappings.Add("IDConsulta", "IDConsulta1");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -819,11 +903,17 @@ namespace WindowsFormsApplication1.FormRecepcionistaMascota_DataSetTableAdapters
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT fecha, motivoConsulta, lugar, FK_DNI_idVeterinario FROM dbo.Consulta";
+            this._commandCollection[0].CommandText = "SELECT     IDConsulta, fecha, motivoConsulta, lugar, FK_DNI_idVeterinario\r\nFROM  " +
+                "       Consulta";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT FK_DNI_idVeterinario, IDConsulta, fecha, lugar, motivoConsulta FROM Consul" +
+                "ta";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -845,6 +935,30 @@ namespace WindowsFormsApplication1.FormRecepcionistaMascota_DataSetTableAdapters
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual FormRecepcionistaMascota_DataSet.ConsultaDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            FormRecepcionistaMascota_DataSet.ConsultaDataTable dataTable = new FormRecepcionistaMascota_DataSet.ConsultaDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(FormRecepcionistaMascota_DataSet.ConsultaDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FormRecepcionistaMascota_DataSet.ConsultaDataTable GetDataBy() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             FormRecepcionistaMascota_DataSet.ConsultaDataTable dataTable = new FormRecepcionistaMascota_DataSet.ConsultaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

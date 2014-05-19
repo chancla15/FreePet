@@ -55,7 +55,7 @@ namespace WindowsFormsApplication1
 
         #region CargaClienteCompartidoEnPantallas
 
-        override public void CargarClienteCompartidoRecepcionista(ClienteEN cliente)
+        override public void CargarClienteCompartido(ClienteEN cliente)
         {
             clienteCompartido = cliente;
 
@@ -65,7 +65,7 @@ namespace WindowsFormsApplication1
                 f_cliente.changeState(Utils.State.MODIFY);
 
                 f_mascota.controller.cargarDatosCliente(clienteCompartido);
-                f_mascota.changeState(Utils.State.NEW, null);
+                f_mascota.changeState(Utils.State.MODIFY, null);
 
                 f_consulta.controller.cargarDatosCliente(clienteCompartido);
                 f_consulta.changeState(Utils.State.NEW, null);
@@ -86,6 +86,11 @@ namespace WindowsFormsApplication1
 
         #region LanzadorDePantallas
 
+        public override void CargarEmpleadoCompartido(EmpleadoEN e)
+        {
+            throw new NotImplementedException();
+        }
+
         override public bool LaunchStartScreen()
         {
             bool ret = false;
@@ -94,6 +99,7 @@ namespace WindowsFormsApplication1
             {
                 ret = true;
                 FormActual = f_inicio.ID;
+                f_inicio.controller.buscar();
                 f_inicio.Show();
             }        
             return ret;
@@ -107,6 +113,7 @@ namespace WindowsFormsApplication1
             {
                 ret = true;
                 FormActual = f_cliente.ID;
+                f_cliente.controller.Buscar();
                 f_cliente.Show();
             }
             return ret;
@@ -120,8 +127,13 @@ namespace WindowsFormsApplication1
             {
                 ret = true;
                 FormActual = f_mascota.ID;
-                f_mascota.Show();
+
+                if (mascota == null && f_mascota.state==Utils.State.NONE)
+                    st = Utils.State.NONE;
+                
                 f_mascota.changeState(st, mascota);
+                f_mascota.Show();
+                
             }
             return ret;
         }
@@ -154,7 +166,7 @@ namespace WindowsFormsApplication1
             return ret;
         }
 
-        override public bool LaunchEmpleadoScreen(Utils.State s, EmpleadoEN e)
+        override public bool LaunchEmpleadoScreen(Utils.State s)
         {
             throw new NotImplementedException();
         }

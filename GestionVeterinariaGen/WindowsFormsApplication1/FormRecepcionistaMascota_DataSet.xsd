@@ -9,10 +9,11 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ConsultaTableAdapter" GeneratorDataComponentClassName="ConsultaTableAdapter" Name="Consulta" UserDataComponentName="ConsultaTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="GestionVeterinariaGenNHibernateConnectionString (Settings)" DbObjectName="GestionVeterinariaGenNHibernate.dbo.Consulta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="GestionVeterinariaGenNHibernateConnectionString (Settings)" DbObjectName="GestionVeterinariaGenNHibernate.dbo.Consulta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT fecha, motivoConsulta, lugar, FK_DNI_idVeterinario FROM dbo.Consulta</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     IDConsulta, fecha, motivoConsulta, lugar, FK_DNI_idVeterinario
+FROM         Consulta</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -23,8 +24,18 @@
               <Mapping SourceColumn="motivoConsulta" DataSetColumn="motivoConsulta" />
               <Mapping SourceColumn="lugar" DataSetColumn="lugar" />
               <Mapping SourceColumn="FK_DNI_idVeterinario" DataSetColumn="FK_DNI_idVeterinario" />
+              <Mapping SourceColumn="IDConsulta" DataSetColumn="IDConsulta1" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="GestionVeterinariaGenNHibernateConnectionString (Settings)" DbObjectName="GestionVeterinariaGenNHibernate.dbo.Consulta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT FK_DNI_idVeterinario, IDConsulta, fecha, lugar, motivoConsulta FROM Consulta</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
@@ -34,7 +45,7 @@
   <xs:element name="FormRecepcionistaMascota_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="FormRecepcionistaMascota_DataSet" msprop:Generator_UserDSName="FormRecepcionistaMascota_DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Consulta" msprop:Generator_TableClassName="ConsultaDataTable" msprop:Generator_TableVarName="tableConsulta" msprop:Generator_RowChangedName="ConsultaRowChanged" msprop:Generator_TablePropName="Consulta" msprop:Generator_RowDeletingName="ConsultaRowDeleting" msprop:Generator_RowChangingName="ConsultaRowChanging" msprop:Generator_RowEvHandlerName="ConsultaRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultaRowDeleted" msprop:Generator_RowClassName="ConsultaRow" msprop:Generator_UserTableName="Consulta" msprop:Generator_RowEvArgName="ConsultaRowChangeEvent">
+        <xs:element name="Consulta" msprop:Generator_TableClassName="ConsultaDataTable" msprop:Generator_TableVarName="tableConsulta" msprop:Generator_TablePropName="Consulta" msprop:Generator_RowDeletingName="ConsultaRowDeleting" msprop:Generator_RowChangingName="ConsultaRowChanging" msprop:Generator_RowEvHandlerName="ConsultaRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultaRowDeleted" msprop:Generator_UserTableName="Consulta" msprop:Generator_RowChangedName="ConsultaRowChanged" msprop:Generator_RowEvArgName="ConsultaRowChangeEvent" msprop:Generator_RowClassName="ConsultaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:dateTime" />
@@ -59,10 +70,16 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="IDConsulta" msprop:Generator_ColumnVarNameInTable="columnIDConsulta" msprop:Generator_ColumnPropNameInRow="IDConsulta" msprop:Generator_ColumnPropNameInTable="IDConsultaColumn" msprop:Generator_UserColumnName="IDConsulta" type="xs:string" minOccurs="0" />
+              <xs:element name="IDConsulta1" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msdata:Caption="IDConsulta" msprop:Generator_ColumnVarNameInTable="columnIDConsulta1" msprop:Generator_ColumnPropNameInRow="IDConsulta1" msprop:Generator_ColumnPropNameInTable="IDConsulta1Column" msprop:Generator_UserColumnName="IDConsulta1" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Consulta" />
+      <xs:field xpath="mstns:IDConsulta1" />
+    </xs:unique>
   </xs:element>
 </xs:schema>

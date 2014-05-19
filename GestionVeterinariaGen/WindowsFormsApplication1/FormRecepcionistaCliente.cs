@@ -71,6 +71,7 @@ namespace WindowsFormsApplication1
             Hide();
             if (haBorradoCliente)
             {
+                state= Utils.State.MODIFY;
                 controller.cargarDatosCliente(menu.clienteCompartido);
                 haBorradoCliente = false;
             }
@@ -107,6 +108,11 @@ namespace WindowsFormsApplication1
 
         #region Botones
 
+        private void foto_cliente_Click(object sender, EventArgs e)
+        {
+            controller.clickInPhoto();
+        }
+
         private void btn_buscar_Click(object sender, EventArgs e) {
             state = Utils.State.NEW;
             controller.Buscar();
@@ -142,7 +148,7 @@ namespace WindowsFormsApplication1
             EnableForm(true);
             controller.ProcesarInformacion();
             state = Utils.State.NONE;
-            menu.CargarClienteCompartidoRecepcionista(null);
+            menu.CargarClienteCompartido(null);
         }
 
         private void btn_eliminar_Click(object sender, EventArgs e)
@@ -158,8 +164,10 @@ namespace WindowsFormsApplication1
 
         private void btn_erase_Click(object sender, EventArgs e)
         {
+            state= Utils.State.NEW;
             haBorradoCliente = true;
             text_dni.Enabled = true;
+            controller.clienteEN = null;
             controller.ClearForm();
             controller.Buscar();
             state = Utils.State.NONE;
@@ -179,7 +187,21 @@ namespace WindowsFormsApplication1
         #region DataGridView_Mascotas
 
         private void dataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e){
-            //controller.paintDataGrid(e);
+
+            if (e.ColumnIndex >= 0 && dataGridView.Columns[e.ColumnIndex].Name == "Ver" && e.RowIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                DataGridViewButtonCell celBoton = dataGridView.Rows[e.RowIndex].Cells["Ver"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\ver.ico");
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left, e.CellBounds.Top);
+
+                dataGridView.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
+                dataGridView.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
+
+                e.Handled = true;
+
+            }
         }
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -189,7 +211,7 @@ namespace WindowsFormsApplication1
             MascotaEN msc = controller.getDataGridViewState(e, ref aux_state, ref aux_cliente);
 
             if (aux_cliente != null)
-                menu.CargarClienteCompartidoRecepcionista(aux_cliente);
+                menu.CargarClienteCompartido(aux_cliente);
 
             if (msc != null)
                 if (menu.LaunchMascotaScreen(aux_state, msc))
@@ -244,11 +266,5 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
-
-        private void foto_cliente_Click(object sender, EventArgs e)
-        {
-            controller.clickInPhoto();
-        }
-
     }
 }

@@ -48,11 +48,12 @@ namespace WindowsFormsApplication1
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.IdConsulta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Veterinario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ver = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Ver = new System.Windows.Forms.DataGridViewButtonColumn();
             this.consultaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.formRecepcionistaMascota_DataSet = new WindowsFormsApplication1.FormRecepcionistaMascota_DataSet();
             this.label_cliente = new System.Windows.Forms.Label();
@@ -76,7 +77,6 @@ namespace WindowsFormsApplication1
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.text_especie = new System.Windows.Forms.TextBox();
-            this.consultaTableAdapter = new WindowsFormsApplication1.FormRecepcionistaMascota_DataSetTableAdapters.ConsultaTableAdapter();
             this.combo_nombreAnimal = new System.Windows.Forms.ComboBox();
             this.box_NombreAnimal = new System.Windows.Forms.Panel();
             this.box_label_nombre_mascota = new System.Windows.Forms.Label();
@@ -104,6 +104,7 @@ namespace WindowsFormsApplication1
             this.panel_clientes_opcion = new System.Windows.Forms.Panel();
             this.picture_cliente_opcion_mascota = new System.Windows.Forms.PictureBox();
             this.picture_cliente_opcion_cliente = new System.Windows.Forms.PictureBox();
+            this.consultaTableAdapter = new WindowsFormsApplication1.FormRecepcionistaMascota_DataSetTableAdapters.ConsultaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.consultaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formRecepcionistaMascota_DataSet)).BeginInit();
@@ -131,6 +132,7 @@ namespace WindowsFormsApplication1
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdConsulta,
             this.Fecha,
             this.Motivo,
             this.Lugar,
@@ -144,6 +146,14 @@ namespace WindowsFormsApplication1
             this.dataGridView.Size = new System.Drawing.Size(658, 171);
             this.dataGridView.TabIndex = 55;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
+            this.dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView_CellPainting);
+            // 
+            // IdConsulta
+            // 
+            this.IdConsulta.DataPropertyName = "IDConsulta1";
+            this.IdConsulta.HeaderText = "IdConsulta";
+            this.IdConsulta.Name = "IdConsulta";
+            this.IdConsulta.ReadOnly = true;
             // 
             // Fecha
             // 
@@ -178,6 +188,7 @@ namespace WindowsFormsApplication1
             this.Ver.HeaderText = "Ver";
             this.Ver.Name = "Ver";
             this.Ver.ReadOnly = true;
+            this.Ver.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // consultaBindingSource
             // 
@@ -375,10 +386,6 @@ namespace WindowsFormsApplication1
             this.text_especie.Size = new System.Drawing.Size(118, 20);
             this.text_especie.TabIndex = 82;
             // 
-            // consultaTableAdapter
-            // 
-            this.consultaTableAdapter.ClearBeforeFill = true;
-            // 
             // combo_nombreAnimal
             // 
             this.combo_nombreAnimal.FormattingEnabled = true;
@@ -390,12 +397,13 @@ namespace WindowsFormsApplication1
             // 
             // box_NombreAnimal
             // 
+            this.box_NombreAnimal.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.box_NombreAnimal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.box_NombreAnimal.Controls.Add(this.box_label_nombre_mascota);
             this.box_NombreAnimal.Controls.Add(this.box_label_cancelar);
             this.box_NombreAnimal.Controls.Add(this.box_label_aceptar);
             this.box_NombreAnimal.Controls.Add(this.box_text_nombre_mascota);
-            this.box_NombreAnimal.Location = new System.Drawing.Point(366, 99);
+            this.box_NombreAnimal.Location = new System.Drawing.Point(176, 130);
             this.box_NombreAnimal.Name = "box_NombreAnimal";
             this.box_NombreAnimal.Size = new System.Drawing.Size(207, 69);
             this.box_NombreAnimal.TabIndex = 86;
@@ -577,7 +585,7 @@ namespace WindowsFormsApplication1
             // panel_recepcionista
             // 
             this.panel_recepcionista.BackColor = System.Drawing.Color.Transparent;
-            this.panel_recepcionista.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.BARRA_MENU;
+            this.panel_recepcionista.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANELSUPERIOR;
             this.panel_recepcionista.Controls.Add(this.picture_ajustes);
             this.panel_recepcionista.Controls.Add(this.picture_consultas);
             this.panel_recepcionista.Controls.Add(this.picture_clientes);
@@ -613,7 +621,7 @@ namespace WindowsFormsApplication1
             // 
             // picture_clientes
             // 
-            this.picture_clientes.BackColor = System.Drawing.Color.White;
+            this.picture_clientes.BackColor = System.Drawing.Color.GreenYellow;
             this.picture_clientes.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_CLIENTE;
             this.picture_clientes.Location = new System.Drawing.Point(273, 0);
             this.picture_clientes.Name = "picture_clientes";
@@ -637,6 +645,7 @@ namespace WindowsFormsApplication1
             // 
             this.picture_start.BackColor = System.Drawing.Color.Transparent;
             this.picture_start.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_INICIO;
+            this.picture_start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_start.Location = new System.Drawing.Point(1, 0);
             this.picture_start.Name = "picture_start";
             this.picture_start.Size = new System.Drawing.Size(138, 44);
@@ -647,7 +656,7 @@ namespace WindowsFormsApplication1
             // panel_clientes_opcion
             // 
             this.panel_clientes_opcion.BackColor = System.Drawing.Color.Transparent;
-            this.panel_clientes_opcion.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.BARRA_MENU;
+            this.panel_clientes_opcion.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANELSUPERIOR;
             this.panel_clientes_opcion.Controls.Add(this.picture_cliente_opcion_mascota);
             this.panel_clientes_opcion.Controls.Add(this.picture_cliente_opcion_cliente);
             this.panel_clientes_opcion.Location = new System.Drawing.Point(0, 44);
@@ -657,7 +666,7 @@ namespace WindowsFormsApplication1
             // 
             // picture_cliente_opcion_mascota
             // 
-            this.picture_cliente_opcion_mascota.BackColor = System.Drawing.Color.White;
+            this.picture_cliente_opcion_mascota.BackColor = System.Drawing.Color.GreenYellow;
             this.picture_cliente_opcion_mascota.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_FICHA_MASCOTA;
             this.picture_cliente_opcion_mascota.Location = new System.Drawing.Point(338, 0);
             this.picture_cliente_opcion_mascota.Name = "picture_cliente_opcion_mascota";
@@ -677,11 +686,15 @@ namespace WindowsFormsApplication1
             this.picture_cliente_opcion_cliente.TabStop = false;
             this.picture_cliente_opcion_cliente.Click += new System.EventHandler(this.picture_cliente_opcion_cliente_Click);
             // 
+            // consultaTableAdapter
+            // 
+            this.consultaTableAdapter.ClearBeforeFill = true;
+            // 
             // FormRecepcionistaMascota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDOAPP2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.panel_clientes_opcion);
@@ -779,11 +792,6 @@ namespace WindowsFormsApplication1
         public System.Windows.Forms.PictureBox btn_anaydir;
         public System.Windows.Forms.PictureBox btn_buscar_cliente;
         public System.Windows.Forms.TextBox text_especie;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Motivo;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Lugar;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Veterinario;
-        public System.Windows.Forms.DataGridViewImageColumn Ver;
         public System.Windows.Forms.ComboBox combo_nombreAnimal;
         private System.Windows.Forms.Panel box_NombreAnimal;
         private System.Windows.Forms.Label box_label_cancelar;
@@ -808,5 +816,11 @@ namespace WindowsFormsApplication1
         public System.Windows.Forms.Panel panel_clientes_opcion;
         public System.Windows.Forms.PictureBox picture_cliente_opcion_mascota;
         public System.Windows.Forms.PictureBox picture_cliente_opcion_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdConsulta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Motivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lugar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Veterinario;
+        private System.Windows.Forms.DataGridViewButtonColumn Ver;
     }
 }

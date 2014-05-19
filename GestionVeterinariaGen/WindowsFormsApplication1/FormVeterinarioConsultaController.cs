@@ -44,9 +44,9 @@ namespace WindowsFormsApplication1
             this.form = form;
         }
 
-        public void loadData(MascotaEN mascota, ConsultaEN consulta)
+        public void cargarDatosMascotaConsulta(MascotaEN mascota, ConsultaEN consulta)
         {
-            if (mascota != null)
+            if (mascota != null && consulta != null)
             {
                 form.listBox_addTratamiento.Items.Clear();
                 this.consulta = consulta;

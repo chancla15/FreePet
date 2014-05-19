@@ -79,6 +79,8 @@ namespace WindowsFormsApplication1
                 panel_recepcionista.BringToFront();
                 panel_recepcionista.Visible = panel_recepcionista.Enabled = true;
             }
+
+            controller.buscar();
         }
 
         #endregion
@@ -98,7 +100,7 @@ namespace WindowsFormsApplication1
 
             if (cliente != null)
             {
-                menu.CargarClienteCompartidoRecepcionista(cliente);
+                menu.CargarClienteCompartido(cliente);
 
                 if (menu.LaunchClienteScreen())
                     DesactivateForm();
@@ -118,12 +120,12 @@ namespace WindowsFormsApplication1
         {
             if (menu.sessionData.tipo.Equals("Administrador"))
             {
-                if (menu.LaunchEmpleadoScreen(Utils.State.NEW, null))
+                if (menu.LaunchEmpleadoScreen(Utils.State.NEW))
                     DesactivateForm();
             }
             else
             {
-                menu.CargarClienteCompartidoRecepcionista(null);
+                menu.CargarClienteCompartido(null);
 
                 if (menu.LaunchClienteScreen())
                     DesactivateForm();
@@ -178,8 +180,11 @@ namespace WindowsFormsApplication1
             EmpleadoEN emp = controller.getStateScreen_Empleados(e, ref aux_state);
 
             if (emp != null)
-                if (menu.LaunchEmpleadoScreen(aux_state, emp))
+            {
+                menu.CargarEmpleadoCompartido(emp);
+                if (menu.LaunchEmpleadoScreen(aux_state))
                     DesactivateForm();
+            }
         }
 
         #endregion
@@ -199,7 +204,7 @@ namespace WindowsFormsApplication1
 
         private void picture_empleados_admin_Click(object sender, EventArgs e)
         {
-            if (menu.LaunchEmpleadoScreen(Utils.State.NONE, null))
+            if (menu.LaunchEmpleadoScreen(Utils.State.NONE))
                 DesactivateForm();
         }
 
@@ -215,7 +220,5 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
-
-       
     }
 }

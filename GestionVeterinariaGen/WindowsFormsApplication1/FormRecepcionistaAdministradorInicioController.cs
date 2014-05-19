@@ -154,8 +154,8 @@ namespace WindowsFormsApplication1
                     if (!dni_repetido)
                     {
                         form.dataGrid_clientes.Rows.Add(en_cli_apellido[i].DNI, en_cli_apellido[i].Nombre, en_cli_apellido[i].Apellidos);
-                        if(en_cli_nombre.Count > 0 && i < en_cli_nombre.Count)
-                        clientes_buscados.Add(en_cli_nombre[i]);
+                        if(en_cli_apellido.Count > 0 && i < en_cli_apellido.Count)
+                        clientes_buscados.Add(en_cli_apellido[i]);
                     }
                     dni_repetido = false;
                 }
@@ -276,31 +276,18 @@ namespace WindowsFormsApplication1
          */
         public void paintDataGridView_Clientes(DataGridViewCellPaintingEventArgs e)
         {
-            if (e.ColumnIndex >= 0 && form.dataGrid_clientes.Columns[e.ColumnIndex].Name == "Eliminar" && e.RowIndex >= 0)
+
+
+            if (e.ColumnIndex >= 0 && form.dataGrid_clientes.Columns[e.ColumnIndex].Name == "Ver" && e.RowIndex >= 0)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
-                DataGridViewButtonCell celBoton = form.dataGrid_clientes.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
-                //Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\delete.ico");
-                //e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
+                DataGridViewButtonCell celBoton = form.dataGrid_clientes.Rows[e.RowIndex].Cells["Ver"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\ver.ico");
+                 e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
 
-                //form.dataGrid_clientes.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
-                //form.dataGrid_clientes.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
-
-                e.Handled = true;
-
-            }
-
-            if (e.ColumnIndex >= 0 && form.dataGrid_clientes.Columns[e.ColumnIndex].Name == "Modificar" && e.RowIndex >= 0)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                DataGridViewButtonCell celBoton = form.dataGrid_clientes.Rows[e.RowIndex].Cells["Modificar"] as DataGridViewButtonCell;
-                // Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\edit.ico");
-                // e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
-
-                //form.dataGrid_clientes.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
-                //form.dataGrid_clientes.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
+                form.dataGrid_clientes.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
+                form.dataGrid_clientes.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
 
                 e.Handled = true;
             }
@@ -340,34 +327,22 @@ namespace WindowsFormsApplication1
         public void paintDataGridView_Empleados(DataGridViewCellPaintingEventArgs e)
         {
 
-            if (e.ColumnIndex >= 0 && form.ListaEmpleados.Columns[e.ColumnIndex].Name == "EliminarEmpleado" && e.RowIndex >= 0)
+
+            if (e.ColumnIndex >= 0 && form.ListaEmpleados.Columns[e.ColumnIndex].Name == "VerEmpleado" && e.RowIndex >= 0)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
-                DataGridViewButtonCell celBoton = form.ListaEmpleados.Rows[e.RowIndex].Cells["EliminarEmpleado"] as DataGridViewButtonCell;
-                /*Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\delete.ico");
+                DataGridViewButtonCell celBoton = form.ListaEmpleados.Rows[e.RowIndex].Cells["VerEmpleado"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\ver.ico");
                 e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
 
                 form.ListaEmpleados.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
                 form.ListaEmpleados.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
-                */
+                
                 e.Handled = true;
 
             }
-
-            if (e.ColumnIndex >= 0 && form.ListaEmpleados.Columns[e.ColumnIndex].Name == "ModificarEmpleado" && e.RowIndex >= 0)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                DataGridViewButtonCell celBoton = form.ListaEmpleados.Rows[e.RowIndex].Cells["ModificarEmpleado"] as DataGridViewButtonCell;
-                /*Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\edit.ico");
-                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left+3, e.CellBounds.Top+3);
-
-                form.ListaEmpleados.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
-                form.ListaEmpleados.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
-                */
-                e.Handled = true;
-            }
+            
 
         }
 
@@ -377,12 +352,10 @@ namespace WindowsFormsApplication1
             EmpleadoEN empEN = null;
             string emp = "";
 
-            if (form.ListaEmpleados.Columns[ev.ColumnIndex].Name.Equals("EliminarEmpleado"))
-                action = Utils.State.DESTROY;
-            else if (form.ListaEmpleados.Columns[ev.ColumnIndex].Name.Equals("ModificarEmpleado"))
+            if (form.ListaEmpleados.Columns[ev.ColumnIndex].Name.Equals("VerEmpleado"))
                 action = Utils.State.MODIFY;
 
-            if (action == Utils.State.DESTROY || action == Utils.State.MODIFY)
+            if (action == Utils.State.MODIFY)
                 emp = form.ListaEmpleados.Rows[ev.RowIndex].Cells[0].Value.ToString();
 
             for (int i = 0; i < empleados_buscados.Count; i++)

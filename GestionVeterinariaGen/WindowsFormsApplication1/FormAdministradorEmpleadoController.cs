@@ -35,40 +35,19 @@ namespace WindowsFormsApplication1
      * tanto para añadir/modificar/eliminar cliente, o para modificar datos opcionale
      * e irrelevantes del empleado
      */
-    class FormAdministradorEmpleadoController
+    public class FormAdministradorEmpleadoController
     {
 
         #region Variables
 
-        /** El formulario a controlar */
         private FormAdministradorEmpleado form;
-
-        /** El ticket de sesion */
         public FormLoginDataSessionTicket sessionData;
-
-        /** El CAD para acceder a la DDBB de la tabla empleados */
-        private EmpleadoCAD _IEmpleadoCAD = new EmpleadoCAD();
-
-        /** El empleado actual en el formulario */
         public EmpleadoEN empleadoEN = null;
-
-        /** Los ditintos estados de lo que puede hacer el controlador
-         * Esto solo sirve para guiarme para refactorizar 
-         */
-        public enum State
-        {
-            NONE, CLI_ADD, CLI_MOD, CLI_DEL, EMP
-        }
 
         #endregion
 
         #region Constructor
 
-        /**
-         * Constructor de clase
-         * @param sesion el ticket de sesion
-         * @param form el formulario
-         */
         public FormAdministradorEmpleadoController(FormAdministradorEmpleado form)
         {
             this.form = form;
@@ -80,10 +59,7 @@ namespace WindowsFormsApplication1
 
         #region ProcesarDatos
 
-        /**
-         * Carga un empleado en los text_view
-         */
-        public void loadData(EmpleadoEN empleado)
+        public void cargarDatosEmpleado(EmpleadoEN empleado)
         {
             empleadoEN = empleado;
 
@@ -140,20 +116,18 @@ namespace WindowsFormsApplication1
                     form.log_photo.Image = Image.FromStream(fs);
                     fs.Close();
                 }
-
-                Buscar();
             }
         }
 
-        /**
-         * AÑADE, MODFIFICA O ELIMINA UN CLIENTE
-         */
         public void ProcesarInformacion()
         {
             bool ok = false;
 
             if (empleadoEN == null)
                 empleadoEN = Utils._IEmpleadoCAD.DameEmpleadoPorOID(form.tb_dni.Text);
+
+            if (empleadoEN == null || form.state == Utils.State.NEW)
+                empleadoEN = new EmpleadoEN();
 
             if (empleadoEN != null)
             {
@@ -280,50 +254,22 @@ namespace WindowsFormsApplication1
             }
         }
 
-        #endregion
-
-        #region Busquedas
-
-        /**
-         * Para buscar mascotas del cliente
-         */
-        public void Buscar()
+        public bool mostrarDatosEmpleado()
         {
+            if (form.tb_dni.Text != "")
+                empleadoEN = Utils._IEmpleadoCAD.DameEmpleadoPorOID(form.tb_dni.Text);
 
-            String dni = form.tb_dni.Text;
-
-            //Buscamos por cliente si el dni se ha introducido para buscar
-            if (dni != "")
+            if (empleadoEN != null)
             {
-                empleadoEN.DNI = dni;
-            }
-        }
-
-        #endregion
-
-
-
-
-        /**
-         * Muestra los datos al poner un dni
-         */
-        public bool showData()
-        {
-
-
-            EmpleadoEN empleado = _IEmpleadoCAD.DameEmpleadoPorOID(form.tb_dni.Text);
-
-            if (empleado != null)
-            {
-                form.tb_nombre.Text = empleado.Nombre;
-                form.tb_apellidos.Text = empleado.Apellidos;
-                form.tb_direccion.Text = empleado.Direccion;
-                form.tb_localidad.Text = empleado.Localidad;
-                form.tb_provincia.SelectedItem = empleado.Provincia;
-                form.tb_cp.Text = empleado.Cp;
-                form.tb_tel.Text = empleado.Telefono;
-                form.tb_sueldo.Text = empleado.Sueldo.ToString();
-                form.tb_pass.Text = empleado.Password.ToString();
+                form.tb_nombre.Text = empleadoEN.Nombre;
+                form.tb_apellidos.Text = empleadoEN.Apellidos;
+                form.tb_direccion.Text = empleadoEN.Direccion;
+                form.tb_localidad.Text = empleadoEN.Localidad;
+                form.tb_provincia.SelectedItem = empleadoEN.Provincia;
+                form.tb_cp.Text = empleadoEN.Cp;
+                form.tb_tel.Text = empleadoEN.Telefono;
+                form.tb_sueldo.Text = empleadoEN.Sueldo.ToString();
+                form.tb_pass.Text = empleadoEN.Password.ToString();
 
                 VeterinarioEN vet = new VeterinarioEN();
                 vet = Utils._IVeterinarioCAD.DameVetarinarioPorOID(form.tb_dni.Text);
@@ -347,7 +293,7 @@ namespace WindowsFormsApplication1
 
                 try
                 {
-                    System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\" + empleado.DNI + ".png", System.IO.FileMode.Open);
+                    System.IO.FileStream fs = new System.IO.FileStream(Environment.CurrentDirectory + @"\" + empleadoEN.DNI + ".png", System.IO.FileMode.Open);
                     form.log_photo.Image = Image.FromStream(fs);
                     form.log_photo.SizeMode = PictureBoxSizeMode.StretchImage;
                     fs.Close();
@@ -370,9 +316,10 @@ namespace WindowsFormsApplication1
 
         }
 
-        /** 
-         * Modifica la foto
-         */
+        #endregion
+
+        #region Botones
+
         public void clickInPhoto()
         {
             form.openFileDialog1.Filter = "PNG Files(*.png)|*.png";
@@ -399,7 +346,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-
+        #endregion
 
         #region BorrarTodosLosCampos
 

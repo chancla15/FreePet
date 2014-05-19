@@ -562,7 +562,7 @@ namespace WindowsFormsApplication1
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.BARRA_MENU;
+            this.panel1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANELSUPERIOR;
             this.panel1.Controls.Add(this.picture_inicio_veterinario);
             this.panel1.Controls.Add(this.picture_consulta_veterinario);
             this.panel1.Controls.Add(this.picture_desconectar_veterinario);
@@ -585,7 +585,7 @@ namespace WindowsFormsApplication1
             // 
             // picture_consulta_veterinario
             // 
-            this.picture_consulta_veterinario.BackColor = System.Drawing.Color.White;
+            this.picture_consulta_veterinario.BackColor = System.Drawing.Color.GreenYellow;
             this.picture_consulta_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_VETERINARIO_CONSULTAS;
             this.picture_consulta_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_consulta_veterinario.Location = new System.Drawing.Point(228, 0);
@@ -612,7 +612,7 @@ namespace WindowsFormsApplication1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDOAPP;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.panel1);

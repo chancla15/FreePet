@@ -121,7 +121,7 @@ namespace WindowsFormsApplication1
             // Calendar
             // 
             this.Calendar.BackColor = System.Drawing.Color.Gainsboro;
-            this.Calendar.Location = new System.Drawing.Point(312, 83);
+            this.Calendar.Location = new System.Drawing.Point(478, 83);
             this.Calendar.MaxDate = new System.DateTime(2018, 12, 31, 0, 0, 0, 0);
             this.Calendar.MinDate = new System.DateTime(2014, 1, 1, 0, 0, 0, 0);
             this.Calendar.Name = "Calendar";
@@ -219,7 +219,7 @@ namespace WindowsFormsApplication1
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.BARRA_MENU;
+            this.panel1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANELSUPERIOR;
             this.panel1.Controls.Add(this.picture_inicio_veterinario);
             this.panel1.Controls.Add(this.picture_consulta_veterinario);
             this.panel1.Controls.Add(this.picture_desconectar_veterinario);
@@ -230,7 +230,7 @@ namespace WindowsFormsApplication1
             // 
             // picture_inicio_veterinario
             // 
-            this.picture_inicio_veterinario.BackColor = System.Drawing.Color.White;
+            this.picture_inicio_veterinario.BackColor = System.Drawing.Color.GreenYellow;
             this.picture_inicio_veterinario.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_VETERINARIO_INICIO;
             this.picture_inicio_veterinario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picture_inicio_veterinario.Location = new System.Drawing.Point(0, 0);
@@ -278,7 +278,7 @@ namespace WindowsFormsApplication1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDOAPP;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.dataGrid_consultas);

@@ -267,6 +267,7 @@ namespace WindowsFormsApplication1
             // 
             // alerta_eliminar
             // 
+            this.alerta_eliminar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.alerta_eliminar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.alerta_eliminar.Controls.Add(this.label1);
             this.alerta_eliminar.Controls.Add(this.btn_eliminar_no);
@@ -389,7 +390,7 @@ namespace WindowsFormsApplication1
             // panel_recepcionista
             // 
             this.panel_recepcionista.BackColor = System.Drawing.Color.Transparent;
-            this.panel_recepcionista.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.BARRA_MENU;
+            this.panel_recepcionista.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.PANELSUPERIOR;
             this.panel_recepcionista.Controls.Add(this.picture_ajustes);
             this.panel_recepcionista.Controls.Add(this.picture_consultas);
             this.panel_recepcionista.Controls.Add(this.picture_clientes);
@@ -414,7 +415,7 @@ namespace WindowsFormsApplication1
             // 
             // picture_consultas
             // 
-            this.picture_consultas.BackColor = System.Drawing.Color.White;
+            this.picture_consultas.BackColor = System.Drawing.Color.GreenYellow;
             this.picture_consultas.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.MENU_RECEPCIONISTA_CONSULTA;
             this.picture_consultas.Location = new System.Drawing.Point(137, 0);
             this.picture_consultas.Name = "picture_consultas";
@@ -460,7 +461,7 @@ namespace WindowsFormsApplication1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDO;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.FONDOAPP;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(682, 483);
             this.Controls.Add(this.panel_recepcionista);

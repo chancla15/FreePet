@@ -486,12 +486,6 @@
     <None Include="Resources\eraser.tiff" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\delete.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\edit.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\FONDO VETERINARIA nuevo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -568,6 +562,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LOGO.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sin título-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FONDOAPP.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BARRASUPERIOR.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PANELSUPERIOR.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FONDOAPP1.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

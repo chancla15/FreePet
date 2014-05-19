@@ -118,6 +118,7 @@ namespace WindowsFormsApplication1
         {
             label_error_fecha.Visible = false;
             box_combo_hora.Text = "";
+            box_combo_veterinario.Text = "";
             if(!controller.buscarPorFechas())
                 label_error_fecha.Visible=true;
         }
